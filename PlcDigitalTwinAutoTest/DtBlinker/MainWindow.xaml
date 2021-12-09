@@ -4,6 +4,106 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid />
+        Title="Blinker" Height="800" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.ColumnSpan="8" Grid.Row="10" Content="{Binding ViAnz.FrequenzAnzeige}" FontSize="12pt"/>
+        <Label Grid.Column="1" Grid.ColumnSpan="8" Grid.Row="11" Content="{Binding ViAnz.TastverhaeltnisAnzeige}" FontSize="12pt"/>
+        <Label Grid.Column="1" Grid.ColumnSpan="8" Grid.Row="12" Content="{Binding ViAnz.EinZeitAnzeige}" FontSize="12pt"/>
+        <Label Grid.Column="1" Grid.ColumnSpan="8" Grid.Row="13" Content="{Binding ViAnz.AusZeitAnzeige}" FontSize="12pt"/>
+
+      
+        <Label Content="P1 " Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14pt"/>
+        <Ellipse Grid.Column="2" Grid.Row="2" Stroke="Black" Fill="{Binding ViAnz.Farbe[1]}" Height="70" VerticalAlignment="Center" />
+
+        <Rectangle Fill="LightGray" Grid.Column="12" Grid.ColumnSpan="5" Grid.Row="2"  Grid.RowSpan="12" />
+
+        <Label Grid.Column="13" Grid.ColumnSpan="3" Grid.Row="4" Content="Frequenz:" FontSize="20pt" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+        <Label Grid.Column="13" Grid.ColumnSpan="3" Grid.Row="6" Content="Tastverhältnis:" FontSize="20pt" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+
+
+        <Button Grid.Column="13" Grid.Row="5" Content="—" Background="LawnGreen" ClickMode="{Binding ViAnz.ClkMode[11]}" Command="{Binding BtnTaster}" CommandParameter="11" FontSize="24pt">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Column="15" Grid.Row="5" Content="+" Background="LawnGreen"  ClickMode="{Binding ViAnz.ClkMode[12]}" Command="{Binding BtnTaster}" CommandParameter="12" FontSize="24pt">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Column="13" Grid.Row="7" Content="—" Background="LawnGreen"  ClickMode="{Binding ViAnz.ClkMode[13]}" Command="{Binding BtnTaster}" CommandParameter="13" FontSize="24pt">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Column="15" Grid.Row="7"  Content="+" Background="LawnGreen"  ClickMode="{Binding ViAnz.ClkMode[14]}" Command="{Binding BtnTaster}" CommandParameter="14" FontSize="24pt">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25" />
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Column="14" Grid.Row="3" Content="RESET" Background="LightCyan"  ClickMode="{Binding ViAnz.ClkMode[15]}" Command="{Binding BtnTaster}" CommandParameter="15" FontSize="14pt">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="25" />
+                </Style>
+            </Button.Resources>
+        </Button>
+   
+        <Label Grid.Column="12"                        Grid.Row="12"  Grid.ColumnSpan="5" Background="{Binding ViAnz.SpsColor}" Content="{Binding ViAnz.SpsStatus}" />
+        <Rectangle  Grid.Column="1"  Grid.ColumnSpan="7"   Grid.Row="1"  Grid.RowSpan="4" Visibility="{Binding ViAnz.SpsSichtbar}" Fill="Red" />
+        <Label      Grid.Column="2"  Grid.ColumnSpan="5"   Grid.Row="2"                   Visibility="{Binding ViAnz.SpsSichtbar}" Content="Falsche Software / Version auf der SPS" FontSize="14pt"/>
+        <Label      Grid.Column="2"  Grid.ColumnSpan="5"   Grid.Row="3"                   Visibility="{Binding ViAnz.SpsSichtbar}" Content="{Binding ViAnz.SpsVersionLokal}" FontSize="14pt"/>
+        <Label      Grid.Column="2"  Grid.ColumnSpan="5"   Grid.Row="4"                   Visibility="{Binding ViAnz.SpsSichtbar}" Content="{Binding ViAnz.SpsVersionEntfernt}" FontSize="14pt"/>
+    </Grid>
 </Window>

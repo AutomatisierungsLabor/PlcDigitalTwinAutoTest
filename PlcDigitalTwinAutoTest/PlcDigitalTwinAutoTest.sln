@@ -3,25 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlcDtAt", "PlcDtAt\PlcDtAt.csproj", "{7B0AAA23-C089-460A-8754-0DF9B4DEDB2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasePlcDtAt", "BasePlcDtAt\BasePlcDtAt.csproj", "{7B0AAA23-C089-460A-8754-0DF9B4DEDB2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibUtil", "LibUtil\LibUtil.csproj", "{ED7BA591-3DC8-40A6-9783-DBA6C009619A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibUtil", "LibUtil\LibUtil.csproj", "{ED7BA591-3DC8-40A6-9783-DBA6C009619A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibUtil.Test", "LibUtil.Test\LibUtil.Test.csproj", "{50D0960C-199A-4800-B839-3F4272F9B741}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibUtil.Test", "LibUtil.Test\LibUtil.Test.csproj", "{50D0960C-199A-4800-B839-3F4272F9B741}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibPlc", "LibPlc\LibPlc.csproj", "{975CEE21-14DD-44BD-A29F-F2425ECA26F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibPlc", "LibPlc\LibPlc.csproj", "{975CEE21-14DD-44BD-A29F-F2425ECA26F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibPlc.Test", "LibPlc.Test\LibPlc.Test.csproj", "{9670344C-2B3D-4943-A848-CC16F39D7A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibPlc.Test", "LibPlc.Test\LibPlc.Test.csproj", "{9670344C-2B3D-4943-A848-CC16F39D7A9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibHydraulik", "LibHydraulik\LibHydraulik.csproj", "{8B7683FA-E22C-4655-82BF-42C5950A2A8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibHydraulik", "LibHydraulik\LibHydraulik.csproj", "{8B7683FA-E22C-4655-82BF-42C5950A2A8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibHydraulik.Test", "LibHydraulik.Test\LibHydraulik.Test.csproj", "{572E300F-A5CB-4515-A8B2-077F8EFE3D8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibHydraulik.Test", "LibHydraulik.Test\LibHydraulik.Test.csproj", "{572E300F-A5CB-4515-A8B2-077F8EFE3D8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibRegler.Test", "LibRegler.Test\LibRegler.Test.csproj", "{C4D3144C-DFF4-4AE0-8475-14CEEC5252C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibRegler.Test", "LibRegler.Test\LibRegler.Test.csproj", "{C4D3144C-DFF4-4AE0-8475-14CEEC5252C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibRegler", "LibRegler\LibRegler.csproj", "{D694AE2C-E86C-4C7A-AF60-2D5007AE2F83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibRegler", "LibRegler\LibRegler.csproj", "{D694AE2C-E86C-4C7A-AF60-2D5007AE2F83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtBlinker", "DtBlinker\DtBlinker.csproj", "{E094BCBB-6850-44D6-88D0-20193B621449}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtBlinker", "DtBlinker\DtBlinker.csproj", "{E094BCBB-6850-44D6-88D0-20193B621449}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibDatenstruktur", "LibDatenstruktur\LibDatenstruktur.csproj", "{1E99FAB3-B0BD-47B9-8524-E1C69DB5A7CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibDatenstruktur.Test", "LibDatenstruktur.Test\LibDatenstruktur.Test.csproj", "{0FAEF57E-4B21-47C9-B197-4B72823A7BDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtKata", "DtKata\DtKata.csproj", "{55B49175-812C-4A38-A2A5-034945847E11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCustomControlLibrary1", "WpfCustomControlLibrary1\WpfCustomControlLibrary1.csproj", "{3CAD39CC-2727-4923-9216-067BABF8B118}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +77,22 @@ Global
 		{E094BCBB-6850-44D6-88D0-20193B621449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E094BCBB-6850-44D6-88D0-20193B621449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E094BCBB-6850-44D6-88D0-20193B621449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E99FAB3-B0BD-47B9-8524-E1C69DB5A7CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E99FAB3-B0BD-47B9-8524-E1C69DB5A7CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E99FAB3-B0BD-47B9-8524-E1C69DB5A7CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E99FAB3-B0BD-47B9-8524-E1C69DB5A7CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FAEF57E-4B21-47C9-B197-4B72823A7BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FAEF57E-4B21-47C9-B197-4B72823A7BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FAEF57E-4B21-47C9-B197-4B72823A7BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FAEF57E-4B21-47C9-B197-4B72823A7BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55B49175-812C-4A38-A2A5-034945847E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55B49175-812C-4A38-A2A5-034945847E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55B49175-812C-4A38-A2A5-034945847E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55B49175-812C-4A38-A2A5-034945847E11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CAD39CC-2727-4923-9216-067BABF8B118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAD39CC-2727-4923-9216-067BABF8B118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CAD39CC-2727-4923-9216-067BABF8B118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAD39CC-2727-4923-9216-067BABF8B118}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
