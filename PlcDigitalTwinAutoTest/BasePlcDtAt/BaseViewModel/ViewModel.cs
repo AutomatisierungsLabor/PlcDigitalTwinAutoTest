@@ -7,8 +7,13 @@ using System.Windows.Media;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public partial class ViewModel : INotifyPropertyChanged
+public abstract partial class ViewModel : INotifyPropertyChanged
 {
+
+    protected abstract void  ViewModelKonstuktorZusatz();
+    protected abstract void ViewModelAufrufThread();
+    protected abstract void ViewModelAufrufTaster(short tasterId);
+    protected abstract void ViewModelAufrufSchalter(short schalterId);
 
     public ViewModel()
     {
@@ -19,7 +24,7 @@ public partial class ViewModel : INotifyPropertyChanged
         SpsVersionEntfernt = "fehlt";
         SpsStatus = "x";
         SpsColor = Brushes.LightBlue;
-
+        
         for (var i = 0; i < 100; i++)
         {
             ClkMode.Add(ClickMode.Press);
@@ -27,6 +32,8 @@ public partial class ViewModel : INotifyPropertyChanged
             SichtbarAus.Add(Visibility.Visible);
             Farbe.Add(Brushes.White);
         }
+
+        ViewModelKonstuktorZusatz();
 
         System.Threading.Tasks.Task.Run(ViewModelTask);
     }

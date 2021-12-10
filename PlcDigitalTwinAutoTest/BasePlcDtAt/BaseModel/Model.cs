@@ -4,28 +4,28 @@ namespace BasePlcDtAt.BaseModel;
 
 public abstract class Model
 {
+    protected abstract void ModelTaskThread();
 
-    private static DatenRangieren _datenRangieren;
+    private DatenRangieren _datenRangieren;
 
-    private void KataTask()
+    protected Model()
+    {
+        _datenRangieren = new DatenRangieren(this);
+
+        System.Threading.Tasks.Task.Run(ModelTask);
+    }
+
+    private void ModelTask()
     {
         while (true)
         {
             _datenRangieren.Rangieren();
 
-            DoStuff();
+            ModelTaskThread();
 
             Thread.Sleep(10);
         }
         // ReSharper disable once FunctionNeverReturns
     }
-
-    protected abstract void DoStuff();
-    internal void SetDtAutoTests()
-    {
-        _datenRangieren = new DatenRangieren(this);
-
-
-        System.Threading.Tasks.Task.Run(KataTask);
-    }
+    
 }

@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public partial class ViewModel
+public abstract partial class ViewModel
 {
     internal void Taster(object id)
     {
@@ -13,6 +13,7 @@ public partial class ViewModel
         var tasterId = short.Parse(ascii);
         var gedrueckt = ClickModeButton(tasterId);
 
+        ViewModelAufrufTaster(tasterId);
         switch (tasterId)
         {
 
@@ -27,6 +28,7 @@ public partial class ViewModel
 
         var schalterId = short.Parse(ascii);
 
+        ViewModelAufrufSchalter(schalterId);
         switch (schalterId)
         {
 

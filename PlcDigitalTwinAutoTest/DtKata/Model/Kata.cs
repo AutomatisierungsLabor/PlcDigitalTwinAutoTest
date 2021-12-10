@@ -1,61 +1,42 @@
-﻿namespace DtKata.Model
+﻿namespace DtKata.Model;
+
+internal class Kata : BasePlcDtAt.BaseModel.Model
 {
-    internal class Kata : BasePlcDtAt.BaseModel.Model
+    public bool S1 { get; set; }
+    public bool S2 { get; set; }
+    public bool S3 { get; set; }
+    public bool S4 { get; set; }
+    public bool S5 { get; set; }
+    public bool S6 { get; set; }
+    public bool S7 { get; set; }
+    public bool S8 { get; set; }
+
+    public bool P1 { get; set; }
+    public bool P2 { get; set; }
+    public bool P3 { get; set; }
+    public bool P4 { get; set; }
+    public bool P5 { get; set; }
+    public bool P6 { get; set; }
+    public bool P7 { get; set; }
+    public bool P8 { get; set; }
+    
+    public Kata()
     {
+        S3 = true;
+        S4 = true;
+        S7 = true;
+        S8 = true;
+    }
 
-
-        public bool B1 { get; set; }    // Lichtschranke 0° 
-        public bool B2 { get; set; }    // Lichtschranke 45° CCW
-        public bool S1 { get; set; }    // Taster ( ① ) → Schliesser
-        public bool S2 { get; set; }    // Taster ( ⓪ ) → Öffner
-        public bool S4 { get; set; }    // Taster ( STOP ) → Öffner 
-        public bool S3 { get; set; }    // Taster ( Ⅰ ) → Schliesser 
-        public bool S5 { get; set; }    // Taster ( Ⅱ ) → Schliesser 
-        public bool S7 { get; set; }    // Taster (STOP) → Öffner
-        public bool S6 { get; set; }    // Taster (←) → Schliesser
-        public bool S8 { get; set; }    // Taster (→) → Schliesser
-        public bool S91 { get; set; }   // Not-Halt → Schliesser 
-        public bool S92 { get; set; }   // Not-Halt → Öffner
-        public bool P1 { get; set; }    // Meldeleuchte weiß
-        public bool P2 { get; set; }    // Meldeleuchte rot
-        public bool P3 { get; set; }    // Meldeleuchte grün
-        public bool Q1 { get; set; }    // Getriebemotor Schnell Rechtslauf
-        public bool Q2 { get; set; }    // Getriebemotor Linkslauf
-        public bool Q3 { get; set; }    // Getriebemotor Langsam Rechtslauf
-
-        public double WinkelGetriebemotor { get; set; }
-
-        private const double GeschwindigkeitGetriebemotorLangsam = 1;
-        private const double GeschwindigkeitGetriebemotorSchnell = 2 * GeschwindigkeitGetriebemotorLangsam;
-
-        public Kata()
-        {
-            S2 = true;
-            S4 = true;
-            S7 = true;
-            S92 = true;
-        }
-
-        protected override void DoStuff()
-        {
-            if (Q2)
-            {
-                // Linkslauf
-                if (Q1) WinkelGetriebemotor -= GeschwindigkeitGetriebemotorSchnell;
-                if (Q3) WinkelGetriebemotor -= GeschwindigkeitGetriebemotorLangsam;
-            }
-            else
-            {
-                // Rechtslauf
-                if (Q1) WinkelGetriebemotor += GeschwindigkeitGetriebemotorSchnell;
-                if (Q3) WinkelGetriebemotor += GeschwindigkeitGetriebemotorLangsam;
-            }
-
-            if (WinkelGetriebemotor > 360) WinkelGetriebemotor -= 360;
-            if (WinkelGetriebemotor < 0) WinkelGetriebemotor += 360;
-
-            B1 = WinkelGetriebemotor > 80 && WinkelGetriebemotor < 100;
-            B2 = WinkelGetriebemotor > 35 && WinkelGetriebemotor < 55;
-        }
+    protected override void ModelTaskThread()
+    {
+        P1 = S1;
+        P2 = S2;
+        P3 = S3;
+        P4 = S4;
+        P5 = S5;
+        P6 = S6;
+        P7 = S7;
+        P8 = S8;
     }
 }
