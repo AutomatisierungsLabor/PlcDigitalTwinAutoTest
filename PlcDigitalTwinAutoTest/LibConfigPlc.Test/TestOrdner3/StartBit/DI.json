@@ -1,0 +1,11 @@
+﻿{
+  "Zeilen": [
+    {
+      "StartByte": 0,
+      "StartBit": 10,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar": "Frequenz -"
+    }
+  ]
+}

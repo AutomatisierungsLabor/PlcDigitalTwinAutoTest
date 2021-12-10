@@ -2,21 +2,25 @@
 
 namespace BasePlcDtAt.BaseModel;
 
-public class Model
+public abstract class Model
 {
 
     private static DatenRangieren _datenRangieren;
 
-    private static void KataTask()
+    private void KataTask()
     {
         while (true)
         {
             _datenRangieren.Rangieren();
 
+            DoStuff();
+
             Thread.Sleep(10);
         }
         // ReSharper disable once FunctionNeverReturns
     }
+
+    protected abstract void DoStuff();
     internal void SetDtAutoTests()
     {
         _datenRangieren = new DatenRangieren(this);
