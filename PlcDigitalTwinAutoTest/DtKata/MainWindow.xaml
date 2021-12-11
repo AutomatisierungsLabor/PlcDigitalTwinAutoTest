@@ -8,11 +8,11 @@
         Title="DtKata" Height="885" Width="1200">
 
 
- <!--
-    <local:BaseWindow>
 
-    </local:BaseWindow>
-   -->
+    <local:UserControl1>
+
+    </local:UserControl1>
+ <!--
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -179,5 +179,5 @@
         </TabControl>
 
     </Grid>
-
+-->
 </Window>
