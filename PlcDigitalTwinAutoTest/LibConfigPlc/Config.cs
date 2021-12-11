@@ -29,7 +29,7 @@ public class Config
     public T SetPath<T, TEinstellungen>(string pfad, EaConfig<TEinstellungen> ioConfig) where T : EaConfig<TEinstellungen>
     {
         ioConfig.ConfigOk = false;
-        var dateiPfad = $"{pfad}/{typeof(T).Name}.json";
+        var dateiPfad = $"{pfad}/{typeof(T).Name.ToUpper()}.json";
 
         if (!File.Exists(dateiPfad)) return ioConfig as T;
         try

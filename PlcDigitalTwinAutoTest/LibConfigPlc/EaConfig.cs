@@ -14,7 +14,7 @@ public abstract class EaConfig<T>
         ConfigOk = true;
         Zeilen = zeilen;
         AnzZeilen = zeilen.Count;
-        ConfigTesten();
+        if (AnzZeilen > 0) ConfigTesten();
     }
 
     protected abstract void ConfigTesten();

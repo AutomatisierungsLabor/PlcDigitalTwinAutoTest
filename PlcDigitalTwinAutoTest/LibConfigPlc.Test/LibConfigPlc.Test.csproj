@@ -25,100 +25,100 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="TestOrdner1\AA.json">
+    <None Update="DI\1\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner1\AI.json">
+    <None Update="DI\1\AI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner1\DA.json">
+    <None Update="DI\1\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner1\DI.json">
+    <None Update="DI\1\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner2\AA.json">
+    <None Update="DI\2\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner2\AI.json">
+    <None Update="DI\2\AI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner2\DA.json">
+    <None Update="DI\2\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner2\DI.json">
+    <None Update="DI\2\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\AA.json">
+    <None Update="DI\3\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\AI.json">
+    <None Update="DI\3\AI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\BitDoppelt\AA.json">
+    <None Update="DI\3\BitDoppelt\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\BitDoppelt\AI.json">
+    <None Update="DI\3\BitDoppelt\AI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\BitDoppelt\DA.json">
+    <None Update="DI\3\BitDoppelt\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\BitDoppelt\DI.json">
+    <None Update="DI\3\BitDoppelt\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DA.json">
+    <None Update="DI\3\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DI.json">
+    <None Update="DI\3\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DoppelBelegungByte\AA.json">
+    <None Update="DI\3\DoppelBelegungByte\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DoppelBelegungByte\AI.json">
+    <None Update="DI\3\DoppelBelegungByte\AI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DoppelBelegungByte\DA.json">
+    <None Update="DI\3\DoppelBelegungByte\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DoppelBelegungByte\DI.json">
+    <None Update="DI\3\DoppelBelegungByte\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DoppelBelegungWord\AA.json">
+    <None Update="DI\3\DoppelBelegungWord\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DoppelBelegungWord\AI.json">
+    <None Update="DI\3\DoppelBelegungWord\AI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DoppelBelegungWord\DA.json">
+    <None Update="DI\3\DoppelBelegungWord\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\DoppelBelegungWord\DI.json">
+    <None Update="DI\3\DoppelBelegungWord\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\StartBit\AA.json">
+    <None Update="DI\3\StartBit\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\StartBit\AI.json">
+    <None Update="DI\3\StartBit\AI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\StartBit\DA.json">
+    <None Update="DI\3\StartBit\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\StartBit\DI.json">
+    <None Update="DI\3\StartBit\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\StartByte\AA.json">
+    <None Update="DI\3\StartByte\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\StartByte\AI.json">
+    <None Update="DI\3\StartByte\AI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\StartByte\DA.json">
+    <None Update="DI\3\StartByte\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="TestOrdner3\StartByte\DI.json">
+    <None Update="DI\3\StartByte\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

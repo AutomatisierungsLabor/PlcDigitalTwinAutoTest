@@ -6,12 +6,12 @@ namespace LibConfigPlc.Test
     {
 
         [Theory]
-        [InlineData("TestOrdner3", true, true, true, true)]
-        [InlineData("TestOrdner3/StartBit", false, true, true, true)]
-        [InlineData("TestOrdner3/StartByte", false, true, true, true)]
-        [InlineData("TestOrdner3/BitDoppelt", false, true, true, true)]
-        [InlineData("TestOrdner3/DoppelBelegungByte", false, true, true, true)]
-        [InlineData("TestOrdner3/DoppelBelegungWord", false, true, true, true)]
+        [InlineData("DI/3", true, true, true, true)]
+        [InlineData("DI/3/StartBit", false, true, true, true)]
+        [InlineData("DI/3/StartByte", false, true, true, true)]
+        [InlineData("DI/3/BitDoppelt", false, true, true, true)]
+        [InlineData("DI/3/DoppelBelegungByte", false, true, true, true)]
+        [InlineData("DI/3/DoppelBelegungWord", false, true, true, true)]
 
         public void FehlerhafteConfigLesenTesten(string pfad, bool di, bool da, bool ai, bool aa)
         {
