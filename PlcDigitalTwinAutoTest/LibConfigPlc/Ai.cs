@@ -2,21 +2,12 @@
 
 namespace LibConfigPlc;
 
-public class Ai
+public class Ai : EaConfig<AiEinstellungen>
 {
-    public bool ConfigOk { get; set; }
-    public int AnzZeilen { get; set; }
-    public int AnzByte { get; set; }
-    public ObservableCollection<AiEinstellungen> Zeilen { get; set; }
-
-    public Ai(ObservableCollection<AiEinstellungen> zeilen)
+    public Ai(ObservableCollection<AiEinstellungen> zeilen) : base(zeilen)
     {
-        ConfigOk = true;
-        Zeilen = zeilen;
-        AnzZeilen = zeilen.Count;
-        ConfigTesten();
     }
-    private void ConfigTesten()
+    protected override void ConfigTesten()
     {
         ConfigOk = true;
         AnzByte = 0;

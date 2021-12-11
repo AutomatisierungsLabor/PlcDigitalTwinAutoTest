@@ -2,22 +2,12 @@
 
 namespace LibConfigPlc;
 
-public class Di
+public class Di : EaConfig<DiEinstellungen>
 {
-    public bool ConfigOk { get; set; }
-    public int AnzZeilen { get; set; }
-    public int AnzByte { get; set; }
-    public ObservableCollection<DiEinstellungen> Zeilen { get; set; }
-
-    public Di(ObservableCollection<DiEinstellungen> zeilen)
+    public Di(ObservableCollection<DiEinstellungen> zeilen) : base(zeilen)
     {
-        ConfigOk = true;
-        Zeilen = zeilen;
-        AnzZeilen = zeilen.Count;
-        if (AnzZeilen == 0) return;
-        ConfigTesten();
     }
-    private void ConfigTesten()
+    protected override void ConfigTesten()
     {
         ConfigOk = true;
         AnzByte = 0;

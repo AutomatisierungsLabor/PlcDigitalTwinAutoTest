@@ -2,21 +2,12 @@
 
 namespace LibConfigPlc;
 
-public class Da
+public class Da : EaConfig<DaEinstellungen>
 {
-    public bool ConfigOk { get; set; }
-    public int AnzZeilen { get; set; }
-    public int AnzByte { get; set; }
-    public ObservableCollection<DaEinstellungen> Zeilen { get; set; }
-
-    public Da(ObservableCollection<DaEinstellungen> zeilen)
+    public Da(ObservableCollection<DaEinstellungen> zeilen) : base(zeilen)
     {
-        ConfigOk = true;
-        Zeilen = zeilen;
-        AnzZeilen = zeilen.Count;
-        ConfigTesten();
     }
-    private void ConfigTesten()
+    protected override void ConfigTesten()
     {
         ConfigOk = true;
         AnzByte = 0;

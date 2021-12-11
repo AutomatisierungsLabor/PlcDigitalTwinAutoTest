@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using log4net.Repository.Hierarchy;
 using Newtonsoft.Json;
 
 namespace LibConfigPlc;
@@ -20,79 +21,33 @@ public class Config
         // ReSharper restore UnusedMember.Global
     }
 
-    public Di Di { get; set; }
-    public Da Da { get; set; }
-    public Ai Ai { get; set; }
-    public Aa Aa { get; set; }
+    public Di Di { get; set; } = new Di(new ObservableCollection<DiEinstellungen>());
+    public Da Da { get; set; } = new Da(new ObservableCollection<DaEinstellungen>());
+    public Ai Ai { get; set; } = new Ai(new ObservableCollection<AiEinstellungen>());
+    public Aa Aa { get; set; } = new Aa(new ObservableCollection<AaEinstellungen>());
 
-
-    public Config()
+    public T SetPath<T, TEinstellungen>(string pfad, EaConfig<TEinstellungen> ioConfig) where T : EaConfig<TEinstellungen>
     {
-        Di = new Di(new ObservableCollection<DiEinstellungen>());
-        Da = new Da(new ObservableCollection<DaEinstellungen>());
-        Ai = new Ai(new ObservableCollection<AiEinstellungen>());
-        Aa = new Aa(new ObservableCollection<AaEinstellungen>());
+        ioConfig.ConfigOk = false;
+        var dateiPfad = $"{pfad}/{typeof(T).Name}.json";
+
+        if (!File.Exists(dateiPfad)) return ioConfig as T;
+        try
+        {
+            ioConfig = JsonConvert.DeserializeObject<T>(File.ReadAllText(dateiPfad));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Datei nicht gefunden:" + pfad + " --> " + ex);
+        }
+        return ioConfig as T;
     }
+
     public void SetPath(string pfad)
     {
-        if (!Directory.Exists(pfad)) return;
-
-        var pfadDi = $"{pfad}/DI.json";
-        var pfadDa = $"{pfad}/DA.json";
-        var pfadAi = $"{pfad}/AI.json";
-        var pfadAa = $"{pfad}/AA.json";
-
-        if (File.Exists(pfadDi))
-        {
-            try
-            {
-                Di = JsonConvert.DeserializeObject<Di>(File.ReadAllText(pfadDi));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Datei nicht gefunden:" + pfad + " --> " + ex);
-            }
-        }
-        else Di.ConfigOk=false;
-
-
-        if (File.Exists(pfadDa))
-        {
-            try
-            {
-                Da = JsonConvert.DeserializeObject<Da>(File.ReadAllText(pfadDa));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Datei nicht gefunden:" + pfad + " --> " + ex);
-            }
-        }
-        else Da.ConfigOk = false;
-
-        if (File.Exists(pfadAi))
-        {
-            try
-            {
-                Ai = JsonConvert.DeserializeObject<Ai>(File.ReadAllText(pfadAi));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Datei nicht gefunden:" + pfad + " --> " + ex);
-            }
-        }
-        else Ai.ConfigOk = false;
-
-        if (File.Exists(pfadAa))
-        {
-            try
-            {
-                Aa = JsonConvert.DeserializeObject<Aa>(File.ReadAllText(pfadAa));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Datei nicht gefunden:" + pfad + " --> " + ex);
-            }
-        }
-        else Aa.ConfigOk = false;
+        Di = SetPath<Di, DiEinstellungen>(pfad, Di);
+        Da = SetPath<Da, DaEinstellungen>(pfad, Da);
+        Ai = SetPath<Ai, AiEinstellungen>(pfad, Ai);
+        Aa = SetPath<Aa, AaEinstellungen>(pfad, Aa);
     }
 }

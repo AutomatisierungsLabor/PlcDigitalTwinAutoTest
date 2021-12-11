@@ -18,11 +18,16 @@ namespace BasePlcDtAt
     /// <summary>
     /// Interaktionslogik für UserControl1.xaml
     /// </summary>
+
     public partial class UserControl1 : UserControl
     {
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public UserControl1()
         {
             InitializeComponent();
+
+            log.Debug("Starting");
         }
     }
 }
