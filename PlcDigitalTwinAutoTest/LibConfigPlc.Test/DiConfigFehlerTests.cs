@@ -2,16 +2,15 @@ using Xunit;
 
 namespace LibConfigPlc.Test
 {
-    public class ConfigFehlerTests
+    public class DiConfigFehlerTests
     {
 
         [Theory]
-        [InlineData("DI/3", true, true, true, true)]
-        [InlineData("DI/3/StartBit", false, true, true, true)]
-        [InlineData("DI/3/StartByte", false, true, true, true)]
-        [InlineData("DI/3/BitDoppelt", false, true, true, true)]
-        [InlineData("DI/3/DoppelBelegungByte", false, true, true, true)]
-        [InlineData("DI/3/DoppelBelegungWord", false, true, true, true)]
+        [InlineData("DI/StartBit", false, true, true, true)]
+        [InlineData("DI/StartByte", false, true, true, true)]
+        [InlineData("DI/BitDoppelt", false, true, true, true)]
+        [InlineData("DI/DoppelBelegungByte", false, true, true, true)]
+        [InlineData("DI/DoppelBelegungWord", false, true, true, true)]
 
         public void FehlerhafteConfigLesenTesten(string pfad, bool di, bool da, bool ai, bool aa)
         {

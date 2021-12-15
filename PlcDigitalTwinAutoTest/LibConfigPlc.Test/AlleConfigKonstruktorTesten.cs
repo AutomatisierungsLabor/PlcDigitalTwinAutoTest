@@ -3,7 +3,7 @@ using LibConfigPlc;
 
 namespace LibConfigPlc.Test
 {
-    public class ConfigKonstruktorTesten
+    public class AlleConfigKonstruktorTesten
     {
 
         [Fact]

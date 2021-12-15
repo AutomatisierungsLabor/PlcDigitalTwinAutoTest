@@ -2,7 +2,7 @@
 
 namespace LibConfigPlc.Test
 {
-    public class ConfigAnzahlDateienTesten
+    public class AlleConfigAnzahlDateienTesten
     {
 
         [Fact]

@@ -2,7 +2,7 @@
 
 namespace LibConfigPlc.Test
 {
-    public class ConfigAnzahlByteTesten
+    public class DiConfigAnzahlByteTesten
     {
         [Theory]
         [InlineData("KeinOrdner", 0, 0, 0, 0)]
