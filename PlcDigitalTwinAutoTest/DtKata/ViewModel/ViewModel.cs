@@ -1,18 +1,26 @@
-﻿namespace DtKata.ViewModel;
+﻿using System.Windows;
+using DtKata.Model;
+using LibDatenstruktur;
 
-public partial class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
+namespace DtKata.ViewModel;
+
+public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 {
 
     protected override void ViewModelKonstuktorZusatz()
     {
-        //
+        SichtbarEin[(int)WpfObjects.TabLaborplatte] = Visibility.Collapsed;
+        SichtbarEin[(int)WpfObjects.TabSimulation] = Visibility.Visible;
+        SichtbarEin[(int)WpfObjects.TabAutoTest] = Visibility.Visible;
 
+        FensterTitel = "ölsadkjf";
     }
 
     protected override void ViewModelAufrufThread()
     {
+        if (Model == null) return;
 
-        //
+        FensterTitel = Model.VersionLokal;
     }
 
     protected override void ViewModelAufrufTaster(short tasterId)
@@ -25,4 +33,8 @@ public partial class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 
         //
     }
+
+    public void SetRefDatenstruktur(Datenstruktur datenstruktur) => Datenstruktur = datenstruktur;
+
+
 }

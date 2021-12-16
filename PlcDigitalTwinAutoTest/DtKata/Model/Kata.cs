@@ -1,4 +1,6 @@
-﻿namespace DtKata.Model;
+﻿using LibDatenstruktur;
+
+namespace DtKata.Model;
 
 internal class Kata : BasePlcDtAt.BaseModel.Model
 {
@@ -19,7 +21,7 @@ internal class Kata : BasePlcDtAt.BaseModel.Model
     public bool P6 { get; set; }
     public bool P7 { get; set; }
     public bool P8 { get; set; }
-    
+
     public Kata()
     {
         S3 = true;
@@ -39,4 +41,6 @@ internal class Kata : BasePlcDtAt.BaseModel.Model
         P7 = S7;
         P8 = S8;
     }
+
+    public void SetRefDatenstuktur(Datenstruktur datenstruktur) => Datenstruktur = datenstruktur;
 }

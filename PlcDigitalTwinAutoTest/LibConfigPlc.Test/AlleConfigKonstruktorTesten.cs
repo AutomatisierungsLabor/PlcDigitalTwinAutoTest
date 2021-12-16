@@ -1,5 +1,4 @@
 ﻿using Xunit;
-using LibConfigPlc;
 
 namespace LibConfigPlc.Test
 {
@@ -9,7 +8,7 @@ namespace LibConfigPlc.Test
         [Fact]
         public void KonstruktorTesten()
         {
-            var config = new LibConfigPlc.Config();
+            var config = new Config();
 
             Assert.True(config.Di.ConfigOk);
             Assert.True(config.Da.ConfigOk);

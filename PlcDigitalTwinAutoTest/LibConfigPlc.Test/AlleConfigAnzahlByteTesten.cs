@@ -12,7 +12,7 @@ namespace LibConfigPlc.Test
 
         public void AnzahlByteTesten(string pfad, int anzDi, int anzDa, int anzAi, int anzAa)
         {
-            var config = new LibConfigPlc.Config();
+            var config = new Config();
             config.SetPath(pfad);
 
             Assert.Equal(anzDi, config.Di.AnzByte);

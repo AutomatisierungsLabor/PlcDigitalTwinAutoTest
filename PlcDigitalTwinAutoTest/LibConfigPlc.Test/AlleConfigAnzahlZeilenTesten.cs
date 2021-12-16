@@ -11,7 +11,7 @@ namespace LibConfigPlc.Test
         [InlineData("Alle/3", 2, 2, 2, 3)]
         public void ConfigAnzahlZeilenTesten(string pfad, int anzDi, int anzDa, int anzAi, int anzAa)
         {
-            var config = new LibConfigPlc.Config();
+            var config = new Config();
             config.SetPath(pfad);
 
             Assert.Equal(anzDi, config.Di.AnzZeilen);

@@ -1,27 +1,32 @@
-﻿
-
-using BasePlcDtAt;
-using DtKata.Model;
+﻿using DtKata.Model;
 
 namespace DtKata;
 
-public partial  class MainWindow
+public partial class MainWindow
 {
 
-    private readonly Kata _kata;
-    private  readonly ViewModel.ViewModel _viewModel;
+    public LibDatenstruktur.Datenstruktur Datenstruktur { get; set; }
 
     public MainWindow()
     {
-
         InitializeComponent();
-        
-        _kata = new Kata();
-        _viewModel = new ViewModel.ViewModel();
-        DataContext = _viewModel;
 
-        _kata.ConfigPlc.SetPath("/ConfigPlc");
+        Datenstruktur = new LibDatenstruktur.Datenstruktur();
 
 
+        var kata = new Kata();
+        var viewModel = new ViewModel.ViewModel();
+
+
+        kata.VersionLokal = "Kata" + " " + "V2.0";
+        kata.SetRefDatenstuktur(Datenstruktur);
+        kata.ConfigPlc.SetPath("/ConfigPlc");
+
+        viewModel.SetRefModel(kata);
+        viewModel.SetRefDatenstruktur(Datenstruktur);
+
+
+        DataContext = viewModel;
     }
+
 }

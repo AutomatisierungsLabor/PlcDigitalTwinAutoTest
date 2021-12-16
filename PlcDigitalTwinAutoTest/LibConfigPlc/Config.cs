@@ -5,7 +5,7 @@ namespace LibConfigPlc;
 
 public class Config
 {
-    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     public enum EaTypen
     {
@@ -30,16 +30,19 @@ public class Config
     public T SetPath<T, TEinstellungen>(string pfad, EaConfig<TEinstellungen> ioConfig) where T : EaConfig<TEinstellungen>
     {
         ioConfig.ConfigOk = false;
-        var dateiPfad = $"{pfad}/{typeof(T).Name.ToUpper()}.json";
-
-        if (!File.Exists(dateiPfad)) return ioConfig as T;
+        var dateiPfad = $"{Directory.GetCurrentDirectory()}/{pfad}/{typeof(T).Name.ToUpper()}.json";
+        if (!File.Exists(dateiPfad))
+        {
+            Log.Debug("ConfigPlc Datei nicht gefunden: " + dateiPfad);
+            return ioConfig as T;
+        }
         try
         {
             ioConfig = JsonConvert.DeserializeObject<T>(File.ReadAllText(dateiPfad));
         }
         catch (Exception ex)
         {
-            Console.WriteLine("Datei nicht gefunden:" + pfad + " --> " + ex);
+            Log.Debug("ConfigPlc Datei nicht gefunden: " + dateiPfad + ex);
         }
         return ioConfig as T;
     }

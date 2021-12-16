@@ -14,7 +14,7 @@ namespace LibConfigPlc.Test
 
         public void FehlerhafteConfigLesenTesten(string pfad, bool di, bool da, bool ai, bool aa)
         {
-            var config = new LibConfigPlc.Config();
+            var config = new Config();
             config.SetPath(pfad);
 
             Assert.Equal(di, config.Di.ConfigOk);

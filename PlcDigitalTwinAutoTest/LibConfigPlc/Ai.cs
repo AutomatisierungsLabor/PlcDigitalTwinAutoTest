@@ -4,6 +4,7 @@ namespace LibConfigPlc;
 
 public class Ai : EaConfig<AiEinstellungen>
 {
+    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
     private readonly SharedFunctions _sharedFunctions = new();
 
     public Ai(ObservableCollection<AiEinstellungen> zeilen) : base(zeilen)
@@ -22,22 +23,28 @@ public class Ai : EaConfig<AiEinstellungen>
                 case Config.EaTypen.Ascii:
                 case Config.EaTypen.BitmusterByte:
                 case Config.EaTypen.Byte:
-                    if (zeile.StartBit > 0) ConfigOk = false;
-                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) ConfigOk = false;
+                    if (zeile.StartBit > 0) LogConfigError(zeile);
+                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
                 case Config.EaTypen.Word:
                 case Config.EaTypen.SiemensAnalogwertPromille:
                 case Config.EaTypen.SiemensAnalogwertProzent:
                 case Config.EaTypen.SiemensAnalogwertSchieberegler:
-                    if (zeile.StartBit > 0) ConfigOk = false;
-                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) ConfigOk = false;
-                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) ConfigOk = false;
+                    if (zeile.StartBit > 0) LogConfigError(zeile);
+                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
+                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) LogConfigError(zeile);
                     break;
-                default: ConfigOk = false; break;
+                case Config.EaTypen.NichtBelegt: break;
+                default: LogConfigError(zeile); break;
             }
         }
 
         AnzByte = _sharedFunctions.AnzByteEinlesen(speicherAbbild);
+    }
+    private void LogConfigError(AiEinstellungen zeile)
+    {
+        Log.Debug("AI: Kollision 'BitmusterByte'; Byte: " + zeile.StartByte + "Bit: " + zeile.StartBit);
+        ConfigOk = false;
     }
 }
 

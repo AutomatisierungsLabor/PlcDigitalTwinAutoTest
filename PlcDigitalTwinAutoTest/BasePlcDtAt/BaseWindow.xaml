@@ -19,8 +19,8 @@
 
 
         <TabControl Grid.Column="1" Grid.Row="1" SelectionChanged="BetriebsartProjektChanged">
-            <TabItem  Header="Laborplatte" ToolTip="Die SPS mit der Laborplatte mit über den dSub25 Stecker verbinden">
-                <Grid Background="LightGray">
+            <TabItem Header="Laborplatte" ToolTip="Die SPS mit der Laborplatte mit über den dSub25 Stecker verbinden" Visibility="{Binding SichtbarEin[0]}">
+                <Grid x:Name="Grid0" Background="LightGray">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="52*"/>
                         <ColumnDefinition Width="355*"/>
@@ -29,8 +29,8 @@
                     <Label Content="Tab 1: Laborplatte"/>
                 </Grid>
             </TabItem>
-            <TabItem  Header="Simulation" Height="20" VerticalAlignment="Top">
-                <Grid>
+            <TabItem  Header="Simulation" Height="20" VerticalAlignment="Top" Visibility="{Binding SichtbarEin[1]}">
+                <Grid x:Name="Grid1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10" />
                         <ColumnDefinition Width="35" />
@@ -46,12 +46,14 @@
                         <RowDefinition Height="10" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Label Content="Tab 2: Simulation"/>
+                    <Label Grid.Column="4" Grid.Row="1" Content="Tab 2: Simulation"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Automatischer Softwaretest" Visibility="{Binding SichtbarEin[2]}">
+                <Grid x:Name="Grid2">
+                    <Label Content="Tab 3: Automatischer Softwaretest" />
+                </Grid>
 
-            <TabItem  Header="Automatischer Softwaretest">
-                <Label Content="Tab 3: Automatischer Softwaretest"/>
             </TabItem>
 
         </TabControl>

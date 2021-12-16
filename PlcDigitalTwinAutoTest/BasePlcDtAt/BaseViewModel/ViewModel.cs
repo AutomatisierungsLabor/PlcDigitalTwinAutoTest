@@ -9,17 +9,28 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class ViewModel : INotifyPropertyChanged
 {
-    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-    protected abstract void  ViewModelKonstuktorZusatz();
+   public enum WpfObjects
+    {
+        TabLaborplatte = 0,
+        TabSimulation = 1,
+        TabAutoTest = 2,
+        ErrorAnzeige = 3
+    }
+
+    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
+
+    protected abstract void ViewModelKonstuktorZusatz();
     protected abstract void ViewModelAufrufThread();
     protected abstract void ViewModelAufrufTaster(short tasterId);
     protected abstract void ViewModelAufrufSchalter(short schalterId);
 
+    public LibDatenstruktur.Datenstruktur Datenstruktur { get; set; }
+    public BaseModel.Model Model { get; set; }
     protected ViewModel()
     {
 
-        Log.Debug("Konstruktor BasePlcDtAt ViewModel startet");
+        Log.Debug("Konstruktor - startet");
 
         FensterTitel = "Unbekannter Titel";
 
@@ -28,7 +39,7 @@ public abstract partial class ViewModel : INotifyPropertyChanged
         SpsVersionEntfernt = "fehlt";
         SpsStatus = "x";
         SpsColor = Brushes.LightBlue;
-        
+
         for (var i = 0; i < 100; i++)
         {
             ClkMode.Add(ClickMode.Press);
@@ -44,6 +55,10 @@ public abstract partial class ViewModel : INotifyPropertyChanged
     }
 
 
+    public void SetRefModel(BaseModel.Model model) =>Model=model;
+
+
+
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -54,4 +69,5 @@ public abstract partial class ViewModel : INotifyPropertyChanged
     private ICommand _btnSchalter;
     // ReSharper disable once UnusedMember.Global
     public ICommand BtnSchalter => _btnSchalter ??= new RelayCommand(Schalter);
+
 }

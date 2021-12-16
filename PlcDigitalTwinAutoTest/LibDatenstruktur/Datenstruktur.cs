@@ -32,6 +32,7 @@ public class Datenstruktur
     public string TestProjektOrdner { get; set; }
     public int DiagrammZeitbereich { get; set; }
 
+
     public Datenstruktur()
     {
         TestProjektOrdner = "-";

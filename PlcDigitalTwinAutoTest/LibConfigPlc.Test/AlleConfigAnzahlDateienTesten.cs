@@ -8,7 +8,7 @@ namespace LibConfigPlc.Test
         [Fact]
         public void UnbekannterOrdnerTesten()
         {
-            var config = new LibConfigPlc.Config();
+            var config = new Config();
             config.SetPath("NichtVorhandenerPfad");
 
             Assert.False(config.Di.ConfigOk);
