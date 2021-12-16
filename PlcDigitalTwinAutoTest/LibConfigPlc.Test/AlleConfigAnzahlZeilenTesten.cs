@@ -8,8 +8,8 @@ namespace LibConfigPlc.Test
         [InlineData("KeinOrdner", 0, 0, 0, 0)]
         [InlineData("Alle/1", 5, 1, 0, 0)]
         [InlineData("Alle/2", 2, 2, 2, 2)]
-        [InlineData("Alle/3", 2, 2, 2, 2)]
-        public void ConfigLesenTesten(string pfad, int anzDi, int anzDa, int anzAi, int anzAa)
+        [InlineData("Alle/3", 2, 2, 2, 3)]
+        public void ConfigAnzahlZeilenTesten(string pfad, int anzDi, int anzDa, int anzAi, int anzAa)
         {
             var config = new LibConfigPlc.Config();
             config.SetPath(pfad);

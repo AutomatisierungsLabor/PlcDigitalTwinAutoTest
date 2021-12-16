@@ -2,14 +2,15 @@
 
 namespace LibConfigPlc.Test
 {
-    public class DiConfigAnzahlByteTesten
+    public class AlleConfigAnzahlByteTesten
     {
         [Theory]
         [InlineData("KeinOrdner", 0, 0, 0, 0)]
-        [InlineData("DI/1", 5, 1, 0, 0)]
-        [InlineData("DI/2", 2, 2, 2, 2)]
-        [InlineData("DI/3", 2, 2, 2, 2)]
-        public void ConfigLesenTesten(string pfad, int anzDi, int anzDa, int anzAi, int anzAa)
+        [InlineData("Alle/1", 1, 1, 0, 0)]
+        [InlineData("Alle/2", 1, 1, 2, 4)]
+        [InlineData("Alle/3", 3, 2, 4, 6)]
+
+        public void AnzahlByteTesten(string pfad, int anzDi, int anzDa, int anzAi, int anzAa)
         {
             var config = new LibConfigPlc.Config();
             config.SetPath(pfad);

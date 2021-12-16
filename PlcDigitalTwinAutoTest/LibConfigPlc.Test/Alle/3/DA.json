@@ -8,7 +8,7 @@
       "Kommentar": "Meldeleuchte"
     },
     {
-      "StartByte": 0,
+      "StartByte": 1,
       "StartBit": 1,
       "Type": "Bit",
       "Bezeichnung": "P2",

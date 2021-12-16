@@ -8,7 +8,7 @@
       "Kommentar": "Frequenz -"
     },
     {
-      "StartByte": 0,
+      "StartByte": 2,
       "StartBit": 1,
       "Type": "Bit",
       "Bezeichnung": "S1",

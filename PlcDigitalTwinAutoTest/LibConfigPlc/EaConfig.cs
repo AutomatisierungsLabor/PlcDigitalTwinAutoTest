@@ -9,13 +9,15 @@ public abstract class EaConfig<T>
     public int AnzByte { get; set; }
     public ObservableCollection<T> Zeilen { get; set; }
 
+    private readonly byte[] _speicherAbbild = new byte[256];
+
     protected EaConfig(ObservableCollection<T> zeilen)
     {
         ConfigOk = true;
         Zeilen = zeilen;
         AnzZeilen = zeilen.Count;
-        if (AnzZeilen > 0) ConfigTesten();
+        // ReSharper disable once VirtualMemberCallInConstructor
+        if (AnzZeilen > 0) ConfigTesten(_speicherAbbild);
     }
-
-    protected abstract void ConfigTesten();
+    protected abstract void ConfigTesten(byte[] speicherAbbild);
 }

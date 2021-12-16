@@ -8,7 +8,14 @@
       "Kommentar": "Meldeleuchte"
     },
     {
-      "StartByte": 1,
+      "StartByte": 2,
+      "StartBit": 0,
+      "Type": "SiemensAnalogwertPromille",
+      "Bezeichnung": "P2",
+      "Kommentar": "Meldeleuchte"
+    }    ,
+    {
+      "StartByte": 4,
       "StartBit": 0,
       "Type": "SiemensAnalogwertPromille",
       "Bezeichnung": "P2",

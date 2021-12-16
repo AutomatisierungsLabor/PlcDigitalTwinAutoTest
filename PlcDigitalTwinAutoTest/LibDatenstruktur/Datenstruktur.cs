@@ -3,11 +3,13 @@
 public enum BetriebsartTestablauf
 {
     Automatik = 0,
+    // ReSharper disable once UnusedMember.Global
     Einzelschritt
 }
 public enum BetriebsartProjekt
 {
     LaborPlatte = 0,
+    // ReSharper disable UnusedMember.Global
     Simulation,
     AutomatischerSoftwareTest
 }

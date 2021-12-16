@@ -9,14 +9,18 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class ViewModel : INotifyPropertyChanged
 {
+    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
     protected abstract void  ViewModelKonstuktorZusatz();
     protected abstract void ViewModelAufrufThread();
     protected abstract void ViewModelAufrufTaster(short tasterId);
     protected abstract void ViewModelAufrufSchalter(short schalterId);
 
-    public ViewModel()
+    protected ViewModel()
     {
+
+        Log.Debug("Konstruktor BasePlcDtAt ViewModel startet");
+
         FensterTitel = "Unbekannter Titel";
 
         SpsSichtbar = Visibility.Hidden;
@@ -33,6 +37,7 @@ public abstract partial class ViewModel : INotifyPropertyChanged
             Farbe.Add(Brushes.White);
         }
 
+        // ReSharper disable once VirtualMemberCallInConstructor
         ViewModelKonstuktorZusatz();
 
         System.Threading.Tasks.Task.Run(ViewModelTask);

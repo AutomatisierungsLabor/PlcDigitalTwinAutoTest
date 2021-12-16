@@ -1,11 +1,12 @@
 ﻿using System.Collections.ObjectModel;
-using log4net.Repository.Hierarchy;
 using Newtonsoft.Json;
 
 namespace LibConfigPlc;
 
 public class Config
 {
+    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     public enum EaTypen
     {
         NichtBelegt,
@@ -21,10 +22,10 @@ public class Config
         // ReSharper restore UnusedMember.Global
     }
 
-    public Di Di { get; set; } = new Di(new ObservableCollection<DiEinstellungen>());
-    public Da Da { get; set; } = new Da(new ObservableCollection<DaEinstellungen>());
-    public Ai Ai { get; set; } = new Ai(new ObservableCollection<AiEinstellungen>());
-    public Aa Aa { get; set; } = new Aa(new ObservableCollection<AaEinstellungen>());
+    public Di Di { get; set; } = new(new ObservableCollection<DiEinstellungen>());
+    public Da Da { get; set; } = new(new ObservableCollection<DaEinstellungen>());
+    public Ai Ai { get; set; } = new(new ObservableCollection<AiEinstellungen>());
+    public Aa Aa { get; set; } = new(new ObservableCollection<AaEinstellungen>());
 
     public T SetPath<T, TEinstellungen>(string pfad, EaConfig<TEinstellungen> ioConfig) where T : EaConfig<TEinstellungen>
     {
@@ -45,6 +46,8 @@ public class Config
 
     public void SetPath(string pfad)
     {
+        Log.Debug("ConfigPlc einlesen: " + pfad);
+
         Di = SetPath<Di, DiEinstellungen>(pfad, Di);
         Da = SetPath<Da, DaEinstellungen>(pfad, Da);
         Ai = SetPath<Ai, AiEinstellungen>(pfad, Ai);
