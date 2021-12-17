@@ -1,24 +1,23 @@
 ﻿using Xunit;
 
-namespace LibConfigPlc.Test
+namespace LibConfigPlc.Test;
+
+public class AlleConfigKonstruktorTesten
 {
-    public class AlleConfigKonstruktorTesten
+
+    [Fact]
+    public void KonstruktorTesten()
     {
+        var config = new Config();
 
-        [Fact]
-        public void KonstruktorTesten()
-        {
-            var config = new Config();
+        Assert.True(config.Di.ConfigOk);
+        Assert.True(config.Da.ConfigOk);
+        Assert.True(config.Ai.ConfigOk);
+        Assert.True(config.Aa.ConfigOk);
 
-            Assert.True(config.Di.ConfigOk);
-            Assert.True(config.Da.ConfigOk);
-            Assert.True(config.Ai.ConfigOk);
-            Assert.True(config.Aa.ConfigOk);
-
-            Assert.Equal(0, config.Di.AnzZeilen);
-            Assert.Equal(0, config.Da.AnzZeilen);
-            Assert.Equal(0, config.Ai.AnzZeilen);
-            Assert.Equal(0, config.Aa.AnzZeilen);
-        }
+        Assert.Equal(0, config.Di.AnzZeilen);
+        Assert.Equal(0, config.Da.AnzZeilen);
+        Assert.Equal(0, config.Ai.AnzZeilen);
+        Assert.Equal(0, config.Aa.AnzZeilen);
     }
 }

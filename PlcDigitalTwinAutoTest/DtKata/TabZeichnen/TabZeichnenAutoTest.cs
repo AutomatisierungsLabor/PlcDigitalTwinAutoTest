@@ -8,10 +8,12 @@ public partial class TabZeichnen
 {
     public static void TabAutoTestZeichnen(Grid grid, bool gridSichtbar)
     {
-        LibWpf.LibGrid.Zeichnen(grid, 5, 20, 10, 20, gridSichtbar);
-        LibWpf.LibFormen.Rechteck(grid, 1, 1, 1, 1, Brushes.ForestGreen);
-        LibWpf.LibFormen.Rechteck(grid, 3, 2, 3, 2, Brushes.Yellow);
+       
+        LibWpf.LibGrid.Zeichnen( 50, 20, 30, 20, gridSichtbar, grid);
 
-        LibWpf.LibTexte.Text(grid, 2, 2, 3, 3, "AutoTest", 30, Brushes.Black);
+        LibWpf.LibTexte.Text("AutoTest", 2, 20, 25, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.Black,  grid);
+
+
+        LibWpf.LibMeldungen.PlcError(grid);
     }
 }

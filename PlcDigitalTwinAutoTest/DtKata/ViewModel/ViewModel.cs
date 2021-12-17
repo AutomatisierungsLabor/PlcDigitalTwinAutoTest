@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Net.Mime;
+using System.Windows;
 using System.Windows.Controls;
 using BasePlcDtAt;
 using LibDatenstruktur;
@@ -7,8 +8,6 @@ namespace DtKata.ViewModel;
 
 public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 {
-    private DtKata.TabZeichnen.TabZeichnen _tabZeichnen;
-
     public ViewModel()
     {
 
@@ -19,8 +18,11 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         SichtbarEin[(int)WpfObjects.BtnPlottAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.ErrorAnzeige] = Visibility.Visible;
 
-        FensterTitel = "Nicht bekannt";
+        Text[(int)WpfObjects.ErrorVersionLokal] = "Lokale Projektversion";
+        Text[(int)WpfObjects.ErrorVersionPlc] = "PLC Projektversion";
 
+
+        FensterTitel = "Nicht bekannt";
     }
 
     protected override void ViewModelAufrufThread()
@@ -37,7 +39,6 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 
     protected override void ViewModelAufrufSchalter(short schalterId)
     {
-
         //
     }
 

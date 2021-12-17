@@ -1,5 +1,6 @@
 ﻿using BasePlcDtAt.BaseCommands;
 using System.ComponentModel;
+using System.Net.Mime;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,11 +18,13 @@ public abstract partial class ViewModel : INotifyPropertyChanged
         TabAutoTest = 2,
         BtnPlcAnzeigen = 3,
         BtnPlottAnzeigen = 4,
-        ErrorAnzeige = 5
+        ErrorAnzeige = 5,
+        ErrorVersionLokal = 6,
+        ErrorVersionPlc = 7
     }
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-    
+
     protected abstract void ViewModelAufrufThread();
     protected abstract void ViewModelAufrufTaster(short tasterId);
     protected abstract void ViewModelAufrufSchalter(short schalterId);
@@ -57,6 +60,8 @@ public abstract partial class ViewModel : INotifyPropertyChanged
             SichtbarEin.Add(Visibility.Hidden);
             SichtbarAus.Add(Visibility.Visible);
             Farbe.Add(Brushes.White);
+            Text.Add("");
+
         }
 
         System.Threading.Tasks.Task.Run(ViewModelTask);

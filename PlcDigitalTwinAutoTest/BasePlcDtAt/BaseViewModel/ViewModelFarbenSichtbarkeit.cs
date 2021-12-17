@@ -46,4 +46,15 @@ public abstract partial class ViewModel
             OnPropertyChanged(nameof(Farbe));
         }
     }
+
+    private ObservableCollection<string> _text = new();
+    public ObservableCollection<string> Text
+    {
+        get => _text;
+        set
+        {
+            _text = value;
+            OnPropertyChanged(nameof(Text));
+        }
+    }
 }

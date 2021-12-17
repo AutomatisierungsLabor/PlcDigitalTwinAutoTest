@@ -8,7 +8,7 @@ namespace LibWpf;
 
 public class LibGrid
 {
-    public static void Zeichnen(Grid grid, int anzX, int breiteX, int anzY, int hoeheY, bool gridSichtbar)
+    public static void Zeichnen( int anzX, int breiteX, int anzY, int hoeheY, bool gridSichtbar, Grid grid)
     {
         for (var i = 0; i < anzX; i++) grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(breiteX) });
         for (var i = 0; i < anzY; i++) grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(hoeheY) });
@@ -16,23 +16,16 @@ public class LibGrid
 
         if (!gridSichtbar) return;
 
-
-        var linie = new Line
+        for (var i = 0; i < anzY; i++)
         {
-            Stroke = new SolidColorBrush(Colors.Black),
-            StrokeThickness = 10,
-            X1 = 0,
-            Y1 = 0,
-            X2 = 2000,
-            Y2 = 2000
-        };
+            LibFormen.Linie( 0, i * hoeheY, anzX * breiteX, i * hoeheY, anzX, anzY, 10, Brushes.Crimson,  grid);
+            LibTexte.Text(i.ToString(), 0, 1, i, 1,  HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.Blue,   grid);
+        }
 
-        SetColumn(linie, 0);
-        SetColumnSpan(linie, anzX);
-        SetRow(linie, 0);
-        SetRowSpan(linie, anzY);
-
-        grid.Children.Add(linie);
-
+        for (var i = 0; i < anzX; i++)
+        {
+            LibFormen.Linie( i * breiteX, 0, i * breiteX, anzY * hoeheY, anzX, anzY, 10, Brushes.BlueViolet,  grid);
+            LibTexte.Text(i.ToString(), i, 1, 0, 1,  HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.DarkGreen,   grid);
+        }
     }
 }
