@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using BasePlcDtAt;
 using LibDatenstruktur;
 
 namespace DtKata.ViewModel;
@@ -10,23 +11,16 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 
     public ViewModel()
     {
-        
- SichtbarEin[(int)WpfObjects.TabLaborplatte] = Visibility.Collapsed;
+
+        SichtbarEin[(int)WpfObjects.TabLaborplatte] = Visibility.Collapsed;
         SichtbarEin[(int)WpfObjects.TabSimulation] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.TabAutoTest] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.BtnPlottAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.ErrorAnzeige] = Visibility.Visible;
 
-        FensterTitel = "ölsadkjf";
+        FensterTitel = "Nicht bekannt";
 
-        
-        /*
-        TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(GridBeschreibung, GridSichtbar);
-        TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(GridLaborPlatte, GridSichtbar);
-        TabZeichnen.TabZeichnen.TabSimulationZeichnen(GridSimulation, GridSichtbar);
-        TabZeichnen.TabZeichnen.TabAutoTestZeichnen(GridAutoTest, GridSichtbar);
-        */
     }
 
     protected override void ViewModelAufrufThread()
@@ -51,4 +45,20 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 
 
     public void SetGridSichtbar(bool b) => GridSichtbar = b;
+
+    public void AlleTabZeichnen(BaseWindow baseWindow)
+    {
+        var sdfs = baseWindow.FindName("Grid0");
+        GridBeschreibung = baseWindow.FindName("Grid0") as Grid;
+        GridLaborPlatte = baseWindow.FindName("Grid1") as Grid;
+        GridSimulation = baseWindow.FindName("Grid2") as Grid;
+        GridAutoTest = baseWindow.FindName("Grid3") as Grid;
+
+
+
+        TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(GridBeschreibung, GridSichtbar);
+        TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(GridLaborPlatte, GridSichtbar);
+        TabZeichnen.TabZeichnen.TabSimulationZeichnen(GridSimulation, GridSichtbar);
+        TabZeichnen.TabZeichnen.TabAutoTestZeichnen(GridAutoTest, GridSichtbar);
+    }
 }

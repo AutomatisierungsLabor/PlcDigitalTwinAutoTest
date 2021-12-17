@@ -9,7 +9,6 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class ViewModel : INotifyPropertyChanged
 {
-    public  static ViewModel Instance { get; set; }
 
     public enum WpfObjects
     {
