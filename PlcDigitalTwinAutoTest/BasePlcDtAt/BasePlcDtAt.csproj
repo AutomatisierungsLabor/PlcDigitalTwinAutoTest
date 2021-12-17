@@ -6,9 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Bilder\IconPlotter.jpg" />
+    <None Remove="Bilder\S7_1200.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
     <ProjectReference Include="..\LibPlc\LibPlc.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Bilder\IconPlotter.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\S7_1200.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 

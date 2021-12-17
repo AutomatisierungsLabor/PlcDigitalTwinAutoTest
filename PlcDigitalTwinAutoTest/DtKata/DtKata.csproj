@@ -7,7 +7,50 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Bilder\IconPlotter.jpg" />
+    <None Remove="Bilder\Kippschalter_Off.JPG" />
+    <None Remove="Bilder\Kippschalter_On.JPG" />
+    <None Remove="Bilder\S7_1200.jpg" />
+    <None Remove="Bilder\SchiebeSchalterOff.JPG" />
+    <None Remove="Bilder\SchiebeSchalterOn.JPG" />
+    <None Remove="Bilder\Snap7.ico" />
+    <None Remove="Bilder\Taster_BetaetigtHellgrau.jpg" />
+    <None Remove="Bilder\Taster_SchliesserHellgrau.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BasePlcDtAt\BasePlcDtAt.csproj" />
+    <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Bilder\IconPlotter.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Kippschalter_Off.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Kippschalter_On.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\S7_1200.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\SchiebeSchalterOff.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\SchiebeSchalterOn.JPG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Snap7.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Taster_BetaetigtHellgrau.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Bilder\Taster_SchliesserHellgrau.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

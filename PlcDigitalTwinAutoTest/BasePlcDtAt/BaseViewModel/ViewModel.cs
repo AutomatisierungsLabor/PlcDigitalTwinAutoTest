@@ -9,28 +9,40 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class ViewModel : INotifyPropertyChanged
 {
+    public  static ViewModel Instance { get; set; }
 
-   public enum WpfObjects
+    public enum WpfObjects
     {
         TabLaborplatte = 0,
         TabSimulation = 1,
         TabAutoTest = 2,
-        ErrorAnzeige = 3
+        BtnPlcAnzeigen = 3,
+        BtnPlottAnzeigen = 4,
+        ErrorAnzeige = 5
     }
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-    protected abstract void ViewModelKonstuktorZusatz();
+    
     protected abstract void ViewModelAufrufThread();
     protected abstract void ViewModelAufrufTaster(short tasterId);
     protected abstract void ViewModelAufrufSchalter(short schalterId);
 
     public LibDatenstruktur.Datenstruktur Datenstruktur { get; set; }
     public BaseModel.Model Model { get; set; }
+
+    protected Grid GridBeschreibung;
+    protected Grid GridLaborPlatte;
+    protected Grid GridSimulation;
+    protected Grid GridAutoTest;
+    protected bool GridSichtbar;
+
+
+
     protected ViewModel()
     {
-
         Log.Debug("Konstruktor - startet");
+
+        GridSichtbar = true;
 
         FensterTitel = "Unbekannter Titel";
 
@@ -48,14 +60,11 @@ public abstract partial class ViewModel : INotifyPropertyChanged
             Farbe.Add(Brushes.White);
         }
 
-        // ReSharper disable once VirtualMemberCallInConstructor
-        ViewModelKonstuktorZusatz();
-
         System.Threading.Tasks.Task.Run(ViewModelTask);
     }
 
 
-    public void SetRefModel(BaseModel.Model model) =>Model=model;
+
 
 
 
@@ -70,4 +79,10 @@ public abstract partial class ViewModel : INotifyPropertyChanged
     // ReSharper disable once UnusedMember.Global
     public ICommand BtnSchalter => _btnSchalter ??= new RelayCommand(Schalter);
 
+
+    public void SetRefModel(BaseModel.Model model) => Model = model;
+    public void SetGridBeschreibung(Grid grid) => GridBeschreibung = grid;
+    public void SetGridLaborPlatte(Grid grid) => GridLaborPlatte = grid;
+    public void SetGridSimulation(Grid grid) => GridSimulation = grid;
+    public void SetGridAutoTest(Grid grid) => GridAutoTest = grid;
 }
