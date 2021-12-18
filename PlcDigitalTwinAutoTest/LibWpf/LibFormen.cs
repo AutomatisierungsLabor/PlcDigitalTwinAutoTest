@@ -14,7 +14,7 @@ public class LibFormen
         var linie = new Line
         {
             Stroke = farbe,
-            StrokeThickness = 2,
+            StrokeThickness = breite,
             X1 = x1,
             Y1 = y1,
             X2 = x2,
@@ -29,7 +29,6 @@ public class LibFormen
         grid.Children.Add(linie);
 
     }
-
     public static void Rechteck(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Grid grid)
     {
         var hintergrund = new Rectangle
@@ -43,8 +42,7 @@ public class LibFormen
         SetRowSpan(hintergrund, ySpan);
         grid.Children.Add(hintergrund);
     }
-    public static void RechteckViz(int xPos, int xSpan, int yPos, int ySpan, Brush farbe,
-                                    int wpfObject, DependencyProperty visibilityProperty, Grid grid)
+    public static void RechteckViz(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, int wpfObject, DependencyProperty visibilityProperty, Grid grid)
     {
         var rectangle = new Rectangle
         {
@@ -58,6 +56,22 @@ public class LibFormen
         SetRow(rectangle, yPos);
         SetRowSpan(rectangle, ySpan);
         grid.Children.Add(rectangle);
+    }
+    public static void KreisRandViz(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, string bindingViz, DependencyProperty visibilityProperty, Grid grid)
+    {
+        var ellipse = new Ellipse()
+        {
+            Stroke = rand,
+            Margin = margin
+        };
+
+        ellipse.SetBinding(visibilityProperty, new Binding(bindingViz));
+
+        SetColumn(ellipse, xPos);
+        SetColumnSpan(ellipse, xSpan);
+        SetRow(ellipse, yPos);
+        SetRowSpan(ellipse, ySpan);
+        grid.Children.Add(ellipse);
     }
 
 }

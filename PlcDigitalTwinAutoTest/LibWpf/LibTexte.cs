@@ -9,9 +9,7 @@ namespace LibWpf;
 
 public class LibTexte
 {
-    public static void Text(string text, int xPos, int xSpan, int yPos, int ySpan,
-                            HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe,
-                            /*DependencyProperty visibilityProperty,*/ Grid grid)
+    public static void Text(string text, int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, Grid grid)
     {
         var label = new Label
         {
@@ -28,10 +26,7 @@ public class LibTexte
         SetRowSpan(label, ySpan);
         grid.Children.Add(label);
     }
-
-    public static void TextViz(int xPos, int xSpan, int yPos, int ySpan,
-        HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe,
-        int wpfObject, DependencyProperty visibilityProperty, Grid grid)
+    public static void TextViz(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, int wpfObject, DependencyProperty visibilityProperty, Grid grid)
     {
         var label = new Label
         {

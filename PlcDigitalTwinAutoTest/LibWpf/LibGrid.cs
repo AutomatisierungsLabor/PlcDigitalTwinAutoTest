@@ -18,13 +18,13 @@ public class LibGrid
 
         for (var i = 0; i < anzY; i++)
         {
-            LibFormen.Linie( 0, i * hoeheY, anzX * breiteX, i * hoeheY, anzX, anzY, 10, Brushes.Crimson,  grid);
+            LibFormen.Linie( 0, i * hoeheY, anzX * breiteX, i * hoeheY, anzX, anzY, 1, Brushes.Crimson,  grid);
             LibTexte.Text(i.ToString(), 0, 1, i, 1,  HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.Blue,   grid);
         }
 
         for (var i = 0; i < anzX; i++)
         {
-            LibFormen.Linie( i * breiteX, 0, i * breiteX, anzY * hoeheY, anzX, anzY, 10, Brushes.BlueViolet,  grid);
+            LibFormen.Linie( i * breiteX, 0, i * breiteX, anzY * hoeheY, anzX, anzY, 1, Brushes.BlueViolet,  grid);
             LibTexte.Text(i.ToString(), i, 1, 0, 1,  HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.DarkGreen,   grid);
         }
     }

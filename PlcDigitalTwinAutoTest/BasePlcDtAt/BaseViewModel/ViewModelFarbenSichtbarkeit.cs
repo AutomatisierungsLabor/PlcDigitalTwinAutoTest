@@ -7,7 +7,6 @@ namespace BasePlcDtAt.BaseViewModel;
 public abstract partial class ViewModel
 {
     internal void FarbeUmschalten(bool val, int i, Brush farbe1, Brush farbe2) => Farbe[i] = val ? farbe1 : farbe2;
-
     internal void SichtbarkeitUmschalten(bool val, int i)
     {
         SichtbarEin[i] = val ? Visibility.Visible : Visibility.Collapsed;

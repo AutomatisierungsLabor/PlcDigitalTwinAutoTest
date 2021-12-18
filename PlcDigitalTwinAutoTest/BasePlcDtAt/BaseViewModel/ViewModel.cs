@@ -11,7 +11,7 @@ namespace BasePlcDtAt.BaseViewModel;
 public abstract partial class ViewModel : INotifyPropertyChanged
 {
 
-    public enum WpfObjects
+    public enum WpfBase
     {
         TabLaborplatte = 0,
         TabSimulation = 1,
@@ -37,9 +37,7 @@ public abstract partial class ViewModel : INotifyPropertyChanged
     protected Grid GridSimulation;
     protected Grid GridAutoTest;
     protected bool GridSichtbar;
-
-
-
+    
     protected ViewModel()
     {
         Log.Debug("Konstruktor - startet");
@@ -67,11 +65,7 @@ public abstract partial class ViewModel : INotifyPropertyChanged
         System.Threading.Tasks.Task.Run(ViewModelTask);
     }
 
-
-
-
-
-
+    
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -82,7 +76,6 @@ public abstract partial class ViewModel : INotifyPropertyChanged
     private ICommand _btnSchalter;
     // ReSharper disable once UnusedMember.Global
     public ICommand BtnSchalter => _btnSchalter ??= new RelayCommand(Schalter);
-
 
     public void SetRefModel(BaseModel.Model model) => Model = model;
     public void SetGridBeschreibung(Grid grid) => GridBeschreibung = grid;
