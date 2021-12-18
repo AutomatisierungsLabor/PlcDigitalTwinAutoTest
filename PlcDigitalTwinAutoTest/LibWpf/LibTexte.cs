@@ -29,9 +29,9 @@ public class LibTexte
         grid.Children.Add(label);
     }
 
-    public static void TextViz(string text, int xPos, int xSpan, int yPos, int ySpan,
+    public static void TextViz(int xPos, int xSpan, int yPos, int ySpan,
         HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe,
-        int wpfObject, /*DependencyProperty visibilityProperty,*/ Grid grid)
+        int wpfObject, DependencyProperty visibilityProperty, Grid grid)
     {
         var label = new Label
         {
@@ -41,16 +41,9 @@ public class LibTexte
             VerticalAlignment = vertical
         };
 
-        if (text == "-")
-        {
-            label.Content = text;
+        label.SetBinding(ContentControl.ContentProperty, new Binding($"Text[{wpfObject }]"));
+        label.SetBinding(visibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
 
-        }
-        else
-        {
-            label.SetBinding(TextBlock.TextProperty, new Binding($"Textl{wpfObject }]"));
-            //label.SetBinding(visibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
-        }
 
         SetColumn(label, xPos);
         SetColumnSpan(label, xSpan);

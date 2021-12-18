@@ -12,12 +12,11 @@ namespace LibWpf
 {
     public  class LibMeldungen
     {
-
         public static void PlcError(Grid grid)
         {
-            LibFormen.RechteckViz(2, 20, 2, 10, Brushes.LightSalmon,  (int)WpfObjects.ErrorAnzeige,  grid);
-            LibTexte.TextViz("-",5,10,5,10,HorizontalAlignment.Left,VerticalAlignment.Center,10,Brushes.Black, (int)WpfObjects.ErrorVersionLokal,  grid);
-            LibTexte.TextViz("-",5,10,5,10,HorizontalAlignment.Left,VerticalAlignment.Center,10,Brushes.Black, (int)WpfObjects.ErrorVersionPlc,  grid);
+            LibFormen.RechteckViz(2, 20, 2, 10, Brushes.LightSalmon,  (int)WpfObjects.ErrorAnzeige, UIElement.VisibilityProperty,  grid);
+            LibTexte.TextViz(5,10,5,2,HorizontalAlignment.Left,VerticalAlignment.Center,20,Brushes.Black, (int)WpfObjects.ErrorVersionLokal, UIElement.VisibilityProperty, grid);
+            LibTexte.TextViz(5,10,10,2,HorizontalAlignment.Left,VerticalAlignment.Center,20,Brushes.Black, (int)WpfObjects.ErrorVersionPlc, UIElement.VisibilityProperty,  grid);
         }
     }
 }

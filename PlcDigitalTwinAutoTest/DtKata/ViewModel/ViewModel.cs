@@ -11,12 +11,14 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
     public ViewModel()
     {
 
-        SichtbarEin[(int)WpfObjects.TabLaborplatte] = Visibility.Collapsed;
+        SichtbarEin[(int)WpfObjects.TabLaborplatte] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.TabSimulation] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.TabAutoTest] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.BtnPlottAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfObjects.ErrorAnzeige] = Visibility.Visible;
+        SichtbarEin[(int)WpfObjects.ErrorVersionLokal] = Visibility.Visible;
+        SichtbarEin[(int)WpfObjects.ErrorVersionPlc] = Visibility.Visible;
 
         Text[(int)WpfObjects.ErrorVersionLokal] = "Lokale Projektversion";
         Text[(int)WpfObjects.ErrorVersionPlc] = "PLC Projektversion";
@@ -49,7 +51,6 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 
     public void AlleTabZeichnen(BaseWindow baseWindow)
     {
-        var sdfs = baseWindow.FindName("Grid0");
         GridBeschreibung = baseWindow.FindName("Grid0") as Grid;
         GridLaborPlatte = baseWindow.FindName("Grid1") as Grid;
         GridSimulation = baseWindow.FindName("Grid2") as Grid;

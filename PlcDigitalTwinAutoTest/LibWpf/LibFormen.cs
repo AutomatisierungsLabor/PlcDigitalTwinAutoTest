@@ -44,14 +44,14 @@ public class LibFormen
         grid.Children.Add(hintergrund);
     }
     public static void RechteckViz(int xPos, int xSpan, int yPos, int ySpan, Brush farbe,
-                                    int wpfObject,/* DependencyProperty visibilityProperty,*/ Grid grid)
+                                    int wpfObject, DependencyProperty visibilityProperty, Grid grid)
     {
         var rectangle = new Rectangle
         {
             Fill = farbe
         };
 
-       // rectangle.SetBinding(visibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
+        rectangle.SetBinding(visibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
 
         SetColumn(rectangle, xPos);
         SetColumnSpan(rectangle, xSpan);

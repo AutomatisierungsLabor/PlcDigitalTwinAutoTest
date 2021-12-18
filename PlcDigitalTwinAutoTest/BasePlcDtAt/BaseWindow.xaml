@@ -32,7 +32,7 @@
             <TabItem Header="Laborplatte" ToolTip="Die SPS mit der Laborplatte mit über den dSub25 Stecker verbinden" Visibility="{Binding SichtbarEin[0]}">
                 <Grid x:Name="Grid1"/>
             </TabItem>
-            <TabItem  Header="Simulation" Height="20" VerticalAlignment="Top" Visibility="{Binding SichtbarEin[1]}">
+            <TabItem  Header="Simulation" Visibility="{Binding SichtbarEin[1]}">
                 <Grid x:Name="Grid2"/>
             </TabItem>
             <TabItem Header="Automatischer Softwaretest" Visibility="{Binding SichtbarEin[2]}">
