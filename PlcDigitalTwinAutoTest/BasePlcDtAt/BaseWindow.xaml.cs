@@ -16,16 +16,19 @@ public partial class BaseWindow : Window
 
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
     {
-        //
+        _viewModel.BetriebsartProjektChanged( sender,e);
+        
     }
 
     private void PlcButtonClick(object sender, RoutedEventArgs e)
     {
-        //
+        _viewModel.PlcButtonClick(sender,e);
+        
     }
 
     private void PlotterButtonClick(object sender, RoutedEventArgs e)
     {
-        //
+        _viewModel.PlotterButtonClick(sender, e);
+        
     }
 }

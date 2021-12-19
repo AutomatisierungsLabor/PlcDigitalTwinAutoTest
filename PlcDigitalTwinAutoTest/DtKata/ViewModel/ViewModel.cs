@@ -11,23 +11,24 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 
     public enum WpfObjects
     {
-        P1 = 1,
-        P2 = 2,
-        P3 = 3,
-        P4 = 4,
-        P5 = 5,
-        P6 = 6,
-        P7 = 7,
-        P8 = 8,
+        Dummy1 = 0, // die ersten zehn
+        P1 = 11,
+        P2 = 12,
+        P3 = 13,
+        P4 = 14,
+        P5 = 15,
+        P6 = 16,
+        P7 = 17,
+        P8 = 18,
 
-        S1 = 11,
-        S2 = 12,
-        S3 = 13,
-        S4 = 14,
-        S5 = 15,
-        S6 = 16,
-        S7 = 17,
-        S8 = 18,
+        S1 = 21,
+        S2 = 22,
+        S3 = 23,
+        S4 = 24,
+        S5 = 25,
+        S6 = 26,
+        S7 = 27,
+        S8 = 28,
 
     }
 
@@ -68,6 +69,22 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
     {
         //
     }
+
+    public override void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public override void PlcButtonClick(object sender, RoutedEventArgs e)
+    {
+        //throw new System.NotImplementedException();
+    }
+
+    public override void PlotterButtonClick(object sender, RoutedEventArgs e)
+    {
+        //throw new System.NotImplementedException();
+    }
+
     public void SetRefDatenstruktur(Datenstruktur datenstruktur) => Datenstruktur = datenstruktur;
     public void SetGridSichtbar(bool b) => GridSichtbar = b;
     public void AlleTabZeichnen(BaseWindow baseWindow)

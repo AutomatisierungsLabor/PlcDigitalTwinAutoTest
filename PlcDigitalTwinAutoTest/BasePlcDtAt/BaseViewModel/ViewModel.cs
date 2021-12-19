@@ -29,6 +29,10 @@ public abstract partial class ViewModel : INotifyPropertyChanged
     protected abstract void ViewModelAufrufTaster(short tasterId);
     protected abstract void ViewModelAufrufSchalter(short schalterId);
 
+    public abstract void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e);
+    public abstract void PlcButtonClick(object sender, RoutedEventArgs e);
+    public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
+
     public LibDatenstruktur.Datenstruktur Datenstruktur { get; set; }
     public BaseModel.Model Model { get; set; }
 
