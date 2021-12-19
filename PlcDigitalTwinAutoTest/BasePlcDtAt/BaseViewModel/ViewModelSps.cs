@@ -1,9 +1,10 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Media;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class ViewModel
+public abstract partial class ViewModel : INotifyPropertyChanged
 {
     private string _fensterTitel;
     public string FensterTitel

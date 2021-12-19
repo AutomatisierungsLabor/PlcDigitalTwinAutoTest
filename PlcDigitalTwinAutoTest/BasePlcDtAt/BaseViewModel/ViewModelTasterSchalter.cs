@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows.Controls;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class ViewModel
+public abstract partial class ViewModel : INotifyPropertyChanged
 {
     internal void Taster(object id)
     {
@@ -13,13 +14,8 @@ public abstract partial class ViewModel
         var tasterId = short.Parse(ascii);
         var gedrueckt = ClickModeButton(tasterId);
 
-        ViewModelAufrufTaster(tasterId);
-        switch (tasterId)
-        {
+        ViewModelAufrufTaster(tasterId, gedrueckt);
 
-
-            default: throw new ArgumentOutOfRangeException(nameof(id));
-        }
     }
 
     internal void Schalter(object id)

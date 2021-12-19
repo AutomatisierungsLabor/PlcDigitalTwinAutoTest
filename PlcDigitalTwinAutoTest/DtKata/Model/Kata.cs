@@ -2,7 +2,7 @@
 
 namespace DtKata.Model;
 
-internal class Kata : BasePlcDtAt.BaseModel.Model
+public class Kata : BasePlcDtAt.BaseModel.Model
 {
     public bool S1 { get; set; }
     public bool S2 { get; set; }

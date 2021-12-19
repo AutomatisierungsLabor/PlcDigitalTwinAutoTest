@@ -10,12 +10,10 @@ public partial class App
     public App()
     {
         Datenstruktur = new LibDatenstruktur.Datenstruktur();
-        var viewModel = new ViewModel.ViewModel();
+       
         var kata = new Kata { VersionLokal = "Kata" + " " + "V2.0" };
-
-
-        viewModel.SetRefModel(kata);
-        viewModel.SetRefDatenstruktur(Datenstruktur);
+        var viewModel = new ViewModel.ViewModel(kata, Datenstruktur);
+        
         viewModel.SetGridSichtbar(true);
 
 

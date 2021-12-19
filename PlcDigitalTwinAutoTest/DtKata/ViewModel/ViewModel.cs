@@ -1,7 +1,9 @@
-﻿using System.Net.Mime;
+﻿using System;
+using System.Net.Mime;
 using System.Windows;
 using System.Windows.Controls;
 using BasePlcDtAt;
+using DtKata.Model;
 using LibDatenstruktur;
 
 namespace DtKata.ViewModel;
@@ -32,15 +34,16 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 
     }
 
-    public ViewModel()
+    public ViewModel(BasePlcDtAt.BaseModel.Model model, Datenstruktur datenstruktur) : base(model, datenstruktur)
     {
-
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
+
+        _kata = model as Kata;
         /*
 
           SichtbarEin[(int)WpfBase.ErrorAnzeige] = Visibility.Visible;
@@ -55,15 +58,35 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         FensterTitel = "Nicht bekannt";
     }
 
+    private readonly Kata _kata;
     protected override void ViewModelAufrufThread()
     {
-        if (Model == null) return;
+        if (_kata == null) return;
+
+        SichtbarkeitUmschalten(_kata.S1, (int)WpfObjects.S1);
 
         FensterTitel = Model.VersionLokal;
     }
-    protected override void ViewModelAufrufTaster(short tasterId)
+
+    protected override void ViewModelAufrufTaster(short tasterId, bool gedrueckt)
     {
-        //
+      
+            switch ((ViewModel.WpfObjects)tasterId)
+            {
+                case WpfObjects.S1:
+                    _kata.S1 = gedrueckt;
+                    break;
+                case WpfObjects.S2:
+
+                    break;
+
+
+
+
+                default: throw new ArgumentOutOfRangeException(nameof(tasterId));
+            }
+
+
     }
     protected override void ViewModelAufrufSchalter(short schalterId)
     {
@@ -85,7 +108,6 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         //throw new System.NotImplementedException();
     }
 
-    public void SetRefDatenstruktur(Datenstruktur datenstruktur) => Datenstruktur = datenstruktur;
     public void SetGridSichtbar(bool b) => GridSichtbar = b;
     public void AlleTabZeichnen(BaseWindow baseWindow)
     {

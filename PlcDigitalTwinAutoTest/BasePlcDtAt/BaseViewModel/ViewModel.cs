@@ -5,10 +5,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using LibDatenstruktur;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class ViewModel : INotifyPropertyChanged
+public abstract partial class ViewModel: INotifyPropertyChanged
 {
 
     public enum WpfBase
@@ -26,14 +27,14 @@ public abstract partial class ViewModel : INotifyPropertyChanged
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     protected abstract void ViewModelAufrufThread();
-    protected abstract void ViewModelAufrufTaster(short tasterId);
+    protected abstract void ViewModelAufrufTaster(short tasterId, bool gedrueckt);
     protected abstract void ViewModelAufrufSchalter(short schalterId);
 
     public abstract void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e);
     public abstract void PlcButtonClick(object sender, RoutedEventArgs e);
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
 
-    public LibDatenstruktur.Datenstruktur Datenstruktur { get; set; }
+    public Datenstruktur Datenstruktur { get; set; }
     public BaseModel.Model Model { get; set; }
 
     protected Grid GridBeschreibung;
@@ -41,11 +42,11 @@ public abstract partial class ViewModel : INotifyPropertyChanged
     protected Grid GridSimulation;
     protected Grid GridAutoTest;
     protected bool GridSichtbar;
-    
-    protected ViewModel()
+    protected ViewModel(BaseModel.Model model, Datenstruktur datenstruktur)
     {
         Log.Debug("Konstruktor - startet");
-
+        Model = model;
+        Datenstruktur = datenstruktur;
         GridSichtbar = true;
 
         FensterTitel = "Unbekannter Titel";
@@ -69,7 +70,7 @@ public abstract partial class ViewModel : INotifyPropertyChanged
         System.Threading.Tasks.Task.Run(ViewModelTask);
     }
 
-    
+
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
@@ -81,7 +82,6 @@ public abstract partial class ViewModel : INotifyPropertyChanged
     // ReSharper disable once UnusedMember.Global
     public ICommand BtnSchalter => _btnSchalter ??= new RelayCommand(Schalter);
 
-    public void SetRefModel(BaseModel.Model model) => Model = model;
     public void SetGridBeschreibung(Grid grid) => GridBeschreibung = grid;
     public void SetGridLaborPlatte(Grid grid) => GridLaborPlatte = grid;
     public void SetGridSimulation(Grid grid) => GridSimulation = grid;
