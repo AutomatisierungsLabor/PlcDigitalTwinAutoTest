@@ -1,4 +1,5 @@
-﻿using BasePlcDtAt.BaseCommands;
+﻿using System;
+using BasePlcDtAt.BaseCommands;
 using System.ComponentModel;
 using System.Net.Mime;
 using System.Windows;
@@ -27,7 +28,7 @@ public abstract partial class ViewModel: INotifyPropertyChanged
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     protected abstract void ViewModelAufrufThread();
-    protected abstract void ViewModelAufrufTaster(short tasterId, bool gedrueckt);
+    protected abstract void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt);
     protected abstract void ViewModelAufrufSchalter(short schalterId);
 
     public abstract void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e);

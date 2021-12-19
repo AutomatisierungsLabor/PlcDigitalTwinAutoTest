@@ -16,7 +16,7 @@ public partial class TabZeichnen
         LibWpf.LibTexte.Text("Simulation", 2, 20, 25, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.Black, grid);
 
         var viewmodel = grid.DataContext as BasePlcDtAt.BaseViewModel.ViewModel ?? throw new ArgumentNullException($"{nameof(ViewModel)}","Datacontext is not of type viewmodel");
-        LibWpf.LibButton.ButtonViz("S1",3,1,4,2,10,new Thickness(2,2,2,2), viewmodel.BtnTaster, ((short)ViewModel.ViewModel.WpfObjects.S1).ToString(), "ClkMode[11]", UIElement.VisibilityProperty, grid);
+        LibWpf.LibButton.ButtonViz("S1",3,1,4,2,10,new Thickness(2,2,2,2), viewmodel.BtnTaster, ViewModel.ViewModel.WpfObjects.S1, "ClkMode[11]", UIElement.VisibilityProperty, grid);
 
         
         LibWpf.LibBilder.BildViz($"Bilder\\Taster_SchliesserHellgrau.jpg", 4, 2, 4, 2, new Thickness(0, 5, 5, 5), $"SichtbarEin[{ (int)DtKata.ViewModel.ViewModel.WpfObjects.S1}]", UIElement.VisibilityProperty, grid);

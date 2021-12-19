@@ -9,13 +9,13 @@ public abstract partial class ViewModel : INotifyPropertyChanged
 {
     internal void Taster(object id)
     {
-        if (id is not string ascii) return;
+        if (id is not Enum) return;
+        var enumValue = (Enum)id;
+        var value = Convert.ToInt16(enumValue);
 
-        var tasterId = short.Parse(ascii);
-        var gedrueckt = ClickModeButton(tasterId);
+        var gedrueckt = ClickModeButton(value);
 
-        ViewModelAufrufTaster(tasterId, gedrueckt);
-
+        ViewModelAufrufTaster(enumValue, gedrueckt);
     }
 
     internal void Schalter(object id)

@@ -68,14 +68,11 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         FensterTitel = Model.VersionLokal;
     }
 
-    protected override void ViewModelAufrufTaster(short tasterId, bool gedrueckt)
+    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
-      
-            switch ((ViewModel.WpfObjects)tasterId)
+        switch (tasterId)
             {
-                case WpfObjects.S1:
-                    _kata.S1 = gedrueckt;
-                    break;
+                case WpfObjects.S1: _kata.S1 = gedrueckt; break;
                 case WpfObjects.S2:
 
                     break;

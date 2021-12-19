@@ -18,7 +18,7 @@ public class LibButton
 
  
 
-    public static void ButtonViz(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, System.Windows.Input.ICommand cmd, string cmdParameter, string bindingClick , DependencyProperty visibilityProperty, Grid grid)
+    public static void ButtonViz(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, System.Windows.Input.ICommand cmd, object cmdParameter, string bindingClick , DependencyProperty visibilityProperty, Grid grid)
     {
         var button = new Button
         {
