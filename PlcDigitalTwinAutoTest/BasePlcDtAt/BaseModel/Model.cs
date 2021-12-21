@@ -12,7 +12,6 @@ public abstract class Model
 
     public static Datenstruktur Datenstruktur { get; set; }
     public Config ConfigPlc { get; set; }
-
     public string VersionLokal { get; set; } = "-?-";
     public string VersionPlc { get; set; } = "-???-";
 
@@ -22,7 +21,6 @@ public abstract class Model
     protected Model()
     {
         Log.Debug("Konstruktor - startet");
-
 
         ConfigPlc = new Config();
         _datenRangieren = new DatenRangieren(this);

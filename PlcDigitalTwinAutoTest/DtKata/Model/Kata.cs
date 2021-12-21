@@ -29,7 +29,6 @@ public class Kata : BasePlcDtAt.BaseModel.Model
         S7 = true;
         S8 = true;
     }
-
     protected override void ModelTaskThread()
     {
         P1 = S1;
@@ -41,6 +40,5 @@ public class Kata : BasePlcDtAt.BaseModel.Model
         P7 = S7;
         P8 = S8;
     }
-
     public void SetRefDatenstuktur(Datenstruktur datenstruktur) => Datenstruktur = datenstruktur;
 }

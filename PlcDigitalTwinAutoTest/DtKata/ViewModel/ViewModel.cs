@@ -87,8 +87,8 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         {
             case WpfObjects.S1: _kata.S1 = gedrueckt; break;
             case WpfObjects.S2: _kata.S2 = gedrueckt; break;
-            case WpfObjects.S3: _kata.S3 = gedrueckt; break;
-            case WpfObjects.S4: _kata.S4 = gedrueckt; break;
+            case WpfObjects.S3: _kata.S3 = !gedrueckt; break;
+            case WpfObjects.S4: _kata.S4 = !gedrueckt; break;
             default: throw new ArgumentOutOfRangeException(nameof(tasterId));
         }
     }
@@ -132,9 +132,9 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         GridSimulation = baseWindow.FindName("Grid2") as Grid;
         GridAutoTest = baseWindow.FindName("Grid3") as Grid;
 
-        TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(GridBeschreibung, GridSichtbar);
-        TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(GridLaborPlatte, GridSichtbar);
-        TabZeichnen.TabZeichnen.TabSimulationZeichnen(GridSimulation, GridSichtbar);
-        TabZeichnen.TabZeichnen.TabAutoTestZeichnen(GridAutoTest, GridSichtbar);
+        TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(GridBeschreibung, GridSichtbar,"#eeeeee");
+        TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(GridLaborPlatte, GridSichtbar,"#eeeeee");
+        TabZeichnen.TabZeichnen.TabSimulationZeichnen(GridSimulation, GridSichtbar, "#eeeeee");
+        TabZeichnen.TabZeichnen.TabAutoTestZeichnen(GridAutoTest, GridSichtbar,"#eeeeee");
     }
 }

@@ -13,7 +13,7 @@ public partial class App
         var kata = new Kata { VersionLokal = "Kata" + " " + "V2.0" };
         var viewModel = new ViewModel.ViewModel(kata, Datenstruktur);
         
-        viewModel.SetGridSichtbar(true);
+        viewModel.SetGridSichtbar(false);
 
         kata.SetRefDatenstuktur(Datenstruktur);
         kata.ConfigPlc.SetPath("/ConfigPlc");

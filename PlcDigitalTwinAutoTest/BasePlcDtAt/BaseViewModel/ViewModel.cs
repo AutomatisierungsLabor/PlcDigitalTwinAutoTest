@@ -47,7 +47,6 @@ public abstract partial class ViewModel
         Log.Debug("Konstruktor - startet");
         Model = model;
         Datenstruktur = datenstruktur;
-        GridSichtbar = true;
 
         FensterTitel = "Unbekannter Titel";
 

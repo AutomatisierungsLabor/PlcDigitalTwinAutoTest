@@ -6,7 +6,7 @@ namespace DtKata.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static void TabBeschreibungZeichnen(Grid grid, bool gridSichtbar)
+    public static void TabBeschreibungZeichnen(Grid grid, bool gridSichtbar, string hintergrund)
     {
 
         LibWpf.LibGrid.Zeichnen( 50, 20, 30, 20, gridSichtbar, grid);

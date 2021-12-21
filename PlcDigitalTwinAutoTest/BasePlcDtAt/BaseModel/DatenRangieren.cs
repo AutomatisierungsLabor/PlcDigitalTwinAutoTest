@@ -2,15 +2,6 @@
 
 internal class DatenRangieren
 {
-    private readonly Model _model;
-
-    public DatenRangieren(Model model)
-    {
-        _model = model;
-    }
-
-    public void Rangieren()
-    {
-
-    }
+    public DatenRangieren(Model model) { }
+    public void Rangieren() { }
 }
