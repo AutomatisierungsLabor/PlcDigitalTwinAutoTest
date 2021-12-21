@@ -1,7 +1,5 @@
-﻿using System.Windows;
+﻿namespace DtBlinker;
 
-namespace DtBlinker;
-
-public partial class App : Application
+public partial class App
 {
 }

@@ -2,7 +2,6 @@
 
 internal class DatenRangieren
 {
-
     private readonly Model _model;
 
     public DatenRangieren(Model model)

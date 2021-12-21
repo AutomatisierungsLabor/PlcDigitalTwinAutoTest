@@ -1,9 +1,8 @@
-﻿using System.ComponentModel;
-using System.Threading;
+﻿using System.Threading;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class ViewModel : INotifyPropertyChanged
+public abstract partial class ViewModel
 {
     private void ViewModelTask()
     {

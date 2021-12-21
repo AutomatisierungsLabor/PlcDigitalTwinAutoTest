@@ -57,15 +57,20 @@ public class LibFormen
         SetRowSpan(rectangle, ySpan);
         grid.Children.Add(rectangle);
     }
-    public static void KreisRandViz(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, string bindingViz, DependencyProperty visibilityProperty, Grid grid)
+    public static void KreisRandViz(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, string bindingViz, DependencyProperty fillProperty, Grid grid)
     {
-        var ellipse = new Ellipse()
+        var ellipse = new Ellipse
         {
             Stroke = rand,
-            Margin = margin
+            Margin = margin,
+            Fill = new SolidColorBrush(Colors.Red)
         };
 
-        ellipse.SetBinding(visibilityProperty, new Binding(bindingViz));
+        // ellipse.SetBinding(, new Binding(bindingViz));
+
+       
+        BindingOperations.SetBinding(ellipse, fillProperty, new Binding(bindingViz));
+
 
         SetColumn(ellipse, xPos);
         SetColumnSpan(ellipse, xSpan);

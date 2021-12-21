@@ -9,10 +9,9 @@ public abstract partial class ViewModel : INotifyPropertyChanged
 {
     internal void Taster(object id)
     {
-        if (id is not Enum) return;
-        var enumValue = (Enum)id;
-        var value = Convert.ToInt16(enumValue);
+        if (id is not Enum enumValue) return;
 
+        var value = Convert.ToInt16(enumValue);
         var gedrueckt = ClickModeButton(value);
 
         ViewModelAufrufTaster(enumValue, gedrueckt);
@@ -20,17 +19,9 @@ public abstract partial class ViewModel : INotifyPropertyChanged
 
     internal void Schalter(object id)
     {
-        if (id is not string ascii) return;
+        if (id is not Enum enumValue) return;
 
-        var schalterId = short.Parse(ascii);
-
-        ViewModelAufrufSchalter(schalterId);
-        switch (schalterId)
-        {
-
-
-            default: throw new ArgumentOutOfRangeException(nameof(id));
-        }
+        ViewModelAufrufSchalter(enumValue);
     }
 
     public bool ClickModeButton(int tasterId)

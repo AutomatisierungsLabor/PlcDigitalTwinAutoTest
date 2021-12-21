@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using System.Threading;
+﻿using System.Threading;
 using LibConfigPlc;
 using LibDatenstruktur;
 
@@ -26,9 +25,7 @@ public abstract class Model
 
 
         ConfigPlc = new Config();
-
         _datenRangieren = new DatenRangieren(this);
-
         System.Threading.Tasks.Task.Run(ModelTask);
     }
 
@@ -37,26 +34,9 @@ public abstract class Model
         while (true)
         {
             _datenRangieren.Rangieren();
-
             ModelTaskThread();
-
             Thread.Sleep(10);
         }
         // ReSharper disable once FunctionNeverReturns
     }
-
-    public static void BetriebsartUmschalten(int i)
-    {
-        Datenstruktur.BetriebsartProjekt = i switch
-        {
-            0 => BetriebsartProjekt.LaborPlatte,
-            1 => BetriebsartProjekt.Simulation,
-            2 => BetriebsartProjekt.AutomatischerSoftwareTest,
-            _ => Datenstruktur.BetriebsartProjekt
-        };
-
-        
-    }
-
-
 }

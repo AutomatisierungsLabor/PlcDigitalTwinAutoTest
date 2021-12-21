@@ -1,13 +1,12 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class ViewModel : INotifyPropertyChanged
+public abstract partial class ViewModel
 {
-    internal void FarbeUmschalten(bool val, int i, Brush farbe1, Brush farbe2) => Farbe[i] = val ? farbe1 : farbe2;
+    protected void FarbeUmschalten(bool val, int i, Brush farbe1, Brush farbe2) => Farbe[i] = val ? farbe1 : farbe2;
     protected void SichtbarkeitUmschalten(bool val, int i)
     {
         SichtbarEin[i] = val ? Visibility.Visible : Visibility.Collapsed;

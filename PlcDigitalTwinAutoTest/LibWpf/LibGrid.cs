@@ -1,8 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Shapes;
-using static System.Windows.Controls.Grid;
 
 namespace LibWpf;
 

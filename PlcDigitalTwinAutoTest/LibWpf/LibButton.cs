@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
 using static System.Windows.Controls.Grid;
 
 namespace LibWpf;
@@ -18,7 +11,7 @@ public class LibButton
 
  
 
-    public static void ButtonViz(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, System.Windows.Input.ICommand cmd, object cmdParameter, string bindingClick , DependencyProperty visibilityProperty, Grid grid)
+    public static void ButtonViz(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, System.Windows.Input.ICommand cmd, object cmdParameter, string bindingClick , DependencyProperty clickModeProperty, Grid grid)
     {
         var button = new Button
         {
@@ -26,12 +19,12 @@ public class LibButton
             FontSize = fontSize,
             Margin = margin,
             Command = cmd,
-            CommandParameter = cmdParameter,
+            CommandParameter = cmdParameter
         };
 
         
         //button.SetBinding(backgroundProperty, new Binding($"ManVisuAnzeigen.FarbeTastenToggeln{bez} [{ par }]"));
-        button.SetBinding(ButtonBase.ClickModeProperty, new Binding(bindingClick));
+        button.SetBinding(clickModeProperty, new Binding(bindingClick));
         //button.SetBinding(visibilityProperty, new Binding($"ManVisuAnzeigen.Visibility{bez} [{ par }]"));
         
 
@@ -66,7 +59,7 @@ public class LibButton
             FontSize = fontSize,
             Margin = margin,
             Command = cmd,
-            CommandParameter = cmdParameter,
+            CommandParameter = cmdParameter
         };
 
         

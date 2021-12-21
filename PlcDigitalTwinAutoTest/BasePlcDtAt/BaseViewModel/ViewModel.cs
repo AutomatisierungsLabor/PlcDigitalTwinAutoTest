@@ -1,7 +1,6 @@
 ﻿using System;
 using BasePlcDtAt.BaseCommands;
 using System.ComponentModel;
-using System.Net.Mime;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,7 +9,7 @@ using LibDatenstruktur;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class ViewModel: INotifyPropertyChanged
+public abstract partial class ViewModel
 {
 
     public enum WpfBase
@@ -29,7 +28,7 @@ public abstract partial class ViewModel: INotifyPropertyChanged
 
     protected abstract void ViewModelAufrufThread();
     protected abstract void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt);
-    protected abstract void ViewModelAufrufSchalter(short schalterId);
+    protected abstract void ViewModelAufrufSchalter(Enum schalterId);
 
     public abstract void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e);
     public abstract void PlcButtonClick(object sender, RoutedEventArgs e);
@@ -82,9 +81,4 @@ public abstract partial class ViewModel: INotifyPropertyChanged
     private ICommand _btnSchalter;
     // ReSharper disable once UnusedMember.Global
     public ICommand BtnSchalter => _btnSchalter ??= new RelayCommand(Schalter);
-
-    public void SetGridBeschreibung(Grid grid) => GridBeschreibung = grid;
-    public void SetGridLaborPlatte(Grid grid) => GridLaborPlatte = grid;
-    public void SetGridSimulation(Grid grid) => GridSimulation = grid;
-    public void SetGridAutoTest(Grid grid) => GridAutoTest = grid;
 }
