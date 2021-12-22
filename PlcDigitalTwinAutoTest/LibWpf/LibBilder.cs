@@ -10,22 +10,31 @@ namespace LibWpf;
 
 public class LibBilder
 {
-    public static void BildViz(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string binding, DependencyProperty visibilityProperty, Grid grid)
+    public static void BildVisEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, int binding, Grid grid)
     {
         var image = new Image
         {
-            Source = new BitmapImage(new Uri(source, UriKind.Relative)),
+            Source = new BitmapImage(new Uri(@$"Bilder\{source}", UriKind.Relative)),
             Stretch = Stretch.Fill,
             Margin = margin
         };
 
-        image.SetBinding(visibilityProperty, new Binding(binding));
+        image.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{binding}]"));
 
-        SetColumn(image, xPos);
-        SetColumnSpan(image, xSpan);
-        SetRow(image, yPos);
-        SetRowSpan(image, ySpan);
+        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, image);
+    }
 
-        grid.Children.Add(image);
+    public static void BildVisAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, int binding, Grid grid)
+    {
+        var image = new Image
+        {
+            Source = new BitmapImage(new Uri(@$"Bilder\{source}", UriKind.Relative)),
+            Stretch = Stretch.Fill,
+            Margin = margin
+        };
+
+        image.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarAus[{binding}]"));
+
+        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, image);
     }
 }

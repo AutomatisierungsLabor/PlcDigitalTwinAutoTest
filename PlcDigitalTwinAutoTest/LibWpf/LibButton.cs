@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using static System.Windows.Controls.Grid;
@@ -10,7 +12,7 @@ namespace LibWpf;
 
 public class LibButton
 {
-    public static void ButtonViz(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, System.Windows.Input.ICommand cmd, object cmdParameter, string bindingClick, DependencyProperty clickModeProperty, Grid grid)
+    public static void ButtonVis(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, string bindingClick, Grid grid)
     {
         var button = new Button
         {
@@ -20,37 +22,30 @@ public class LibButton
             Command = cmd,
             CommandParameter = cmdParameter
         };
-        button.SetBinding(clickModeProperty, new Binding(bindingClick));
-
-        SetColumn(button, xPos);
-        SetColumnSpan(button, xSpan);
-        SetRow(button, yPos);
-        SetRowSpan(button, ySpan);
-
-        grid.Children.Add(button);
+        button.SetBinding(ButtonBase.ClickModeProperty, new Binding(bindingClick));
+        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, button);
     }
 
-    public static void ButtonOnOffViz(int xPos, int xSpan, int yPos, int ySpan, int fontSize,
-        string sourceOn, string sourceOff, string bindingOn, string bindingOff,
-        Thickness margin, System.Windows.Input.ICommand cmd, object cmdParameter, string bindingClick,
-        DependencyProperty clickModeProperty, DependencyProperty visibilityProperty, Grid grid)
+    public static void ButtonOnOffVis(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter,Grid grid)
     {
+        var binding = (int)cmdParameter;
+
         var imageOn = new Image
         {
-            Source = new BitmapImage(new Uri(sourceOn, UriKind.Relative)),
+            Source = new BitmapImage(new Uri(@$"Bilder/{sourceOn}", UriKind.Relative)),
             Stretch = Stretch.Fill,
             Margin = margin
         };
-        imageOn.SetBinding(visibilityProperty, new Binding(bindingOn));
+        imageOn.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{binding}]"));
 
 
         var imageOff = new Image
         {
-            Source = new BitmapImage(new Uri(sourceOff, UriKind.Relative)),
+            Source = new BitmapImage(new Uri(@$"Bilder/{sourceOff}", UriKind.Relative)),
             Stretch = Stretch.Fill,
             Margin = margin
         };
-        imageOff.SetBinding(visibilityProperty, new Binding(bindingOff));
+        imageOff.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarAus[{binding}]"));
 
         var stackPanel = new StackPanel();
         stackPanel.Children.Add(imageOn);
@@ -65,14 +60,8 @@ public class LibButton
             CommandParameter = cmdParameter
         };
 
-        button.SetBinding(clickModeProperty, new Binding(bindingClick));
+        button.SetBinding(ButtonBase.ClickModeProperty, new Binding($"ClkMode[{binding}]"));
 
-        SetColumn(button, xPos);
-        SetColumnSpan(button, xSpan);
-        SetRow(button, yPos);
-        SetRowSpan(button, ySpan);
-
-
-        grid.Children.Add(button);
+        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, button);
     }
 }

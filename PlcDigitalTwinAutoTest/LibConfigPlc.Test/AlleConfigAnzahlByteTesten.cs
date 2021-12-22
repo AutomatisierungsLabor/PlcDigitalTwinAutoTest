@@ -12,8 +12,7 @@ public class AlleConfigAnzahlByteTesten
 
     public void AnzahlByteTesten(string pfad, int anzDi, int anzDa, int anzAi, int anzAa)
     {
-        var config = new Config();
-        config.SetPath(pfad);
+        var config = new Config(pfad);
 
         Assert.Equal(anzDi, config.Di.AnzByte);
         Assert.Equal(anzDa, config.Da.AnzByte);

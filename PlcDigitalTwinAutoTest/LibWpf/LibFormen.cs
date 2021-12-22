@@ -42,22 +42,17 @@ public class LibFormen
         SetRowSpan(hintergrund, ySpan);
         grid.Children.Add(hintergrund);
     }
-    public static void RechteckViz(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, int wpfObject, DependencyProperty visibilityProperty, Grid grid)
+    public static void RechteckVis(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, int wpfObject, Grid grid)
     {
         var rectangle = new Rectangle
         {
             Fill = farbe
         };
 
-        rectangle.SetBinding(visibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
-
-        SetColumn(rectangle, xPos);
-        SetColumnSpan(rectangle, xSpan);
-        SetRow(rectangle, yPos);
-        SetRowSpan(rectangle, ySpan);
-        grid.Children.Add(rectangle);
+        rectangle.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
+        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, rectangle);
     }
-    public static void KreisRandViz(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, string bindingViz, DependencyProperty fillProperty, Grid grid)
+    public static void KreisRandVis(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding,  Grid grid)
     {
         var ellipse = new Ellipse
         {
@@ -66,17 +61,9 @@ public class LibFormen
             Fill = new SolidColorBrush(Colors.Red)
         };
 
-        // ellipse.SetBinding(, new Binding(bindingViz));
+        BindingOperations.SetBinding(ellipse, Shape.FillProperty, new Binding($"Farbe[{binding}]"));
 
-       
-        BindingOperations.SetBinding(ellipse, fillProperty, new Binding(bindingViz));
-
-
-        SetColumn(ellipse, xPos);
-        SetColumnSpan(ellipse, xSpan);
-        SetRow(ellipse, yPos);
-        SetRowSpan(ellipse, ySpan);
-        grid.Children.Add(ellipse);
+        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, ellipse);
     }
 
 }

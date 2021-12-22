@@ -7,6 +7,12 @@ public class Config
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
+    public Config(string pfad)
+    {
+        Log.Debug("ConfigPlc einlesen: " + pfad);
+        SetPath(pfad);
+    }
+
     public enum EaTypen
     {
         NichtBelegt,
@@ -49,8 +55,6 @@ public class Config
 
     public void SetPath(string pfad)
     {
-        Log.Debug("ConfigPlc einlesen: " + pfad);
-
         Di = SetPath<Di, DiEinstellungen>(pfad, Di);
         Da = SetPath<Da, DaEinstellungen>(pfad, Da);
         Ai = SetPath<Ai, AiEinstellungen>(pfad, Ai);

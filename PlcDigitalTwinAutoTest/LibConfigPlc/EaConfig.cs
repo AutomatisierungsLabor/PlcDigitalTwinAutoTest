@@ -18,6 +18,7 @@ public abstract class EaConfig<T>
         AnzZeilen = zeilen.Count;
         // ReSharper disable once VirtualMemberCallInConstructor
         if (AnzZeilen > 0) ConfigTesten(_speicherAbbild);
+        else ConfigOk = false;
     }
     protected abstract void ConfigTesten(byte[] speicherAbbild);
 }

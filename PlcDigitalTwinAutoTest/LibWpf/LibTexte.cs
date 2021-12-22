@@ -20,13 +20,9 @@ public class LibTexte
             VerticalAlignment = vertical
         };
 
-        SetColumn(label, xPos);
-        SetColumnSpan(label, xSpan);
-        SetRow(label, yPos);
-        SetRowSpan(label, ySpan);
-        grid.Children.Add(label);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, grid, label);
     }
-    public static void TextViz(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, int wpfObject, DependencyProperty visibilityProperty, Grid grid)
+    public static void TextVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, int wpfObject, Grid grid)
     {
         var label = new Label
         {
@@ -37,13 +33,18 @@ public class LibTexte
         };
 
         label.SetBinding(ContentControl.ContentProperty, new Binding($"Text[{wpfObject }]"));
-        label.SetBinding(visibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
+        label.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
 
+        GridAnpassen(xPos, xSpan, yPos, ySpan, grid, label);
+    }
 
+    public static void GridAnpassen(int xPos, int xSpan, int yPos, int ySpan, Grid grid, UIElement label)
+    {
         SetColumn(label, xPos);
         SetColumnSpan(label, xSpan);
         SetRow(label, yPos);
         SetRowSpan(label, ySpan);
         grid.Children.Add(label);
     }
+    
 }

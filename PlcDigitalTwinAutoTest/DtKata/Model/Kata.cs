@@ -22,14 +22,20 @@ public class Kata : BasePlcDtAt.BaseModel.Model
     public bool P7 { get; set; }
     public bool P8 { get; set; }
 
-    public Kata()
+    private readonly Datenstruktur _datenstruktur;
+    private readonly DatenRangieren _datenRangieren;
+
+    public Kata(Datenstruktur datenstruktur)
     {
+        _datenstruktur = datenstruktur;
+        _datenRangieren = new DatenRangieren(this, _datenstruktur);
+
         S3 = true;
         S4 = true;
         S7 = true;
         S8 = true;
     }
-    protected override void ModelTaskThread()
+    protected override void ModelThread()
     {
         P1 = S1;
         P2 = S2;
@@ -39,6 +45,9 @@ public class Kata : BasePlcDtAt.BaseModel.Model
         P6 = S6;
         P7 = S7;
         P8 = S8;
+
+        _datenRangieren.Rangieren();
+
     }
-    public void SetRefDatenstuktur(Datenstruktur datenstruktur) => Datenstruktur = datenstruktur;
+    public  void SetVersionLokal(string vLokal) => _datenstruktur.LokaleVersion = vLokal;
 }

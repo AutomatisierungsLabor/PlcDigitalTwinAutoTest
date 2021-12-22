@@ -7,30 +7,30 @@ using DtKata.Model;
 using LibDatenstruktur;
 
 namespace DtKata.ViewModel;
+public enum WpfObjects
+{
+    P1 = 1,
+    P2 = 2,
+    P3 = 3,
+    P4 = 4,
+    P5 = 5,
+    P6 = 6,
+    P7 = 7,
+    P8 = 8,
 
+    S1 = 11,
+    S2 = 12,
+    S3 = 13,
+    S4 = 14,
+    S5 = 15,
+    S6 = 16,
+    S7 = 17,
+    S8 = 18
+
+}
 public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 {
-    public enum WpfObjects
-    {
-        P1 = 1,
-        P2 = 2,
-        P3 = 3,
-        P4 = 4,
-        P5 = 5,
-        P6 = 6,
-        P7 = 7,
-        P8 = 8,
-
-        S1 = 11,
-        S2 = 12,
-        S3 = 13,
-        S4 = 14,
-        S5 = 15,
-        S6 = 16,
-        S7 = 17,
-        S8 = 18
-
-    }
+   
 
     public ViewModel(BasePlcDtAt.BaseModel.Model model, Datenstruktur datenstruktur) : base(model, datenstruktur)
     {
@@ -124,7 +124,8 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
     {
         //throw new System.NotImplementedException();
     }
-    public void SetGridSichtbar(bool b) => GridSichtbar = b;
+    // ReSharper disable once UnusedMember.Global
+    public void SetGridSichtbar() => GridSichtbar = true;
     public void AlleTabZeichnen(BaseWindow baseWindow)
     {
         GridBeschreibung = baseWindow.FindName("Grid0") as Grid;

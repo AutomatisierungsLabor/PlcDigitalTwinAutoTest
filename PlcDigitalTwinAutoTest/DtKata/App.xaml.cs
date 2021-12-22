@@ -1,22 +1,25 @@
 ﻿using DtKata.Model;
+using LibConfigPlc;
+using LibDatenstruktur;
 
 namespace DtKata;
 
 public partial class App
 {
-    public LibDatenstruktur.Datenstruktur Datenstruktur { get; set; }
+    public Datenstruktur Datenstruktur { get; set; }
+    public Config ConfigPlc { get; set; }
+    public Kata Kata { get; set; }
 
     public App()
     {
-        Datenstruktur = new LibDatenstruktur.Datenstruktur(1, 1, 0, 0);
-       
-        var kata = new Kata { VersionLokal = "Kata" + " " + "V2.0" };
-        var viewModel = new ViewModel.ViewModel(kata, Datenstruktur);
-        
-        viewModel.SetGridSichtbar(false);
+        Datenstruktur = new Datenstruktur();
 
-        kata.SetRefDatenstuktur(Datenstruktur);
-        kata.ConfigPlc.SetPath("/ConfigPlc");
+        ConfigPlc = new Config("/ConfigPlc");
+        
+        Kata = new Kata(Datenstruktur);
+        Kata.SetVersionLokal("Kata" + " " + "V3.0");
+
+        var viewModel = new ViewModel.ViewModel(Kata, Datenstruktur);
 
         var baseWindow = new BasePlcDtAt.BaseWindow(viewModel);
         baseWindow.Show();
