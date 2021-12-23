@@ -26,28 +26,28 @@ public class Di : EaConfig<DiEinstellungen>
             // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (zeile.Type)
             {
-                case Config.EaTypen.Bit:
+                case ConfigPlc.EaTypen.Bit:
                     var bitMuster = _sharedFunctions.BitmusterErzeugen(zeile.StartBit);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, bitMuster)) LogConfigError(zeile);
                     break;
-                case Config.EaTypen.Byte:
+                case ConfigPlc.EaTypen.Byte:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
-                case Config.EaTypen.Word:
+                case ConfigPlc.EaTypen.Word:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) LogConfigError(zeile);
                     break;
-                case Config.EaTypen.Ascii:
+                case ConfigPlc.EaTypen.Ascii:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
-                case Config.EaTypen.BitmusterByte:
+                case ConfigPlc.EaTypen.BitmusterByte:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
-                case Config.EaTypen.NichtBelegt: break;
+                case ConfigPlc.EaTypen.NichtBelegt: break;
                 default: LogConfigError(zeile); break;
             }
         }
@@ -68,7 +68,7 @@ public class DiEinstellungen
     public int StartByte { get; set; }
     public int StartBit { get; set; }
     public int AnzahlBit { get; set; }
-    public Config.EaTypen Type { get; set; }
+    public ConfigPlc.EaTypen Type { get; set; }
     public string Bezeichnung { get; set; }
     public string Kommentar { get; set; }
 
@@ -78,7 +78,7 @@ public class DiEinstellungen
         StartByte = 0;
         StartBit = 0;
         AnzahlBit = 0;
-        Type = Config.EaTypen.NichtBelegt;
+        Type = ConfigPlc.EaTypen.NichtBelegt;
         Bezeichnung = "";
         Kommentar = "";
     }

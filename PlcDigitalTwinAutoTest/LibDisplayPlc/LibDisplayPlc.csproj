@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BasePlcDtAt\BasePlcDtAt.csproj" />
+    <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
+    <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
+    <ProjectReference Include="..\LibPlc\LibPlc.csproj" />
+    <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -10,8 +10,7 @@ public class LibGrid
     {
         for (var i = 0; i < anzX; i++) grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(breiteX) });
         for (var i = 0; i < anzY; i++) grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(hoeheY) });
-
-
+        
         if (!gridSichtbar) return;
 
         for (var i = 0; i < anzY; i++)

@@ -21,13 +21,7 @@ public class LibFormen
             Y2 = y2
         };
 
-        SetColumn(linie, 0);
-        SetColumnSpan(linie, xSpan);
-        SetRow(linie, 0);
-        SetRowSpan(linie, ySpan);
-
-        grid.Children.Add(linie);
-
+        LibTexte.GridAnpassen(0, xSpan, 0, ySpan, grid, linie);
     }
     public static void Rechteck(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Grid grid)
     {
@@ -36,12 +30,33 @@ public class LibFormen
             Fill = farbe
         };
 
-        SetColumn(hintergrund, xPos);
-        SetColumnSpan(hintergrund, xSpan);
-        SetRow(hintergrund, yPos);
-        SetRowSpan(hintergrund, ySpan);
-        grid.Children.Add(hintergrund);
+        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, hintergrund);
     }
+
+    public static void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding, Grid grid)
+    {
+        var rectangle = new Rectangle()
+        {
+            Stroke = rand,
+            Margin = margin,
+            Fill = new SolidColorBrush(Colors.Red)
+        };
+
+        BindingOperations.SetBinding(rectangle, Shape.FillProperty, new Binding($"Farbe[{binding}]"));
+
+        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, rectangle);
+    }
+    public static void Border(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Thickness rand, Grid grid)
+    {
+        var border = new Border
+        {
+            BorderBrush = farbe,
+            BorderThickness = rand
+        };
+
+        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, border);
+    }
+
     public static void RechteckVis(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, int wpfObject, Grid grid)
     {
         var rectangle = new Rectangle
@@ -65,5 +80,4 @@ public class LibFormen
 
         LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, ellipse);
     }
-
 }

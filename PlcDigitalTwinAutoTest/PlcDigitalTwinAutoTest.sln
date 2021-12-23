@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibConfigPlc", "LibConfigPl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibConfigPlc.Test", "LibConfigPlc.Test\LibConfigPlc.Test.csproj", "{E8613797-FC5F-40BE-AE8F-B1A1E3823CAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibWpf", "LibWpf\LibWpf.csproj", "{57E29E6D-9D33-43AB-8674-42DA3D14B254}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibWpf", "LibWpf\LibWpf.csproj", "{57E29E6D-9D33-43AB-8674-42DA3D14B254}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibDisplayPlc", "LibDisplayPlc\LibDisplayPlc.csproj", "{380BE225-AB0F-49FC-AFC9-C6C25595D3E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{57E29E6D-9D33-43AB-8674-42DA3D14B254}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57E29E6D-9D33-43AB-8674-42DA3D14B254}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57E29E6D-9D33-43AB-8674-42DA3D14B254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380BE225-AB0F-49FC-AFC9-C6C25595D3E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380BE225-AB0F-49FC-AFC9-C6C25595D3E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380BE225-AB0F-49FC-AFC9-C6C25595D3E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380BE225-AB0F-49FC-AFC9-C6C25595D3E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

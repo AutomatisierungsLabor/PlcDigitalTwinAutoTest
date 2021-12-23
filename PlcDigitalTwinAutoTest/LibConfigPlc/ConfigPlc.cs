@@ -3,11 +3,11 @@ using Newtonsoft.Json;
 
 namespace LibConfigPlc;
 
-public class Config
+public class ConfigPlc
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-    public Config(string pfad)
+    public ConfigPlc(string pfad)
     {
         Log.Debug("ConfigPlc einlesen: " + pfad);
         SetPath(pfad);

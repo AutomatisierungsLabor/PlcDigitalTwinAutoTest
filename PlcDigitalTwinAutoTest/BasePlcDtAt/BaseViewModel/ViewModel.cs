@@ -11,7 +11,6 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class ViewModel
 {
-
     public enum WpfBase
     {
         TabLaborplatte = 0,
@@ -56,7 +55,7 @@ public abstract partial class ViewModel
         SpsStatus = "x";
         SpsColor = Brushes.LightBlue;
 
-        for (var i = 0; i < 100; i++)
+        for (var i = 0; i < 500; i++)
         {
             ClkMode.Add(ClickMode.Press);
             SichtbarEin.Add(Visibility.Hidden);

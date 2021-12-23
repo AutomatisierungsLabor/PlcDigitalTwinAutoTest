@@ -6,7 +6,6 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using static System.Windows.Controls.Grid;
 
 namespace LibWpf;
 
@@ -37,8 +36,7 @@ public class LibButton
             Margin = margin
         };
         imageOn.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{binding}]"));
-
-
+        
         var imageOff = new Image
         {
             Source = new BitmapImage(new Uri(@$"Bilder/{sourceOff}", UriKind.Relative)),

@@ -20,21 +20,21 @@ public class Ai : EaConfig<AiEinstellungen>
             // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (zeile.Type)
             {
-                case Config.EaTypen.Ascii:
-                case Config.EaTypen.BitmusterByte:
-                case Config.EaTypen.Byte:
+                case ConfigPlc.EaTypen.Ascii:
+                case ConfigPlc.EaTypen.BitmusterByte:
+                case ConfigPlc.EaTypen.Byte:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
-                case Config.EaTypen.Word:
-                case Config.EaTypen.SiemensAnalogwertPromille:
-                case Config.EaTypen.SiemensAnalogwertProzent:
-                case Config.EaTypen.SiemensAnalogwertSchieberegler:
+                case ConfigPlc.EaTypen.Word:
+                case ConfigPlc.EaTypen.SiemensAnalogwertPromille:
+                case ConfigPlc.EaTypen.SiemensAnalogwertProzent:
+                case ConfigPlc.EaTypen.SiemensAnalogwertSchieberegler:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) LogConfigError(zeile);
                     break;
-                case Config.EaTypen.NichtBelegt: break;
+                case ConfigPlc.EaTypen.NichtBelegt: break;
                 default: LogConfigError(zeile); break;
             }
         }
@@ -52,7 +52,7 @@ public class AiEinstellungen
 {
     public int StartByte { get; set; }
     public int StartBit { get; set; }
-    public Config.EaTypen Type { get; set; }
+    public ConfigPlc.EaTypen Type { get; set; }
     public string Bezeichnung { get; set; }
     public string Kommentar { get; set; }
 
@@ -60,7 +60,7 @@ public class AiEinstellungen
     {
         StartByte = 0;
         StartBit = 0;
-        Type = Config.EaTypen.NichtBelegt;
+        Type = ConfigPlc.EaTypen.NichtBelegt;
         Bezeichnung = "";
         Kommentar = "";
     }
