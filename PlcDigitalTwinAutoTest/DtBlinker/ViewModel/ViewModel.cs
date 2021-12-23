@@ -66,18 +66,8 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         SichtbarkeitUmschalten(_kata.S3, (int)WpfObjects.S3);
         SichtbarkeitUmschalten(_kata.S4, (int)WpfObjects.S4);
         SichtbarkeitUmschalten(_kata.S5, (int)WpfObjects.S5);
-        SichtbarkeitUmschalten(_kata.S6, (int)WpfObjects.S6);
-        SichtbarkeitUmschalten(_kata.S7, (int)WpfObjects.S7);
-        SichtbarkeitUmschalten(_kata.S8, (int)WpfObjects.S8);
 
         FarbeUmschalten(_kata.P1, 1, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_kata.P2, 2, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_kata.P3, 3, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_kata.P4, 4, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_kata.P5, 5, Brushes.Yellow, Brushes.White);
-        FarbeUmschalten(_kata.P6, 6, Brushes.Yellow, Brushes.White);
-        FarbeUmschalten(_kata.P7, 7, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_kata.P8, 8, Brushes.Red, Brushes.White);
 
         FensterTitel = Model.VersionLokal;
     }
@@ -89,20 +79,12 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
             case WpfObjects.S2: _kata.S2 = gedrueckt; break;
             case WpfObjects.S3: _kata.S3 = !gedrueckt; break;
             case WpfObjects.S4: _kata.S4 = !gedrueckt; break;
+            case WpfObjects.S5: _kata.S5 = !gedrueckt; break;
+
             default: throw new ArgumentOutOfRangeException(nameof(tasterId));
         }
     }
-    protected override void ViewModelAufrufSchalter(Enum schalterId)
-    {
-        switch (schalterId)
-        {
-            case WpfObjects.S5: _kata.S5 = !_kata.S5; break;
-            case WpfObjects.S6: _kata.S6 = !_kata.S6; break;
-            case WpfObjects.S7: _kata.S7 = !_kata.S7; break;
-            case WpfObjects.S8: _kata.S8 = !_kata.S8; break;
-            default: throw new ArgumentOutOfRangeException(nameof(schalterId));
-        }
-    }
+    protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
     {
         if (sender is not TabControl tc) return;

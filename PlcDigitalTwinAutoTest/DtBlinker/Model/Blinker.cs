@@ -1,40 +1,64 @@
-﻿using LibDatenstruktur;
+﻿using System.Diagnostics;
+using LibDatenstruktur;
 
 namespace DtBlinker.Model;
 
 public class Blinker : BasePlcDtAt.BaseModel.Model
 {
+    public bool P1 { get; set; }
     public bool S1 { get; set; }
     public bool S2 { get; set; }
     public bool S3 { get; set; }
     public bool S4 { get; set; }
     public bool S5 { get; set; }
-    public bool S6 { get; set; }
-    public bool S7 { get; set; }
-    public bool S8 { get; set; }
 
-    public bool P1 { get; set; }
-    public bool P2 { get; set; }
-    public bool P3 { get; set; }
-    public bool P4 { get; set; }
-    public bool P5 { get; set; }
-    public bool P6 { get; set; }
-    public bool P7 { get; set; }
-    public bool P8 { get; set; }
+    public double Frequenz { get; set; }
+    public double Tastverhaeltnis { get; set; }
+    public double EinZeit { get; set; }
+    public double AusZeit { get; set; }
 
     private readonly Datenstruktur _datenstruktur;
     private readonly DatenRangieren _datenRangieren;
 
+    private bool _p1Alt;
+    private readonly Stopwatch _stopwatch;
     public Blinker(Datenstruktur datenstruktur)
     {
         _datenstruktur = datenstruktur;
         _datenRangieren = new DatenRangieren(this, _datenstruktur);
 
-        S3 = true;
-        S4 = true;
-        S7 = true;
-        S8 = true;
+        _stopwatch = new Stopwatch();
+        _stopwatch.Start();
     }
-    protected override void ModelThread() => _datenRangieren.Rangieren();
+    protected override void ModelThread()
+    {
+
+        long zeitDauer;
+        switch (P1)
+        {
+            // positive Flanke
+            case true when !_p1Alt:
+                zeitDauer = _stopwatch.ElapsedMilliseconds;
+                _stopwatch.Restart();
+                AusZeit = zeitDauer;
+                break;
+            // negative Flanke
+            case false when _p1Alt:
+                zeitDauer = _stopwatch.ElapsedMilliseconds;
+                _stopwatch.Restart();
+                EinZeit = zeitDauer;
+                break;
+        }
+
+        _p1Alt = P1;
+
+        var periodenDauer = EinZeit + AusZeit;
+        Frequenz = 1000 / periodenDauer;
+        Tastverhaeltnis = 100 * EinZeit / periodenDauer;
+
+
+        _datenRangieren.Rangieren();
+    }
+
     public void SetVersionLokal(string vLokal) => _datenstruktur.LokaleVersion = vLokal;
 }

@@ -5,18 +5,18 @@ namespace DtBlinker.Model;
 public class DatenRangieren
 
 {
-    private readonly Blinker _kata;
+    private readonly Blinker _blinker;
     private readonly Datenstruktur _datenstruktur;
 
     public DatenRangieren(Blinker kata, Datenstruktur datenstruktur)
     {
-        _kata = kata;
+        _blinker = kata;
         _datenstruktur = datenstruktur;
     }
 
     public void Rangieren()
     {
-        _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _kata.S1, _kata.S2, _kata.S3, _kata.S4, _kata.S5, _kata.S6, _kata.S7, _kata.S8);
-        (_kata.P1, _kata.P2, _kata.P3, _kata.P4, _kata.P5, _kata.P6, _kata.P7, _kata.P8) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
+        _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _blinker.S1, _blinker.S2, _blinker.S3, _blinker.S4, _blinker.S5, false, false, false);
+        (_blinker.P1, _, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }
 }
