@@ -10,6 +10,7 @@ namespace LibDisplayPlc.ViewModel;
 
 public enum WpfObjects
 {
+    // ReSharper disable UnusedMember.Global
     Di00 = 0,
     Di01,
     Di02,
@@ -44,7 +45,7 @@ public enum WpfObjects
     DiBeschreibung16,
     DiBeschreibung17,
 
-    Da00 ,
+    Da00,
     Da01,
     Da02,
     Da03,
@@ -77,27 +78,30 @@ public enum WpfObjects
     DaBeschreibung15,
     DaBeschreibung16,
     DaBeschreibung17
-
+    // ReSharper restore UnusedMember.Global
 }
 
 public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 {
-    private readonly Model.Model _model;
-    private readonly Datenstruktur _datenstruktur;
     private ConfigPlc _configPlc;
-    public ViewModel(BasePlcDtAt.BaseModel.Model model, Datenstruktur datenstruktur) : base(model, datenstruktur)
-    {
-        _model = model as Model.Model;
-        _datenstruktur = datenstruktur;
-    }
+
+    public ViewModel(BasePlcDtAt.BaseModel.Model model, Datenstruktur datenstruktur) : base(model, datenstruktur) { }
 
     protected override void ViewModelAufrufThread()
     {
+        for (var i = 0; i < 100; i++)
+        {
+            SichtbarEin[i] = Visibility.Collapsed;
+            SichtbarAus[i] = Visibility.Collapsed;
+        }
+
         foreach (var zeile in _configPlc.Di.Zeilen)
         {
             var bitnummer = zeile.StartBit + 8 * zeile.StartByte;
             Text[(int)WpfObjects.Di00 + bitnummer] = zeile.Bezeichnung;
             Text[(int)WpfObjects.DiBeschreibung00 + bitnummer] = zeile.Kommentar;
+            SichtbarEin[(int)WpfObjects.Di00 + bitnummer] = Visibility.Visible;
+            SichtbarEin[(int)WpfObjects.DiBeschreibung00 + bitnummer] = Visibility.Visible;
         }
 
         foreach (var zeile in _configPlc.Da.Zeilen)
@@ -105,12 +109,14 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
             var bitnummer = zeile.StartBit + 8 * zeile.StartByte;
             Text[(int)WpfObjects.Da00 + bitnummer] = zeile.Bezeichnung;
             Text[(int)WpfObjects.DaBeschreibung00 + bitnummer] = zeile.Kommentar;
+            SichtbarEin[(int)WpfObjects.Da00 + bitnummer] = Visibility.Visible;
+            SichtbarEin[(int)WpfObjects.DaBeschreibung00 + bitnummer] = Visibility.Visible;
         }
 
         for (var i = 0; i < 16; i++)
         {
-            FarbeUmschalten(BitTesten( Datenstruktur.Di,i), (int)WpfObjects.Di00, Brushes.Yellow , Brushes.DarkGray);
-            FarbeUmschalten(BitTesten( Datenstruktur.Da,i), (int)WpfObjects.Da00, Brushes.LawnGreen , Brushes.DarkGray);
+            FarbeUmschalten(BitTesten(Datenstruktur.Di, i), (int)WpfObjects.Di00, Brushes.Yellow, Brushes.DarkGray);
+            FarbeUmschalten(BitTesten(Datenstruktur.Da, i), (int)WpfObjects.Da00, Brushes.LawnGreen, Brushes.DarkGray);
         }
 
     }
@@ -120,7 +126,9 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
     public override void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e) { }
     public override void PlcButtonClick(object sender, RoutedEventArgs e) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
-    public void SetRefConfigPlc(ConfigPlc configPlc)=>_configPlc=configPlc;
+
+
+    public void SetRefConfigPlc(ConfigPlc configPlc) => _configPlc = configPlc;
 
     private static bool BitTesten(IReadOnlyList<byte> datenArray, int i)
     {

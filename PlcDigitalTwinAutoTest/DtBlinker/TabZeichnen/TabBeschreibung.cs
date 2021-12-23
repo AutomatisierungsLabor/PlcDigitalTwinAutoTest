@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DtKata.TabZeichnen;
+namespace DtBlinker.TabZeichnen;
 
 public partial class TabZeichnen
 {

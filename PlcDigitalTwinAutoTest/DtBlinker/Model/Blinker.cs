@@ -1,8 +1,8 @@
 ﻿using LibDatenstruktur;
 
-namespace DtKata.Model;
+namespace DtBlinker.Model;
 
-public class Kata : BasePlcDtAt.BaseModel.Model
+public class Blinker : BasePlcDtAt.BaseModel.Model
 {
     public bool S1 { get; set; }
     public bool S2 { get; set; }
@@ -25,7 +25,7 @@ public class Kata : BasePlcDtAt.BaseModel.Model
     private readonly Datenstruktur _datenstruktur;
     private readonly DatenRangieren _datenRangieren;
 
-    public Kata(Datenstruktur datenstruktur)
+    public Blinker(Datenstruktur datenstruktur)
     {
         _datenstruktur = datenstruktur;
         _datenRangieren = new DatenRangieren(this, _datenstruktur);

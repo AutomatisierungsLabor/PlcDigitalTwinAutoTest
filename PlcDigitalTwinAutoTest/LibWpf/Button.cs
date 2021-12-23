@@ -9,9 +9,9 @@ using System.Windows.Media.Imaging;
 
 namespace LibWpf;
 
-public class LibButton
+public partial class LibWpf
 {
-    public static void ButtonVis(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, string bindingClick, Grid grid)
+    public void ButtonVis(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, string bindingClick)
     {
         var button = new Button
         {
@@ -22,10 +22,10 @@ public class LibButton
             CommandParameter = cmdParameter
         };
         button.SetBinding(ButtonBase.ClickModeProperty, new Binding(bindingClick));
-        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, button);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, button);
     }
 
-    public static void ButtonOnOffVis(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter,Grid grid)
+    public void ButtonOnOffVis(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter)
     {
         var binding = (int)cmdParameter;
 
@@ -36,7 +36,7 @@ public class LibButton
             Margin = margin
         };
         imageOn.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{binding}]"));
-        
+
         var imageOff = new Image
         {
             Source = new BitmapImage(new Uri(@$"Bilder/{sourceOff}", UriKind.Relative)),
@@ -60,6 +60,6 @@ public class LibButton
 
         button.SetBinding(ButtonBase.ClickModeProperty, new Binding($"ClkMode[{binding}]"));
 
-        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, button);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, button);
     }
 }

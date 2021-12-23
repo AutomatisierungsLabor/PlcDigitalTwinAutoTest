@@ -16,15 +16,15 @@ public partial class DisplayPlc
     public DisplayPlc(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
 
-        Model = new Model.Model(datenstruktur);
+        Model = new Model.Model();
 
         ViewModel = new ViewModel.ViewModel(Model, datenstruktur);
         ViewModel.SetRefConfigPlc(configPlc);
 
-        Grid = new Grid { Name = "PlcGrid", MaxWidth = 700, MaxHeight = 1200, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
+        Grid = new Grid { Name = "PlcGrid", MaxWidth = 800, MaxHeight = 1000, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
         Content = Grid;
 
-        PlcZeichnen = new PlcZeichnen.PlcZeichnen(configPlc, Grid);
+        PlcZeichnen = new PlcZeichnen.PlcZeichnen(Grid);
 
         DataContext = ViewModel;
 

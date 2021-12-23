@@ -1,5 +1,6 @@
 ﻿namespace LibUtil;
 
+// ReSharper disable UnusedMember.Global
 public class BezierCurve
 {
     // http://csharphelper.com/blog/2014/12/draw-a-bezier-curve-by-hand-in-c/
@@ -27,7 +28,6 @@ public class BezierCurve
         _ptY3 = pt3.Y;
     }
 
-    // ReSharper disable once UnusedMember.Global
     public BezierCurve(double px0, double py0, double px1, double py1, double px2, double py2, double px3, double py3)
     {
         _ptX0 = px0;
@@ -55,3 +55,4 @@ public class BezierCurve
         _ptY2 * 3 * Math.Pow(t, 2) * (1 - t) +
         _ptY3 * Math.Pow(t, 3);
 }
+// ReSharper restore UnusedMember.Global

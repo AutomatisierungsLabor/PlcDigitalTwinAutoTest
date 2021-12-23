@@ -10,7 +10,7 @@ public partial class App
     public Datenstruktur Datenstruktur { get; set; }
     public ConfigPlc ConfigPlc { get; set; }
     public Kata Kata { get; set; }
-    public LibDisplayPlc.DisplayPlc DisplayPlc { get; set; }
+    public DisplayPlc DisplayPlc { get; set; }
     public App()
     {
         Datenstruktur = new Datenstruktur();

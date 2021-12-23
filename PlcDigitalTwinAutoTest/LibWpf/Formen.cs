@@ -3,13 +3,12 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using static System.Windows.Controls.Grid;
 
 namespace LibWpf;
 
-public class LibFormen
+public partial class LibWpf
 {
-    public static void Linie(int x1, int y1, int x2, int y2, int xSpan, int ySpan, int breite, Brush farbe, Grid grid)
+    public void Linie(int x1, int y1, int x2, int y2, int xSpan, int ySpan, int breite, Brush farbe, Grid grid)
     {
         var linie = new Line
         {
@@ -21,21 +20,21 @@ public class LibFormen
             Y2 = y2
         };
 
-        LibTexte.GridAnpassen(0, xSpan, 0, ySpan, grid, linie);
+        GridAnpassen(0, xSpan, 0, ySpan, grid, linie);
     }
-    public static void Rechteck(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Grid grid)
+    public void Rechteck(int xPos, int xSpan, int yPos, int ySpan, Brush farbe)
     {
         var hintergrund = new Rectangle
         {
             Fill = farbe
         };
 
-        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, hintergrund);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
     }
 
-    public static void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding, Grid grid)
+    public void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding)
     {
-        var rectangle = new Rectangle()
+        var rectangle = new Rectangle
         {
             Stroke = rand,
             Margin = margin,
@@ -44,9 +43,9 @@ public class LibFormen
 
         BindingOperations.SetBinding(rectangle, Shape.FillProperty, new Binding($"Farbe[{binding}]"));
 
-        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, rectangle);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-    public static void Border(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Thickness rand, Grid grid)
+    public void Border(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Thickness rand)
     {
         var border = new Border
         {
@@ -54,10 +53,10 @@ public class LibFormen
             BorderThickness = rand
         };
 
-        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, border);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, border);
     }
 
-    public static void RechteckVis(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, int wpfObject, Grid grid)
+    public void RechteckVis(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, int wpfObject)
     {
         var rectangle = new Rectangle
         {
@@ -65,9 +64,9 @@ public class LibFormen
         };
 
         rectangle.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
-        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, rectangle);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-    public static void KreisRandVis(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding,  Grid grid)
+    public void KreisRandVis(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding)
     {
         var ellipse = new Ellipse
         {
@@ -78,6 +77,6 @@ public class LibFormen
 
         BindingOperations.SetBinding(ellipse, Shape.FillProperty, new Binding($"Farbe[{binding}]"));
 
-        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, ellipse);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
 }

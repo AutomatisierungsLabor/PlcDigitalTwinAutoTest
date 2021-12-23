@@ -1,5 +1,6 @@
 ﻿namespace LibUtil;
 
+// ReSharper disable UnusedMember.Global
 public class Rampen
 {
     private double _aktuell;
@@ -28,3 +29,4 @@ public class Rampen
         return val > max ? max : val;
     }
 }
+// ReSharper restore UnusedMember.Global

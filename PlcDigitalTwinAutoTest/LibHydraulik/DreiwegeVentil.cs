@@ -2,7 +2,6 @@
 
 public class DreiwegeVentil
 {
-
     private double _positionProzent;
     private readonly double _posMinProzent;
     private readonly double _posMaxProzent;
@@ -21,7 +20,6 @@ public class DreiwegeVentil
 
         Task.Run(DreiwegeVentilTask);
     }
-
     private void DreiwegeVentilTask()
     {
         while (true)

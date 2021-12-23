@@ -3,10 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using BasePlcDtAt;
-using DtKata.Model;
+using DtBlinker.Model;
 using LibDatenstruktur;
 
-namespace DtKata.ViewModel;
+namespace DtBlinker.ViewModel;
 public enum WpfObjects
 {
     P1 = 1,
@@ -41,7 +41,7 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
 
-        _kata = model as Kata;
+        _kata = model as Blinker;
         /*
 
           SichtbarEin[(int)WpfBase.ErrorAnzeige] = Visibility.Visible;
@@ -56,7 +56,7 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         FensterTitel = "Nicht bekannt";
     }
 
-    private readonly Kata _kata;
+    private readonly Blinker _kata;
     protected override void ViewModelAufrufThread()
     {
         if (_kata == null) return;

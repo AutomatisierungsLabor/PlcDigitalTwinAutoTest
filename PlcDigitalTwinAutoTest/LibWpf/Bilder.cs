@@ -7,9 +7,9 @@ using System.Windows.Media.Imaging;
 
 namespace LibWpf;
 
-public class LibBilder
+public partial class LibWpf
 {
-    public static void BildVisEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, int binding, Grid grid)
+    public void BildVisEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, int binding)
     {
         var image = new Image
         {
@@ -20,10 +20,10 @@ public class LibBilder
 
         image.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{binding}]"));
 
-        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, image);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, image);
     }
 
-    public static void BildVisAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, int binding, Grid grid)
+    public void BildVisAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, int binding)
     {
         var image = new Image
         {
@@ -34,6 +34,6 @@ public class LibBilder
 
         image.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarAus[{binding}]"));
 
-        LibTexte.GridAnpassen(xPos, xSpan, yPos, ySpan, grid, image);
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, image);
     }
 }
