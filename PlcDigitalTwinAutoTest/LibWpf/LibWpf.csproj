@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
@@ -7,10 +7,6 @@
 
   <ItemGroup>
     <None Remove="LibFormen.cs~RF1f8b0ed.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BasePlcDtAt\BasePlcDtAt.csproj" />
   </ItemGroup>
 
 </Project>

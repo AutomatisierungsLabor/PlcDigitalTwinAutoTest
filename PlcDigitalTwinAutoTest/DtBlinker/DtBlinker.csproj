@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BasePlcDtAt\BasePlcDtAt.csproj" />
-    <ProjectReference Include="..\LibDisplayPlc\LibDisplayPlc.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
   </ItemGroup>
 

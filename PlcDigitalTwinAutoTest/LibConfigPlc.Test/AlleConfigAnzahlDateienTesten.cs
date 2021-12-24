@@ -8,7 +8,8 @@ public class AlleConfigAnzahlDateienTesten
     [Fact]
     public void UnbekannterOrdnerTesten()
     {
-        var config = new ConfigPlc("NichtVorhandenerPfad");
+        var config = new ConfigPlc();
+        config.SetPath("NichtVorhandenerPfad");
 
         Assert.False(config.Di.ConfigOk);
         Assert.False(config.Da.ConfigOk);

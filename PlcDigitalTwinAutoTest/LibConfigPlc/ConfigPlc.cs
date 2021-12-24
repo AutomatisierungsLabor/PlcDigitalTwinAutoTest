@@ -13,6 +13,7 @@ public class ConfigPlc
         SetPath(pfad);
     }
 
+   
     public enum EaTypen
     {
         NichtBelegt,
@@ -32,6 +33,7 @@ public class ConfigPlc
     public Da Da { get; set; } = new(new ObservableCollection<DaEinstellungen>());
     public Ai Ai { get; set; } = new(new ObservableCollection<AiEinstellungen>());
     public Aa Aa { get; set; } = new(new ObservableCollection<AaEinstellungen>());
+
 
     public T SetPath<T, TEinstellungen>(string pfad, EaConfig<TEinstellungen> ioConfig) where T : EaConfig<TEinstellungen>
     {

@@ -14,8 +14,9 @@ public partial class DisplayPlc
 
     public DisplayPlc(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
-        ViewModel = new ViewModel.ViewModel(default, datenstruktur);
-        ViewModel.SetRefConfigPlc(configPlc);
+        ViewModel = new ViewModel.ViewModel( datenstruktur, configPlc);
+       
+        //ViewModel.SetRefConfigPlc(configPlc);
 
         Grid = new Grid { Name = "PlcGrid", MaxWidth = 800, MaxHeight = 1000, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
         Content = Grid;

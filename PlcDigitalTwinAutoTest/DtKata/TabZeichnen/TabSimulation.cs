@@ -69,6 +69,6 @@ public partial class TabZeichnen
         libWpf.KreisRandVis(20, 3, 26, 3, kreisRandFarbe, kreisRand, (int)WpfObjects.P7);
         libWpf.KreisRandVis(20, 3, 30, 3, kreisRandFarbe, kreisRand, (int)WpfObjects.P8);
 
-        libWpf.PlcError();
+        libWpf.PlcError(libWpf);
     }
 }
