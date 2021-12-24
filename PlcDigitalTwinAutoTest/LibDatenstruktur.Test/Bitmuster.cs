@@ -1,9 +1,20 @@
+using System;
 using Xunit;
 
 namespace LibDatenstruktur.Test;
 
 public class Bitmuster
 {
+
+    [Fact]
+    public void ToMany()
+    {
+        var datenstruktur = new Datenstruktur();
+        
+        Assert.Throws<ArgumentOutOfRangeException>(() => datenstruktur.SetBitmuster(DatenBereich.Di, 0, true, true, true, true, true, true, true,
+            true, true, true, true, true, true));
+    }
+
     [Theory]
     [InlineData(0, false, false, false, false, false, false, false, false)]
     [InlineData(1, false, false, false, false, false, false, false, true)]

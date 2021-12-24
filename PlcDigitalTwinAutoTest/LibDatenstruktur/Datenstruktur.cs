@@ -30,16 +30,15 @@ public class Datenstruktur
     public string LokaleVersion;
     public string PlcVersion;
 
-    public byte[] BefehlePlc { get; set; } = new byte[1024];
-    public byte[] VersionPlc { get; set; } = new byte[1024];
-    public byte[] Di { get; set; } = new byte[1024];
-    public byte[] Da { get; set; } = new byte[1024];
-    public byte[] Ai { get; set; } = new byte[1024];
-    public byte[] Aa { get; set; } = new byte[1024];
+    public byte[] BefehlePlc { get; } = new byte[1024];
+    public byte[] VersionPlc { get; } = new byte[1024];
+    public byte[] Di { get; } = new byte[1024];
+    public byte[] Da { get; } = new byte[1024];
+    public byte[] Ai { get; } = new byte[1024];
+    public byte[] Aa { get; } = new byte[1024];
 
     public string TestProjektOrdner { get; set; }
     public int DiagrammZeitbereich { get; set; }
-
 
     public Datenstruktur()
     {
@@ -49,27 +48,18 @@ public class Datenstruktur
         BetriebsartTestablauf = BetriebsartTestablauf.Automatik;
         BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
         NaechstenSchrittGehen = false;
-
-        Array.Clear(BefehlePlc, 0, BefehlePlc.Length);
-        Array.Clear(VersionPlc, 0, VersionPlc.Length);
-        Array.Clear(Di, 0, Di.Length);
-        Array.Clear(Da, 0, Da.Length);
-        Array.Clear(Ai, 0, Ai.Length);
-        Array.Clear(Aa, 0, Aa.Length);
     }
 
-    public void SetBitmuster(DatenBereich datenBereich, short offset, bool lsb, bool b1, bool b2, bool b3, bool b4, bool b5, bool b6, bool b7)
+    public void SetBitmuster(DatenBereich datenBereich, short offset, params bool[] bits)
     {
         byte wert = 0;
+        if (bits.Length > 8)
+            throw new ArgumentOutOfRangeException($"{nameof(bits)}", $"{nameof(SetBitmuster)} zu viele bit");
 
-        if (lsb) wert += 1 << 0;
-        if (b1) wert += 1 << 1;
-        if (b2) wert += 1 << 2;
-        if (b3) wert += 1 << 3;
-        if (b4) wert += 1 << 4;
-        if (b5) wert += 1 << 5;
-        if (b6) wert += 1 << 6;
-        if (b7) wert += 1 << 7;
+        for (var i = 0; i < bits.Length; i++)
+        {
+            if (bits[i]) wert += (byte)(1 << i);
+        }
 
         switch (datenBereich)
         {

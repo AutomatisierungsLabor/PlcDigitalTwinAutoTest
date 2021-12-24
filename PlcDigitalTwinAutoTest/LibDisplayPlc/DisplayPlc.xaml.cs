@@ -7,7 +7,6 @@ namespace LibDisplayPlc;
 
 public partial class DisplayPlc
 {
-    public  Model.Model Model { get; set; }
     public ViewModel.ViewModel ViewModel { get; set; }
     public PlcZeichnen.PlcZeichnen PlcZeichnen { get; set; }
     public Grid Grid { get; set; }
@@ -15,10 +14,7 @@ public partial class DisplayPlc
 
     public DisplayPlc(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
-
-        Model = new Model.Model();
-
-        ViewModel = new ViewModel.ViewModel(Model, datenstruktur);
+        ViewModel = new ViewModel.ViewModel(default, datenstruktur);
         ViewModel.SetRefConfigPlc(configPlc);
 
         Grid = new Grid { Name = "PlcGrid", MaxWidth = 800, MaxHeight = 1000, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
