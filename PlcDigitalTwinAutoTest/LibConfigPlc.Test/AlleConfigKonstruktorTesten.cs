@@ -8,8 +8,7 @@ public class AlleConfigKonstruktorTesten
     [Fact]
     public void KonstruktorTesten()
     {
-        var config = new ConfigPlc();
-        config.SetPath("-");
+        var config = new ConfigPlc("-");
 
         Assert.False(config.Di.ConfigOk);
         Assert.False(config.Da.ConfigOk);

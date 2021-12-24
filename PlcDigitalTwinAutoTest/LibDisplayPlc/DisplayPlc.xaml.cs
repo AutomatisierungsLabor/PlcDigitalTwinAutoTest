@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using LibConfigPlc;
 using LibDatenstruktur;
 
@@ -16,10 +15,11 @@ public partial class DisplayPlc
     {
         ViewModel = new ViewModel.ViewModel( datenstruktur, configPlc);
        
-        //ViewModel.SetRefConfigPlc(configPlc);
-
-        Grid = new Grid { Name = "PlcGrid", MaxWidth = 800, MaxHeight = 1000, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
+        Grid = new Grid();
         Content = Grid;
+
+        Width = 800;
+        Height = 900;
 
         PlcZeichnen = new PlcZeichnen.PlcZeichnen(Grid);
 

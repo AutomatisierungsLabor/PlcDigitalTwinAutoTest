@@ -44,7 +44,6 @@ public partial class LibWpf
             FontWeight = FontWeights.Bold,
             Foreground = farbe,
             Padding = rand,
-            Background = new SolidColorBrush(Colors.LightGoldenrodYellow),
             HorizontalAlignment = horizontal,
             VerticalAlignment = vertical,
             RenderTransformOrigin = new Point(0.5, 0.5),

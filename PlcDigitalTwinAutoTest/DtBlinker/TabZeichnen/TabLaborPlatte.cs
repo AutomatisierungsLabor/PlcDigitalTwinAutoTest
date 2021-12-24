@@ -14,6 +14,6 @@ public partial class TabZeichnen
 
         libWpf.Text("Laborplatte", 2, 20, 25, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.Black);
         
-        libWpf.PlcError();
+        libWpf.PlcError(libWpf);
     }
 }

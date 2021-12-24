@@ -14,8 +14,7 @@ public class DiConfigFehlerTests
 
     public void FehlerhafteConfigLesenTesten(string pfad, bool di, bool da, bool ai, bool aa)
     {
-        var config = new ConfigPlc();
-        config.SetPath(pfad);
+        var config = new ConfigPlc(pfad);
 
         Assert.Equal(di, config.Di.ConfigOk);
         Assert.Equal(da, config.Da.ConfigOk);

@@ -35,7 +35,20 @@ public partial class BaseWindow
         DisplayPlc.Show();
     }
 
-    private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e) => _viewModel.BetriebsartProjektChanged( sender,e);
+    private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (sender is not TabControl tc) return;
+
+        Datenstruktur.BetriebsartProjekt = tc.SelectedIndex switch
+        {
+            0 => BetriebsartProjekt.BeschreibungAnzeigen,
+            1 => BetriebsartProjekt.LaborPlatte,
+            2 => BetriebsartProjekt.Simulation,
+            3 => BetriebsartProjekt.AutomatischerSoftwareTest,
+            _ => Datenstruktur.BetriebsartProjekt
+        };
+    }
+
     private void PlcButtonClick(object sender, RoutedEventArgs e) => _viewModel.PlcButtonClick(sender,e);
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _viewModel.PlotterButtonClick(sender, e);
 }

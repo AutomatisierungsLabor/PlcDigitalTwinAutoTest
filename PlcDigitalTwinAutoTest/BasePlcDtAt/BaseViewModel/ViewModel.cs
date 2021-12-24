@@ -28,18 +28,13 @@ public abstract partial class ViewModel
     protected abstract void ViewModelAufrufThread();
     protected abstract void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt);
     protected abstract void ViewModelAufrufSchalter(Enum schalterId);
-
-    public abstract void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e);
+    
     public abstract void PlcButtonClick(object sender, RoutedEventArgs e);
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
 
     public Datenstruktur Datenstruktur { get; set; }
     public BaseModel.Model Model { get; set; }
 
-    protected Grid GridBeschreibung;
-    protected Grid GridLaborPlatte;
-    protected Grid GridSimulation;
-    protected Grid GridAutoTest;
     protected bool GridSichtbar;
     protected ViewModel(BaseModel.Model model, Datenstruktur datenstruktur)
     {
@@ -62,12 +57,10 @@ public abstract partial class ViewModel
             SichtbarAus.Add(Visibility.Visible);
             Farbe.Add(Brushes.White);
             Text.Add("");
-
         }
 
         System.Threading.Tasks.Task.Run(ViewModelTask);
     }
-
 
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

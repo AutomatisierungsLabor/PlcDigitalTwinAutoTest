@@ -29,8 +29,6 @@ public enum WpfObjects
 }
 public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 {
-
-
     public ViewModel(BasePlcDtAt.BaseModel.Model model, Datenstruktur datenstruktur) : base(model, datenstruktur)
     {
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
@@ -84,19 +82,6 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         }
     }
     protected override void ViewModelAufrufSchalter(Enum schalterId) { }
-    public override void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
-    {
-        if (sender is not TabControl tc) return;
-
-        Datenstruktur.BetriebsartProjekt = tc.SelectedIndex switch
-        {
-            0 => BetriebsartProjekt.BeschreibungAnzeigen,
-            1 => BetriebsartProjekt.LaborPlatte,
-            2 => BetriebsartProjekt.Simulation,
-            3 => BetriebsartProjekt.AutomatischerSoftwareTest,
-            _ => Datenstruktur.BetriebsartProjekt
-        };
-    }
     public override void PlcButtonClick(object sender, RoutedEventArgs e)
     {
         //throw new System.NotImplementedException();
@@ -113,9 +98,4 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
     public override void SimulationZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(grid, GridSichtbar, "#eeeeee");
 
     public override void AutotestZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabAutoTestZeichnen(grid, GridSichtbar, "#eeeeee");
-
-
-    // ReSharper disable once UnusedMember.Global
-    public void SetGridSichtbar() => GridSichtbar = true;
-
 }

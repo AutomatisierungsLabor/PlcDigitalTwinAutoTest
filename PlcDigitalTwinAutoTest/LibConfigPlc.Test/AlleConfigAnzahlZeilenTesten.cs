@@ -11,8 +11,7 @@ public class AlleConfigAnzahlZeilenTesten
     [InlineData("Alle/3", 2, 2, 2, 3)]
     public void ConfigAnzahlZeilenTesten(string pfad, int anzDi, int anzDa, int anzAi, int anzAa)
     {
-        var config = new ConfigPlc();
-        config.SetPath(pfad);
+        var config = new ConfigPlc(pfad);
 
         Assert.Equal(anzDi, config.Di.AnzZeilen);
         Assert.Equal(anzDa, config.Da.AnzZeilen);

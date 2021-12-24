@@ -87,43 +87,30 @@ public class ViewModel
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-    private ConfigPlc _configPlc;
-    private Datenstruktur _datenstruktur;
+    private readonly ConfigPlc _configPlc;
+    private readonly Datenstruktur _datenstruktur;
 
     public ViewModel(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
-
         Log.Debug("Konstruktor - startet");
-
-
+        
         _datenstruktur = datenstruktur;
         _configPlc = configPlc;
-
 
         for (var i = 0; i < 100; i++)
         {
             SichtbarEin.Add(Visibility.Hidden);
-            SichtbarAus.Add(Visibility.Visible);
             Farbe.Add(Brushes.White);
             Text.Add("");
         }
 
-
-
         System.Threading.Tasks.Task.Run(ViewModelTask);
-
     }
-
-
     private void ViewModelTask()
     {
         while (true)
         {
-            for (var i = 0; i < 100; i++)
-            {
-                SichtbarEin[i] = Visibility.Collapsed;
-                SichtbarAus[i] = Visibility.Collapsed;
-            }
+            for (var i = 0; i < 100; i++) SichtbarEin[i] = Visibility.Collapsed;
 
             foreach (var zeile in _configPlc.Di.Zeilen)
             {
@@ -154,14 +141,8 @@ public class ViewModel
         // ReSharper disable once FunctionNeverReturns
     }
 
-
-
-    protected void FarbeUmschalten(bool val, int i, Brush farbe1, Brush farbe2) => Farbe[i] = val ? farbe1 : farbe2;
-    protected void SichtbarkeitUmschalten(bool val, int i)
-    {
-        SichtbarEin[i] = val ? Visibility.Visible : Visibility.Collapsed;
-        SichtbarAus[i] = val ? Visibility.Collapsed : Visibility.Visible;
-    }
+    private void FarbeUmschalten(bool val, int i, Brush farbe1, Brush farbe2) => Farbe[i] = val ? farbe1 : farbe2;
+  
 
     private ObservableCollection<Visibility> _sichtbarEin = new();
     public ObservableCollection<Visibility> SichtbarEin
@@ -171,17 +152,6 @@ public class ViewModel
         {
             _sichtbarEin = value;
             OnPropertyChanged(nameof(SichtbarEin));
-        }
-    }
-
-    private ObservableCollection<Visibility> _sichtbarAus = new();
-    public ObservableCollection<Visibility> SichtbarAus
-    {
-        get => _sichtbarAus;
-        set
-        {
-            _sichtbarAus = value;
-            OnPropertyChanged(nameof(SichtbarAus));
         }
     }
 
@@ -206,7 +176,6 @@ public class ViewModel
             OnPropertyChanged(nameof(Text));
         }
     }
-
 
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
