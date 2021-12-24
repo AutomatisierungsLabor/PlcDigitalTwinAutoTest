@@ -27,8 +27,6 @@ public partial class App
         var baseWindow = new BasePlcDtAt.BaseWindow(viewModel);
         baseWindow.Show();
 
-        viewModel.AlleTabZeichnen(baseWindow);
-
         DisplayPlc.Oeffnen();
     }
 }

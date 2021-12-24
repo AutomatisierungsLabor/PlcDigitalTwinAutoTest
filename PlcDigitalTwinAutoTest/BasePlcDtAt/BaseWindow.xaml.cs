@@ -12,6 +12,12 @@ public partial class BaseWindow
         _viewModel = viewModel;
         InitializeComponent();
         DataContext= _viewModel;
+
+
+        _viewModel.BeschreibungZeichnen(Grid0);
+        _viewModel.LaborPlatteZeichnen(Grid1);
+        _viewModel.SimulationZeichnen(Grid2);
+        _viewModel.AutotestZeichnen(Grid3);
     }
 
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e) => _viewModel.BetriebsartProjektChanged( sender,e);

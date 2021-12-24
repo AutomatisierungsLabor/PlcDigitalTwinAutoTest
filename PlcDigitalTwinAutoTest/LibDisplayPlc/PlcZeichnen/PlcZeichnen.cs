@@ -9,13 +9,13 @@ public class PlcZeichnen
 {
     public PlcZeichnen(Grid plcGrid)
     {
-        const int schriftGanzGross = 35;
-        const int schriftGross = 14;
-        const int schriftKlein = 12;
+        const int schriftGanzGross = 50;
+        const int schriftGross = 25;
+        const int schriftKlein = 18;
 
         var libWpf = new LibWpf.LibWpf(plcGrid);
 
-        libWpf.Zeichnen(50, 20, 25, 20, true);
+        libWpf.Zeichnen(50, 30, 25, 30, true);
 
         libWpf.Rechteck(1, 40, 10, 12, Brushes.LightGray);
       
@@ -30,8 +30,8 @@ public class PlcZeichnen
 
         for (var i = 0; i < 8; i++)
         {
-            libWpf.TextVertikalVis(3 + i, 1, 3, 6, HorizontalAlignment.Center, VerticalAlignment.Center, 10, new Thickness(0,0,0,0), Brushes.BlueViolet, i + (int)WpfObjects.DiBeschreibung00);
-            libWpf.TextVis(2 + i, 3, 8, 2, HorizontalAlignment.Center, VerticalAlignment.Bottom, 10, Brushes.Black, i + (int)WpfObjects.Di00);
+            libWpf.TextVertikalVis(3 + i, 1, 3, 6, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, new Thickness(0,0,0,0), Brushes.BlueViolet, i + (int)WpfObjects.DiBeschreibung00);
+            libWpf.TextVis(2 + i, 3, 8, 2, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, Brushes.Black, i + (int)WpfObjects.Di00);
             libWpf.RechteckFarbeUmschalten(3 + i, 1, 10, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Di00);
             libWpf.Text($".{i}", 3 + i, 2, 11, 2, HorizontalAlignment.Left, VerticalAlignment.Top, schriftKlein, Brushes.White);
         }
@@ -42,8 +42,8 @@ public class PlcZeichnen
 
         for (var i = 0; i < 8; i++)
         {
-            libWpf.TextVertikalVis(13 + i, 1, 3, 6, HorizontalAlignment.Center, VerticalAlignment.Center, 10, new Thickness(0, 0, 0, 0), Brushes.BlueViolet, i + (int)WpfObjects.DiBeschreibung10);
-            libWpf.TextVis(12 + i, 3, 10, 2, HorizontalAlignment.Center, VerticalAlignment.Bottom, 10, Brushes.Black, i + (int)WpfObjects.Di10);
+            libWpf.TextVertikalVis(13 + i, 1, 3, 6, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, new Thickness(0, 0, 0, 0), Brushes.BlueViolet, i + (int)WpfObjects.DiBeschreibung10);
+            libWpf.TextVis(12 + i, 3, 10, 2, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, Brushes.Black, i + (int)WpfObjects.Di10);
             libWpf.RechteckFarbeUmschalten(13 + i, 1, 10, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Di10);
             libWpf.Text($".{i}", 13 + i, 2, 11, 2, HorizontalAlignment.Left, VerticalAlignment.Top, schriftKlein, Brushes.White);
         }
@@ -65,8 +65,8 @@ public class PlcZeichnen
 
         for (var i = 0; i < 8; i++)
         {
-            libWpf.TextVertikalVis(3 + i, 1, 3, 6, HorizontalAlignment.Center, VerticalAlignment.Center, 10, new Thickness(0, 0, 0, 0), Brushes.Violet, i + (int)WpfObjects.DaBeschreibung00);
-            libWpf.TextVis(2 + i, 3, 22, 2, HorizontalAlignment.Center, VerticalAlignment.Top, 10, Brushes.Black, i + (int)WpfObjects.Da00);
+            libWpf.TextVertikalVis(3 + i, 1, 24, 6, HorizontalAlignment.Center, VerticalAlignment.Top, schriftKlein, new Thickness(0, 0, 0, 0), Brushes.Violet, i + (int)WpfObjects.DaBeschreibung00);
+            libWpf.TextVis(2 + i, 3, 22, 2, HorizontalAlignment.Center, VerticalAlignment.Top, schriftKlein, Brushes.Black, i + (int)WpfObjects.Da00);
             libWpf.RechteckFarbeUmschalten(3 + i, 1, 21, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Da00);
             libWpf.Text($".{i}", 3 + i, 2, 20, 2, HorizontalAlignment.Left, VerticalAlignment.Top, schriftKlein, Brushes.White);
         }
@@ -77,8 +77,8 @@ public class PlcZeichnen
 
         for (var i = 0; i < 8; i++)
         {
-            libWpf.TextVertikalVis(13 + i, 1, 3, 6, HorizontalAlignment.Center, VerticalAlignment.Center, 10, new Thickness(0, 0, 0, 0), Brushes.Violet, i + (int)WpfObjects.DaBeschreibung10);
-            libWpf.TextVis(12 + i, 3, 22, 2, HorizontalAlignment.Center, VerticalAlignment.Top, 10, Brushes.Black, i + (int)WpfObjects.Da10);
+            libWpf.TextVertikalVis(13 + i, 1, 24, 6, HorizontalAlignment.Center, VerticalAlignment.Top, schriftKlein, new Thickness(0, 0, 0, 0), Brushes.Violet, i + (int)WpfObjects.DaBeschreibung10);
+            libWpf.TextVis(12 + i, 3, 22, 2, HorizontalAlignment.Center, VerticalAlignment.Top, schriftKlein, Brushes.Black, i + (int)WpfObjects.Da10);
             libWpf.RechteckFarbeUmschalten(13 + i, 1, 21, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Da10);
             libWpf.Text($".{i}", 13 + i, 2, 20, 2, HorizontalAlignment.Left, VerticalAlignment.Top, schriftKlein, Brushes.White);
         }

@@ -125,21 +125,16 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         //throw new System.NotImplementedException();
     }
 
+    public override void BeschreibungZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(grid, GridSichtbar, "#eeeeee");
 
+    public override void LaborPlatteZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(grid, GridSichtbar, "#eeeeee");
+
+    public override void SimulationZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(grid, GridSichtbar, "#eeeeee");
+
+    public override void AutotestZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabAutoTestZeichnen(grid, GridSichtbar, "#eeeeee");
 
 
     // ReSharper disable once UnusedMember.Global
     public void SetGridSichtbar() => GridSichtbar = true;
-    public void AlleTabZeichnen(BaseWindow baseWindow)
-    {
-        GridBeschreibung = baseWindow.FindName("Grid0") as Grid;
-        GridLaborPlatte = baseWindow.FindName("Grid1") as Grid;
-        GridSimulation = baseWindow.FindName("Grid2") as Grid;
-        GridAutoTest = baseWindow.FindName("Grid3") as Grid;
 
-        TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(GridBeschreibung, GridSichtbar, "#eeeeee");
-        TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(GridLaborPlatte, GridSichtbar, "#eeeeee");
-        TabZeichnen.TabZeichnen.TabSimulationZeichnen(GridSimulation, GridSichtbar, "#eeeeee");
-        TabZeichnen.TabZeichnen.TabAutoTestZeichnen(GridAutoTest, GridSichtbar, "#eeeeee");
-    }
 }

@@ -79,4 +79,8 @@ public abstract partial class ViewModel
     private ICommand _btnSchalter;
     // ReSharper disable once UnusedMember.Global
     public ICommand BtnSchalter => _btnSchalter ??= new RelayCommand(Schalter);
+    public abstract void BeschreibungZeichnen(Grid grid);
+    public abstract void LaborPlatteZeichnen(Grid grid);
+    public abstract void SimulationZeichnen(Grid grid);
+    public abstract void AutotestZeichnen(Grid grid);
 }

@@ -51,7 +51,7 @@ public partial class LibWpf
             LayoutTransform = new RotateTransform { Angle = 270 }
         };
 
-        text.SetBinding(ContentControl.ContentProperty, new Binding($"Text[{wpfObject }]"));
+        text.SetBinding(TextBlock.TextProperty, new Binding($"Text[{wpfObject }]"));
         text.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
 
         GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, text);

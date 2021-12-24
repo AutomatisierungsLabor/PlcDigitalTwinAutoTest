@@ -115,8 +115,8 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 
         for (var i = 0; i < 16; i++)
         {
-            FarbeUmschalten(BitTesten(Datenstruktur.Di, i), (int)WpfObjects.Di00, Brushes.Yellow, Brushes.DarkGray);
-            FarbeUmschalten(BitTesten(Datenstruktur.Da, i), (int)WpfObjects.Da00, Brushes.LawnGreen, Brushes.DarkGray);
+            FarbeUmschalten(BitTesten(Datenstruktur.Di, i), (int)WpfObjects.Di00 + i, Brushes.Yellow, Brushes.DarkGray);
+            FarbeUmschalten(BitTesten(Datenstruktur.Da, i), (int)WpfObjects.Da00 + i, Brushes.LawnGreen, Brushes.DarkGray);
         }
 
     }
@@ -126,6 +126,25 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
     public override void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e) { }
     public override void PlcButtonClick(object sender, RoutedEventArgs e) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
+    public override void BeschreibungZeichnen(Grid grid)
+    {
+        
+    }
+
+    public override void LaborPlatteZeichnen(Grid grid)
+    {
+     
+    }
+
+    public override void SimulationZeichnen(Grid grid)
+    {
+       
+    }
+
+    public override void AutotestZeichnen(Grid grid)
+    {
+       
+    }
 
 
     public void SetRefConfigPlc(ConfigPlc configPlc) => _configPlc = configPlc;
@@ -133,7 +152,7 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
     private static bool BitTesten(IReadOnlyList<byte> datenArray, int i)
     {
         var ibyte = i / 8;
-        var bitMuster = (byte)(1 << i % 8);
+        var bitMuster = (byte)(1 << (i % 8));
 
         return (datenArray[ibyte] & bitMuster) == bitMuster;
     }
