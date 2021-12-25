@@ -32,6 +32,18 @@ public partial class LibWpf
         GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
     }
 
+    public void RechteckRand(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)
+    {
+        var hintergrund = new Rectangle
+        {
+            Fill = farbe,
+            Margin = margin
+        };
+
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
+    }
+
+
     public void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding)
     {
         var rectangle = new Rectangle
@@ -78,5 +90,23 @@ public partial class LibWpf
         BindingOperations.SetBinding(ellipse, Shape.FillProperty, new Binding($"Farbe[{binding}]"));
 
         GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, ellipse);
+    }
+
+    public StackPanel StackPanel(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)
+    {
+        var stackPanel = new StackPanel
+        {
+            Name = "StackPanel",
+            Background = farbe,
+            Margin = margin
+        };
+
+        Grid.SetColumn(stackPanel, xPos);
+        Grid.SetColumnSpan(stackPanel, xSpan);
+        Grid.SetRow(stackPanel, yPos);
+        Grid.SetRowSpan(stackPanel, ySpan);
+        Grid.Children.Add(stackPanel);
+
+        return stackPanel;
     }
 }

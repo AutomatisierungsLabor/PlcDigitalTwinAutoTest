@@ -7,9 +7,7 @@ public class Ai : EaConfig<AiEinstellungen>
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
     private readonly SharedFunctions _sharedFunctions = new();
 
-    public Ai(ObservableCollection<AiEinstellungen> zeilen) : base(zeilen)
-    {
-    }
+    public Ai(ObservableCollection<AiEinstellungen> zeilen) : base(zeilen) { }
     protected override void ConfigTesten(byte[] speicherAbbild)
     {
         ConfigOk = true;

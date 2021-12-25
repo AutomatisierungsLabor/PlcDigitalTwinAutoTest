@@ -13,14 +13,15 @@ public abstract partial class ViewModel
 {
     public enum WpfBase
     {
-        TabLaborplatte = 0,
-        TabSimulation = 1,
-        TabAutoTest = 2,
-        BtnPlcAnzeigen = 3,
-        BtnPlottAnzeigen = 4,
-        ErrorAnzeige = 5,
-        ErrorVersionLokal = 6,
-        ErrorVersionPlc = 7
+        TabBeschreibung = 0,
+        TabLaborplatte = 1,
+        TabSimulation = 2,
+        TabAutoTest = 3,
+        BtnPlcAnzeigen = 4,
+        BtnPlottAnzeigen = 5,
+        ErrorAnzeige = 6,
+        ErrorVersionLokal = 7,
+        ErrorVersionPlc = 8
     }
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
@@ -75,5 +76,4 @@ public abstract partial class ViewModel
     public abstract void BeschreibungZeichnen(Grid grid);
     public abstract void LaborPlatteZeichnen(Grid grid);
     public abstract void SimulationZeichnen(Grid grid);
-    public abstract void AutotestZeichnen(Grid grid);
 }

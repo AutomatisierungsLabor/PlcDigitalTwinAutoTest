@@ -11,6 +11,24 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
+
+    public void ButtonCallback(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, RoutedEventHandler testStarten)
+    {
+
+        var button = new Button
+        {
+            Content = content,
+            FontSize = fontSize,
+            Margin = margin
+        };
+
+        button.Click += testStarten;
+
+        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, button);
+    }
+
+
+
     public void ButtonVis(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, string bindingClick)
     {
         var button = new Button

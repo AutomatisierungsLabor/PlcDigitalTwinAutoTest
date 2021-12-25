@@ -13,7 +13,7 @@ public partial class TabZeichnen
 
         grid.Background = new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush;
         
-        libWpf.Zeichnen(50, 20, 40, 20, gridSichtbar);
+        libWpf.Zeichnen(50, 30, 40, 30, gridSichtbar);
 
         libWpf.Text("Simulation", 2, 20, 25, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.Black);
 

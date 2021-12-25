@@ -7,9 +7,7 @@ public class Da : EaConfig<DaEinstellungen>
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
     private readonly SharedFunctions _sharedFunctions = new();
 
-    public Da(ObservableCollection<DaEinstellungen> zeilen) : base(zeilen)
-    {
-    }
+    public Da(ObservableCollection<DaEinstellungen> zeilen) : base(zeilen) { }
     protected override void ConfigTesten(byte[] speicherAbbild)
     {
         ConfigOk = true;

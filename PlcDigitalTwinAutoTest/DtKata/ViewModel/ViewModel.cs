@@ -25,12 +25,12 @@ public enum WpfObjects
     S6 = 16,
     S7 = 17,
     S8 = 18
-
 }
 public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 {
     public ViewModel(BasePlcDtAt.BaseModel.Model model, Datenstruktur datenstruktur) : base(model, datenstruktur)
     {
+        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
@@ -100,19 +100,9 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
             default: throw new ArgumentOutOfRangeException(nameof(schalterId));
         }
     }
-    public override void PlcButtonClick(object sender, RoutedEventArgs e) {
-
-        //throw new System.NotImplementedException();
-    }
-    public override void PlotterButtonClick(object sender, RoutedEventArgs e)
-    {
-        //throw new System.NotImplementedException();
-    }
+    public override void PlcButtonClick(object sender, RoutedEventArgs e) { }
+    public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(grid, GridSichtbar, "#eeeeee");
-
     public override void LaborPlatteZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(grid, GridSichtbar, "#eeeeee");
-
-    public override void SimulationZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(grid, GridSichtbar, "#eeeeee");
-
-    public override void AutotestZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabAutoTestZeichnen(grid, GridSichtbar, "#eeeeee");
+    public override void SimulationZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(grid, "#eeeeee");
 }
