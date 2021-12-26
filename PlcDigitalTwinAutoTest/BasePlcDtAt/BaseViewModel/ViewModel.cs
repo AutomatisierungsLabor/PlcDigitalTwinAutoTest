@@ -30,7 +30,6 @@ public abstract partial class ViewModel
     protected abstract void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt);
     protected abstract void ViewModelAufrufSchalter(Enum schalterId);
     
-    public abstract void PlcButtonClick(object sender, RoutedEventArgs e);
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
 
     public Datenstruktur Datenstruktur { get; set; }

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using BasePlcDtAt.BaseViewModel;
 using LibAutoTest;
@@ -17,7 +18,7 @@ public partial class BaseWindow
     public AutoTest AutoTest { get; set; }
 
     private readonly ViewModel _viewModel;
-    public BaseWindow(ViewModel viewModel, Datenstruktur datenstruktur)
+    public BaseWindow(ViewModel viewModel, Datenstruktur datenstruktur, int startUpTabIndex)
     {
         _viewModel = viewModel;
         InitializeComponent();
@@ -31,10 +32,8 @@ public partial class BaseWindow
         _viewModel.SimulationZeichnen(Grid2);
 
         AutoTest = new AutoTest(Grid3, "/ConfigTests");
-
+        BaseTabControl.SelectedIndex = startUpTabIndex;
         DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc);
-
-        DisplayPlc.Show();
     }
 
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
@@ -43,14 +42,21 @@ public partial class BaseWindow
 
         Datenstruktur.BetriebsartProjekt = tc.SelectedIndex switch
         {
-            0 => BetriebsartProjekt.BeschreibungAnzeigen,
-            1 => BetriebsartProjekt.LaborPlatte,
-            2 => BetriebsartProjekt.Simulation,
-            3 => BetriebsartProjekt.AutomatischerSoftwareTest,
+            (int)ViewModel.WpfBase.TabBeschreibung => BetriebsartProjekt.BeschreibungAnzeigen,
+            (int)ViewModel.WpfBase.TabLaborplatte => BetriebsartProjekt.LaborPlatte,
+            (int)ViewModel.WpfBase.TabSimulation => BetriebsartProjekt.Simulation,
+            (int)ViewModel.WpfBase.TabAutoTest => BetriebsartProjekt.AutomatischerSoftwareTest,
             _ => Datenstruktur.BetriebsartProjekt
         };
     }
 
-    private void PlcButtonClick(object sender, RoutedEventArgs e) => _viewModel.PlcButtonClick(sender, e);
+    private void PlcButtonClick(object sender, RoutedEventArgs e)
+    {
+        if (DisplayPlc.FensterAktiv) DisplayPlc.Schliessen();
+        else DisplayPlc.Oeffnen();
+    }
+
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _viewModel.PlotterButtonClick(sender, e);
+
+    private void BaseWindow_OnClosing(object sender, CancelEventArgs e) => Application.Current.Shutdown();
 }

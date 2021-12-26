@@ -1,4 +1,4 @@
-﻿<Window x:Class="BasePlcDtAt.BaseWindow"
+﻿<Window x:Class="BasePlcDtAt.BaseWindow" Closing="BaseWindow_OnClosing"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         
         Title="{Binding FensterTitel}" Height="800" Width="1000">
-    <Grid>
+    <Grid> 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="400"/>
@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
 
-        <TabControl Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="2" SelectionChanged="BetriebsartProjektChanged">
+        <TabControl Name="BaseTabControl" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="2" SelectionChanged="BetriebsartProjektChanged">
 
             <TabItem Header="Beschreibung" Visibility="{Binding SichtbarEin[0]}">
                 <Grid x:Name="Grid0"/>

@@ -38,6 +38,7 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
 
+
         _kata = model as Kata;
         /*
 
@@ -100,7 +101,6 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
             default: throw new ArgumentOutOfRangeException(nameof(schalterId));
         }
     }
-    public override void PlcButtonClick(object sender, RoutedEventArgs e) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(grid, GridSichtbar, "#eeeeee");
     public override void LaborPlatteZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(grid, GridSichtbar, "#eeeeee");

@@ -14,7 +14,7 @@ public partial class App
 
         var viewModel = new ViewModel.ViewModel(Kata, datenstruktur);
 
-        var baseWindow = new BasePlcDtAt.BaseWindow(viewModel, datenstruktur);
+        var baseWindow = new BasePlcDtAt.BaseWindow(viewModel, datenstruktur, (int)BasePlcDtAt.BaseViewModel.ViewModel.WpfBase.TabSimulation);
         baseWindow.Show();
     }
 }

@@ -73,7 +73,6 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         }
     }
     protected override void ViewModelAufrufSchalter(Enum schalterId) { }
-    public override void PlcButtonClick(object sender, RoutedEventArgs e) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(grid, GridSichtbar, "#eeeeee");
     public override void LaborPlatteZeichnen(Grid grid) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(grid, GridSichtbar, "#eeeeee");
