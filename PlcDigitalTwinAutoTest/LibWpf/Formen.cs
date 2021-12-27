@@ -20,7 +20,7 @@ public partial class LibWpf
             Y2 = y2
         };
 
-        GridAnpassen(0, xSpan, 0, ySpan, grid, linie);
+        AddToGrid(0, xSpan, 0, ySpan, grid, linie);
     }
     public void Rechteck(int xPos, int xSpan, int yPos, int ySpan, Brush farbe)
     {
@@ -29,7 +29,7 @@ public partial class LibWpf
             Fill = farbe
         };
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
     }
 
     public void RechteckRand(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)
@@ -40,7 +40,7 @@ public partial class LibWpf
             Margin = margin
         };
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
     }
 
 
@@ -55,7 +55,7 @@ public partial class LibWpf
 
         BindingOperations.SetBinding(rectangle, Shape.FillProperty, new Binding($"Farbe[{binding}]"));
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
     public void Border(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Thickness rand)
     {
@@ -65,7 +65,7 @@ public partial class LibWpf
             BorderThickness = rand
         };
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, border);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, border);
     }
 
     public void RechteckVis(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, int wpfObject)
@@ -76,7 +76,7 @@ public partial class LibWpf
         };
 
         rectangle.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
     public void KreisRandVis(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding)
     {
@@ -89,7 +89,7 @@ public partial class LibWpf
 
         BindingOperations.SetBinding(ellipse, Shape.FillProperty, new Binding($"Farbe[{binding}]"));
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, ellipse);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
 
     public StackPanel StackPanel(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)

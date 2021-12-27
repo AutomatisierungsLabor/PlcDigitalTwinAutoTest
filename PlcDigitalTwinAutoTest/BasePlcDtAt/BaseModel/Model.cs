@@ -7,10 +7,7 @@ public abstract class Model
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     protected abstract void ModelThread();
-
-    public string VersionLokal { get; set; } = "-?-";
-    public string VersionPlc { get; set; } = "-???-";
-
+    
 
     protected Model()
     {

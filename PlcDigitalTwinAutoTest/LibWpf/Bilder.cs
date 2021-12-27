@@ -20,7 +20,7 @@ public partial class LibWpf
 
         image.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{binding}]"));
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, image);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
 
     public void BildVisAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, int binding)
@@ -34,6 +34,6 @@ public partial class LibWpf
 
         image.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarAus[{binding}]"));
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, image);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
 }

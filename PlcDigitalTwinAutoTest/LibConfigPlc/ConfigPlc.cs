@@ -10,7 +10,7 @@ public class ConfigPlc
     public ConfigPlc(string pfad)
     {
         Log.Debug("ConfigPlc einlesen: " + pfad);
-        SetPath(pfad);
+        SetPathRelativ(pfad);
     }
     
     public enum EaTypen
@@ -35,7 +35,7 @@ public class ConfigPlc
     public T SetPath<T, TEinstellungen>(string pfad, EaConfig<TEinstellungen> ioConfig) where T : EaConfig<TEinstellungen>
     {
         ioConfig.ConfigOk = false;
-        var dateiPfad = $"{Directory.GetCurrentDirectory()}/{pfad}/{typeof(T).Name.ToUpper()}.json";
+        var dateiPfad = $"{pfad}/{typeof(T).Name.ToUpper()}.json";
         if (!File.Exists(dateiPfad))
         {
             Log.Debug("ConfigPlc Datei nicht gefunden: " + dateiPfad);
@@ -51,6 +51,8 @@ public class ConfigPlc
         }
         return ioConfig as T;
     }
+
+    public void SetPathRelativ(string pfad) => SetPath(new DirectoryInfo(@$"{ Environment.CurrentDirectory}\{pfad}").ToString());
     public void SetPath(string pfad)
     {
         Di = SetPath<Di, DiEinstellungen>(pfad, Di);

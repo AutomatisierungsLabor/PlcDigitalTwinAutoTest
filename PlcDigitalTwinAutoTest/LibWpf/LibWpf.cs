@@ -9,7 +9,7 @@ public partial class LibWpf
 
     public LibWpf(System.Windows.Controls.Grid grid) => Grid = grid;
 
-    public void GridAnpassen(int xPos, int xSpan, int yPos, int ySpan, System.Windows.Controls.Grid grid, UIElement label)
+    public void AddToGrid(int xPos, int xSpan, int yPos, int ySpan, System.Windows.Controls.Grid grid, UIElement label)
     {
         SetColumn(label, xPos);
         SetColumnSpan(label, xSpan);

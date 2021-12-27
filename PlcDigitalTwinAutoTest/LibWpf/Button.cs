@@ -24,7 +24,7 @@ public partial class LibWpf
 
         button.Click += testStarten;
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, button);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
 
 
@@ -40,7 +40,7 @@ public partial class LibWpf
             CommandParameter = cmdParameter
         };
         button.SetBinding(ButtonBase.ClickModeProperty, new Binding(bindingClick));
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, button);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
 
     public void ButtonOnOffVis(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter)
@@ -78,6 +78,6 @@ public partial class LibWpf
 
         button.SetBinding(ButtonBase.ClickModeProperty, new Binding($"ClkMode[{binding}]"));
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, button);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
 }

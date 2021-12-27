@@ -8,14 +8,13 @@ using LibDatenstruktur;
 namespace DtBlinker.ViewModel;
 public enum WpfObjects
 {
-    P1 = 1,
+    P1 = 11,
 
-    S1 = 11,
-    S2 = 12,
-    S3 = 13,
-    S4 = 14,
-    S5 = 15
-
+    S1 = 21,
+    S2 = 22,
+    S3 = 23,
+    S4 = 24,
+    S5 = 25
 }
 public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 {
@@ -43,11 +42,13 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 
         FensterTitel = "Nicht bekannt";
     }
-
     private readonly Blinker _blinker;
     protected override void ViewModelAufrufThread()
     {
         if (_blinker == null) return;
+
+
+        FensterTitel = Datenstruktur.LokaleVersion;
 
         SichtbarkeitUmschalten(_blinker.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_blinker.S2, (int)WpfObjects.S2);
@@ -56,8 +57,6 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         SichtbarkeitUmschalten(_blinker.S5, (int)WpfObjects.S5);
 
         FarbeUmschalten(_blinker.P1, 1, Brushes.LawnGreen, Brushes.White);
-
-        FensterTitel = Model.VersionLokal;
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {

@@ -18,7 +18,7 @@ public partial class LibWpf
             VerticalAlignment = vertical
         };
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, label);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
     public void TextVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, int wpfObject)
     {
@@ -33,7 +33,7 @@ public partial class LibWpf
         label.SetBinding(ContentControl.ContentProperty, new Binding($"Text[{wpfObject }]"));
         label.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, label);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
 
     public void TextVertikalVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Thickness rand, Brush farbe, int wpfObject)
@@ -53,6 +53,6 @@ public partial class LibWpf
         text.SetBinding(TextBlock.TextProperty, new Binding($"Text[{wpfObject }]"));
         text.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
 
-        GridAnpassen(xPos, xSpan, yPos, ySpan, Grid, text);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, text);
     }
 }

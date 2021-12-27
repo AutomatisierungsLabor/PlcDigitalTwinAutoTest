@@ -11,13 +11,13 @@ namespace BasePlcDtAt;
 
 public partial class BaseWindow
 {
-
     public Datenstruktur Datenstruktur { get; set; }
     public ConfigPlc ConfigPlc { get; set; }
     public DisplayPlc DisplayPlc { get; set; }
     public AutoTest AutoTest { get; set; }
 
     private readonly ViewModel _viewModel;
+
     public BaseWindow(ViewModel viewModel, Datenstruktur datenstruktur, int startUpTabIndex)
     {
         _viewModel = viewModel;
@@ -32,31 +32,42 @@ public partial class BaseWindow
         _viewModel.SimulationZeichnen(Grid2);
 
         AutoTest = new AutoTest(Grid3, "/ConfigTests");
+        AutoTest.SetCallback(ConfigPlc.SetPath);
+
         BaseTabControl.SelectedIndex = startUpTabIndex;
         DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc);
     }
-
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
     {
         if (sender is not TabControl tc) return;
 
-        Datenstruktur.BetriebsartProjekt = tc.SelectedIndex switch
+        switch (tc.SelectedIndex)
         {
-            (int)ViewModel.WpfBase.TabBeschreibung => BetriebsartProjekt.BeschreibungAnzeigen,
-            (int)ViewModel.WpfBase.TabLaborplatte => BetriebsartProjekt.LaborPlatte,
-            (int)ViewModel.WpfBase.TabSimulation => BetriebsartProjekt.Simulation,
-            (int)ViewModel.WpfBase.TabAutoTest => BetriebsartProjekt.AutomatischerSoftwareTest,
-            _ => Datenstruktur.BetriebsartProjekt
-        };
+            case (int)ViewModel.WpfBase.TabBeschreibung:
+                ConfigPlc.SetPathRelativ("/ConfigPlc");
+                Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.BeschreibungAnzeigen;
+                break;
+            case (int)ViewModel.WpfBase.TabLaborplatte:
+                ConfigPlc.SetPathRelativ("/ConfigPlc");
+                Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
+                break;
+            case (int)ViewModel.WpfBase.TabSimulation:
+                ConfigPlc.SetPathRelativ("/ConfigPlc");
+                Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.Simulation;
+                break;
+            case (int)ViewModel.WpfBase.TabAutoTest:
+                Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.AutomatischerSoftwareTest;
+                break;
+            default:
+                Datenstruktur.BetriebsartProjekt = Datenstruktur.BetriebsartProjekt;
+                break;
+        }
     }
-
     private void PlcButtonClick(object sender, RoutedEventArgs e)
     {
         if (DisplayPlc.FensterAktiv) DisplayPlc.Schliessen();
         else DisplayPlc.Oeffnen();
     }
-
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _viewModel.PlotterButtonClick(sender, e);
-
     private void BaseWindow_OnClosing(object sender, CancelEventArgs e) => Application.Current.Shutdown();
 }

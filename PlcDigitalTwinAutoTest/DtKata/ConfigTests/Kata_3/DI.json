@@ -1,40 +1,60 @@
 ﻿{
   "Zeilen": [
     {
-      "Byte": 0,
-      "Bit": 0,
-      "Bezeichnung": "B1",
-      "Kommentar": "Endschalter Links"
-    },
-    {
-      "Byte": 0,
-      "Bit": 1,
-      "Bezeichnung": "B2",
-      "Kommentar": "Endschalter Rechts"
-    },
-    {
-      "Byte": 0,
-      "Bit": 2,
-      "Bezeichnung": "F1",
-      "Kommentar": "Thermorelais"
-    },
-    {
-      "Byte": 0,
-      "Bit": 3,
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
       "Bezeichnung": "S1",
-      "Kommentar": "Taster Start"
+      "Kommentar": "Taster"
     },
     {
-      "Byte": 0,
-      "Bit": 4,
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
       "Bezeichnung": "S2",
-      "Kommentar": "Not Halt"
+      "Kommentar": "Taster"
     },
     {
-      "Byte": 0,
-      "Bit": 5,
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
       "Bezeichnung": "S3",
-      "Kommentar": "Taster Reset"
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "S4",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "S5",
+      "Kommentar": "Schiebeschalter"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 5,
+      "Type": "Bit",
+      "Bezeichnung": "S6",
+      "Kommentar": "Schiebeschalter"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 6,
+      "Type": "Bit",
+      "Bezeichnung": "S7",
+      "Kommentar": "Kippschalter"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 7,
+      "Type": "Bit",
+      "Bezeichnung": "S8",
+      "Kommentar": "Kippschalter"
     }
   ]
 }

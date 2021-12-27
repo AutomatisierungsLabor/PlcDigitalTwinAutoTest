@@ -8,23 +8,23 @@ using LibDatenstruktur;
 namespace DtKata.ViewModel;
 public enum WpfObjects
 {
-    P1 = 1,
-    P2 = 2,
-    P3 = 3,
-    P4 = 4,
-    P5 = 5,
-    P6 = 6,
-    P7 = 7,
-    P8 = 8,
+    P1 = 11,
+    P2 = 12,
+    P3 = 13,
+    P4 = 14,
+    P5 = 15,
+    P6 = 16,
+    P7 = 17,
+    P8 = 18,
 
-    S1 = 11,
-    S2 = 12,
-    S3 = 13,
-    S4 = 14,
-    S5 = 15,
-    S6 = 16,
-    S7 = 17,
-    S8 = 18
+    S1 = 21,
+    S2 = 22,
+    S3 = 23,
+    S4 = 24,
+    S5 = 25,
+    S6 = 26,
+    S7 = 27,
+    S8 = 28
 }
 public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
 {
@@ -59,6 +59,8 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
     {
         if (_kata == null) return;
 
+        FensterTitel = Datenstruktur.LokaleVersion;
+
         SichtbarkeitUmschalten(_kata.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_kata.S2, (int)WpfObjects.S2);
         SichtbarkeitUmschalten(_kata.S3, (int)WpfObjects.S3);
@@ -76,8 +78,6 @@ public class ViewModel : BasePlcDtAt.BaseViewModel.ViewModel
         FarbeUmschalten(_kata.P6, 6, Brushes.Yellow, Brushes.White);
         FarbeUmschalten(_kata.P7, 7, Brushes.Red, Brushes.White);
         FarbeUmschalten(_kata.P8, 8, Brushes.Red, Brushes.White);
-
-        FensterTitel = Model.VersionLokal;
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
