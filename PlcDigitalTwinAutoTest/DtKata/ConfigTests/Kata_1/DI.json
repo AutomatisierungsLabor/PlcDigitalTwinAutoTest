@@ -6,13 +6,6 @@
       "Type": "Bit",
       "Bezeichnung": "S1",
       "Kommentar": "Taster"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "S2",
-      "Kommentar": "Taster"
     }
   ]
 }

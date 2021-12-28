@@ -10,7 +10,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(grid);
 
-        libWpf.Zeichnen(50, 30, 30, 30, gridSichtbar);
+        libWpf.GridZeichnen(50, 30, 30, 30, gridSichtbar);
 
         libWpf.Text("Laborplatte", 2, 20, 25, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.Black);
         

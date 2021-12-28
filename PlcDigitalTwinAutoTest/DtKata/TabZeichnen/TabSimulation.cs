@@ -15,7 +15,7 @@ public partial class TabZeichnen
 
         grid.Background = new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush;
 
-        libWpf.Zeichnen(50, 30, 40, 30, false);
+        libWpf.GridZeichnen(50, 30, 40, 30, false);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
 

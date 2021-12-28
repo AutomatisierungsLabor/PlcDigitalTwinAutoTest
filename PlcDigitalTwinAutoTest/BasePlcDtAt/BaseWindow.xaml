@@ -7,7 +7,7 @@
         d:DataContext="{d:DesignInstance Type=baseviewmodel:ViewModel}"
         mc:Ignorable="d"
         
-        Title="{Binding FensterTitel}" Height="800" Width="1000">
+        Title="{Binding FensterTitel}" Height="800" Width="1200">
     <Grid> 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>

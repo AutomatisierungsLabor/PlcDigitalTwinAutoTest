@@ -29,6 +29,9 @@
     <None Update="ConfigPlc\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="ConfigTests\ConfigTests.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="ConfigTests\Kata_1\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

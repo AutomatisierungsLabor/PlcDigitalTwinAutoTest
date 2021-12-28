@@ -8,26 +8,29 @@ using System.Windows.Media;
 
 namespace LibAutoTest;
 
-public partial class AutoTest
+public class AutoTest
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     public ObservableCollection<DirectoryInfo> AlleTestOrdner { get; set; } = new();
     public DirectoryInfo AktuellesProjekt { get; set; }
-    public  WebBrowser WebBrowser { get; set; }
-    
+    public WebBrowser WebBrowser { get; set; }
+    public ViewModel.ViewModel ViewModel { get; set; }
+
     private bool _testWurdeSchonMalGestartet;
     private readonly AutoTesterWindow _autoTesterWindow;
-    private  Action<string> _cbPlcConfig;
+    private Action<string> _cbPlcConfig;
 
     public AutoTest(Grid grid, string configtests)
     {
         _autoTesterWindow = new AutoTesterWindow();
+        ViewModel = new ViewModel.ViewModel(this);
+        
 
         try
         {
             Log.Debug("Testordner lesen: " + configtests);
-            
+
             var directory = new DirectoryInfo(@$"{ Environment.CurrentDirectory}\{configtests}");
 
             foreach (var ordner in directory.GetDirectories())
@@ -46,23 +49,29 @@ public partial class AutoTest
 
         var libWpf = new LibWpf.LibWpf(grid);
 
-        AutoTestZeichnen(libWpf);
+        libWpf.GridZeichnen(56, 30, 30, 30, true);
+
+     
+        var buttonRand = new Thickness(2, 5, 2, 5);
+        libWpf.ButtonText(1, 3, 1, 2, 20, buttonRand, ViewModel.BtnTaster, LibAutoTest.ViewModel.ViewModel.WpfObjects.TasterStart);
+
+
+        var stackPanel = libWpf.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);
+        WebBrowser = libWpf.WebBrowser(10, 28, 3, 20, new Thickness(5, 5, 5, 5), Brushes.White);
+
+        foreach (var ordner in AlleTestOrdner) stackPanel.Children.Add(libWpf.RadioButton("TestProjekte", ordner.Name, ordner, 14, TestChecked));
 
 
         // libWpf.PlcError();
 
     }
 
-    private void TestStarten(object sender, RoutedEventArgs e)
+    public void TestStarten()
     {
-        if (_testWurdeSchonMalGestartet)
-        {
-            _autoTesterWindow.Show();
-        }
-        else
-        {
-            _testWurdeSchonMalGestartet = true;
-        }
+        if (_testWurdeSchonMalGestartet) return;
+
+        _autoTesterWindow.Show();
+        _testWurdeSchonMalGestartet = true;
     }
 
     private void TestChecked(object sender, RoutedEventArgs e)
@@ -75,12 +84,25 @@ public partial class AutoTest
 
         Log.Debug("Test ausgewählt: " + AktuellesProjekt.Name);
 
+
+
         var dateiName = $@"{AktuellesProjekt.FullName}\index.html";
         var htmlSeite = File.Exists(dateiName) ? File.ReadAllText(dateiName) : "--??--";
-        var dataHtmlSeite = Encoding.UTF8.GetBytes(htmlSeite);
-        var stmHtmlSeite = new MemoryStream(dataHtmlSeite, 0, dataHtmlSeite.Length);
+        var htmlCssSeite = htmlSeite;
 
-        WebBrowser.NavigateToStream(stmHtmlSeite);
+        if (htmlSeite.Contains(@"<MeinStyleSheet/>"))
+        {
+            var dateiCssFile = $@"{AktuellesProjekt.FullName}\ConfigTests.css".Replace(AktuellesProjekt.Name + "\\", "");
+            var styleSheet = File.ReadAllText(dateiCssFile);
+
+            htmlCssSeite = htmlSeite.Replace(@"<MeinStyleSheet/>", styleSheet);
+        }
+
+
+        var dataHtmlCssSeite = Encoding.UTF8.GetBytes(htmlCssSeite);
+        var stmHtmlCssSeite = new MemoryStream(dataHtmlCssSeite, 0, dataHtmlCssSeite.Length);
+
+        WebBrowser.NavigateToStream(stmHtmlCssSeite);
     }
 
     public void SetCallback(Action<string> callback) => _cbPlcConfig = callback;

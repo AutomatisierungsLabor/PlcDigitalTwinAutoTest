@@ -15,7 +15,7 @@ public class PlcZeichnen
 
         var libWpf = new LibWpf.LibWpf(plcGrid);
 
-        libWpf.Zeichnen(25, 30, 28, 30, false);
+        libWpf.GridZeichnen(25, 30, 28, 30, false);
 
         libWpf.Rechteck(1, 22, 8, 12, Brushes.LightGray);
       

@@ -13,48 +13,6 @@
       "Type": "Bit",
       "Bezeichnung": "S2",
       "Kommentar": "Taster"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Type": "Bit",
-      "Bezeichnung": "S3",
-      "Kommentar": "Taster"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Type": "Bit",
-      "Bezeichnung": "S4",
-      "Kommentar": "Taster"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 4,
-      "Type": "Bit",
-      "Bezeichnung": "S5",
-      "Kommentar": "Schiebeschalter"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 5,
-      "Type": "Bit",
-      "Bezeichnung": "S6",
-      "Kommentar": "Schiebeschalter"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 6,
-      "Type": "Bit",
-      "Bezeichnung": "S7",
-      "Kommentar": "Kippschalter"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 7,
-      "Type": "Bit",
-      "Bezeichnung": "S8",
-      "Kommentar": "Kippschalter"
     }
   ]
 }
