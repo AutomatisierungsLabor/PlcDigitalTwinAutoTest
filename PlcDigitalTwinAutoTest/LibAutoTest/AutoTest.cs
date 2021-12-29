@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using LibSilkAutoTester;
 
 namespace LibAutoTest;
 
@@ -14,22 +15,21 @@ public class AutoTest
 
     public ObservableCollection<DirectoryInfo> AlleTestOrdner { get; set; } = new();
     public DirectoryInfo AktuellesProjekt { get; set; }
+    public StackPanel StackPanel { get; set; }
     public WebBrowser WebBrowser { get; set; }
     public ViewModel.VmAutoTest VmAutoTest { get; set; }
+    public LibSilkAutoTester.SilkAutoTester SilkAutoTester { get; set; }
+
 
     private bool _testWurdeSchonMalGestartet;
-    private readonly AutoTesterWindow _autoTesterWindow;
     private Action<string> _cbPlcConfig;
 
-    public AutoTest(TabItem tabItem, string configtests)
+    public AutoTest(ContentControl tabItem, string configtests)
     {
-        _autoTesterWindow = new AutoTesterWindow();
-
-        var libWpf = new LibWpf.LibWpf(tabItem);
+        SilkAutoTester = new SilkAutoTester(configtests);
 
         VmAutoTest = new ViewModel.VmAutoTest(this);
         tabItem.DataContext = VmAutoTest;
-
 
         try
         {
@@ -49,21 +49,17 @@ public class AutoTest
             throw;
         }
 
+        var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(Brushes.Yellow);
-
-
         libWpf.GridZeichnen(56, 30, 30, 30, true);
 
-
         var buttonRand = new Thickness(2, 5, 2, 5);
-        libWpf.ButtonText(1, 3, 1, 2, 20, buttonRand, VmAutoTest.BtnTaster, LibAutoTest.ViewModel.VmAutoTest.WpfObjects.TasterStart);
+        libWpf.ButtonText(1, 3, 1, 2, 20, buttonRand, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
 
-
-        var stackPanel = libWpf.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);
+        StackPanel = libWpf.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);
         WebBrowser = libWpf.WebBrowser(10, 28, 3, 20, new Thickness(5, 5, 5, 5), Brushes.White);
 
-        foreach (var ordner in AlleTestOrdner) stackPanel.Children.Add(libWpf.RadioButton("TestProjekte", ordner.Name, ordner, 14, TestChecked));
-
+        foreach (var ordner in AlleTestOrdner) StackPanel.Children.Add(libWpf.RadioButton("TestProjekte", ordner.Name, ordner, 14, TestChecked));
 
         // libWpf.PlcError();
 
@@ -73,7 +69,6 @@ public class AutoTest
     {
         if (_testWurdeSchonMalGestartet) return;
 
-        _autoTesterWindow.Show();
         _testWurdeSchonMalGestartet = true;
     }
 
@@ -86,9 +81,7 @@ public class AutoTest
         _cbPlcConfig(AktuellesProjekt.ToString());
 
         Log.Debug("Test ausgewählt: " + AktuellesProjekt.Name);
-
-
-
+        
         var dateiName = $@"{AktuellesProjekt.FullName}\index.html";
         var htmlSeite = File.Exists(dateiName) ? File.ReadAllText(dateiName) : "--??--";
         var htmlCssSeite = htmlSeite;
@@ -96,7 +89,7 @@ public class AutoTest
         if (htmlSeite.Contains(@"<MeinStyleSheet/>"))
         {
             var dateiCssFile = $@"{AktuellesProjekt.FullName}\ConfigTests.css".Replace(AktuellesProjekt.Name + "\\", "");
-            var styleSheet = File.ReadAllText(dateiCssFile);
+            var styleSheet = "<style>" + File.ReadAllText(dateiCssFile) + "</style>";
 
             htmlCssSeite = htmlSeite.Replace(@"<MeinStyleSheet/>", styleSheet);
         }
@@ -106,7 +99,17 @@ public class AutoTest
         var stmHtmlCssSeite = new MemoryStream(dataHtmlCssSeite, 0, dataHtmlCssSeite.Length);
 
         WebBrowser.NavigateToStream(stmHtmlCssSeite);
+
+        SilkAutoTester.SetProjekt(AktuellesProjekt);
     }
 
     public void SetCallback(Action<string> callback) => _cbPlcConfig = callback;
+
+    public void ResetSelectedProject()
+    {
+        foreach (RadioButton rb in StackPanel.Children)
+        {
+            //
+        }
+    }
 }

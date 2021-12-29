@@ -22,7 +22,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-
     public void BildVisAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, int binding)
     {
         var image = new Image

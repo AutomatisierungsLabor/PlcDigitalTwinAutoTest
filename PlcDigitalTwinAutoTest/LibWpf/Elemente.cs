@@ -7,7 +7,6 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-
     public WebBrowser WebBrowser(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)
     {
         var werBrowser = new WebBrowser
@@ -24,7 +23,6 @@ public partial class LibWpf
 
         return werBrowser;
     }
-
     public RadioButton RadioButton(string gruppenName, string testName, DirectoryInfo ordner, int fontSize, RoutedEventHandler testChecked)
     {
 

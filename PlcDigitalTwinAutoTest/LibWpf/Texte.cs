@@ -35,7 +35,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
-
     public void TextVertikalVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Thickness rand, Brush farbe, int wpfObject)
     {
         var text = new TextBlock

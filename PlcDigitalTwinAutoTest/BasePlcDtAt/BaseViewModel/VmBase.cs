@@ -19,9 +19,11 @@ public abstract partial class VmBase
         TabAutoTest = 3,
         BtnPlcAnzeigen = 4,
         BtnPlottAnzeigen = 5,
+        // ReSharper disable UnusedMember.Global
         ErrorAnzeige = 6,
         ErrorVersionLokal = 7,
         ErrorVersionPlc = 8
+        // ReSharper restore UnusedMember.Global
     }
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);

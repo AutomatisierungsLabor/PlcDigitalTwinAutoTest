@@ -11,38 +11,6 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-
-    public void ButtonCallback(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, RoutedEventHandler testStarten)
-    {
-
-        var button = new Button
-        {
-            Content = content,
-            FontSize = fontSize,
-            Margin = margin
-        };
-
-        button.Click += testStarten;
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
-    }
-
-
-
-    public void ButtonVis(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, string bindingClick)
-    {
-        var button = new Button
-        {
-            Content = content,
-            FontSize = fontSize,
-            Margin = margin,
-            Command = cmd,
-            CommandParameter = cmdParameter
-        };
-        button.SetBinding(ButtonBase.ClickModeProperty, new Binding(bindingClick));
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
-    }
-
     public void ButtonText(int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter)
     {
         var button = new Button
@@ -56,7 +24,6 @@ public partial class LibWpf
         button.SetBinding(ButtonBase.ClickModeProperty, new Binding($"ClkMode[{(int)cmdParameter}]" ));
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-
     public void ButtonOnOffVis(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter)
     {
         var binding = (int)cmdParameter;

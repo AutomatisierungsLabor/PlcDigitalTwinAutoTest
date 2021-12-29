@@ -8,7 +8,9 @@ using LibDatenstruktur;
 namespace DtBlinker.ViewModel;
 public enum WpfObjects
 {
+    // ReSharper disable once UnusedMember.Global
     ReserveFuerBasisViewModel = 20,// // enum WpfBase
+
     P1 = 21,
 
     S1 = 31,

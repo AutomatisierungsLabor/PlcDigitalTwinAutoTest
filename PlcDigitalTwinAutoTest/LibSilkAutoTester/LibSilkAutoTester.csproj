@@ -7,11 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.13" />
+    <PackageReference Include="SoftCircuits.Silk" Version="1.5.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibSilkAutoTester\LibSilkAutoTester.csproj" />
-    <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
+    <ProjectReference Include="..\LibPlc\LibPlc.csproj" />
   </ItemGroup>
 
 </Project>

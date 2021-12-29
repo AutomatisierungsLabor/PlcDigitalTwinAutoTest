@@ -31,19 +31,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
     }
-
-    public void RechteckRand(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)
-    {
-        var hintergrund = new Rectangle
-        {
-            Fill = farbe,
-            Margin = margin
-        };
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
-    }
-
-
     public void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding)
     {
         var rectangle = new Rectangle
@@ -67,17 +54,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, border);
     }
-
-    public void RechteckVis(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, int wpfObject)
-    {
-        var rectangle = new Rectangle
-        {
-            Fill = farbe
-        };
-
-        rectangle.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
-    }
     public void KreisRandVis(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding)
     {
         var ellipse = new Ellipse
@@ -91,7 +67,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
-
     public StackPanel StackPanel(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)
     {
         var stackPanel = new StackPanel

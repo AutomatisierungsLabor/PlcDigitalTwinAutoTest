@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using BasePlcDtAt.BaseViewModel;
@@ -57,6 +56,7 @@ public partial class BaseWindow
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.Simulation;
                 break;
             case (int)VmBase.WpfBase.TabAutoTest:
+                AutoTest.ResetSelectedProject();
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.AutomatischerSoftwareTest;
                 break;
             default:
