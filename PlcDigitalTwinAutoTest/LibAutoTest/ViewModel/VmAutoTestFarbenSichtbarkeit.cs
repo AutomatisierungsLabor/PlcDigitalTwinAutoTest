@@ -2,17 +2,18 @@
 using System.Windows;
 using System.Windows.Media;
 
-namespace BasePlcDtAt.BaseViewModel;
+namespace LibAutoTest.ViewModel;
 
-public abstract partial class ViewModel
+public partial class VmAutoTest
 {
-    protected void FarbeUmschalten(bool val, int i, Brush farbe1, Brush farbe2) => Farbe[i] = val ? farbe1 : farbe2;
-    protected void SichtbarkeitUmschalten(bool val, int i)
+    internal void FarbeUmschalten(bool val, int i, Brush farbe1, Brush farbe2) => Farbe[i] = val ? farbe1 : farbe2;
+    internal void SichtbarkeitUmschalten(bool val, int i)
     {
         SichtbarEin[i] = val ? Visibility.Visible : Visibility.Collapsed;
         SichtbarAus[i] = val ? Visibility.Collapsed : Visibility.Visible;
     }
 
+    
     private ObservableCollection<Visibility> _sichtbarEin = new();
     public ObservableCollection<Visibility> SichtbarEin
     {
@@ -56,4 +57,5 @@ public abstract partial class ViewModel
             OnPropertyChanged(nameof(Text));
         }
     }
+
 }

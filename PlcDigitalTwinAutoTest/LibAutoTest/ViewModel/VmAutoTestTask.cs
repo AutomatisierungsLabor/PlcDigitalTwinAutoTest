@@ -2,14 +2,14 @@
 
 namespace LibAutoTest.ViewModel;
 
-public partial class ViewModel
+public partial class VmAutoTest
 {
     private void VisuAnzeigenTask()
     {
         while (true)
         {
 
-            Text[(int)WpfObjects.TasterStart] = "Test Starten";
+          
 
             Thread.Sleep(10);
         }

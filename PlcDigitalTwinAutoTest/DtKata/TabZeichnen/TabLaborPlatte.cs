@@ -6,9 +6,9 @@ namespace DtKata.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static void TabLaborPlatteZeichnen(Grid grid, bool gridSichtbar, string hintergrund)
+    public static void TabLaborPlatteZeichnen(ViewModel.VmKata vmKata, TabItem tabItem, bool gridSichtbar, string hintergrund)
     {
-        var libWpf = new LibWpf.LibWpf(grid);
+        var libWpf = new LibWpf.LibWpf(tabItem);
 
         libWpf.GridZeichnen(50, 30, 30, 30, gridSichtbar);
 

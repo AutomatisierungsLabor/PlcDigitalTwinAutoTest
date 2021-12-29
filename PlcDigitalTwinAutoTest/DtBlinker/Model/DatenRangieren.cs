@@ -5,10 +5,10 @@ namespace DtBlinker.Model;
 public class DatenRangieren
 
 {
-    private readonly Blinker _blinker;
+    private readonly ModelBlinker _blinker;
     private readonly Datenstruktur _datenstruktur;
 
-    public DatenRangieren(Blinker kata, Datenstruktur datenstruktur)
+    public DatenRangieren(ModelBlinker kata, Datenstruktur datenstruktur)
     {
         _blinker = kata;
         _datenstruktur = datenstruktur;

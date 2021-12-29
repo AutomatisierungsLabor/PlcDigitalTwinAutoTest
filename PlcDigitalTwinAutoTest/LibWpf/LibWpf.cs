@@ -1,15 +1,21 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using static System.Windows.Controls.Grid;
 
 namespace LibWpf;
 
 public partial class LibWpf
 {
-    public System.Windows.Controls.Grid Grid;
+    public Grid Grid;
 
-    public LibWpf(System.Windows.Controls.Grid grid) => Grid = grid;
+    public LibWpf(Grid grid) => Grid = grid;
+    public LibWpf(ContentControl tabItem)
+    {
+        Grid = new Grid();
+        tabItem.Content = Grid;
+    }
 
-    public void AddToGrid(int xPos, int xSpan, int yPos, int ySpan, System.Windows.Controls.Grid grid, UIElement label)
+    public void AddToGrid(int xPos, int xSpan, int yPos, int ySpan, Grid grid, UIElement label)
     {
         SetColumn(label, xPos);
         SetColumnSpan(label, xSpan);

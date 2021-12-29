@@ -3,7 +3,7 @@ using LibDatenstruktur;
 
 namespace DtBlinker.Model;
 
-public class Blinker : BasePlcDtAt.BaseModel.Model
+public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
 {
     public bool P1 { get; set; }
     public bool S1 { get; set; }
@@ -22,7 +22,7 @@ public class Blinker : BasePlcDtAt.BaseModel.Model
 
     private bool _p1Alt;
     private readonly Stopwatch _stopwatch;
-    public Blinker(Datenstruktur datenstruktur)
+    public ModelBlinker(Datenstruktur datenstruktur)
     {
         _datenstruktur = datenstruktur;
         _datenRangieren = new DatenRangieren(this, _datenstruktur);

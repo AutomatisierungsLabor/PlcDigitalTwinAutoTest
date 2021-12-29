@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:baseviewmodel="clr-namespace:BasePlcDtAt.BaseViewModel" 
-        d:DataContext="{d:DesignInstance Type=baseviewmodel:ViewModel}"
+        d:DataContext="{d:DesignInstance Type=baseviewmodel:VmBase}"
         mc:Ignorable="d"
         
         Title="{Binding FensterTitel}" Height="800" Width="1200">
@@ -27,19 +27,10 @@
 
 
         <TabControl Name="BaseTabControl" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="2" SelectionChanged="BetriebsartProjektChanged">
-
-            <TabItem Header="Beschreibung" Visibility="{Binding SichtbarEin[0]}">
-                <Grid x:Name="Grid0"/>
-            </TabItem>
-            <TabItem Header="Laborplatte" Visibility="{Binding SichtbarEin[1]}">
-                <Grid x:Name="Grid1"/>
-            </TabItem>
-            <TabItem  Header="Simulation" Visibility="{Binding SichtbarEin[2]}">
-                <Grid x:Name="Grid2"/>
-            </TabItem>
-            <TabItem Header="Automatischer Softwaretest" Visibility="{Binding SichtbarEin[3]}">
-                <Grid x:Name="Grid3"/>
-            </TabItem>
+            <TabItem x:Name="TabBeschreibung" Header="Beschreibung"               Visibility="{Binding SichtbarEin[0]}"/>
+            <TabItem x:Name="TabLaborPlatte"  Header="Laborplatte"                Visibility="{Binding SichtbarEin[1]}"/>
+            <TabItem x:Name="TabSimulation"   Header="Simulation"                 Visibility="{Binding SichtbarEin[2]}"/>
+            <TabItem x:Name="TabAutoTest"     Header="Automatischer Softwaretest" Visibility="{Binding SichtbarEin[3]}"/>
         </TabControl>
         <Button Click="PlcButtonClick" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Top" Width="60" Height="40" Visibility="{Binding SichtbarEin[4]}">
             <Button.Background>

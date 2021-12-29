@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using BasePlcDtAt.BaseViewModel;
@@ -16,22 +17,22 @@ public partial class BaseWindow
     public DisplayPlc DisplayPlc { get; set; }
     public AutoTest AutoTest { get; set; }
 
-    private readonly ViewModel _viewModel;
+    private readonly VmBase _vmBase;
 
-    public BaseWindow(ViewModel viewModel, Datenstruktur datenstruktur, int startUpTabIndex)
+    public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex)
     {
-        _viewModel = viewModel;
+        _vmBase = vmBase;
         InitializeComponent();
-        DataContext = _viewModel;
+        DataContext = _vmBase;
 
         Datenstruktur = datenstruktur;
         ConfigPlc = new ConfigPlc("/ConfigPlc");
 
-        _viewModel.BeschreibungZeichnen(Grid0);
-        _viewModel.LaborPlatteZeichnen(Grid1);
-        _viewModel.SimulationZeichnen(Grid2);
+        _vmBase.BeschreibungZeichnen(TabBeschreibung);
+        _vmBase.LaborPlatteZeichnen(TabLaborPlatte);
+        _vmBase.SimulationZeichnen(TabSimulation);
 
-        AutoTest = new AutoTest(Grid3, "/ConfigTests");
+        AutoTest = new AutoTest(TabAutoTest, "/ConfigTests");
         AutoTest.SetCallback(ConfigPlc.SetPath);
 
         BaseTabControl.SelectedIndex = startUpTabIndex;
@@ -43,19 +44,19 @@ public partial class BaseWindow
 
         switch (tc.SelectedIndex)
         {
-            case (int)ViewModel.WpfBase.TabBeschreibung:
+            case (int)VmBase.WpfBase.TabBeschreibung:
                 ConfigPlc.SetPathRelativ("/ConfigPlc");
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.BeschreibungAnzeigen;
                 break;
-            case (int)ViewModel.WpfBase.TabLaborplatte:
+            case (int)VmBase.WpfBase.TabLaborplatte:
                 ConfigPlc.SetPathRelativ("/ConfigPlc");
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
                 break;
-            case (int)ViewModel.WpfBase.TabSimulation:
+            case (int)VmBase.WpfBase.TabSimulation:
                 ConfigPlc.SetPathRelativ("/ConfigPlc");
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.Simulation;
                 break;
-            case (int)ViewModel.WpfBase.TabAutoTest:
+            case (int)VmBase.WpfBase.TabAutoTest:
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.AutomatischerSoftwareTest;
                 break;
             default:
@@ -68,6 +69,6 @@ public partial class BaseWindow
         if (DisplayPlc.FensterAktiv) DisplayPlc.Schliessen();
         else DisplayPlc.Oeffnen();
     }
-    private void PlotterButtonClick(object sender, RoutedEventArgs e) => _viewModel.PlotterButtonClick(sender, e);
+    private void PlotterButtonClick(object sender, RoutedEventArgs e) => _vmBase.PlotterButtonClick(sender, e);
     private void BaseWindow_OnClosing(object sender, CancelEventArgs e) => Application.Current.Shutdown();
 }

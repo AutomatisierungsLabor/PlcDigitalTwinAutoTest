@@ -5,10 +5,10 @@ namespace DtKata.Model;
 public class DatenRangieren
 
 {
-    private readonly Kata _kata;
+    private readonly ModelKata _kata;
     private readonly Datenstruktur _datenstruktur;
 
-    public DatenRangieren(Kata kata, Datenstruktur datenstruktur)
+    public DatenRangieren(ModelKata kata, Datenstruktur datenstruktur)
     {
         _kata = kata;
         _datenstruktur = datenstruktur;

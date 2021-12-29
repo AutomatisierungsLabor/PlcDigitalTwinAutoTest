@@ -25,4 +25,6 @@ public partial class LibWpf
             Text(i.ToString(), i, 1, 0, 1, HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.DarkGreen);
         }
     }
+
+    public void SetBackground(SolidColorBrush brush) => Grid.Background=brush;
 }

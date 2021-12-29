@@ -7,7 +7,7 @@ using LibAutoTest.Commands;
 
 namespace LibAutoTest.ViewModel;
 
-public partial class ViewModel
+public partial class VmAutoTest
 {
     public enum WpfObjects
     {
@@ -16,7 +16,7 @@ public partial class ViewModel
 
     private readonly AutoTest _autoTest;
 
-    public ViewModel(AutoTest autoTest)
+    public VmAutoTest(AutoTest autoTest)
     {
         _autoTest = autoTest;
 
@@ -29,7 +29,9 @@ public partial class ViewModel
             Text.Add("");
         }
 
-        
+        SichtbarEin[3] = Visibility.Visible;
+
+        Text[(int)WpfObjects.TasterStart] = "Test Starten";
 
         System.Threading.Tasks.Task.Run(VisuAnzeigenTask);
     }

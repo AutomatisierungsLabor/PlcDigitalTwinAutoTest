@@ -4,11 +4,8 @@ using System.Windows.Controls;
 
 namespace LibAutoTest.ViewModel;
 
-public partial class ViewModel
+public partial class VmAutoTest
 {
-
-
-
     internal void Taster(object id)
     {
         if (id is not Enum enumValue) return;

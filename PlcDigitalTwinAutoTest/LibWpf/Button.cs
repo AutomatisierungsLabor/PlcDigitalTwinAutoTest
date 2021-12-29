@@ -52,7 +52,7 @@ public partial class LibWpf
             Command = cmd,
             CommandParameter = cmdParameter
         };
-        button.SetBinding(TextBlock.TextProperty, new Binding($"Text[{(int)cmdParameter}]"));
+        button.SetBinding(ContentControl.ContentProperty, new Binding($"Text[{(int)cmdParameter}]"));
         button.SetBinding(ButtonBase.ClickModeProperty, new Binding($"ClkMode[{(int)cmdParameter}]" ));
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }

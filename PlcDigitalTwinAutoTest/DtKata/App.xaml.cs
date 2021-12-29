@@ -4,17 +4,17 @@ using LibDatenstruktur;
 namespace DtKata;
 public partial class App
 {
-    public Kata Kata { get; set; }
+    public ModelKata ModelKata { get; set; }
     public App()
     {
         var datenstruktur = new Datenstruktur();
 
-        Kata = new Kata(datenstruktur);
-        Kata.SetVersionLokal("Kata" + " " + "V3.0");
+        ModelKata = new ModelKata(datenstruktur);
+        ModelKata.SetVersionLokal("Kata" + " " + "V3.0");
 
-        var viewModel = new ViewModel.ViewModel(Kata, datenstruktur);
+        var vmKata = new ViewModel.VmKata(ModelKata, datenstruktur);
 
-        var baseWindow = new BasePlcDtAt.BaseWindow(viewModel, datenstruktur, (int)BasePlcDtAt.BaseViewModel.ViewModel.WpfBase.TabSimulation);
+        var baseWindow = new BasePlcDtAt.BaseWindow(vmKata, datenstruktur, (int)BasePlcDtAt.BaseViewModel.VmBase.WpfBase.TabSimulation);
         baseWindow.Show();
     }
 }

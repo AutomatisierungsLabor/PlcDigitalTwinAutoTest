@@ -9,7 +9,7 @@ using LibDatenstruktur;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class ViewModel
+public abstract partial class VmBase
 {
     public enum WpfBase
     {
@@ -29,14 +29,14 @@ public abstract partial class ViewModel
     protected abstract void ViewModelAufrufThread();
     protected abstract void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt);
     protected abstract void ViewModelAufrufSchalter(Enum schalterId);
-    
+
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
 
     public Datenstruktur Datenstruktur { get; set; }
-    public BaseModel.Model Model { get; set; }
+    public BaseModel.BaseModel Model { get; set; }
 
     protected bool GridSichtbar;
-    protected ViewModel(BaseModel.Model model, Datenstruktur datenstruktur)
+    protected VmBase(BaseModel.BaseModel model, Datenstruktur datenstruktur)
     {
         Log.Debug("Konstruktor - startet");
         Model = model;
@@ -72,7 +72,7 @@ public abstract partial class ViewModel
     private ICommand _btnSchalter;
     // ReSharper disable once UnusedMember.Global
     public ICommand BtnSchalter => _btnSchalter ??= new RelayCommand(Schalter);
-    public abstract void BeschreibungZeichnen(Grid grid);
-    public abstract void LaborPlatteZeichnen(Grid grid);
-    public abstract void SimulationZeichnen(Grid grid);
+    public abstract void BeschreibungZeichnen(TabItem tabItem);
+    public abstract void LaborPlatteZeichnen(TabItem tabItem);
+    public abstract void SimulationZeichnen(TabItem tabItem);
 }

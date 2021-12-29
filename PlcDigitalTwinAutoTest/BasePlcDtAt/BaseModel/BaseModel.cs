@@ -2,14 +2,14 @@
 
 namespace BasePlcDtAt.BaseModel;
 
-public abstract class Model
+public abstract class BaseModel
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     protected abstract void ModelThread();
     
 
-    protected Model()
+    protected BaseModel()
     {
         Log.Debug("Konstruktor - startet");
         System.Threading.Tasks.Task.Run(ModelTask);

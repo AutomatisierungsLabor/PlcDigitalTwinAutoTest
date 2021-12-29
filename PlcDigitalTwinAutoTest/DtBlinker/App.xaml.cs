@@ -5,18 +5,18 @@ namespace DtBlinker;
 
 public partial class App
 {
-    public Blinker Blinker { get; set; }
+    public ModelBlinker ModelBlinker { get; set; }
 
     public App()
     {
         var datenstruktur = new Datenstruktur();
 
-        Blinker = new Blinker(datenstruktur);
-        Blinker.SetVersionLokal("Blinker" + " " + "V3.0");
+        ModelBlinker = new ModelBlinker(datenstruktur);
+        ModelBlinker.SetVersionLokal("Blinker" + " " + "V3.0");
 
-        var viewModel = new ViewModel.ViewModel(Blinker, datenstruktur);
+        var vmBlinker = new ViewModel.VmBlinker(ModelBlinker, datenstruktur);
 
-        var baseWindow = new BasePlcDtAt.BaseWindow(viewModel, datenstruktur, (int)BasePlcDtAt.BaseViewModel.ViewModel.WpfBase.TabSimulation);
+        var baseWindow = new BasePlcDtAt.BaseWindow(vmBlinker, datenstruktur, (int)BasePlcDtAt.BaseViewModel.VmBase.WpfBase.TabSimulation);
         baseWindow.Show();
     }
 }

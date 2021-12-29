@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using DtKata.ViewModel;
@@ -8,26 +7,25 @@ namespace DtKata.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static void TabSimulationZeichnen(Grid grid, string hintergrund)
+    public static void TabSimulationZeichnen(VmKata vmKata, TabItem tabItem, string hintergrund)
     {
-        var viewmodel = grid.DataContext as BasePlcDtAt.BaseViewModel.ViewModel ?? throw new ArgumentNullException($"{nameof(ViewModel)}", "Datacontext is not of type viewmodel");
-        var libWpf = new LibWpf.LibWpf(grid);
-
-        grid.Background = new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush;
-
+        // var viewmodel = grid.DataContext as BasePlcDtAt.BaseViewModel.VmBase ?? throw new ArgumentNullException($"{nameof(ViewModel)}", "Datacontext is not of type viewmodel");
+        var libWpf = new LibWpf.LibWpf(tabItem);
+        libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
         libWpf.GridZeichnen(50, 30, 40, 30, false);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
+       
+        libWpf.ButtonText(1, 3, 1, 2, 20, buttonRand, vmKata.BtnTaster, WpfObjects.S1);
+        libWpf.ButtonText(1, 3, 3, 2, 20, buttonRand, vmKata.BtnTaster, WpfObjects.S2);
+        libWpf.ButtonText(1, 3, 5, 2, 20, buttonRand, vmKata.BtnTaster, WpfObjects.S3);
+        libWpf.ButtonText(1, 3, 7, 2, 20, buttonRand, vmKata.BtnTaster, WpfObjects.S4);
 
-        libWpf.ButtonVis("S1", 1, 3, 1, 2, 20, buttonRand, viewmodel.BtnTaster, WpfObjects.S1, $"ClkMode[{(int)WpfObjects.S1}]");
-        libWpf.ButtonVis("S2", 1, 3, 3, 2, 20, buttonRand, viewmodel.BtnTaster, WpfObjects.S2, $"ClkMode[{(int)WpfObjects.S2}]");
-        libWpf.ButtonVis("S3", 1, 3, 5, 2, 20, buttonRand, viewmodel.BtnTaster, WpfObjects.S3, $"ClkMode[{(int)WpfObjects.S3}]");
-        libWpf.ButtonVis("S4", 1, 3, 7, 2, 20, buttonRand, viewmodel.BtnTaster, WpfObjects.S4, $"ClkMode[{(int)WpfObjects.S4}]");
-
-        libWpf.ButtonOnOffVis(1, 3, 10, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, viewmodel.BtnSchalter, WpfObjects.S5);
-        libWpf.ButtonOnOffVis(1, 3, 12, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, viewmodel.BtnSchalter, WpfObjects.S6);
-        libWpf.ButtonOnOffVis(1, 3, 14, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, viewmodel.BtnSchalter, WpfObjects.S7);
-        libWpf.ButtonOnOffVis(1, 3, 16, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, viewmodel.BtnSchalter, WpfObjects.S8);
+        libWpf.ButtonOnOffVis(1, 3, 10, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, vmKata.BtnSchalter, WpfObjects.S5);
+        libWpf.ButtonOnOffVis(1, 3, 12, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, vmKata.BtnSchalter, WpfObjects.S6);
+        libWpf.ButtonOnOffVis(1, 3, 14, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, vmKata.BtnSchalter, WpfObjects.S7);
+        libWpf.ButtonOnOffVis(1, 3, 16, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, vmKata.BtnSchalter, WpfObjects.S8);
+        
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 

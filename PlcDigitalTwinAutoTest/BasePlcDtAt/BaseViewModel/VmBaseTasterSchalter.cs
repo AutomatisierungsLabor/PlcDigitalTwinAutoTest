@@ -5,7 +5,7 @@ using System.Windows.Controls;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class ViewModel : INotifyPropertyChanged
+public abstract partial class VmBase : INotifyPropertyChanged
 {
     internal void Taster(object id)
     {

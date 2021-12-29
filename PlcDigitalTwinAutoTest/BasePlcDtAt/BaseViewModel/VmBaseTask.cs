@@ -2,7 +2,7 @@
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class ViewModel
+public abstract partial class VmBase
 {
     private void ViewModelTask()
     {
