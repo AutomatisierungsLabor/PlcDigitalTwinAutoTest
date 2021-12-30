@@ -52,7 +52,7 @@ public abstract partial class VmBase
         SpsStatus = "x";
         SpsColor = Brushes.LightBlue;
 
-        for (var i = 0; i < 500; i++)
+        for (var i = 0; i < 100; i++)
         {
             ClkMode.Add(ClickMode.Press);
             SichtbarEin.Add(Visibility.Hidden);

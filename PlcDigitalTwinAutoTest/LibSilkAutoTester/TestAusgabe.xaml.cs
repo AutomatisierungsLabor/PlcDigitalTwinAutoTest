@@ -1,24 +1,29 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
-using LibSilkAutoTester.TestAutomat;
+﻿using LibConfigPlc;
+using LibSilkAutoTester.Model;
+using LibSilkAutoTester.ViewModel;
 
 namespace LibSilkAutoTester;
 
 public partial class TestAusgabeFenster
 {
-    public ObservableCollection<DataGridZeile> AutoTesterDataGrid { get; set; }
-    public void UpdateDataGrid(DataGridZeile data) => Dispatcher.Invoke(() => AutoTesterDataGrid.Add(data));
-    
-
-    public TestAusgabeFenster()
+   
+   // public void UpdateDataGrid(DataGridZeile data) => Dispatcher.Invoke(() => AutoTesterDataGrid.Add(data));
+    public Model.ModelSilkAutoTester ModelSilkAutoTester { get; set; }
+    public ViewModel.VmSilkAutoTester VmSilkAutoTester { get; set; }
+    private readonly DiDaBeschriften _diDaBeschriften;
+    public TestAusgabeFenster(ConfigPlc configPlc)
     {
-        AutoTesterDataGrid = new ObservableCollection<DataGridZeile>();
+        ModelSilkAutoTester = new ModelSilkAutoTester(this, configPlc);
+        VmSilkAutoTester = new VmSilkAutoTester(ModelSilkAutoTester);
+       // AutoTesterDataGrid = new ObservableCollection<DataGridZeile>();
+
 
         InitializeComponent();
+        DataContext = VmSilkAutoTester;
 
+        _diDaBeschriften = new DiDaBeschriften(GridTest);
+
+        /*
         DataGrid.ItemsSource = AutoTesterDataGrid;
         DataGrid.ItemContainerGenerator.StatusChanged += (_, _) =>
         {
@@ -38,5 +43,14 @@ public partial class TestAusgabeFenster
                 default: throw new ArgumentOutOfRangeException();
             }
         };
+        */
+
+        Closing += (_, e) =>
+        {
+            e.Cancel = true;
+            Hide();
+        };
     }
+
+
 }

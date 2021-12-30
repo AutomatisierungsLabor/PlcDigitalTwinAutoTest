@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
     <ProjectReference Include="..\LibSilkAutoTester\LibSilkAutoTester.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
   </ItemGroup>

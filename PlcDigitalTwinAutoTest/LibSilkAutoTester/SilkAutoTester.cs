@@ -12,10 +12,17 @@ public class SilkAutoTester
 
 
     public DirectoryInfo AktuellesProjekt { get; set; }
-    public SilkAutoTester(string configtests)
+
+
+    public LibConfigPlc.ConfigPlc ConfigPlc { get; set; }
+    
+    
+    public SilkAutoTester(LibConfigPlc.ConfigPlc configPlc, string configtests)
     {
+        ConfigPlc = configPlc;
+
         AktuellesProjekt = new DirectoryInfo(configtests);
-        TestAusgabeFenster = new TestAusgabeFenster();
+        TestAusgabeFenster = new TestAusgabeFenster(configPlc);
 
 
         TestAusgabeFenster.Show();

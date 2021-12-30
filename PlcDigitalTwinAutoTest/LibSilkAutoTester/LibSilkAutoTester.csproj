@@ -11,7 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
     <ProjectReference Include="..\LibPlc\LibPlc.csproj" />
+    <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Silk\" />
   </ItemGroup>
 
 </Project>
