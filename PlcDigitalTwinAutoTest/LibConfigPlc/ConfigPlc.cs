@@ -28,6 +28,8 @@ public class ConfigPlc
         // ReSharper restore UnusedMember.Global
     }
 
+    public string PfadAbsolut { get; set; }
+
     public Di Di { get; set; } = new(new ObservableCollection<DiEinstellungen>());
     public Da Da { get; set; } = new(new ObservableCollection<DaEinstellungen>());
     public Ai Ai { get; set; } = new(new ObservableCollection<AiEinstellungen>());
@@ -55,6 +57,7 @@ public class ConfigPlc
     public void SetPathRelativ(string pfad) => SetPath(new DirectoryInfo(@$"{ Environment.CurrentDirectory}\{pfad}").ToString());
     public void SetPath(string pfad)
     {
+        PfadAbsolut = pfad;
         Di = SetPath<Di, DiEinstellungen>(pfad, Di);
         Da = SetPath<Da, DaEinstellungen>(pfad, Da);
         Ai = SetPath<Ai, AiEinstellungen>(pfad, Ai);

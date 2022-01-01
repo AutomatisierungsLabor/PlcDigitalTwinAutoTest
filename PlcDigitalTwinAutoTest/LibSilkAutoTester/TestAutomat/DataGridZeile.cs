@@ -2,20 +2,23 @@
 
 public class DataGridZeile
 {
-    public int Nr { get; set; }
-    public TestErgebnis Ergebnis { get; set; }
-    public TestBefehle Befehle { get; set; }
+    public int ZeilenNr { get; set; }
+    public string Zeit { get; set; }
+    public TestAutomat.TestAnzeige Ergebnis { get; set; }
     public string DigInput { get; set; }
-    public string DigOutput { get; set; }
+    public string DigOutSoll { get; set; }
+    public string DigOutIst { get; set; }
     public string Kommentar { get; set; }
 
-    public DataGridZeile(int nr, TestErgebnis ergebnis, TestBefehle befehle, LibPlc.Uint digInput, LibPlc.Uint digOutput, string kommentar)
+    public DataGridZeile(short nr, string zeit, TestAutomat.TestAnzeige ergebnis,  string digInput, string digOutSoll, string digOutIst, string kommentar)
     {
-        Nr = nr;
+        ZeilenNr = nr;
+        Zeit = zeit;
         Ergebnis = ergebnis;
-        Befehle = befehle;
-        DigInput = digInput.GetBin16Bit();
-        DigOutput = digOutput.GetBin16Bit();
+        DigInput = digInput;
+        DigOutSoll = digOutSoll;
+        DigOutIst = digOutIst;
         Kommentar = kommentar;
     }
+
 }

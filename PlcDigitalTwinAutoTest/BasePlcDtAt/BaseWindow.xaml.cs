@@ -31,7 +31,7 @@ public partial class BaseWindow
         _vmBase.LaborPlatteZeichnen(TabLaborPlatte);
         _vmBase.SimulationZeichnen(TabSimulation);
 
-        AutoTest = new AutoTest(ConfigPlc, TabAutoTest, "/ConfigTests");
+        AutoTest = new AutoTest(Datenstruktur, ConfigPlc, TabAutoTest, "/ConfigTests");
         AutoTest.SetCallback(ConfigPlc.SetPath);
 
         BaseTabControl.SelectedIndex = startUpTabIndex;

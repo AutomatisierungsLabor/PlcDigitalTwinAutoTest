@@ -1,6 +1,6 @@
 ﻿namespace LibSilkAutoTester.TestAutomat;
-/*
-public enum TestErgebnis
+
+public enum TestAnzeige
 {
     // ReSharper disable UnusedMember.Global
     Aktiv,
@@ -21,7 +21,6 @@ public enum TestErgebnis
     CompilerStart
     // ReSharper restore UnusedMember.Global
 }
-*/
 public enum TestBefehle
 {
     // ReSharper disable UnusedMember.Global
@@ -31,7 +30,6 @@ public enum TestBefehle
     Pause
     // ReSharper restore UnusedMember.Global
 }
-
 public enum TestErgebnis
 {
     // ReSharper disable UnusedMember.Global

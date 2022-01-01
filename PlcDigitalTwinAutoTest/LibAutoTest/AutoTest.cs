@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using LibConfigPlc;
+using LibDatenstruktur;
 using LibSilkAutoTester;
 
 namespace LibAutoTest;
@@ -26,9 +27,9 @@ public class AutoTest
     private Action<string> _cbPlcConfig;
 
 
-    public AutoTest(ConfigPlc configPlc, ContentControl tabItem, string configtests)
+    public AutoTest(Datenstruktur datenstruktur, ConfigPlc configPlc, ContentControl tabItem, string configtests)
     {
-        SilkAutoTester = new SilkAutoTester(configPlc, configtests);
+        SilkAutoTester = new SilkAutoTester(datenstruktur, configPlc, configtests);
 
         VmAutoTest = new ViewModel.VmAutoTest(this);
         tabItem.DataContext = VmAutoTest;
@@ -72,6 +73,8 @@ public class AutoTest
         if (_testWurdeSchonMalGestartet) return;
 
         _testWurdeSchonMalGestartet = true;
+
+        SilkAutoTester.TestStarten();
     }
 
     private void TestChecked(object sender, RoutedEventArgs e)

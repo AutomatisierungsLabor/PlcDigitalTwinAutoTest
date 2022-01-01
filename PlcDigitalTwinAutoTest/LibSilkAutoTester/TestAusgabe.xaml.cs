@@ -1,4 +1,5 @@
 ﻿using LibConfigPlc;
+using LibDatenstruktur;
 using LibSilkAutoTester.Model;
 using LibSilkAutoTester.ViewModel;
 
@@ -11,9 +12,9 @@ public partial class TestAusgabeFenster
     public Model.ModelSilkAutoTester ModelSilkAutoTester { get; set; }
     public ViewModel.VmSilkAutoTester VmSilkAutoTester { get; set; }
     private readonly DiDaBeschriften _diDaBeschriften;
-    public TestAusgabeFenster(ConfigPlc configPlc)
+    public TestAusgabeFenster(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
-        ModelSilkAutoTester = new ModelSilkAutoTester(this, configPlc);
+        ModelSilkAutoTester = new ModelSilkAutoTester(this, datenstruktur, configPlc);
         VmSilkAutoTester = new VmSilkAutoTester(ModelSilkAutoTester);
        // AutoTesterDataGrid = new ObservableCollection<DataGridZeile>();
 

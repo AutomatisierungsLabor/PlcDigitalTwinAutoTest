@@ -18,18 +18,19 @@ public class VmSilkAutoTester
     }
 
     private Model.ModelSilkAutoTester _modelSilkAutoTester;
-
+    private string _pfadAlt = "-";
 
     public VmSilkAutoTester(ModelSilkAutoTester modelSilkAutoTester)
     {
         _modelSilkAutoTester = modelSilkAutoTester;
 
+        
 
         for (var i = 0; i < 100; i++)
         {
-            SichtbarEin.Add(Visibility.Visible);
+            SichtbarEin.Add(Visibility.Hidden);
             Farbe.Add(Brushes.White);
-            Text.Add("Di/Da " + i.ToString());
+            Text.Add("");
         }
 
         System.Threading.Tasks.Task.Run(VmAnzeigenTask);
@@ -39,6 +40,30 @@ public class VmSilkAutoTester
     {
         while (true)
         {
+
+            if (_pfadAlt != _modelSilkAutoTester.ConfigPlc.PfadAbsolut)
+            {
+                _pfadAlt = _modelSilkAutoTester.ConfigPlc.PfadAbsolut;
+
+                Text[(int)WpfIndex.SoureCode] = _modelSilkAutoTester.TestSource;
+
+                for (var i = 0; i < 100; i++) SichtbarEin[i] = Visibility.Hidden;
+
+                foreach (var zeile in _modelSilkAutoTester.ConfigPlc.Di.Zeilen)
+                {
+                    var bitPos = (int)WpfIndex.Di01 + 8 * zeile.StartByte + zeile.StartBit;
+                    SichtbarEin[bitPos] = Visibility.Visible;
+                    Text[bitPos] = zeile.Bezeichnung;
+                }
+
+                foreach (var zeile in _modelSilkAutoTester.ConfigPlc.Da.Zeilen)
+                {
+                    var bitPos = (int)WpfIndex.Da01 + 8 * zeile.StartByte + zeile.StartBit;
+                    SichtbarEin[bitPos] = Visibility.Visible;
+                    Text[bitPos] = zeile.Bezeichnung;
+                }
+
+            }
 
             Thread.Sleep(10);
         }
