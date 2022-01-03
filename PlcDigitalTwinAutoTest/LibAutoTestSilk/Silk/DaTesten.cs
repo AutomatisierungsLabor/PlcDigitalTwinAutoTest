@@ -1,11 +1,10 @@
 ﻿using LibPlc;
 
-namespace LibSilkAutoTester.Silk;
+namespace LibAutoTestSilk.Silk;
 
-internal class DigAusgaengeTesten
+internal class DaTesten
 {
-
-    public enum StatusDigAusgaenge
+    public enum StatusDa
     {
         Init = 0,
         AufBitmusterWarten,
@@ -16,7 +15,7 @@ internal class DigAusgaengeTesten
 
     private static int _aktuellerSchritt;
 
-    private StatusDigAusgaenge _statusDigAusgaenge;
+    private StatusDa _statusDa;
 
     private readonly Uint _bitMuster;
     private readonly Uint _bitMaske;
@@ -27,9 +26,9 @@ internal class DigAusgaengeTesten
     private readonly long _dauerMax;
 
 
-    public DigAusgaengeTesten(ulong bitMuster, ulong bitMaske, string dauer, double toleranz, string timeout, string kommentar)
+    public DaTesten(ulong bitMuster, ulong bitMaske, string dauer, double toleranz, string timeout, string kommentar)
     {
-        _statusDigAusgaenge = StatusDigAusgaenge.Init;
+        _statusDa = StatusDa.Init;
 
         _bitMuster = new Uint(bitMuster);
         _bitMaske = new Uint(bitMaske);
@@ -48,8 +47,8 @@ internal class DigAusgaengeTesten
     internal static void SetNaechsterSchritt() => _aktuellerSchritt++;
 
 
-    internal StatusDigAusgaenge GetAktuellerStatus() => _statusDigAusgaenge;
-    internal void SetAktuellerStatus(StatusDigAusgaenge status) => _statusDigAusgaenge = status;
+    internal StatusDa GetAktuellerStatus() => _statusDa;
+    internal void SetAktuellerStatus(StatusDa status) => _statusDa = status;
 
 
     public long GetTimeoutMs() => _startZeit + _timeout.DauerMs;

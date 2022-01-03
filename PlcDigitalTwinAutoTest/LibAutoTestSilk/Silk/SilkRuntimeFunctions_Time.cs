@@ -2,7 +2,7 @@
 using LibPlc;
 using SoftCircuits.Silk;
 
-namespace LibSilkAutoTester.Silk;
+namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {

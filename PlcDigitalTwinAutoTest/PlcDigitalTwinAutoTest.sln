@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibDisplayPlc", "LibDisplay
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibAutoTest", "LibAutoTest\LibAutoTest.csproj", "{22F8A449-D8B8-4707-B40A-5DB5241930B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibSilkAutoTester", "LibSilkAutoTester\LibSilkAutoTester.csproj", "{8E16B5EB-EA0F-49FC-8E39-FAD61F4511BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibAutoTestSilk", "LibAutoTestSilk\LibAutoTestSilk.csproj", "{8E16B5EB-EA0F-49FC-8E39-FAD61F4511BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

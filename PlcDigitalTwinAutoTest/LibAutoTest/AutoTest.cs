@@ -5,9 +5,9 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using LibAutoTestSilk;
 using LibConfigPlc;
 using LibDatenstruktur;
-using LibSilkAutoTester;
 
 namespace LibAutoTest;
 
@@ -20,7 +20,7 @@ public class AutoTest
     public StackPanel StackPanel { get; set; }
     public WebBrowser WebBrowser { get; set; }
     public ViewModel.VmAutoTest VmAutoTest { get; set; }
-    public LibSilkAutoTester.SilkAutoTester SilkAutoTester { get; set; }
+    public AutoTesterSilk AutoTesterSilk { get; set; }
 
 
     private bool _testWurdeSchonMalGestartet;
@@ -29,7 +29,7 @@ public class AutoTest
 
     public AutoTest(Datenstruktur datenstruktur, ConfigPlc configPlc, ContentControl tabItem, string configtests)
     {
-        SilkAutoTester = new SilkAutoTester(datenstruktur, configPlc, configtests);
+        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc);
 
         VmAutoTest = new ViewModel.VmAutoTest(this);
         tabItem.DataContext = VmAutoTest;
@@ -74,7 +74,7 @@ public class AutoTest
 
         _testWurdeSchonMalGestartet = true;
 
-        SilkAutoTester.TestStarten();
+        AutoTesterSilk.TestStarten();
     }
 
     private void TestChecked(object sender, RoutedEventArgs e)
@@ -105,7 +105,7 @@ public class AutoTest
 
         WebBrowser.NavigateToStream(stmHtmlCssSeite);
 
-        SilkAutoTester.SetProjekt(AktuellesProjekt);
+        AutoTesterSilk.SetProjekt(AktuellesProjekt);
     }
 
     public void SetCallback(Action<string> callback) => _cbPlcConfig = callback;

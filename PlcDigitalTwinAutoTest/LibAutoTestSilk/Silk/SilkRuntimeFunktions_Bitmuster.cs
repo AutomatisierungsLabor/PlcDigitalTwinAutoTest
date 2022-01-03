@@ -4,7 +4,7 @@ using System.Threading;
 using LibPlc;
 using SoftCircuits.Silk;
 
-namespace LibSilkAutoTester.Silk;
+namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
@@ -14,19 +14,12 @@ public partial class Silk
         AufNegFlankeWarten
     }
 
-    internal static uint GetDigtalInputWord()
-    {
-        return 0; //Simatic.Digital_CombineTwoByte(Datenstruktur.DigInput[0], Datenstruktur.DigInput[1]);
-    }
+    internal static uint GetDiWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Da[1]);
+    internal static uint GetDaWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Da[1]);
 
-    internal static uint GetDigitalOutputWord()
+    private static void GetDa(FunctionEventArgs e)
     {
-        return 0; //Simatic.Digital_CombineTwoByte(Datenstruktur.DigOutput[0], Datenstruktur.DigOutput[1]);
-    }
-
-    private static void GetDigitaleAusgaenge(FunctionEventArgs e)
-    {
-        var digitalOutput = GetDigitalOutputWord();
+        var digitalOutput = GetDaWord();
         e.ReturnValue.SetValue((int)digitalOutput);
     }
     private static void BitmusterTesten(FunctionEventArgs e)
@@ -44,7 +37,7 @@ public partial class Silk
 
             Thread.Sleep(10);
 
-            var digitalOutput = GetDigitalOutputWord();
+            var digitalOutput = GetDaWord();
 
             if ((digitalOutput & (short)bitMaske) == (short)bitMuster)
             {
@@ -88,7 +81,7 @@ public partial class Silk
         {
             Thread.Sleep(10);
 
-            var digitalOutput = GetDigitalOutputWord();
+            var digitalOutput = GetDaWord();
 
             var aktuellePeriodenDauer = zeitImpuls + zeitPause;
             if (zeitImpuls > 0) tastverhaeltnis = zeitImpuls / aktuellePeriodenDauer;

@@ -1,4 +1,4 @@
-﻿namespace LibSilkAutoTester.TestAutomat;
+﻿namespace LibAutoTestSilk.TestAutomat;
 
 public enum TestAnzeige
 {
@@ -21,6 +21,7 @@ public enum TestAnzeige
     CompilerStart
     // ReSharper restore UnusedMember.Global
 }
+/*
 public enum TestBefehle
 {
     // ReSharper disable UnusedMember.Global
@@ -40,3 +41,4 @@ public enum TestErgebnis
     Fehler
     // ReSharper restore UnusedMember.Global
 }
+*/

@@ -1,10 +1,10 @@
 ﻿using LibPlc;
 
-namespace LibSilkAutoTester.Silk;
+namespace LibAutoTestSilk.Silk;
 
-internal class DigEingaengeSetzen
+internal class DiSetzen
 {
-    public enum StatusDigEingaenge
+    public enum StatusDi
     {
         Init = 0,
         SchrittAktiv,
@@ -13,15 +13,15 @@ internal class DigEingaengeSetzen
 
     private static int _aktuellerSchritt;
 
-    private StatusDigEingaenge _statusDigEingaenge;
+    private StatusDi _statusDi;
     private readonly Uint _bitMuster;
     private readonly ZeitDauer _dauer;
     private readonly string _kommentar;
     private long _startZeit;
 
-    public DigEingaengeSetzen(ulong bitMuster, string dauer, string kommentar)
+    public DiSetzen(ulong bitMuster, string dauer, string kommentar)
     {
-        _statusDigEingaenge = StatusDigEingaenge.Init;
+        _statusDi = StatusDi.Init;
         _bitMuster = new Uint(bitMuster);
         _dauer = new ZeitDauer(dauer);
         _kommentar = kommentar;
@@ -34,8 +34,8 @@ internal class DigEingaengeSetzen
     internal static void SetAktuellerSchritt(int schritt) => _aktuellerSchritt = schritt;
     internal static void SetNaechsterSchritt() => _aktuellerSchritt++;
 
-    internal StatusDigEingaenge GetAktuellerStatus() => _statusDigEingaenge;
-    internal void SetAktuellerStatus(StatusDigEingaenge status) => _statusDigEingaenge = status;
+    internal StatusDi GetAktuellerStatus() => _statusDi;
+    internal void SetAktuellerStatus(StatusDi status) => _statusDi = status;
 
     internal Uint GetBitmuster() => _bitMuster;
     internal ZeitDauer GetDauer() => _dauer;
