@@ -1,31 +1,31 @@
-﻿using System;
+﻿using SoftCircuits.Silk;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
-    private static void TestAblauf(FunctionEventArgs e)
+    private void TestAblauf(FunctionEventArgs e)
     {
-        var listeDigEingaenge = new List<DiSetzen>();
-        var listeDigAusgaenge = new List<DaTesten>();
+        var listeDi = new List<DiSetzen>();
+        var listeDa = new List<DaTesten>();
 
         for (var i = 0; i < e.Parameters[0].ListCount; i++)
         {
-            listeDigEingaenge.Add(new DiSetzen(
+            listeDi.Add(new DiSetzen(
                 (ulong)e.Parameters[0][i][0].ToInteger(),
                 e.Parameters[0][i][1].ToString(),
-                e.Parameters[0][i][2].ToString())); 
+                e.Parameters[0][i][2].ToString()));
         }
-        DiSetzen.SetAktuellerSchritt(0);
+        //DiSetzen.SetAktuellerSchritt(0);
 
         for (var i = 0; i < e.Parameters[1].ListCount; i++)
         {
-            listeDigAusgaenge.Add(new DaTesten(
+            listeDa.Add(new DaTesten(
                 (ulong)e.Parameters[1][i][0].ToInteger(),
                 (ulong)e.Parameters[1][i][1].ToInteger(),
                 e.Parameters[1][i][2].ToString(),
@@ -33,9 +33,9 @@ public partial class Silk
                 e.Parameters[1][i][4].ToString(),
                 e.Parameters[1][i][5].ToString()));
         }
-        DaTesten.SetAktuellerSchritt(0);
+        //DaTesten.SetAktuellerSchritt(0);
 
-        var gesamteTimeOutZeit = listeDigAusgaenge.Sum(test => test.GetTimeoutMs());
+        var gesamteTimeOutZeit = listeDa.Sum(test => test.GetTimeoutMs());
 
         var stopwatch = new Stopwatch();
 
@@ -45,16 +45,16 @@ public partial class Silk
         {
             Thread.Sleep(10);
 
-            var testAblaufDiFertig = FunktionDigEingaenge(listeDigEingaenge, stopwatch);
-            var testAblaufDaFertig = FunktionDigAusgaenge(listeDigAusgaenge, stopwatch);
+            var testAblaufDiFertig = FunktionDigEingaenge(listeDi, stopwatch);
+            var testAblaufDaFertig = FunktionDigAusgaenge(listeDa, stopwatch);
 
             if (testAblaufDiFertig && testAblaufDaFertig) return;
         }
         DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Timeout, 0, "uups");
     }
-    private static bool FunktionDigEingaenge(IReadOnlyList<DiSetzen> listeDi, Stopwatch aktuelleZeit)
+    private bool FunktionDigEingaenge(IReadOnlyList<DiSetzen> listeDi, Stopwatch aktuelleZeit)
     {
-        var schritt = DiSetzen.GetAktuellerSchritt();
+        var schritt = 0; //DiSetzen.GetAktuellerSchritt();
         var aufgabe = listeDi[schritt];
 
         switch (aufgabe.GetAktuellerStatus())
@@ -78,7 +78,7 @@ public partial class Silk
                 if (aktuelleZeit.ElapsedMilliseconds <= aufgabe.GetEndZeit()) return false;
 
                 aufgabe.SetAktuellerStatus(DiSetzen.StatusDi.SchrittAbgeschlossen);
-                DiSetzen.SetNaechsterSchritt();
+                //DiSetzen.SetNaechsterSchritt();
                 return false;
 
             case DiSetzen.StatusDi.SchrittAbgeschlossen:
@@ -88,9 +88,9 @@ public partial class Silk
         }
         return false;
     }
-    private static bool FunktionDigAusgaenge(IReadOnlyList<DaTesten> listeDa, Stopwatch aktuelleZeit)
+    private bool FunktionDigAusgaenge(IReadOnlyList<DaTesten> listeDa, Stopwatch aktuelleZeit)
     {
-        var schritt = DaTesten.GetAktuellerSchritt();
+        var schritt = 0; //= DaTesten.GetAktuellerSchritt();
         if (schritt >= listeDa.Count) return true;
         var aufgabe = listeDa[schritt];
 
@@ -114,7 +114,7 @@ public partial class Silk
                 {
                     DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Timeout, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
                     aufgabe.SetAktuellerStatus(DaTesten.StatusDa.Timeout);
-                    DaTesten.SetNaechsterSchritt();
+                    //DaTesten.SetNaechsterSchritt();
                     return false;
                 }
                 break;
@@ -126,14 +126,14 @@ public partial class Silk
                     {
                         aufgabe.SetAktuellerStatus(DaTesten.StatusDa.SchrittAbgeschlossen);
                         DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.ImpulsWarZuKurz, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
-                        DaTesten.SetNaechsterSchritt();
+                        //DaTesten.SetNaechsterSchritt();
                     }
 
                     if (aktuelleZeit.ElapsedMilliseconds < aufgabe.GetZeitdauerMax())
                     {
                         aufgabe.SetAktuellerStatus(DaTesten.StatusDa.SchrittAbgeschlossen);
                         DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Erfolgreich, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
-                        DaTesten.SetNaechsterSchritt();
+                        //DaTesten.SetNaechsterSchritt();
                     }
                 }
 
@@ -141,7 +141,7 @@ public partial class Silk
 
                 aufgabe.SetAktuellerStatus(DaTesten.StatusDa.SchrittAbgeschlossen);
                 DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.ImpulsWarZuLang, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
-                DaTesten.SetNaechsterSchritt();
+                //DaTesten.SetNaechsterSchritt();
                 return false;
 
             case DaTesten.StatusDa.SchrittAbgeschlossen:

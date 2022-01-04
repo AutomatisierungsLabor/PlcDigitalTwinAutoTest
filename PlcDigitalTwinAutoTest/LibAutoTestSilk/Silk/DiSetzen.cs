@@ -11,7 +11,7 @@ internal class DiSetzen
         SchrittAbgeschlossen
     }
 
-    private static int _aktuellerSchritt;
+    public int AktuellerSchritt { get; set; }
 
     private StatusDi _statusDi;
     private readonly Uint _bitMuster;
@@ -30,9 +30,7 @@ internal class DiSetzen
     internal void SetStartzeit(long zeit) => _startZeit = zeit;
     internal long GetEndZeit() => _startZeit + _dauer.DauerMs;
 
-    internal static int GetAktuellerSchritt() => _aktuellerSchritt;
-    internal static void SetAktuellerSchritt(int schritt) => _aktuellerSchritt = schritt;
-    internal static void SetNaechsterSchritt() => _aktuellerSchritt++;
+
 
     internal StatusDi GetAktuellerStatus() => _statusDi;
     internal void SetAktuellerStatus(StatusDi status) => _statusDi = status;

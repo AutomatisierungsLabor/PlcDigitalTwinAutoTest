@@ -6,7 +6,7 @@ namespace LibAutoTestSilk.Silk;
 // as per https://github.com/SoftCircuits/Silk/blob/master/docs/InternalFunctions.md
 public partial class Silk
 {
-    private static void CompilerRegisterFunctions(Compiler compiler)
+    private void CompilerRegisterFunctions(Compiler compiler)
     {
         // ReSharper disable RedundantArgumentDefaultValue
         compiler.RegisterFunction("BitmusterBlinktTesten", 8, 8);

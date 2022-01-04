@@ -59,6 +59,13 @@ public class AutoTest
         var buttonRand = new Thickness(2, 5, 2, 5);
         libWpf.ButtonText(1, 3, 1, 2, 20, buttonRand, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
 
+        libWpf.Text("Einzelschritt",4,5,1,2,HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black );
+        libWpf.CheckBox(9,1,1,2,new Thickness(2,2,2,2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.CheckBoxEinzelSchritt);
+
+        libWpf.ButtonVis("Schritt!",12,3,1,2,20,new Thickness(2,2,2,2), VmAutoTest.BtnTaster,ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
+
+
+
         StackPanel = libWpf.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);
         WebBrowser = libWpf.WebBrowser(10, 28, 3, 20, new Thickness(5, 5, 5, 5), Brushes.White);
 

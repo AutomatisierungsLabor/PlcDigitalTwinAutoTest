@@ -10,9 +10,9 @@ public class DataGridZeile
     public string DigOutIst { get; set; }
     public string Kommentar { get; set; }
 
-  
 
-    public DataGridZeile(short nr, string zeit, TestAnzeige ergebnis,  string digInput, string digOutSoll, string digOutIst, string kommentar)
+
+    public DataGridZeile(short nr, string zeit, TestAnzeige ergebnis, string digInput, string digOutSoll, string digOutIst, string kommentar)
     {
         ZeilenNr = nr;
         Zeit = zeit;

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace LibWpf;
@@ -35,6 +36,23 @@ public partial class LibWpf
             Tag = ordner
         };
 
-        radioButton.Checked += testChecked; return radioButton;
+        radioButton.Checked += testChecked;
+        return radioButton;
+    }
+
+    public void CheckBox(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, HorizontalAlignment horizontal, VerticalAlignment vertical, ICommand cmd, object cmdParameter)
+    {
+        var checkbox = new CheckBox
+        {
+            Margin = margin,
+            VerticalAlignment = vertical,
+            HorizontalAlignment = horizontal,
+            Command = cmd,
+            CommandParameter = cmdParameter
+
+        };
+
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, checkbox);
     }
 }

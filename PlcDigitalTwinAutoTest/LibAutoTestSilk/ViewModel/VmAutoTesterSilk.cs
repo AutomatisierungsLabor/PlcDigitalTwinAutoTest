@@ -1,11 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using LibAutoTestSilk.TestAutomat;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Threading;
-using LibAutoTestSilk.Model;
-using LibAutoTestSilk.TestAutomat;
 
 namespace LibAutoTestSilk.ViewModel;
 
@@ -21,7 +19,7 @@ public class VmAutoTesterSilk
     }
 
 
-    public VmAutoTesterSilk(ModelAutoTesterSilk modelSilkAutoTester)
+    public VmAutoTesterSilk()
     {
 
         DataGridZeilen = new ObservableCollection<DataGridZeile> {

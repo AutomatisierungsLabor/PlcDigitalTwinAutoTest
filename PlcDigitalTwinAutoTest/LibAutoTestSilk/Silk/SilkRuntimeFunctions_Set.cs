@@ -1,22 +1,22 @@
-﻿using System.Threading;
-using LibPlc;
+﻿using LibPlc;
 using SoftCircuits.Silk;
+using System.Threading;
 
 namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
-    internal static void SetDigitaleEingaengeWord(Uint eingaenge)
+    internal void SetDigitaleEingaengeWord(Uint eingaenge)
     {
         Datenstruktur.Di[0] = Simatic.Digital_GetLowByte((uint)eingaenge.GetDec());
         Datenstruktur.Di[1] = Simatic.Digital_GetHighByte((uint)eingaenge.GetDec());
     }
-    private static void SetDigitaleEingaenge(FunctionEventArgs e)
+    private void SetDigitaleEingaenge(FunctionEventArgs e)
     {
         SetDigitaleEingaengeWord(new Uint((ulong)e.Parameters[0].ToInteger()));
         Thread.Sleep(100);
     }
-    private static void SetAnalogerEingang(FunctionEventArgs e)
+    private void SetAnalogerEingang(FunctionEventArgs e)
     {
         var startByte = e.Parameters[0].ToInteger();
         var analogInput = e.Parameters[1].ToInteger();
@@ -28,11 +28,11 @@ public partial class Silk
         Datenstruktur.Ai[startByte] = Simatic.Digital_GetLowByte((uint)siemens);
         Datenstruktur.Ai[startByte + 1] = Simatic.Digital_GetHighByte((uint)siemens);
     }
-    public static void SetDiagrammZeitbereich(FunctionEventArgs e)
+    public void SetDiagrammZeitbereich(FunctionEventArgs e)
     {
         Datenstruktur.DiagrammZeitbereich = e.Parameters[0].ToInteger();
     }
-    private static void SetDataGridBitAnzahl()
+    private void SetDataGridBitAnzahl()
     {
         _anzahlBitEingaenge = 16;   // e.Parameters[0].ToInteger();
         _anzahlBitAusgaenge = 16;   // e.Parameters[1].ToInteger();

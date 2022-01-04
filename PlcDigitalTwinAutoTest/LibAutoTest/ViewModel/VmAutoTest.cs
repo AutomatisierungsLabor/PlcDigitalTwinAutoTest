@@ -13,7 +13,9 @@ public class VmAutoTest
 {
     public enum WpfObjects
     {
-        TasterStart = 10
+        TasterStart = 10,
+        CheckBoxEinzelSchritt = 11,
+        TasterEinzelSchritt = 12
     }
 
     private readonly AutoTest _autoTest;
@@ -30,7 +32,9 @@ public class VmAutoTest
         }
 
         SichtbarEin[3] = Visibility.Visible;
+
         Text[(int)WpfObjects.TasterStart] = "Test Starten";
+
 
         System.Threading.Tasks.Task.Run(VisuAnzeigenTask);
     }
@@ -50,9 +54,22 @@ public class VmAutoTest
     {
         if (id is not Enum enumValue) return;
 
-        if (enumValue is WpfObjects.TasterStart) _autoTest.TestStarten();
-        else throw new ArgumentOutOfRangeException(nameof(id));
+        switch (enumValue)
+        {
+            case WpfObjects.TasterStart:             
+                _autoTest.TestStarten();
+                break;
+            case WpfObjects.CheckBoxEinzelSchritt:
+                ToggleSichtbarkeit(WpfObjects.TasterEinzelSchritt);
+                break;
+            case WpfObjects.TasterEinzelSchritt:
+                break;
+            default: 
+                throw new ArgumentOutOfRangeException(nameof(id));
+        }
     }
+
+    internal void ToggleSichtbarkeit(WpfObjects id) => SichtbarEin[(int)id] = SichtbarEin[(int)id] == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
 
     private ObservableCollection<ClickMode> _clkMode = new();
     public ObservableCollection<ClickMode> ClkMode

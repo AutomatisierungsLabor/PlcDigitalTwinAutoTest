@@ -1,17 +1,17 @@
-﻿using System.Text;
-using System.Threading;
-using LibAutoTestSilk.TestAutomat;
+﻿using LibAutoTestSilk.TestAutomat;
 using LibDatenstruktur;
 using LibPlc;
 using SoftCircuits.Silk;
+using System.Text;
+using System.Threading;
 
 namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
-    private static int _anzahlBitEingaenge = 16;
-    private static int _anzahlBitAusgaenge = 16;
-    private static void IncrementDataGridId()
+    private int _anzahlBitEingaenge = 16;
+    private int _anzahlBitAusgaenge = 16;
+    private void IncrementDataGridId()
     {
         VmSilkAutoTester.ZeilenNummerDataGrid++;
 
@@ -21,7 +21,7 @@ public partial class Silk
 
         Datenstruktur.NaechstenSchrittGehen = false;
     }
-    private static void UpdateAnzeige(FunctionEventArgs e)
+    private void UpdateAnzeige(FunctionEventArgs e)
     {
         var silkTestergebnis = e.Parameters[0].ToString();
         var silkKommentar = e.Parameters[1].ToString();
@@ -41,7 +41,7 @@ public partial class Silk
 
         DataGridAnzeigeUpdaten(ergebnis, 0, silkKommentar);
     }
-    private static void DataGridAnzeigeUpdaten(TestAnzeige testAnzeige, uint digOutSoll, string silkKommentar)
+    private void DataGridAnzeigeUpdaten(TestAnzeige testAnzeige, uint digOutSoll, string silkKommentar)
     {
         var digitalInput = GetDiWord();
         var digitalOutput = GetDaWord();
@@ -75,13 +75,13 @@ public partial class Silk
                 break;
         }
     }
-    private static void KommentarAnzeigen(FunctionEventArgs e)
+    private void KommentarAnzeigen(FunctionEventArgs e)
     {
         var kommentar = e.Parameters[0].ToString();
         VmSilkAutoTester.ZeilenNummerDataGrid++;
         DataGridAnzeigeUpdaten(TestAnzeige.Kommentar, 0, kommentar);
     }
-    private static void VersionAnzeigen()
+    private void VersionAnzeigen()
     {
         //var textLaenge = Datenstruktur.VersionInputSps[1];
         var enc = new ASCIIEncoding();

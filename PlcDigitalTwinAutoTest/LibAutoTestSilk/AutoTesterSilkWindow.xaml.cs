@@ -1,10 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Windows;
-using LibAutoTestSilk.Model;
+﻿using LibAutoTestSilk.Model;
 using LibAutoTestSilk.ViewModel;
 using LibConfigPlc;
 using LibDatenstruktur;
+using System;
+using System.IO;
+using System.Windows;
 
 namespace LibAutoTestSilk;
 
@@ -20,8 +20,9 @@ public partial class AutoTesterWindow
     public AutoTesterWindow(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
 
-        VmAutoTesterSilk = new VmAutoTesterSilk(ModelSilkAutoTester);
+        VmAutoTesterSilk = new VmAutoTesterSilk();
         ModelSilkAutoTester = new ModelAutoTesterSilk(this, datenstruktur, configPlc, VmAutoTesterSilk);
+
 
         InitializeComponent();
         DataContext = VmAutoTesterSilk;

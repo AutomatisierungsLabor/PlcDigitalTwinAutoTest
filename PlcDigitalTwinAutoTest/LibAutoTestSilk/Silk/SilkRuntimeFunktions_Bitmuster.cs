@@ -1,8 +1,8 @@
-﻿using System;
+﻿using LibPlc;
+using SoftCircuits.Silk;
+using System;
 using System.Diagnostics;
 using System.Threading;
-using LibPlc;
-using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -14,15 +14,15 @@ public partial class Silk
         AufNegFlankeWarten
     }
 
-    internal static uint GetDiWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Da[1]);
-    internal static uint GetDaWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Da[1]);
+    internal uint GetDiWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Da[1]);
+    internal uint GetDaWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Da[1]);
 
-    private static void GetDa(FunctionEventArgs e)
+    private void GetDa(FunctionEventArgs e)
     {
         var digitalOutput = GetDaWord();
         e.ReturnValue.SetValue((int)digitalOutput);
     }
-    private static void BitmusterTesten(FunctionEventArgs e)
+    private void BitmusterTesten(FunctionEventArgs e)
     {
         var bitMuster = e.Parameters[0].ToInteger();
         var bitMaske = e.Parameters[1].ToInteger();
@@ -50,7 +50,7 @@ public partial class Silk
 
         DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Timeout, (uint)bitMuster, kommentar);
     }
-    private static void BitmusterBlinktTesten(FunctionEventArgs e)
+    private void BitmusterBlinktTesten(FunctionEventArgs e)
     {
         var bitMuster = e.Parameters[0].ToInteger();
         var bitMaske = e.Parameters[1].ToInteger();

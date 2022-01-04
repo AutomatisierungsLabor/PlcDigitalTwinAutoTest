@@ -5,7 +5,7 @@ namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
-    public static void Runtime_Begin(object sender, BeginEventArgs e)
+    public void Runtime_Begin(object sender, BeginEventArgs e)
     {
         const string data = "";
         e.UserData = data;
@@ -20,7 +20,7 @@ public partial class Silk
             " "));
     }
 
-    private static void Runtime_End(object sender, EndEventArgs e)
+    private void Runtime_End(object sender, EndEventArgs e)
     {
         VmSilkAutoTester.UpdateDataGrid(new DataGridZeile(
             VmSilkAutoTester.ZeilenNummerDataGrid++,

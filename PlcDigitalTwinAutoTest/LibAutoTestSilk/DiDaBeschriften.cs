@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using LibAutoTestSilk.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using LibAutoTestSilk.ViewModel;
 
 namespace LibAutoTestSilk;
 
@@ -10,7 +10,7 @@ public class DiDaBeschriften
     public DiDaBeschriften(Grid grid)
     {
         var libWpf = new LibWpf.LibWpf(grid);
-        
+
         libWpf.Rechteck(2, 1, 1, 1, Brushes.Chartreuse);
         libWpf.Rechteck(3, 1, 1, 1, Brushes.Silver);
         libWpf.Rechteck(4, 1, 1, 1, Brushes.OrangeRed);

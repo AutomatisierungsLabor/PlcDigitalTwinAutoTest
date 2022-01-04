@@ -13,7 +13,7 @@ internal class DaTesten
         Timeout
     }
 
-    private static int _aktuellerSchritt;
+    public int AktuellerSchritt { get; set; }
 
     private StatusDa _statusDa;
 
@@ -42,10 +42,7 @@ internal class DaTesten
     internal void SetStartzeit(long zeit) => _startZeit = zeit;
     internal long GetZeitdauerMin() => _startZeit + _dauerMin;
     internal long GetZeitdauerMax() => _startZeit + _dauerMax;
-    internal static int GetAktuellerSchritt() => _aktuellerSchritt;
-    internal static void SetAktuellerSchritt(int schritt) => _aktuellerSchritt = schritt;
-    internal static void SetNaechsterSchritt() => _aktuellerSchritt++;
-
+ 
 
     internal StatusDa GetAktuellerStatus() => _statusDa;
     internal void SetAktuellerStatus(StatusDa status) => _statusDa = status;

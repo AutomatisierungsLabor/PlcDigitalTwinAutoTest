@@ -5,7 +5,7 @@ namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
-    public static void Runtime_Function(object sender, FunctionEventArgs e)
+    public void Runtime_Function(object sender, FunctionEventArgs e)
     {
         switch (e.Name)
         {
@@ -26,7 +26,7 @@ public partial class Silk
             case "VersionAnzeigen": VersionAnzeigen(); break;
         }
     }
-    private static void Plc2Dec(FunctionEventArgs e)
+    private void Plc2Dec(FunctionEventArgs e)
     {
         var zahl = e.Parameters[0].ToString();
         var plcZahl = new Uint(zahl);

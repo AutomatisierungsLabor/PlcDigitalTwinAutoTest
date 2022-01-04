@@ -1,15 +1,17 @@
-﻿using System.Diagnostics;
-using System.Threading;
-using LibAutoTestSilk.TestAutomat;
+﻿using LibAutoTestSilk.TestAutomat;
 using LibAutoTestSilk.ViewModel;
 using LibConfigPlc;
 using LibDatenstruktur;
 using SoftCircuits.Silk;
+using System.Diagnostics;
+using System.Threading;
 
 namespace LibAutoTestSilk.Model;
 
 public class ModelAutoTesterSilk
 {
+
+    public Silk.Silk Silk { get; set; }
     public Datenstruktur Datenstruktur { get; set; }
     public ConfigPlc ConfigPlc { get; set; }
     public Stopwatch SilkStopwatch { get; set; }
@@ -26,6 +28,8 @@ public class ModelAutoTesterSilk
         Datenstruktur = datenstruktur;
         ConfigPlc = configPlc;
         _vmSilkAutoTester = vmSilkAutoTester;
+
+        Silk = new Silk.Silk();
 
         System.Threading.Tasks.Task.Run(ModelTask);
     }
@@ -44,7 +48,7 @@ public class ModelAutoTesterSilk
         Compiler compiler;
         SilkStopwatch = new Stopwatch();
 
-        Silk.Silk.ReferenzenUebergeben(_vmSilkAutoTester, Datenstruktur, SilkStopwatch);
+        Silk.ReferenzenUebergeben(_vmSilkAutoTester, Datenstruktur, SilkStopwatch);
 
         _vmSilkAutoTester.DataGridZeilen.Add(new DataGridZeile(
             _vmSilkAutoTester.ZeilenNummerDataGrid++,
@@ -57,7 +61,7 @@ public class ModelAutoTesterSilk
 
         SilkStopwatch.Start();
 
-        (_compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Silk.Compile(@$"{_autoTesterWindow.OrdnerAktuellesProjekt}\test.ssc");
+        (_compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(@$"{_autoTesterWindow.OrdnerAktuellesProjekt}\test.ssc");
 
 
         if (_compilerlaufErfolgreich)
@@ -93,7 +97,7 @@ public class ModelAutoTesterSilk
     private void TestRunnerTask()
     {
         SilkStopwatch.Restart();
-        if (_compilerlaufErfolgreich) Silk.Silk.RunProgram(_compiledProgram);
+        if (_compilerlaufErfolgreich) Silk.RunProgram(_compiledProgram);
     }
 
 }
