@@ -1,11 +1,5 @@
 ﻿namespace LibDatenstruktur;
 
-public enum BetriebsartTestablauf
-{
-    Automatik = 0,
-    // ReSharper disable once UnusedMember.Global
-    Einzelschritt
-}
 public enum BetriebsartProjekt
 {
     BeschreibungAnzeigen = 0,
@@ -24,8 +18,6 @@ public enum DatenBereich
 public class Datenstruktur
 {
     public BetriebsartProjekt BetriebsartProjekt;
-    public BetriebsartTestablauf BetriebsartTestablauf;
-    public bool NaechstenSchrittGehen;
 
     public string LokaleVersion;
     public string PlcVersion;
@@ -45,9 +37,7 @@ public class Datenstruktur
         TestProjektOrdner = "-";
 
         DiagrammZeitbereich = 20;
-        BetriebsartTestablauf = BetriebsartTestablauf.Automatik;
         BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
-        NaechstenSchrittGehen = false;
     }
 
     public void SetBitmuster(DatenBereich datenBereich, short offset, params bool[] bits)

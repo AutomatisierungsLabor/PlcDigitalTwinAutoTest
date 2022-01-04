@@ -1,5 +1,4 @@
 ﻿using LibAutoTestSilk.TestAutomat;
-using LibDatenstruktur;
 using LibPlc;
 using SoftCircuits.Silk;
 using System.Text;
@@ -9,17 +8,27 @@ namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
+    public enum BetriebsartAutoTest
+    {
+        Automatik = 0,
+        EinzelSchritt = 1
+    }
+    private BetriebsartAutoTest Betriebsart { get; set; }
+    private bool EinzelnenSchrittAusfuehren { get; set; }
+
+
     private int _anzahlBitEingaenge = 16;
     private int _anzahlBitAusgaenge = 16;
+
     private void IncrementDataGridId()
     {
         VmSilkAutoTester.ZeilenNummerDataGrid++;
 
-        if (Datenstruktur.BetriebsartTestablauf == BetriebsartTestablauf.Automatik) return;
+        if (Betriebsart == BetriebsartAutoTest.Automatik) return;
 
-        while (!Datenstruktur.NaechstenSchrittGehen) { Thread.Sleep(10); }
+        while (!EinzelnenSchrittAusfuehren) { Thread.Sleep(10); }
 
-        Datenstruktur.NaechstenSchrittGehen = false;
+        EinzelnenSchrittAusfuehren = false;
     }
     private void UpdateAnzeige(FunctionEventArgs e)
     {
@@ -91,4 +100,7 @@ public partial class Silk
         DataGridAnzeigeUpdaten(TestAnzeige.Version, 0, version);
         VmSilkAutoTester.ZeilenNummerDataGrid++;
     }
+
+    public void EinzelnerSchrittAusfuehren() => EinzelnenSchrittAusfuehren = true;
+    public void SetBetriebsart(bool b) => Betriebsart = b ? BetriebsartAutoTest.EinzelSchritt : BetriebsartAutoTest.Automatik;
 }

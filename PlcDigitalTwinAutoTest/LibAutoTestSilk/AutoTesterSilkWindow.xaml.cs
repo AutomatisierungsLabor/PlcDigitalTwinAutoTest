@@ -72,4 +72,8 @@ public partial class AutoTesterWindow
             VmAutoTesterSilk.Text[bitPos] = zeile.Bezeichnung;
         }
     }
+
+    public void EinzelnerSchrittAusfuehren() => ModelSilkAutoTester.EinzelnerSchrittAusfuehren();
+
+    public void SetBetriebsart(bool b) => ModelSilkAutoTester.SetBetriebsart(b);
 }

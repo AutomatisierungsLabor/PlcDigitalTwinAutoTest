@@ -5,17 +5,18 @@ using LibDatenstruktur;
 using SoftCircuits.Silk;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace LibAutoTestSilk.Model;
 
 public class ModelAutoTesterSilk
 {
+ 
 
     public Silk.Silk Silk { get; set; }
     public Datenstruktur Datenstruktur { get; set; }
     public ConfigPlc ConfigPlc { get; set; }
     public Stopwatch SilkStopwatch { get; set; }
-
 
     private bool _compilerlaufErfolgreich;
     private CompiledProgram _compiledProgram;
@@ -31,7 +32,7 @@ public class ModelAutoTesterSilk
 
         Silk = new Silk.Silk();
 
-        System.Threading.Tasks.Task.Run(ModelTask);
+        Task.Run(ModelTask);
     }
     internal void ModelTask()
     {
@@ -48,7 +49,7 @@ public class ModelAutoTesterSilk
         Compiler compiler;
         SilkStopwatch = new Stopwatch();
 
-        Silk.ReferenzenUebergeben(_vmSilkAutoTester, Datenstruktur, SilkStopwatch);
+        Silk.ReferenzenUebergeben(_vmSilkAutoTester, Datenstruktur, SilkStopwatch );
 
         _vmSilkAutoTester.DataGridZeilen.Add(new DataGridZeile(
             _vmSilkAutoTester.ZeilenNummerDataGrid++,
@@ -75,7 +76,7 @@ public class ModelAutoTesterSilk
                 " ",
                 " "));
 
-            System.Threading.Tasks.Task.Run(TestRunnerTask);
+            Task.Run(TestRunnerTask);
         }
         else
         {
@@ -93,11 +94,12 @@ public class ModelAutoTesterSilk
         }
     }
 
-
     private void TestRunnerTask()
     {
         SilkStopwatch.Restart();
         if (_compilerlaufErfolgreich) Silk.RunProgram(_compiledProgram);
     }
 
+    public void EinzelnerSchrittAusfuehren() => Silk.EinzelnerSchrittAusfuehren();
+    public void SetBetriebsart(bool b) => Silk.SetBetriebsart(b);
 }

@@ -6,17 +6,17 @@ namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
-    internal void SetDigitaleEingaengeWord(Uint eingaenge)
+    internal void SetDiWord(Uint eingaenge)
     {
         Datenstruktur.Di[0] = Simatic.Digital_GetLowByte((uint)eingaenge.GetDec());
         Datenstruktur.Di[1] = Simatic.Digital_GetHighByte((uint)eingaenge.GetDec());
     }
-    private void SetDigitaleEingaenge(FunctionEventArgs e)
+    private void SetDi(FunctionEventArgs e)
     {
-        SetDigitaleEingaengeWord(new Uint((ulong)e.Parameters[0].ToInteger()));
+        SetDiWord(new Uint((ulong)e.Parameters[0].ToInteger()));
         Thread.Sleep(100);
     }
-    private void SetAnalogerEingang(FunctionEventArgs e)
+    private void SetAi(FunctionEventArgs e)
     {
         var startByte = e.Parameters[0].ToInteger();
         var analogInput = e.Parameters[1].ToInteger();

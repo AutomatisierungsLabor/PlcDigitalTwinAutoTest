@@ -30,7 +30,6 @@ public partial class Silk
         compiler.RegisterFunction("TestAblauf", 0, 2);
         compiler.RegisterFunction("UpdateAnzeige", 2, 2);
         compiler.RegisterFunction("VersionAnzeigen", 0, 0);
-
         // ReSharper restore RedundantArgumentDefaultValue
     }
 }

@@ -3,6 +3,7 @@ using SoftCircuits.Silk;
 using System;
 using System.Diagnostics;
 using System.Threading;
+using LibAutoTestSilk.TestAutomat;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -41,14 +42,14 @@ public partial class Silk
 
             if ((digitalOutput & (short)bitMaske) == (short)bitMuster)
             {
-                DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Erfolgreich, (uint)bitMuster, kommentar);
+                DataGridAnzeigeUpdaten(TestAnzeige.Erfolgreich, (uint)bitMuster, kommentar);
                 return;
             }
 
-            DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Aktiv, (uint)bitMuster, kommentar);
+            DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)bitMuster, kommentar);
         }
 
-        DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Timeout, (uint)bitMuster, kommentar);
+        DataGridAnzeigeUpdaten(TestAnzeige.Timeout, (uint)bitMuster, kommentar);
     }
     private void BitmusterBlinktTesten(FunctionEventArgs e)
     {
@@ -97,20 +98,20 @@ public partial class Silk
                         {
                             if (aktuellePeriodenDauer > periodenDauerMax || aktuellePeriodenDauer < periodenDauerMin)
                             {
-                                DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsche Periodendauer: {aktuellePeriodenDauer}ms");
+                                DataGridAnzeigeUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsche Periodendauer: {aktuellePeriodenDauer}ms");
                                 return;
                             }
 
                             if (tastverhaeltnis > tastVerhaeltnisMax || tastverhaeltnis < tastVerhaeltnisMin)
                             {
-                                DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsches Tastverhältnis: {tastverhaeltnis:F2}ms");
+                                DataGridAnzeigeUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsches Tastverhältnis: {tastverhaeltnis:F2}ms");
                                 return;
                             }
 
                             periodenAnzahl++;
                             if (periodenAnzahl > anzahlPerioden)
                             {
-                                DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Erfolgreich, (uint)bitMuster, $"{kommentar}: E:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
+                                DataGridAnzeigeUpdaten(TestAnzeige.Erfolgreich, (uint)bitMuster, $"{kommentar}: E:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
                                 return;
                             }
                         }
@@ -133,9 +134,9 @@ public partial class Silk
                     throw new ArgumentOutOfRangeException();
             }
 
-            DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Aktiv, (uint)bitMuster, $"{kommentar}: I:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
+            DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)bitMuster, $"{kommentar}: I:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
         }
 
-        DataGridAnzeigeUpdaten(TestAutomat.TestAnzeige.Timeout, (uint)bitMuster, kommentar);
+        DataGridAnzeigeUpdaten(TestAnzeige.Timeout, (uint)bitMuster, kommentar);
     }
 }

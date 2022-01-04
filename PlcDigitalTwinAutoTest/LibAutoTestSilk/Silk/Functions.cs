@@ -16,10 +16,10 @@ public partial class Silk
             case "KommentarAnzeigen": KommentarAnzeigen(e); break;
             case "Plc2Dec": Plc2Dec(e); break;
             case "ResetStopwatch": ResetStopwatch(); break;
-            case "SetAnalogerEingang": SetAnalogerEingang(e); break;
+            case "SetAnalogerEingang": SetAi(e); break;
             case "SetDataGridBitAnzahl": SetDataGridBitAnzahl(); break; // Anzeige mit 16 bit 
             case "SetDiagrammZeitbereich": SetDiagrammZeitbereich(e); break;
-            case "SetDigitaleEingaenge": SetDigitaleEingaenge(e); break;
+            case "SetDigitaleEingaenge": SetDi(e); break;
             case "Sleep": Sleep(e); break;
             case "TestAblauf": TestAblauf(e); break;
             case "UpdateAnzeige": UpdateAnzeige(e); break;

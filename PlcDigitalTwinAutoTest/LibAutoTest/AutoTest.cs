@@ -31,7 +31,7 @@ public class AutoTest
     {
         AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc);
 
-        VmAutoTest = new ViewModel.VmAutoTest(this);
+        VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk);
         tabItem.DataContext = VmAutoTest;
 
         try

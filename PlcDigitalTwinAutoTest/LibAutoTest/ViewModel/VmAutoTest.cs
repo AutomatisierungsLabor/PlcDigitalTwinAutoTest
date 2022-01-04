@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using LibAutoTest.Commands;
+using LibAutoTestSilk;
 
 namespace LibAutoTest.ViewModel;
 
@@ -19,10 +20,12 @@ public class VmAutoTest
     }
 
     private readonly AutoTest _autoTest;
+    private readonly AutoTesterSilk _autoTesterSilk;
 
-    public VmAutoTest(AutoTest autoTest)
+    public VmAutoTest(AutoTest autoTest, AutoTesterSilk autoTesterSilk)
     {
         _autoTest = autoTest;
+        _autoTesterSilk=autoTesterSilk;
 
         for (var i = 0; i < 100; i++)
         {
@@ -61,8 +64,10 @@ public class VmAutoTest
                 break;
             case WpfObjects.CheckBoxEinzelSchritt:
                 ToggleSichtbarkeit(WpfObjects.TasterEinzelSchritt);
+                _autoTesterSilk.SetBetriebsart(SichtbarEin[(int)WpfObjects.TasterEinzelSchritt]==Visibility.Visible);
                 break;
             case WpfObjects.TasterEinzelSchritt:
+                _autoTesterSilk.MakeEinzelnerSchritt();
                 break;
             default: 
                 throw new ArgumentOutOfRangeException(nameof(id));
