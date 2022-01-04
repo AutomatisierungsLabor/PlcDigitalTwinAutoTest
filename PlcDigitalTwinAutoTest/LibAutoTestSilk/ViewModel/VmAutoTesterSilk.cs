@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Threading;
 using LibAutoTestSilk.Model;
 using LibAutoTestSilk.TestAutomat;
 
@@ -57,7 +58,10 @@ public class VmAutoTesterSilk
 
     public void UpdateDataGrid(DataGridZeile zeile)
     {
-        // DataGridZeilen.Add(zeile);
+        Application.Current.Dispatcher.Invoke(() =>
+        {
+            DataGridZeilen.Add(zeile);
+        });
     }
 
     private short _zeilenNummerDataGrid;
