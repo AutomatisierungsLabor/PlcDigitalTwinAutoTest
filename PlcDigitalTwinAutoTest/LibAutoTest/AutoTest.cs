@@ -57,12 +57,12 @@ public class AutoTest
         libWpf.GridZeichnen(56, 30, 30, 30, true);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
-        libWpf.ButtonText(1, 3, 1, 2, 20, buttonRand, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
+        libWpf.ButtonEnable("Test Starten", 1, 3, 1, 2, 20, buttonRand, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
 
-        libWpf.Text("Einzelschritt",4,5,1,2,HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black );
-        libWpf.CheckBox(9,1,1,2,new Thickness(2,2,2,2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.CheckBoxEinzelSchritt);
+        libWpf.Text("Einzelschritt", 4, 5, 1, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.CheckBox(9, 1, 1, 2, new Thickness(2, 2, 2, 2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.CheckBoxEinzelSchritt);
 
-        libWpf.ButtonVis("Schritt!",12,3,1,2,20,new Thickness(2,2,2,2), VmAutoTest.BtnTaster,ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
+        libWpf.ButtonVis("Schritt!", 12, 3, 1, 2, 20, new Thickness(2, 2, 2, 2), VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
 
 
 
@@ -90,10 +90,12 @@ public class AutoTest
         AktuellesProjekt = rb.Tag as DirectoryInfo;
         if (AktuellesProjekt == null) return;
 
+        VmAutoTest.ButtonIsEnabled[(int)ViewModel.VmAutoTest.WpfObjects.TasterStart] = true;
+
         _cbPlcConfig(AktuellesProjekt.ToString());
 
         Log.Debug("Test ausgewählt: " + AktuellesProjekt.Name);
-        
+
         var dateiName = $@"{AktuellesProjekt.FullName}\index.html";
         var htmlSeite = File.Exists(dateiName) ? File.ReadAllText(dateiName) : "--??--";
         var htmlCssSeite = htmlSeite;
@@ -106,22 +108,20 @@ public class AutoTest
             htmlCssSeite = htmlSeite.Replace(@"<MeinStyleSheet/>", styleSheet);
         }
 
-
         var dataHtmlCssSeite = Encoding.UTF8.GetBytes(htmlCssSeite);
         var stmHtmlCssSeite = new MemoryStream(dataHtmlCssSeite, 0, dataHtmlCssSeite.Length);
 
         WebBrowser.NavigateToStream(stmHtmlCssSeite);
-
         AutoTesterSilk.SetProjekt(AktuellesProjekt);
     }
-
-    public void SetCallback(Action<string> callback) => _cbPlcConfig = callback;
-
     public void ResetSelectedProject()
     {
-        foreach (RadioButton rb in StackPanel.Children)
+        VmAutoTest.ButtonIsEnabled[(int)ViewModel.VmAutoTest.WpfObjects.TasterStart] = false;
+
+        foreach (var child in StackPanel.Children)
         {
-            //
+            if (child is RadioButton rb) rb.IsChecked = false;
         }
     }
+    public void SetCallback(Action<string> callback) => _cbPlcConfig = callback;
 }

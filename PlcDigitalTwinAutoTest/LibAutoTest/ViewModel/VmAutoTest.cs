@@ -25,10 +25,11 @@ public class VmAutoTest
     public VmAutoTest(AutoTest autoTest, AutoTesterSilk autoTesterSilk)
     {
         _autoTest = autoTest;
-        _autoTesterSilk=autoTesterSilk;
+        _autoTesterSilk = autoTesterSilk;
 
         for (var i = 0; i < 100; i++)
         {
+            ButtonIsEnabled.Add(new bool());
             ClkMode.Add(ClickMode.Press);
             SichtbarEin.Add(Visibility.Hidden);
             Text.Add("");
@@ -59,22 +60,35 @@ public class VmAutoTest
 
         switch (enumValue)
         {
-            case WpfObjects.TasterStart:             
+            case WpfObjects.TasterStart:
                 _autoTest.TestStarten();
                 break;
             case WpfObjects.CheckBoxEinzelSchritt:
                 ToggleSichtbarkeit(WpfObjects.TasterEinzelSchritt);
-                _autoTesterSilk.SetBetriebsart(SichtbarEin[(int)WpfObjects.TasterEinzelSchritt]==Visibility.Visible);
+                _autoTesterSilk.SetBetriebsart(SichtbarEin[(int)WpfObjects.TasterEinzelSchritt] == Visibility.Visible);
                 break;
             case WpfObjects.TasterEinzelSchritt:
                 _autoTesterSilk.MakeEinzelnerSchritt();
                 break;
-            default: 
+            default:
                 throw new ArgumentOutOfRangeException(nameof(id));
         }
     }
 
     internal void ToggleSichtbarkeit(WpfObjects id) => SichtbarEin[(int)id] = SichtbarEin[(int)id] == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
+
+
+
+    private ObservableCollection<bool> _buttonIsEnabled = new();
+    public ObservableCollection<bool> ButtonIsEnabled
+    {
+        get => _buttonIsEnabled;
+        set
+        {
+            _buttonIsEnabled = value;
+            OnPropertyChanged(nameof(ButtonIsEnabled));
+        }
+    }
 
     private ObservableCollection<ClickMode> _clkMode = new();
     public ObservableCollection<ClickMode> ClkMode

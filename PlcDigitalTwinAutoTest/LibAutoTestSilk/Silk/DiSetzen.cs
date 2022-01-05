@@ -1,4 +1,4 @@
-﻿using LibPlc;
+﻿using LibPlcTools;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -10,8 +10,7 @@ internal class DiSetzen
         SchrittAktiv,
         SchrittAbgeschlossen
     }
-
-    public int AktuellerSchritt { get; set; }
+    
 
     private StatusDi _statusDi;
     private readonly Uint _bitMuster;

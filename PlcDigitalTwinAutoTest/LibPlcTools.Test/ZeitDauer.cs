@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace LibPlc.Test;
+namespace LibPlcTools.Test;
 
 public class ZeitDauer
 {
@@ -13,7 +13,7 @@ public class ZeitDauer
 
     public void TestKonstruktorLong(string zahl, long ergebnis)
     {
-        var zeitMs = new LibPlc.ZeitDauer(zahl);
+        var zeitMs = new LibPlcTools.ZeitDauer(zahl);
         Assert.Equal(ergebnis, zeitMs.DauerMs);
     }
 
@@ -26,7 +26,7 @@ public class ZeitDauer
 
     public void TestKonstruktorDouble(string zahl, long ergebnis)
     {
-        var zeitMs = new LibPlc.ZeitDauer(zahl);
+        var zeitMs = new LibPlcTools.ZeitDauer(zahl);
         Assert.Equal(ergebnis, zeitMs.DauerMs);
     }
 
@@ -39,6 +39,6 @@ public class ZeitDauer
 
     public void FormatiertAusgebenTest(long dauer, string ergebnis)
     {
-        Assert.Equal(ergebnis, LibPlc.ZeitDauer.ConvertLong2Ms(dauer));
+        Assert.Equal(ergebnis, LibPlcTools.ZeitDauer.ConvertLong2Ms(dauer));
     }
 }

@@ -74,6 +74,7 @@ public class VmAutoTesterSilk
         }
     }
 
+    
     private ObservableCollection<DataGridZeile> _dataGridZeilen;
     public ObservableCollection<DataGridZeile> DataGridZeilen
     {
@@ -84,6 +85,7 @@ public class VmAutoTesterSilk
             OnPropertyChanged(nameof(DataGridZeilen));
         }
     }
+
 
     private ObservableCollection<Visibility> _sichtbarEin = new();
     public ObservableCollection<Visibility> SichtbarEin

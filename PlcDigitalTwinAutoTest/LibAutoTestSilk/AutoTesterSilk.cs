@@ -6,13 +6,11 @@ namespace LibAutoTestSilk;
 
 public class AutoTesterSilk
 {
-  
     public Silk.Silk.BetriebsartAutoTest Betriebsart { get; set; }
- public bool EinzelnenSchrittAusfuehren { get; set; }
     public AutoTesterWindow AutoTesterWindow;
     public Datenstruktur Datenstruktur { get; set; }
     public ConfigPlc ConfigPlc { get; set; }
-   
+
 
     public AutoTesterSilk(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {

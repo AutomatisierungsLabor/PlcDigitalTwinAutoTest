@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibUtil", "LibUtil\LibUtil.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibUtil.Test", "LibUtil.Test\LibUtil.Test.csproj", "{50D0960C-199A-4800-B839-3F4272F9B741}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibPlc", "LibPlc\LibPlc.csproj", "{975CEE21-14DD-44BD-A29F-F2425ECA26F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibPlcTools", "LibPlcTools\LibPlcTools.csproj", "{975CEE21-14DD-44BD-A29F-F2425ECA26F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibPlc.Test", "LibPlc.Test\LibPlc.Test.csproj", "{9670344C-2B3D-4943-A848-CC16F39D7A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibPlcTools.Test", "LibPlcTools.Test\LibPlcTools.Test.csproj", "{9670344C-2B3D-4943-A848-CC16F39D7A9D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibHydraulik", "LibHydraulik\LibHydraulik.csproj", "{8B7683FA-E22C-4655-82BF-42C5950A2A8D}"
 EndProject

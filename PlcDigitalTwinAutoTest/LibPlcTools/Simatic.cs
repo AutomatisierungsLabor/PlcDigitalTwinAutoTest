@@ -1,4 +1,4 @@
-﻿namespace LibPlc;
+﻿namespace LibPlcTools;
 
 public static class Simatic
 {
