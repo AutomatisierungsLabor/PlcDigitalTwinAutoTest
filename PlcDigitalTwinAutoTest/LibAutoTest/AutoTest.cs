@@ -57,13 +57,12 @@ public class AutoTest
         libWpf.GridZeichnen(56, 30, 30, 30, true);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
-        libWpf.ButtonEnable("Test Starten", 1, 3, 1, 2, 20, buttonRand, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
+        libWpf.Button(1, 3, 1, 2, 20, buttonRand, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
 
         libWpf.Text("Einzelschritt", 4, 5, 1, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.CheckBox(9, 1, 1, 2, new Thickness(2, 2, 2, 2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.CheckBoxEinzelSchritt);
 
-        libWpf.ButtonVis("Schritt!", 12, 3, 1, 2, 20, new Thickness(2, 2, 2, 2), VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
-
+        libWpf.Button(12, 3, 1, 2, 20, new Thickness(2, 2, 2, 2), VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
 
 
         StackPanel = libWpf.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);

@@ -39,7 +39,6 @@ public partial class LibWpf
         radioButton.Checked += testChecked;
         return radioButton;
     }
-
     public void CheckBox(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, HorizontalAlignment horizontal, VerticalAlignment vertical, ICommand cmd, object cmdParameter)
     {
         var checkbox = new CheckBox
@@ -51,7 +50,6 @@ public partial class LibWpf
             CommandParameter = cmdParameter
 
         };
-
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, checkbox);
     }

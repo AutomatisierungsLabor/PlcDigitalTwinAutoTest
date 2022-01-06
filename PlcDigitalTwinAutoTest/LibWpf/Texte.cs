@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Media;
 
 namespace LibWpf;
@@ -20,7 +19,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
-    public void TextVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, int wpfObject)
+    public void TextVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, object wpfId)
     {
         var label = new Label
         {
@@ -30,12 +29,13 @@ public partial class LibWpf
             VerticalAlignment = vertical
         };
 
-        label.SetBinding(ContentControl.ContentProperty, new Binding($"Text[{wpfObject }]"));
-        label.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
+        
+        label.SetContentBinding(wpfId);
+        label.SetSichtbarkeitEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
-    public void TextVertikalVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Thickness rand, int width, Brush farbe, int wpfObject)
+    public void TextVertikalVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Thickness rand, int width, Brush farbe, object wpfId)
     {
         var text = new TextBlock
         {
@@ -50,8 +50,8 @@ public partial class LibWpf
             LayoutTransform = new RotateTransform { Angle = 270 }
         };
 
-        text.SetBinding(TextBlock.TextProperty, new Binding($"Text[{wpfObject }]"));
-        text.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{wpfObject}]"));
+        text.SetTextBlockBinding(wpfId);
+        text.SetSichtbarkeitEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, text);
     }

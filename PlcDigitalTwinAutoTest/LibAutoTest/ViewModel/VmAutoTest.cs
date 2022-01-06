@@ -37,8 +37,11 @@ public class VmAutoTest
 
         SichtbarEin[3] = Visibility.Visible;
 
+        SichtbarEin[(int)WpfObjects.TasterStart] = Visibility.Visible;
         Text[(int)WpfObjects.TasterStart] = "Test Starten";
 
+        ButtonIsEnabled[(int)WpfObjects.TasterEinzelSchritt] = true;
+        Text[(int)WpfObjects.TasterEinzelSchritt] = "Schritt!";
 
         System.Threading.Tasks.Task.Run(VisuAnzeigenTask);
     }
@@ -65,10 +68,10 @@ public class VmAutoTest
                 break;
             case WpfObjects.CheckBoxEinzelSchritt:
                 ToggleSichtbarkeit(WpfObjects.TasterEinzelSchritt);
-                _autoTesterSilk.SetBetriebsart(SichtbarEin[(int)WpfObjects.TasterEinzelSchritt] == Visibility.Visible);
+                _autoTesterSilk.AutoTesterWindow.ModelSilkAutoTester.SetBetriebsart(SichtbarEin[(int)WpfObjects.TasterEinzelSchritt] == Visibility.Visible);
                 break;
             case WpfObjects.TasterEinzelSchritt:
-                _autoTesterSilk.MakeEinzelnerSchritt();
+                _autoTesterSilk.AutoTesterWindow.ModelSilkAutoTester.EinzelnerSchrittAusfuehren();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(id));

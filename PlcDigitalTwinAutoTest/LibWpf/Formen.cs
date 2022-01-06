@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -31,7 +30,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
     }
-    public void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding)
+    public void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, object wpfId)
     {
         var rectangle = new Rectangle
         {
@@ -39,8 +38,8 @@ public partial class LibWpf
             Margin = margin,
             Fill = new SolidColorBrush(Colors.Red)
         };
-
-        BindingOperations.SetBinding(rectangle, Shape.FillProperty, new Binding($"Farbe[{binding}]"));
+        
+        rectangle.SetFillingBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
@@ -54,7 +53,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, border);
     }
-    public void KreisRandVis(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, int binding)
+    public void KreisRandVis(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, object wpfId)
     {
         var ellipse = new Ellipse
         {
@@ -62,8 +61,8 @@ public partial class LibWpf
             Margin = margin,
             Fill = new SolidColorBrush(Colors.Red)
         };
-
-        BindingOperations.SetBinding(ellipse, Shape.FillProperty, new Binding($"Farbe[{binding}]"));
+        
+        ellipse.SetFillingBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -11,51 +9,23 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
+    public void Button(int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, bool visibility = true)
+    {
+        var button = new Button
+        {
+            FontSize = fontSize,
+            Margin = margin,
+            Command = cmd,
+            CommandParameter = cmdParameter
+        };
 
-    public void ButtonEnable(string text, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter)
-    {
-        var button = new Button
-        {
-            Content = text,
-            FontSize = fontSize,
-            Margin = margin,
-            Command = cmd,
-            CommandParameter = cmdParameter
-        };
-        button.SetBinding(UIElement.IsEnabledProperty, new Binding($"IsEnabled[{(int)cmdParameter}]"));
-        button.SetBinding(ContentControl.ContentProperty, new Binding($"Text[{(int)cmdParameter}]"));
-        button.SetBinding(ButtonBase.ClickModeProperty, new Binding($"ClkMode[{(int)cmdParameter}]"));
+        if (visibility) button.SetSichtbarkeitEinBinding(cmdParameter);
+        button.SetIsEnabledBinding(cmdParameter);
+        button.SetBtnContentBinding(cmdParameter);
+        button.SetBtnClickModeBinding(cmdParameter);
+        
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-    public void ButtonVis(string text, int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter)
-    {
-        var button = new Button
-        {
-            Content = text,
-            FontSize = fontSize,
-            Margin = margin,
-            Command = cmd,
-            CommandParameter = cmdParameter
-        };
-        button.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{(int)cmdParameter}]"));
-        button.SetBinding(ButtonBase.ClickModeProperty, new Binding($"ClkMode[{(int)cmdParameter}]"));
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
-    }
-    public void ButtonText(int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, string isEnabledBinding = null)
-    {
-        var button = new Button
-        {
-            FontSize = fontSize,
-            Margin = margin,
-            Command = cmd,
-            CommandParameter = cmdParameter
-        };
-        if (isEnabledBinding != null) button.SetBinding(UIElement.IsEnabledProperty, new Binding(isEnabledBinding));
-        button.SetBinding(ContentControl.ContentProperty, new Binding($"Text[{(int)cmdParameter}]"));
-        button.SetBinding(ButtonBase.ClickModeProperty, new Binding($"ClkMode[{(int)cmdParameter}]"));
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
-    }
-
     public void ButtonOnOffVis(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter)
     {
         var binding = (int)cmdParameter;
@@ -66,7 +36,7 @@ public partial class LibWpf
             Stretch = Stretch.Fill,
             Margin = margin
         };
-        imageOn.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarEin[{binding}]"));
+        imageOn.SetSichtbarkeitEinBinding(binding);
 
         var imageOff = new Image
         {
@@ -74,7 +44,7 @@ public partial class LibWpf
             Stretch = Stretch.Fill,
             Margin = margin
         };
-        imageOff.SetBinding(UIElement.VisibilityProperty, new Binding($"SichtbarAus[{binding}]"));
+        imageOff.SetSichtbarkeitAusBinding(binding);
 
         var stackPanel = new StackPanel();
         stackPanel.Children.Add(imageOn);
@@ -89,7 +59,7 @@ public partial class LibWpf
             CommandParameter = cmdParameter
         };
 
-        button.SetBinding(ButtonBase.ClickModeProperty, new Binding($"ClkMode[{binding}]"));
+        button.SetBtnClickModeBinding(binding);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }

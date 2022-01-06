@@ -12,8 +12,7 @@ internal class DaTesten
         SchrittAbgeschlossen,
         Timeout
     }
-
-    public int AktuellerSchritt { get; set; }
+    
 
     private StatusDa _statusDa;
 

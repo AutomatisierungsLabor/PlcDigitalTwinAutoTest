@@ -26,6 +26,4 @@ public class AutoTesterSilk
     }
     public void SetProjekt(DirectoryInfo ordnerAktuellesProjekt) => AutoTesterWindow.SetNeuesTestProjekt(ordnerAktuellesProjekt);
     public void TestStarten() => AutoTesterWindow.ModelSilkAutoTester.AutoTestStarten();
-    public void MakeEinzelnerSchritt() => AutoTesterWindow.EinzelnerSchrittAusfuehren();
-    public void SetBetriebsart(bool b) => AutoTesterWindow.SetBetriebsart(b);
 }
