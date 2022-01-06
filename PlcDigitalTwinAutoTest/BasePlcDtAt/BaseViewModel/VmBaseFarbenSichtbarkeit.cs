@@ -56,4 +56,15 @@ public abstract partial class VmBase
             OnPropertyChanged(nameof(Text));
         }
     }
+
+    private ObservableCollection<bool> _buttonIsEnabled = new();
+    public ObservableCollection<bool> ButtonIsEnabled
+    {
+        get => _buttonIsEnabled;
+        set
+        {
+            _buttonIsEnabled = value;
+            OnPropertyChanged(nameof(ButtonIsEnabled));
+        }
+    }
 }

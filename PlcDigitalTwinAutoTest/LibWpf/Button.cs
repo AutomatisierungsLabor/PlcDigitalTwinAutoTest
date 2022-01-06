@@ -9,7 +9,7 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void Button(int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, bool visibility = true)
+    public void Button(int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, bool enabled = true, bool visibility = true)
     {
         var button = new Button
         {
@@ -19,11 +19,11 @@ public partial class LibWpf
             CommandParameter = cmdParameter
         };
 
+        if (enabled) button.SetIsEnabledBinding(cmdParameter);
         if (visibility) button.SetSichtbarkeitEinBinding(cmdParameter);
-        button.SetIsEnabledBinding(cmdParameter);
         button.SetBtnContentBinding(cmdParameter);
         button.SetBtnClickModeBinding(cmdParameter);
-        
+
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
     public void ButtonOnOffVis(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter)

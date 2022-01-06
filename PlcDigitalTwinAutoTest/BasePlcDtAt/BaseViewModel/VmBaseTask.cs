@@ -8,6 +8,9 @@ public abstract partial class VmBase
     {
         while (true)
         {
+//PlcBezeichnung=
+
+
             ViewModelAufrufThread();
             Thread.Sleep(10);
         }

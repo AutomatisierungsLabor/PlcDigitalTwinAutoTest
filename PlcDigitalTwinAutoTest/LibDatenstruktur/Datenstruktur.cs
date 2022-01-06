@@ -19,11 +19,19 @@ public class Datenstruktur
 {
     public BetriebsartProjekt BetriebsartProjekt;
 
-    public string LokaleVersion;
-    public string PlcVersion;
+    public string VersionsStringLokal { get; set; }
+    
+
+    public string PlcBezeichnung { get; set; }
+    public string PlcVersion { get; set; }
+    public string PlcStatus { get; set; }
+    public bool PlcError { get; set; }
+    public string PlcModus { get; set; }
+
+
 
     public byte[] BefehlePlc { get; } = new byte[1024];
-    public byte[] VersionPlc { get; } = new byte[1024];
+    public byte[] VersionsStringPlc { get; } = new byte[1024];
     public byte[] Di { get; } = new byte[1024];
     public byte[] Da { get; } = new byte[1024];
     public byte[] Ai { get; } = new byte[1024];

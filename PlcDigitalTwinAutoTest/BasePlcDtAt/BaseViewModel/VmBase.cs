@@ -36,8 +36,8 @@ public abstract partial class VmBase
 
     public Datenstruktur Datenstruktur { get; set; }
     public BaseModel.BaseModel Model { get; set; }
+    
 
-    protected bool GridSichtbar;
     protected VmBase(BaseModel.BaseModel model, Datenstruktur datenstruktur)
     {
         Log.Debug("Konstruktor - startet");
@@ -54,6 +54,7 @@ public abstract partial class VmBase
 
         for (var i = 0; i < 100; i++)
         {
+            ButtonIsEnabled.Add(false);
             ClkMode.Add(ClickMode.Press);
             SichtbarEin.Add(Visibility.Hidden);
             SichtbarAus.Add(Visibility.Visible);

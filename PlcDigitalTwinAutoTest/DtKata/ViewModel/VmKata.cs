@@ -37,8 +37,6 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
     {
         _modelKata = model as ModelKata;
 
-        FensterTitel = "Nicht bekannt";
-
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
@@ -55,8 +53,7 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
     protected override void ViewModelAufrufThread()
     {
         if (_modelKata == null) return;
-
-        FensterTitel = Datenstruktur.LokaleVersion;
+        FensterTitel =  Datenstruktur.PlcBezeichnung + ": "+ Datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelKata.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_modelKata.S2, (int)WpfObjects.S2);
@@ -99,7 +96,7 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         }
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
-    public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, GridSichtbar, "#eeeeee");
-    public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, GridSichtbar, "#eeeeee");
+    public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
+    public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
     public override void SimulationZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
 }

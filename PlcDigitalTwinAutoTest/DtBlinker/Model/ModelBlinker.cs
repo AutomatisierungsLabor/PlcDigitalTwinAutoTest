@@ -32,8 +32,8 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
     }
     protected override void ModelThread()
     {
-
         long zeitDauer;
+
         switch (P1)
         {
             // positive Flanke
@@ -59,6 +59,5 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
 
         _datenRangieren.Rangieren();
     }
-
-    public void SetVersionLokal(string vLokal) => _datenstruktur.LokaleVersion = vLokal;
+    public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }

@@ -34,15 +34,13 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
 
         _modelBlinker = model as ModelBlinker;
-
-        FensterTitel = "Nicht bekannt";
     }
 
     protected override void ViewModelAufrufThread()
     {
         if (_modelBlinker == null) return;
 
-        FensterTitel = Datenstruktur.LokaleVersion;
+        FensterTitel = Datenstruktur.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelBlinker.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_modelBlinker.S2, (int)WpfObjects.S2);
@@ -67,7 +65,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     }
     protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
-    public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(tabItem, GridSichtbar, "#eeeeee");
-    public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(tabItem, GridSichtbar, "#eeeeee");
-    public override void SimulationZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(tabItem, GridSichtbar, "#eeeeee");
+    public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(tabItem, "#eeeeee");
+    public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(tabItem, "#eeeeee");
+    public override void SimulationZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(tabItem, "#eeeeee");
 }
