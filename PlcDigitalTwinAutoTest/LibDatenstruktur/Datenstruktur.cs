@@ -22,14 +22,6 @@ public class Datenstruktur
     public string VersionsStringLokal { get; set; }
     
 
-    public string PlcBezeichnung { get; set; }
-    public string PlcVersion { get; set; }
-    public string PlcStatus { get; set; }
-    public bool PlcError { get; set; }
-    public string PlcModus { get; set; }
-
-
-
     public byte[] BefehlePlc { get; } = new byte[1024];
     public byte[] VersionsStringPlc { get; } = new byte[1024];
     public byte[] Di { get; } = new byte[1024];

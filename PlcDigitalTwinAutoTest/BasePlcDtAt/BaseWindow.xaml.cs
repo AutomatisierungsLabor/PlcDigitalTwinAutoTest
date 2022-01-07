@@ -6,7 +6,6 @@ using LibAutoTest;
 using LibConfigPlc;
 using LibDatenstruktur;
 using LibDisplayPlc;
-using LibPlcKommunikation;
 
 namespace BasePlcDtAt;
 
@@ -16,18 +15,16 @@ public partial class BaseWindow
     public ConfigPlc ConfigPlc { get; set; }
     public DisplayPlc DisplayPlc { get; set; }
     public AutoTest AutoTest { get; set; }
-    public LibPlcKommunikation.PlcDaemon PlcDaemon { get; set; }
 
     private readonly VmBase _vmBase;
 
     public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex)
     {
+        Datenstruktur = datenstruktur;
+
         _vmBase = vmBase;
         InitializeComponent();
         DataContext = _vmBase;
-
-        Datenstruktur = datenstruktur;
-        PlcDaemon = new PlcDaemon(datenstruktur);
 
         ConfigPlc = new ConfigPlc("/ConfigPlc");
 

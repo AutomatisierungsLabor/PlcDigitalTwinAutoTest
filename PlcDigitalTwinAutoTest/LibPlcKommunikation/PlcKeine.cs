@@ -1,19 +1,20 @@
-﻿using LibDatenstruktur;
-
-namespace LibPlcKommunikation;
+﻿namespace LibPlcKommunikation;
 
 public class PlcKeine : IPlc
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-    public PlcKeine(Datenstruktur datenstruktur)
+    public PlcKeine( )
     {
         Log.Debug("gestartet!");
-
-        datenstruktur.PlcStatus = "Keine SPS vorhanden";
-        datenstruktur.PlcError = false;
-        datenstruktur.PlcVersion = "-??-";
-        datenstruktur.PlcModus = "-?-";
-        datenstruktur.PlcBezeichnung = "Keine SPS erkannt";
     }
+    public PlcState State => new()
+    {
+        PlcStatus = "Keine SPS vorhanden",
+        PlcError = false,
+        PlcVersion = "-??-",
+        PlcModus = "-?-",
+        PlcBezeichnung = "Keine SPS erkannt"
+    };
+    public bool PlcTask() => false;
 }

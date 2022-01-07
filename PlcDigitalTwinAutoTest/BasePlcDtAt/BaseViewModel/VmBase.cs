@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using LibDatenstruktur;
+using LibPlcKommunikation;
 
 namespace BasePlcDtAt.BaseViewModel;
 
@@ -37,10 +38,12 @@ public abstract partial class VmBase
     public Datenstruktur Datenstruktur { get; set; }
     public BaseModel.BaseModel Model { get; set; }
     
-
+    public PlcDaemon PlcDaemon { get; set; }
     protected VmBase(BaseModel.BaseModel model, Datenstruktur datenstruktur)
     {
         Log.Debug("Konstruktor - startet");
+
+        PlcDaemon = new PlcDaemon(datenstruktur);
         Model = model;
         Datenstruktur = datenstruktur;
 

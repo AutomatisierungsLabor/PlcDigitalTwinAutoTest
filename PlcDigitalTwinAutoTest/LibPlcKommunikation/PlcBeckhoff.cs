@@ -1,42 +1,82 @@
 ﻿using LibDatenstruktur;
+using TwinCAT.Ads;
 
 namespace LibPlcKommunikation;
 
 public class PlcBeckhoff : IPlc
 {
+    public enum BeckhoffStatus
+    {
+        Initialisieren = 0,
+        Verbinden = 1,
+        Kommunizieren = 2
+    }
+
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
+    
+    private AdsClient _adsClient;
 
-    private readonly Datenstruktur _datenstruktur;
+    private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
+    private readonly byte[] _pc2Plc;
+    private byte[] _plc2Pc;
 
-    public PlcBeckhoff(IpAdressenBeckhoff ipAdressenBeckhoff, Datenstruktur datenstruktur)
+    private BeckhoffStatus _beckhoffStatus;
+
+    private uint _handlePc2Plc;
+    private uint _handlePlc2Pc;
+
+
+    public PlcBeckhoff(IpAdressenBeckhoff ipAdressenBeckhoff, byte[] pc2Plc, byte[] plc2Pc)
     {
         Log.Debug("gestartet!");
 
-_datenstruktur = datenstruktur;
+        _ipAdressenBeckhoff = ipAdressenBeckhoff;
+        _pc2Plc = pc2Plc;
+        _plc2Pc = plc2Pc;
+
+        _beckhoffStatus = BeckhoffStatus.Verbinden;
     }
 
-    public string GetSpsStatus()
-    {
-        throw new NotImplementedException();
-    }
 
-    public bool GetSpsError()
+    public PlcState State => new()
     {
-        throw new NotImplementedException();
-    }
+        PlcStatus = "Keine SPS vorhanden",
+        PlcError = false,
+        PlcVersion = "-??-",
+        PlcModus = "-?-",
+        PlcBezeichnung = "CX9020"
+    };
+    public bool PlcTask()
+    {
+        var error = false;
 
-    public string GetVersion()
-    {
-        throw new NotImplementedException();
-    }
+        switch (_beckhoffStatus)
+        {
+            case BeckhoffStatus.Initialisieren:
+                Log.Debug("ADS initialisieren");
+                _adsClient.Connect(_ipAdressenBeckhoff.AmsNetId, _ipAdressenBeckhoff.Port);
+                _handlePc2Plc = _adsClient.CreateVariableHandle("Pc2Plc");
+                _handlePlc2Pc = _adsClient.CreateVariableHandle("Plc2Pc");
+                _beckhoffStatus = BeckhoffStatus.Verbinden;
+                break;
 
-    public string GetPlcModus()
-    {
-        throw new NotImplementedException();
-    }
+            case BeckhoffStatus.Verbinden:
+                if (_adsClient.IsConnected)
+                {
+                    Log.Debug("ADS verbunden");
+                    _beckhoffStatus = BeckhoffStatus.Kommunizieren;
+                }
+                break;
 
-    public string GetPlcBezeichnung()
-    {
-        throw new NotImplementedException();
+            case BeckhoffStatus.Kommunizieren:
+                _plc2Pc = (byte[])_adsClient.ReadAny(_handlePlc2Pc, typeof(byte[]), new[] { 256 });
+                _adsClient.WriteAny(_handlePc2Plc, _pc2Plc);
+                break;
+
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        
+        return error;
     }
 }

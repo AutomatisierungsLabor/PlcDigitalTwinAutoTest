@@ -40,7 +40,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     {
         if (_modelBlinker == null) return;
 
-        FensterTitel = Datenstruktur.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
+        FensterTitel = PlcDaemon.Plc.State.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelBlinker.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_modelBlinker.S2, (int)WpfObjects.S2);

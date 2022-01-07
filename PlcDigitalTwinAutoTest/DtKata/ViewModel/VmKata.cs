@@ -53,7 +53,7 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
     protected override void ViewModelAufrufThread()
     {
         if (_modelKata == null) return;
-        FensterTitel =  Datenstruktur.PlcBezeichnung + ": "+ Datenstruktur.VersionsStringLokal;
+        FensterTitel =  PlcDaemon.PlcSiemens.State.PlcBezeichnung+ ": "+ Datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelKata.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_modelKata.S2, (int)WpfObjects.S2);
