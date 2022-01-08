@@ -1,5 +1,4 @@
-﻿using LibDatenstruktur;
-using TwinCAT.Ads;
+﻿using TwinCAT.Ads;
 
 namespace LibPlcKommunikation;
 
@@ -13,19 +12,15 @@ public class PlcBeckhoff : IPlc
     }
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-    
-    private AdsClient _adsClient;
 
+    private readonly AdsClient _adsClient;
     private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
     private readonly byte[] _pc2Plc;
     private byte[] _plc2Pc;
-
     private BeckhoffStatus _beckhoffStatus;
-
     private uint _handlePc2Plc;
     private uint _handlePlc2Pc;
-
-
+    
     public PlcBeckhoff(IpAdressenBeckhoff ipAdressenBeckhoff, byte[] pc2Plc, byte[] plc2Pc)
     {
         Log.Debug("gestartet!");
@@ -34,21 +29,17 @@ public class PlcBeckhoff : IPlc
         _pc2Plc = pc2Plc;
         _plc2Pc = plc2Pc;
 
+        _adsClient = new AdsClient();
         _beckhoffStatus = BeckhoffStatus.Verbinden;
     }
-
-
     public PlcState State => new()
     {
-        PlcStatus = "Keine SPS vorhanden",
+        PlcBezeichnung = "CX 9020",
         PlcError = false,
-        PlcVersion = "-??-",
-        PlcModus = "-?-",
-        PlcBezeichnung = "CX9020"
+        PlcErrorMessage = "-"
     };
-    public bool PlcTask()
+    public void PlcTask()
     {
-        var error = false;
 
         switch (_beckhoffStatus)
         {
@@ -76,7 +67,7 @@ public class PlcBeckhoff : IPlc
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
-        return error;
+
+        State.PlcError = false;
     }
 }

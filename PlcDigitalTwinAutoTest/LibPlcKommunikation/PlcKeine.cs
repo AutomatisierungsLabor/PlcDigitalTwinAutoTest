@@ -4,17 +4,15 @@ public class PlcKeine : IPlc
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-    public PlcKeine( )
+    public PlcKeine()
     {
         Log.Debug("gestartet!");
     }
     public PlcState State => new()
     {
-        PlcStatus = "Keine SPS vorhanden",
+        PlcBezeichnung = "Keine SPS erkannt",
         PlcError = false,
-        PlcVersion = "-??-",
-        PlcModus = "-?-",
-        PlcBezeichnung = "Keine SPS erkannt"
+        PlcErrorMessage = "-"
     };
-    public bool PlcTask() => false;
+    public void PlcTask() { }
 }

@@ -4,28 +4,10 @@ using Newtonsoft.Json;
 
 namespace LibPlcKommunikation;
 
+
+
 public class PlcDaemon
 {
-    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-    public PlcKeine PlcKeine { get; set; }
-    public PlcBeckhoff PlcBeckhoff { get; set; }
-    public PlcSiemens PlcSiemens { get; set; }
-
-    public byte[] Pc2Plc = new byte[1024];
-    public byte[] Plc2Pc = new byte[1024];
-
-    public short AnzBytePc2Plc = 222;
-    public short AnzBytePlc2Pc = 222;
-
-    private readonly Datenstruktur _datenstruktur;
-    private readonly IpAdressenSiemens _ipAdressenSiemens;
-    private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
-    private PlcDaemonStatus _plcDaemonStatus;
-
-
-
-
     private enum PlcDaemonStatus
     {
         SpsPingen = 0,
@@ -33,12 +15,28 @@ public class PlcDaemon
         SpsSiemens = 2
     }
 
+    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
+    public PlcKeine PlcKeine { get; set; }
+    public PlcBeckhoff PlcBeckhoff { get; set; }
+    public PlcSiemens PlcSiemens { get; set; }
+    public PlcState PlcState { get; set; }
+
+    public byte[] Pc2Plc = new byte[1024];
+    public byte[] Plc2Pc = new byte[1024];
+    
+    private readonly Datenstruktur _datenstruktur;
+    private readonly IpAdressenSiemens _ipAdressenSiemens;
+    private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
+    private PlcDaemonStatus _plcDaemonStatus;
+    
     public PlcDaemon(Datenstruktur datenstruktur)
     {
-        Log.Debug("gestartet!");
+        Log.Debug("Daemon gestartet");
 
         _datenstruktur = datenstruktur;
+        _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+        Log.Debug("SPS pingen");
 
         try
         {
@@ -69,20 +67,31 @@ public class PlcDaemon
         var pingBeckhoff = new Ping();
         var pingSiemens = new Ping();
 
+        PlcKeine.PlcTask();
+        PlcState = PlcKeine.State;
+
         while (true)
         {
             switch (_plcDaemonStatus)
             {
                 case PlcDaemonStatus.SpsPingen:
-                    _ = PlcKeine.PlcTask();
-
+                    
                     try
                     {
                         var replyBeckhoff = pingBeckhoff.Send(_ipAdressenBeckhoff.IpAdresse);
                         var replySiemens = pingSiemens.Send(_ipAdressenSiemens.Adress);
 
-                        if (replyBeckhoff is { Status: IPStatus.Success }) _plcDaemonStatus = PlcDaemonStatus.SpsBeckhoff;
-                        if (replySiemens is { Status: IPStatus.Success }) _plcDaemonStatus = PlcDaemonStatus.SpsSiemens;
+                        if (replyBeckhoff is { Status: IPStatus.Success })
+                        {
+                            Log.Debug("Beckhoff SPS erkannt");
+                            _plcDaemonStatus = PlcDaemonStatus.SpsBeckhoff;
+                        }
+
+                        if (replySiemens is { Status: IPStatus.Success })
+                        {
+                            Log.Debug("Siemens SPS erkannt");
+                            _plcDaemonStatus = PlcDaemonStatus.SpsSiemens;
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -91,12 +100,17 @@ public class PlcDaemon
                     break;
 
                 case PlcDaemonStatus.SpsBeckhoff:
-                    if (PlcBeckhoff.PlcTask()) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+                    PlcBeckhoff.PlcTask();
+                    PlcState=PlcBeckhoff.State;
+                    if (PlcBeckhoff.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
                     break;
 
                 case PlcDaemonStatus.SpsSiemens:
-                    if (PlcSiemens.PlcTask()) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+                    PlcSiemens.PlcTask();
+                    PlcState = PlcSiemens.State;
+                    if (PlcSiemens.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -107,7 +121,6 @@ public class PlcDaemon
         }
         // ReSharper disable once FunctionNeverReturns
     }
-
     private void DatenRangieren()
     {
         //https://support.industry.siemens.com/cs/ww/de/view/109747136
@@ -120,10 +133,10 @@ public class PlcDaemon
 
         const int anzDa = 32;
         const int anzAa = 64;
-        const int laengeVersionsbez = 128;
+        const int laengeVersionsbez = 64;
 
-        if (anzDi + anzAi + anzBefehle > AnzBytePc2Plc) throw new ArgumentOutOfRangeException();
-        if (anzDa + anzAa + laengeVersionsbez > AnzBytePlc2Pc) throw new ArgumentOutOfRangeException();
+        if (anzDi + anzAi + anzBefehle > PlcSiemens.AnzBytePc2Plc) throw new ArgumentOutOfRangeException();
+        if (anzDa + anzAa + laengeVersionsbez > PlcSiemens.AnzBytePlc2Pc) throw new ArgumentOutOfRangeException();
 
 
         Buffer.BlockCopy(_datenstruktur.Di, 0, Pc2Plc, 0, anzDi);
