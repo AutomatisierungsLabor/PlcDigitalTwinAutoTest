@@ -64,14 +64,14 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarkeitUmschalten(_modelKata.S7, (int)WpfObjects.S7);
         SichtbarkeitUmschalten(_modelKata.S8, (int)WpfObjects.S8);
 
-        FarbeUmschalten(_modelKata.P1, 1, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelKata.P2, 2, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelKata.P3, 3, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelKata.P4, 4, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelKata.P5, 5, Brushes.Yellow, Brushes.White);
-        FarbeUmschalten(_modelKata.P6, 6, Brushes.Yellow, Brushes.White);
-        FarbeUmschalten(_modelKata.P7, 7, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelKata.P8, 8, Brushes.Red, Brushes.White);
+        FarbeUmschalten(_modelKata.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelKata.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelKata.P3, (int)WpfObjects.P3, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelKata.P4, (int)WpfObjects.P4, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelKata.P5, (int)WpfObjects.P5, Brushes.Yellow, Brushes.White);
+        FarbeUmschalten(_modelKata.P6, (int)WpfObjects.P6, Brushes.Yellow, Brushes.White);
+        FarbeUmschalten(_modelKata.P7, (int)WpfObjects.P7, Brushes.Red, Brushes.White);
+        FarbeUmschalten(_modelKata.P8, (int)WpfObjects.P8, Brushes.Red, Brushes.White);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using LibPlcTools;
 
 namespace LibConfigPlc;
 
@@ -25,7 +26,7 @@ public class Di : EaConfig<DiEinstellungen>
             switch (zeile.Type)
             {
                 case ConfigPlc.EaTypen.Bit:
-                    var bitMuster = _sharedFunctions.BitmusterErzeugen(zeile.StartBit);
+                    var bitMuster = Bitmuster.BitmusterErzeugen(zeile.StartBit);
                     if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, bitMuster)) LogConfigError(zeile);
                     break;
                 case ConfigPlc.EaTypen.Byte:
