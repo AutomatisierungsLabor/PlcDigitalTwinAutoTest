@@ -5,6 +5,7 @@ using LibDatenstruktur;
 using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace LibAutoTestSilk;
 
@@ -19,14 +20,13 @@ public partial class AutoTesterWindow
 
     public AutoTesterWindow(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
-
         VmAutoTesterSilk = new VmAutoTesterSilk();
         ModelSilkAutoTester = new ModelAutoTesterSilk(this, datenstruktur, configPlc, VmAutoTesterSilk);
-
-
+        
         InitializeComponent();
         DataContext = VmAutoTesterSilk;
 
+        
         _ = new DiDaBeschriften(GridTest);
 
 

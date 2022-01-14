@@ -17,11 +17,10 @@ public class VmAutoTesterSilk
         Da17 = 31,
         SoureCode = 32
     }
-
-
+    
     public VmAutoTesterSilk()
     {
-
+        
         DataGridZeilen = new ObservableCollection<DataGridZeile> {
             new(
                 0,
@@ -32,7 +31,7 @@ public class VmAutoTesterSilk
                 " ",
                 " ")
         };
-
+        
         for (var i = 0; i < 100; i++)
         {
             SichtbarEin.Add(Visibility.Hidden);
@@ -47,6 +46,14 @@ public class VmAutoTesterSilk
     {
         while (true)
         {
+            /*
+            foreach (var zeile in DataGridZeilen)
+            {
+              //  var row = (DataGridRow)DataGrid.ItemContainerGenerator.ContainerFromIndex(0);
+
+            }
+            */
+
 
             Thread.Sleep(10);
         }
@@ -58,7 +65,9 @@ public class VmAutoTesterSilk
     {
         Application.Current.Dispatcher.Invoke(() =>
         {
-            DataGridZeilen.Add(zeile);
+            var zeilenNr = zeile.ZeilenNr;
+            if (DataGridZeilen.Count <= zeilenNr) DataGridZeilen.Add(zeile);
+            else DataGridZeilen[zeilenNr] = zeile;
         });
     }
 
@@ -120,9 +129,6 @@ public class VmAutoTesterSilk
         }
     }
 
-
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-
 }

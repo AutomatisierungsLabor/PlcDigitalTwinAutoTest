@@ -1,9 +1,9 @@
-﻿using LibPlcTools;
-using SoftCircuits.Silk;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading;
 using LibAutoTestSilk.TestAutomat;
+using LibPlcTools;
+using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -15,15 +15,14 @@ public partial class Silk
         AufNegFlankeWarten
     }
 
-    internal uint GetDiWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Da[1]);
-    internal uint GetDaWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Da[1]);
-
-    private void GetDa(FunctionEventArgs e)
+    internal  uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Di[1]);
+    internal  uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Da[0], Datenstruktur.Da[1]);
+    private  void GetDigitaleAusgaenge(FunctionEventArgs e)
     {
-        var digitalOutput = GetDaWord();
+        var digitalOutput = GetDigitalOutputWord();
         e.ReturnValue.SetValue((int)digitalOutput);
     }
-    private void BitmusterTesten(FunctionEventArgs e)
+    private  void BitmusterTesten(FunctionEventArgs e)
     {
         var bitMuster = e.Parameters[0].ToInteger();
         var bitMaske = e.Parameters[1].ToInteger();
@@ -38,7 +37,7 @@ public partial class Silk
 
             Thread.Sleep(10);
 
-            var digitalOutput = GetDaWord();
+            var digitalOutput = GetDigitalOutputWord();
 
             if ((digitalOutput & (short)bitMaske) == (short)bitMuster)
             {
@@ -51,7 +50,7 @@ public partial class Silk
 
         DataGridAnzeigeUpdaten(TestAnzeige.Timeout, (uint)bitMuster, kommentar);
     }
-    private void BitmusterBlinktTesten(FunctionEventArgs e)
+    private  void BitmusterBlinktTesten(FunctionEventArgs e)
     {
         var bitMuster = e.Parameters[0].ToInteger();
         var bitMaske = e.Parameters[1].ToInteger();
@@ -82,7 +81,7 @@ public partial class Silk
         {
             Thread.Sleep(10);
 
-            var digitalOutput = GetDaWord();
+            var digitalOutput = GetDigitalOutputWord();
 
             var aktuellePeriodenDauer = zeitImpuls + zeitPause;
             if (zeitImpuls > 0) tastverhaeltnis = zeitImpuls / aktuellePeriodenDauer;

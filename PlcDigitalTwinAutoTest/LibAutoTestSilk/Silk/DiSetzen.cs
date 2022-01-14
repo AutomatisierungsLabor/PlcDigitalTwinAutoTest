@@ -4,15 +4,16 @@ namespace LibAutoTestSilk.Silk;
 
 internal class DiSetzen
 {
-    public enum StatusDi
+    public enum StatusDigEingaenge
     {
         Init = 0,
         SchrittAktiv,
         SchrittAbgeschlossen
     }
-    
 
-    private StatusDi _statusDi;
+    private  int _aktuellerSchritt;
+
+    private StatusDigEingaenge _statusDigEingaenge;
     private readonly Uint _bitMuster;
     private readonly ZeitDauer _dauer;
     private readonly string _kommentar;
@@ -20,7 +21,7 @@ internal class DiSetzen
 
     public DiSetzen(ulong bitMuster, string dauer, string kommentar)
     {
-        _statusDi = StatusDi.Init;
+        _statusDigEingaenge = StatusDigEingaenge.Init;
         _bitMuster = new Uint(bitMuster);
         _dauer = new ZeitDauer(dauer);
         _kommentar = kommentar;
@@ -29,10 +30,12 @@ internal class DiSetzen
     internal void SetStartzeit(long zeit) => _startZeit = zeit;
     internal long GetEndZeit() => _startZeit + _dauer.DauerMs;
 
+    internal  int GetAktuellerSchritt() => _aktuellerSchritt;
+    internal  void SetAktuellerSchritt(int schritt) => _aktuellerSchritt = schritt;
+    internal  void SetNaechsterSchritt() => _aktuellerSchritt++;
 
-
-    internal StatusDi GetAktuellerStatus() => _statusDi;
-    internal void SetAktuellerStatus(StatusDi status) => _statusDi = status;
+    internal StatusDigEingaenge GetAktuellerStatus() => _statusDigEingaenge;
+    internal void SetAktuellerStatus(StatusDigEingaenge status) => _statusDigEingaenge = status;
 
     internal Uint GetBitmuster() => _bitMuster;
     internal ZeitDauer GetDauer() => _dauer;

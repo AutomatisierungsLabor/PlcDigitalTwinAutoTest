@@ -4,15 +4,8 @@ namespace LibPlcKommunikation;
 
 public enum SiemensDatenbausteine
 {
-    // ReSharper disable UnusedMember.Global
-    VersionIn = 1,
-    DigIn = 2,
-    DigOut = 3,
-    AnIn = 4,
-    AnOut = 5,
-    // ReSharper restore UnusedMember.Global
-    Pc2Plc = 6,
-    Plc2Pc = 7
+    Pc2Plc = 1,
+    Plc2Pc = 2
 }
 
 public class PlcSiemens : IPlc

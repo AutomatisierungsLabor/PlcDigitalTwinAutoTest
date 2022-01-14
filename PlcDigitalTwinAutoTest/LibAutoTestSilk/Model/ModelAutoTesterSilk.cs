@@ -1,9 +1,11 @@
-﻿using LibAutoTestSilk.TestAutomat;
+﻿using System;
+using LibAutoTestSilk.TestAutomat;
 using LibAutoTestSilk.ViewModel;
 using LibConfigPlc;
 using LibDatenstruktur;
 using SoftCircuits.Silk;
 using System.Diagnostics;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,7 +13,7 @@ namespace LibAutoTestSilk.Model;
 
 public class ModelAutoTesterSilk
 {
- 
+
 
     public Silk.Silk Silk { get; set; }
     public Datenstruktur Datenstruktur { get; set; }
@@ -49,7 +51,7 @@ public class ModelAutoTesterSilk
         Compiler compiler;
         SilkStopwatch = new Stopwatch();
 
-        Silk.ReferenzenUebergeben(_vmSilkAutoTester, Datenstruktur, SilkStopwatch );
+        Silk.ReferenzenUebergeben(_vmSilkAutoTester, Datenstruktur, SilkStopwatch);
 
         _vmSilkAutoTester.DataGridZeilen.Add(new DataGridZeile(
             _vmSilkAutoTester.ZeilenNummerDataGrid++,
@@ -98,6 +100,13 @@ public class ModelAutoTesterSilk
     {
         SilkStopwatch.Restart();
         if (_compilerlaufErfolgreich) Silk.RunProgram(_compiledProgram);
+    }
+
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+       // Model model = value as Model;
+
+        return value;
     }
 
     public void EinzelnerSchrittAusfuehren() => Silk.EinzelnerSchrittAusfuehren();

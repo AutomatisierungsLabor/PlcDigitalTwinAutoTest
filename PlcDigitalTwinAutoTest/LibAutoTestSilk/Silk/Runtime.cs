@@ -10,28 +10,15 @@ public partial class Silk
         const string data = "";
         e.UserData = data;
 
-        VmSilkAutoTester.UpdateDataGrid(new DataGridZeile(
-            VmSilkAutoTester.ZeilenNummerDataGrid++,
-            $"{SilkStopwatch.ElapsedMilliseconds}ms",
-            TestAnzeige.TestStart,
-            " ",
-            " ",
-            " ",
-            " "));
+        VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
+             VmAutoTesterSilk.ZeilenNummerDataGrid++,
+             $"{SilkStopwatch.ElapsedMilliseconds}ms",
+             TestAnzeige.TestStart,
+             " ",        // DigInput 
+             " ",        // DigOutput Soll
+             " ",        // DigOutput Ist
+             " "));
     }
-
-    private void Runtime_End(object sender, EndEventArgs e)
-    {
-        VmSilkAutoTester.UpdateDataGrid(new DataGridZeile(
-            VmSilkAutoTester.ZeilenNummerDataGrid++,
-            $"{SilkStopwatch.ElapsedMilliseconds}ms",
-            TestAnzeige.TestEnde,
-            " ",
-            " ",
-            " ",
-            " "));
-    }
-
     public void RunProgram(CompiledProgram program)
     {
         var runtime = new Runtime(program);
@@ -40,5 +27,16 @@ public partial class Silk
         runtime.End += Runtime_End;
 
         runtime.Execute();
+    }
+    private void Runtime_End(object sender, EndEventArgs e)
+    {
+        VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
+            VmAutoTesterSilk.ZeilenNummerDataGrid++,
+            $"{SilkStopwatch.ElapsedMilliseconds}ms",
+            TestAnzeige.TestEnde,
+            " ",        // DigInput 
+            " ",        // DigOutput Soll
+            " ",        // DigOutput Ist
+            " "));
     }
 }

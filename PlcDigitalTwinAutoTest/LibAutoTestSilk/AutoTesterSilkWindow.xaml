@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=viewModel:VmAutoTesterSilk}"
         Title="Automatischer Softwaretest" Height="800" Width="1250">
+    <Window.Resources>
+        <AlternationConverter x:Key="Converter" />
+    </Window.Resources>
     <Grid>
         <TabControl>
             <TabItem Header="Test">
@@ -28,7 +31,12 @@
                         <RowDefinition Height="10" />
                     </Grid.RowDefinitions>
 
-                    <DataGrid Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="3" FontSize="14pt" ItemsSource="{Binding DataGridZeilen}"  />
+                    <DataGrid Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="3" FontSize="14pt" ItemsSource="{Binding DataGridZeilen, Converter={StaticResource Converter}}">
+                    <!--    <DataGrid.Resources>
+                            <libAutoTestSilk:WorkItemBackgroundConverter />
+                        </DataGrid.Resources>
+                        -->
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="Source">

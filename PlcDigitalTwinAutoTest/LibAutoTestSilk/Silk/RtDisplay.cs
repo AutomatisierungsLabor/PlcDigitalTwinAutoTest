@@ -1,8 +1,8 @@
-﻿using LibAutoTestSilk.TestAutomat;
+﻿using System.Text;
+using System.Threading;
+using LibAutoTestSilk.TestAutomat;
 using LibPlcTools;
 using SoftCircuits.Silk;
-using System.Text;
-using System.Threading;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -11,24 +11,24 @@ public partial class Silk
     public enum BetriebsartAutoTest
     {
         Automatik = 0,
-        EinzelSchritt = 1
+        Einzelschritt = 1
     }
-    private BetriebsartAutoTest Betriebsart { get; set; }
-    private bool EinzelnenSchrittAusfuehren { get; set; }
-
-
+    private bool EinzelSchrittAusfuehren;
+    private BetriebsartAutoTest betriebsartAutoTest = BetriebsartAutoTest.Automatik;
     private int _anzahlBitEingaenge = 16;
     private int _anzahlBitAusgaenge = 16;
-
     private void IncrementDataGridId()
     {
-        VmSilkAutoTester.ZeilenNummerDataGrid++;
+        VmAutoTesterSilk.ZeilenNummerDataGrid++;
 
-        if (Betriebsart == BetriebsartAutoTest.Automatik) return;
+        if (betriebsartAutoTest == BetriebsartAutoTest.Automatik) return;
 
-        while (!EinzelnenSchrittAusfuehren) { Thread.Sleep(10); }
+        while (!EinzelSchrittAusfuehren)
+        {
+            Thread.Sleep(10);
+        }
 
-        EinzelnenSchrittAusfuehren = false;
+        EinzelSchrittAusfuehren = false;
     }
     private void UpdateAnzeige(FunctionEventArgs e)
     {
@@ -50,33 +50,33 @@ public partial class Silk
 
         DataGridAnzeigeUpdaten(ergebnis, 0, silkKommentar);
     }
-    private void DataGridAnzeigeUpdaten(TestAnzeige testAnzeige, uint digOutSoll, string silkKommentar)
+    private void DataGridAnzeigeUpdaten(TestAnzeige testErgebnis, uint digOutSoll, string silkKommentar)
     {
-        var digitalInput = GetDiWord();
-        var digitalOutput = GetDaWord();
+        var digitalInput = GetDigtalInputWord();
+        var digitalOutput = GetDigitalOutputWord();
 
         var dInput = new Uint(digitalInput.ToString());
         var dOutputIst = new Uint(digitalOutput.ToString());
         var dOutputSoll = new Uint(digOutSoll.ToString());
         // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-        switch (testAnzeige)
+        switch (testErgebnis)
         {
             case TestAnzeige.Kommentar:
             case TestAnzeige.Version:
-                VmSilkAutoTester.UpdateDataGrid(new DataGridZeile(
-                    VmSilkAutoTester.ZeilenNummerDataGrid,
+                VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
+                    VmAutoTesterSilk.ZeilenNummerDataGrid,
                     " ",
-                    testAnzeige,
+                    testErgebnis,
+                    silkKommentar,
                     " ",
                     " ",
-                    " ",
-                    silkKommentar));
+                    " "));
                 break;
             default:
-                VmSilkAutoTester.UpdateDataGrid(new DataGridZeile(
-                    VmSilkAutoTester.ZeilenNummerDataGrid,
-                   $"{SilkStopwatch.ElapsedMilliseconds}ms",
-                    testAnzeige,
+                VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
+                    VmAutoTesterSilk.ZeilenNummerDataGrid,
+                    $"{SilkStopwatch.ElapsedMilliseconds}ms",
+                    testErgebnis,
                     dInput.GetHexBit(_anzahlBitEingaenge) + "  " + dInput.GetBinBit(_anzahlBitEingaenge),
                     dOutputSoll.GetHexBit(_anzahlBitAusgaenge) + "  " + dOutputSoll.GetBinBit(_anzahlBitAusgaenge),
                     dOutputIst.GetHexBit(_anzahlBitAusgaenge) + "  " + dOutputIst.GetBinBit(_anzahlBitAusgaenge),
@@ -87,20 +87,21 @@ public partial class Silk
     private void KommentarAnzeigen(FunctionEventArgs e)
     {
         var kommentar = e.Parameters[0].ToString();
-        VmSilkAutoTester.ZeilenNummerDataGrid++;
+        VmAutoTesterSilk.ZeilenNummerDataGrid++;
         DataGridAnzeigeUpdaten(TestAnzeige.Kommentar, 0, kommentar);
     }
     private void VersionAnzeigen()
     {
-        //var textLaenge = Datenstruktur.VersionInputSps[1];
+       // var textLaenge = "DummyText VersionInputSps";// Datenstruktur.VersionInputSps[1];
         var enc = new ASCIIEncoding();
-        const string version = "Dieser Text muss noch geändert werden!";
-        //  var version = enc.GetString(Datenstruktur.VersionInputSps, 2, textLaenge);
-
-        DataGridAnzeigeUpdaten(TestAnzeige.Version, 0, version);
-        VmSilkAutoTester.ZeilenNummerDataGrid++;
+        //var version = enc.GetString(Datenstruktur.VersionInputSps, 2, textLaenge);
+        
+        DataGridAnzeigeUpdaten(TestAnzeige.Version, 0, "Dummy Text");
+       
+        VmAutoTesterSilk.ZeilenNummerDataGrid++;
     }
 
-    public void EinzelnerSchrittAusfuehren() => EinzelnenSchrittAusfuehren = true;
-    public void SetBetriebsart(bool b) => Betriebsart = b ? BetriebsartAutoTest.EinzelSchritt : BetriebsartAutoTest.Automatik;
+    public void EinzelnerSchrittAusfuehren() => EinzelSchrittAusfuehren = true;
+
+    public void SetBetriebsart(bool b) => betriebsartAutoTest = b ? BetriebsartAutoTest.Einzelschritt : BetriebsartAutoTest.Automatik;
 }

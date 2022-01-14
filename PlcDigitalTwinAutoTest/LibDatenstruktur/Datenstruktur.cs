@@ -43,12 +43,11 @@ public class Datenstruktur
     public void SetBitmuster(DatenBereich datenBereich, short offset, params bool[] bits)
     {
         byte wert = 0;
-        if (bits.Length > 8)
-            throw new ArgumentOutOfRangeException($"{nameof(bits)}", $"{nameof(SetBitmuster)} zu viele bit");
+        if (bits.Length > 8) throw new ArgumentOutOfRangeException($"{nameof(bits)}", $"{nameof(SetBitmuster)} zu viele bit");
 
         for (var i = 0; i < bits.Length; i++)
         {
-            if (bits[i]) wert += (byte)(1 << i);
+            if (bits[i]) wert += LibPlcTools.Bitmuster.BitmusterErzeugen(i);
         }
 
         switch (datenBereich)
@@ -71,14 +70,14 @@ public class Datenstruktur
             _ => throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null)
         };
 
-        var lsb = (wert & (1 << 0)) > 0;
-        var b1 = (wert & (1 << 1)) > 0;
-        var b2 = (wert & (1 << 2)) > 0;
-        var b3 = (wert & (1 << 3)) > 0;
-        var b4 = (wert & (1 << 4)) > 0;
-        var b5 = (wert & (1 << 5)) > 0;
-        var b6 = (wert & (1 << 6)) > 0;
-        var b7 = (wert & (1 << 7)) > 0;
+        var lsb = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert , 0);
+        var b1 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 1);
+        var b2 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 2);
+        var b3 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 3);
+        var b4 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 4);
+        var b5 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 5);
+        var b6 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 6);
+        var b7 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 7);
 
         return (lsb, b1, b2, b3, b4, b5, b6, b7);
     }

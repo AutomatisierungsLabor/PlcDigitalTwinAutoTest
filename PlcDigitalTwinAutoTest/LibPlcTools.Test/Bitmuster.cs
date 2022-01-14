@@ -28,7 +28,10 @@ public class Bitmuster
 
     [Theory]
     [InlineData(0, 0, false)]
-    [InlineData(1, 0, true)]
+    [InlineData(0b0000_0001, 0, true)]
+    [InlineData(0b0100_1001, 0, true)]
+    [InlineData(0b0010_0010, 1, true)]
+    [InlineData(0b0000_1000, 3, true)]
 
     public void BitmusterInByteTesten(byte bitmuster, int bitPositon, bool ergebnis)
     {
