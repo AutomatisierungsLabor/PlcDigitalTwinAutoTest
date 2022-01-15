@@ -9,4 +9,8 @@
     <None Remove="LibFormen.cs~RF1f8b0ed.TMP" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LibPlcKommunikation\LibPlcKommunikation.csproj" />
+  </ItemGroup>
+
 </Project>

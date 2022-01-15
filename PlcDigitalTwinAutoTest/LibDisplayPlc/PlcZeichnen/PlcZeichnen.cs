@@ -7,7 +7,7 @@ namespace LibDisplayPlc.PlcZeichnen;
 
 public class PlcZeichnen
 {
-    public PlcZeichnen(Grid plcGrid)
+    public  PlcZeichnen(Grid plcGrid)
     {
         const int schriftGanzGross = 50;
         const int schriftGross = 25;

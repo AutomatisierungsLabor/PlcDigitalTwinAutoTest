@@ -11,7 +11,6 @@ public class AutoTesterSilk
     public Datenstruktur Datenstruktur { get; set; }
     public ConfigPlc ConfigPlc { get; set; }
 
-
     public AutoTesterSilk(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
         Datenstruktur = datenstruktur;
@@ -24,6 +23,10 @@ public class AutoTesterSilk
 
         AutoTesterWindow.Show();
     }
-    public void SetProjekt(DirectoryInfo ordnerAktuellesProjekt) => AutoTesterWindow.SetNeuesTestProjekt(ordnerAktuellesProjekt);
+    public void SetProjekt(DirectoryInfo ordnerAktuellesProjekt)
+    {
+        AutoTesterWindow.OrdnerAktuellesProjekt = ordnerAktuellesProjekt;
+        AutoTesterWindow.VmAutoTesterSilk.SetNeuesTestProjekt(ordnerAktuellesProjekt, ConfigPlc);
+    }
     public void TestStarten() => AutoTesterWindow.ModelSilkAutoTester.AutoTestStarten();
 }

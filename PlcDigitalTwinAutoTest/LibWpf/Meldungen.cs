@@ -1,15 +1,20 @@
-﻿namespace LibWpf;
+﻿using System.Windows;
+using System.Windows.Media;
+using LibPlcKommunikation;
+
+namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void PlcError(LibWpf libWpf)
+    public void PlcError(PlcDaemon plcDaemon)
     {
-        /*
+        if (plcDaemon == null) return;
 
-        libWpf.RechteckVis(2, 20, 2, 10, Brushes.LightSalmon, (int)WpfBase.ErrorAnzeige);
-        libWpf.TextVis(5, 10, 5, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, (int)WpfBase.ErrorVersionLokal);
-        libWpf.TextVis(5, 10, 10, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, (int)WpfBase.ErrorVersionPlc);
+        Rechteck(2, 20, 2, 10, Brushes.LightSalmon);
 
-        */
+        //  libWpf.TextVis(5, 10, 5, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
+        //  libWpf.TextVis(5, 10, 10, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, (int)WpfBase.ErrorVersionPlc);
+
+
     }
 }

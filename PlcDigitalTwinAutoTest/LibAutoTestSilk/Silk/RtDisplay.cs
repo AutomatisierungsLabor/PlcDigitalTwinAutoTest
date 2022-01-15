@@ -13,22 +13,22 @@ public partial class Silk
         Automatik = 0,
         Einzelschritt = 1
     }
-    private bool EinzelSchrittAusfuehren;
-    private BetriebsartAutoTest betriebsartAutoTest = BetriebsartAutoTest.Automatik;
+    private bool _einzelSchrittAusfuehren;
+    private BetriebsartAutoTest _betriebsartAutoTest = BetriebsartAutoTest.Automatik;
     private int _anzahlBitEingaenge = 16;
     private int _anzahlBitAusgaenge = 16;
     private void IncrementDataGridId()
     {
         VmAutoTesterSilk.ZeilenNummerDataGrid++;
 
-        if (betriebsartAutoTest == BetriebsartAutoTest.Automatik) return;
+        if (_betriebsartAutoTest == BetriebsartAutoTest.Automatik) return;
 
-        while (!EinzelSchrittAusfuehren)
+        while (!_einzelSchrittAusfuehren)
         {
             Thread.Sleep(10);
         }
 
-        EinzelSchrittAusfuehren = false;
+        _einzelSchrittAusfuehren = false;
     }
     private void UpdateAnzeige(FunctionEventArgs e)
     {
@@ -101,7 +101,7 @@ public partial class Silk
         VmAutoTesterSilk.ZeilenNummerDataGrid++;
     }
 
-    public void EinzelnerSchrittAusfuehren() => EinzelSchrittAusfuehren = true;
+    public void EinzelnerSchrittAusfuehren() => _einzelSchrittAusfuehren = true;
 
-    public void SetBetriebsart(bool b) => betriebsartAutoTest = b ? BetriebsartAutoTest.Einzelschritt : BetriebsartAutoTest.Automatik;
+    public void SetBetriebsart(bool b) => _betriebsartAutoTest = b ? BetriebsartAutoTest.Einzelschritt : BetriebsartAutoTest.Automatik;
 }

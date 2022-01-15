@@ -1,14 +1,18 @@
 ﻿using System.Threading;
+using LibAutoTest;
 
 namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class VmBase
 {
+
+    private AutoTest _autoTest;
     private void ViewModelTask()
     {
         while (true)
         {
-//PlcBezeichnung=
+
+            if (_autoTest != null) _autoTest.LibWpfAutoTest.PlcError(PlcDaemon);
 
 
             ViewModelAufrufThread();
@@ -16,4 +20,6 @@ public abstract partial class VmBase
         }
         // ReSharper disable once FunctionNeverReturns
     }
+
+    public void SetAutoTestRef(AutoTest autoTest ) => _autoTest = autoTest;
 }

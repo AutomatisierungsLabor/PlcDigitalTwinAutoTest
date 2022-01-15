@@ -34,6 +34,7 @@ public partial class BaseWindow
 
         AutoTest = new AutoTest(Datenstruktur, ConfigPlc, TabAutoTest, "/ConfigTests");
         AutoTest.SetCallback(ConfigPlc.SetPath);
+        _vmBase.SetAutoTestRef(AutoTest);
 
         BaseTabControl.SelectedIndex = startUpTabIndex;
         DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc);

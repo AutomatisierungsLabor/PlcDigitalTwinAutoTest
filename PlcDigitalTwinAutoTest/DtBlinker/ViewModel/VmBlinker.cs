@@ -22,6 +22,10 @@ public enum WpfObjects
 public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelBlinker _modelBlinker;
+    private LibWpf.LibWpf _libWpfTabBeschreibung;
+    private LibWpf.LibWpf _libWpfLaborPlatte;
+    private LibWpf.LibWpf _libWpfSimulation;
+
 
     public VmBlinker(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur) : base(model, datenstruktur)
     {
@@ -49,6 +53,10 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarkeitUmschalten(_modelBlinker.S5, (int)WpfObjects.S5);
 
         FarbeUmschalten(_modelBlinker.P1, 1, Brushes.LawnGreen, Brushes.White);
+        
+        _libWpfTabBeschreibung.PlcError(PlcDaemon);
+        _libWpfLaborPlatte.PlcError(PlcDaemon);
+        _libWpfSimulation.PlcError(PlcDaemon);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
@@ -65,7 +73,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     }
     protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
-    public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(tabItem, "#eeeeee");
-    public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(tabItem, "#eeeeee");
-    public override void SimulationZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(tabItem, "#eeeeee");
+    public override void BeschreibungZeichnen(TabItem tabItem) => _libWpfTabBeschreibung = TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
+    public override void LaborPlatteZeichnen(TabItem tabItem) => _libWpfLaborPlatte = TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
+    public override void SimulationZeichnen(TabItem tabItem) => _libWpfSimulation = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
 }

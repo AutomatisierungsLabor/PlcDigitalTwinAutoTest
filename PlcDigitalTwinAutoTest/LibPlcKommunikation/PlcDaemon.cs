@@ -97,6 +97,8 @@ public class PlcDaemon
                     {
                         Log.Debug("Problem beim pingen:" + ex);
                     }
+
+                    _plcDaemonStatus = PlcDaemonStatus.SpsSiemens; // TODO wieder löschen !!!!!
                     break;
 
                 case PlcDaemonStatus.SpsBeckhoff:
@@ -115,13 +117,13 @@ public class PlcDaemon
                     throw new ArgumentOutOfRangeException();
             }
 
-            DatenRangieren();
+            DatenPc2PlcRangieren();
 
             Thread.Sleep(10);
         }
         // ReSharper disable once FunctionNeverReturns
     }
-    private void DatenRangieren()
+    private void DatenPc2PlcRangieren()
     {
         //https://support.industry.siemens.com/cs/ww/de/view/109747136
         // S7-1200: 240 Byte
@@ -133,18 +135,25 @@ public class PlcDaemon
 
         const int anzDa = 32;
         const int anzAa = 64;
-        const int laengeVersionsbez = 64;
+        const int anzVersionsbez = 64;
+
+        const int anfangDi = 0;
+        const int anfangAi = anzDi;
+        const int anfangBefehle = anfangAi + anzAi;
+
+        const int anfangDa = 0;
+        const int anfangAa = anzDa;
+        const int anfangVersion = anfangAa + anzDa;
 
         if (anzDi + anzAi + anzBefehle > PlcSiemens.AnzBytePc2Plc) throw new ArgumentOutOfRangeException();
-        if (anzDa + anzAa + laengeVersionsbez > PlcSiemens.AnzBytePlc2Pc) throw new ArgumentOutOfRangeException();
+        if (anzDa + anzAa + anzVersionsbez > PlcSiemens.AnzBytePlc2Pc) throw new ArgumentOutOfRangeException();
+        
+        Buffer.BlockCopy(_datenstruktur.Di, 0, Pc2Plc, anfangDi, anzDi);
+        Buffer.BlockCopy(_datenstruktur.Ai, 0, Pc2Plc, anfangAi, anzAi);
+        Buffer.BlockCopy(_datenstruktur.BefehlePlc, 0, Pc2Plc, anfangBefehle, anzBefehle);
 
-
-        Buffer.BlockCopy(_datenstruktur.Di, 0, Pc2Plc, 0, anzDi);
-        Buffer.BlockCopy(_datenstruktur.Ai, 0, Pc2Plc, anzDi, anzAi);
-        Buffer.BlockCopy(_datenstruktur.BefehlePlc, 0, Pc2Plc, anzDi + anzAi, anzBefehle);
-
-        Buffer.BlockCopy(Plc2Pc, 0, _datenstruktur.Da, 0, anzDa);
-        Buffer.BlockCopy(Plc2Pc, anzDa, _datenstruktur.Aa, 0, anzAa);
-        Buffer.BlockCopy(Plc2Pc, anzDa + anzAa, _datenstruktur.VersionsStringPlc, 0, laengeVersionsbez);
+        Buffer.BlockCopy(Plc2Pc, anfangDa, _datenstruktur.Da, 0, anzDa);
+        Buffer.BlockCopy(Plc2Pc, anfangAa, _datenstruktur.Aa, 0, anzAa);
+        Buffer.BlockCopy(Plc2Pc, anfangVersion, _datenstruktur.VersionsStringPlc, 0, anzVersionsbez);
     }
 }

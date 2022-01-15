@@ -13,8 +13,6 @@ namespace LibAutoTestSilk.Model;
 
 public class ModelAutoTesterSilk
 {
-
-
     public Silk.Silk Silk { get; set; }
     public Datenstruktur Datenstruktur { get; set; }
     public ConfigPlc ConfigPlc { get; set; }

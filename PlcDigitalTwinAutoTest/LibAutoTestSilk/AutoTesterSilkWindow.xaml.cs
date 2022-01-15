@@ -4,19 +4,18 @@ using LibConfigPlc;
 using LibDatenstruktur;
 using System;
 using System.IO;
-using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using LibAutoTestSilk.TestAutomat;
+using LibAutoTestSilk.Zeichnen;
 
 namespace LibAutoTestSilk;
 
 public partial class AutoTesterWindow
 {
-    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
     public ModelAutoTesterSilk ModelSilkAutoTester { get; set; }
     public VmAutoTesterSilk VmAutoTesterSilk { get; set; }
     public DirectoryInfo OrdnerAktuellesProjekt { get; set; }
-
 
     public AutoTesterWindow(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
@@ -26,50 +25,46 @@ public partial class AutoTesterWindow
         InitializeComponent();
         DataContext = VmAutoTesterSilk;
 
-        
         _ = new DiDaBeschriften(GridTest);
 
+        DataGrid.ItemContainerGenerator.StatusChanged += (_, _) =>
+        {
+
+            var count = VmAutoTesterSilk.DataGridZeilen.Count;
+            if (count < 1) return;
+
+            for (var zeile = 0; zeile < count; zeile++)
+            {
+                var row = (DataGridRow)DataGrid.ItemContainerGenerator.ContainerFromIndex(zeile);
+                if (row == null) continue;
+                
+                row.Background = VmAutoTesterSilk.DataGridZeilen[zeile].Ergebnis switch
+                {
+                    TestAnzeige.Aktiv=> Brushes.White,
+                    TestAnzeige.AufBitmusterWarten => Brushes.Yellow,
+                    TestAnzeige.CompilerErfolgreich => Brushes.LawnGreen,
+                    TestAnzeige.CompilerError => Brushes.Red,
+                    TestAnzeige.Erfolgreich => Brushes.LawnGreen,
+                    TestAnzeige.Fehler => Brushes.Red,
+                    TestAnzeige.ImpulsWarZuKurz => Brushes.LawnGreen,
+                    TestAnzeige.ImpulsWarZuLang => Brushes.LawnGreen,
+                    TestAnzeige.Init => Brushes.Aquamarine,
+                    TestAnzeige.Kommentar => Brushes.White,
+                    TestAnzeige.TestEnde => Brushes.CornflowerBlue,
+                    TestAnzeige.TestStart => Brushes.CornflowerBlue,
+                    TestAnzeige.Timeout => Brushes.Orange,
+                    TestAnzeige.UnbekanntesErgebnis => Brushes.Red,
+                    TestAnzeige.Version => Brushes.White,
+                    TestAnzeige.CompilerStart => Brushes.Cyan,
+                    _ => throw new ArgumentOutOfRangeException("Unbekanntés Ergebnis" + VmAutoTesterSilk.DataGridZeilen[zeile].Ergebnis)
+                };
+            }
+        };
 
         Closing += (_, e) =>
         {
             e.Cancel = true;
             Hide();
         };
-    }
-    public void SetNeuesTestProjekt(DirectoryInfo ordnerAktuellesProjekt)
-    {
-        OrdnerAktuellesProjekt = ordnerAktuellesProjekt;
-
-        try
-        {
-            Log.Debug("TestSource: " + @$"{OrdnerAktuellesProjekt}\test.ssc");
-
-            VmAutoTesterSilk.Text[(int)VmAutoTesterSilk.WpfIndex.SoureCode] = File.ReadAllText(@$"{OrdnerAktuellesProjekt}\test.ssc".ToString());
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-
-        for (var i = 0; i < 100; i++) VmAutoTesterSilk.SichtbarEin[i] = Visibility.Hidden;
-
-        foreach (var zeile in ModelSilkAutoTester.ConfigPlc.Di.Zeilen)
-        {
-            var bitPos = (int)VmAutoTesterSilk.WpfIndex.Di01 + 8 * zeile.StartByte + zeile.StartBit;
-            if (bitPos > (int)VmAutoTesterSilk.WpfIndex.Di17) throw new ArgumentOutOfRangeException(bitPos.ToString());
-
-            VmAutoTesterSilk.SichtbarEin[bitPos] = Visibility.Visible;
-            VmAutoTesterSilk.Text[bitPos] = zeile.Bezeichnung;
-        }
-
-        foreach (var zeile in ModelSilkAutoTester.ConfigPlc.Da.Zeilen)
-        {
-            var bitPos = (int)VmAutoTesterSilk.WpfIndex.Da01 + 8 * zeile.StartByte + zeile.StartBit;
-            if (bitPos > (int)VmAutoTesterSilk.WpfIndex.Da17) throw new ArgumentOutOfRangeException(bitPos.ToString());
-
-            VmAutoTesterSilk.SichtbarEin[bitPos] = Visibility.Visible;
-            VmAutoTesterSilk.Text[bitPos] = zeile.Bezeichnung;
-        }
     }
 }
