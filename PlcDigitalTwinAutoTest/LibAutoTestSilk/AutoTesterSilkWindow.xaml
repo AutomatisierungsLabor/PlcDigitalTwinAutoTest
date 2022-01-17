@@ -13,7 +13,7 @@
                 <Grid x:Name="GridTest">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="280" />
+                        <ColumnDefinition Width="300" />
                         <ColumnDefinition Width="300" />
                         <ColumnDefinition Width="300" />
                         <ColumnDefinition Width="300" />

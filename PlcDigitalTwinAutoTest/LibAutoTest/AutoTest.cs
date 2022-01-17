@@ -8,7 +8,6 @@ using System.Windows.Media;
 using LibAutoTestSilk;
 using LibConfigPlc;
 using LibDatenstruktur;
-using LibPlcKommunikation;
 
 namespace LibAutoTest;
 

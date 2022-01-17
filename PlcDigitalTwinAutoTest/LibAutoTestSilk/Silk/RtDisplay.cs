@@ -1,5 +1,4 @@
-﻿using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using LibAutoTestSilk.TestAutomat;
 using LibPlcTools;
 using SoftCircuits.Silk;
@@ -62,7 +61,7 @@ public partial class Silk
         switch (testErgebnis)
         {
             case TestAnzeige.Kommentar:
-            case TestAnzeige.Version:
+            case TestAnzeige.Projektbezeichnung:
                 VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
                     VmAutoTesterSilk.ZeilenNummerDataGrid,
                     " ",
@@ -77,9 +76,9 @@ public partial class Silk
                     VmAutoTesterSilk.ZeilenNummerDataGrid,
                     $"{SilkStopwatch.ElapsedMilliseconds}ms",
                     testErgebnis,
-                    dInput.GetHexBit(_anzahlBitEingaenge) + "  " + dInput.GetBinBit(_anzahlBitEingaenge),
-                    dOutputSoll.GetHexBit(_anzahlBitAusgaenge) + "  " + dOutputSoll.GetBinBit(_anzahlBitAusgaenge),
-                    dOutputIst.GetHexBit(_anzahlBitAusgaenge) + "  " + dOutputIst.GetBinBit(_anzahlBitAusgaenge),
+                     dInput.GetBinBit(_anzahlBitEingaenge),
+                     dOutputSoll.GetBinBit(_anzahlBitAusgaenge),
+                     dOutputIst.GetBinBit(_anzahlBitAusgaenge),
                     silkKommentar));
                 break;
         }
@@ -92,12 +91,10 @@ public partial class Silk
     }
     private void VersionAnzeigen()
     {
-       // var textLaenge = "DummyText VersionInputSps";// Datenstruktur.VersionInputSps[1];
-        var enc = new ASCIIEncoding();
-        //var version = enc.GetString(Datenstruktur.VersionInputSps, 2, textLaenge);
-        
-        DataGridAnzeigeUpdaten(TestAnzeige.Version, 0, "Dummy Text");
-       
+        DataGridAnzeigeUpdaten(TestAnzeige.Projektbezeichnung, 0, $"SW PC: {Datenstruktur.VersionsStringLokal}");
+        VmAutoTesterSilk.ZeilenNummerDataGrid++;
+
+        DataGridAnzeigeUpdaten(TestAnzeige.Projektbezeichnung, 0, $"SW PLC: {Datenstruktur.VersionsStringPlc}");
         VmAutoTesterSilk.ZeilenNummerDataGrid++;
     }
 

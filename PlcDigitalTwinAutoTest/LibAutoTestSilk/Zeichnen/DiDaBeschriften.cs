@@ -7,7 +7,7 @@ namespace LibAutoTestSilk.Zeichnen;
 
 public class DiDaBeschriften
 {
-    public  DiDaBeschriften(Grid grid)
+    public DiDaBeschriften(Grid grid)
     {
         var libWpf = new LibWpf.LibWpf(grid);
 
@@ -17,11 +17,11 @@ public class DiDaBeschriften
 
         for (var i = 0; i < 16; i++)
         {
-            var xAbstand = 10 + 10 * i / 4;
+            var xAbstand = 10 + 12 * (i + i / 4);
 
-            libWpf.TextVertikalVis(2, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 10, new Thickness(240 - i * xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Di01);
-            libWpf.TextVertikalVis(3, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 10, new Thickness(240 - i * xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Da01);
-            libWpf.TextVertikalVis(4, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 10, new Thickness(240 - i * xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Da01);
+            libWpf.TextVertikalVis(2, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, new Thickness(240 - xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Di01);
+            libWpf.TextVertikalVis(3, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, new Thickness(240 - xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Da01);
+            libWpf.TextVertikalVis(4, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, new Thickness(240 - xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Da01);
         }
     }
 }

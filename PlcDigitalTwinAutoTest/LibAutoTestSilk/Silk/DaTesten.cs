@@ -13,9 +13,7 @@ internal class DaTesten
         SchrittAbgeschlossen,
         Timeout
     }
-
-    private  int _aktuellerSchritt;
-
+    
     private StatusDigAusgaenge _statusDigAusgaenge;
 
     private readonly Uint _bitMuster;
@@ -43,10 +41,6 @@ internal class DaTesten
     internal void SetStartzeit(long zeit) => _startZeit = zeit;
     internal long GetZeitdauerMin() => _startZeit + _dauerMin;
     internal long GetZeitdauerMax() => _startZeit + _dauerMax;
-    internal  int GetAktuellerSchritt() => _aktuellerSchritt;
-    internal  void SetAktuellerSchritt(int schritt) => _aktuellerSchritt = schritt;
-    internal  void SetNaechsterSchritt() => _aktuellerSchritt++;
-
 
     internal StatusDigAusgaenge GetAktuellerStatus() => _statusDigAusgaenge;
     internal void SetAktuellerStatus(StatusDigAusgaenge status) => _statusDigAusgaenge = status;

@@ -17,7 +17,7 @@ public enum TestAnzeige
     TestStart,
     Timeout,
     UnbekanntesErgebnis,
-    Version,
+    Projektbezeichnung,
     CompilerStart
     // ReSharper restore UnusedMember.Global
 }

@@ -10,9 +10,7 @@ internal class DiSetzen
         SchrittAktiv,
         SchrittAbgeschlossen
     }
-
-    private  int _aktuellerSchritt;
-
+    
     private StatusDigEingaenge _statusDigEingaenge;
     private readonly Uint _bitMuster;
     private readonly ZeitDauer _dauer;
@@ -29,10 +27,6 @@ internal class DiSetzen
 
     internal void SetStartzeit(long zeit) => _startZeit = zeit;
     internal long GetEndZeit() => _startZeit + _dauer.DauerMs;
-
-    internal  int GetAktuellerSchritt() => _aktuellerSchritt;
-    internal  void SetAktuellerSchritt(int schritt) => _aktuellerSchritt = schritt;
-    internal  void SetNaechsterSchritt() => _aktuellerSchritt++;
 
     internal StatusDigEingaenge GetAktuellerStatus() => _statusDigEingaenge;
     internal void SetAktuellerStatus(StatusDigEingaenge status) => _statusDigEingaenge = status;

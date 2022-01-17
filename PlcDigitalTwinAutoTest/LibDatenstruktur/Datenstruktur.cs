@@ -20,10 +20,10 @@ public class Datenstruktur
     public BetriebsartProjekt BetriebsartProjekt;
 
     public string VersionsStringLokal { get; set; }
-    
+    public string VersionsStringPlc { get; set; }
 
     public byte[] BefehlePlc { get; } = new byte[1024];
-    public byte[] VersionsStringPlc { get; } = new byte[1024];
+    
     public byte[] Di { get; } = new byte[1024];
     public byte[] Da { get; } = new byte[1024];
     public byte[] Ai { get; } = new byte[1024];

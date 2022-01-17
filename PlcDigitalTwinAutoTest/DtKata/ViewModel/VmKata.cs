@@ -76,9 +76,9 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         FarbeUmschalten(_modelKata.P7, (int)WpfObjects.P7, Brushes.Red, Brushes.White);
         FarbeUmschalten(_modelKata.P8, (int)WpfObjects.P8, Brushes.Red, Brushes.White);
 
-        _libWpfTabBeschreibung.PlcError(PlcDaemon);
-        _libWpfLaborPlatte.PlcError(PlcDaemon);
-        _libWpfSimulation.PlcError(PlcDaemon);
+        _libWpfTabBeschreibung?.PlcError(PlcDaemon, Datenstruktur);
+        _libWpfLaborPlatte?.PlcError(PlcDaemon, Datenstruktur);
+        _libWpfSimulation?.PlcError(PlcDaemon, Datenstruktur);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {

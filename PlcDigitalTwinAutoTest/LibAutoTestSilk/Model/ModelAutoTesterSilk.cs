@@ -1,11 +1,9 @@
-﻿using System;
-using LibAutoTestSilk.TestAutomat;
+﻿using LibAutoTestSilk.TestAutomat;
 using LibAutoTestSilk.ViewModel;
 using LibConfigPlc;
 using LibDatenstruktur;
 using SoftCircuits.Silk;
 using System.Diagnostics;
-using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -99,14 +97,6 @@ public class ModelAutoTesterSilk
         SilkStopwatch.Restart();
         if (_compilerlaufErfolgreich) Silk.RunProgram(_compiledProgram);
     }
-
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-       // Model model = value as Model;
-
-        return value;
-    }
-
     public void EinzelnerSchrittAusfuehren() => Silk.EinzelnerSchrittAusfuehren();
     public void SetBetriebsart(bool b) => Silk.SetBetriebsart(b);
 }

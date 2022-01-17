@@ -54,7 +54,7 @@ public partial class AutoTesterWindow
                     TestAnzeige.TestStart => Brushes.CornflowerBlue,
                     TestAnzeige.Timeout => Brushes.Orange,
                     TestAnzeige.UnbekanntesErgebnis => Brushes.Red,
-                    TestAnzeige.Version => Brushes.White,
+                    TestAnzeige.Projektbezeichnung => Brushes.White,
                     TestAnzeige.CompilerStart => Brushes.Cyan,
                     _ => throw new ArgumentOutOfRangeException("Unbekanntés Ergebnis" + VmAutoTesterSilk.DataGridZeilen[zeile].Ergebnis)
                 };

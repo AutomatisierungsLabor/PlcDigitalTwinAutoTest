@@ -53,10 +53,10 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarkeitUmschalten(_modelBlinker.S5, (int)WpfObjects.S5);
 
         FarbeUmschalten(_modelBlinker.P1, 1, Brushes.LawnGreen, Brushes.White);
-        
-        _libWpfTabBeschreibung.PlcError(PlcDaemon);
-        _libWpfLaborPlatte.PlcError(PlcDaemon);
-        _libWpfSimulation.PlcError(PlcDaemon);
+
+        _libWpfTabBeschreibung?.PlcError(PlcDaemon, Datenstruktur);
+        _libWpfLaborPlatte?.PlcError(PlcDaemon, Datenstruktur);
+        _libWpfSimulation?.PlcError(PlcDaemon, Datenstruktur);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {

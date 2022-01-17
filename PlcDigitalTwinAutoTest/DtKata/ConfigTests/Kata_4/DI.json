@@ -27,6 +27,90 @@
       "Type": "Bit",
       "Bezeichnung": "S4",
       "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "S11",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 5,
+      "Type": "Bit",
+      "Bezeichnung": "S21",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 6,
+      "Type": "Bit",
+      "Bezeichnung": "S31",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 7,
+      "Type": "Bit",
+      "Bezeichnung": "S41",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "S12",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "S22",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "S32",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "S42",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "S13",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 5,
+      "Type": "Bit",
+      "Bezeichnung": "S23",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 6,
+      "Type": "Bit",
+      "Bezeichnung": "S33",
+      "Kommentar": "Taster"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 7,
+      "Type": "Bit",
+      "Bezeichnung": "S43",
+      "Kommentar": "Taster"
     }
   ]
 }

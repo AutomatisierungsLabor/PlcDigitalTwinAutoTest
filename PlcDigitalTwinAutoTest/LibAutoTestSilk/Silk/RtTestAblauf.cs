@@ -10,34 +10,37 @@ namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
+    private int _diAktuellerSchtritt;
+    private int _daAktuellerSchritt;
     private void TestAblauf(FunctionEventArgs e)
     {
         var listeDigEingaenge = new List<DiSetzen>();
-        var listeDigAusgaenge = new List<DaTesten>();
+        _diAktuellerSchtritt = 0;
 
         for (var i = 0; i < e.Parameters[0].ListCount; i++)
         {
             listeDigEingaenge.Add(new DiSetzen(
-                (ulong)e.Parameters[0][i][0].ToInteger(),   // BitMuster
-                e.Parameters[0][i][1].ToString(),              // ZeitDauer
-                e.Parameters[0][i][2].ToString()));         // Kommentar
+                (ulong)e.Parameters[0][i][0].ToInteger(),
+                e.Parameters[0][i][1].ToString(),
+                e.Parameters[0][i][2].ToString()));
         }
-      //  DiSetzen.SetAktuellerSchritt(0);
+
+
+        var listeDigAusgaenge = new List<DaTesten>();
+        _daAktuellerSchritt = 0;
 
         for (var i = 0; i < e.Parameters[1].ListCount; i++)
         {
             listeDigAusgaenge.Add(new DaTesten(
-                (ulong)e.Parameters[1][i][0].ToInteger(),   // Bitmuster
-                (ulong)e.Parameters[1][i][1].ToInteger(),    // Bitmaske
-                e.Parameters[1][i][2].ToString(),              // Dauer
-                e.Parameters[1][i][3].ToFloat(),             // Toleranz
-                e.Parameters[1][i][4].ToString(),            // TimeOut
-                e.Parameters[1][i][5].ToString()));         // Kommentar
+                (ulong)e.Parameters[1][i][0].ToInteger(),
+                (ulong)e.Parameters[1][i][1].ToInteger(),
+                e.Parameters[1][i][2].ToString(),
+                e.Parameters[1][i][3].ToFloat(),
+                e.Parameters[1][i][4].ToString(),
+                e.Parameters[1][i][5].ToString()));
         }
-       // DaTesten.SetAktuellerSchritt(0);
 
         var gesamteTimeOutZeit = listeDigAusgaenge.Sum(test => test.GetTimeoutMs());
-
         var stopwatch = new Stopwatch();
 
         stopwatch.Start();
@@ -46,76 +49,73 @@ public partial class Silk
         {
             Thread.Sleep(10);
 
-            var testAblaufDigEingaengeFertig = FunktionDigEingaenge(listeDigEingaenge, stopwatch);
-            var testAblaufDigAusgaengeFertig = FunktionDigAusgaenge(listeDigAusgaenge, stopwatch);
+            var testAblaufDiFertig = FunktionDigEingaenge(listeDigEingaenge, stopwatch);
+            var testAblaufDaFertig = FunktionDigAusgaenge(listeDigAusgaenge, stopwatch);
 
-            if (testAblaufDigEingaengeFertig && testAblaufDigAusgaengeFertig) return;
+            if (testAblaufDiFertig && testAblaufDaFertig) return;
         }
         DataGridAnzeigeUpdaten(TestAnzeige.Timeout, 0, "uups");
     }
     private bool FunktionDigEingaenge(IReadOnlyList<DiSetzen> listeDi, Stopwatch aktuelleZeit)
     {
-        var schritt = 0; //DiSetzen.GetAktuellerSchritt();
-        var aufgabe = listeDi[schritt];
-
-        switch (aufgabe.GetAktuellerStatus())
+        var aktZeileDi = listeDi[_diAktuellerSchtritt];
+        switch (aktZeileDi.GetAktuellerStatus())
         {
             case DiSetzen.StatusDigEingaenge.Init:
-                if (aufgabe.GetDauer().DauerMs == 0)
+                if (aktZeileDi.GetDauer().DauerMs == 0)
                 {
-                    aufgabe.SetAktuellerStatus(DiSetzen.StatusDigEingaenge.SchrittAbgeschlossen);
+                    aktZeileDi.SetAktuellerStatus(DiSetzen.StatusDigEingaenge.SchrittAbgeschlossen);
                     return true;
                 }
 
-                DataGridAnzeigeUpdaten(TestAnzeige.Erfolgreich, 0, "DI[" + schritt + "]: " + aufgabe.GetKommentar());
-                aufgabe.SetStartzeit(aktuelleZeit.ElapsedMilliseconds);
-                aufgabe.SetAktuellerStatus(DiSetzen.StatusDigEingaenge.SchrittAktiv);
-                SetDigitaleEingaengeWord(aufgabe.GetBitmuster());
+                DataGridAnzeigeUpdaten(TestAnzeige.Erfolgreich, 0, "DI[" + _diAktuellerSchtritt + "]: " + aktZeileDi.GetKommentar());
+                aktZeileDi.SetStartzeit(aktuelleZeit.ElapsedMilliseconds);
+                aktZeileDi.SetAktuellerStatus(DiSetzen.StatusDigEingaenge.SchrittAktiv);
+                SetDigitaleEingaengeWord(aktZeileDi.GetBitmuster());
                 return false;
 
             case DiSetzen.StatusDigEingaenge.SchrittAktiv:
-                SetDigitaleEingaengeWord(aufgabe.GetBitmuster());
+                SetDigitaleEingaengeWord(aktZeileDi.GetBitmuster());
 
-                if (aktuelleZeit.ElapsedMilliseconds <= aufgabe.GetEndZeit()) return false;
+                if (aktuelleZeit.ElapsedMilliseconds <= aktZeileDi.GetEndZeit()) return false;
 
-                aufgabe.SetAktuellerStatus(DiSetzen.StatusDigEingaenge.SchrittAbgeschlossen);
-               // DiSetzen.SetNaechsterSchritt();
+                aktZeileDi.SetAktuellerStatus(DiSetzen.StatusDigEingaenge.SchrittAbgeschlossen);
+                _diAktuellerSchtritt++;
                 return false;
 
             case DiSetzen.StatusDigEingaenge.SchrittAbgeschlossen:
-                SetDigitaleEingaengeWord(aufgabe.GetBitmuster());
+                SetDigitaleEingaengeWord(aktZeileDi.GetBitmuster());
                 break;
-            default: throw new ArgumentOutOfRangeException(aufgabe.GetAktuellerStatus().ToString());
+            default: throw new ArgumentOutOfRangeException(aktZeileDi.GetAktuellerStatus().ToString());
         }
         return false;
     }
     private bool FunktionDigAusgaenge(IReadOnlyList<DaTesten> listeDa, Stopwatch aktuelleZeit)
     {
-        var schritt = 0; // DaTesten.GetAktuellerSchritt();
-        if (schritt >= listeDa.Count) return true;
-        var aufgabe = listeDa[schritt];
+        if (_daAktuellerSchritt>= listeDa.Count) return true;
+        var aktZeileDa = listeDa[_daAktuellerSchritt];
 
-        var digBitmaske = aufgabe.GetBitMaske().GetDec();
-        var digBitmuster = aufgabe.GetBitMuster().GetDec();
+        var digBitmaske = aktZeileDa.GetBitMaske().GetDec();
+        var digBitmuster = aktZeileDa.GetBitMuster().GetDec();
         var digOutputIst = GetDigitalOutputWord();
 
-        switch (aufgabe.GetAktuellerStatus())
+        switch (aktZeileDa.GetAktuellerStatus())
         {
             case DaTesten.StatusDigAusgaenge.Init:
-                aufgabe.SetStartzeit(aktuelleZeit.ElapsedMilliseconds);
-                aufgabe.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.AufBitmusterWarten);
+                aktZeileDa.SetStartzeit(aktuelleZeit.ElapsedMilliseconds);
+                aktZeileDa.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.AufBitmusterWarten);
                 VmAutoTesterSilk.ZeilenNummerDataGrid++;
-                DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
+                DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)digBitmuster, "DA[" + _daAktuellerSchritt + "]: " + aktZeileDa.GetKommentar());
                 return false;
 
             case DaTesten.StatusDigAusgaenge.AufBitmusterWarten:
-                DataGridAnzeigeUpdaten(TestAnzeige.AufBitmusterWarten, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
-                if ((digOutputIst & digBitmaske) == digBitmuster) aufgabe.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.BitmusterLiegtAn);
-                if (aktuelleZeit.ElapsedMilliseconds > aufgabe.GetTimeoutMs())
+                DataGridAnzeigeUpdaten(TestAnzeige.AufBitmusterWarten, (uint)digBitmuster, "DA[" + _daAktuellerSchritt + "]: " + aktZeileDa.GetKommentar());
+                if ((digOutputIst & digBitmaske) == digBitmuster) aktZeileDa.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.BitmusterLiegtAn);
+                if (aktuelleZeit.ElapsedMilliseconds > aktZeileDa.GetTimeoutMs())
                 {
-                    DataGridAnzeigeUpdaten(TestAnzeige.Timeout, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
-                    aufgabe.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.Timeout);
-                   // DaTesten.SetNaechsterSchritt();
+                    DataGridAnzeigeUpdaten(TestAnzeige.Timeout, (uint)digBitmuster, "DA[" + _daAktuellerSchritt + "]: " + aktZeileDa.GetKommentar());
+                    aktZeileDa.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.Timeout);
+                    _daAktuellerSchritt++;
                     return false;
                 }
                 break;
@@ -123,33 +123,33 @@ public partial class Silk
             case DaTesten.StatusDigAusgaenge.BitmusterLiegtAn:
                 if ((digOutputIst & digBitmaske) != digBitmuster)
                 {
-                    if (aktuelleZeit.ElapsedMilliseconds < aufgabe.GetZeitdauerMin())
+                    if (aktuelleZeit.ElapsedMilliseconds < aktZeileDa.GetZeitdauerMin())
                     {
-                        aufgabe.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.SchrittAbgeschlossen);
-                        DataGridAnzeigeUpdaten(TestAnzeige.ImpulsWarZuKurz, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
-                       // DaTesten.SetNaechsterSchritt();
+                        aktZeileDa.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.SchrittAbgeschlossen);
+                        DataGridAnzeigeUpdaten(TestAnzeige.ImpulsWarZuKurz, (uint)digBitmuster, "DA[" + _daAktuellerSchritt + "]: " + aktZeileDa.GetKommentar());
+                        _daAktuellerSchritt++;
                     }
 
-                    if (aktuelleZeit.ElapsedMilliseconds < aufgabe.GetZeitdauerMax())
+                    if (aktuelleZeit.ElapsedMilliseconds < aktZeileDa.GetZeitdauerMax())
                     {
-                        aufgabe.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.SchrittAbgeschlossen);
-                        DataGridAnzeigeUpdaten(TestAnzeige.Erfolgreich, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
-                       // DaTesten.SetNaechsterSchritt();
+                        aktZeileDa.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.SchrittAbgeschlossen);
+                        DataGridAnzeigeUpdaten(TestAnzeige.Erfolgreich, (uint)digBitmuster, "DA[" + _daAktuellerSchritt + "]: " + aktZeileDa.GetKommentar());
+                        _daAktuellerSchritt++;
                     }
                 }
 
-                if (aktuelleZeit.ElapsedMilliseconds <= aufgabe.GetZeitdauerMax()) return false;
+                if (aktuelleZeit.ElapsedMilliseconds <= aktZeileDa.GetZeitdauerMax()) return false;
 
-                aufgabe.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.SchrittAbgeschlossen);
-                DataGridAnzeigeUpdaten(TestAnzeige.ImpulsWarZuLang, (uint)digBitmuster, "DA[" + schritt + "]: " + aufgabe.GetKommentar());
-              //  DaTesten.SetNaechsterSchritt();
+                aktZeileDa.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.SchrittAbgeschlossen);
+                DataGridAnzeigeUpdaten(TestAnzeige.ImpulsWarZuLang, (uint)digBitmuster, "DA[" + _daAktuellerSchritt + "]: " + aktZeileDa.GetKommentar());
+                _daAktuellerSchritt++;
                 return false;
 
             case DaTesten.StatusDigAusgaenge.SchrittAbgeschlossen:
             case DaTesten.StatusDigAusgaenge.Timeout:
-                DataGridAnzeigeUpdaten(TestAnzeige.Fehler, (uint)digBitmuster, "DA[" + schritt + "]: " + "Status:" + aufgabe.GetAktuellerStatus());
+                DataGridAnzeigeUpdaten(TestAnzeige.Fehler, (uint)digBitmuster, "DA[" + _daAktuellerSchritt + "]: " + "Status:" + aktZeileDa.GetAktuellerStatus());
                 return false;
-            default: throw new ArgumentOutOfRangeException(aufgabe.GetAktuellerStatus().ToString());
+            default: throw new ArgumentOutOfRangeException(aktZeileDa.GetAktuellerStatus().ToString());
         }
         return false;
     }

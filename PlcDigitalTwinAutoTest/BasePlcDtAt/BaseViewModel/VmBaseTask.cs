@@ -11,10 +11,8 @@ public abstract partial class VmBase
     {
         while (true)
         {
-
-            if (_autoTest != null) _autoTest.LibWpfAutoTest.PlcError(PlcDaemon);
-
-
+            _autoTest?.LibWpfAutoTest.PlcError(PlcDaemon, Datenstruktur);
+            
             ViewModelAufrufThread();
             Thread.Sleep(10);
         }
