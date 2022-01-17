@@ -29,6 +29,12 @@
     <None Update="ConfigPlc\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="ConfigTests\Blinker_1\AA.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ConfigTests\Blinker_1\AI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="ConfigTests\Blinker_1\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

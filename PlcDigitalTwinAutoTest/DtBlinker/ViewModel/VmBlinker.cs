@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Mime;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -37,6 +38,12 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
 
+        Text[(int)WpfObjects.S1] = "Niedriger";
+        Text[(int)WpfObjects.S2] = "Höher";
+        Text[(int)WpfObjects.S3] = "Weniger";
+        Text[(int)WpfObjects.S4] = "Mehr";
+        Text[(int)WpfObjects.S5] = "RESET";
+
         _modelBlinker = model as ModelBlinker;
     }
 
@@ -64,9 +71,9 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         {
             case WpfObjects.S1: _modelBlinker.S1 = gedrueckt; break;
             case WpfObjects.S2: _modelBlinker.S2 = gedrueckt; break;
-            case WpfObjects.S3: _modelBlinker.S3 = !gedrueckt; break;
-            case WpfObjects.S4: _modelBlinker.S4 = !gedrueckt; break;
-            case WpfObjects.S5: _modelBlinker.S5 = !gedrueckt; break;
+            case WpfObjects.S3: _modelBlinker.S3 = gedrueckt; break;
+            case WpfObjects.S4: _modelBlinker.S4 = gedrueckt; break;
+            case WpfObjects.S5: _modelBlinker.S5 = gedrueckt; break;
 
             default: throw new ArgumentOutOfRangeException(nameof(tasterId));
         }

@@ -5,8 +5,6 @@ using Newtonsoft.Json;
 
 namespace LibPlcKommunikation;
 
-
-
 public class PlcDaemon
 {
     private enum PlcDaemonStatus
