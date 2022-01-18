@@ -114,6 +114,9 @@ public class PlcDaemon
                     throw new ArgumentOutOfRangeException();
             }
 
+            if (_datenstruktur.SimulationAktiv()) _datenstruktur.BefehlePlc[0] = 1;
+            else _datenstruktur.BefehlePlc[0] = 0;
+
             DatenPc2PlcRangieren();
 
             Thread.Sleep(10);
@@ -136,11 +139,11 @@ public class PlcDaemon
         // ReSharper disable InlineTemporaryVariable
         const int anfangDi = 0;
         const int anfangAi = anzDi;
-        const int anfangBefehle = anfangAi + anzAi;
+        const int anfangBefehle = anzDi + anzAi;
 
         const int anfangDa = 0;
         const int anfangAa = anzDa;
-        const int anfangVersion = anfangAa + anzDa;
+        const int anfangVersion = anzDa + anzAa;
         // ReSharper restore InlineTemporaryVariable
 
         var versionsStringPlc = new byte[256];
@@ -159,9 +162,10 @@ public class PlcDaemon
         var textLaenge = 0;
         for (var i = 0; i < 255; i++)
         {
-            if (versionsStringPlc[i] != 0) continue;
-            textLaenge = i;
-            break;
+            if (versionsStringPlc[i] != 0)
+            {
+                textLaenge = i + 1;
+            }
         }
         var enc = new ASCIIEncoding();
         _datenstruktur.VersionsStringPlc = enc.GetString(versionsStringPlc, 0, textLaenge);

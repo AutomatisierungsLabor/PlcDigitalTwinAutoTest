@@ -23,7 +23,7 @@ public class Datenstruktur
     public string VersionsStringPlc { get; set; }
 
     public byte[] BefehlePlc { get; } = new byte[1024];
-    
+
     public byte[] Di { get; } = new byte[1024];
     public byte[] Da { get; } = new byte[1024];
     public byte[] Ai { get; } = new byte[1024];
@@ -70,7 +70,7 @@ public class Datenstruktur
             _ => throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null)
         };
 
-        var lsb = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert , 0);
+        var lsb = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 0);
         var b1 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 1);
         var b2 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 2);
         var b3 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 3);
@@ -80,5 +80,19 @@ public class Datenstruktur
         var b7 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 7);
 
         return (lsb, b1, b2, b3, b4, b5, b6, b7);
+    }
+    public bool SimulationAktiv()
+    {
+        switch (BetriebsartProjekt)
+        {
+
+            case BetriebsartProjekt.Simulation:
+            case BetriebsartProjekt.AutomatischerSoftwareTest:
+                return true;
+            case BetriebsartProjekt.BeschreibungAnzeigen:
+            case BetriebsartProjekt.LaborPlatte:
+            default:
+                return false;
+        }
     }
 }
