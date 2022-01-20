@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using DtLinearachse.Model;
 using LibDatenstruktur;
-using ScottPlot;
 
 namespace DtLinearachse.ViewModel;
 public enum WpfObjects
@@ -12,27 +11,37 @@ public enum WpfObjects
     // ReSharper disable once UnusedMember.Global
     ReserveFuerBasisViewModel = 20,// // enum WpfBase
 
-    P1 = 21,
+    B1 = 21,
+    B2 = 22,
+    P1 = 31,
+    P2 = 32,
+    P3 = 33,
+    P4 = 34,
 
-    S1 = 31
+    S1 = 41,
+    S2 = 42,
+    S3 = 43,
+    S4 = 44,
+    S5 = 45,
+    S6 = 46,
+    S7 = 47,
+    S8 = 48,
+    S9 = 49,
+    S10 = 50,
+    S11 = 51
 }
 public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 {
-    private readonly ModelLinearachse _modelFibonacci;
+    private readonly ModelLinearachse _modelLinearachse;
     private LibWpf.LibWpf _libWpfTabBeschreibung;
     private LibWpf.LibWpf _libWpfLaborPlatte;
     private LibWpf.LibWpf _libWpfSimulation;
-    private WpfPlot _scottPlot;
-    private readonly double[] _zeitachse;
-    private short _nextDataIndex = 1;
-    public double[] WertLeuchtMelder { get; set; } = new double[5_000];
 
     public VmLinearachse(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur) : base(model, datenstruktur)
     {
-        _zeitachse = DataGen.Consecutive(5000);
 
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
+        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
 
@@ -41,39 +50,54 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 
         Text[(int)WpfObjects.S1] = "Start";
 
-        _modelFibonacci = model as ModelLinearachse;
+        _modelLinearachse = model as ModelLinearachse;
     }
 
     protected override void ViewModelAufrufThread()
     {
-        if (_modelFibonacci == null) return;
+        if (_modelLinearachse == null) return;
 
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
 
-        SichtbarkeitUmschalten(_modelFibonacci.S1, (int)WpfObjects.S1);
+        SichtbarkeitUmschalten(_modelLinearachse.S1, (int)WpfObjects.S1);
 
-        FarbeUmschalten(_modelFibonacci.P1, 1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLinearachse.P1, 1, Brushes.LawnGreen, Brushes.White);
 
-        ScottPlotAktualisieren();
         ErrorAnzeigen();
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
-        if (tasterId is WpfObjects.S1) _modelFibonacci.S1 = gedrueckt;
-        else throw new ArgumentOutOfRangeException(nameof(tasterId));
+        switch (tasterId)
+        {
+            case WpfObjects.S1: _modelLinearachse.S1 = gedrueckt; break;
+            case WpfObjects.S2: _modelLinearachse.S2 = !gedrueckt; break;
+            case WpfObjects.S3: _modelLinearachse.S3 = gedrueckt; break;
+            case WpfObjects.S4: _modelLinearachse.S4 = gedrueckt; break;
+            case WpfObjects.S5: _modelLinearachse.S5 = gedrueckt; break;
+            case WpfObjects.S6: _modelLinearachse.S6 = gedrueckt; break;
+            case WpfObjects.S7: _modelLinearachse.S7 = gedrueckt; break;
+            case WpfObjects.S8: _modelLinearachse.S8 = gedrueckt; break;
+            case WpfObjects.S9: _modelLinearachse.S9 = gedrueckt; break;
+
+            default: throw new ArgumentOutOfRangeException(nameof(tasterId));
+        }
     }
-    protected override void ViewModelAufrufSchalter(Enum schalterId) { }
+    protected override void ViewModelAufrufSchalter(Enum schalterId)
+    {
+        switch (schalterId)
+        {
+            case WpfObjects.S10: _modelLinearachse.S10 = !_modelLinearachse.S10; break;
+            case WpfObjects.S11: _modelLinearachse.S11 = !_modelLinearachse.S11; break;
+            default: throw new ArgumentOutOfRangeException(nameof(schalterId));
+        }
+    }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => _libWpfTabBeschreibung = TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => _libWpfLaborPlatte = TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
     public override void SimulationZeichnen(TabItem tabItem)
     {
-        (_libWpfSimulation, _scottPlot) = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
+        _libWpfSimulation = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
 
-        _scottPlot.Plot.YLabel("Leuchtmelder");
-        _scottPlot.Plot.XLabel("Zeit [ms]");
-
-        _scottPlot.Plot.AddScatter(_zeitachse, WertLeuchtMelder, label: "LED");
     }
     private void ErrorAnzeigen()
     {
@@ -81,24 +105,5 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
         _libWpfLaborPlatte?.PlcError(PlcDaemon, Datenstruktur);
         _libWpfSimulation?.PlcError(PlcDaemon, Datenstruktur);
     }
-    private void ScottPlotAktualisieren()
-    {
-        if (_nextDataIndex >= 4_990) _nextDataIndex = 0;
 
-        for (var i = 0; i < 10; i++)
-        {
-            WertLeuchtMelder[_nextDataIndex + i] = _modelFibonacci.P1 ? 1 : 0;
-        }
-
-        _nextDataIndex += 10;
-
-        if (_scottPlot != null)
-        {
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                _scottPlot.Plot.AxisAuto(0);
-                _scottPlot.Render();
-            });
-        }
-    }
 }

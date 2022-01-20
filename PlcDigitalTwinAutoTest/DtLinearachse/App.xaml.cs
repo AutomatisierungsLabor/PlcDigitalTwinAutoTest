@@ -16,7 +16,7 @@ public partial class App
 
         var vmLinearachse = new VmLinearachse(ModelLinearachse, datenstruktur);
 
-        var baseWindow = new BasePlcDtAt.BaseWindow(vmLinearachse, datenstruktur, (int)BasePlcDtAt.BaseViewModel.VmBase.WpfBase.TabSimulation);
+        var baseWindow = new BasePlcDtAt.BaseWindow(vmLinearachse, datenstruktur, (int)BasePlcDtAt.BaseViewModel.VmBase.WpfBase.TabLaborplatte);
         baseWindow.Show();
     }
 }
