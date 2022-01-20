@@ -1,0 +1,39 @@
+///////////////////////////////////////////////////////////////
+//
+// Digital Twin Blinker
+//
+///////////////////////////////////////////////////////////////
+
+// Eingänge:
+var DI_0_0 = "2#0000_0001" // -S1	Frequenz -
+var DI_0_1 = "2#0000_0010" // -S2	Frequenz +
+var DI_0_2 = "2#0000_0100" // -S3	Tastverhältnis -
+var DI_0_3 = "2#0000_1000" // -S4	Tastverhältnis +
+var DI_0_4 = "2#0001_0000" // -S5	Taster Reset
+
+// Ausgänge:
+var DQ_0_0 = "2#0000_0001" // -P1	Meldeleuchte
+
+main()
+{
+    var S1 = Plc2Dec(DI_0_0) // -S1	Frequenz -
+    var S2 = Plc2Dec(DI_0_1) // -S2	Frequenz +
+    var S3 = Plc2Dec(DI_0_2) // -S3	Tastverhältnis -
+    var S4 = Plc2Dec(DI_0_3) // -S4	Tastverhältnis +
+    var S5 = Plc2Dec(DI_0_4) // -S5	Taster Reset
+
+    var AllesAus = 0
+
+    var P1 = Plc2Dec(DQ_0_0) // -P1	Meldeleuchte
+
+    var Maske_P1 = P1
+
+    SetDiagrammZeitbereich 10
+    SetDataGridBitAnzahl 8, 4
+    VersionAnzeigen
+
+    UpdateAnzeige "Init", ""
+    IncrementDataGridId
+
+    UpdateAnzeige "Test abgeschlossen", " "
+}
