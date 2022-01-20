@@ -14,7 +14,7 @@ public partial class Silk
             case "GetDigitaleAusgaenge": GetDigitaleAusgaenge(e); break;
             case "IncrementDataGridId": IncrementDataGridId(); break;
             case "KommentarAnzeigen": KommentarAnzeigen(e); break;
-            case "Plc2Dec": Plc2Dec(e); break;
+            case "PlcToDec": PlcToDec(e); break;
             case "PlcColdStart": PlcColdStart(); break;
             case "PlcGetStatus": PlcGetStatus(); break;
             case "PlcHotStart": PlcHotStart(); break;
@@ -29,7 +29,7 @@ public partial class Silk
             case "VersionAnzeigen": VersionAnzeigen(); break;
         }
     }
-    private static void Plc2Dec(FunctionEventArgs e)
+    private static void PlcToDec(FunctionEventArgs e)
     {
         var zahl = e.Parameters[0].ToString();
         var plcZahl = new Uint(zahl);

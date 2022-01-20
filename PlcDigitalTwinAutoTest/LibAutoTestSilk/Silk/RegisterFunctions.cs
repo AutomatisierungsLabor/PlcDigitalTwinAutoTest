@@ -15,7 +15,7 @@ public partial class Silk
         compiler.RegisterFunction("GetDigitaleAusgaenge", 0, 0);
         compiler.RegisterFunction("IncrementDataGridId", 0, 0);
         compiler.RegisterFunction("KommentarAnzeigen", 1, 1);
-        compiler.RegisterFunction("Plc2Dec", 1, 1);
+        compiler.RegisterFunction("PlcToDec", 1, 1);
         compiler.RegisterFunction("PlcColdStart", 0, 0);
         compiler.RegisterFunction("PlcGetStatus", 0, 0);
         compiler.RegisterFunction("PlcHotStart", 0, 0);

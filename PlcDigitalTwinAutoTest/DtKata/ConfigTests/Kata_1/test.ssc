@@ -26,25 +26,25 @@ var DQ_0_7 = "2#1000_0000" // -P8	Meldeleuchte
 
 main()
 {
-    var S1 = Plc2Dec(DI_0_0) // -S1	Taster - Schliesser
-    var S2 = Plc2Dec(DI_0_1) // -S2	Taster - Schliesser
-    var S3 = Plc2Dec(DI_0_2) // -S3	Taster - Öffner
-    var S4 = Plc2Dec(DI_0_3) // -S4	Taster - Öffner
-    var S5 = Plc2Dec(DI_0_4) // -S5	Schalter - Schliesser
-    var S6 = Plc2Dec(DI_0_5) // -S6	Schalter - Schliesser
-    var S7 = Plc2Dec(DI_0_6) // -S7	Schalter - Öffner
-    var S8 = Plc2Dec(DI_0_7) // -S8	Schalter - Öffner
+    var S1 = PlcToDec(DI_0_0) // -S1	Taster - Schliesser
+    var S2 = PlcToDec(DI_0_1) // -S2	Taster - Schliesser
+    var S3 = PlcToDec(DI_0_2) // -S3	Taster - Öffner
+    var S4 = PlcToDec(DI_0_3) // -S4	Taster - Öffner
+    var S5 = PlcToDec(DI_0_4) // -S5	Schalter - Schliesser
+    var S6 = PlcToDec(DI_0_5) // -S6	Schalter - Schliesser
+    var S7 = PlcToDec(DI_0_6) // -S7	Schalter - Öffner
+    var S8 = PlcToDec(DI_0_7) // -S8	Schalter - Öffner
 
     var AllesAus = 0
 
-    var P1 = Plc2Dec(DQ_0_0) // -P1	Meldeleuchte
-    var P2 = Plc2Dec(DQ_0_1) // -P2	Meldeleuchte
-    var P3 = Plc2Dec(DQ_0_2) // -P3	Meldeleuchte
-    var P4 = Plc2Dec(DQ_0_3) // -P4	Meldeleuchte
-    var P5 = Plc2Dec(DQ_0_4) // -P5	Meldeleuchte
-    var P6 = Plc2Dec(DQ_0_5) // -P6	Meldeleuchte
-    var P7 = Plc2Dec(DQ_0_6) // -P7	Meldeleuchte
-    var P8 = Plc2Dec(DQ_0_7) // -P8	Meldeleuchte
+    var P1 = PlcToDec(DQ_0_0) // -P1	Meldeleuchte
+    var P2 = PlcToDec(DQ_0_1) // -P2	Meldeleuchte
+    var P3 = PlcToDec(DQ_0_2) // -P3	Meldeleuchte
+    var P4 = PlcToDec(DQ_0_3) // -P4	Meldeleuchte
+    var P5 = PlcToDec(DQ_0_4) // -P5	Meldeleuchte
+    var P6 = PlcToDec(DQ_0_5) // -P6	Meldeleuchte
+    var P7 = PlcToDec(DQ_0_6) // -P7	Meldeleuchte
+    var P8 = PlcToDec(DQ_0_7) // -P8	Meldeleuchte
 
 
     var Maske_P1 = P1

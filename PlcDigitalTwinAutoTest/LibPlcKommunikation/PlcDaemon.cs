@@ -21,8 +21,8 @@ public class PlcDaemon
     public PlcSiemens PlcSiemens { get; set; }
     public PlcState PlcState { get; set; }
 
-    public byte[] Pc2Plc = new byte[1024];
-    public byte[] Plc2Pc = new byte[1024];
+    public byte[] PcToPlc = new byte[1024];
+    public byte[] PlcToPc = new byte[1024];
 
     private readonly Datenstruktur _datenstruktur;
     private readonly IpAdressenSiemens _ipAdressenSiemens;
@@ -56,8 +56,8 @@ public class PlcDaemon
         }
 
         PlcKeine = new PlcKeine(_datenstruktur);
-        PlcBeckhoff = new PlcBeckhoff(_ipAdressenBeckhoff, Pc2Plc, Plc2Pc);
-        PlcSiemens = new PlcSiemens(_ipAdressenSiemens, Pc2Plc, Plc2Pc);
+        PlcBeckhoff = new PlcBeckhoff(_ipAdressenBeckhoff, PcToPlc, PlcToPc);
+        PlcSiemens = new PlcSiemens(_ipAdressenSiemens, PcToPlc, PlcToPc);
 
         Task.Run(PlcDaemonTask);
     }
@@ -117,13 +117,13 @@ public class PlcDaemon
             if (_datenstruktur.SimulationAktiv()) _datenstruktur.BefehlePlc[0] = 1;
             else _datenstruktur.BefehlePlc[0] = 0;
 
-            DatenPc2PlcRangieren();
+            DatenPcToPlcRangieren();
 
             Thread.Sleep(10);
         }
         // ReSharper disable once FunctionNeverReturns
     }
-    private void DatenPc2PlcRangieren()
+    private void DatenPcToPlcRangieren()
     {
         //https://support.industry.siemens.com/cs/ww/de/view/109747136
         // S7-1200: 240 Byte
@@ -148,16 +148,16 @@ public class PlcDaemon
 
         var versionsStringPlc = new byte[256];
 
-        if (anzDi + anzAi + anzBefehle > PlcSiemens.AnzBytePc2Plc) throw new ArgumentOutOfRangeException();
-        if (anzDa + anzAa + anzVersionsbez > PlcSiemens.AnzBytePlc2Pc) throw new ArgumentOutOfRangeException();
+        if (anzDi + anzAi + anzBefehle > PlcSiemens.AnzBytePcToPlc) throw new ArgumentOutOfRangeException();
+        if (anzDa + anzAa + anzVersionsbez > PlcSiemens.AnzBytePlcToPc) throw new ArgumentOutOfRangeException();
 
-        Buffer.BlockCopy(_datenstruktur.Di, 0, Pc2Plc, anfangDi, anzDi);
-        Buffer.BlockCopy(_datenstruktur.Ai, 0, Pc2Plc, anfangAi, anzAi);
-        Buffer.BlockCopy(_datenstruktur.BefehlePlc, 0, Pc2Plc, anfangBefehle, anzBefehle);
+        Buffer.BlockCopy(_datenstruktur.Di, 0, PcToPlc, anfangDi, anzDi);
+        Buffer.BlockCopy(_datenstruktur.Ai, 0, PcToPlc, anfangAi, anzAi);
+        Buffer.BlockCopy(_datenstruktur.BefehlePlc, 0, PcToPlc, anfangBefehle, anzBefehle);
 
-        Buffer.BlockCopy(Plc2Pc, anfangDa, _datenstruktur.Da, 0, anzDa);
-        Buffer.BlockCopy(Plc2Pc, anfangAa, _datenstruktur.Aa, 0, anzAa);
-        Buffer.BlockCopy(Plc2Pc, anfangVersion, versionsStringPlc, 0, anzVersionsbez);
+        Buffer.BlockCopy(PlcToPc, anfangDa, _datenstruktur.Da, 0, anzDa);
+        Buffer.BlockCopy(PlcToPc, anfangAa, _datenstruktur.Aa, 0, anzAa);
+        Buffer.BlockCopy(PlcToPc, anfangVersion, versionsStringPlc, 0, anzVersionsbez);
 
         var textLaenge = 0;
         for (var i = 0; i < 255; i++)

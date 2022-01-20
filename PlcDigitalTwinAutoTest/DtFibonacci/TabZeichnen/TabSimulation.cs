@@ -7,14 +7,13 @@ namespace DtFibonacci.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static LibWpf.LibWpf TabSimulationZeichnen(VmFibonacci vmFibonacci, TabItem tabItem, string hintergrund)
+    public static (LibWpf.LibWpf libWpf, ScottPlot.WpfPlot scottPlot) TabSimulationZeichnen(VmFibonacci vmFibonacci, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 30, 40, 30, true);
+        libWpf.GridZeichnen(50, 30, 40, 30, false);
 
-
-        var scotPlot = libWpf.ScotPlot(1, 22, 6, 15);
+        var scottPlot = libWpf.ScottPlot(1, 22, 6, 15);
 
         var kreisRand = new Thickness(2, 2, 2, 2);
         var kreisRandFarbe = new SolidColorBrush(Colors.Black);
@@ -25,6 +24,6 @@ public partial class TabZeichnen
         
         libWpf.Button(25, 4, 6, 4, 20, buttonRand, vmFibonacci.BtnTaster, WpfObjects.S1, false, false);
 
-        return libWpf;
+        return (libWpf, scottPlot);
     }
 }

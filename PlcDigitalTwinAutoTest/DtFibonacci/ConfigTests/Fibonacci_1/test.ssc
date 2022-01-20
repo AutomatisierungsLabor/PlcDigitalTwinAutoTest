@@ -16,15 +16,15 @@ var DQ_0_0 = "2#0000_0001" // -P1	Meldeleuchte
 
 main()
 {
-    var S1 = Plc2Dec(DI_0_0) // -S1	Frequenz -
-    var S2 = Plc2Dec(DI_0_1) // -S2	Frequenz +
-    var S3 = Plc2Dec(DI_0_2) // -S3	Tastverhältnis -
-    var S4 = Plc2Dec(DI_0_3) // -S4	Tastverhältnis +
-    var S5 = Plc2Dec(DI_0_4) // -S5	Taster Reset
+    var S1 = PlcToDec(DI_0_0) // -S1	Frequenz -
+    var S2 = PlcToDec(DI_0_1) // -S2	Frequenz +
+    var S3 = PlcToDec(DI_0_2) // -S3	Tastverhältnis -
+    var S4 = PlcToDec(DI_0_3) // -S4	Tastverhältnis +
+    var S5 = PlcToDec(DI_0_4) // -S5	Taster Reset
 
     var AllesAus = 0
 
-    var P1 = Plc2Dec(DQ_0_0) // -P1	Meldeleuchte
+    var P1 = PlcToDec(DQ_0_0) // -P1	Meldeleuchte
 
     var Maske_P1 = P1
 

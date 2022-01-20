@@ -17,8 +17,8 @@ public class Punkt
     {
         _nix = nix;
         // Winkel in Grad --> für Synchronisiereinrichtung
-        X = radius * Math.Cos(Winkel.Deg2Rad(winkel));
-        Y = radius * Math.Sin(Winkel.Deg2Rad(winkel));
+        X = radius * Math.Cos(Winkel.DegToRad(winkel));
+        Y = radius * Math.Sin(Winkel.DegToRad(winkel));
     }
 
     public Punkt Clone()

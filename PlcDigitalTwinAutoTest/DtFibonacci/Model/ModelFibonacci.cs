@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
 
 namespace DtFibonacci.Model;
 

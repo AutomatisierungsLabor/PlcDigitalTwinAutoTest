@@ -4,20 +4,20 @@ namespace LibPlcKommunikation;
 
 public enum SiemensDatenbausteine
 {
-    Pc2Plc = 1,
-    Plc2Pc = 2
+    PcToPlc = 1,
+    PlcToPc = 2
 }
 
 public class PlcSiemens : IPlc
 {
-    public short AnzBytePc2Plc = 222;
-    public short AnzBytePlc2Pc = 222;
+    public short AnzBytePcToPlc = 222;
+    public short AnzBytePlcToPc = 222;
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     private readonly IpAdressenSiemens _ipAdressenSiemens;
-    private readonly byte[] _pc2Plc;
-    private readonly byte[] _plc2Pc;
+    private readonly byte[] _pcToPlc;
+    private readonly byte[] _plcToPc;
     private readonly S7Client _s7Client;
 
     private SiemensStatus _siemensStatus;
@@ -28,13 +28,13 @@ public class PlcSiemens : IPlc
         Kommunizieren = 1
     }
 
-    public PlcSiemens(IpAdressenSiemens ipAdressenSiemens, byte[] pc2Plc, byte[] plc2Pc)
+    public PlcSiemens(IpAdressenSiemens ipAdressenSiemens, byte[] pcToPlc, byte[] plcToPc)
     {
         Log.Debug("gestartet!");
 
         _ipAdressenSiemens = ipAdressenSiemens;
-        _pc2Plc = pc2Plc;
-        _plc2Pc = plc2Pc;
+        _pcToPlc = pcToPlc;
+        _plcToPc = plcToPc;
         _s7Client = new S7Client();
 
     }
@@ -65,8 +65,8 @@ public class PlcSiemens : IPlc
                 break;
 
             case SiemensStatus.Kommunizieren:
-                error |= FehlerAktiv(_s7Client.DBWrite((int)SiemensDatenbausteine.Pc2Plc, 0, AnzBytePc2Plc, _pc2Plc));
-                error |= FehlerAktiv(_s7Client.DBRead((int)SiemensDatenbausteine.Plc2Pc, 0, AnzBytePlc2Pc, _plc2Pc));
+                error |= FehlerAktiv(_s7Client.DBWrite((int)SiemensDatenbausteine.PcToPlc, 0, AnzBytePcToPlc, _pcToPlc));
+                error |= FehlerAktiv(_s7Client.DBRead((int)SiemensDatenbausteine.PlcToPc, 0, AnzBytePlcToPc, _plcToPc));
                 break;
 
             default:

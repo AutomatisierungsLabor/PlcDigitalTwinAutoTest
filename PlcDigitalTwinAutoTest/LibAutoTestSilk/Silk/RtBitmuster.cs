@@ -15,14 +15,14 @@ public partial class Silk
         AufNegFlankeWarten
     }
 
-    internal  uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Di[1]);
-    internal  uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Da[0], Datenstruktur.Da[1]);
-    private  void GetDigitaleAusgaenge(FunctionEventArgs e)
+    internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Di[1]);
+    internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Da[0], Datenstruktur.Da[1]);
+    private void GetDigitaleAusgaenge(FunctionEventArgs e)
     {
         var digitalOutput = GetDigitalOutputWord();
         e.ReturnValue.SetValue((int)digitalOutput);
     }
-    private  void BitmusterTesten(FunctionEventArgs e)
+    private void BitmusterTesten(FunctionEventArgs e)
     {
         var bitMuster = e.Parameters[0].ToInteger();
         var bitMaske = e.Parameters[1].ToInteger();
@@ -50,7 +50,7 @@ public partial class Silk
 
         DataGridAnzeigeUpdaten(TestAnzeige.Timeout, (uint)bitMuster, kommentar);
     }
-    private  void BitmusterBlinktTesten(FunctionEventArgs e)
+    private void BitmusterBlinktTesten(FunctionEventArgs e)
     {
         var bitMuster = e.Parameters[0].ToInteger();
         var bitMaske = e.Parameters[1].ToInteger();

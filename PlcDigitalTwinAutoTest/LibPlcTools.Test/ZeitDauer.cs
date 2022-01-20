@@ -39,6 +39,6 @@ public class ZeitDauer
 
     public void FormatiertAusgebenTest(long dauer, string ergebnis)
     {
-        Assert.Equal(ergebnis, LibPlcTools.ZeitDauer.ConvertLong2Ms(dauer));
+        Assert.Equal(ergebnis, LibPlcTools.ZeitDauer.ConvertLongToMs(dauer));
     }
 }

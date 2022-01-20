@@ -69,7 +69,7 @@ public class ZeitDauer
             DauerMs = dauer.All(char.IsDigit) ? long.Parse(dauer) : 0;
         }
     }
-    public static string ConvertLong2Ms(long zeit)
+    public static string ConvertLongToMs(long zeit)
     {
         if (zeit < 1000) return $"{zeit}ms";
         var ms = zeit % 1000;

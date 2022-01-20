@@ -10,7 +10,7 @@ internal class DiSetzen
         SchrittAktiv,
         SchrittAbgeschlossen
     }
-    
+
     private StatusDigEingaenge _statusDigEingaenge;
     private readonly Uint _bitMuster;
     private readonly ZeitDauer _dauer;
@@ -26,11 +26,11 @@ internal class DiSetzen
     }
 
     internal void SetStartzeit(long zeit) => _startZeit = zeit;
-    internal long GetEndZeit() => _startZeit + _dauer.DauerMs;
-
-    internal StatusDigEingaenge GetAktuellerStatus() => _statusDigEingaenge;
     internal void SetAktuellerStatus(StatusDigEingaenge status) => _statusDigEingaenge = status;
 
+
+    internal long GetEndZeit() => _startZeit + _dauer.DauerMs;
+    internal StatusDigEingaenge GetAktuellerStatus() => _statusDigEingaenge;
     internal Uint GetBitmuster() => _bitMuster;
     internal ZeitDauer GetDauer() => _dauer;
     internal string GetKommentar() => _kommentar;

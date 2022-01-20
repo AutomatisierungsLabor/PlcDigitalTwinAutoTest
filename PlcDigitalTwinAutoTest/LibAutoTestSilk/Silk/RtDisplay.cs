@@ -12,10 +12,12 @@ public partial class Silk
         Automatik = 0,
         Einzelschritt = 1
     }
+
     private bool _einzelSchrittAusfuehren;
     private BetriebsartAutoTest _betriebsartAutoTest = BetriebsartAutoTest.Automatik;
     private int _anzahlBitEingaenge = 16;
     private int _anzahlBitAusgaenge = 16;
+
     private void IncrementDataGridId()
     {
         VmAutoTesterSilk.ZeilenNummerDataGrid++;
@@ -64,12 +66,12 @@ public partial class Silk
             case TestAnzeige.Projektbezeichnung:
                 VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
                     VmAutoTesterSilk.ZeilenNummerDataGrid,
-                    " ",
+                    "",
                     testErgebnis,
                     silkKommentar,
-                    " ",
-                    " ",
-                    " "));
+                    "",
+                    "",
+                    ""));
                 break;
             default:
                 VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
@@ -97,8 +99,6 @@ public partial class Silk
         DataGridAnzeigeUpdaten(TestAnzeige.Projektbezeichnung, 0, $"SW PLC: {Datenstruktur.VersionsStringPlc}");
         VmAutoTesterSilk.ZeilenNummerDataGrid++;
     }
-
     public void EinzelnerSchrittAusfuehren() => _einzelSchrittAusfuehren = true;
-
     public void SetBetriebsart(bool b) => _betriebsartAutoTest = b ? BetriebsartAutoTest.Einzelschritt : BetriebsartAutoTest.Automatik;
 }

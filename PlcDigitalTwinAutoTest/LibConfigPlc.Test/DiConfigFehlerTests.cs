@@ -6,11 +6,11 @@ public class DiConfigFehlerTests
 {
 
     [Theory]
-    [InlineData("DI/StartBit", false, true, true, true)]
-    [InlineData("DI/StartByte", false, true, true, true)]
-    [InlineData("DI/BitDoppelt", false, true, true, true)]
-    [InlineData("DI/DoppelBelegungByte", false, true, true, true)]
-    [InlineData("DI/DoppelBelegungWord", false, true, true, true)]
+    [InlineData("DI/StartBit", false, false, false, false)]
+    [InlineData("DI/StartByte", false, false, false, false)]
+    [InlineData("DI/BitDoppelt", false, false, false, false)]
+    [InlineData("DI/DoppelBelegungByte", false, false, false, false)]
+    [InlineData("DI/DoppelBelegungWord", false, false, false, false)]
 
     public void FehlerhafteConfigLesenTesten(string pfad, bool di, bool da, bool ai, bool aa)
     {
@@ -20,6 +20,5 @@ public class DiConfigFehlerTests
         Assert.Equal(da, config.Da.ConfigOk);
         Assert.Equal(ai, config.Ai.ConfigOk);
         Assert.Equal(aa, config.Aa.ConfigOk);
-            
     }
 }

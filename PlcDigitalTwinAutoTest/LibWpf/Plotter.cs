@@ -2,7 +2,7 @@
 
 public partial class LibWpf
 {
-    public ScottPlot.WpfPlot ScotPlot(int xPos, int xSpan, int yPos, int ySpan)
+    public ScottPlot.WpfPlot ScottPlot(int xPos, int xSpan, int yPos, int ySpan)
     {
         var scotPlot = new ScottPlot.WpfPlot();
 

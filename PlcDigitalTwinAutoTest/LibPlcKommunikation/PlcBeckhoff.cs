@@ -15,20 +15,20 @@ public class PlcBeckhoff : IPlc
 
     private readonly AdsClient _adsClient;
     private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
-    private readonly byte[] _pc2Plc;
+    private readonly byte[] _pcToPlc;
     // ReSharper disable once NotAccessedField.Local
-    private byte[] _plc2Pc;
+    private byte[] _plcToPc;
     private BeckhoffStatus _beckhoffStatus;
-    private uint _handlePc2Plc;
-    private uint _handlePlc2Pc;
+    private uint _handlePcToPlc;
+    private uint _handlePlcToPc;
 
-    public PlcBeckhoff(IpAdressenBeckhoff ipAdressenBeckhoff, byte[] pc2Plc, byte[] plc2Pc)
+    public PlcBeckhoff(IpAdressenBeckhoff ipAdressenBeckhoff, byte[] pcToPlc, byte[] plcToPc)
     {
         Log.Debug("gestartet!");
 
         _ipAdressenBeckhoff = ipAdressenBeckhoff;
-        _pc2Plc = pc2Plc;
-        _plc2Pc = plc2Pc;
+        _pcToPlc = pcToPlc;
+        _plcToPc = plcToPc;
 
         _adsClient = new AdsClient();
         _beckhoffStatus = BeckhoffStatus.Verbinden;
@@ -46,8 +46,8 @@ public class PlcBeckhoff : IPlc
             case BeckhoffStatus.Initialisieren:
                 Log.Debug("ADS initialisieren");
                 _adsClient.Connect(_ipAdressenBeckhoff.AmsNetId, _ipAdressenBeckhoff.Port);
-                _handlePc2Plc = _adsClient.CreateVariableHandle("Pc2Plc");
-                _handlePlc2Pc = _adsClient.CreateVariableHandle("Plc2Pc");
+                _handlePcToPlc = _adsClient.CreateVariableHandle("PcToPlc");
+                _handlePlcToPc = _adsClient.CreateVariableHandle("PlcToPc");
                 _beckhoffStatus = BeckhoffStatus.Verbinden;
                 break;
 
@@ -60,8 +60,8 @@ public class PlcBeckhoff : IPlc
                 break;
 
             case BeckhoffStatus.Kommunizieren:
-                _plc2Pc = (byte[])_adsClient.ReadAny(_handlePlc2Pc, typeof(byte[]), new[] { 256 });
-                _adsClient.WriteAny(_handlePc2Plc, _pc2Plc);
+                _plcToPc = (byte[])_adsClient.ReadAny(_handlePlcToPc, typeof(byte[]), new[] { 256 });
+                _adsClient.WriteAny(_handlePcToPlc, _pcToPlc);
                 break;
 
             default:

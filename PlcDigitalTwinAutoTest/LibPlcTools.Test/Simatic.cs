@@ -12,7 +12,7 @@ public class Simatic
     [InlineData(1000, 100, 27648)]
     [InlineData(-1000, 100, -27648)]
 
-    public void Analog2Int16Test(double analog, double scale, int siemens)
+    public void AnalogToInt16Test(double analog, double scale, int siemens)
     {
         Assert.Equal(siemens, LibPlcTools.Simatic.Analog_2_Int16(analog, scale));
     }
@@ -24,7 +24,7 @@ public class Simatic
     [InlineData(1000, 100, 27648)]
     [InlineData(-1000, 100, -27648)]
 
-    public void Analog2Int32Test(double analog, double scale, int siemens)
+    public void AnalogToInt32Test(double analog, double scale, int siemens)
     {
         Assert.Equal(siemens, LibPlcTools.Simatic.Analog_2_Int32(analog, scale));
     }
@@ -34,7 +34,7 @@ public class Simatic
     [InlineData(27648, 100, 100)]
     [InlineData(-27648, 100, -100)]
 
-    public void Analog2DoubleTest(int analog, double scale, int siemens)
+    public void AnalogToToDoubleTest(int analog, double scale, int siemens)
     {
         Assert.Equal(siemens, LibPlcTools.Simatic.Analog_2_Double(analog, scale), 3);
     }

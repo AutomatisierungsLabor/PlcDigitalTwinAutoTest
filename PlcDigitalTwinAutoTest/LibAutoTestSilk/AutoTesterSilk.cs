@@ -20,13 +20,15 @@ public class AutoTesterSilk
         Betriebsart = Silk.Silk.BetriebsartAutoTest.Automatik;
 
         AutoTesterWindow = new AutoTesterWindow(datenstruktur, configPlc);
-
-        AutoTesterWindow.Show();
     }
     public void SetProjekt(DirectoryInfo ordnerAktuellesProjekt)
     {
         AutoTesterWindow.OrdnerAktuellesProjekt = ordnerAktuellesProjekt;
         AutoTesterWindow.VmAutoTesterSilk.SetNeuesTestProjekt(ordnerAktuellesProjekt, ConfigPlc);
     }
-    public void TestStarten() => AutoTesterWindow.ModelSilkAutoTester.AutoTestStarten();
+    public void TestStarten()
+    {
+        AutoTesterWindow.Show();
+        AutoTesterWindow.ModelSilkAutoTester.AutoTestStarten();
+    }
 }
