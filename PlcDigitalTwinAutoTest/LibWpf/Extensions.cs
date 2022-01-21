@@ -15,4 +15,5 @@ public static class Extensions
     public static void SetSichtbarkeitAusBinding(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"SichtbarAus[{(int)wpfId}]");
     public static void SetTextBlockBinding(this TextBlock element, object wpfId) => element.SetBinding(TextBlock.TextProperty, $"Text[{(int)wpfId}]");
     public static void SetFillingBinding(this Shape element, object wpfId) => element.SetBinding(Shape.FillProperty, $"Farbe[{(int)wpfId}]");
+    public static void SetMarginBinding(this Shape element, object wpfId) => element.SetBinding(FrameworkElement.MarginProperty, $"Margin[{(int)wpfId}]");
 }

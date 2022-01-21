@@ -23,12 +23,22 @@ public partial class LibWpf
     }
     public void Rechteck(int xPos, int xSpan, int yPos, int ySpan, Brush farbe)
     {
-        var hintergrund = new Rectangle
+        var rectangle = new Rectangle
         {
             Fill = farbe
         };
 
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, hintergrund);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
+    public void RechteckRand(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, object wpfId)
+    {
+        var rectangle = new Rectangle
+        {
+            Fill = farbe
+        };
+        rectangle.SetMarginBinding(wpfId);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
     public void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, object wpfId)
     {

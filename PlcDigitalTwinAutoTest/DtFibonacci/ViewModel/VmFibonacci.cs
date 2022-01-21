@@ -52,7 +52,7 @@ public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 
         SichtbarkeitUmschalten(_modelFibonacci.S1, (int)WpfObjects.S1);
 
-        FarbeUmschalten(_modelFibonacci.P1, 1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelFibonacci.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
 
         ScottPlotAktualisieren();
         ErrorAnzeigen();

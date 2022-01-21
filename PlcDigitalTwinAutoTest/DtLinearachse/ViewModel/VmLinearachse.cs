@@ -28,7 +28,9 @@ public enum WpfObjects
     S8 = 48,
     S9 = 49,
     S10 = 50,
-    S11 = 51
+    S11 = 51,
+
+    PositionSchlitten = 60
 }
 public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 {
@@ -48,7 +50,15 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
 
-        Text[(int)WpfObjects.S1] = "Start";
+        Text[(int)WpfObjects.S1] = "①";
+        Text[(int)WpfObjects.S2] = "⓪";
+        Text[(int)WpfObjects.S3] = "I";
+        Text[(int)WpfObjects.S4] = "II";
+        Text[(int)WpfObjects.S5] = "↑";
+        Text[(int)WpfObjects.S6] = "↓";
+        Text[(int)WpfObjects.S7] = "+";
+        Text[(int)WpfObjects.S8] = "-";
+        Text[(int)WpfObjects.S9] = "STOP";
 
         _modelLinearachse = model as ModelLinearachse;
     }
@@ -59,9 +69,17 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
 
-        SichtbarkeitUmschalten(_modelLinearachse.S1, (int)WpfObjects.S1);
+        SichtbarkeitUmschalten(_modelLinearachse.B1, (int)WpfObjects.B1);
+        SichtbarkeitUmschalten(_modelLinearachse.B2, (int)WpfObjects.B2);
 
-        FarbeUmschalten(_modelLinearachse.P1, 1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLinearachse.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLinearachse.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLinearachse.P3, (int)WpfObjects.P3, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLinearachse.P4, (int)WpfObjects.P4, Brushes.LawnGreen, Brushes.White);
+
+        var links = _modelLinearachse.PositionSchlitten;
+        var rechts = 525 - _modelLinearachse.PositionSchlitten;
+        Margin[(int)WpfObjects.PositionSchlitten] = new Thickness(links, 0, rechts, 0);
 
         ErrorAnzeigen();
     }
@@ -77,7 +95,7 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
             case WpfObjects.S6: _modelLinearachse.S6 = gedrueckt; break;
             case WpfObjects.S7: _modelLinearachse.S7 = gedrueckt; break;
             case WpfObjects.S8: _modelLinearachse.S8 = gedrueckt; break;
-            case WpfObjects.S9: _modelLinearachse.S9 = gedrueckt; break;
+            case WpfObjects.S9: _modelLinearachse.S9 = !gedrueckt; break;
 
             default: throw new ArgumentOutOfRangeException(nameof(tasterId));
         }

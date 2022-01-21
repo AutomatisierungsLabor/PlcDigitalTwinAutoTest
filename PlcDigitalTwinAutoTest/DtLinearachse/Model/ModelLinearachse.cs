@@ -41,6 +41,10 @@ public class ModelLinearachse : BasePlcDtAt.BaseModel.BaseModel
     {
         _datenstruktur = datenstruktur;
         _datenRangieren = new DatenRangieren(this, _datenstruktur);
+
+        S2 = true;
+        S9 = true;
+        S10 = true;
     }
     protected override void ModelThread()
     {

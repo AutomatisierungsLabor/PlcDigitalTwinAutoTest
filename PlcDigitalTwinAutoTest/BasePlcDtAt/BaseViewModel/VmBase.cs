@@ -63,6 +63,7 @@ public abstract partial class VmBase
             SichtbarAus.Add(Visibility.Visible);
             Farbe.Add(Brushes.White);
             Text.Add("");
+            Margin.Add(new Thickness(0,0,0,0));
         }
 
         System.Threading.Tasks.Task.Run(ViewModelTask);
