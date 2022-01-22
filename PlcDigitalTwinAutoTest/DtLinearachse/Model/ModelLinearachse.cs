@@ -37,7 +37,7 @@ public class ModelLinearachse : BasePlcDtAt.BaseModel.BaseModel
     private readonly Datenstruktur _datenstruktur;
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelLinearachse(Datenstruktur datenstruktur)
+    public ModelLinearachse(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
         _datenstruktur = datenstruktur;
         _datenRangieren = new DatenRangieren(this, _datenstruktur);

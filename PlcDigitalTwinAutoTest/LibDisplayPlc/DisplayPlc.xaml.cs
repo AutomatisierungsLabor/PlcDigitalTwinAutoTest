@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Threading;
+using System.Windows.Controls;
 using LibConfigPlc;
 using LibDatenstruktur;
 
@@ -11,10 +12,10 @@ public partial class DisplayPlc
     public Grid Grid { get; set; }
     public bool FensterAktiv { get; set; }
 
-    public DisplayPlc(Datenstruktur datenstruktur, ConfigPlc configPlc)
+    public DisplayPlc(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
     {
-        ViewModel = new ViewModel.ViewModel( datenstruktur, configPlc);
-       
+        ViewModel = new ViewModel.ViewModel(datenstruktur, configPlc, cancellationTokenSource);
+
         Grid = new Grid();
         Content = Grid;
 

@@ -6,7 +6,6 @@
         xmlns:baseviewmodel="clr-namespace:BasePlcDtAt.BaseViewModel" 
         d:DataContext="{d:DesignInstance Type=baseviewmodel:VmBase}"
         mc:Ignorable="d"
-        
         Title="{Binding FensterTitel}" Height="800" Width="1200">
     <Grid> 
         <Grid.ColumnDefinitions>

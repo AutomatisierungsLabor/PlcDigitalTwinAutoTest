@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -32,7 +33,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     public double[] WertLeuchtMelder { get; set; } = new double[5_000];
 
 
-    public VmBlinker(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur) : base(model, datenstruktur)
+    public VmBlinker(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _zeitachse = DataGen.Consecutive(5000);
 

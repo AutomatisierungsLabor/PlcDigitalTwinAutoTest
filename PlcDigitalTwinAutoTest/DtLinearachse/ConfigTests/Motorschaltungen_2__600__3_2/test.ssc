@@ -33,13 +33,13 @@ var DQ_0_5 = "2#0010_0000" // P4   Meldeleuchte grün
 
 main()
 {
-    var S1 = Plc2Dec(DI_0_3) // Start
-    var S2 = Plc2Dec(DI_0_2) // Stop
+    var S1 = PlcToDec(DI_0_3) // Start
+    var S2 = PlcToDec(DI_0_2) // Stop
 
     var AllesAus = 0
-    var P4 = Plc2Dec(DQ_0_5) // grün
-    var Q1 = Plc2Dec(DQ_0_0) // Linearachse Rechtslauf
-    var Q2 = Plc2Dec(DQ_0_1) // Linearachse Linkslauf
+    var P4 = PlcToDec(DQ_0_5) // grün
+    var Q1 = PlcToDec(DQ_0_0) // Linearachse Rechtslauf
+    var Q2 = PlcToDec(DQ_0_1) // Linearachse Linkslauf
 
 
     var Maske_P4_Q1_Q2 = P4 + Q1 + Q2

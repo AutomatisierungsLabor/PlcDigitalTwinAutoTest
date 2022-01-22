@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -39,7 +40,7 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
     private LibWpf.LibWpf _libWpfLaborPlatte;
     private LibWpf.LibWpf _libWpfSimulation;
 
-    public VmLinearachse(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur) : base(model, datenstruktur)
+    public VmLinearachse(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
 
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
@@ -115,7 +116,6 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
     public override void SimulationZeichnen(TabItem tabItem)
     {
         _libWpfSimulation = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
-
     }
     private void ErrorAnzeigen()
     {

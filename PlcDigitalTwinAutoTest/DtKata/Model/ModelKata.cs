@@ -25,7 +25,7 @@ public class ModelKata : BasePlcDtAt.BaseModel.BaseModel
     private readonly Datenstruktur _datenstruktur;
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelKata(Datenstruktur datenstruktur)
+    public ModelKata(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
         _datenstruktur = datenstruktur;
         _datenRangieren = new DatenRangieren(this, _datenstruktur);

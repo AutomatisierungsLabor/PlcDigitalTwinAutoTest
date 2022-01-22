@@ -16,12 +16,13 @@ public partial class AutoTesterWindow
     public ModelAutoTesterSilk ModelSilkAutoTester { get; set; }
     public VmAutoTesterSilk VmAutoTesterSilk { get; set; }
     public DirectoryInfo OrdnerAktuellesProjekt { get; set; }
+    private bool FensterAktiv;
 
     public AutoTesterWindow(Datenstruktur datenstruktur, ConfigPlc configPlc)
     {
         VmAutoTesterSilk = new VmAutoTesterSilk();
         ModelSilkAutoTester = new ModelAutoTesterSilk(this, datenstruktur, configPlc, VmAutoTesterSilk);
-        
+
         InitializeComponent();
         DataContext = VmAutoTesterSilk;
 
@@ -37,10 +38,10 @@ public partial class AutoTesterWindow
             {
                 var row = (DataGridRow)DataGrid.ItemContainerGenerator.ContainerFromIndex(zeile);
                 if (row == null) continue;
-                
+
                 row.Background = VmAutoTesterSilk.DataGridZeilen[zeile].Ergebnis switch
                 {
-                    TestAnzeige.Aktiv=> Brushes.White,
+                    TestAnzeige.Aktiv => Brushes.White,
                     TestAnzeige.AufBitmusterWarten => Brushes.Yellow,
                     TestAnzeige.CompilerErfolgreich => Brushes.LawnGreen,
                     TestAnzeige.CompilerError => Brushes.Red,
@@ -61,10 +62,21 @@ public partial class AutoTesterWindow
             }
         };
 
+        FensterAktiv = true;
         Closing += (_, e) =>
         {
             e.Cancel = true;
-            Hide();
+            if (FensterAktiv)
+            {
+                FensterAktiv = false;
+                Hide();
+            }
+            else
+            {
+                FensterAktiv = true;
+                Show();
+            }
+
         };
     }
 }

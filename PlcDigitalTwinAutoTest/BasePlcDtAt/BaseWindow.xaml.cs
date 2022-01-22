@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using BasePlcDtAt.BaseViewModel;
@@ -17,12 +18,14 @@ public partial class BaseWindow
     public AutoTest AutoTest { get; set; }
 
     private readonly VmBase _vmBase;
+    private readonly CancellationTokenSource _cancellationTokenSource;
 
-    public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex)
+    public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex, CancellationTokenSource cancellationTokenSource)
     {
-        Datenstruktur = datenstruktur;
-
         _vmBase = vmBase;
+        Datenstruktur = datenstruktur;
+        _cancellationTokenSource = cancellationTokenSource;
+
         InitializeComponent();
         DataContext = _vmBase;
 
@@ -37,7 +40,7 @@ public partial class BaseWindow
         _vmBase.SetAutoTestRef(AutoTest);
 
         BaseTabControl.SelectedIndex = startUpTabIndex;
-        DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc);
+        DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc, _cancellationTokenSource);
     }
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -72,5 +75,9 @@ public partial class BaseWindow
         else DisplayPlc.Oeffnen();
     }
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _vmBase.PlotterButtonClick(sender, e);
-    private void BaseWindow_OnClosing(object sender, CancelEventArgs e) => Application.Current.Shutdown();
+    private void BaseWindow_OnClosing(object sender, CancelEventArgs e)
+    {
+        _cancellationTokenSource.Cancel();
+        Application.Current.Shutdown();
+    }
 }

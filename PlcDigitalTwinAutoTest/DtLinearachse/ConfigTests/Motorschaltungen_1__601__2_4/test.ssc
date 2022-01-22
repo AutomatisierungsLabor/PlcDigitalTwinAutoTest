@@ -33,17 +33,17 @@ var DQ_0_5 = "2#0010_0000" // P4   Meldeleuchte grün
 
 main()
 {    
-    var S1 = Plc2Dec(DI_0_3)    // Start
-    var S2 = Plc2Dec(DI_0_2)    // Stop
-    var S8 = Plc2Dec(DI_1_0)    // Quittieren
-    var S9 = Plc2Dec(DI_1_2)    // Thermorelais
-    var S10 = Plc2Dec(DI_1_3)   // Not-Halt
+    var S1 = PlcToDec(DI_0_3)    // Start
+    var S2 = PlcToDec(DI_0_2)    // Stop
+    var S8 = PlcToDec(DI_1_0)    // Quittieren
+    var S9 = PlcToDec(DI_1_2)    // Thermorelais
+    var S10 = PlcToDec(DI_1_3)   // Not-Halt
 
     var AllesAus = 0
-    var P1 = Plc2Dec(DQ_0_2)    // weiß S1/S2
-    var P2 = Plc2Dec(DQ_0_3)    // weiß
-    var P3 = Plc2Dec(DQ_0_4)    // rot
-    var P4 = Plc2Dec(DQ_0_5)    // grün
+    var P1 = PlcToDec(DQ_0_2)    // weiß S1/S2
+    var P2 = PlcToDec(DQ_0_3)    // weiß
+    var P3 = PlcToDec(DQ_0_4)    // rot
+    var P4 = PlcToDec(DQ_0_5)    // grün
     var Maske_P2_P3_P4 = P2 + P3 + P4
 
     SetDataGridBitAnzahl 0, 8

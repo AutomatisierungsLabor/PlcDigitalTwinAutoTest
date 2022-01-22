@@ -22,7 +22,7 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
 
     private bool _p1Alt;
     private readonly Stopwatch _stopwatch;
-    public ModelBlinker(Datenstruktur datenstruktur)
+    public ModelBlinker(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource):base(cancellationTokenSource) 
     {
         _datenstruktur = datenstruktur;
         _datenRangieren = new DatenRangieren(this, _datenstruktur);
@@ -55,7 +55,6 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
         var periodenDauer = EinZeit + AusZeit;
         Frequenz = 1000 / periodenDauer;
         Tastverhaeltnis = 100 * EinZeit / periodenDauer;
-
 
         _datenRangieren.Rangieren();
     }

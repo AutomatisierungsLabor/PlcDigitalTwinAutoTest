@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -36,7 +37,7 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
     private LibWpf.LibWpf _libWpfLaborPlatte;
     private LibWpf.LibWpf _libWpfSimulation;
 
-    public VmKata(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur) : base(model, datenstruktur)
+    public VmKata(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _modelKata = model as ModelKata;
 

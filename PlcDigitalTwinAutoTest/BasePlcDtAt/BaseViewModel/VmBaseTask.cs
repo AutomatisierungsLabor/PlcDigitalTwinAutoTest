@@ -5,11 +5,10 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class VmBase
 {
-
     private AutoTest _autoTest;
-    private void ViewModelTask()
+    private void ViewModelTask(CancellationTokenSource cancellationTokenSource)
     {
-        while (true)
+        while (!cancellationTokenSource.IsCancellationRequested)
         {
             _autoTest?.LibWpfAutoTest.PlcError(PlcDaemon, Datenstruktur);
             

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -42,21 +41,7 @@ public class VmAutoTest
 
         ButtonIsEnabled[(int)WpfObjects.TasterEinzelSchritt] = true;
         Text[(int)WpfObjects.TasterEinzelSchritt] = "Schritt!";
-
-        System.Threading.Tasks.Task.Run(VisuAnzeigenTask);
     }
-
-    private static void VisuAnzeigenTask()
-    {
-        while (true)
-        {
-
-
-            Thread.Sleep(10);
-        }
-        // ReSharper disable once FunctionNeverReturns
-    }
-
     internal void Taster(object id)
     {
         if (id is not Enum enumValue) return;
