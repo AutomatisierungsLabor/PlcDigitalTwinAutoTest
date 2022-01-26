@@ -35,6 +35,6 @@ public class ModelKata : BasePlcDtAt.BaseModel.BaseModel
         S7 = true;
         S8 = true;
     }
-    protected override void ModelThread() => _datenRangieren.Rangieren();
+    protected override void ModelThread() => _datenRangieren?.Rangieren();
     public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }

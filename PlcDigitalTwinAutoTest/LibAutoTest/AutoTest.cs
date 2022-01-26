@@ -56,19 +56,19 @@ public class AutoTest
         LibWpfAutoTest.GridZeichnen(56, 30, 30, 30, false);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
-        LibWpfAutoTest.Button(1, 3, 1, 2, 20, buttonRand, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
+        LibWpfAutoTest.ButtonRounded(1, 3, 1, 2, 20, 15, buttonRand, Brushes.LawnGreen, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
 
         LibWpfAutoTest.Text("Einzelschritt", 5, 5, 1, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         LibWpfAutoTest.CheckBox(9, 1, 1, 2, new Thickness(2, 2, 2, 2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.CheckBoxEinzelSchritt);
 
-        LibWpfAutoTest.Button(11, 3, 1, 2, 20, new Thickness(2, 2, 2, 2), VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
+        LibWpfAutoTest.ButtonRounded(11, 3, 1, 2, 20, 15, new Thickness(2, 2, 2, 2), Brushes.LawnGreen, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
 
 
         StackPanel = LibWpfAutoTest.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);
         WebBrowser = LibWpfAutoTest.WebBrowser(10, 28, 3, 20, new Thickness(5, 5, 5, 5), Brushes.White);
 
         foreach (var ordner in AlleTestOrdner) StackPanel.Children.Add(LibWpfAutoTest.RadioButton("TestProjekte", ordner.Name, ordner, 14, TestChecked));
-        }
+    }
 
     public void TestStarten()
     {

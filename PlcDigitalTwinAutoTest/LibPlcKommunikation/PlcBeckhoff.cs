@@ -31,7 +31,7 @@ public class PlcBeckhoff : IPlc
         _plcToPc = plcToPc;
 
         _adsClient = new AdsClient();
-        _beckhoffStatus = BeckhoffStatus.Verbinden;
+        _beckhoffStatus = BeckhoffStatus.Initialisieren;
     }
     public PlcState State => new()
     {
@@ -45,10 +45,19 @@ public class PlcBeckhoff : IPlc
         {
             case BeckhoffStatus.Initialisieren:
                 Log.Debug("ADS initialisieren");
-                _adsClient.Connect(_ipAdressenBeckhoff.AmsNetId, _ipAdressenBeckhoff.Port);
-                _handlePcToPlc = _adsClient.CreateVariableHandle("PcToPlc");
-                _handlePlcToPc = _adsClient.CreateVariableHandle("PlcToPc");
-                _beckhoffStatus = BeckhoffStatus.Verbinden;
+                try
+                {
+                    _adsClient.Connect(_ipAdressenBeckhoff.AmsNetId, _ipAdressenBeckhoff.Port);
+                    _handlePcToPlc = _adsClient.CreateVariableHandle("_PcToPlc.PcToPlc");
+                    _handlePlcToPc = _adsClient.CreateVariableHandle("_PlcToPc.PlcToPc");
+                    _beckhoffStatus = BeckhoffStatus.Verbinden;
+                }
+                catch (Exception e)
+                {
+                    Log.Debug("Beckhoff Initialisieren: " + e);
+                    throw;
+                }
+
                 break;
 
             case BeckhoffStatus.Verbinden:
@@ -60,8 +69,17 @@ public class PlcBeckhoff : IPlc
                 break;
 
             case BeckhoffStatus.Kommunizieren:
-                _plcToPc = (byte[])_adsClient.ReadAny(_handlePlcToPc, typeof(byte[]), new[] { 256 });
-                _adsClient.WriteAny(_handlePcToPlc, _pcToPlc);
+                try
+                {
+                    _plcToPc = (byte[])_adsClient.ReadAny(_handlePlcToPc, typeof(byte[]), new[] { 256 });
+                    _adsClient.WriteAny(_handlePcToPlc, _pcToPlc);
+                }
+                catch (Exception e)
+                {
+                    Log.Debug("Beckhoff Kommunizieren: " + e);
+                    throw;
+                }
+
                 break;
 
             default:

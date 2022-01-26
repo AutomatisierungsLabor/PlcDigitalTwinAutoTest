@@ -56,7 +56,7 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
         Frequenz = 1000 / periodenDauer;
         Tastverhaeltnis = 100 * EinZeit / periodenDauer;
 
-        _datenRangieren.Rangieren();
+        _datenRangieren?.Rangieren();
     }
     public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }

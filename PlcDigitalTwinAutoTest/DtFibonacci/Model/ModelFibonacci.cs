@@ -17,7 +17,7 @@ public class ModelFibonacci : BasePlcDtAt.BaseModel.BaseModel
     }
     protected override void ModelThread()
     {   
-        _datenRangieren.Rangieren();
+        _datenRangieren?.Rangieren();
     }
     public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }

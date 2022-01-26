@@ -58,7 +58,7 @@ public class ModelLinearachse : BasePlcDtAt.BaseModel.BaseModel
         B1 = PositionSchlitten > SchlittenLinkerRand;   // Öffner
         B2 = PositionSchlitten < SchlittenRechterRand;  //Öffner
 
-        _datenRangieren.Rangieren();
+        _datenRangieren?.Rangieren();
     }
     public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }
