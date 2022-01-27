@@ -28,7 +28,9 @@ public enum WpfObjects
     S6 = 46,
     S8 = 47,
     S91 = 48,
-    S92 = 49
+    S92 = 49,
+
+    WinkelGetriebemotor=50
 
 }
 public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
@@ -55,7 +57,10 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
         Text[(int)WpfObjects.S4] = "STOP";
         Text[(int)WpfObjects.S5] = "II";
         Text[(int)WpfObjects.S6] = "←";
-        Text[(int)WpfObjects.S7] = "→";
+        Text[(int)WpfObjects.S7] = "STOP";
+        Text[(int)WpfObjects.S8] = "→";
+
+        TransformOrigin[(int)WpfObjects.WinkelGetriebemotor] = new Point(5, 5);
 
         _modelGetriebemotor = model as ModelGetriebemotor;
     }
@@ -72,6 +77,8 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
         FarbeUmschalten(_modelGetriebemotor.P1, (int)WpfObjects.P1, Brushes.White, Brushes.LightGray);
         FarbeUmschalten(_modelGetriebemotor.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.LightGray);
         FarbeUmschalten(_modelGetriebemotor.P3, (int)WpfObjects.P3, Brushes.Red, Brushes.LightGray);
+
+        Winkel[(int)WpfObjects.WinkelGetriebemotor] = _modelGetriebemotor.WinkelGetriebemotor;
 
         ErrorAnzeigen();
     }

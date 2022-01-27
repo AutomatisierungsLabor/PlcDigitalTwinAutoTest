@@ -7,7 +7,7 @@ namespace DtLinearachse.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static LibWpf.LibWpf TabSimulationZeichnen(VmLinearachse vmFibonacci, TabItem tabItem, string hintergrund)
+    public static LibWpf.LibWpf TabSimulationZeichnen(VmLinearachse vmLinearachse, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
@@ -37,46 +37,46 @@ public partial class TabZeichnen
 
         libWpf.Rechteck(1,5,11,8,Brushes.LightGray);
         libWpf.Text("-S1",1,2,11,3,HorizontalAlignment.Left, VerticalAlignment.Center,20,Brushes.Black);
-        libWpf.ButtonRounded(3, 3, 11, 3, 50, 15,buttonRand, Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S1, false, false);
+        libWpf.ButtonRounded(3, 3, 11, 3, 50, 15,buttonRand, Brushes.LawnGreen, vmLinearachse.BtnTaster, WpfObjects.S1, false, false);
 
         libWpf.Text("-P1", 1, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.RechteckFarbeUmschalten(3,3,14,2,Brushes.Black, buttonRand, WpfObjects.P1);
 
         libWpf.Text("-S2", 1, 2, 16, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(3, 3, 16, 3, 50, 15,buttonRand, Brushes.Red, vmFibonacci.BtnTaster, WpfObjects.S2, false, false);
+        libWpf.ButtonRounded(3, 3, 16, 3, 50, 15,buttonRand, Brushes.Red, vmLinearachse.BtnTaster, WpfObjects.S2, false, false);
 
 
         libWpf.Rechteck(8, 5, 11, 8, Brushes.LightGray);
         libWpf.Text("-S3", 8, 2, 11, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(10, 3, 11, 3, 50, 15,buttonRand, Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S3, false, false);
+        libWpf.ButtonRounded(10, 3, 11, 3, 50, 15,buttonRand, Brushes.LawnGreen, vmLinearachse.BtnTaster, WpfObjects.S3, false, false);
 
         libWpf.Text("-S9", 8, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(10, 3, 14, 2, 30, 5,buttonRand, Brushes.Red, vmFibonacci.BtnTaster, WpfObjects.S9, false, false);
+        libWpf.ButtonRounded(10, 3, 14, 2, 30, 5,buttonRand, Brushes.Red, vmLinearachse.BtnTaster, WpfObjects.S9, false, false);
 
         libWpf.Text("-S4", 8, 2, 16, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(10, 3, 16, 3, 50, 15,buttonRand, Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S4, false, false);
+        libWpf.ButtonRounded(10, 3, 16, 3, 50, 15,buttonRand, Brushes.LawnGreen, vmLinearachse.BtnTaster, WpfObjects.S4, false, false);
 
 
         libWpf.Rechteck(15, 5, 11, 8, Brushes.LightGray);
         libWpf.Text("-S5", 15, 2, 11, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(17, 3, 11, 3, 50, 15, buttonRand, Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S5, false, false);
+        libWpf.ButtonRounded(17, 3, 11, 3, 50, 15, buttonRand, Brushes.LawnGreen, vmLinearachse.BtnTaster, WpfObjects.S5, false, false);
 
         libWpf.Text("-S9", 15, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(17, 3, 14, 2, 30, 5, buttonRand, Brushes.Red, vmFibonacci.BtnTaster, WpfObjects.S9, false, false);
+        libWpf.ButtonRounded(17, 3, 14, 2, 30, 5, buttonRand, Brushes.Red, vmLinearachse.BtnTaster, WpfObjects.S9, false, false);
 
         libWpf.Text("-S6", 15, 2, 16, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(17, 3, 16, 3, 50, 15, buttonRand, Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S6, false, false);
+        libWpf.ButtonRounded(17, 3, 16, 3, 50, 15, buttonRand, Brushes.LawnGreen, vmLinearachse.BtnTaster, WpfObjects.S6, false, false);
 
 
         libWpf.Rechteck(22, 5, 11, 8, Brushes.LightGray);
         libWpf.Text("-S7", 22, 2, 11, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(24, 3, 11, 3, 50, 15, buttonRand, Brushes.LawnGreen ,vmFibonacci.BtnTaster, WpfObjects.S7, false, false);
+        libWpf.ButtonRounded(24, 3, 11, 3, 50, 15, buttonRand, Brushes.LawnGreen , vmLinearachse.BtnTaster, WpfObjects.S7, false, false);
 
         libWpf.Text("-S9", 22, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(24, 3, 14, 2, 30, 5, buttonRand, Brushes.Red, vmFibonacci.BtnTaster, WpfObjects.S9, false, false);
+        libWpf.ButtonRounded(24, 3, 14, 2, 30, 5, buttonRand, Brushes.Red, vmLinearachse.BtnTaster, WpfObjects.S9, false, false);
 
         libWpf.Text("-S8", 22, 2, 16, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonRounded(24, 3, 16, 3, 50, 15, buttonRand, Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S8, false, false);
+        libWpf.ButtonRounded(24, 3, 16, 3, 50, 15, buttonRand, Brushes.LawnGreen, vmLinearachse.BtnTaster, WpfObjects.S8, false, false);
 
 
         var kreisRand = new Thickness(2, 2, 2, 2);

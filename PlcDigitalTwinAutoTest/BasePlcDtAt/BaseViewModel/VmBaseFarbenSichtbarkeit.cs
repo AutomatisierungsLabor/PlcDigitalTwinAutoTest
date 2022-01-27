@@ -78,4 +78,26 @@ public abstract partial class VmBase
             OnPropertyChanged(nameof(Margin));
         }
     }
+    
+    private ObservableCollection<Point> _transformOrigin = new();
+    public ObservableCollection<Point> TransformOrigin
+    {
+        get => _transformOrigin;
+        set
+        {
+            _transformOrigin = value;
+            OnPropertyChanged(nameof(TransformOrigin));
+        }
+    }
+
+    private ObservableCollection<double> _winkel = new();
+    public ObservableCollection<double> Winkel
+    {
+        get => _winkel;
+        set
+        {
+            _winkel = value;
+            OnPropertyChanged(nameof(Winkel));
+        }
+    }
 }

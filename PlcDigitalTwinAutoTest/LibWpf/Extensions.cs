@@ -16,4 +16,5 @@ public static class Extensions
     public static void SetTextBlockBinding(this TextBlock element, object wpfId) => element.SetBinding(TextBlock.TextProperty, $"Text[{(int)wpfId}]");
     public static void SetFillingBinding(this Shape element, object wpfId) => element.SetBinding(Shape.FillProperty, $"Farbe[{(int)wpfId}]");
     public static void SetMarginBinding(this Shape element, object wpfId) => element.SetBinding(FrameworkElement.MarginProperty, $"Margin[{(int)wpfId}]");
+    public static void SetTransformOriginBinding(this Shape element, object wpfId) => element.SetBinding(UIElement.RenderTransformOriginProperty, $"TransformOrigin[{(int)wpfId}]");
 }

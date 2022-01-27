@@ -38,7 +38,7 @@ public abstract partial class VmBase
 
     public Datenstruktur Datenstruktur { get; set; }
     public BaseModel.BaseModel Model { get; set; }
-    
+
     public PlcDaemon PlcDaemon { get; set; }
     protected VmBase(BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
@@ -64,10 +64,12 @@ public abstract partial class VmBase
             SichtbarAus.Add(Visibility.Visible);
             Farbe.Add(Brushes.White);
             Text.Add("");
-            Margin.Add(new Thickness(0,0,0,0));
+            Margin.Add(new Thickness(0, 0, 0, 0));
+            TransformOrigin.Add(new Point(0, 0));
+            Winkel.Add(0);
         }
 
-        System.Threading.Tasks.Task.Run(() => ViewModelTask(cancellationTokenSource) );
+        System.Threading.Tasks.Task.Run(() => ViewModelTask(cancellationTokenSource));
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
