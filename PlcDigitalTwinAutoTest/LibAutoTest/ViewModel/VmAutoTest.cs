@@ -49,14 +49,14 @@ public class VmAutoTest
         switch (enumValue)
         {
             case WpfObjects.TasterStart:
-                _autoTest.TestStarten();
+                _autoTest.AutoTesterSilk.TestStarten();
                 break;
             case WpfObjects.CheckBoxEinzelSchritt:
                 ToggleSichtbarkeit(WpfObjects.TasterEinzelSchritt);
-                _autoTesterSilk.AutoTesterWindow.ModelSilkAutoTester.SetBetriebsart(SichtbarEin[(int)WpfObjects.TasterEinzelSchritt] == Visibility.Visible);
+                _autoTesterSilk.Silk.SetBetriebsart(SichtbarEin[(int)WpfObjects.TasterEinzelSchritt] == Visibility.Visible);
                 break;
             case WpfObjects.TasterEinzelSchritt:
-                _autoTesterSilk.AutoTesterWindow.ModelSilkAutoTester.EinzelnerSchrittAusfuehren();
+                _autoTesterSilk.Silk.EinzelnerSchrittAusfuehren();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(id));

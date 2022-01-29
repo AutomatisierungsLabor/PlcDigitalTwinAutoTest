@@ -54,7 +54,7 @@ public class ConfigPlc
         return ioConfig as T;
     }
 
-    public void SetPathRelativ(string pfad) => SetPath(new DirectoryInfo(@$"{ Environment.CurrentDirectory}\{pfad}").ToString());
+    public void SetPathRelativ(string pfad) => SetPath(new string(Path.Combine(Environment.CurrentDirectory, pfad)));
     public void SetPath(string pfad)
     {
         PfadAbsolut = pfad;

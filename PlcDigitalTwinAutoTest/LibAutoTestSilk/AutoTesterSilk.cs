@@ -1,34 +1,95 @@
+using System.Diagnostics;
 using LibConfigPlc;
 using LibDatenstruktur;
 using System.IO;
+using LibAutoTestSilk.TestAutomat;
+using LibAutoTestSilk.ViewModel;
+using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk;
 
 public class AutoTesterSilk
 {
-    public Silk.Silk.BetriebsartAutoTest Betriebsart { get; set; }
     public AutoTesterWindow AutoTesterWindow;
+    public VmAutoTesterSilk VmAutoTesterSilk { get; set; }
     public Datenstruktur Datenstruktur { get; set; }
     public ConfigPlc ConfigPlc { get; set; }
+    public LibPlcTestautomat.TestAutomat TestAutomat { get; set; }
+    public Silk.Silk Silk { get; set; }
+    public Stopwatch SilkStopwatch { get; set; }
+    public DirectoryInfo OrdnerAktuellesProjekt { get; set; }
 
-    public AutoTesterSilk(Datenstruktur datenstruktur, ConfigPlc configPlc)
+    private bool _compilerlaufErfolgreich;
+    private CompiledProgram _compiledProgram;
+
+
+    public AutoTesterSilk(Datenstruktur datenstruktur, ConfigPlc configPlc, LibPlcTestautomat.TestAutomat testAutomat)
     {
         Datenstruktur = datenstruktur;
         ConfigPlc = configPlc;
 
-        Betriebsart = new Silk.Silk.BetriebsartAutoTest();
-        Betriebsart = Silk.Silk.BetriebsartAutoTest.Automatik;
+        VmAutoTesterSilk = new VmAutoTesterSilk();
+        AutoTesterWindow = new AutoTesterWindow(VmAutoTesterSilk);
 
-        AutoTesterWindow = new AutoTesterWindow(datenstruktur, configPlc);
+        Silk = new Silk.Silk();
     }
     public void SetProjekt(DirectoryInfo ordnerAktuellesProjekt)
     {
-        AutoTesterWindow.OrdnerAktuellesProjekt = ordnerAktuellesProjekt;
-        AutoTesterWindow.VmAutoTesterSilk.SetNeuesTestProjekt(ordnerAktuellesProjekt, ConfigPlc);
+        OrdnerAktuellesProjekt = ordnerAktuellesProjekt;
+        VmAutoTesterSilk.SetNeuesTestProjekt(ordnerAktuellesProjekt, ConfigPlc);
     }
     public void TestStarten()
     {
         AutoTesterWindow.Show();
-        AutoTesterWindow.ModelSilkAutoTester.AutoTestStarten();
+        AutoTestStarten();
+    }
+
+    public void AutoTestStarten()
+    {
+        Compiler compiler;
+        SilkStopwatch = new Stopwatch();
+
+        Silk.ReferenzenUebergeben(VmAutoTesterSilk, Datenstruktur, SilkStopwatch);
+
+        VmAutoTesterSilk.DataGridZeilen.Add(new DataGridZeile(
+            VmAutoTesterSilk.ZeilenNummerDataGrid++,
+            "0",
+            TestAnzeige.CompilerStart,
+            " ",
+            " ",
+            " ",
+            " "));
+
+        SilkStopwatch.Start();
+        (_compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(OrdnerAktuellesProjekt.ToString(), "test.ssc"));
+
+        if (_compilerlaufErfolgreich)
+        {
+            VmAutoTesterSilk.DataGridZeilen.Add(new DataGridZeile(
+                VmAutoTesterSilk.ZeilenNummerDataGrid++,
+                $"{SilkStopwatch.ElapsedMilliseconds}ms",
+                TestAnzeige.CompilerErfolgreich,
+                " ",
+                " ",
+                " ",
+                " "));
+
+            SilkStopwatch.Restart();
+            Silk.RunProgram(_compiledProgram);
+        }
+        else
+        {
+            foreach (var error in compiler.Errors)
+            {
+                VmAutoTesterSilk.DataGridZeilen.Add(new DataGridZeile(
+                    VmAutoTesterSilk.ZeilenNummerDataGrid++,
+                    $"{SilkStopwatch.ElapsedMilliseconds}ms",
+                    TestAnzeige.CompilerError,
+                    error.ToString(),
+                    " ",
+                    " ",
+                    " "));
+            }
+        }
     }
 }

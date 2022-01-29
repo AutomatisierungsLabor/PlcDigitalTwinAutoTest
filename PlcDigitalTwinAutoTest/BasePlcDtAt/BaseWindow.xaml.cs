@@ -7,6 +7,7 @@ using LibAutoTest;
 using LibConfigPlc;
 using LibDatenstruktur;
 using LibDisplayPlc;
+using LibPlcTestautomat;
 
 namespace BasePlcDtAt;
 
@@ -16,9 +17,12 @@ public partial class BaseWindow
     public ConfigPlc ConfigPlc { get; set; }
     public DisplayPlc DisplayPlc { get; set; }
     public AutoTest AutoTest { get; set; }
+    public TestAutomat TestAutomat { get; set; }
 
     private readonly VmBase _vmBase;
     private readonly CancellationTokenSource _cancellationTokenSource;
+    private const string PfadConfigTests = "ConfigTests";
+    private const string PfadConfigPlc = "ConfigPlc";
 
     public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex, CancellationTokenSource cancellationTokenSource)
     {
@@ -29,13 +33,15 @@ public partial class BaseWindow
         InitializeComponent();
         DataContext = _vmBase;
 
-        ConfigPlc = new ConfigPlc("/ConfigPlc");
+        ConfigPlc = new ConfigPlc(PfadConfigPlc);
 
         _vmBase.BeschreibungZeichnen(TabBeschreibung);
         _vmBase.LaborPlatteZeichnen(TabLaborPlatte);
         _vmBase.SimulationZeichnen(TabSimulation);
 
-        AutoTest = new AutoTest(Datenstruktur, ConfigPlc, TabAutoTest, "/ConfigTests");
+        TestAutomat = new TestAutomat(Datenstruktur);
+
+        AutoTest = new AutoTest(Datenstruktur, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests);
         AutoTest.SetCallback(ConfigPlc.SetPath);
         _vmBase.SetAutoTestRef(AutoTest);
 
@@ -49,15 +55,15 @@ public partial class BaseWindow
         switch (tc.SelectedIndex)
         {
             case (int)VmBase.WpfBase.TabBeschreibung:
-                ConfigPlc.SetPathRelativ("/ConfigPlc");
+                ConfigPlc.SetPathRelativ(PfadConfigPlc);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.BeschreibungAnzeigen;
                 break;
             case (int)VmBase.WpfBase.TabLaborplatte:
-                ConfigPlc.SetPathRelativ("/ConfigPlc");
+                ConfigPlc.SetPathRelativ(PfadConfigPlc);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
                 break;
             case (int)VmBase.WpfBase.TabSimulation:
-                ConfigPlc.SetPathRelativ("/ConfigPlc");
+                ConfigPlc.SetPathRelativ(PfadConfigPlc);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.Simulation;
                 break;
             case (int)VmBase.WpfBase.TabAutoTest:

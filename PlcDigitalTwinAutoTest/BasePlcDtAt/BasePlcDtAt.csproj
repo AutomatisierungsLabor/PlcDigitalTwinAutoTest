@@ -28,6 +28,7 @@
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
     <ProjectReference Include="..\LibDisplayPlc\LibDisplayPlc.csproj" />
     <ProjectReference Include="..\LibPlcKommunikation\LibPlcKommunikation.csproj" />
+    <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
     <ProjectReference Include="..\LibPlcTools\LibPlcTools.csproj" />
   </ItemGroup>
 

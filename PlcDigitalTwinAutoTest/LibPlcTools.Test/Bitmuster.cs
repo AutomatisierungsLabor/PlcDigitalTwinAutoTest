@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace LibPlcTools.Test;
@@ -36,6 +37,13 @@ public class Bitmuster
     public void BitmusterInByteTesten(byte bitmuster, int bitPositon, bool ergebnis)
     {
         Assert.Equal(ergebnis, LibPlcTools.Bitmuster.BitmusterInByteTesten(bitmuster, bitPositon));
+    }
+    
+    [Theory]
+    [InlineData(new byte[] { 0x00, 0xff }, 0, false)]
+    public void BitInByteArrayTesten(IReadOnlyList<byte> datenArray, int i,bool expexted)
+    {
+        Assert.True(expexted); // jemand sollte den Test erstellen!
     }
 
 }

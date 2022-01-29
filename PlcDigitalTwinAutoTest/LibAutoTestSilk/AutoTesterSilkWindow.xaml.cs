@@ -1,9 +1,5 @@
-﻿using LibAutoTestSilk.Model;
-using LibAutoTestSilk.ViewModel;
-using LibConfigPlc;
-using LibDatenstruktur;
+﻿using LibAutoTestSilk.ViewModel;
 using System;
-using System.IO;
 using System.Windows.Controls;
 using System.Windows.Media;
 using LibAutoTestSilk.TestAutomat;
@@ -13,25 +9,18 @@ namespace LibAutoTestSilk;
 
 public partial class AutoTesterWindow
 {
-    public ModelAutoTesterSilk ModelSilkAutoTester { get; set; }
-    public VmAutoTesterSilk VmAutoTesterSilk { get; set; }
-    public DirectoryInfo OrdnerAktuellesProjekt { get; set; }
     private bool FensterAktiv;
 
-    public AutoTesterWindow(Datenstruktur datenstruktur, ConfigPlc configPlc)
+    public AutoTesterWindow( VmAutoTesterSilk vmAutoTesterSilk)
     {
-        VmAutoTesterSilk = new VmAutoTesterSilk();
-        ModelSilkAutoTester = new ModelAutoTesterSilk(this, datenstruktur, configPlc, VmAutoTesterSilk);
-
         InitializeComponent();
-        DataContext = VmAutoTesterSilk;
+        DataContext = vmAutoTesterSilk;
 
         _ = new DiDaBeschriften(GridTest);
 
         DataGrid.ItemContainerGenerator.StatusChanged += (_, _) =>
         {
-
-            var count = VmAutoTesterSilk.DataGridZeilen.Count;
+            var count = vmAutoTesterSilk.DataGridZeilen.Count;
             if (count < 1) return;
 
             for (var zeile = 0; zeile < count; zeile++)
@@ -39,7 +28,7 @@ public partial class AutoTesterWindow
                 var row = (DataGridRow)DataGrid.ItemContainerGenerator.ContainerFromIndex(zeile);
                 if (row == null) continue;
 
-                row.Background = VmAutoTesterSilk.DataGridZeilen[zeile].Ergebnis switch
+                row.Background = vmAutoTesterSilk.DataGridZeilen[zeile].Ergebnis switch
                 {
                     TestAnzeige.Aktiv => Brushes.White,
                     TestAnzeige.AufBitmusterWarten => Brushes.Yellow,
@@ -57,7 +46,7 @@ public partial class AutoTesterWindow
                     TestAnzeige.UnbekanntesErgebnis => Brushes.Red,
                     TestAnzeige.Projektbezeichnung => Brushes.White,
                     TestAnzeige.CompilerStart => Brushes.Cyan,
-                    _ => throw new ArgumentOutOfRangeException("Unbekanntés Ergebnis" + VmAutoTesterSilk.DataGridZeilen[zeile].Ergebnis)
+                    _ => throw new ArgumentOutOfRangeException("Unbekanntés Ergebnis" + vmAutoTesterSilk.DataGridZeilen[zeile].Ergebnis)
                 };
             }
         };

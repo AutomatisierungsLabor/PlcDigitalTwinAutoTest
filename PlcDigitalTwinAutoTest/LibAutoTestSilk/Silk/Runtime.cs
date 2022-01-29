@@ -5,6 +5,16 @@ namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
+ public void RunProgram(CompiledProgram program)
+    {
+        var runtime = new Runtime(program);
+        runtime.Begin += Runtime_Begin;
+        runtime.Function += Runtime_Function;
+        runtime.End += Runtime_End;
+
+        runtime.Execute();
+    }
+
     public void Runtime_Begin(object sender, BeginEventArgs e)
     {
         const string data = "";
@@ -18,15 +28,6 @@ public partial class Silk
              " ",        // DigOutput Soll
              " ",        // DigOutput Ist
              " "));
-    }
-    public void RunProgram(CompiledProgram program)
-    {
-        var runtime = new Runtime(program);
-        runtime.Begin += Runtime_Begin;
-        runtime.Function += Runtime_Function;
-        runtime.End += Runtime_End;
-
-        runtime.Execute();
     }
     private void Runtime_End(object sender, EndEventArgs e)
     {

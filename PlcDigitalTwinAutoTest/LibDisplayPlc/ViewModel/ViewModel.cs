@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
@@ -132,8 +131,8 @@ public class ViewModel
 
             for (var i = 0; i < 16; i++)
             {
-                FarbeUmschalten(BitTesten(_datenstruktur.Di, i), (int)WpfObjects.Di00 + i, Brushes.Yellow, Brushes.DarkGray);
-                FarbeUmschalten(BitTesten(_datenstruktur.Da, i), (int)WpfObjects.Da00 + i, Brushes.LawnGreen, Brushes.DarkGray);
+                FarbeUmschalten(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, i), (int)WpfObjects.Di00 + i, Brushes.Yellow, Brushes.DarkGray);
+                FarbeUmschalten(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, i), (int)WpfObjects.Da00 + i, Brushes.LawnGreen, Brushes.DarkGray);
             }
 
             Thread.Sleep(10);
@@ -180,11 +179,5 @@ public class ViewModel
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-    private static bool BitTesten(IReadOnlyList<byte> datenArray, int i)
-    {
-        var ibyte = i / 8;
-        var bitMuster = (byte)(1 << (i % 8));
-
-        return (datenArray[ibyte] & bitMuster) == bitMuster;
-    }
+  
 }

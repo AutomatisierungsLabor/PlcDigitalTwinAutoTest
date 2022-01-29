@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
@@ -8,6 +8,7 @@ using System.Windows.Media;
 using LibAutoTestSilk;
 using LibConfigPlc;
 using LibDatenstruktur;
+using LibPlcTestautomat;
 
 namespace LibAutoTest;
 
@@ -23,21 +24,19 @@ public class AutoTest
     public AutoTesterSilk AutoTesterSilk { get; set; }
     public LibWpf.LibWpf LibWpfAutoTest { get; set; }
 
-    private bool _testWurdeSchonMalGestartet;
+
     private Action<string> _cbPlcConfig;
 
-    public AutoTest(Datenstruktur datenstruktur, ConfigPlc configPlc, ContentControl tabItem, string configtests)
+    public AutoTest(Datenstruktur datenstruktur, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests)
     {
-        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc);
-
+        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat);
         VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk);
         tabItem.DataContext = VmAutoTest;
 
         try
         {
             Log.Debug("Testordner lesen: " + configtests);
-
-            var directory = new DirectoryInfo(@$"{ Environment.CurrentDirectory}\{configtests}");
+            var directory = new DirectoryInfo(Path.Combine(Directory.GetCurrentDirectory(), configtests));
 
             foreach (var ordner in directory.GetDirectories())
             {
@@ -69,16 +68,6 @@ public class AutoTest
 
         foreach (var ordner in AlleTestOrdner) StackPanel.Children.Add(LibWpfAutoTest.RadioButton("TestProjekte", ordner.Name, ordner, 14, TestChecked));
     }
-
-    public void TestStarten()
-    {
-        if (_testWurdeSchonMalGestartet) return;
-
-        _testWurdeSchonMalGestartet = true;
-
-        AutoTesterSilk.TestStarten();
-    }
-
     private void TestChecked(object sender, RoutedEventArgs e)
     {
         if (sender is not RadioButton { Tag: DirectoryInfo } rb) return;
@@ -91,13 +80,13 @@ public class AutoTest
 
         Log.Debug("Test ausgewählt: " + AktuellesProjekt.Name);
 
-        var dateiName = $@"{AktuellesProjekt.FullName}\index.html";
+        var dateiName = Path.Combine(AktuellesProjekt.FullName, "index.html");
         var htmlSeite = File.Exists(dateiName) ? File.ReadAllText(dateiName) : "--??--";
         var htmlCssSeite = htmlSeite;
 
         if (htmlSeite.Contains(@"<MeinStyleSheet/>"))
         {
-            var dateiCssFile = $@"{AktuellesProjekt.FullName}\ConfigTests.css".Replace(AktuellesProjekt.Name + "\\", "");
+            var dateiCssFile = Path.Combine(AktuellesProjekt.FullName, "ConfigTests.css").Replace(AktuellesProjekt.Name + "\\", "");
             var styleSheet = "<style>" + File.ReadAllText(dateiCssFile) + "</style>";
 
             htmlCssSeite = htmlSeite.Replace(@"<MeinStyleSheet/>", styleSheet);

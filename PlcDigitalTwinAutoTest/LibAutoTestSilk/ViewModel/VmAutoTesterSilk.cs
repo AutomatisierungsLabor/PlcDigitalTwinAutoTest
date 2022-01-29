@@ -12,7 +12,7 @@ namespace LibAutoTestSilk.ViewModel;
 public class VmAutoTesterSilk
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-    
+
     public enum WpfIndex
     {
         Di01 = 0,
@@ -21,25 +21,9 @@ public class VmAutoTesterSilk
         Da17 = 31,
         SoureCode = 32
     }
-
-    
-
     public VmAutoTesterSilk()
     {
         DataGridZeilen = new ObservableCollection<DataGridZeile>();
-        
-        /*
-        DataGridZeilen = new ObservableCollection<DataGridZeile> {
-            new(
-                0,
-                "0",
-                TestAnzeige.Version,
-                " ",
-                " ",
-                " ",
-                " ")
-        };
-        */
 
         for (var i = 0; i < 100; i++)
         {
@@ -47,15 +31,14 @@ public class VmAutoTesterSilk
             Farbe.Add(Brushes.White);
             Text.Add("");
         }
-    }  
+    }
     internal void SetNeuesTestProjekt(DirectoryInfo ordnerAktuellesProjekt, ConfigPlc configPlc)
     {
-
         try
         {
-            Log.Debug("TestSource: " + @$"{ordnerAktuellesProjekt}\test.ssc");
-
-            Text[(int)WpfIndex.SoureCode] = File.ReadAllText(@$"{ordnerAktuellesProjekt}\test.ssc".ToString());
+            var pfad = Path.Combine(ordnerAktuellesProjekt.ToString(), "test.ssc");
+            Log.Debug("TestSource: " + pfad);
+            Text[(int)WpfIndex.SoureCode] = File.ReadAllText(pfad);
         }
         catch (Exception e)
         {
@@ -106,7 +89,7 @@ public class VmAutoTesterSilk
         }
     }
 
-    
+
     private ObservableCollection<DataGridZeile> _dataGridZeilen;
     public ObservableCollection<DataGridZeile> DataGridZeilen
     {
@@ -154,6 +137,4 @@ public class VmAutoTesterSilk
 
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-   
 }

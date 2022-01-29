@@ -9,5 +9,4 @@ public class PlcState
 public interface IPlc
 {
     PlcState State { get; }
-    public void PlcTask();
 }
