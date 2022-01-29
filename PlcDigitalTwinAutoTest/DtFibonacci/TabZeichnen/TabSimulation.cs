@@ -11,18 +11,12 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 30, 40, 30, false);
+        libWpf.GridZeichnen(50, 30, 40, 30, true);
 
-        var scottPlot = libWpf.ScottPlot(1, 22, 6, 15);
+        var scottPlot = libWpf.ScottPlot(1, 37, 6, 17);
 
-        var kreisRand = new Thickness(2, 2, 2, 2);
-        var kreisRandFarbe = new SolidColorBrush(Colors.Black);
-        
-        libWpf.KreisRandVis(10, 4, 1, 4, kreisRandFarbe, kreisRand, WpfObjects.P1);
-        
-        var buttonRand = new Thickness(2, 5, 2, 5);
-        
-        libWpf.Button(25, 4, 6, 4, 20, buttonRand, vmFibonacci.BtnTaster, WpfObjects.S1, false, false);
+        libWpf.KreisRandVis(10, 4, 1, 4, new SolidColorBrush(Colors.Black), new Thickness(2, 2, 2, 2), WpfObjects.P1);
+        libWpf.ButtonRounded(25, 4, 1, 4, 30, 15, new Thickness(2, 2, 2, 2), Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S1, false, false);
 
         return (libWpf, scottPlot);
     }

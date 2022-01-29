@@ -27,7 +27,6 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="10" />
                     </Grid.RowDefinitions>
-
                     <DataGrid Name="DataGrid" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="3" FontSize="14pt" ItemsSource="{Binding DataGridZeilen}"/>
                 </Grid>
             </TabItem>
@@ -43,11 +42,9 @@
                         <RowDefinition Height="*" />
                         <RowDefinition Height="10" />
                     </Grid.RowDefinitions>
-
                     <ScrollViewer Grid.Column="1" Grid.Row="1"                                  >
                         <TextBlock Text="{Binding  Text[32]}"/>
                     </ScrollViewer>
-
                 </Grid>
             </TabItem>
         </TabControl>

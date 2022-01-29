@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -32,7 +33,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     public double[] WertLeuchtMelder { get; set; } = new double[5_000];
 
 
-    public VmBlinker(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur) : base(model, datenstruktur)
+    public VmBlinker(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _zeitachse = DataGen.Consecutive(5000);
 
@@ -65,7 +66,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarkeitUmschalten(_modelBlinker.S4, (int)WpfObjects.S4);
         SichtbarkeitUmschalten(_modelBlinker.S5, (int)WpfObjects.S5);
 
-        FarbeUmschalten(_modelBlinker.P1, 1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelBlinker.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
         
         ScottPlotAktualisieren();
         ErrorAnzeigen();

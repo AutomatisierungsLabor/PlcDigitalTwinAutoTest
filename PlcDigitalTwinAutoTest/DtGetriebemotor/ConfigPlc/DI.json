@@ -1,0 +1,88 @@
+﻿{
+  "Zeilen": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar":"Taster ( ① ) → Schliesser" 
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "S2",
+      "Kommentar": "Taster ( ⓪ ) → Öffner"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "S4",
+      "Kommentar": "Taster ( STOP ) → Öffner"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "S3",
+      "Kommentar": "Taster ( Ⅰ ) → Schliesser"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "S5",
+      "Kommentar": "Taster ( Ⅱ ) → Schliesser"
+    },
+   {
+      "StartByte": 0,
+      "StartBit": 5,
+      "Type": "Bit",
+      "Bezeichnung": "S7",
+      "Kommentar": "Taster (STOP) → Öffner"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 6,
+      "Type": "Bit",
+      "Bezeichnung": "S6",
+      "Kommentar": "Taster (←) → Schliesser"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 7,
+      "Type": "Bit",
+      "Bezeichnung": "S8",
+      "Kommentar": "Taster (→) → Schliesser"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "S9.1",
+      "Kommentar": "Not-Halt → Schliesser"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "S9.2",
+      "Kommentar": " Not-Halt → Öffner"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "B1",
+      "Kommentar": "Lichtschranke 0°"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "B2",
+      "Kommentar": "Lichtschranke 45° CCW"
+    }
+  ]
+}

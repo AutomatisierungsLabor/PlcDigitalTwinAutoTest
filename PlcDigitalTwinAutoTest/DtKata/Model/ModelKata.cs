@@ -25,7 +25,7 @@ public class ModelKata : BasePlcDtAt.BaseModel.BaseModel
     private readonly Datenstruktur _datenstruktur;
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelKata(Datenstruktur datenstruktur)
+    public ModelKata(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
         _datenstruktur = datenstruktur;
         _datenRangieren = new DatenRangieren(this, _datenstruktur);
@@ -35,6 +35,6 @@ public class ModelKata : BasePlcDtAt.BaseModel.BaseModel
         S7 = true;
         S8 = true;
     }
-    protected override void ModelThread() => _datenRangieren.Rangieren();
+    protected override void ModelThread() => _datenRangieren?.Rangieren();
     public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }

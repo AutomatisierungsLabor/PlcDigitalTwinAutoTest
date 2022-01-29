@@ -67,4 +67,37 @@ public abstract partial class VmBase
             OnPropertyChanged(nameof(ButtonIsEnabled));
         }
     }
+
+    private ObservableCollection<Thickness> _margin = new();
+    public ObservableCollection<Thickness> Margin
+    {
+        get=> _margin;
+        set
+        {
+            _margin = value;
+            OnPropertyChanged(nameof(Margin));
+        }
+    }
+    
+    private ObservableCollection<Point> _transformOrigin = new();
+    public ObservableCollection<Point> TransformOrigin
+    {
+        get => _transformOrigin;
+        set
+        {
+            _transformOrigin = value;
+            OnPropertyChanged(nameof(TransformOrigin));
+        }
+    }
+
+    private ObservableCollection<double> _winkel = new();
+    public ObservableCollection<double> Winkel
+    {
+        get => _winkel;
+        set
+        {
+            _winkel = value;
+            OnPropertyChanged(nameof(Winkel));
+        }
+    }
 }

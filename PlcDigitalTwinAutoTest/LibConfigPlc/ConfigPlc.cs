@@ -12,7 +12,7 @@ public class ConfigPlc
         Log.Debug("ConfigPlc einlesen: " + pfad);
         SetPathRelativ(pfad);
     }
-    
+
     public enum EaTypen
     {
         NichtBelegt,

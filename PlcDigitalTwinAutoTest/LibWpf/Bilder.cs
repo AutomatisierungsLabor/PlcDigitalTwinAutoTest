@@ -8,6 +8,17 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
+    public void Bild(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin)
+    {
+        var image = new Image
+        {
+            Source = new BitmapImage(new Uri(@$"Bilder\{source}", UriKind.Relative)),
+            Stretch = Stretch.Fill,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
     public void BildVisEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var image = new Image
@@ -16,7 +27,7 @@ public partial class LibWpf
             Stretch = Stretch.Fill,
             Margin = margin
         };
-        
+
         image.SetSichtbarkeitEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
@@ -29,7 +40,7 @@ public partial class LibWpf
             Stretch = Stretch.Fill,
             Margin = margin
         };
-        
+
         image.SetSichtbarkeitAusBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);

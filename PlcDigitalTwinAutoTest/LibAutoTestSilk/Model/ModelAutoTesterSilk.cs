@@ -4,7 +4,6 @@ using LibConfigPlc;
 using LibDatenstruktur;
 using SoftCircuits.Silk;
 using System.Diagnostics;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace LibAutoTestSilk.Model;
@@ -29,18 +28,6 @@ public class ModelAutoTesterSilk
         _vmSilkAutoTester = vmSilkAutoTester;
 
         Silk = new Silk.Silk();
-
-        Task.Run(ModelTask);
-    }
-    internal void ModelTask()
-    {
-
-        while (true)
-        {
-
-            Thread.Sleep(10);
-        }
-        // ReSharper disable once FunctionNeverReturns
     }
     public void AutoTestStarten()
     {

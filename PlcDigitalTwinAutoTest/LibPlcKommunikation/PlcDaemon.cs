@@ -28,13 +28,16 @@ public class PlcDaemon
     private readonly IpAdressenSiemens _ipAdressenSiemens;
     private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
     private PlcDaemonStatus _plcDaemonStatus;
+    private readonly CancellationTokenSource _cancellationTokenSource;
 
-    public PlcDaemon(Datenstruktur datenstruktur)
+    public PlcDaemon(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Daemon gestartet");
 
         _datenstruktur = datenstruktur;
         _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+        _cancellationTokenSource = cancellationTokenSource;
+        
         Log.Debug("SPS pingen");
 
         try
@@ -69,7 +72,7 @@ public class PlcDaemon
         PlcKeine.PlcTask();
         PlcState = PlcKeine.State;
 
-        while (true)
+        while (!_cancellationTokenSource.IsCancellationRequested)
         {
             switch (_plcDaemonStatus)
             {

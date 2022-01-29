@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -27,7 +28,7 @@ public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
     private short _nextDataIndex = 1;
     public double[] WertLeuchtMelder { get; set; } = new double[5_000];
 
-    public VmFibonacci(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur) : base(model, datenstruktur)
+    public VmFibonacci(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _zeitachse = DataGen.Consecutive(5000);
 
@@ -52,7 +53,7 @@ public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 
         SichtbarkeitUmschalten(_modelFibonacci.S1, (int)WpfObjects.S1);
 
-        FarbeUmschalten(_modelFibonacci.P1, 1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelFibonacci.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
 
         ScottPlotAktualisieren();
         ErrorAnzeigen();

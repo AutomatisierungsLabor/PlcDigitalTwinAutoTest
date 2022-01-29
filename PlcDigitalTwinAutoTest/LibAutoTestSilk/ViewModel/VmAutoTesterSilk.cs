@@ -3,7 +3,6 @@ using LibAutoTestSilk.TestAutomat;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
-using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using LibConfigPlc;
@@ -48,23 +47,7 @@ public class VmAutoTesterSilk
             Farbe.Add(Brushes.White);
             Text.Add("");
         }
-
-        System.Threading.Tasks.Task.Run(VmAnzeigenTask);
-    }
-
-  
-
-    internal void VmAnzeigenTask()
-    {
-        while (true)
-        {
-           
-
-            Thread.Sleep(10);
-        }
-        // ReSharper disable once FunctionNeverReturns
-    }
-
+    }  
     internal void SetNeuesTestProjekt(DirectoryInfo ordnerAktuellesProjekt, ConfigPlc configPlc)
     {
 

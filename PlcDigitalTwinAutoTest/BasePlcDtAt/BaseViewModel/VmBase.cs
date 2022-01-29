@@ -1,6 +1,7 @@
 ﻿using System;
 using BasePlcDtAt.BaseCommands;
 using System.ComponentModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -37,13 +38,13 @@ public abstract partial class VmBase
 
     public Datenstruktur Datenstruktur { get; set; }
     public BaseModel.BaseModel Model { get; set; }
-    
+
     public PlcDaemon PlcDaemon { get; set; }
-    protected VmBase(BaseModel.BaseModel model, Datenstruktur datenstruktur)
+    protected VmBase(BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
 
-        PlcDaemon = new PlcDaemon(datenstruktur);
+        PlcDaemon = new PlcDaemon(datenstruktur, cancellationTokenSource);
         Model = model;
         Datenstruktur = datenstruktur;
 
@@ -63,9 +64,12 @@ public abstract partial class VmBase
             SichtbarAus.Add(Visibility.Visible);
             Farbe.Add(Brushes.White);
             Text.Add("");
+            Margin.Add(new Thickness(0, 0, 0, 0));
+            TransformOrigin.Add(new Point(0, 0));
+            Winkel.Add(0);
         }
 
-        System.Threading.Tasks.Task.Run(ViewModelTask);
+        System.Threading.Tasks.Task.Run(() => ViewModelTask(cancellationTokenSource));
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

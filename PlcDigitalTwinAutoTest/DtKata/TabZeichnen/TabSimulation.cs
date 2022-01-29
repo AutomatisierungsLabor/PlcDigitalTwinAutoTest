@@ -16,10 +16,10 @@ public partial class TabZeichnen
 
         var buttonRand = new Thickness(2, 5, 2, 5);
 
-        libWpf.Button(1, 3, 1, 2, 20, buttonRand, vmKata.BtnTaster, WpfObjects.S1, false, false);
-        libWpf.Button(1, 3, 3, 2, 20, buttonRand, vmKata.BtnTaster, WpfObjects.S2, false, false);
-        libWpf.Button(1, 3, 5, 2, 20, buttonRand, vmKata.BtnTaster, WpfObjects.S3, false, false);
-        libWpf.Button(1, 3, 7, 2, 20, buttonRand, vmKata.BtnTaster, WpfObjects.S4, false, false);
+        libWpf.ButtonRounded(1, 3, 1, 2, 20, 15, buttonRand, Brushes.LawnGreen, vmKata.BtnTaster, WpfObjects.S1, false, false);
+        libWpf.ButtonRounded(1, 3, 3, 2, 20, 15, buttonRand, Brushes.LawnGreen, vmKata.BtnTaster, WpfObjects.S2, false, false);
+        libWpf.ButtonRounded(1, 3, 5, 2, 20, 15, buttonRand, Brushes.Red, vmKata.BtnTaster, WpfObjects.S3, false, false);
+        libWpf.ButtonRounded(1, 3, 7, 2, 20, 15, buttonRand, Brushes.Red, vmKata.BtnTaster, WpfObjects.S4, false, false);
 
         libWpf.ButtonOnOffVis(1, 3, 10, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, vmKata.BtnSchalter, WpfObjects.S5);
         libWpf.ButtonOnOffVis(1, 3, 12, 2, 10, "SchiebeSchalterOn.JPG", "SchiebeSchalterOff.JPG", buttonRand, vmKata.BtnSchalter, WpfObjects.S6);

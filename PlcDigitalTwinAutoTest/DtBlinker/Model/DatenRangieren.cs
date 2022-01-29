@@ -16,7 +16,15 @@ public class DatenRangieren
 
     public void Rangieren()
     {
-        _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _blinker.S1, _blinker.S2, _blinker.S3, _blinker.S4, _blinker.S5);
+        if (_datenstruktur.SimulationAktiv())
+        {
+            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _blinker.S1, _blinker.S2, _blinker.S3, _blinker.S4, _blinker.S5);
+        }
+        else
+        {
+            (_blinker.S1, _blinker.S2, _blinker.S3, _blinker.S4, _blinker.S5, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
+        }
+
         (_blinker.P1, _, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }
 }

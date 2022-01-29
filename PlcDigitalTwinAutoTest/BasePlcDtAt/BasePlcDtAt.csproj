@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Bilder\getriebemotor_mit_gabellichtschranke.jpg" />
     <None Remove="Bilder\IconPlotter.jpg" />
+    <None Remove="Bilder\platte_linearachse.jpg" />
     <None Remove="Bilder\S7_1200.jpg" />
     <None Remove="Bilder\SchiebeSchalterOff.JPG" />
     <None Remove="Bilder\SchiebeSchalterOn.JPG" />
@@ -16,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Bilder\getriebemotor_mit_gabellichtschranke.jpg" />
     <Content Include="Snap7.ico" />
   </ItemGroup>
 
@@ -32,6 +35,7 @@
     <Resource Include="Bilder\IconPlotter.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Bilder\platte_linearachse.jpg" />
     <Resource Include="Bilder\S7_1200.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

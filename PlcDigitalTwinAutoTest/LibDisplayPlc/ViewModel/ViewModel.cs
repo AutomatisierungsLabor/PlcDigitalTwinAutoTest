@@ -84,18 +84,18 @@ public enum WpfObjects
 
 public class ViewModel
 {
-
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     private readonly ConfigPlc _configPlc;
     private readonly Datenstruktur _datenstruktur;
-
-    public ViewModel(Datenstruktur datenstruktur, ConfigPlc configPlc)
+    private readonly CancellationTokenSource _cancellationTokenSource;
+    public ViewModel(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
         
         _datenstruktur = datenstruktur;
         _configPlc = configPlc;
+        _cancellationTokenSource=cancellationTokenSource;
 
         for (var i = 0; i < 100; i++)
         {
@@ -108,7 +108,7 @@ public class ViewModel
     }
     private void ViewModelTask()
     {
-        while (true)
+        while (!_cancellationTokenSource.IsCancellationRequested)
         {
             for (var i = 0; i < 100; i++) SichtbarEin[i] = Visibility.Collapsed;
 

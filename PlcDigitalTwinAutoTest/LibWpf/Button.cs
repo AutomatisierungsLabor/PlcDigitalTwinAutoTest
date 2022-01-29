@@ -9,14 +9,20 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void Button(int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin, ICommand cmd, object cmdParameter, bool enabled = true, bool visibility = true)
+    public void ButtonRounded(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush farbe, ICommand cmd, object cmdParameter, bool enabled = true, bool visibility = true)
     {
         var button = new Button
         {
             FontSize = fontSize,
             Margin = margin,
+            Background = farbe,
             Command = cmd,
             CommandParameter = cmdParameter
+        };
+
+        button.Loaded += (_, _) =>
+        {
+            if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
         };
 
         if (enabled) button.SetIsEnabledBinding(cmdParameter);
