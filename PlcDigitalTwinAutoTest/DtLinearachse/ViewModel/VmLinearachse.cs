@@ -42,7 +42,6 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 
     public VmLinearachse(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
-
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
@@ -63,7 +62,6 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 
         _modelLinearachse = model as ModelLinearachse;
     }
-
     protected override void ViewModelAufrufThread()
     {
         if (_modelLinearachse == null) return;
@@ -113,15 +111,12 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => _libWpfTabBeschreibung = TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => _libWpfLaborPlatte = TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
-    public override void SimulationZeichnen(TabItem tabItem)
-    {
-        _libWpfSimulation = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
-    }
+    public override void SimulationZeichnen(TabItem tabItem) => _libWpfSimulation = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
+
     private void ErrorAnzeigen()
     {
         _libWpfTabBeschreibung?.PlcError(PlcDaemon, Datenstruktur);
         _libWpfLaborPlatte?.PlcError(PlcDaemon, Datenstruktur);
         _libWpfSimulation?.PlcError(PlcDaemon, Datenstruktur);
     }
-
 }

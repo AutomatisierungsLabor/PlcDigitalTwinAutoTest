@@ -44,7 +44,6 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
     }
     protected override void ModelThread()
     {
-        /*
         if (Q2)
         {
             // Linkslauf
@@ -57,8 +56,7 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
             if (Q1) WinkelGetriebemotor += GeschwindigkeitGetriebemotorSchnell;
             if (Q3) WinkelGetriebemotor += GeschwindigkeitGetriebemotorLangsam;
         }
-        */
-        WinkelGetriebemotor += 0.2;
+       
 
         if (WinkelGetriebemotor > 360) WinkelGetriebemotor -= 360;
         if (WinkelGetriebemotor < 0) WinkelGetriebemotor += 360;

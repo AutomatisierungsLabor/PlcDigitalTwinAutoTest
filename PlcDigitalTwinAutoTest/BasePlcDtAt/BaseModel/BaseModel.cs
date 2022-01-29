@@ -24,6 +24,5 @@ public abstract class BaseModel
             ModelThread();
             Thread.Sleep(10);
         }
-        // ReSharper disable once FunctionNeverReturns
     }
 }

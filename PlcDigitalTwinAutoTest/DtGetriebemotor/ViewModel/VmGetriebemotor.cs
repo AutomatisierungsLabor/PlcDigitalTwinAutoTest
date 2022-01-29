@@ -112,10 +112,8 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => _libWpfTabBeschreibung = TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => _libWpfLaborPlatte = TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
-    public override void SimulationZeichnen(TabItem tabItem)
-    {
-        _libWpfSimulation = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
-    }
+    public override void SimulationZeichnen(TabItem tabItem) => _libWpfSimulation = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
+
     private void ErrorAnzeigen()
     {
         _libWpfTabBeschreibung?.PlcError(PlcDaemon, Datenstruktur);
