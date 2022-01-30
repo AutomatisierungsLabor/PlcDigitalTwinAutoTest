@@ -9,6 +9,7 @@ public partial class Silk
 {
     public VmAutoTesterSilk VmAutoTesterSilk { get; set; }
     public Datenstruktur Datenstruktur { get; set; }
+    public LibPlcTestautomat.TestAutomat TestAutomat { get; set; }
     public Stopwatch SilkStopwatch { get; set; }
 
     public (bool erfolgreich, Compiler compiler, CompiledProgram program) Compile(string mySourceFile)
@@ -17,10 +18,11 @@ public partial class Silk
         CompilerRegisterFunctions(compiler);
         return compiler.Compile(mySourceFile, out var program) ? (true, compiler, program) : (false, compiler, program);
     }
-    public void ReferenzenUebergeben(VmAutoTesterSilk vmAutoTesterSilk, Datenstruktur datenstruktur, Stopwatch silkStopwatch)
+    public void ReferenzenUebergeben(VmAutoTesterSilk vmAutoTesterSilk, Datenstruktur datenstruktur, LibPlcTestautomat.TestAutomat testAutomat, Stopwatch silkStopwatch)
     {
         VmAutoTesterSilk = vmAutoTesterSilk;
         Datenstruktur = datenstruktur;
+        TestAutomat = testAutomat;
         SilkStopwatch = silkStopwatch;
     }
 }

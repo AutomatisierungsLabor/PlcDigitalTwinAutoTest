@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LibAutoTestSilk\LibAutoTestSilk.csproj" />
     <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
+    <ProjectReference Include="..\LibTestDatensammlung\LibTestDatensammlung.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
   </ItemGroup>
 

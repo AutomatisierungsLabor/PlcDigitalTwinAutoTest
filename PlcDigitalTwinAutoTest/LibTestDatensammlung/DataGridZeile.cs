@@ -1,4 +1,4 @@
-﻿namespace LibAutoTestSilk.TestAutomat;
+﻿namespace LibTestDatensammlung;
 
 public class DataGridZeile
 {

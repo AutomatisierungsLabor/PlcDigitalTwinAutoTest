@@ -1,5 +1,5 @@
 ﻿using System.Threading;
-using LibAutoTestSilk.TestAutomat;
+using LibTestDatensammlung;
 using LibPlcTools;
 using SoftCircuits.Silk;
 
@@ -15,8 +15,6 @@ public partial class Silk
 
     private bool _einzelSchrittAusfuehren;
     private BetriebsartAutoTest _betriebsartAutoTest = BetriebsartAutoTest.Automatik;
-    private int _anzahlBitEingaenge = 16;
-    private int _anzahlBitAusgaenge = 16;
 
     private void IncrementDataGridId()
     {
@@ -78,9 +76,9 @@ public partial class Silk
                     VmAutoTesterSilk.ZeilenNummerDataGrid,
                     $"{SilkStopwatch.ElapsedMilliseconds}ms",
                     testErgebnis,
-                     dInput.GetBinBit(_anzahlBitEingaenge),
-                     dOutputSoll.GetBinBit(_anzahlBitAusgaenge),
-                     dOutputIst.GetBinBit(_anzahlBitAusgaenge),
+                     dInput.GetBinBit(TestAutomat.GetAnzahlBitEingaenge()),
+                     dOutputSoll.GetBinBit(TestAutomat.GetAnzahlBitAusgaenge()),
+                     dOutputIst.GetBinBit(TestAutomat.GetAnzahlBitAusgaenge()),
                     silkKommentar));
                 break;
         }

@@ -3,11 +3,15 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="SoftCircuits.Silk" Version="1.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
+    <ProjectReference Include="..\LibTestDatensammlung\LibTestDatensammlung.csproj" />
   </ItemGroup>
 
 </Project>

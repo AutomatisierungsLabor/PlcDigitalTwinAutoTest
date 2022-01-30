@@ -28,13 +28,4 @@ public partial class Silk
         Datenstruktur.Ai[startByte] = Simatic.Digital_GetLowByte((uint)siemens);
         Datenstruktur.Ai[startByte + 1] = Simatic.Digital_GetHighByte((uint)siemens);
     }
-    public void SetDiagrammZeitbereich(FunctionEventArgs e)
-    {
-        Datenstruktur.DiagrammZeitbereich = e.Parameters[0].ToInteger();
-    }
-    private void SetDataGridBitAnzahl()
-    {
-        _anzahlBitEingaenge = 16;   // e.Parameters[0].ToInteger();
-        _anzahlBitAusgaenge = 16;   // e.Parameters[1].ToInteger();
-    }
 }

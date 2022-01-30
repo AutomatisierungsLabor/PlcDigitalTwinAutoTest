@@ -1,15 +1,14 @@
 ﻿using System;
-using LibAutoTestSilk.TestAutomat;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using LibConfigPlc;
+using LibTestDatensammlung;
 
 namespace LibAutoTestSilk.ViewModel;
 
-public class VmAutoTesterSilk
+public partial class VmAutoTesterSilk
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
@@ -67,6 +66,7 @@ public class VmAutoTesterSilk
         }
     }
 
+    public void DataGridKommentarAnzeigen(short zeilenNr, string zeit, TestAnzeige ergebnis, string digInput) => DataGridZeilen.Add(new DataGridZeile(zeilenNr, zeit, ergebnis, digInput, " ", " ", " "));
     public void UpdateDataGrid(DataGridZeile zeile)
     {
         Application.Current.Dispatcher.Invoke(() =>
@@ -76,65 +76,4 @@ public class VmAutoTesterSilk
             else DataGridZeilen[zeilenNr] = zeile;
         });
     }
-
-    private short _zeilenNummerDataGrid;
-
-    public short ZeilenNummerDataGrid
-    {
-        get => _zeilenNummerDataGrid;
-        set
-        {
-            _zeilenNummerDataGrid = value;
-            OnPropertyChanged(nameof(ZeilenNummerDataGrid));
-        }
-    }
-
-
-    private ObservableCollection<DataGridZeile> _dataGridZeilen;
-    public ObservableCollection<DataGridZeile> DataGridZeilen
-    {
-        get => _dataGridZeilen;
-        set
-        {
-            _dataGridZeilen = value;
-            OnPropertyChanged(nameof(DataGridZeilen));
-        }
-    }
-
-
-    private ObservableCollection<Visibility> _sichtbarEin = new();
-    public ObservableCollection<Visibility> SichtbarEin
-    {
-        get => _sichtbarEin;
-        set
-        {
-            _sichtbarEin = value;
-            OnPropertyChanged(nameof(SichtbarEin));
-        }
-    }
-
-    private ObservableCollection<Brush> _farbe = new();
-    public ObservableCollection<Brush> Farbe
-    {
-        get => _farbe;
-        set
-        {
-            _farbe = value;
-            OnPropertyChanged(nameof(Farbe));
-        }
-    }
-
-    private ObservableCollection<string> _text = new();
-    public ObservableCollection<string> Text
-    {
-        get => _text;
-        set
-        {
-            _text = value;
-            OnPropertyChanged(nameof(Text));
-        }
-    }
-
-    public event PropertyChangedEventHandler PropertyChanged;
-    private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 }

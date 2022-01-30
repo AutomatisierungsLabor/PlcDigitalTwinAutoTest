@@ -2,8 +2,8 @@ using System.Diagnostics;
 using LibConfigPlc;
 using LibDatenstruktur;
 using System.IO;
-using LibAutoTestSilk.TestAutomat;
 using LibAutoTestSilk.ViewModel;
+using LibTestDatensammlung;
 using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk;
@@ -27,9 +27,12 @@ public class AutoTesterSilk
     {
         Datenstruktur = datenstruktur;
         ConfigPlc = configPlc;
+        TestAutomat = testAutomat;
 
         VmAutoTesterSilk = new VmAutoTesterSilk();
         AutoTesterWindow = new AutoTesterWindow(VmAutoTesterSilk);
+
+        TestAutomat.SetReferenzen( VmAutoTesterSilk.ZeilenNummerDataGrid, VmAutoTesterSilk.DataGridZeilen);
 
         Silk = new Silk.Silk();
     }
@@ -49,30 +52,17 @@ public class AutoTesterSilk
         Compiler compiler;
         SilkStopwatch = new Stopwatch();
 
-        Silk.ReferenzenUebergeben(VmAutoTesterSilk, Datenstruktur, SilkStopwatch);
+        Silk.ReferenzenUebergeben(VmAutoTesterSilk, Datenstruktur, TestAutomat, SilkStopwatch);
 
-        VmAutoTesterSilk.DataGridZeilen.Add(new DataGridZeile(
-            VmAutoTesterSilk.ZeilenNummerDataGrid++,
-            "0",
-            TestAnzeige.CompilerStart,
-            " ",
-            " ",
-            " ",
-            " "));
-
+        VmAutoTesterSilk.DataGridKommentarAnzeigen(VmAutoTesterSilk.ZeilenNummerDataGrid++, "0", TestAnzeige.CompilerStart,"");
+       
         SilkStopwatch.Start();
-        (_compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(OrdnerAktuellesProjekt.ToString(), "test.ssc"));
+
+        (_compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(OrdnerAktuellesProjekt.ToString(), "test.ssc",""));
 
         if (_compilerlaufErfolgreich)
         {
-            VmAutoTesterSilk.DataGridZeilen.Add(new DataGridZeile(
-                VmAutoTesterSilk.ZeilenNummerDataGrid++,
-                $"{SilkStopwatch.ElapsedMilliseconds}ms",
-                TestAnzeige.CompilerErfolgreich,
-                " ",
-                " ",
-                " ",
-                " "));
+            VmAutoTesterSilk.DataGridKommentarAnzeigen(VmAutoTesterSilk.ZeilenNummerDataGrid++, $"{SilkStopwatch.ElapsedMilliseconds}ms", TestAnzeige.CompilerErfolgreich,"");
 
             SilkStopwatch.Restart();
             Silk.RunProgram(_compiledProgram);
@@ -81,14 +71,7 @@ public class AutoTesterSilk
         {
             foreach (var error in compiler.Errors)
             {
-                VmAutoTesterSilk.DataGridZeilen.Add(new DataGridZeile(
-                    VmAutoTesterSilk.ZeilenNummerDataGrid++,
-                    $"{SilkStopwatch.ElapsedMilliseconds}ms",
-                    TestAnzeige.CompilerError,
-                    error.ToString(),
-                    " ",
-                    " ",
-                    " "));
+                VmAutoTesterSilk.DataGridKommentarAnzeigen(VmAutoTesterSilk.ZeilenNummerDataGrid++, $"{SilkStopwatch.ElapsedMilliseconds}ms", TestAnzeige.CompilerError, error.ToString());
             }
         }
     }

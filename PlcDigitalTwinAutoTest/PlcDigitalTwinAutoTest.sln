@@ -49,7 +49,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtLinearachse", "DtLinearac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtGetriebemotor", "DtGetriebemotor\DtGetriebemotor.csproj", "{C41DAFED-071C-4D3E-86D3-7FE1682E80D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibPlcTestautomat", "LibPlcTestautomat\LibPlcTestautomat.csproj", "{58557FF9-87A1-496C-9101-2E9B0D5BEAE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibPlcTestautomat", "LibPlcTestautomat\LibPlcTestautomat.csproj", "{58557FF9-87A1-496C-9101-2E9B0D5BEAE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibTestDatensammlung", "LibTestDatensammlung\LibTestDatensammlung.csproj", "{6641D1D3-DBCC-4244-A003-434F586087CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{58557FF9-87A1-496C-9101-2E9B0D5BEAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58557FF9-87A1-496C-9101-2E9B0D5BEAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58557FF9-87A1-496C-9101-2E9B0D5BEAE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6641D1D3-DBCC-4244-A003-434F586087CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6641D1D3-DBCC-4244-A003-434F586087CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6641D1D3-DBCC-4244-A003-434F586087CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6641D1D3-DBCC-4244-A003-434F586087CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
