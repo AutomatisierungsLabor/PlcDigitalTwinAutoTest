@@ -35,5 +35,16 @@ main()
     UpdateAnzeige "Init", ""
     IncrementDataGridId
 
-    UpdateAnzeige "Test abgeschlossen", " "
+    UpdateAnzeige "Kommentar", "Reset drücken"
+    IncrementDataGridId
+
+    SetDigitaleEingaenge(S5)
+    BitmusterTesten P1, Maske_P1, "T#5s", "Leuchtmelder ausgeschaltet?"
+
+    ResetStopwatch
+    Sleep("T#100ms")
+
+    IncrementDataGridId
+
+    
 }

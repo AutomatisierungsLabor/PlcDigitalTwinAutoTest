@@ -17,39 +17,7 @@ public partial class Silk
 
     internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Di[1]);
     internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Da[0], Datenstruktur.Da[1]);
-    private void GetDigitaleAusgaenge(FunctionEventArgs e)
-    {
-        var digitalOutput = GetDigitalOutputWord();
-        e.ReturnValue.SetValue((int)digitalOutput);
-    }
-    private void BitmusterTesten(FunctionEventArgs e)
-    {
-        var bitMuster = e.Parameters[0].ToInteger();
-        var bitMaske = e.Parameters[1].ToInteger();
-        var timeout = new ZeitDauer(e.Parameters[2].ToString());
-        var kommentar = e.Parameters[3].ToString();
-
-        var stopwatch = new Stopwatch();
-        stopwatch.Start();
-
-        while (stopwatch.ElapsedMilliseconds < timeout.DauerMs)
-        {
-
-            Thread.Sleep(10);
-
-            var digitalOutput = GetDigitalOutputWord();
-
-            if ((digitalOutput & (short)bitMaske) == (short)bitMuster)
-            {
-                DataGridAnzeigeUpdaten(TestAnzeige.Erfolgreich, (uint)bitMuster, kommentar);
-                return;
-            }
-
-            DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)bitMuster, kommentar);
-        }
-
-        DataGridAnzeigeUpdaten(TestAnzeige.Timeout, (uint)bitMuster, kommentar);
-    }
+  
     private void BitmusterBlinktTesten(FunctionEventArgs e)
     {
         var bitMuster = e.Parameters[0].ToInteger();

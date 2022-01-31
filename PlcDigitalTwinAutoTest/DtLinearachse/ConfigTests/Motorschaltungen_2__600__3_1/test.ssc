@@ -55,6 +55,7 @@ main()
 
     SetDigitaleEingaenge 0
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
     IncrementDataGridId
 
@@ -86,9 +87,10 @@ main()
 
     SetDigitaleEingaenge 0
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
     IncrementDataGridId
 
-    UpdateAnzeige "Test abgeschlossen", " "
+    
 
 }

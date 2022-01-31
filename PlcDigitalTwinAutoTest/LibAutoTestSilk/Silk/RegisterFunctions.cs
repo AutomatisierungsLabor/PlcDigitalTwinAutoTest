@@ -37,23 +37,23 @@ public partial class Silk
         switch (e.Name)
         {
             case "BitmusterBlinktTesten": BitmusterBlinktTesten(e); break;
-            case "BitmusterTesten": BitmusterTesten(e); break;
-            case "GetDigitaleAusgaenge": GetDigitaleAusgaenge(e); break;
-            case "IncrementDataGridId": IncrementDataGridId(); break;
-            case "KommentarAnzeigen": KommentarAnzeigen(e); break;
-            case "PlcToDec": PlcToDec(e); break;
+            case "BitmusterTesten": TestAutomat.BitmusterTesten(e); break;
+            case "GetDigitaleAusgaenge": TestAutomat.GetDigitaleAusgaenge(e); break;
+            case "IncrementDataGridId": IncrementDataGridId(); break; // wird für Einzelschrittmodus genutzt!
+            case "KommentarAnzeigen": TestAutomat.KommentarAnzeigen(e); break;
+            case "PlcToDec": TestAutomat.PlcToDec(e); break;
             case "PlcColdStart": TestAutomat.PlcColdStart(); break;
             case "PlcGetStatus": TestAutomat.PlcGetStatus(); break;
             case "PlcHotStart": TestAutomat.PlcHotStart(); break;
-            case "ResetStopwatch": ResetStopwatch(); break;
-            case "SetAnalogerEingang": SetAnalogerEingang(e); break;
+            case "ResetStopwatch":TestAutomat.RestartStopwatch(); break;
+            case "SetAnalogerEingang": TestAutomat.SetAnalogerEingang(e); break;
             case "SetDataGridBitAnzahl": TestAutomat.SetDataGridBitAnzahl(); break; // Anzeige mit 16 bit 
             case "SetDiagrammZeitbereich": TestAutomat.SetDiagrammZeitbereich(e); break;
-            case "SetDigitaleEingaenge": SetDigitaleEingaenge(e); break;
-            case "Sleep": Sleep(e); break;
+            case "SetDigitaleEingaenge": TestAutomat.SetDigitaleEingaenge(e); break;
+            case "Sleep":TestAutomat.Sleep(e); break;
             case "TestAblauf": TestAblauf(e); break;
-            case "UpdateAnzeige": UpdateAnzeige(e); break;
-            case "VersionAnzeigen": VersionAnzeigen(); break;
+            case "UpdateAnzeige": TestAutomat.UpdateAnzeige(e); break;
+            case "VersionAnzeigen": TestAutomat.VersionAnzeigen(); break;
         }
     }
 }

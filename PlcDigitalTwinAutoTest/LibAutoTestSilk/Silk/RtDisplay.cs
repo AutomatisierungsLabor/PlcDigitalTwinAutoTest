@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using LibTestDatensammlung;
 using LibPlcTools;
-using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -29,26 +28,7 @@ public partial class Silk
 
         _einzelSchrittAusfuehren = false;
     }
-    private void UpdateAnzeige(FunctionEventArgs e)
-    {
-        var silkTestergebnis = e.Parameters[0].ToString();
-        var silkKommentar = e.Parameters[1].ToString();
-
-        // ReSharper disable once ConvertSwitchStatementToSwitchExpression
-        var ergebnis = silkTestergebnis switch
-        {
-            "Kommentar" => TestAnzeige.Kommentar,
-            "Aktiv" => TestAnzeige.Aktiv,
-            "Init" => TestAnzeige.Init,
-            "Erfolgreich" => TestAnzeige.Erfolgreich,
-            "Timeout" => TestAnzeige.Timeout,
-            "Fehler" => TestAnzeige.Fehler,
-            "Test abgeschlossen" => TestAnzeige.Kommentar,
-            _ => TestAnzeige.UnbekanntesErgebnis
-        };
-
-        DataGridAnzeigeUpdaten(ergebnis, 0, silkKommentar);
-    }
+  
     private void DataGridAnzeigeUpdaten(TestAnzeige testErgebnis, uint digOutSoll, string silkKommentar)
     {
         var digitalInput = GetDigtalInputWord();
@@ -74,7 +54,7 @@ public partial class Silk
             default:
                 VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
                     VmAutoTesterSilk.ZeilenNummerDataGrid,
-                    $"{SilkStopwatch.ElapsedMilliseconds}ms",
+                    $"{TestAutomat.GetElapsedMilliseconds()}ms",
                     testErgebnis,
                      dInput.GetBinBit(TestAutomat.GetAnzahlBitEingaenge()),
                      dOutputSoll.GetBinBit(TestAutomat.GetAnzahlBitAusgaenge()),
@@ -82,20 +62,6 @@ public partial class Silk
                     silkKommentar));
                 break;
         }
-    }
-    private void KommentarAnzeigen(FunctionEventArgs e)
-    {
-        var kommentar = e.Parameters[0].ToString();
-        VmAutoTesterSilk.ZeilenNummerDataGrid++;
-        DataGridAnzeigeUpdaten(TestAnzeige.Kommentar, 0, kommentar);
-    }
-    private void VersionAnzeigen()
-    {
-        DataGridAnzeigeUpdaten(TestAnzeige.Projektbezeichnung, 0, $"SW PC: {Datenstruktur.VersionsStringLokal}");
-        VmAutoTesterSilk.ZeilenNummerDataGrid++;
-
-        DataGridAnzeigeUpdaten(TestAnzeige.Projektbezeichnung, 0, $"SW PLC: {Datenstruktur.VersionsStringPlc}");
-        VmAutoTesterSilk.ZeilenNummerDataGrid++;
     }
     public void EinzelnerSchrittAusfuehren() => _einzelSchrittAusfuehren = true;
     public void SetBetriebsart(bool b) => _betriebsartAutoTest = b ? BetriebsartAutoTest.Einzelschritt : BetriebsartAutoTest.Automatik;

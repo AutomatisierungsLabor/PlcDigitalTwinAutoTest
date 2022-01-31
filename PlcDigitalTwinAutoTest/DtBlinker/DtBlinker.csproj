@@ -29,28 +29,28 @@
     <None Update="ConfigPlc\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker_1\AA.json">
+    <None Update="ConfigTests\Blinker__594__1\AA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker_1\AI.json">
+    <None Update="ConfigTests\Blinker__594__1\AI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker_1\DA.json">
+    <None Update="ConfigTests\Blinker__594__1\DA.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker_1\DI.json">
+    <None Update="ConfigTests\Blinker__594__1\DI.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker_1\EaBelegung.json">
+    <None Update="ConfigTests\Blinker__594__1\EaBelegung.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker_1\index.html">
+    <None Update="ConfigTests\Blinker__594__1\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker_1\test.ssc">
+    <None Update="ConfigTests\Blinker__594__1\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker_1\test.st">
+    <None Update="ConfigTests\Blinker__594__1\test.st">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\ConfigTests.css">

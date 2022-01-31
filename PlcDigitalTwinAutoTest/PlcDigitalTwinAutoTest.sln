@@ -51,7 +51,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtGetriebemotor", "DtGetrie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibPlcTestautomat", "LibPlcTestautomat\LibPlcTestautomat.csproj", "{58557FF9-87A1-496C-9101-2E9B0D5BEAE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibTestDatensammlung", "LibTestDatensammlung\LibTestDatensammlung.csproj", "{6641D1D3-DBCC-4244-A003-434F586087CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibTestDatensammlung", "LibTestDatensammlung\LibTestDatensammlung.csproj", "{6641D1D3-DBCC-4244-A003-434F586087CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibPlcTestautomat.Test", "LibPlcTestautomat.Test\LibPlcTestautomat.Test.csproj", "{CD145402-56E1-4F47-ABCF-EDB508887438}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -159,6 +161,10 @@ Global
 		{6641D1D3-DBCC-4244-A003-434F586087CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6641D1D3-DBCC-4244-A003-434F586087CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6641D1D3-DBCC-4244-A003-434F586087CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD145402-56E1-4F47-ABCF-EDB508887438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD145402-56E1-4F47-ABCF-EDB508887438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD145402-56E1-4F47-ABCF-EDB508887438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD145402-56E1-4F47-ABCF-EDB508887438}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

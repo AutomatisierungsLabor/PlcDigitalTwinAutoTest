@@ -56,5 +56,5 @@ main()
     UpdateAnzeige "Init", ""
     IncrementDataGridId
 
-    UpdateAnzeige "Test abgeschlossen", " "
+    
 }

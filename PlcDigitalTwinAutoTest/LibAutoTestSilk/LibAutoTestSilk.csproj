@@ -19,9 +19,4 @@
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="TestAutomat\" />
-  </ItemGroup>
-
 </Project>

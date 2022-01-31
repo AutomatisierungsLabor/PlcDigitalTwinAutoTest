@@ -55,21 +55,25 @@ main()
 
     SetDigitaleEingaenge (S1 + S4)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3, "T#5s", "Motor Aus?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S1 + S2 + S4)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3, "T#5s", "Motor Ein?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S1 + S4)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3, "T#5s", "Motor noch Ein?"
     IncrementDataGridId
 
     SetDigitaleEingaenge S4
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3, "T#5s", "Motor Aus?"
     IncrementDataGridId
 
@@ -78,23 +82,27 @@ main()
 
     SetDigitaleEingaenge AllesAus
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3, "T#5s", "Störung und Motor Aus?"
     IncrementDataGridId
 
     SetDigitaleEingaenge S4
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3, "T#5s", "keine Störung und Motor Aus?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S1 + S2 + S4)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3, "T#5s", "Motor wieder Ein?"
     IncrementDataGridId
     
     SetDigitaleEingaenge (S1 + S2)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3, "T#5s", "Störung und Motor Aus?"
     IncrementDataGridId
 
-    UpdateAnzeige "Test abgeschlossen", " "
+    
 }

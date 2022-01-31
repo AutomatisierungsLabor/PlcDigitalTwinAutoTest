@@ -55,26 +55,31 @@ main()
 
     SetDigitaleEingaenge (S1 + S4 + S92)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Betriebsbereit?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S1 + S2 + S4 + S92)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor Ein?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S1 + S4 + S92)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor noch Ein?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S4 + S92)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Betriebsbereit?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S1 + S4 + S92)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Immer noch Betriebsbereit?"
     IncrementDataGridId
 
@@ -83,16 +88,19 @@ main()
 
     SetDigitaleEingaenge AllesAus
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P1_P2_P3, "T#5s", "Störung und Motor Aus?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S4 + S92)
     ResetStopwatch
+
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Betriebsbereit?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S1 + S2 + S4 + S92)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor wieder Ein?"
     IncrementDataGridId
 
@@ -101,11 +109,13 @@ main()
 
     SetDigitaleEingaenge (S1 + S2 + S92)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P1_P2_P3, "T#5s", "Störung Thermorelais und Motor Aus?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S1 + S2 + S4 + S92)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor wieder Ein?"
     IncrementDataGridId
 
@@ -114,13 +124,15 @@ main()
 
     SetDigitaleEingaenge (S1 + S2 + S4)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P1_P2_P3, "T#5s", "Störung Not-Halt und Motor Aus?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S4 + S92)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Betriebsbereit?"
     IncrementDataGridId
 
-    UpdateAnzeige "Test abgeschlossen", " "
+    
 }
