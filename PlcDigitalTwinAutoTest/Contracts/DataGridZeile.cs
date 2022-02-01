@@ -1,4 +1,4 @@
-﻿namespace LibTestDatensammlung;
+﻿namespace Contracts;
 
 public class DataGridZeile
 {

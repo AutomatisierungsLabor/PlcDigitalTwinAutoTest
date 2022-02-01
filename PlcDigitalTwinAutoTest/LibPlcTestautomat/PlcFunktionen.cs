@@ -1,4 +1,4 @@
-﻿using LibTestDatensammlung;
+﻿using Contracts;
 
 namespace LibPlcTestautomat;
 

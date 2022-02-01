@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using LibTestDatensammlung;
+using Contracts;
 
 namespace LibAutoTestSilk.ViewModel;
 

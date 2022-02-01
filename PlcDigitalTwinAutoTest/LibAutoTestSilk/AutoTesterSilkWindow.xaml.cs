@@ -3,7 +3,7 @@ using System;
 using System.Windows.Controls;
 using System.Windows.Media;
 using LibAutoTestSilk.Zeichnen;
-using LibTestDatensammlung;
+using Contracts;
 
 namespace LibAutoTestSilk;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
-using LibTestDatensammlung;
+using Contracts;
 using LibPlcTools;
 using SoftCircuits.Silk;
 

@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
     <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
     <ProjectReference Include="..\LibPlcTools\LibPlcTools.csproj" />
-    <ProjectReference Include="..\LibTestDatensammlung\LibTestDatensammlung.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
   </ItemGroup>
 

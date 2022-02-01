@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using LibPlcTools;
-using LibTestDatensammlung;
+using Contracts;
 using SoftCircuits.Silk;
 
 namespace LibPlcTestautomat;

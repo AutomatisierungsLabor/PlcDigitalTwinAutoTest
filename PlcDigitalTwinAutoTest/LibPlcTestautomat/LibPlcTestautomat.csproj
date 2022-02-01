@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
-    <ProjectReference Include="..\LibTestDatensammlung\LibTestDatensammlung.csproj" />
+    <ProjectReference Include="..\Contracts\Contracts.csproj" />
   </ItemGroup>
 
 </Project>

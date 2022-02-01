@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
 using LibDatenstruktur;
-using LibTestDatensammlung;
+using Contracts;
 using SoftCircuits.Silk;
 
 namespace LibPlcTestautomat;

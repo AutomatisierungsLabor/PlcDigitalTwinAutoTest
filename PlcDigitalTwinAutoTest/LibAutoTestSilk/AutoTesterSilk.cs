@@ -2,7 +2,7 @@ using LibConfigPlc;
 using LibDatenstruktur;
 using System.IO;
 using LibAutoTestSilk.ViewModel;
-using LibTestDatensammlung;
+using Contracts;
 using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk;
@@ -52,7 +52,7 @@ public class AutoTesterSilk
         Silk.ReferenzenUebergeben(VmAutoTesterSilk, Datenstruktur, TestAutomat);
 
         VmAutoTesterSilk.DataGridKommentarAnzeigen(VmAutoTesterSilk.ZeilenNummerDataGrid++, "0", TestAnzeige.CompilerStart,"");
-
+        
         TestAutomat.RestartStopwatch();
 
         (_compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(OrdnerAktuellesProjekt.ToString(), "test.ssc",""));

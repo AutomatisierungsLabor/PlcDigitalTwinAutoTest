@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using LibConfigPlc;
-using LibTestDatensammlung;
+using Contracts;
 
 namespace LibAutoTestSilk.ViewModel;
 
