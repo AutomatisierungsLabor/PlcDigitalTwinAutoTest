@@ -29,6 +29,7 @@ public enum WpfObjects
     S6 = 46,
     S8 = 47,
     S91 = 48,
+    // ReSharper disable once UnusedMember.Global
     S92 = 49,
 
     WinkelGetriebemotor = 50
