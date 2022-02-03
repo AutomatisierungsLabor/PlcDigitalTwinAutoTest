@@ -1,10 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using LibConfigPlc;
+using LibDatenstruktur;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
-using LibConfigPlc;
-using LibDatenstruktur;
 
 namespace LibDisplayPlc.ViewModel;
 
@@ -91,10 +91,10 @@ public class ViewModel
     public ViewModel(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
-        
+
         _datenstruktur = datenstruktur;
         _configPlc = configPlc;
-        _cancellationTokenSource=cancellationTokenSource;
+        _cancellationTokenSource = cancellationTokenSource;
 
         for (var i = 0; i < 100; i++)
         {
@@ -141,7 +141,7 @@ public class ViewModel
     }
 
     private void FarbeUmschalten(bool val, int i, Brush farbe1, Brush farbe2) => Farbe[i] = val ? farbe1 : farbe2;
-  
+
 
     private ObservableCollection<Visibility> _sichtbarEin = new();
     public ObservableCollection<Visibility> SichtbarEin
@@ -179,5 +179,5 @@ public class ViewModel
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-  
+
 }

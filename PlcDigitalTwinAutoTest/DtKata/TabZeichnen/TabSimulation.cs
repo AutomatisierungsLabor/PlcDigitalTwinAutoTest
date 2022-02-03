@@ -1,13 +1,13 @@
-﻿using System.Windows;
+﻿using DtKata.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtKata.ViewModel;
 
 namespace DtKata.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static LibWpf.LibWpf TabSimulationZeichnen(VmKata vmKata, TabItem tabItem, string hintergrund)
+    public static void TabSimulationZeichnen(VmKata vmKata, TabItem tabItem, string hintergrund)
     {
         // var viewmodel = grid.DataContext as BasePlcDtAt.BaseViewModel.VmBase ?? throw new ArgumentNullException($"{nameof(ViewModel)}", "Datacontext is not of type viewmodel");
         var libWpf = new LibWpf.LibWpf(tabItem);
@@ -66,6 +66,6 @@ public partial class TabZeichnen
         libWpf.KreisRandVis(10, 2, 14, 2, kreisRandFarbe, kreisRand, WpfObjects.P7);
         libWpf.KreisRandVis(10, 2, 16, 2, kreisRandFarbe, kreisRand, WpfObjects.P8);
 
-        return libWpf;
+        libWpf.PlcError();
     }
 }

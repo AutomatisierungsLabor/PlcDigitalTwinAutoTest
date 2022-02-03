@@ -7,7 +7,7 @@ public partial class TestAutomat
 {
     public void SetDigitaleEingaenge(FunctionEventArgs functionEventArgs)
     {
-        var di = new Uint(((ulong )functionEventArgs.Parameters[0].ToInteger()));
+        var di = new Uint((ulong)functionEventArgs.Parameters[0].ToInteger());
         _datenstruktur.Di[0] = Simatic.Digital_GetLowByte((uint)di.GetDec());
         _datenstruktur.Di[1] = Simatic.Digital_GetHighByte((uint)di.GetDec());
     }

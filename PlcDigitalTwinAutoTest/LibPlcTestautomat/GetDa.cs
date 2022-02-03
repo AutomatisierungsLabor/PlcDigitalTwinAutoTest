@@ -1,5 +1,4 @@
-﻿using LibDatenstruktur;
-using LibPlcTools;
+﻿using LibPlcTools;
 using SoftCircuits.Silk;
 
 namespace LibPlcTestautomat;

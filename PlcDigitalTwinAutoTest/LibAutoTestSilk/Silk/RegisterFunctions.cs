@@ -45,12 +45,12 @@ public partial class Silk
             case "PlcColdStart": TestAutomat.PlcColdStart(); break;
             case "PlcGetStatus": TestAutomat.PlcGetStatus(); break;
             case "PlcHotStart": TestAutomat.PlcHotStart(); break;
-            case "ResetStopwatch":TestAutomat.RestartStopwatch(); break;
+            case "ResetStopwatch": TestAutomat.RestartStopwatch(); break;
             case "SetAnalogerEingang": TestAutomat.SetAnalogerEingang(e); break;
             case "SetDataGridBitAnzahl": TestAutomat.SetDataGridBitAnzahl(); break; // Anzeige mit 16 bit 
             case "SetDiagrammZeitbereich": TestAutomat.SetDiagrammZeitbereich(e); break;
             case "SetDigitaleEingaenge": TestAutomat.SetDigitaleEingaenge(e); break;
-            case "Sleep":TestAutomat.Sleep(e); break;
+            case "Sleep": TestAutomat.Sleep(e); break;
             case "TestAblauf": TestAblauf(e); break;
             case "UpdateAnzeige": TestAutomat.UpdateAnzeige(e); break;
             case "VersionAnzeigen": TestAutomat.VersionAnzeigen(); break;

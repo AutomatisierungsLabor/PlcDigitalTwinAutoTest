@@ -1,8 +1,8 @@
-﻿using System.Threading;
-using BasePlcDtAt;
+﻿using BasePlcDtAt;
 using DtLinearachse.Model;
 using DtLinearachse.ViewModel;
 using LibDatenstruktur;
+using System.Threading;
 
 namespace DtLinearachse;
 
@@ -19,7 +19,7 @@ public partial class App
 
         var vmLinearachse = new VmLinearachse(ModelLinearachse, datenstruktur, _cancellationTokenSource);
 
-        var baseWindow = new BaseWindow(vmLinearachse, datenstruktur, (int)BasePlcDtAt.BaseViewModel.VmBase.WpfBase.TabLaborplatte, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmLinearachse, datenstruktur, (int)Contracts.WpfBase.TabLaborplatte, _cancellationTokenSource);
         baseWindow.Show();
     }
 }

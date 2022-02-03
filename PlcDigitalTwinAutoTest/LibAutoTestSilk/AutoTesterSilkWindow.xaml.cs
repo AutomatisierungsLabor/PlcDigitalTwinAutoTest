@@ -1,9 +1,9 @@
-﻿using LibAutoTestSilk.ViewModel;
+﻿using Contracts;
+using LibAutoTestSilk.ViewModel;
+using LibAutoTestSilk.Zeichnen;
 using System;
 using System.Windows.Controls;
 using System.Windows.Media;
-using LibAutoTestSilk.Zeichnen;
-using Contracts;
 
 namespace LibAutoTestSilk;
 
@@ -11,7 +11,7 @@ public partial class AutoTesterWindow
 {
     private bool FensterAktiv;
 
-    public AutoTesterWindow( VmAutoTesterSilk vmAutoTesterSilk)
+    public AutoTesterWindow(VmAutoTesterSilk vmAutoTesterSilk)
     {
         InitializeComponent();
         DataContext = vmAutoTesterSilk;

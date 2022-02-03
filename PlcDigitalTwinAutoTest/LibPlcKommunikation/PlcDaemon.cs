@@ -1,7 +1,7 @@
-﻿using System.Net.NetworkInformation;
-using System.Text;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
 using Newtonsoft.Json;
+using System.Net.NetworkInformation;
+using System.Text;
 
 namespace LibPlcKommunikation;
 
@@ -37,7 +37,7 @@ public class PlcDaemon
         _datenstruktur = datenstruktur;
         _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
         _cancellationTokenSource = cancellationTokenSource;
-        
+
         Log.Debug("SPS pingen");
 
         try
@@ -99,17 +99,20 @@ public class PlcDaemon
                     {
                         Log.Debug("Problem beim pingen:" + ex);
                     }
+                    _datenstruktur.VersionsStringPlc = PlcState.PlcBezeichnung;
                     break;
 
                 case PlcDaemonStatus.SpsBeckhoff:
                     PlcBeckhoff.PlcTask();
                     PlcState = PlcBeckhoff.State;
+                    DatenPcToPlcRangieren();
                     if (PlcBeckhoff.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
                     break;
 
                 case PlcDaemonStatus.SpsSiemens:
                     PlcSiemens.PlcTask();
                     PlcState = PlcSiemens.State;
+                    DatenPcToPlcRangieren();
                     if (PlcSiemens.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
                     break;
 
@@ -119,8 +122,6 @@ public class PlcDaemon
 
             if (_datenstruktur.SimulationAktiv()) _datenstruktur.BefehlePlc[0] = 1;
             else _datenstruktur.BefehlePlc[0] = 0;
-
-            DatenPcToPlcRangieren();
 
             Thread.Sleep(10);
         }

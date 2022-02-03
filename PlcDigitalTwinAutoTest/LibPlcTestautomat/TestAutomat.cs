@@ -1,8 +1,7 @@
-﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
+﻿using Contracts;
 using LibDatenstruktur;
-using Contracts;
 using SoftCircuits.Silk;
+using System.Diagnostics;
 
 namespace LibPlcTestautomat;
 
@@ -13,7 +12,7 @@ public partial class TestAutomat
     private short _zeilenNummerDataGrid;
     private short _anzahlBitEingaenge = 16;
     private short _anzahlBitAusgaenge = 16;
-    private ObservableCollection<DataGridZeile> _dataGridZeilen;
+
     private readonly Stopwatch _stopwatch;
 
     private Action<DataGridZeile> _cbUpdateDataGrid;
@@ -36,9 +35,8 @@ public partial class TestAutomat
     public short GetAnzahlBitEingaenge() => _anzahlBitEingaenge;
     //public void IncrementDataGridId() => _zeilenNummerDataGrid++;
 
-    public void SetReferenzen(short zeilenNummerDataGrid, ObservableCollection<DataGridZeile> dataGridZeilen)
+    public void SetReferenzen(short zeilenNummerDataGrid)
     {
         _zeilenNummerDataGrid = zeilenNummerDataGrid;
-        _dataGridZeilen = dataGridZeilen;
     }
 }

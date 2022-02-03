@@ -18,7 +18,7 @@ public class SetDiTest
 
         var variable = new Variable();
         variable.SetValue(zahl);
-        var arguments = new Variable[] { variable };
+        var arguments = new[] { variable };
 
         var functionEventArgs = new FunctionEventArgs("SetDigitaleEingaenge", arguments, new Variable());
         testAutomat.SetDigitaleEingaenge(functionEventArgs);

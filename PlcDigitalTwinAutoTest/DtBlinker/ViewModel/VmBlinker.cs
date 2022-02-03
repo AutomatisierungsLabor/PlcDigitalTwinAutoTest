@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Contracts;
+using DtBlinker.Model;
+using LibDatenstruktur;
+using ScottPlot;
+using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtBlinker.Model;
-using LibDatenstruktur;
-using ScottPlot;
 
 namespace DtBlinker.ViewModel;
 public enum WpfObjects
@@ -24,9 +25,6 @@ public enum WpfObjects
 public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelBlinker _modelBlinker;
-    private LibWpf.LibWpf _libWpfTabBeschreibung;
-    private LibWpf.LibWpf _libWpfLaborPlatte;
-    private LibWpf.LibWpf _libWpfSimulation;
     private WpfPlot _scottPlot;
     private readonly double[] _zeitachse;
     private short _nextDataIndex = 1;
@@ -67,9 +65,8 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarkeitUmschalten(_modelBlinker.S5, (int)WpfObjects.S5);
 
         FarbeUmschalten(_modelBlinker.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
-        
+
         ScottPlotAktualisieren();
-        ErrorAnzeigen();
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
@@ -86,23 +83,17 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     }
     protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
-    public override void BeschreibungZeichnen(TabItem tabItem) => _libWpfTabBeschreibung = TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
-    public override void LaborPlatteZeichnen(TabItem tabItem) => _libWpfLaborPlatte = TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
+    public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
+    public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
     public override void SimulationZeichnen(TabItem tabItem)
     {
-        (_libWpfSimulation, _scottPlot) = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
+        _scottPlot = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
 
         _scottPlot.Plot.YLabel("Leuchtmelder");
         _scottPlot.Plot.XLabel("Zeit [ms]");
 
         _scottPlot.Plot.AddScatter(_zeitachse, WertLeuchtMelder, label: "LED");
 
-    }
-    private void ErrorAnzeigen()
-    {
-        _libWpfTabBeschreibung?.PlcError(PlcDaemon, Datenstruktur);
-        _libWpfLaborPlatte?.PlcError(PlcDaemon, Datenstruktur);
-        _libWpfSimulation?.PlcError(PlcDaemon, Datenstruktur);
     }
     private void ScottPlotAktualisieren()
     {

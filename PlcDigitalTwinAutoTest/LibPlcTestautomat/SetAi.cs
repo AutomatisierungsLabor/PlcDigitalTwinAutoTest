@@ -12,7 +12,7 @@ public partial class TestAutomat
 
         if (datenTyp == "uint16")
         {
-            var ai = new Uint(((ulong)functionEventArgs.Parameters[1].ToInteger()));
+            var ai = new Uint((ulong)functionEventArgs.Parameters[1].ToInteger());
             _datenstruktur.Ai[0] = Simatic.Digital_GetLowByte((uint)ai.GetDec());
             _datenstruktur.Ai[1] = Simatic.Digital_GetHighByte((uint)ai.GetDec());
         }

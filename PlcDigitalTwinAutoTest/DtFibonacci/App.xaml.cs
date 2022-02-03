@@ -1,8 +1,8 @@
-﻿using System.Threading;
-using BasePlcDtAt;
+﻿using BasePlcDtAt;
 using DtFibonacci.Model;
 using DtFibonacci.ViewModel;
 using LibDatenstruktur;
+using System.Threading;
 
 namespace DtFibonacci;
 
@@ -20,7 +20,7 @@ public partial class App
 
         var vmFibonacci = new VmFibonacci(ModelFibonacci, datenstruktur, _cancellationTokenSource);
 
-        var baseWindow = new BaseWindow(vmFibonacci, datenstruktur, (int)BasePlcDtAt.BaseViewModel.VmBase.WpfBase.TabSimulation, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmFibonacci, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
         baseWindow.Show();
     }
 }

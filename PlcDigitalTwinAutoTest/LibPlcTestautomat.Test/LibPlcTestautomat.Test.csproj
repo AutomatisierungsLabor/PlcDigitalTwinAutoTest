@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
-    <ProjectReference Include="..\LibTestDatensammlung\Contracts.csproj" />
   </ItemGroup>
 
 </Project>

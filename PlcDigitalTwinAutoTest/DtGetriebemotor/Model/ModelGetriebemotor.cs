@@ -1,5 +1,5 @@
-﻿using System.Threading;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
+using System.Threading;
 
 namespace DtGetriebemotor.Model;
 
@@ -56,7 +56,7 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
             if (Q1) WinkelGetriebemotor += GeschwindigkeitGetriebemotorSchnell;
             if (Q3) WinkelGetriebemotor += GeschwindigkeitGetriebemotorLangsam;
         }
-       
+
 
         if (WinkelGetriebemotor > 360) WinkelGetriebemotor -= 360;
         if (WinkelGetriebemotor < 0) WinkelGetriebemotor += 360;

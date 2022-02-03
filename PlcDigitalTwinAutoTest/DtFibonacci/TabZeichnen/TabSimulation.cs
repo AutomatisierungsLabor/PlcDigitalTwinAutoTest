@@ -1,13 +1,13 @@
-﻿using System.Windows;
+﻿using DtFibonacci.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtFibonacci.ViewModel;
 
 namespace DtFibonacci.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static (LibWpf.LibWpf libWpf, ScottPlot.WpfPlot scottPlot) TabSimulationZeichnen(VmFibonacci vmFibonacci, TabItem tabItem, string hintergrund)
+    public static ScottPlot.WpfPlot TabSimulationZeichnen(VmFibonacci vmFibonacci, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
@@ -18,6 +18,7 @@ public partial class TabZeichnen
         libWpf.KreisRandVis(10, 4, 1, 4, new SolidColorBrush(Colors.Black), new Thickness(2, 2, 2, 2), WpfObjects.P1);
         libWpf.ButtonRounded(25, 4, 1, 4, 30, 15, new Thickness(2, 2, 2, 2), Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S1, false, false);
 
-        return (libWpf, scottPlot);
+        libWpf.PlcError();
+        return scottPlot;
     }
 }

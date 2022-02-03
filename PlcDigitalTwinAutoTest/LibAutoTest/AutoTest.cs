@@ -1,14 +1,16 @@
+using LibAutoTestSilk;
+using LibConfigPlc;
+using LibDatenstruktur;
+using LibPlcKommunikation;
+using LibPlcTestautomat;
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using LibAutoTestSilk;
-using LibConfigPlc;
-using LibDatenstruktur;
-using LibPlcTestautomat;
 
 namespace LibAutoTest;
 
@@ -24,13 +26,12 @@ public class AutoTest
     public AutoTesterSilk AutoTesterSilk { get; set; }
     public LibWpf.LibWpf LibWpfAutoTest { get; set; }
 
-
     private Action<string> _cbPlcConfig;
 
-    public AutoTest(Datenstruktur datenstruktur, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests)
+    public AutoTest(Datenstruktur datenstruktur, PlcDaemon plcDaemon, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests, CancellationTokenSource cancellationTokenSource)
     {
-        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat);
-        VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk);
+        AutoTesterSilk = new AutoTesterSilk(datenstruktur, plcDaemon, configPlc, testAutomat);
+        VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk, cancellationTokenSource);
         tabItem.DataContext = VmAutoTest;
 
         try
@@ -67,6 +68,8 @@ public class AutoTest
         WebBrowser = LibWpfAutoTest.WebBrowser(10, 28, 3, 20, new Thickness(5, 5, 5, 5), Brushes.White);
 
         foreach (var ordner in AlleTestOrdner) StackPanel.Children.Add(LibWpfAutoTest.RadioButton("TestProjekte", ordner.Name, ordner, 14, TestChecked));
+
+        LibWpfAutoTest.PlcError();
     }
     private void TestChecked(object sender, RoutedEventArgs e)
     {

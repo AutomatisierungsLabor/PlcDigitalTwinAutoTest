@@ -1,13 +1,13 @@
-﻿using System.ComponentModel;
-using System.Threading;
-using System.Windows;
-using System.Windows.Controls;
-using BasePlcDtAt.BaseViewModel;
+﻿using BasePlcDtAt.BaseViewModel;
 using LibAutoTest;
 using LibConfigPlc;
 using LibDatenstruktur;
 using LibDisplayPlc;
 using LibPlcTestautomat;
+using System.ComponentModel;
+using System.Threading;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace BasePlcDtAt;
 
@@ -41,9 +41,8 @@ public partial class BaseWindow
 
         TestAutomat = new TestAutomat(Datenstruktur);
 
-        AutoTest = new AutoTest(Datenstruktur, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests);
+        AutoTest = new AutoTest(Datenstruktur, _vmBase.PlcDaemon, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests, _cancellationTokenSource);
         AutoTest.SetCallback(ConfigPlc.SetPath);
-        _vmBase.SetAutoTestRef(AutoTest);
 
         BaseTabControl.SelectedIndex = startUpTabIndex;
         DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc, _cancellationTokenSource);
@@ -54,19 +53,19 @@ public partial class BaseWindow
 
         switch (tc.SelectedIndex)
         {
-            case (int)VmBase.WpfBase.TabBeschreibung:
+            case (int)Contracts.WpfBase.TabBeschreibung:
                 ConfigPlc.SetPathRelativ(PfadConfigPlc);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.BeschreibungAnzeigen;
                 break;
-            case (int)VmBase.WpfBase.TabLaborplatte:
+            case (int)Contracts.WpfBase.TabLaborplatte:
                 ConfigPlc.SetPathRelativ(PfadConfigPlc);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
                 break;
-            case (int)VmBase.WpfBase.TabSimulation:
+            case (int)Contracts.WpfBase.TabSimulation:
                 ConfigPlc.SetPathRelativ(PfadConfigPlc);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.Simulation;
                 break;
-            case (int)VmBase.WpfBase.TabAutoTest:
+            case (int)Contracts.WpfBase.TabAutoTest:
                 AutoTest.ResetSelectedProject();
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.AutomatischerSoftwareTest;
                 break;

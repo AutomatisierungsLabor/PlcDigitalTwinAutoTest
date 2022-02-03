@@ -1,5 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using LibPlcTools;
+﻿using LibPlcTools;
+using System.Collections.ObjectModel;
 
 namespace LibConfigPlc;
 

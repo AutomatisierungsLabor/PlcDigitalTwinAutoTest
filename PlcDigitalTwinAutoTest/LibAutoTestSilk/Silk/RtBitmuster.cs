@@ -1,9 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading;
-using Contracts;
+﻿using Contracts;
 using LibPlcTools;
 using SoftCircuits.Silk;
+using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -17,7 +17,7 @@ public partial class Silk
 
     internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Di[1]);
     internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Da[0], Datenstruktur.Da[1]);
-  
+
     private void BitmusterBlinktTesten(FunctionEventArgs e)
     {
         var bitMuster = e.Parameters[0].ToInteger();

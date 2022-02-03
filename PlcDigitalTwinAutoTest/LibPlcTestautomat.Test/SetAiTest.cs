@@ -29,7 +29,7 @@ public class SetAiTest
         variable1.SetValue(wert);
         variable2.SetValue(datenTyp);
 
-        var arguments = new Variable[] { variable0, variable1, variable2 };
+        var arguments = new[] { variable0, variable1, variable2 };
 
         var functionEventArgs = new FunctionEventArgs("SetAnalogerEingang", arguments, new Variable());
 

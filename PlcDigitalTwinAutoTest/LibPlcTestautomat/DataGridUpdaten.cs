@@ -1,5 +1,5 @@
-﻿using LibPlcTools;
-using Contracts;
+﻿using Contracts;
+using LibPlcTools;
 using SoftCircuits.Silk;
 
 namespace LibPlcTestautomat;
@@ -14,7 +14,7 @@ public partial class TestAutomat
     }
     public void VersionAnzeigen()
     {
-        _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Projektbezeichnung, $"SW PC: {_datenstruktur.VersionsStringLokal}","","",""));
+        _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Projektbezeichnung, $"SW PC: {_datenstruktur.VersionsStringLokal}", "", "", ""));
         _zeilenNummerDataGrid++;
 
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Projektbezeichnung, $"SW PLC: {_datenstruktur.VersionsStringPlc}", "", "", ""));
@@ -24,7 +24,7 @@ public partial class TestAutomat
     {
         var silkTestergebnis = functionEventArgs.Parameters[0].ToString();
         var silkKommentar = functionEventArgs.Parameters[1].ToString();
-        
+
         var ergebnis = silkTestergebnis switch
         {
             "Kommentar" => TestAnzeige.Kommentar,
@@ -36,7 +36,7 @@ public partial class TestAutomat
             "TestEnde" => TestAnzeige.TestEnde,
             _ => TestAnzeige.UnbekanntesErgebnis
         };
-        
+
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", ergebnis, silkKommentar, "", "", ""));
         _zeilenNummerDataGrid++;
     }
@@ -84,5 +84,5 @@ public partial class TestAutomat
     }
 
 
-   
+
 }

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Contracts;
+using LibConfigPlc;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
-using LibConfigPlc;
-using Contracts;
 
 namespace LibAutoTestSilk.ViewModel;
 

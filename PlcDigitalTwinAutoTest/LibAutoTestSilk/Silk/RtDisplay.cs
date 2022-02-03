@@ -1,6 +1,6 @@
-﻿using System.Threading;
-using Contracts;
+﻿using Contracts;
 using LibPlcTools;
+using System.Threading;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -28,7 +28,7 @@ public partial class Silk
 
         _einzelSchrittAusfuehren = false;
     }
-  
+
     private void DataGridAnzeigeUpdaten(TestAnzeige testErgebnis, uint digOutSoll, string silkKommentar)
     {
         var digitalInput = GetDigtalInputWord();

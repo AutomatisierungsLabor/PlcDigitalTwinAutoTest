@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Contracts;
+using SoftCircuits.Silk;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using Contracts;
-using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -92,7 +92,7 @@ public partial class Silk
     }
     private bool FunktionDigAusgaenge(IReadOnlyList<DaTesten> listeDa, Stopwatch aktuelleZeit)
     {
-        if (_daAktuellerSchritt>= listeDa.Count) return true;
+        if (_daAktuellerSchritt >= listeDa.Count) return true;
         var aktZeileDa = listeDa[_daAktuellerSchritt];
 
         var digBitmaske = aktZeileDa.GetBitMaske().GetDec();

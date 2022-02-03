@@ -1,5 +1,4 @@
 ﻿using LibDatenstruktur;
-using SoftCircuits.Silk;
 using Xunit;
 
 namespace LibPlcTestautomat.Test;

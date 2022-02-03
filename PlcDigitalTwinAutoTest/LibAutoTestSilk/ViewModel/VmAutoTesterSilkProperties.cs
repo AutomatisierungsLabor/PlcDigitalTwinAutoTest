@@ -1,8 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using Contracts;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using Contracts;
 
 namespace LibAutoTestSilk.ViewModel;
 

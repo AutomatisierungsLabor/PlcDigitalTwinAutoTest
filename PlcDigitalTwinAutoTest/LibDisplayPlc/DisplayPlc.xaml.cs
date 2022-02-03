@@ -1,7 +1,7 @@
-﻿using System.Threading;
-using System.Windows.Controls;
-using LibConfigPlc;
+﻿using LibConfigPlc;
 using LibDatenstruktur;
+using System.Threading;
+using System.Windows.Controls;
 
 namespace LibDisplayPlc;
 

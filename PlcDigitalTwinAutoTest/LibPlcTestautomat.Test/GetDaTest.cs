@@ -20,7 +20,7 @@ public class GetDaTest
 
         var variable = new Variable();
         variable.SetValue(0);
-        var arguments = new Variable[] { variable };
+        var arguments = new[] { variable };
         var functionEventArgs = new FunctionEventArgs("GetDigitaleAusgaenge", arguments, new Variable());
         testAutomat.GetDigitaleAusgaenge(functionEventArgs);
 

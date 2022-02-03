@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
+using System.Diagnostics;
 
 namespace DtBlinker.Model;
 
@@ -22,7 +22,7 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
 
     private bool _p1Alt;
     private readonly Stopwatch _stopwatch;
-    public ModelBlinker(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource):base(cancellationTokenSource) 
+    public ModelBlinker(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
         _datenstruktur = datenstruktur;
         _datenRangieren = new DatenRangieren(this, _datenstruktur);

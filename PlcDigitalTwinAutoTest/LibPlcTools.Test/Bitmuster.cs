@@ -35,12 +35,12 @@ public class Bitmuster
     {
         Assert.Equal(ergebnis, LibPlcTools.Bitmuster.BitmusterInByteTesten(bitmuster, bitPositon));
     }
-    
+
 
     [Theory]
     [InlineData(new byte[] { 0x00, 0xff }, 0, false)]
     [InlineData(new byte[] { 0x00, 0xff }, 8, true)]
-    public void BitInByteArrayTesten(IReadOnlyList<byte> datenArray, int i,bool expexted)
+    public void BitInByteArrayTesten(IReadOnlyList<byte> datenArray, int i, bool expexted)
     {
         Assert.Equal(expexted, LibPlcTools.Bitmuster.BitInByteArrayTesten(datenArray, i));
     }

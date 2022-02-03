@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Contracts;
+using LibAutoTest.Commands;
+using LibAutoTestSilk;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using LibAutoTest.Commands;
-using LibAutoTestSilk;
+using System.Windows.Media;
 
 namespace LibAutoTest.ViewModel;
 
@@ -21,7 +24,7 @@ public class VmAutoTest
     private readonly AutoTest _autoTest;
     private readonly AutoTesterSilk _autoTesterSilk;
 
-    public VmAutoTest(AutoTest autoTest, AutoTesterSilk autoTesterSilk)
+    public VmAutoTest(AutoTest autoTest, AutoTesterSilk autoTesterSilk, CancellationTokenSource cancellationTokenSource)
     {
         _autoTest = autoTest;
         _autoTesterSilk = autoTesterSilk;
@@ -32,16 +35,58 @@ public class VmAutoTest
             ClkMode.Add(ClickMode.Press);
             SichtbarEin.Add(Visibility.Hidden);
             Text.Add("");
+            Farbe.Add(Brushes.Yellow);
         }
 
-        SichtbarEin[3] = Visibility.Visible;
+        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
 
         SichtbarEin[(int)WpfObjects.TasterStart] = Visibility.Visible;
         Text[(int)WpfObjects.TasterStart] = "Test Starten";
 
         ButtonIsEnabled[(int)WpfObjects.TasterEinzelSchritt] = true;
         Text[(int)WpfObjects.TasterEinzelSchritt] = "Schritt!";
+
+        System.Threading.Tasks.Task.Run(() => ViewModelTask(cancellationTokenSource));
     }
+
+    private void ViewModelTask(CancellationTokenSource cancellationTokenSource)
+    {
+        while (!cancellationTokenSource.IsCancellationRequested)
+        {
+            var errorVersion = !string.Equals(_autoTesterSilk.Datenstruktur.VersionsStringLokal, _autoTesterSilk.Datenstruktur.VersionsStringPlc);
+
+            if (errorVersion || _autoTesterSilk.PlcDaemon.PlcState.PlcError)
+            {
+                SichtbarEin[(int)WpfBase.ErrorAnzeige] = Visibility.Visible;
+                Farbe[(int)WpfBase.ErrorAnzeige] = Brushes.Red;
+            }
+            else
+            {
+                SichtbarEin[(int)WpfBase.ErrorAnzeige] = Visibility.Hidden;
+                SichtbarEin[(int)WpfBase.ErrorMeldung] = Visibility.Hidden;
+                SichtbarEin[(int)WpfBase.ErrorVersionLokal] = Visibility.Hidden;
+                SichtbarEin[(int)WpfBase.ErrorVersionPlc] = Visibility.Hidden;
+            }
+
+            if (_autoTesterSilk.PlcDaemon.PlcState.PlcError)
+            {
+                SichtbarEin[(int)WpfBase.ErrorMeldung] = Visibility.Visible;
+                Text[(int)WpfBase.ErrorMeldung] = _autoTesterSilk.PlcDaemon.PlcState.PlcErrorMessage;
+            }
+
+            if (errorVersion)
+            {
+                SichtbarEin[(int)WpfBase.ErrorVersionLokal] = Visibility.Visible;
+                SichtbarEin[(int)WpfBase.ErrorVersionPlc] = Visibility.Visible;
+
+                Text[(int)WpfBase.ErrorVersionLokal] = _autoTesterSilk.Datenstruktur.VersionsStringLokal;
+                Text[(int)WpfBase.ErrorVersionPlc] = _autoTesterSilk.Datenstruktur.VersionsStringPlc;
+            }
+
+            Thread.Sleep(10);
+        }
+    }
+
     internal void Taster(object id)
     {
         if (id is not Enum enumValue) return;
@@ -108,6 +153,17 @@ public class VmAutoTest
         {
             _text = value;
             OnPropertyChanged(nameof(Text));
+        }
+    }
+
+    private ObservableCollection<Brush> _farbe = new();
+    public ObservableCollection<Brush> Farbe
+    {
+        get => _farbe;
+        set
+        {
+            _farbe = value;
+            OnPropertyChanged(nameof(Farbe));
         }
     }
 

@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
+﻿using Contracts;
 using LibPlcTools;
-using Contracts;
 using SoftCircuits.Silk;
+using System.Diagnostics;
 
 namespace LibPlcTestautomat;
 
@@ -16,7 +16,7 @@ public partial class TestAutomat
 
         var stopwatch = new Stopwatch();
         stopwatch.Start();
-       
+
         while (stopwatch.ElapsedMilliseconds < timeout.DauerMs)
         {
 

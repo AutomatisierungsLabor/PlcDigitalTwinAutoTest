@@ -6,7 +6,7 @@ public partial class LibWpf
     {
         var scotPlot = new ScottPlot.WpfPlot();
 
-        AddToGrid(xPos,xSpan,yPos,ySpan,Grid, scotPlot);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, scotPlot);
 
         return scotPlot;
     }

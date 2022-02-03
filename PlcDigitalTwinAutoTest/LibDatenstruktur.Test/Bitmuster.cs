@@ -10,7 +10,7 @@ public class Bitmuster
     public void ToMany()
     {
         var datenstruktur = new Datenstruktur();
-        
+
         Assert.Throws<ArgumentOutOfRangeException>(() => datenstruktur.SetBitmuster(DatenBereich.Di, 0, true, true, true, true, true, true, true,
             true, true, true, true, true, true));
     }

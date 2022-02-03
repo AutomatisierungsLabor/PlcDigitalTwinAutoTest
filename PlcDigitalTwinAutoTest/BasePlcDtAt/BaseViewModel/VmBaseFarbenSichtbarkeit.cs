@@ -71,14 +71,14 @@ public abstract partial class VmBase
     private ObservableCollection<Thickness> _margin = new();
     public ObservableCollection<Thickness> Margin
     {
-        get=> _margin;
+        get => _margin;
         set
         {
             _margin = value;
             OnPropertyChanged(nameof(Margin));
         }
     }
-    
+
     private ObservableCollection<Point> _transformOrigin = new();
     public ObservableCollection<Point> TransformOrigin
     {

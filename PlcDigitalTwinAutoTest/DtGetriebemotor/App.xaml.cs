@@ -1,14 +1,14 @@
-﻿using System.Threading;
-using BasePlcDtAt;
+﻿using BasePlcDtAt;
 using DtGetriebemotor.Model;
 using DtGetriebemotor.ViewModel;
 using LibDatenstruktur;
+using System.Threading;
 
 namespace DtGetriebemotor;
 
 public partial class App
 {
-    public ModelGetriebemotor ModelGetriebemotor{ get; set; }
+    public ModelGetriebemotor ModelGetriebemotor { get; set; }
     private readonly CancellationTokenSource _cancellationTokenSource = new();
     public App()
     {
@@ -19,7 +19,7 @@ public partial class App
 
         var vmGetriebemotor = new VmGetriebemotor(ModelGetriebemotor, datenstruktur, _cancellationTokenSource);
 
-        var baseWindow = new BaseWindow(vmGetriebemotor, datenstruktur, (int)BasePlcDtAt.BaseViewModel.VmBase.WpfBase.TabLaborplatte, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmGetriebemotor, datenstruktur, (int)Contracts.WpfBase.TabLaborplatte, _cancellationTokenSource);
         baseWindow.Show();
     }
 }

@@ -21,7 +21,7 @@ public class KonvertierungenTest
 
         var variable = new Variable();
         variable.SetValue(zahl);
-        var arguments = new Variable[]{variable};
+        var arguments = new[] { variable };
 
         var functionEventArgs = new FunctionEventArgs("PlcToDec", arguments, new Variable());
         testAutomat.PlcToDec(functionEventArgs);

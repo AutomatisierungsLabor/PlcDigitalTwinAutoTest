@@ -1,8 +1,8 @@
-﻿using System.Threading;
-using BasePlcDtAt;
+﻿using BasePlcDtAt;
 using DtKata.Model;
 using DtKata.ViewModel;
 using LibDatenstruktur;
+using System.Threading;
 
 namespace DtKata;
 public partial class App
@@ -18,7 +18,7 @@ public partial class App
 
         var vmKata = new VmKata(ModelKata, datenstruktur, _cancellationTokenSource);
 
-        var baseWindow = new BaseWindow(vmKata, datenstruktur, (int)BasePlcDtAt.BaseViewModel.VmBase.WpfBase.TabSimulation, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmKata, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
         baseWindow.Show();
     }
 }
