@@ -33,14 +33,12 @@ public class ModelLinearachse : BasePlcDtAt.BaseModel.BaseModel
     private const double SchlittenEndschalterBreite = 10;
     private const double SchlittenLinkerRand = SchlittenEndschalterBreite;
     private const double SchlittenRechterRand = SchlittenBreite - SchlittenEndschalterBreite;
-
-    private readonly Datenstruktur _datenstruktur;
+    
     private readonly DatenRangieren _datenRangieren;
 
     public ModelLinearachse(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
-        _datenstruktur = datenstruktur;
-        _datenRangieren = new DatenRangieren(this, _datenstruktur);
+        _datenRangieren = new DatenRangieren(this, datenstruktur);
 
         S2 = true;
         S9 = true;
@@ -60,5 +58,4 @@ public class ModelLinearachse : BasePlcDtAt.BaseModel.BaseModel
 
         _datenRangieren?.Rangieren();
     }
-    public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }

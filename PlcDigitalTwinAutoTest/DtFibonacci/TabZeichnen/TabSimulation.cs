@@ -11,7 +11,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 30, 40, 30, true);
+        libWpf.GridZeichnen(50, 30, 40, 30, false);
 
         var scottPlot = libWpf.ScottPlot(1, 37, 6, 17);
 

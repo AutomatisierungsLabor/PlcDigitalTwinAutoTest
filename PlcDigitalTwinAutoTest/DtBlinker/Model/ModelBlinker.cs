@@ -16,16 +16,14 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
     public double Tastverhaeltnis { get; set; }
     public double EinZeit { get; set; }
     public double AusZeit { get; set; }
-
-    private readonly Datenstruktur _datenstruktur;
+    
     private readonly DatenRangieren _datenRangieren;
 
     private bool _p1Alt;
     private readonly Stopwatch _stopwatch;
     public ModelBlinker(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
-        _datenstruktur = datenstruktur;
-        _datenRangieren = new DatenRangieren(this, _datenstruktur);
+        _datenRangieren = new DatenRangieren(this, datenstruktur);
 
         _stopwatch = new Stopwatch();
         _stopwatch.Start();
@@ -58,5 +56,4 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
 
         _datenRangieren?.Rangieren();
     }
-    public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }

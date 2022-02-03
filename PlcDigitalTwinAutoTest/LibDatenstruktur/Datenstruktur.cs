@@ -7,7 +7,6 @@ public enum BetriebsartProjekt
     Simulation = 2,
     AutomatischerSoftwareTest = 3
 }
-
 public enum DatenBereich
 {
     Di = 0,
@@ -39,7 +38,7 @@ public class Datenstruktur
         DiagrammZeitbereich = 20;
         BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
     }
-
+    public void SetVersionLokal(string vLokal) => VersionsStringLokal = vLokal;
     public void SetBitmuster(DatenBereich datenBereich, short offset, params bool[] bits)
     {
         byte wert = 0;

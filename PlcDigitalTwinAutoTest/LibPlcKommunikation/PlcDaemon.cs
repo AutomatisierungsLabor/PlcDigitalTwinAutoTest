@@ -16,14 +16,15 @@ public class PlcDaemon
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-    public PlcKeine PlcKeine { get; set; }
-    public PlcBeckhoff PlcBeckhoff { get; set; }
-    public PlcSiemens PlcSiemens { get; set; }
+
     public PlcState PlcState { get; set; }
 
-    public byte[] PcToPlc = new byte[1024];
-    public byte[] PlcToPc = new byte[1024];
+    private readonly byte[] _pcToPlc;
+    private readonly byte[] _plcToPc;
 
+    private readonly PlcKeine _plcKeine;
+    private readonly PlcBeckhoff _plcBeckhoff;
+    private readonly PlcSiemens _plcSiemens;
     private readonly Datenstruktur _datenstruktur;
     private readonly IpAdressenSiemens _ipAdressenSiemens;
     private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
@@ -37,6 +38,9 @@ public class PlcDaemon
         _datenstruktur = datenstruktur;
         _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
         _cancellationTokenSource = cancellationTokenSource;
+
+        _pcToPlc = new byte[1024];
+        _plcToPc = new byte[1024];
 
         Log.Debug("SPS pingen");
 
@@ -58,9 +62,9 @@ public class PlcDaemon
             Log.Debug("Datei nicht gefunden: IpAdressenBeckhoff.json" + ex);
         }
 
-        PlcKeine = new PlcKeine(_datenstruktur);
-        PlcBeckhoff = new PlcBeckhoff(_ipAdressenBeckhoff, PcToPlc, PlcToPc);
-        PlcSiemens = new PlcSiemens(_ipAdressenSiemens, PcToPlc, PlcToPc);
+        _plcKeine = new PlcKeine(_datenstruktur);
+        _plcBeckhoff = new PlcBeckhoff(_ipAdressenBeckhoff, _pcToPlc, _plcToPc);
+        _plcSiemens = new PlcSiemens(_ipAdressenSiemens, _pcToPlc, _plcToPc);
 
         Task.Run(PlcDaemonTask);
     }
@@ -69,8 +73,8 @@ public class PlcDaemon
         var pingBeckhoff = new Ping();
         var pingSiemens = new Ping();
 
-        PlcKeine.PlcTask();
-        PlcState = PlcKeine.State;
+        _plcKeine.PlcTask();
+        PlcState = _plcKeine.State;
 
         while (!_cancellationTokenSource.IsCancellationRequested)
         {
@@ -103,17 +107,17 @@ public class PlcDaemon
                     break;
 
                 case PlcDaemonStatus.SpsBeckhoff:
-                    PlcBeckhoff.PlcTask();
-                    PlcState = PlcBeckhoff.State;
+                    _plcBeckhoff.PlcTask();
+                    PlcState = _plcBeckhoff.State;
                     DatenPcToPlcRangieren();
-                    if (PlcBeckhoff.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+                    if (_plcBeckhoff.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
                     break;
 
                 case PlcDaemonStatus.SpsSiemens:
-                    PlcSiemens.PlcTask();
-                    PlcState = PlcSiemens.State;
+                    _plcSiemens.PlcTask();
+                    PlcState = _plcSiemens.State;
                     DatenPcToPlcRangieren();
-                    if (PlcSiemens.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+                    if (_plcSiemens.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
                     break;
 
                 default:
@@ -152,16 +156,16 @@ public class PlcDaemon
 
         var versionsStringPlc = new byte[256];
 
-        if (anzDi + anzAi + anzBefehle > PlcSiemens.AnzBytePcToPlc) throw new ArgumentOutOfRangeException();
-        if (anzDa + anzAa + anzVersionsbez > PlcSiemens.AnzBytePlcToPc) throw new ArgumentOutOfRangeException();
+        if (anzDi + anzAi + anzBefehle > _plcSiemens.AnzBytePcToPlc) throw new ArgumentOutOfRangeException();
+        if (anzDa + anzAa + anzVersionsbez > _plcSiemens.AnzBytePlcToPc) throw new ArgumentOutOfRangeException();
 
-        Buffer.BlockCopy(_datenstruktur.Di, 0, PcToPlc, anfangDi, anzDi);
-        Buffer.BlockCopy(_datenstruktur.Ai, 0, PcToPlc, anfangAi, anzAi);
-        Buffer.BlockCopy(_datenstruktur.BefehlePlc, 0, PcToPlc, anfangBefehle, anzBefehle);
+        Buffer.BlockCopy(_datenstruktur.Di, 0, _pcToPlc, anfangDi, anzDi);
+        Buffer.BlockCopy(_datenstruktur.Ai, 0, _pcToPlc, anfangAi, anzAi);
+        Buffer.BlockCopy(_datenstruktur.BefehlePlc, 0, _pcToPlc, anfangBefehle, anzBefehle);
 
-        Buffer.BlockCopy(PlcToPc, anfangDa, _datenstruktur.Da, 0, anzDa);
-        Buffer.BlockCopy(PlcToPc, anfangAa, _datenstruktur.Aa, 0, anzAa);
-        Buffer.BlockCopy(PlcToPc, anfangVersion, versionsStringPlc, 0, anzVersionsbez);
+        Buffer.BlockCopy(_plcToPc, anfangDa, _datenstruktur.Da, 0, anzDa);
+        Buffer.BlockCopy(_plcToPc, anfangAa, _datenstruktur.Aa, 0, anzAa);
+        Buffer.BlockCopy(_plcToPc, anfangVersion, versionsStringPlc, 0, anzVersionsbez);
 
         var textLaenge = 0;
         for (var i = 0; i < 255; i++)

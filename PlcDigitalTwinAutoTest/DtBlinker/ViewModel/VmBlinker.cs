@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace DtBlinker.ViewModel;
+
 public enum WpfObjects
 {
     // ReSharper disable once UnusedMember.Global
@@ -28,12 +29,12 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     private WpfPlot _scottPlot;
     private readonly double[] _zeitachse;
     private short _nextDataIndex = 1;
-    public double[] WertLeuchtMelder { get; set; } = new double[5_000];
-
+    private readonly double[] _wertLeuchtMelder;
 
     public VmBlinker(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
-        _zeitachse = DataGen.Consecutive(5000);
+        _wertLeuchtMelder = new double[5_000];
+        _zeitachse = DataGen.Consecutive(5_000);
 
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
@@ -92,8 +93,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         _scottPlot.Plot.YLabel("Leuchtmelder");
         _scottPlot.Plot.XLabel("Zeit [ms]");
 
-        _scottPlot.Plot.AddScatter(_zeitachse, WertLeuchtMelder, label: "LED");
-
+        _scottPlot.Plot.AddScatter(_zeitachse, _wertLeuchtMelder, label: "LED");
     }
     private void ScottPlotAktualisieren()
     {
@@ -101,7 +101,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 
         for (var i = 0; i < 10; i++)
         {
-            WertLeuchtMelder[_nextDataIndex + i] = _modelBlinker.P1 ? 1 : 0;
+            _wertLeuchtMelder[_nextDataIndex + i] = _modelBlinker.P1 ? 1 : 0;
         }
 
         _nextDataIndex += 10;

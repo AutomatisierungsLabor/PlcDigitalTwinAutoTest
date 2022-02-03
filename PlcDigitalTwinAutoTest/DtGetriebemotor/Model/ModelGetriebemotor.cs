@@ -28,14 +28,12 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
 
     private const double GeschwindigkeitGetriebemotorLangsam = 1;
     private const double GeschwindigkeitGetriebemotorSchnell = 2 * GeschwindigkeitGetriebemotorLangsam;
-
-    private readonly Datenstruktur _datenstruktur;
+    
     private readonly DatenRangieren _datenRangieren;
 
     public ModelGetriebemotor(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
-        _datenstruktur = datenstruktur;
-        _datenRangieren = new DatenRangieren(this, _datenstruktur);
+        _datenRangieren = new DatenRangieren(this, datenstruktur);
 
         S2 = true;
         S4 = true;
@@ -66,5 +64,4 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
 
         _datenRangieren?.Rangieren();
     }
-    public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }

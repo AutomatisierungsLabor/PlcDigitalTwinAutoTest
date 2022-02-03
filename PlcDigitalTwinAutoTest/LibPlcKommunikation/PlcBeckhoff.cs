@@ -4,7 +4,7 @@ namespace LibPlcKommunikation;
 
 public class PlcBeckhoff : IPlc
 {
-    public enum BeckhoffStatus
+    private enum BeckhoffStatus
     {
         Initialisieren = 0,
         Verbinden = 1,
@@ -57,7 +57,6 @@ public class PlcBeckhoff : IPlc
                     Log.Debug("Beckhoff Initialisieren: " + e);
                     throw;
                 }
-
                 break;
 
             case BeckhoffStatus.Verbinden:
@@ -79,7 +78,6 @@ public class PlcBeckhoff : IPlc
                     Log.Debug("Beckhoff Kommunizieren: " + e);
                     throw;
                 }
-
                 break;
 
             default:

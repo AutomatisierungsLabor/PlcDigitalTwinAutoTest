@@ -2,9 +2,9 @@
 
 public class IpAdressenBeckhoff
 {
-    public string IpAdresse { get; set; }
-    public string AmsNetId { get; set; }
-    public int Port { get; set; }
+    internal string IpAdresse { get; set; }
+    internal string AmsNetId { get; set; }
+    internal int Port { get; set; }
     // ReSharper disable once UnusedMember.Global
-    public string Description { get; set; }
+    internal string Description { get; set; }
 }

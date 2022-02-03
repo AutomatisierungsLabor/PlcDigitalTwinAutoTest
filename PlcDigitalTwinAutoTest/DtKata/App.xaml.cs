@@ -7,18 +7,16 @@ using System.Threading;
 namespace DtKata;
 public partial class App
 {
-    public ModelKata ModelKata { get; set; }
     private readonly CancellationTokenSource _cancellationTokenSource = new();
     public App()
     {
         var datenstruktur = new Datenstruktur();
+        datenstruktur.SetVersionLokal("Kata" + " " + "V3.0");
 
-        ModelKata = new ModelKata(datenstruktur, _cancellationTokenSource);
-        ModelKata.SetVersionLokal("Kata" + " " + "V3.0");
-
-        var vmKata = new VmKata(ModelKata, datenstruktur, _cancellationTokenSource);
-
+        var modelKata = new ModelKata(datenstruktur, _cancellationTokenSource);
+        var vmKata = new VmKata(modelKata, datenstruktur, _cancellationTokenSource);
         var baseWindow = new BaseWindow(vmKata, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
+
         baseWindow.Show();
     }
 }
