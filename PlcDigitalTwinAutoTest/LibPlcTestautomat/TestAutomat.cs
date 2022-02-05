@@ -24,7 +24,7 @@ public partial class TestAutomat
         _stopwatch.Start();
     }
 
-    public void SetCallbackDatagridUpdaten(Action<DataGridZeile> action) => _cbUpdateDataGrid = action;
+    public void SetCallbackDatagridUpdaten(Action<DataGridZeile> callBack) => _cbUpdateDataGrid = callBack;
     public void SetDiagrammZeitbereich(FunctionEventArgs e) => _datenstruktur.DiagrammZeitbereich = e.Parameters[0].ToInteger();
     public void SetDataGridBitAnzahl()
     {

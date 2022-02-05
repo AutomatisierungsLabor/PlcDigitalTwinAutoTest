@@ -14,6 +14,6 @@ public partial class Silk
 
         runtime.Execute();
     }
-    public void Runtime_Begin(object sender, BeginEventArgs e) => VmAutoTesterSilk.DataGridKommentarAnzeigen(VmAutoTesterSilk.ZeilenNummerDataGrid++, $"{TestAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.TestStart, " ");
-    private void Runtime_End(object sender, EndEventArgs e) => VmAutoTesterSilk.DataGridKommentarAnzeigen(VmAutoTesterSilk.ZeilenNummerDataGrid++, $"{TestAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.TestEnde, " ");
+    public void Runtime_Begin(object sender, BeginEventArgs e) => TestAutomat.InfoAnzeigen($"{TestAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.TestStart, " ");
+    private void Runtime_End(object sender, EndEventArgs e) => TestAutomat.InfoAnzeigen($"{TestAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.TestEnde, " ");
 }

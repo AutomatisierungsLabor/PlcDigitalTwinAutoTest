@@ -24,14 +24,13 @@ public class AutoTest
     public WebBrowser WebBrowser { get; set; }
     public ViewModel.VmAutoTest VmAutoTest { get; set; }
     public AutoTesterSilk AutoTesterSilk { get; set; }
-    public LibWpf.LibWpf LibWpfAutoTest { get; set; }
 
     private Action<string> _cbPlcConfig;
 
     public AutoTest(Datenstruktur datenstruktur, PlcDaemon plcDaemon, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests, CancellationTokenSource cancellationTokenSource)
     {
-        AutoTesterSilk = new AutoTesterSilk(datenstruktur, plcDaemon, configPlc, testAutomat);
-        VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk, cancellationTokenSource);
+        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat);
+        VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk,datenstruktur, plcDaemon, cancellationTokenSource);
         tabItem.DataContext = VmAutoTest;
 
         try
@@ -51,25 +50,26 @@ public class AutoTest
             throw;
         }
 
-        LibWpfAutoTest = new LibWpf.LibWpf(tabItem);
-        LibWpfAutoTest.SetBackground(Brushes.Yellow);
-        LibWpfAutoTest.GridZeichnen(56, 30, 30, 30, false);
+        var libWpfAutoTest = new LibWpf.LibWpf(tabItem);
+
+        libWpfAutoTest.SetBackground(Brushes.Yellow);
+        libWpfAutoTest.GridZeichnen(56, 30, 30, 30, false);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
-        LibWpfAutoTest.ButtonRounded(1, 3, 1, 2, 20, 15, buttonRand, Brushes.LawnGreen, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
+        libWpfAutoTest.ButtonRounded(1, 3, 1, 2, 20, 15, buttonRand, Brushes.LawnGreen, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
 
-        LibWpfAutoTest.Text("Einzelschritt", 5, 5, 1, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        LibWpfAutoTest.CheckBox(9, 1, 1, 2, new Thickness(2, 2, 2, 2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.CheckBoxEinzelSchritt);
+        libWpfAutoTest.Text("Einzelschritt", 5, 5, 1, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpfAutoTest.CheckBox(9, 1, 1, 2, new Thickness(2, 2, 2, 2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.CheckBoxEinzelSchritt);
 
-        LibWpfAutoTest.ButtonRounded(11, 3, 1, 2, 20, 15, new Thickness(2, 2, 2, 2), Brushes.LawnGreen, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
+        libWpfAutoTest.ButtonRounded(11, 3, 1, 2, 20, 15, new Thickness(2, 2, 2, 2), Brushes.LawnGreen, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
 
 
-        StackPanel = LibWpfAutoTest.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);
-        WebBrowser = LibWpfAutoTest.WebBrowser(10, 28, 3, 20, new Thickness(5, 5, 5, 5), Brushes.White);
+        StackPanel = libWpfAutoTest.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);
+        WebBrowser = libWpfAutoTest.WebBrowser(10, 28, 3, 20, new Thickness(5, 5, 5, 5), Brushes.White);
 
-        foreach (var ordner in AlleTestOrdner) StackPanel.Children.Add(LibWpfAutoTest.RadioButton("TestProjekte", ordner.Name, ordner, 14, TestChecked));
+        foreach (var ordner in AlleTestOrdner) StackPanel.Children.Add(libWpfAutoTest.RadioButton("TestProjekte", ordner.Name, ordner, 14, TestChecked));
 
-        LibWpfAutoTest.PlcError();
+        libWpfAutoTest.PlcError();
     }
     private void TestChecked(object sender, RoutedEventArgs e)
     {
@@ -82,6 +82,8 @@ public class AutoTest
         _cbPlcConfig(AktuellesProjekt.ToString());
 
         Log.Debug("Test ausgewählt: " + AktuellesProjekt.Name);
+
+        AutoTesterSilk.AutoTestFensterOeffnen();
 
         var dateiName = Path.Combine(AktuellesProjekt.FullName, "index.html");
         var htmlSeite = File.Exists(dateiName) ? File.ReadAllText(dateiName) : "--??--";

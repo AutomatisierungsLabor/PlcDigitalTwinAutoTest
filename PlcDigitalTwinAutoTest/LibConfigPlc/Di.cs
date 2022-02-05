@@ -6,7 +6,7 @@ namespace LibConfigPlc;
 public class Di : EaConfig<DiEinstellungen>
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-    private readonly SharedFunctions _sharedFunctions = new();
+
 
     public Di(ObservableCollection<DiEinstellungen> zeilen) : base(zeilen) { }
     protected override void ConfigTesten(byte[] speicherAbbild)
@@ -27,31 +27,31 @@ public class Di : EaConfig<DiEinstellungen>
             {
                 case ConfigPlc.EaTypen.Bit:
                     var bitMuster = Bitmuster.BitmusterErzeugen(zeile.StartBit);
-                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, bitMuster)) LogConfigError(zeile);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, bitMuster)) LogConfigError(zeile);
                     break;
                 case ConfigPlc.EaTypen.Byte:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
-                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
                 case ConfigPlc.EaTypen.Word:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
-                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
-                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) LogConfigError(zeile);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) LogConfigError(zeile);
                     break;
                 case ConfigPlc.EaTypen.Ascii:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
-                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
                 case ConfigPlc.EaTypen.BitmusterByte:
                     if (zeile.StartBit > 0) LogConfigError(zeile);
-                    if (_sharedFunctions.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
                 case ConfigPlc.EaTypen.NichtBelegt: break;
                 default: LogConfigError(zeile); break;
             }
         }
 
-        AnzByte = _sharedFunctions.AnzByteEinlesen(speicherAbbild);
+        AnzByte = Bytes.AnzByteEinlesen(speicherAbbild);
     }
 
     private void LogConfigError(DiEinstellungen zeile)

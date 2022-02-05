@@ -22,7 +22,7 @@ public partial class AutoTesterWindow
         {
             var count = vmAutoTesterSilk.DataGridZeilen.Count;
             if (count < 1) return;
-
+            
             for (var zeile = 0; zeile < count; zeile++)
             {
                 var row = (DataGridRow)DataGrid.ItemContainerGenerator.ContainerFromIndex(zeile);
@@ -65,7 +65,6 @@ public partial class AutoTesterWindow
                 FensterAktiv = true;
                 Show();
             }
-
         };
     }
 }

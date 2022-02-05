@@ -11,7 +11,7 @@ public partial class App
     public App()
     {
         var datenstruktur = new Datenstruktur();
-        datenstruktur.SetVersionLokal("Kata" + " " + "V3.0");
+        datenstruktur.SetVersionLokal("Kata V3.0");
 
         var modelKata = new ModelKata(datenstruktur, _cancellationTokenSource);
         var vmKata = new VmKata(modelKata, datenstruktur, _cancellationTokenSource);

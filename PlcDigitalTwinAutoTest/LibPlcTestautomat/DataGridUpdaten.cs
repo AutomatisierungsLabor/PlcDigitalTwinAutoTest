@@ -6,6 +6,11 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
+    public void InfoAnzeigen(string zeit, TestAnzeige testAnzeige, string kommentar)
+    {
+        _zeilenNummerDataGrid++;
+        _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, zeit, testAnzeige, kommentar, "", "", ""));
+    }
     public void KommentarAnzeigen(FunctionEventArgs functionEventArgs)
     {
         var kommentar = functionEventArgs.Parameters[0].ToString();
@@ -45,7 +50,7 @@ public partial class TestAutomat
         var diIst = new Uint(GetDigtalInputWord().ToString());
         var daIst = new Uint(GetDigitalOutputWord().ToString());
         var daSoll = new Uint(digOutSoll.ToString());
-
+       
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid,
             $"{GetElapsedMilliseconds()}ms",
             testErgebnis,
@@ -53,6 +58,7 @@ public partial class TestAutomat
             daSoll.GetBinBit(GetAnzahlBitAusgaenge()),
             daIst.GetBinBit(GetAnzahlBitAusgaenge()),
             silkKommentar));
+       
 
         // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         /*

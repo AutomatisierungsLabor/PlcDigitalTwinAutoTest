@@ -35,7 +35,6 @@ public class PlcSiemens : IPlc
         _pcToPlc = pcToPlc;
         _plcToPc = plcToPc;
         _s7Client = new S7Client();
-
     }
     public PlcState State => new()
     {

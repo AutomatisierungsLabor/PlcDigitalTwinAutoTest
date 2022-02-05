@@ -13,7 +13,7 @@ public partial class App
     public App()
     {
         var datenstruktur = new Datenstruktur();
-        datenstruktur.SetVersionLokal("Blinker" + " " + "V3.0");
+        datenstruktur.SetVersionLokal("Blinker V3.0");
 
         var modelBlinker = new ModelBlinker(datenstruktur, _cancellationTokenSource);
         var vmBlinker = new VmBlinker(modelBlinker, datenstruktur, _cancellationTokenSource);

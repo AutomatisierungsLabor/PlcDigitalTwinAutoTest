@@ -82,16 +82,13 @@ public class Datenstruktur
     }
     public bool SimulationAktiv()
     {
-        switch (BetriebsartProjekt)
+        return BetriebsartProjekt switch
         {
-
-            case BetriebsartProjekt.Simulation:
-            case BetriebsartProjekt.AutomatischerSoftwareTest:
-                return true;
-            case BetriebsartProjekt.BeschreibungAnzeigen:
-            case BetriebsartProjekt.LaborPlatte:
-            default:
-                return false;
-        }
+            BetriebsartProjekt.Simulation => true,
+            BetriebsartProjekt.AutomatischerSoftwareTest => true,
+            BetriebsartProjekt.BeschreibungAnzeigen => false,
+            BetriebsartProjekt.LaborPlatte => false,
+            _ => false
+        };
     }
 }

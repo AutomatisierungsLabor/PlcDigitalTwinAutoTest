@@ -12,7 +12,7 @@ public partial class App
     public App()
     {
         var datenstruktur = new Datenstruktur();
-        datenstruktur.SetVersionLokal("Linearachse" + " " + "V3.0");
+        datenstruktur.SetVersionLokal("Linearachse V3.0");
 
         var modelLinearachse = new ModelLinearachse(datenstruktur, _cancellationTokenSource);
         var vmLinearachse = new VmLinearachse(modelLinearachse, datenstruktur, _cancellationTokenSource);

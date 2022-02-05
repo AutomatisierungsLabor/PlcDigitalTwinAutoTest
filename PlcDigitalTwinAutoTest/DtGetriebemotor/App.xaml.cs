@@ -13,7 +13,7 @@ public partial class App
     public App()
     {
         var datenstruktur = new Datenstruktur();
-        datenstruktur.SetVersionLokal("Getriebemotor" + " " + "V3.0");
+        datenstruktur.SetVersionLokal("Getriebemotor V3.0");
 
         var modelGetriebemotor = new ModelGetriebemotor(datenstruktur, _cancellationTokenSource);
         var vmGetriebemotor = new VmGetriebemotor(modelGetriebemotor, datenstruktur, _cancellationTokenSource);

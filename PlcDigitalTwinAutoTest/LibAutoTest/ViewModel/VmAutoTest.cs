@@ -9,6 +9,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using LibDatenstruktur;
+using LibPlcKommunikation;
 
 namespace LibAutoTest.ViewModel;
 
@@ -23,11 +25,13 @@ public class VmAutoTest
 
     private readonly AutoTest _autoTest;
     private readonly AutoTesterSilk _autoTesterSilk;
+    private readonly PlcDaemon _plcDaemon;
 
-    public VmAutoTest(AutoTest autoTest, AutoTesterSilk autoTesterSilk, CancellationTokenSource cancellationTokenSource)
+    public VmAutoTest(AutoTest autoTest, AutoTesterSilk autoTesterSilk, Datenstruktur datenstruktur, PlcDaemon plcDaemon, CancellationTokenSource cancellationTokenSource)
     {
         _autoTest = autoTest;
         _autoTesterSilk = autoTesterSilk;
+        _plcDaemon = plcDaemon;
 
         for (var i = 0; i < 100; i++)
         {
@@ -46,16 +50,15 @@ public class VmAutoTest
         ButtonIsEnabled[(int)WpfObjects.TasterEinzelSchritt] = true;
         Text[(int)WpfObjects.TasterEinzelSchritt] = "Schritt!";
 
-        System.Threading.Tasks.Task.Run(() => ViewModelTask(cancellationTokenSource));
+        System.Threading.Tasks.Task.Run(() => ViewModelTask(datenstruktur, cancellationTokenSource));
     }
-
-    private void ViewModelTask(CancellationTokenSource cancellationTokenSource)
+    private void ViewModelTask(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
         while (!cancellationTokenSource.IsCancellationRequested)
         {
-            var errorVersion = !string.Equals(_autoTesterSilk.Datenstruktur.VersionsStringLokal, _autoTesterSilk.Datenstruktur.VersionsStringPlc);
+            var errorVersion = !string.Equals(datenstruktur.VersionsStringLokal, datenstruktur.VersionsStringPlc);
 
-            if (errorVersion || _autoTesterSilk.PlcDaemon.PlcState.PlcError)
+            if (errorVersion || _plcDaemon.PlcState.PlcError)
             {
                 SichtbarEin[(int)WpfBase.ErrorAnzeige] = Visibility.Visible;
                 Farbe[(int)WpfBase.ErrorAnzeige] = Brushes.Red;
@@ -68,10 +71,10 @@ public class VmAutoTest
                 SichtbarEin[(int)WpfBase.ErrorVersionPlc] = Visibility.Hidden;
             }
 
-            if (_autoTesterSilk.PlcDaemon.PlcState.PlcError)
+            if (_plcDaemon.PlcState.PlcError)
             {
                 SichtbarEin[(int)WpfBase.ErrorMeldung] = Visibility.Visible;
-                Text[(int)WpfBase.ErrorMeldung] = _autoTesterSilk.PlcDaemon.PlcState.PlcErrorMessage;
+                Text[(int)WpfBase.ErrorMeldung] = _plcDaemon.PlcState.PlcErrorMessage;
             }
 
             if (errorVersion)
@@ -79,14 +82,13 @@ public class VmAutoTest
                 SichtbarEin[(int)WpfBase.ErrorVersionLokal] = Visibility.Visible;
                 SichtbarEin[(int)WpfBase.ErrorVersionPlc] = Visibility.Visible;
 
-                Text[(int)WpfBase.ErrorVersionLokal] = _autoTesterSilk.Datenstruktur.VersionsStringLokal;
-                Text[(int)WpfBase.ErrorVersionPlc] = _autoTesterSilk.Datenstruktur.VersionsStringPlc;
+                Text[(int)WpfBase.ErrorVersionLokal] = datenstruktur.VersionsStringLokal;
+                Text[(int)WpfBase.ErrorVersionPlc] = datenstruktur.VersionsStringPlc;
             }
 
             Thread.Sleep(10);
         }
     }
-
     internal void Taster(object id)
     {
         if (id is not Enum enumValue) return;
@@ -94,7 +96,7 @@ public class VmAutoTest
         switch (enumValue)
         {
             case WpfObjects.TasterStart:
-                _autoTest.AutoTesterSilk.TestStarten();
+                _autoTest.AutoTesterSilk.AutoTestStarten();
                 break;
             case WpfObjects.CheckBoxEinzelSchritt:
                 ToggleSichtbarkeit(WpfObjects.TasterEinzelSchritt);
@@ -109,8 +111,6 @@ public class VmAutoTest
     }
 
     internal void ToggleSichtbarkeit(WpfObjects id) => SichtbarEin[(int)id] = SichtbarEin[(int)id] == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
-
-
 
     private ObservableCollection<bool> _buttonIsEnabled = new();
     public ObservableCollection<bool> ButtonIsEnabled

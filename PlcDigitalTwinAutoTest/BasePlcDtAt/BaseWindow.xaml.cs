@@ -76,8 +76,8 @@ public partial class BaseWindow
     }
     private void PlcButtonClick(object sender, RoutedEventArgs e)
     {
-        if (DisplayPlc.FensterAktiv) DisplayPlc.Schliessen();
-        else DisplayPlc.Oeffnen();
+        if (DisplayPlc.FensterAktiv) DisplayPlc.PlcFensterAusblenden();
+        else DisplayPlc.PlcFensterAnzeigen();
     }
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _vmBase.PlotterButtonClick(sender, e);
     private void BaseWindow_OnClosing(object sender, CancelEventArgs e)

@@ -2,7 +2,6 @@ using Contracts;
 using LibAutoTestSilk.ViewModel;
 using LibConfigPlc;
 using LibDatenstruktur;
-using LibPlcKommunikation;
 using LibPlcTestautomat;
 using SoftCircuits.Silk;
 using System.IO;
@@ -11,68 +10,61 @@ namespace LibAutoTestSilk;
 
 public class AutoTesterSilk
 {
-    public AutoTesterWindow AutoTesterWindow;
-    public VmAutoTesterSilk VmAutoTesterSilk { get; set; }
-    public Datenstruktur Datenstruktur { get; set; }
-    public ConfigPlc ConfigPlc { get; set; }
-    public TestAutomat TestAutomat { get; set; }
     public Silk.Silk Silk { get; set; }
-    public DirectoryInfo OrdnerAktuellesProjekt { get; set; }
-    public PlcDaemon PlcDaemon { get; set; }
 
+    private readonly AutoTesterWindow _autoTesterWindow;
+    private readonly VmAutoTesterSilk _vmAutoTesterSilk;
+    private readonly Datenstruktur _datenstruktur;
+    private readonly ConfigPlc _configPlc;
+    private readonly TestAutomat _testAutomat;
+    private DirectoryInfo _ordnerAktuellesProjekt;
     private bool _compilerlaufErfolgreich;
     private CompiledProgram _compiledProgram;
 
-
-    public AutoTesterSilk(Datenstruktur datenstruktur, PlcDaemon plcDaemon, ConfigPlc configPlc, TestAutomat testAutomat)
+    public AutoTesterSilk(Datenstruktur datenstruktur, ConfigPlc configPlc, TestAutomat testAutomat)
     {
-        Datenstruktur = datenstruktur;
-        PlcDaemon = plcDaemon;
-        ConfigPlc = configPlc;
-        TestAutomat = testAutomat;
+        _datenstruktur = datenstruktur;
+        _configPlc = configPlc;
+        _testAutomat = testAutomat;
 
-        VmAutoTesterSilk = new VmAutoTesterSilk();
-        AutoTesterWindow = new AutoTesterWindow(VmAutoTesterSilk);
+        _vmAutoTesterSilk = new VmAutoTesterSilk();
+        _autoTesterWindow = new AutoTesterWindow(_vmAutoTesterSilk);
 
-        TestAutomat.SetReferenzen(VmAutoTesterSilk.ZeilenNummerDataGrid);
-        TestAutomat.SetCallbackDatagridUpdaten(VmAutoTesterSilk.UpdateDataGrid);
+        _testAutomat.SetReferenzen(_vmAutoTesterSilk.ZeilenNummerDataGrid);
+        _testAutomat.SetCallbackDatagridUpdaten(_vmAutoTesterSilk.DataGridNeueDaten);
+
         Silk = new Silk.Silk();
     }
     public void SetProjekt(DirectoryInfo ordnerAktuellesProjekt)
     {
-        OrdnerAktuellesProjekt = ordnerAktuellesProjekt;
-        VmAutoTesterSilk.SetNeuesTestProjekt(ordnerAktuellesProjekt, ConfigPlc);
+        _ordnerAktuellesProjekt = ordnerAktuellesProjekt;
+        _vmAutoTesterSilk.SetNeuesTestProjekt(ordnerAktuellesProjekt, _configPlc);
     }
-    public void TestStarten()
-    {
-        AutoTesterWindow.Show();
-        AutoTestStarten();
-    }
-
+    public void AutoTestFensterOeffnen() => _autoTesterWindow.Show();
     public void AutoTestStarten()
     {
         Compiler compiler;
 
-        Silk.ReferenzenUebergeben(VmAutoTesterSilk, Datenstruktur, TestAutomat);
+        Silk.ReferenzenUebergeben(_vmAutoTesterSilk, _datenstruktur, _testAutomat);
 
-        VmAutoTesterSilk.DataGridKommentarAnzeigen(VmAutoTesterSilk.ZeilenNummerDataGrid++, "0", TestAnzeige.CompilerStart, "");
+        _testAutomat.InfoAnzeigen("", TestAnzeige.CompilerStart, "");
 
-        TestAutomat.RestartStopwatch();
+        _testAutomat.RestartStopwatch();
 
-        (_compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(OrdnerAktuellesProjekt.ToString(), "test.ssc", ""));
+        (_compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(_ordnerAktuellesProjekt.ToString(), "test.ssc", ""));
 
         if (_compilerlaufErfolgreich)
         {
-            VmAutoTesterSilk.DataGridKommentarAnzeigen(VmAutoTesterSilk.ZeilenNummerDataGrid++, $"{TestAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.CompilerErfolgreich, "");
+            _testAutomat.InfoAnzeigen($"{_testAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.CompilerErfolgreich, "");
 
-            TestAutomat.RestartStopwatch();
+            _testAutomat.RestartStopwatch();
             Silk.RunProgram(_compiledProgram);
         }
         else
         {
             foreach (var error in compiler.Errors)
             {
-                VmAutoTesterSilk.DataGridKommentarAnzeigen(VmAutoTesterSilk.ZeilenNummerDataGrid++, $"{TestAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.CompilerError, error.ToString());
+                _testAutomat.InfoAnzeigen($"{_testAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.CompilerError, error.ToString());
             }
         }
     }
