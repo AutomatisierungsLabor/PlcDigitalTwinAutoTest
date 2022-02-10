@@ -13,8 +13,7 @@ public class DatenRangieren
         _modelFibonacci = fibonacci;
         _datenstruktur = datenstruktur;
     }
-
-    public void Rangieren()
+    internal void Rangieren()
     {
         if (_datenstruktur.SimulationAktiv())
         {

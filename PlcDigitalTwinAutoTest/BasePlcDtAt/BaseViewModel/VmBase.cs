@@ -14,8 +14,6 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class VmBase
 {
-
-
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     protected abstract void ViewModelAufrufThread();
@@ -23,18 +21,19 @@ public abstract partial class VmBase
     protected abstract void ViewModelAufrufSchalter(Enum schalterId);
 
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
-
-    public Datenstruktur Datenstruktur { get; set; }
     public BaseModel.BaseModel Model { get; set; }
-
     public PlcDaemon PlcDaemon { get; set; }
+
+
+    private readonly Datenstruktur _datenstruktur;
+
     protected VmBase(BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
 
         PlcDaemon = new PlcDaemon(datenstruktur, cancellationTokenSource);
         Model = model;
-        Datenstruktur = datenstruktur;
+        _datenstruktur = datenstruktur;
 
         FensterTitel = "Unbekannter Titel";
 

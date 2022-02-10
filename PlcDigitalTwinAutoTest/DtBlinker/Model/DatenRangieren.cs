@@ -13,8 +13,7 @@ public class DatenRangieren
         _blinker = kata;
         _datenstruktur = datenstruktur;
     }
-
-    public void Rangieren()
+    internal void Rangieren()
     {
         if (_datenstruktur.SimulationAktiv())
         {

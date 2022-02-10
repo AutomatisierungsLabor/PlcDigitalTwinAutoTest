@@ -21,6 +21,7 @@ public enum WpfObjects
 public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelFibonacci _modelFibonacci;
+    private readonly Datenstruktur _datenstruktur;
     private WpfPlot _scottPlot;
     private readonly double[] _zeitachse;
     private short _nextDataIndex = 1;
@@ -28,6 +29,7 @@ public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 
     public VmFibonacci(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
+        _datenstruktur= datenstruktur;
         _wertLeuchtMelder = new double[5_000];
         _zeitachse = DataGen.Consecutive(5000);
 
@@ -48,7 +50,7 @@ public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
     {
         if (_modelFibonacci == null) return;
 
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
+        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelFibonacci.S1, (int)WpfObjects.S1);
 

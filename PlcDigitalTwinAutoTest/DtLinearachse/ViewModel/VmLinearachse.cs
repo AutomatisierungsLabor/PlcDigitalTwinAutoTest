@@ -37,9 +37,12 @@ public enum WpfObjects
 public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLinearachse _modelLinearachse;
+    private readonly Datenstruktur _datenstruktur;
 
     public VmLinearachse(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
+        _datenstruktur= datenstruktur;
+
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
@@ -64,7 +67,7 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
     {
         if (_modelLinearachse == null) return;
 
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
+        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelLinearachse.B1, (int)WpfObjects.B1);
         SichtbarkeitUmschalten(_modelLinearachse.B2, (int)WpfObjects.B2);

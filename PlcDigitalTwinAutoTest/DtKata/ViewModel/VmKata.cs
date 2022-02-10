@@ -34,10 +34,12 @@ public enum WpfObjects
 public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelKata _modelKata;
+    private readonly Datenstruktur _datenstruktur;
 
     public VmKata(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _modelKata = model as ModelKata;
+        _datenstruktur = datenstruktur;
 
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
@@ -55,7 +57,7 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
     protected override void ViewModelAufrufThread()
     {
         if (_modelKata == null) return;
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
+        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelKata.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_modelKata.S2, (int)WpfObjects.S2);

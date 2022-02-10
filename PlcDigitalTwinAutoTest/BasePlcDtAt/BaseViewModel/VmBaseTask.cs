@@ -12,7 +12,7 @@ public abstract partial class VmBase
     {
         while (!cancellationTokenSource.IsCancellationRequested)
         {
-            var errorVersion = !string.Equals(Datenstruktur.VersionsStringLokal, Datenstruktur.VersionsStringPlc);
+            var errorVersion = !string.Equals(_datenstruktur.VersionsStringLokal, _datenstruktur.VersionsStringPlc);
 
             if (errorVersion || PlcDaemon.PlcState.PlcError)
             {
@@ -38,8 +38,8 @@ public abstract partial class VmBase
                 SichtbarEin[(int)WpfBase.ErrorVersionLokal] = Visibility.Visible;
                 SichtbarEin[(int)WpfBase.ErrorVersionPlc] = Visibility.Visible;
 
-                Text[(int)WpfBase.ErrorVersionLokal] = Datenstruktur.VersionsStringLokal;
-                Text[(int)WpfBase.ErrorVersionPlc] = Datenstruktur.VersionsStringPlc;
+                Text[(int)WpfBase.ErrorVersionLokal] = _datenstruktur.VersionsStringLokal;
+                Text[(int)WpfBase.ErrorVersionPlc] = _datenstruktur.VersionsStringPlc;
             }
 
             ViewModelAufrufThread();

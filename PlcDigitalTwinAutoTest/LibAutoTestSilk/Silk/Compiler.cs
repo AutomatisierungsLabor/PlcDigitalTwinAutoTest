@@ -6,9 +6,9 @@ namespace LibAutoTestSilk.Silk;
 
 public partial class Silk
 {
-    public VmAutoTesterSilk VmAutoTesterSilk { get; set; }
-    public Datenstruktur Datenstruktur { get; set; }
-    public LibPlcTestautomat.TestAutomat TestAutomat { get; set; }
+    private VmAutoTesterSilk _vmAutoTesterSilk;
+    private LibPlcTestautomat.TestAutomat _testAutomat;
+    private Datenstruktur _datenstruktur;
 
     public (bool erfolgreich, Compiler compiler, CompiledProgram program) Compile(string mySourceFile)
     {
@@ -18,8 +18,8 @@ public partial class Silk
     }
     public void ReferenzenUebergeben(VmAutoTesterSilk vmAutoTesterSilk, Datenstruktur datenstruktur, LibPlcTestautomat.TestAutomat testAutomat)
     {
-        VmAutoTesterSilk = vmAutoTesterSilk;
-        Datenstruktur = datenstruktur;
-        TestAutomat = testAutomat;
+        _vmAutoTesterSilk = vmAutoTesterSilk;
+        _datenstruktur = datenstruktur;
+        _testAutomat = testAutomat;
     }
 }

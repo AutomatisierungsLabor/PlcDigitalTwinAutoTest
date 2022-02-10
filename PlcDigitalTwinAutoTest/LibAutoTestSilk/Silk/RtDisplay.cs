@@ -17,7 +17,7 @@ public partial class Silk
 
     private void IncrementDataGridId()
     {
-        VmAutoTesterSilk.ZeilenNummerDataGrid++;
+        _vmAutoTesterSilk.ZeilenNummerDataGrid++;
 
         if (_betriebsartAutoTest == BetriebsartAutoTest.Automatik) return;
 
@@ -42,8 +42,8 @@ public partial class Silk
         {
             case TestAnzeige.Kommentar:
             case TestAnzeige.Projektbezeichnung:
-                VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
-                    VmAutoTesterSilk.ZeilenNummerDataGrid,
+                _vmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
+                    _vmAutoTesterSilk.ZeilenNummerDataGrid,
                     "",
                     testErgebnis,
                     silkKommentar,
@@ -52,13 +52,13 @@ public partial class Silk
                     ""));
                 break;
             default:
-                VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
-                    VmAutoTesterSilk.ZeilenNummerDataGrid,
-                    $"{TestAutomat.GetElapsedMilliseconds()}ms",
+                _vmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
+                    _vmAutoTesterSilk.ZeilenNummerDataGrid,
+                    $"{_testAutomat.GetElapsedMilliseconds()}ms",
                     testErgebnis,
-                     dInput.GetBinBit(TestAutomat.GetAnzahlBitEingaenge()),
-                     dOutputSoll.GetBinBit(TestAutomat.GetAnzahlBitAusgaenge()),
-                     dOutputIst.GetBinBit(TestAutomat.GetAnzahlBitAusgaenge()),
+                     dInput.GetBinBit(_testAutomat.GetAnzahlBitEingaenge()),
+                     dOutputSoll.GetBinBit(_testAutomat.GetAnzahlBitAusgaenge()),
+                     dOutputIst.GetBinBit(_testAutomat.GetAnzahlBitAusgaenge()),
                     silkKommentar));
                 break;
         }

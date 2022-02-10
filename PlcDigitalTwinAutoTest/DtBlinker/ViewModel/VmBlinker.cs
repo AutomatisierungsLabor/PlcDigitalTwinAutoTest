@@ -26,6 +26,7 @@ public enum WpfObjects
 public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelBlinker _modelBlinker;
+    private readonly Datenstruktur _datenstruktur;
     private WpfPlot _scottPlot;
     private readonly double[] _zeitachse;
     private short _nextDataIndex = 1;
@@ -33,6 +34,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 
     public VmBlinker(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
+        _datenstruktur= datenstruktur;
         _wertLeuchtMelder = new double[5_000];
         _zeitachse = DataGen.Consecutive(5_000);
 
@@ -57,7 +59,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     {
         if (_modelBlinker == null) return;
 
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
+        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelBlinker.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_modelBlinker.S2, (int)WpfObjects.S2);

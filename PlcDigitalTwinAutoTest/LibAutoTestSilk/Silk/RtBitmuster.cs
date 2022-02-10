@@ -15,8 +15,8 @@ public partial class Silk
         AufNegFlankeWarten
     }
 
-    internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Di[1]);
-    internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Da[0], Datenstruktur.Da[1]);
+    internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Di[0], _datenstruktur.Di[1]);
+    internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Da[0], _datenstruktur.Da[1]);
 
     private void BitmusterBlinktTesten(FunctionEventArgs e)
     {
@@ -98,7 +98,7 @@ public partial class Silk
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(schritte.ToString());
             }
 
             DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)bitMuster, $"{kommentar}: I:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");

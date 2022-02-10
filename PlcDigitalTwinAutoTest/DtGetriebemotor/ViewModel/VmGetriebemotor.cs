@@ -38,9 +38,10 @@ public enum WpfObjects
 public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelGetriebemotor _modelGetriebemotor;
-
+    private readonly Datenstruktur _datenstruktur;
     public VmGetriebemotor(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
+        _datenstruktur= datenstruktur;
 
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Visible;
@@ -68,7 +69,7 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
     {
         if (_modelGetriebemotor == null) return;
 
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
+        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelGetriebemotor.B1, (int)WpfObjects.B1);
         SichtbarkeitUmschalten(_modelGetriebemotor.B2, (int)WpfObjects.B1);

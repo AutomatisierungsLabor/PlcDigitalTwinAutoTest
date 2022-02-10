@@ -104,7 +104,7 @@ public partial class Silk
             case DaTesten.StatusDigAusgaenge.Init:
                 aktZeileDa.SetStartzeit(aktuelleZeit.ElapsedMilliseconds);
                 aktZeileDa.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.AufBitmusterWarten);
-                VmAutoTesterSilk.ZeilenNummerDataGrid++;
+                _vmAutoTesterSilk.ZeilenNummerDataGrid++;
                 DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)digBitmuster, "DA[" + _daAktuellerSchritt + "]: " + aktZeileDa.GetKommentar());
                 return false;
 
