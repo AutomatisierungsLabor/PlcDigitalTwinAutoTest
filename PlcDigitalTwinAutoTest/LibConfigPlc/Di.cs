@@ -51,7 +51,7 @@ public class Di : EaConfig<DiEinstellungen>
             }
         }
 
-        AnzByte = Bytes.AnzByteEinlesen(speicherAbbild);
+        AnzByte = Bytes.MaxBytePositionBestimmen(speicherAbbild);
     }
 
     private void LogConfigError(DiEinstellungen zeile)

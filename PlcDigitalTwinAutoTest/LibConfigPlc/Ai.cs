@@ -36,7 +36,7 @@ public class Ai : EaConfig<AiEinstellungen>
             }
         }
 
-        AnzByte = LibPlcTools.Bytes.AnzByteEinlesen(speicherAbbild);
+        AnzByte = LibPlcTools.Bytes.MaxBytePositionBestimmen(speicherAbbild);
     }
     private void LogConfigError(AiEinstellungen zeile)
     {

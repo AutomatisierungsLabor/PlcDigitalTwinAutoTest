@@ -8,20 +8,25 @@ namespace LibPlcTools
 {
     public class Bytes
     {
-        public static int AnzByteEinlesen(byte[] speicherAbbild)
+        public static int MaxBytePositionBestimmen(byte[] bytes)
         {
             var anz = 0;
-            for (var i = 0; i < 256; i++) if (speicherAbbild[i] > 0) anz = i + 1; // es können auch einzelne Byte nicht belegt sein
+            var groesse = bytes.Length;
+            for (var i = 0; i < groesse; i++) if (bytes[i] > 0) anz = i + 1; // es können auch einzelne Byte nicht belegt sein
             return anz;
         }
-        public static bool BitMusterAufKollissionTesten(byte[] speicherAbbild, int posByte, byte bitMuster)
+        public static bool BitMusterAufKollissionTesten(byte[] bytes, short posByte, byte bitMuster)
         {
-            if (posByte > 256) return true;
-            if ((speicherAbbild[posByte] & bitMuster) > 0) return true;
+            var groesse = bytes.Length;
 
-            speicherAbbild[posByte] |= bitMuster;
+            if (groesse == 0) throw new ArgumentOutOfRangeException(groesse.ToString(), "BitMusterAufKollissionTesten: Array leer");
+            if (posByte > 256) throw new ArgumentOutOfRangeException(posByte.ToString(), "BitMusterAufKollissionTesten: posByte > 256");
+            if (posByte >= groesse) throw new ArgumentOutOfRangeException(posByte.ToString(), "BitMusterAufKollissionTesten: posByte > Größe Array");
+
+            if ((bytes[posByte] & bitMuster) > 0) return true;
+
+            bytes[posByte] |= bitMuster;
             return false;
         }
-
     }
 }

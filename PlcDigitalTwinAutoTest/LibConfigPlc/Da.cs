@@ -50,7 +50,7 @@ public class Da : EaConfig<DaEinstellungen>
             }
         }
 
-        AnzByte = Bytes.AnzByteEinlesen(speicherAbbild);
+        AnzByte = Bytes.MaxBytePositionBestimmen(speicherAbbild);
     }
     private void LogConfigError(DaEinstellungen zeile)
     {
