@@ -9,9 +9,10 @@ public class PlcDaemon
 {
     private enum PlcDaemonStatus
     {
-        SpsPingen = 0,
-        SpsBeckhoff = 1,
-        SpsSiemens = 2
+        SpsPingStarten = 0,
+        SpsPingErgebnis = 1,
+        SpsBeckhoff = 2,
+        SpsSiemens = 3
     }
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
@@ -31,18 +32,17 @@ public class PlcDaemon
     private PlcDaemonStatus _plcDaemonStatus;
     private readonly CancellationTokenSource _cancellationTokenSource;
 
+
     public PlcDaemon(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Daemon gestartet");
 
         _datenstruktur = datenstruktur;
-        _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+        _plcDaemonStatus = PlcDaemonStatus.SpsPingStarten;
         _cancellationTokenSource = cancellationTokenSource;
 
         _pcToPlc = new byte[1024];
         _plcToPc = new byte[1024];
-
-        Log.Debug("SPS pingen");
 
         try
         {
@@ -62,6 +62,9 @@ public class PlcDaemon
             Log.Debug("Datei nicht gefunden: IpAdressenBeckhoff.json" + ex);
         }
 
+        Log.Debug("SPS pingen");
+
+
         _plcKeine = new PlcKeine(_datenstruktur);
         _plcBeckhoff = new PlcBeckhoff(_ipAdressenBeckhoff, _pcToPlc, _plcToPc);
         _plcSiemens = new PlcSiemens(_ipAdressenSiemens, _pcToPlc, _plcToPc);
@@ -71,7 +74,17 @@ public class PlcDaemon
     private void PlcDaemonTask()
     {
         var pingBeckhoff = new Ping();
+        pingBeckhoff.PingCompleted += (_, args) =>
+        {
+            if (args.Reply is { Status: IPStatus.Success }) _plcDaemonStatus = PlcDaemonStatus.SpsBeckhoff;
+        };
+
+
         var pingSiemens = new Ping();
+        pingSiemens.PingCompleted += (_, args) =>
+        {
+            if (args.Reply is { Status: IPStatus.Success }) _plcDaemonStatus = PlcDaemonStatus.SpsSiemens;
+        };
 
         _plcKeine.PlcTask();
         PlcState = _plcKeine.State;
@@ -80,44 +93,37 @@ public class PlcDaemon
         {
             switch (_plcDaemonStatus)
             {
-                case PlcDaemonStatus.SpsPingen:
+                case PlcDaemonStatus.SpsPingStarten:
 
-                    try
-                    {
-                        var replyBeckhoff = pingBeckhoff.Send(_ipAdressenBeckhoff.IpAdresse);
-                        var replySiemens = pingSiemens.Send(_ipAdressenSiemens.Adress);
+                    pingBeckhoff.SendAsync(_ipAdressenBeckhoff.IpAdresse, null);
+                    pingSiemens.SendAsync(_ipAdressenSiemens.Adress, null);
 
-                        if (replyBeckhoff is { Status: IPStatus.Success })
-                        {
-                            Log.Debug("Beckhoff SPS erkannt");
-                            _plcDaemonStatus = PlcDaemonStatus.SpsBeckhoff;
-                        }
-
-                        if (replySiemens is { Status: IPStatus.Success })
-                        {
-                            Log.Debug("Siemens SPS erkannt");
-                            _plcDaemonStatus = PlcDaemonStatus.SpsSiemens;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Debug("Problem beim pingen:" + ex);
-                    }
                     _datenstruktur.VersionsStringPlc = PlcState.PlcBezeichnung;
+                    _plcDaemonStatus = PlcDaemonStatus.SpsPingErgebnis;
+                    break;
+
+                case PlcDaemonStatus.SpsPingErgebnis:
+                    // einfach nichts tun und auf das Ergebnis warten
                     break;
 
                 case PlcDaemonStatus.SpsBeckhoff:
                     _plcBeckhoff.PlcTask();
                     PlcState = _plcBeckhoff.State;
                     DatenPcToPlcRangieren();
-                    if (_plcBeckhoff.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+                    if (_plcBeckhoff.State.PlcError)
+                    {
+                        _plcDaemonStatus = PlcDaemonStatus.SpsPingStarten;
+                    }
                     break;
 
                 case PlcDaemonStatus.SpsSiemens:
                     _plcSiemens.PlcTask();
                     PlcState = _plcSiemens.State;
                     DatenPcToPlcRangieren();
-                    if (_plcSiemens.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+                    if (_plcSiemens.State.PlcError)
+                    {
+                        _plcDaemonStatus = PlcDaemonStatus.SpsPingStarten;
+                    }
                     break;
 
                 default:
