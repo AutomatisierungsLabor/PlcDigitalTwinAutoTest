@@ -1,5 +1,6 @@
 ﻿using Contracts;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 
@@ -9,6 +10,7 @@ public partial class VmAutoTesterSilk
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
+    private readonly CancellationTokenSource _cancellationTokenSource;
     public enum WpfIndex
     {
         Di01 = 0,
@@ -17,8 +19,9 @@ public partial class VmAutoTesterSilk
         Da17 = 31,
         SoureCode = 32
     }
-    public VmAutoTesterSilk()
+    public VmAutoTesterSilk(CancellationTokenSource cancellationTokenSource)
     {
+        _cancellationTokenSource=cancellationTokenSource;
         DataGridZeilen = new ObservableCollection<DataGridZeile>();
 
         for (var i = 0; i < 100; i++)
@@ -30,6 +33,8 @@ public partial class VmAutoTesterSilk
     }
     public void UpdateDataGrid(DataGridZeile zeile)
     {
+        if (_cancellationTokenSource.IsCancellationRequested) return;
+
         Application.Current.Dispatcher.Invoke(() =>
         {
             var zeilenNr = zeile.ZeilenNr;

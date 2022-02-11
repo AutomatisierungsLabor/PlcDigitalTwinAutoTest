@@ -1,4 +1,5 @@
-﻿using LibDatenstruktur;
+﻿using System.Threading;
+using LibDatenstruktur;
 using SoftCircuits.Silk;
 using Xunit;
 
@@ -13,8 +14,9 @@ public class SetDiTest
     [InlineData(256, 0, 1)]
     public void SetDiTests(short zahl, byte di0, byte di1)
     {
+        CancellationTokenSource cancellationTokenSource = new();
         var datenstruktur = new Datenstruktur();
-        var testAutomat = new TestAutomat(datenstruktur);
+        var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
 
         var variable = new Variable();
         variable.SetValue(zahl);

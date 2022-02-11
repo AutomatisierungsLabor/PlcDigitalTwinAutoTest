@@ -1,4 +1,5 @@
-﻿using LibDatenstruktur;
+﻿using System.Threading;
+using LibDatenstruktur;
 using SoftCircuits.Silk;
 using Xunit;
 
@@ -18,8 +19,9 @@ public class SetAiTest
     [InlineData(0, 5000, "S7 / 16 Bit / Prozent", 0, 108, 0, 0)]
     public void SetAiTests(short startByte, short wert, string datenTyp, byte ai0, byte ai1, byte ai2, byte ai3)
     {
+        CancellationTokenSource cancellationTokenSource = new();
         var datenstruktur = new Datenstruktur();
-        var testAutomat = new TestAutomat(datenstruktur);
+        var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
 
         var variable0 = new Variable();
         var variable1 = new Variable();

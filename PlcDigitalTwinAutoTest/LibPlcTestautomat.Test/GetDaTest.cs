@@ -1,4 +1,5 @@
-﻿using LibDatenstruktur;
+﻿using System.Threading;
+using LibDatenstruktur;
 using SoftCircuits.Silk;
 using Xunit;
 
@@ -12,8 +13,9 @@ public class GetDaTest
     [InlineData(0, 1, 256)]
     public void GetDaTests(byte da0, byte da1, short erwartet)
     {
+        CancellationTokenSource cancellationTokenSource = new();
         var datenstruktur = new Datenstruktur();
-        var testAutomat = new TestAutomat(datenstruktur);
+        var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
 
         datenstruktur.Da[0] = da0;
         datenstruktur.Da[1] = da1;

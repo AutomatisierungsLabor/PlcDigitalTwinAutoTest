@@ -29,7 +29,7 @@ public class AutoTest
 
     public AutoTest(Datenstruktur datenstruktur, PlcDaemon plcDaemon, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests, CancellationTokenSource cancellationTokenSource)
     {
-        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat);
+        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat, cancellationTokenSource);
         VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk,datenstruktur, plcDaemon, cancellationTokenSource);
         tabItem.DataContext = VmAutoTest;
 
@@ -84,7 +84,7 @@ public class AutoTest
         Log.Debug("Test ausgewählt: " + AktuellesProjekt.Name);
 
         AutoTesterSilk.AutoTestFensterOeffnen();
-
+        
         var dateiName = Path.Combine(AktuellesProjekt.FullName, "index.html");
         var htmlSeite = File.Exists(dateiName) ? File.ReadAllText(dateiName) : "--??--";
         var htmlCssSeite = htmlSeite;

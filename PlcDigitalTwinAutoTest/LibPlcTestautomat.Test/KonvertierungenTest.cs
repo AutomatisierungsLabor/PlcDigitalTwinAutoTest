@@ -1,3 +1,4 @@
+using System.Threading;
 using LibDatenstruktur;
 using SoftCircuits.Silk;
 using Xunit;
@@ -16,8 +17,9 @@ public class KonvertierungenTest
     [InlineData("16#FF", 255)]
     public void PlcToDecTest(string zahl, short ergebnis)
     {
+        CancellationTokenSource cancellationTokenSource = new();
         var datenstruktur = new Datenstruktur();
-        var testAutomat = new TestAutomat(datenstruktur);
+        var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
 
         var variable = new Variable();
         variable.SetValue(zahl);

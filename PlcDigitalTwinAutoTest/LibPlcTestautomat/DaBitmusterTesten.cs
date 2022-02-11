@@ -17,7 +17,7 @@ public partial class TestAutomat
         var stopwatch = new Stopwatch();
         stopwatch.Start();
 
-        while (stopwatch.ElapsedMilliseconds < timeout.DauerMs)
+        while (stopwatch.ElapsedMilliseconds < timeout.DauerMs && !_cancellationTokenSource.IsCancellationRequested)
         {
 
             Thread.Sleep(50);

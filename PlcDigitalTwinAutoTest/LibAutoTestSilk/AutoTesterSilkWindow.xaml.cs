@@ -2,6 +2,8 @@
 using LibAutoTestSilk.ViewModel;
 using LibAutoTestSilk.Zeichnen;
 using System;
+using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -9,11 +11,14 @@ namespace LibAutoTestSilk;
 
 public partial class AutoTesterWindow
 {
-    private bool FensterAktiv;
+
+    private readonly CancellationTokenSource _cancellationTokenSource = new();
+
     public AutoTesterWindow(VmAutoTesterSilk vmAutoTesterSilk)
     {
         InitializeComponent();
         DataContext = vmAutoTesterSilk;
+
 
         _ = new DiDaBeschriften(GridTest);
 
@@ -50,22 +55,11 @@ public partial class AutoTesterWindow
             }
         };
 
-        FensterAktiv = true;
         Closing += (_, e) =>
         {
             e.Cancel = true;
-            if (FensterAktiv)
-            {
-                FensterAktiv = false;
-                Hide();
-            }
-            else
-            {
-                FensterAktiv = true;
-                Show();
-            }
+            _cancellationTokenSource.Cancel();
+            Application.Current.Shutdown();
         };
     }
-
-   
 }

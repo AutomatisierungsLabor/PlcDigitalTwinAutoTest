@@ -1,4 +1,5 @@
-﻿using LibDatenstruktur;
+﻿using System.Threading;
+using LibDatenstruktur;
 using Xunit;
 
 namespace LibPlcTestautomat.Test;
@@ -11,8 +12,9 @@ public class GetDiTest
     [InlineData(0, 1, 256)]
     public void GetDiTests(byte di0, byte di1, uint erwartet)
     {
+        CancellationTokenSource cancellationTokenSource = new();
         var datenstruktur = new Datenstruktur();
-        var testAutomat = new TestAutomat(datenstruktur);
+        var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
 
         datenstruktur.Di[0] = di0;
         datenstruktur.Di[1] = di1;

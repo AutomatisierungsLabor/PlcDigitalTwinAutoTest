@@ -39,7 +39,7 @@ public partial class BaseWindow
         _vmBase.LaborPlatteZeichnen(TabLaborPlatte);
         _vmBase.SimulationZeichnen(TabSimulation);
 
-        TestAutomat = new TestAutomat(Datenstruktur);
+        TestAutomat = new TestAutomat(Datenstruktur,_cancellationTokenSource);
 
         AutoTest = new AutoTest(Datenstruktur, _vmBase.PlcDaemon, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests, _cancellationTokenSource);
         AutoTest.SetCallback(ConfigPlc.SetPath);
