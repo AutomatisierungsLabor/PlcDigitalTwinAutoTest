@@ -29,7 +29,7 @@ public class AutoTest
 
     public AutoTest(Datenstruktur datenstruktur, PlcDaemon plcDaemon, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests, CancellationTokenSource cancellationTokenSource)
     {
-        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat, cancellationTokenSource);
+        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat, ResetSelectedProject , cancellationTokenSource);
         VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk, datenstruktur, plcDaemon, cancellationTokenSource);
         tabItem.DataContext = VmAutoTest;
 

@@ -13,12 +13,13 @@ public partial class AutoTesterWindow
 {
 
     private readonly CancellationTokenSource _testWindowCancellationToken = new();
+    private readonly Action _closeWindow;
 
-    public AutoTesterWindow(VmAutoTesterSilk vmAutoTesterSilk)
+    public AutoTesterWindow(VmAutoTesterSilk vmAutoTesterSilk, Action closeWindow)
     {
         InitializeComponent();
         DataContext = vmAutoTesterSilk;
-
+        _closeWindow = closeWindow;
         _ = new DiDaBeschriften(GridTest);
 
         DataGrid.ItemContainerGenerator.StatusChanged += (_, _) =>
@@ -57,9 +58,10 @@ public partial class AutoTesterWindow
         Closing += (_, e) =>
         {
             e.Cancel = true;
-
+            Hide();
+            _closeWindow();
             _testWindowCancellationToken.Cancel();
-            Application.Current.Shutdown();
+            //Application.Current.Shutdown();
         };
     }
 }

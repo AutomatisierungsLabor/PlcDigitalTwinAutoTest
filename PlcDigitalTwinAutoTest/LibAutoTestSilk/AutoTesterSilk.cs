@@ -1,3 +1,4 @@
+using System;
 using Contracts;
 using LibAutoTestSilk.ViewModel;
 using LibConfigPlc;
@@ -21,7 +22,7 @@ public class AutoTesterSilk
     private DirectoryInfo _projektOrdner;
     private CompiledProgram _compiledProgram;
 
-    public AutoTesterSilk(Datenstruktur datenstruktur, ConfigPlc configPlc, TestAutomat testAutomat, CancellationTokenSource cancellationTokenSource)
+    public AutoTesterSilk(Datenstruktur datenstruktur, ConfigPlc configPlc, TestAutomat testAutomat, Action closeWindow, CancellationTokenSource cancellationTokenSource)
     {
         _datenstruktur = datenstruktur;
         _configPlc = configPlc;
@@ -29,7 +30,7 @@ public class AutoTesterSilk
 
         Silk = new Silk.Silk();
         _vmAutoTesterSilk = new VmAutoTesterSilk(cancellationTokenSource);
-        _autoTesterWindow = new AutoTesterWindow(_vmAutoTesterSilk);
+        _autoTesterWindow = new AutoTesterWindow(_vmAutoTesterSilk, closeWindow);
 
         _testAutomat.SetReferenzen(_vmAutoTesterSilk.ZeilenNummerDataGrid);
         _testAutomat.SetCallbackDatagridUpdaten(_vmAutoTesterSilk.UpdateDataGrid);
