@@ -39,7 +39,7 @@ public class TestGetDa
         datenstruktur.Da[1] = da1;
 
         var args = new FunctionEventArgs("GetDigitaleAusgaenge",new[] { new Variable(0) } , new Variable());
-        testAutomat.GetDigitaleAusgaenge(args);
+        testAutomat.FuncGetDigitaleAusgaenge(args);
 
         Assert.Equal(erwartet, args.ReturnValue[0].ToInteger());
     }

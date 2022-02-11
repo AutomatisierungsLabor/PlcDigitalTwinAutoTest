@@ -4,7 +4,7 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
-    public void PlcColdStart()
+    public void FuncPlcColdStart()
     {
         /*
       var status = Plc.ColdStart();
@@ -14,7 +14,7 @@ public partial class TestAutomat
         DataGridUpdaten(TestAnzeige.Fehler, 0, "PLC: ERROR Coldstart");
         _zeilenNummerDataGrid++;
     }
-    public void PlcHotStart()
+    public void FuncPlcHotStart()
     {
         /*
         var status = Plc.HotStart();
@@ -23,7 +23,7 @@ public partial class TestAutomat
         DataGridUpdaten(TestAnzeige.Fehler, 0, "PLC: ERROR Hotstart");
         _zeilenNummerDataGrid++;
     }
-    public void PlcGetStatus()
+    public void FuncPlcGetStatus()
     {
         /*
       var (retval, status) = Plc.GetStatus();

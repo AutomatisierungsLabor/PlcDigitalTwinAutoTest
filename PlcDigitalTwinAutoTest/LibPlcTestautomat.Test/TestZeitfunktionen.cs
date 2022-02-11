@@ -18,9 +18,9 @@ public class TestZeitfunktionen
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
         var args = new FunctionEventArgs("Sleep", new[] { new Variable(dauer) }, new Variable());
 
-        testAutomat.RestartStopwatch();
+        testAutomat.FuncRestartStopwatch();
         Assert.InRange(testAutomat.GetElapsedMilliseconds(), 0, 5);
-        testAutomat.Sleep(args);
+        testAutomat.FuncSleep(args);
         Assert.InRange(testAutomat.GetElapsedMilliseconds(), min, max);
     }
 }

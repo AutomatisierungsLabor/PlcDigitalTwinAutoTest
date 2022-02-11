@@ -22,7 +22,7 @@ public class TestKonvertierungen
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
         var args = new FunctionEventArgs("PlcToDec", new[] { new Variable(zahl) }, new Variable());
 
-        testAutomat.PlcToDec(args);
+        testAutomat.FuncPlcToDec(args);
         Assert.Equal(ergebnis, args.ReturnValue[0].ToInteger());
     }
 }

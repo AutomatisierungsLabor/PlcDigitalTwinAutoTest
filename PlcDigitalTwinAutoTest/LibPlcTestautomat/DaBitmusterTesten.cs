@@ -7,7 +7,7 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
-    public void BitmusterTesten(FunctionEventArgs args)
+    public void FuncBitmusterTesten(FunctionEventArgs args)
     {
         var daBitMuster = args.Parameters[0].ToInteger();
         var daBitMaske = args.Parameters[1].ToInteger();

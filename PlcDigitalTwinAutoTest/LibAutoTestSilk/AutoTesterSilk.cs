@@ -21,12 +21,14 @@ public class AutoTesterSilk
     private readonly TestAutomat _testAutomat;
     private DirectoryInfo _projektOrdner;
     private CompiledProgram _compiledProgram;
+    private readonly CancellationTokenSource _cancellationTokenSource;
 
     public AutoTesterSilk(Datenstruktur datenstruktur, ConfigPlc configPlc, TestAutomat testAutomat, Action closeWindow, CancellationTokenSource cancellationTokenSource)
     {
         _datenstruktur = datenstruktur;
         _configPlc = configPlc;
         _testAutomat = testAutomat;
+        _cancellationTokenSource = cancellationTokenSource;
 
         Silk = new Silk.Silk();
         _vmAutoTesterSilk = new VmAutoTesterSilk(cancellationTokenSource);
@@ -50,16 +52,16 @@ public class AutoTesterSilk
         Silk.ReferenzenUebergeben(_vmAutoTesterSilk, _datenstruktur, _testAutomat);
 
         _testAutomat.InfoAnzeigen("", TestAnzeige.CompilerStart, "");
-        _testAutomat.RestartStopwatch();
+        _testAutomat.FuncRestartStopwatch();
 
         (compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(_projektOrdner.ToString(), "test.ssc", ""));
 
         if (compilerlaufErfolgreich)
         {
             _testAutomat.InfoAnzeigen($"{_testAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.CompilerErfolgreich, "");
-            _testAutomat.RestartStopwatch();
+            _testAutomat.FuncRestartStopwatch();
 
-            System.Threading.Tasks.Task.Run(SilkTask);
+            System.Threading.Tasks.Task.Run(SilkTask,_cancellationTokenSource.Token);
         }
         else
         {
@@ -67,5 +69,10 @@ public class AutoTesterSilk
         }
     }
     private void SilkTask() => Silk.RunProgram(_compiledProgram);
-    public void AutoTestFensterOeffnen() => _autoTesterWindow.Show();
+    public void AutoTestFensterOeffnen()
+    {
+        _vmAutoTesterSilk.DataGridZeilen.Clear();
+        _testAutomat.ResetZeilenNummer();
+        _autoTesterWindow.Show();
+    }
 }

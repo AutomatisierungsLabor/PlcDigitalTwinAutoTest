@@ -18,7 +18,7 @@ public partial class Silk
     internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Di[0], _datenstruktur.Di[1]);
     internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Da[0], _datenstruktur.Da[1]);
 
-    private void BitmusterBlinktTesten(FunctionEventArgs args)
+    private void FuncBitmusterBlinktTesten(FunctionEventArgs args)
     {
         var bitMuster = args.Parameters[0].ToInteger();
         var bitMaske = args.Parameters[1].ToInteger();

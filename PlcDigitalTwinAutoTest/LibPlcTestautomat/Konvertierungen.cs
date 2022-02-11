@@ -5,7 +5,7 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
-    public void PlcToDec(FunctionEventArgs args)
+    public void FuncPlcToDec(FunctionEventArgs args)
     {
         var zahl = args.Parameters[0].ToString();
         var plcZahl = new Uint(zahl);

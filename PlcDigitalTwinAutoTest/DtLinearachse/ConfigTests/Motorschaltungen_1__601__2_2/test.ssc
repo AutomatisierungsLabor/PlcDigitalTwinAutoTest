@@ -50,61 +50,58 @@ main()
 
     Sleep("T#100ms")
     UpdateAnzeige "Init", ""
-    IncrementDataGridId
+    
 
     UpdateAnzeige "Kommentar", "Ohne Störung testen"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge(S1 + S9)
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P3_P4, "T#5s", "Motor Aus?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge(S1 + S2 + S9)
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten P4, Maske_P3_P4, "T#5s", "Motor Ein?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge(S2 + S9)
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten P4, Maske_P3_P4, "T#5s", "Motor noch Ein?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge S9
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P3_P4, "T#5s", "Motor Aus?"
-    IncrementDataGridId
+    
 
     KommentarAnzeigen "Störung Thermorelais testen"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge AllesAus
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P3_P4, "T#5s", "Störung und Motor Aus?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge S9
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P3_P4, "T#5s", "keine Störung und Motor Aus?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge(S1 + S2 + S9)
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten P4, Maske_P3_P4, "T#5s", "Motor wieder Ein?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge S2
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P3_P4, "T#5s", "Störung und Motor Aus?"
-    IncrementDataGridId
-
-    
 }

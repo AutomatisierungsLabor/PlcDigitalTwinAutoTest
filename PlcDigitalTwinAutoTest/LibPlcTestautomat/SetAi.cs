@@ -5,7 +5,7 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
-    public void SetAnalogerEingang(FunctionEventArgs args)
+    public void FuncSetAnalogerEingang(FunctionEventArgs args)
     {
         var startByte = args.Parameters[0].ToInteger();
         var datenTyp = args.Parameters[2].ToString();

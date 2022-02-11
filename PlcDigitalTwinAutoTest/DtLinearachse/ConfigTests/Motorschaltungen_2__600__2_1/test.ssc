@@ -50,13 +50,13 @@ main()
 
     Sleep("T#100ms")
     UpdateAnzeige "Init", ""
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge 0
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
-    IncrementDataGridId
+    
 
    setArray = {
         {S1, "T#200ms", "S1 drücken"},
@@ -74,7 +74,4 @@ main()
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
-    IncrementDataGridId
-
-    
 }

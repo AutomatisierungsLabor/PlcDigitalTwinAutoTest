@@ -12,7 +12,7 @@ public partial class Silk
 {
     private int _diAktuellerSchtritt;
     private int _daAktuellerSchritt;
-    private void TestAblauf(FunctionEventArgs args)
+    private void FuncTestAblauf(FunctionEventArgs args)
     {
         var listeDigEingaenge = new List<DiSetzen>();
         _diAktuellerSchtritt = 0;

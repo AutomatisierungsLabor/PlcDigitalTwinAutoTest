@@ -3,7 +3,6 @@ using LibAutoTestSilk.ViewModel;
 using LibAutoTestSilk.Zeichnen;
 using System;
 using System.Threading;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -13,13 +12,11 @@ public partial class AutoTesterWindow
 {
 
     private readonly CancellationTokenSource _testWindowCancellationToken = new();
-    private readonly Action _closeWindow;
 
     public AutoTesterWindow(VmAutoTesterSilk vmAutoTesterSilk, Action closeWindow)
     {
         InitializeComponent();
         DataContext = vmAutoTesterSilk;
-        _closeWindow = closeWindow;
         _ = new DiDaBeschriften(GridTest);
 
         DataGrid.ItemContainerGenerator.StatusChanged += (_, _) =>
@@ -59,7 +56,7 @@ public partial class AutoTesterWindow
         {
             e.Cancel = true;
             Hide();
-            _closeWindow();
+            closeWindow();
             _testWindowCancellationToken.Cancel();
             //Application.Current.Shutdown();
         };

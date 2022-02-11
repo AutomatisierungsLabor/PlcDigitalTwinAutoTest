@@ -24,7 +24,7 @@ public class TestSetAi
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
         var args = new FunctionEventArgs("SetAnalogerEingang", new[] { new Variable(startByte), new Variable(wert), new Variable(datenTyp) }, new Variable());
 
-        testAutomat.SetAnalogerEingang(args);
+        testAutomat.FuncSetAnalogerEingang(args);
         Assert.Equal(ai0, datenstruktur.Ai[0]);
         Assert.Equal(ai1, datenstruktur.Ai[1]);
         Assert.Equal(ai2, datenstruktur.Ai[2]);

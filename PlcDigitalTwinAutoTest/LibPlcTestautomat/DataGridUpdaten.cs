@@ -11,13 +11,13 @@ public partial class TestAutomat
         _zeilenNummerDataGrid++;
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, zeit, testAnzeige, kommentar, "", "", ""));
     }
-    public void KommentarAnzeigen(FunctionEventArgs args)
+    public void FuncKommentarAnzeigen(FunctionEventArgs args)
     {
         var kommentar = args.Parameters[0].ToString();
         _zeilenNummerDataGrid++;
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Kommentar, kommentar, "", "", ""));
     }
-    public void VersionAnzeigen()
+    public void FuncVersionAnzeigen()
     {
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Projektbezeichnung, $"SW PC: {_datenstruktur.VersionsStringLokal}", "", "", ""));
         _zeilenNummerDataGrid++;
@@ -25,7 +25,7 @@ public partial class TestAutomat
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Projektbezeichnung, $"SW PLC: {_datenstruktur.VersionsStringPlc}", "", "", ""));
         _zeilenNummerDataGrid++;
     }
-    public void UpdateAnzeige(FunctionEventArgs args)
+    public void FuncUpdateAnzeige(FunctionEventArgs args)
     {
         var silkTestergebnis = args.Parameters[0].ToString();
         var silkKommentar = args.Parameters[1].ToString();

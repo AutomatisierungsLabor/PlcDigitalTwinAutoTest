@@ -15,7 +15,7 @@ public partial class Silk
     private bool _einzelSchrittAusfuehren;
     private BetriebsartAutoTest _betriebsartAutoTest = BetriebsartAutoTest.Automatik;
 
-    private void IncrementDataGridId()
+    private void FuncIncrementDataGridId()
     {
         _vmAutoTesterSilk.ZeilenNummerDataGrid++;
 
