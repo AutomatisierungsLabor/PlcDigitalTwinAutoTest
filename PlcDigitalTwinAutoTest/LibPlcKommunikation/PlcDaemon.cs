@@ -74,17 +74,10 @@ public class PlcDaemon
     private void PlcDaemonTask()
     {
         var pingBeckhoff = new Ping();
-        pingBeckhoff.PingCompleted += (_, args) =>
-        {
-            if (args.Reply is { Status: IPStatus.Success }) _plcDaemonStatus = PlcDaemonStatus.SpsBeckhoff;
-        };
-
+        pingBeckhoff.PingCompleted += (_, args) => _plcDaemonStatus = args.Reply is { Status: IPStatus.Success } ? PlcDaemonStatus.SpsBeckhoff : PlcDaemonStatus.SpsPingStarten;
 
         var pingSiemens = new Ping();
-        pingSiemens.PingCompleted += (_, args) =>
-        {
-            if (args.Reply is { Status: IPStatus.Success }) _plcDaemonStatus = PlcDaemonStatus.SpsSiemens;
-        };
+        pingSiemens.PingCompleted += (_, args) => _plcDaemonStatus = args.Reply is { Status: IPStatus.Success } ? PlcDaemonStatus.SpsSiemens : PlcDaemonStatus.SpsPingStarten;
 
         _plcKeine.PlcTask();
         PlcState = _plcKeine.State;
@@ -94,9 +87,8 @@ public class PlcDaemon
             switch (_plcDaemonStatus)
             {
                 case PlcDaemonStatus.SpsPingStarten:
-
-                    pingBeckhoff.SendAsync(_ipAdressenBeckhoff.IpAdresse, null);
-                    pingSiemens.SendAsync(_ipAdressenSiemens.Adress, null);
+                    pingBeckhoff.SendAsync(_ipAdressenBeckhoff.IpAdresse, 1000, null);
+                    pingSiemens.SendAsync(_ipAdressenSiemens.Adress, 1000, null);
 
                     _datenstruktur.VersionsStringPlc = PlcState.PlcBezeichnung;
                     _plcDaemonStatus = PlcDaemonStatus.SpsPingErgebnis;
