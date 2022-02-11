@@ -105,5 +105,4 @@ public partial class VmAutoTest
                 throw new ArgumentOutOfRangeException(nameof(id));
         }
     }
-    internal void ToggleSichtbarkeit(WpfObjects id) => SichtbarEin[(int)id] = SichtbarEin[(int)id] == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
 }

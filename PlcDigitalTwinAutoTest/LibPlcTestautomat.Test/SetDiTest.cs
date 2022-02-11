@@ -22,8 +22,8 @@ public class SetDiTest
         variable.SetValue(zahl);
         var arguments = new[] { variable };
 
-        var functionEventArgs = new FunctionEventArgs("SetDigitaleEingaenge", arguments, new Variable());
-        testAutomat.SetDigitaleEingaenge(functionEventArgs);
+        var args = new FunctionEventArgs("SetDigitaleEingaenge", arguments, new Variable());
+        testAutomat.SetDigitaleEingaenge(args);
         Assert.Equal(di0, datenstruktur.Di[0]);
         Assert.Equal(di1, datenstruktur.Di[1]);
     }

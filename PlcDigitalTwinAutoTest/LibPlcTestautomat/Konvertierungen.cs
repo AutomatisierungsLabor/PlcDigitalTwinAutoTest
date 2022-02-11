@@ -5,10 +5,10 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
-    public void PlcToDec(FunctionEventArgs functionEventArgs)
+    public void PlcToDec(FunctionEventArgs args)
     {
-        var zahl = functionEventArgs.Parameters[0].ToString();
+        var zahl = args.Parameters[0].ToString();
         var plcZahl = new Uint(zahl);
-        functionEventArgs.ReturnValue.SetValue((int)plcZahl.GetDec());
+        args.ReturnValue.SetValue((int)plcZahl.GetDec());
     }
 }

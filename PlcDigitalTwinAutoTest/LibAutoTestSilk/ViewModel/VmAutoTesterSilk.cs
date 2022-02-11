@@ -10,6 +10,7 @@ public partial class VmAutoTesterSilk
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
+
     private readonly CancellationTokenSource _cancellationTokenSource;
     public enum WpfIndex
     {
@@ -19,7 +20,7 @@ public partial class VmAutoTesterSilk
         Da17 = 31,
         SoureCode = 32
     }
-    public VmAutoTesterSilk(CancellationTokenSource cancellationTokenSource)
+    public VmAutoTesterSilk( CancellationTokenSource cancellationTokenSource)
     {
         _cancellationTokenSource=cancellationTokenSource;
         DataGridZeilen = new ObservableCollection<DataGridZeile>();

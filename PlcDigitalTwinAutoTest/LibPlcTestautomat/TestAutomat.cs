@@ -25,7 +25,7 @@ public partial class TestAutomat
     }
 
     public void SetCallbackDatagridUpdaten(Action<DataGridZeile> callBack) => _cbUpdateDataGrid = callBack;
-    public void SetDiagrammZeitbereich(FunctionEventArgs e) => _datenstruktur.DiagrammZeitbereich = e.Parameters[0].ToInteger();
+    public void SetDiagrammZeitbereich(FunctionEventArgs args) => _datenstruktur.DiagrammZeitbereich = args.Parameters[0].ToInteger();
     public void SetDataGridBitAnzahl()
     {
         _anzahlBitEingaenge = 16;   // e.Parameters[0].ToInteger();
@@ -33,6 +33,5 @@ public partial class TestAutomat
     }
     public short GetAnzahlBitAusgaenge() => _anzahlBitAusgaenge;
     public short GetAnzahlBitEingaenge() => _anzahlBitEingaenge;
-    //public void IncrementDataGridId() => _zeilenNummerDataGrid++;
     public void SetReferenzen(short zeilenNummerDataGrid) => _zeilenNummerDataGrid = zeilenNummerDataGrid;
 }

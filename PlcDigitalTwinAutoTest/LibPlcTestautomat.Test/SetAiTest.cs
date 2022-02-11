@@ -33,9 +33,9 @@ public class SetAiTest
 
         var arguments = new[] { variable0, variable1, variable2 };
 
-        var functionEventArgs = new FunctionEventArgs("SetAnalogerEingang", arguments, new Variable());
+        var args = new FunctionEventArgs("SetAnalogerEingang", arguments, new Variable());
 
-        testAutomat.SetAnalogerEingang(functionEventArgs);
+        testAutomat.SetAnalogerEingang(args);
         Assert.Equal(ai0, datenstruktur.Ai[0]);
         Assert.Equal(ai1, datenstruktur.Ai[1]);
         Assert.Equal(ai2, datenstruktur.Ai[2]);

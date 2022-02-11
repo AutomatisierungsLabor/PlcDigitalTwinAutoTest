@@ -10,6 +10,8 @@ namespace LibAutoTest.ViewModel;
 
 public partial class VmAutoTest
 {
+    internal void ToggleSichtbarkeit(WpfObjects id) => SichtbarEin[(int)id] = SichtbarEin[(int)id] == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
+
     private ObservableCollection<bool> _buttonIsEnabled = new();
     public ObservableCollection<bool> ButtonIsEnabled
     {

@@ -12,13 +12,12 @@ namespace LibAutoTestSilk;
 public partial class AutoTesterWindow
 {
 
-    private readonly CancellationTokenSource _cancellationTokenSource = new();
+    private readonly CancellationTokenSource _testWindowCancellationToken = new();
 
     public AutoTesterWindow(VmAutoTesterSilk vmAutoTesterSilk)
     {
         InitializeComponent();
         DataContext = vmAutoTesterSilk;
-
 
         _ = new DiDaBeschriften(GridTest);
 
@@ -58,7 +57,8 @@ public partial class AutoTesterWindow
         Closing += (_, e) =>
         {
             e.Cancel = true;
-            _cancellationTokenSource.Cancel();
+
+            _testWindowCancellationToken.Cancel();
             Application.Current.Shutdown();
         };
     }

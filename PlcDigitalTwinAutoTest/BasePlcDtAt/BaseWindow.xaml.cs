@@ -20,15 +20,15 @@ public partial class BaseWindow
     public TestAutomat TestAutomat { get; set; }
 
     private readonly VmBase _vmBase;
-    private readonly CancellationTokenSource _cancellationTokenSource;
+    private readonly CancellationTokenSource _baseCancellationToken;
     private const string PfadConfigTests = "ConfigTests";
     private const string PfadConfigPlc = "ConfigPlc";
 
-    public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex, CancellationTokenSource cancellationTokenSource)
+    public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex, CancellationTokenSource baseCancellationToken)
     {
         _vmBase = vmBase;
         Datenstruktur = datenstruktur;
-        _cancellationTokenSource = cancellationTokenSource;
+        _baseCancellationToken = baseCancellationToken;
 
         InitializeComponent();
         DataContext = _vmBase;
@@ -39,13 +39,13 @@ public partial class BaseWindow
         _vmBase.LaborPlatteZeichnen(TabLaborPlatte);
         _vmBase.SimulationZeichnen(TabSimulation);
 
-        TestAutomat = new TestAutomat(Datenstruktur,_cancellationTokenSource);
+        TestAutomat = new TestAutomat(Datenstruktur,_baseCancellationToken);
 
-        AutoTest = new AutoTest(Datenstruktur, _vmBase.PlcDaemon, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests, _cancellationTokenSource);
+        AutoTest = new AutoTest(Datenstruktur, _vmBase.PlcDaemon, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests, _baseCancellationToken);
         AutoTest.SetCallback(ConfigPlc.SetPath);
 
         BaseTabControl.SelectedIndex = startUpTabIndex;
-        DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc, _cancellationTokenSource);
+        DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc, _baseCancellationToken);
     }
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -82,7 +82,7 @@ public partial class BaseWindow
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _vmBase.PlotterButtonClick(sender, e);
     private void BaseWindow_OnClosing(object sender, CancelEventArgs e)
     {
-        _cancellationTokenSource.Cancel();
+        _baseCancellationToken.Cancel();
         Application.Current.Shutdown();
     }
 }

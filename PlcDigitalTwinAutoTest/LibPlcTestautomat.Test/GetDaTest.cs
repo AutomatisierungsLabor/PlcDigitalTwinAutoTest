@@ -23,9 +23,9 @@ public class GetDaTest
         var variable = new Variable();
         variable.SetValue(0);
         var arguments = new[] { variable };
-        var functionEventArgs = new FunctionEventArgs("GetDigitaleAusgaenge", arguments, new Variable());
-        testAutomat.GetDigitaleAusgaenge(functionEventArgs);
+        var args = new FunctionEventArgs("GetDigitaleAusgaenge", arguments, new Variable());
+        testAutomat.GetDigitaleAusgaenge(args);
 
-        Assert.Equal(erwartet, functionEventArgs.ReturnValue[0].ToInteger());
+        Assert.Equal(erwartet, args.ReturnValue[0].ToInteger());
     }
 }

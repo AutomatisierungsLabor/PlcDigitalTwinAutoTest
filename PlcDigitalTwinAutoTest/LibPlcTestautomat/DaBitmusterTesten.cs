@@ -7,12 +7,12 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
-    public void BitmusterTesten(FunctionEventArgs functionEventArgs)
+    public void BitmusterTesten(FunctionEventArgs args)
     {
-        var daBitMuster = functionEventArgs.Parameters[0].ToInteger();
-        var daBitMaske = functionEventArgs.Parameters[1].ToInteger();
-        var timeout = new ZeitDauer(functionEventArgs.Parameters[2].ToString());
-        var kommentar = functionEventArgs.Parameters[3].ToString();
+        var daBitMuster = args.Parameters[0].ToInteger();
+        var daBitMaske = args.Parameters[1].ToInteger();
+        var timeout = new ZeitDauer(args.Parameters[2].ToString());
+        var kommentar = args.Parameters[3].ToString();
 
         var stopwatch = new Stopwatch();
         stopwatch.Start();

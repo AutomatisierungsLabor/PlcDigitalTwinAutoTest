@@ -25,8 +25,8 @@ public class KonvertierungenTest
         variable.SetValue(zahl);
         var arguments = new[] { variable };
 
-        var functionEventArgs = new FunctionEventArgs("PlcToDec", arguments, new Variable());
-        testAutomat.PlcToDec(functionEventArgs);
-        Assert.Equal(ergebnis, functionEventArgs.ReturnValue[0].ToInteger());
+        var args = new FunctionEventArgs("PlcToDec", arguments, new Variable());
+        testAutomat.PlcToDec(args);
+        Assert.Equal(ergebnis, args.ReturnValue[0].ToInteger());
     }
 }

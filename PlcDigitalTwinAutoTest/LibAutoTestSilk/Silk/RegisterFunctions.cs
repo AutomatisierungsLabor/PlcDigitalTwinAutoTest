@@ -32,27 +32,27 @@ public partial class Silk
         compiler.RegisterFunction("VersionAnzeigen", 0, 0);
         // ReSharper restore RedundantArgumentDefaultValue
     }
-    public void Runtime_Function(object sender, FunctionEventArgs e)
+    public void Runtime_Function(object sender, FunctionEventArgs args)
     {
-        switch (e.Name)
+        switch (args.Name)
         {
-            case "BitmusterBlinktTesten": BitmusterBlinktTesten(e); break;
-            case "BitmusterTesten": _testAutomat.BitmusterTesten(e); break;
-            case "GetDigitaleAusgaenge": _testAutomat.GetDigitaleAusgaenge(e); break;
+            case "BitmusterBlinktTesten": BitmusterBlinktTesten(args); break;
+            case "BitmusterTesten": _testAutomat.BitmusterTesten(args); break;
+            case "GetDigitaleAusgaenge": _testAutomat.GetDigitaleAusgaenge(args); break;
             case "IncrementDataGridId": IncrementDataGridId(); break; // wird für Einzelschrittmodus genutzt!
-            case "KommentarAnzeigen": _testAutomat.KommentarAnzeigen(e); break;
-            case "PlcToDec": _testAutomat.PlcToDec(e); break;
+            case "KommentarAnzeigen": _testAutomat.KommentarAnzeigen(args); break;
+            case "PlcToDec": _testAutomat.PlcToDec(args); break;
             case "PlcColdStart": _testAutomat.PlcColdStart(); break;
             case "PlcGetStatus": _testAutomat.PlcGetStatus(); break;
             case "PlcHotStart": _testAutomat.PlcHotStart(); break;
             case "ResetStopwatch": _testAutomat.RestartStopwatch(); break;
-            case "SetAnalogerEingang": _testAutomat.SetAnalogerEingang(e); break;
+            case "SetAnalogerEingang": _testAutomat.SetAnalogerEingang(args); break;
             case "SetDataGridBitAnzahl": _testAutomat.SetDataGridBitAnzahl(); break; // Anzeige mit 16 bit 
-            case "SetDiagrammZeitbereich": _testAutomat.SetDiagrammZeitbereich(e); break;
-            case "SetDigitaleEingaenge": _testAutomat.SetDigitaleEingaenge(e); break;
-            case "Sleep": _testAutomat.Sleep(e); break;
-            case "TestAblauf": TestAblauf(e); break;
-            case "UpdateAnzeige": _testAutomat.UpdateAnzeige(e); break;
+            case "SetDiagrammZeitbereich": _testAutomat.SetDiagrammZeitbereich(args); break;
+            case "SetDigitaleEingaenge": _testAutomat.SetDigitaleEingaenge(args); break;
+            case "Sleep": _testAutomat.Sleep(args); break;
+            case "TestAblauf": TestAblauf(args); break;
+            case "UpdateAnzeige": _testAutomat.UpdateAnzeige(args); break;
             case "VersionAnzeigen": _testAutomat.VersionAnzeigen(); break;
         }
     }

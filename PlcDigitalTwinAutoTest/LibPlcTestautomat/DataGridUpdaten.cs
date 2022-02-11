@@ -11,9 +11,9 @@ public partial class TestAutomat
         _zeilenNummerDataGrid++;
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, zeit, testAnzeige, kommentar, "", "", ""));
     }
-    public void KommentarAnzeigen(FunctionEventArgs functionEventArgs)
+    public void KommentarAnzeigen(FunctionEventArgs args)
     {
-        var kommentar = functionEventArgs.Parameters[0].ToString();
+        var kommentar = args.Parameters[0].ToString();
         _zeilenNummerDataGrid++;
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Kommentar, kommentar, "", "", ""));
     }
@@ -25,10 +25,10 @@ public partial class TestAutomat
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Projektbezeichnung, $"SW PLC: {_datenstruktur.VersionsStringPlc}", "", "", ""));
         _zeilenNummerDataGrid++;
     }
-    public void UpdateAnzeige(FunctionEventArgs functionEventArgs)
+    public void UpdateAnzeige(FunctionEventArgs args)
     {
-        var silkTestergebnis = functionEventArgs.Parameters[0].ToString();
-        var silkKommentar = functionEventArgs.Parameters[1].ToString();
+        var silkTestergebnis = args.Parameters[0].ToString();
+        var silkKommentar = args.Parameters[1].ToString();
 
         var ergebnis = silkTestergebnis switch
         {
@@ -88,7 +88,4 @@ public partial class TestAutomat
         }
         */
     }
-
-
-
 }
