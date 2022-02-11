@@ -5,7 +5,7 @@ using Xunit;
 
 namespace LibPlcTestautomat.Test;
 
-public class SetDiTest
+public class TestSetDi
 {
     [Theory]
     [InlineData(0, 0, 0)]
@@ -14,15 +14,11 @@ public class SetDiTest
     [InlineData(256, 0, 1)]
     public void SetDiTests(short zahl, byte di0, byte di1)
     {
-        CancellationTokenSource cancellationTokenSource = new();
+        var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
+        var args = new FunctionEventArgs("SetDigitaleEingaenge",new[] { new Variable(zahl) } , new Variable());
 
-        var variable = new Variable();
-        variable.SetValue(zahl);
-        var arguments = new[] { variable };
-
-        var args = new FunctionEventArgs("SetDigitaleEingaenge", arguments, new Variable());
         testAutomat.SetDigitaleEingaenge(args);
         Assert.Equal(di0, datenstruktur.Di[0]);
         Assert.Equal(di1, datenstruktur.Di[1]);

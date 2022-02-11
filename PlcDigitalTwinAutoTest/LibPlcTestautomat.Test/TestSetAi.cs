@@ -5,7 +5,7 @@ using Xunit;
 
 namespace LibPlcTestautomat.Test;
 
-public class SetAiTest
+public class TestSetAi
 {
     [Theory]
     [InlineData(0, 0, "uint16", 0, 0, 0, 0)]
@@ -19,21 +19,10 @@ public class SetAiTest
     [InlineData(0, 5000, "S7 / 16 Bit / Prozent", 0, 108, 0, 0)]
     public void SetAiTests(short startByte, short wert, string datenTyp, byte ai0, byte ai1, byte ai2, byte ai3)
     {
-        CancellationTokenSource cancellationTokenSource = new();
+        var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
-
-        var variable0 = new Variable();
-        var variable1 = new Variable();
-        var variable2 = new Variable();
-
-        variable0.SetValue(startByte);
-        variable1.SetValue(wert);
-        variable2.SetValue(datenTyp);
-
-        var arguments = new[] { variable0, variable1, variable2 };
-
-        var args = new FunctionEventArgs("SetAnalogerEingang", arguments, new Variable());
+        var args = new FunctionEventArgs("SetAnalogerEingang", new[] { new Variable(startByte), new Variable(wert), new Variable(datenTyp) }, new Variable());
 
         testAutomat.SetAnalogerEingang(args);
         Assert.Equal(ai0, datenstruktur.Ai[0]);

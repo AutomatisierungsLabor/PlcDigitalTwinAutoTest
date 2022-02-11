@@ -5,7 +5,7 @@ using Xunit;
 
 namespace LibPlcTestautomat.Test;
 
-public class KonvertierungenTest
+public class TestKonvertierungen
 {
     [Theory]
     [InlineData("2#0000", 0)]
@@ -17,15 +17,11 @@ public class KonvertierungenTest
     [InlineData("16#FF", 255)]
     public void PlcToDecTest(string zahl, short ergebnis)
     {
-        CancellationTokenSource cancellationTokenSource = new();
+        var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
+        var args = new FunctionEventArgs("PlcToDec", new[] { new Variable(zahl) }, new Variable());
 
-        var variable = new Variable();
-        variable.SetValue(zahl);
-        var arguments = new[] { variable };
-
-        var args = new FunctionEventArgs("PlcToDec", arguments, new Variable());
         testAutomat.PlcToDec(args);
         Assert.Equal(ergebnis, args.ReturnValue[0].ToInteger());
     }

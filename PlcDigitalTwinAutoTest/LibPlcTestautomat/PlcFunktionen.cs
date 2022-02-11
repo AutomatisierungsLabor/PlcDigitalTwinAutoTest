@@ -14,9 +14,6 @@ public partial class TestAutomat
         DataGridUpdaten(TestAnzeige.Fehler, 0, "PLC: ERROR Coldstart");
         _zeilenNummerDataGrid++;
     }
-
-
-
     public void PlcHotStart()
     {
         /*
@@ -26,7 +23,6 @@ public partial class TestAutomat
         DataGridUpdaten(TestAnzeige.Fehler, 0, "PLC: ERROR Hotstart");
         _zeilenNummerDataGrid++;
     }
-
     public void PlcGetStatus()
     {
         /*

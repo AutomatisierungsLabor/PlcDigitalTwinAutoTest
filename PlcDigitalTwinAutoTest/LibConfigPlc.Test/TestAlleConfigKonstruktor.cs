@@ -2,13 +2,13 @@
 
 namespace LibConfigPlc.Test;
 
-public class AlleConfigAnzahlDateienTesten
+public class TestAlleConfigKonstruktor
 {
 
     [Fact]
-    public void UnbekannterOrdnerTesten()
+    public void KonstruktorTesten()
     {
-        var config = new ConfigPlc("NichtVorhandenerPfad");
+        var config = new ConfigPlc("-");
 
         Assert.False(config.Di.ConfigOk);
         Assert.False(config.Da.ConfigOk);

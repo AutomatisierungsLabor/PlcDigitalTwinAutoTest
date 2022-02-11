@@ -3,14 +3,14 @@ using Xunit;
 
 namespace LibHydraulik.Test;
 
-public class Thermostat
+public class TestThermostat
 {
     [Theory]
     [InlineData(50, 60)]
     [InlineData(-50, 60)]
     public void KonstruktorOk(double min, double max)
     {
-        var thermostat = new LibHydraulik.Thermostat(min, max);
+        var thermostat = new Thermostat(min, max);
 
         Assert.Equal(min, thermostat.GetTemperaturMin());
         Assert.Equal(max, thermostat.GetTemperaturMax());
@@ -22,7 +22,7 @@ public class Thermostat
     [InlineData(60, 60)]
     public void KonstruktorFails(double min, double max)
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => new LibHydraulik.Thermostat(min, max));
+        Assert.Throws<ArgumentOutOfRangeException>(() => new Thermostat(min, max));
     }
 
     [Theory]
@@ -31,7 +31,7 @@ public class Thermostat
     [InlineData(false, 50, 60, 70, 40)]
     public void HystereseTesten(bool exp, double min, double max, double temp1, double temp2)
     {
-        var thermostat = new LibHydraulik.Thermostat(min, max);
+        var thermostat = new Thermostat(min, max);
 
         thermostat.SetTemperatur(temp1);
         thermostat.SetTemperatur(temp2);

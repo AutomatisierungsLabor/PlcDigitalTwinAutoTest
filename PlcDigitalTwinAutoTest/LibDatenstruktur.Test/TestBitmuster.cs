@@ -3,7 +3,7 @@ using Xunit;
 
 namespace LibDatenstruktur.Test;
 
-public class Bitmuster
+public class TestBitmuster
 {
 
     [Fact]
@@ -11,8 +11,7 @@ public class Bitmuster
     {
         var datenstruktur = new Datenstruktur();
 
-        Assert.Throws<ArgumentOutOfRangeException>(() => datenstruktur.SetBitmuster(DatenBereich.Di, 0, true, true, true, true, true, true, true,
-            true, true, true, true, true, true));
+        Assert.Throws<ArgumentOutOfRangeException>(() => datenstruktur.SetBitmuster(DatenBereich.Di, 0, true, true, true, true, true, true, true, true, true, true, true, true, true));
     }
 
     [Theory]

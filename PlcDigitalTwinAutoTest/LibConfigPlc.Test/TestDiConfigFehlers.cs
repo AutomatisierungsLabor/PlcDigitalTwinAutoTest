@@ -2,7 +2,7 @@ using Xunit;
 
 namespace LibConfigPlc.Test;
 
-public class DiConfigFehlerTests
+public class TestDiConfigFehlers
 {
 
     [Theory]

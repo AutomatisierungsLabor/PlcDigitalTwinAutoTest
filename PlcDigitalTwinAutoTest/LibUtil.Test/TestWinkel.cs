@@ -3,7 +3,7 @@ using Xunit;
 
 namespace LibUtil.Test;
 
-public class Winkel
+public class TestWinkel
 {
     [Theory]
     [InlineData(0, 0)]
@@ -12,7 +12,7 @@ public class Winkel
 
     public void WinkelDegToRadTest(double deg, double rad)
     {
-        Assert.Equal(rad, LibUtil.Winkel.DegToRad(deg), 3);
+        Assert.Equal(rad, Winkel.DegToRad(deg), 3);
     }
 
     [Theory]
@@ -22,6 +22,6 @@ public class Winkel
 
     public void WinkelRadToDegTest(double rad, double deg)
     {
-        Assert.Equal(deg, LibUtil.Winkel.RadToDeg(rad), 3);
+        Assert.Equal(deg, Winkel.RadToDeg(rad), 3);
     }
 }

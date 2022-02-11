@@ -2,14 +2,14 @@
 
 namespace LibPlcTools.Test;
 
-public class Uint
+public class TestUint
 {
     [Theory]
     [InlineData(1, 1)]
     [InlineData(12345, 12345)]
     public void KonstruktorIntTest(ulong zahl, uint ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetDec());
     }
 
@@ -20,7 +20,7 @@ public class Uint
     [InlineData("16#1234", 4660)]
     public void KonstruktorStringTest(string zahl, uint ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetDec());
     }
 
@@ -30,7 +30,7 @@ public class Uint
     [InlineData("4", 2)]
     public void Bin_Test(string zahl, int position)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.True(plc.GetBitGesetzt(position));
     }
 
@@ -40,7 +40,7 @@ public class Uint
     [InlineData("9", "2#1001")]
     public void Bin_4Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetBin4Bit());
     }
 
@@ -50,7 +50,7 @@ public class Uint
     [InlineData("105", "2#0110_1001")]
     public void Bin_8Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetBin8Bit());
     }
 
@@ -60,7 +60,7 @@ public class Uint
     [InlineData("105", "2#0000_0110_1001")]
     public void Bin_12Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetBin12Bit());
     }
 
@@ -70,7 +70,7 @@ public class Uint
     [InlineData("26985", "2#0110_1001_0110_1001")]
     public void Bin_16Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetBin16Bit());
     }
 
@@ -80,7 +80,7 @@ public class Uint
     [InlineData("4660", "2#0000_0000_0000_0000_0001_0010_0011_0100")]
     public void Bin_32Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetBin32Bit());
     }
 
@@ -91,7 +91,7 @@ public class Uint
     [InlineData(32, 3, "2#0000_0000_0000_0000_0000_0000_0000_0011")]
     public void Bin_xBit_Test(int anzahlbit, ulong zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetBinBit(anzahlbit));
     }
 
@@ -103,7 +103,7 @@ public class Uint
     [InlineData(123456, "2#0000_0000_0000_0001_1110_0010_0100_0000")]
     public void Bin_GetBin_Test(ulong zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetBin());
     }
 
@@ -113,7 +113,7 @@ public class Uint
     [InlineData("9", "16#9")]
     public void Hex_4Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetHex4Bit());
     }
 
@@ -123,7 +123,7 @@ public class Uint
     [InlineData("105", "16#69")]
     public void Hex_8Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetHex8Bit());
     }
 
@@ -133,7 +133,7 @@ public class Uint
     [InlineData("1234", "16#4D2")]
     public void Hex_12Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetHex12Bit());
     }
 
@@ -143,7 +143,7 @@ public class Uint
     [InlineData("26985", "16#6969")]
     public void Hex_16Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetHex16Bit());
     }
 
@@ -153,7 +153,7 @@ public class Uint
     [InlineData("4660", "16#00001234")]
     public void Hex_32Bit_Test(string zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetHex32Bit());
     }
 
@@ -163,7 +163,7 @@ public class Uint
     [InlineData(32, 3, "16#00000003")]
     public void Hex_xBit_Test(int anzahlBit, ulong zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetHexBit(anzahlBit));
     }
 
@@ -173,7 +173,7 @@ public class Uint
     [InlineData(1234, "16#4D2")]
     public void Hex_Bit_Test(ulong zahl, string ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetHex());
     }
 
@@ -186,7 +186,7 @@ public class Uint
     [InlineData("2#1000", 4)]
     public void AnzahlBit_Test(string zahl, uint ergebnis)
     {
-        var plc = new LibPlcTools.Uint(zahl);
+        var plc = new Uint(zahl);
         Assert.Equal(ergebnis, plc.GetAnzahlBit());
     }
 

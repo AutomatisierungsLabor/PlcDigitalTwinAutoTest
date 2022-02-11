@@ -2,7 +2,7 @@
 
 namespace LibPlcTools.Test;
 
-public class Simatic
+public class TestSimatic
 {
 
     [Theory]
@@ -14,7 +14,7 @@ public class Simatic
 
     public void AnalogToInt16Test(double analog, double scale, int siemens)
     {
-        Assert.Equal(siemens, LibPlcTools.Simatic.Analog_2_Int16(analog, scale));
+        Assert.Equal(siemens, Simatic.Analog_2_Int16(analog, scale));
     }
 
     [Theory]
@@ -26,7 +26,7 @@ public class Simatic
 
     public void AnalogToInt32Test(double analog, double scale, int siemens)
     {
-        Assert.Equal(siemens, LibPlcTools.Simatic.Analog_2_Int32(analog, scale));
+        Assert.Equal(siemens, Simatic.Analog_2_Int32(analog, scale));
     }
 
     [Theory]
@@ -36,7 +36,7 @@ public class Simatic
 
     public void AnalogToToDoubleTest(int analog, double scale, int siemens)
     {
-        Assert.Equal(siemens, LibPlcTools.Simatic.Analog_2_Double(analog, scale), 3);
+        Assert.Equal(siemens, Simatic.Analog_2_Double(analog, scale), 3);
     }
 
     [Theory]
@@ -48,7 +48,7 @@ public class Simatic
 
     public void ClampTest(int wert, double min, double max, double exp)
     {
-        Assert.Equal(exp, LibPlcTools.Simatic.Clamp(wert, min, max), 3);
+        Assert.Equal(exp, Simatic.Clamp(wert, min, max), 3);
     }
 
 
@@ -65,7 +65,7 @@ public class Simatic
 
     public void GetLowByteTest(uint wert, byte exp)
     {
-        Assert.Equal(exp, LibPlcTools.Simatic.Digital_GetLowByte(wert));
+        Assert.Equal(exp, Simatic.Digital_GetLowByte(wert));
     }
 
 
@@ -77,7 +77,7 @@ public class Simatic
 
     public void GetHighByteTest(uint wert, byte exp)
     {
-        Assert.Equal(exp, LibPlcTools.Simatic.Digital_GetHighByte(wert));
+        Assert.Equal(exp, Simatic.Digital_GetHighByte(wert));
     }
 
 
@@ -88,7 +88,7 @@ public class Simatic
 
     public void GetCombineByteTest(byte low, byte high, uint exp)
     {
-        Assert.Equal(exp, LibPlcTools.Simatic.Digital_CombineTwoByte(low, high));
+        Assert.Equal(exp, Simatic.Digital_CombineTwoByte(low, high));
     }
 
 }

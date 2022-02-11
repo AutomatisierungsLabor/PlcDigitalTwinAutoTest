@@ -3,7 +3,7 @@ using Xunit;
 
 namespace LibPlcTools.Test;
 
-public class Bytes
+public class TestBytes
 {
     [Theory]
     [InlineData(0, new byte[] { })]
@@ -13,7 +13,7 @@ public class Bytes
     [InlineData(2, new byte[] { 1, 2 })]
     public void AnzahlByteEinlesenTesten(short anzahl, byte[] bytes)
     {
-        Assert.Equal(anzahl, LibPlcTools.Bytes.MaxBytePositionBestimmen(bytes));
+        Assert.Equal(anzahl, Bytes.MaxBytePositionBestimmen(bytes));
     }
 
 
@@ -23,7 +23,7 @@ public class Bytes
     [InlineData(new byte[] { 0 }, 300, 0)]
     public void BitmusterException(byte[] bytes, short posByte, byte bitMuster)
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => LibPlcTools.Bytes.BitMusterAufKollissionTesten(bytes, posByte, bitMuster));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Bytes.BitMusterAufKollissionTesten(bytes, posByte, bitMuster));
     }
 
     [Theory]
@@ -33,6 +33,6 @@ public class Bytes
     [InlineData(true, new byte[] { 0, 3 }, 1, 2)]
     public void BitMusterTesten(bool ergebnis, byte[] bytes, short posByte, byte bitMuster)
     {
-        Assert.Equal(ergebnis, LibPlcTools.Bytes.BitMusterAufKollissionTesten(bytes, posByte, bitMuster));
+        Assert.Equal(ergebnis, Bytes.BitMusterAufKollissionTesten(bytes, posByte, bitMuster));
     }
 }

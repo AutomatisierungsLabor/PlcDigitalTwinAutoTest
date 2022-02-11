@@ -2,7 +2,7 @@
 
 namespace LibHydraulik.Test;
 
-public class Heizkurve
+public class TestHeizkurve
 {
     [Theory]
     [InlineData(0, 0, 0, 100, 20, 0, 20)]
@@ -11,7 +11,7 @@ public class Heizkurve
 
     public void Test(double neigung, double niveau, double vorlaufMin, double vorlaufMax, double raumtempteratur, double witterungstemperatur, double vorlaufSolltemperatur)
     {
-        var heizkurve = new LibHydraulik.Heizkurve(neigung, niveau, vorlaufMin, vorlaufMax);
+        var heizkurve = new Heizkurve(neigung, niveau, vorlaufMin, vorlaufMax);
 
         Assert.Equal(vorlaufSolltemperatur, heizkurve.GetVorlaufSollTemperatur(raumtempteratur, witterungstemperatur), 1);
     }

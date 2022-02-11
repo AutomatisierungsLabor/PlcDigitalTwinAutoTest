@@ -5,6 +5,6 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
-    private uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Da[0], _datenstruktur.Da[1]);
+    public uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Da[0], _datenstruktur.Da[1]);
     public void GetDigitaleAusgaenge(FunctionEventArgs args) => args.ReturnValue.SetValue((int)GetDigitalOutputWord());
 }

@@ -2,7 +2,7 @@
 
 namespace LibUtil.Test;
 
-public class Rechteck
+public class TestRechteck
 {
 
     [Theory]
@@ -11,8 +11,8 @@ public class Rechteck
 
     public void TestKonstruktor(double links, double oben, double breite, double hoehe, double xl, double xr, double yo, double yu)
     {
-        var punkt = new LibUtil.Punkt(links, oben);
-        var rechteck = new LibUtil.Rechteck(new LibUtil.Punkt(links, oben), breite, hoehe);
+        var punkt = new Punkt(links, oben);
+        var rechteck = new Rechteck(new Punkt(links, oben), breite, hoehe);
 
         Assert.Equal(xl, rechteck.GetLinks());
         Assert.Equal(xr, rechteck.GetRechts());
@@ -28,8 +28,8 @@ public class Rechteck
 
     public void TestSetPosition(double links, double oben, double breite, double hoehe, double x1, double y1)
     {
-        var punkt = new LibUtil.Punkt(x1, y1);
-        var rechteck = new LibUtil.Rechteck(new LibUtil.Punkt(links, oben), breite, hoehe);
+        var punkt = new Punkt(x1, y1);
+        var rechteck = new Rechteck(new Punkt(links, oben), breite, hoehe);
 
         Assert.Equal(links, rechteck.GetLinks());
         Assert.Equal(oben, rechteck.GetOben());
@@ -48,7 +48,7 @@ public class Rechteck
 
     public void TestSetWaagrecht(double links, double oben, double breite, double hoehe, double x)
     {
-        var rechteck = new LibUtil.Rechteck(new LibUtil.Punkt(links, oben), breite, hoehe);
+        var rechteck = new Rechteck(new Punkt(links, oben), breite, hoehe);
 
         Assert.Equal(links, rechteck.GetLinks());
         Assert.Equal(oben, rechteck.GetOben());
@@ -66,7 +66,7 @@ public class Rechteck
 
     public void TestSetSenkrecht(double links, double oben, double breite, double hoehe, double y)
     {
-        var rechteck = new LibUtil.Rechteck(new LibUtil.Punkt(links, oben), breite, hoehe);
+        var rechteck = new Rechteck(new Punkt(links, oben), breite, hoehe);
 
         Assert.Equal(links, rechteck.GetLinks());
         Assert.Equal(oben, rechteck.GetOben());
@@ -86,10 +86,10 @@ public class Rechteck
 
     public void TestKollision(bool exp, double r1X, double r1Y, double r1B, double r1H, double r2X, double r2Y, double r2B, double r2H)
     {
-        var r1 = new LibUtil.Rechteck(new LibUtil.Punkt(r1X, r1Y), r1B, r1H);
-        var r2 = new LibUtil.Rechteck(new LibUtil.Punkt(r2X, r2Y), r2B, r2H);
+        var r1 = new Rechteck(new Punkt(r1X, r1Y), r1B, r1H);
+        var r2 = new Rechteck(new Punkt(r2X, r2Y), r2B, r2H);
 
-        Assert.Equal(exp, LibUtil.Rechteck.Kollision(r1, r2));
+        Assert.Equal(exp, Rechteck.Kollision(r1, r2));
     }
 
 }

@@ -2,7 +2,7 @@
 
 namespace LibConfigPlc.Test;
 
-public class AlleConfigAnzahlZeilenTesten
+public class TestAlleConfigAnzahlZeilen
 {
     [Theory]
     [InlineData("KeinOrdner", 0, 0, 0, 0)]

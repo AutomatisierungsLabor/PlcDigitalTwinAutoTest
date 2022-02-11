@@ -2,7 +2,7 @@
 
 namespace LibPlcTools.Test;
 
-public class ZeitDauer
+public class TestZeitDauer
 {
     [Theory]
     [InlineData("1234567890", 1234567890)]
@@ -13,7 +13,7 @@ public class ZeitDauer
 
     public void TestKonstruktorLong(string zahl, long ergebnis)
     {
-        var zeitMs = new LibPlcTools.ZeitDauer(zahl);
+        var zeitMs = new ZeitDauer(zahl);
         Assert.Equal(ergebnis, zeitMs.DauerMs);
     }
 
@@ -26,7 +26,7 @@ public class ZeitDauer
 
     public void TestKonstruktorDouble(string zahl, long ergebnis)
     {
-        var zeitMs = new LibPlcTools.ZeitDauer(zahl);
+        var zeitMs = new ZeitDauer(zahl);
         Assert.Equal(ergebnis, zeitMs.DauerMs);
     }
 
@@ -39,6 +39,6 @@ public class ZeitDauer
 
     public void FormatiertAusgebenTest(long dauer, string ergebnis)
     {
-        Assert.Equal(ergebnis, LibPlcTools.ZeitDauer.ConvertLongToMs(dauer));
+        Assert.Equal(ergebnis, ZeitDauer.ConvertLongToMs(dauer));
     }
 }

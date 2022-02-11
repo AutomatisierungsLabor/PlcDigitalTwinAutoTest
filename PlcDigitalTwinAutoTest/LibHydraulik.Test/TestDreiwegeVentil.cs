@@ -2,7 +2,7 @@
 
 namespace LibHydraulik.Test;
 
-public class DreiwegeVentil
+public class TestDreiwegeVentil
 {
 
     [Theory]
@@ -10,7 +10,7 @@ public class DreiwegeVentil
     [InlineData(-100, 100, 10)]
     public void KonstruktorTesten(double min, double max, double laufzeit)
     {
-        var ventil = new LibHydraulik.DreiwegeVentil(min, max, laufzeit);
+        var ventil = new DreiwegeVentil(min, max, laufzeit);
         Assert.Equal(0, ventil.GetPosition());
     }
 }

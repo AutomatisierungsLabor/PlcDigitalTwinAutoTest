@@ -4,7 +4,7 @@ using Xunit;
 
 namespace LibPlcTools.Test;
 
-public class Bitmuster
+public class TestBitmuster
 {
     [Theory]
     [InlineData(0, 1)]
@@ -14,14 +14,14 @@ public class Bitmuster
     [InlineData(7, 128)]
     public void BitmusterTest(byte bitmuster, byte ergebnis)
     {
-        Assert.Equal(ergebnis, LibPlcTools.Bitmuster.BitmusterErzeugen(bitmuster));
+        Assert.Equal(ergebnis, Bitmuster.BitmusterErzeugen(bitmuster));
     }
 
     [Theory]
     [InlineData(8)]
     public void BitmusterException(byte bitmuster)
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => LibPlcTools.Bitmuster.BitmusterErzeugen(bitmuster));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Bitmuster.BitmusterErzeugen(bitmuster));
     }
 
 
@@ -33,7 +33,7 @@ public class Bitmuster
     [InlineData(0b0000_1000, 3, true)]
     public void BitmusterInByteTesten(byte bitmuster, int bitPositon, bool ergebnis)
     {
-        Assert.Equal(ergebnis, LibPlcTools.Bitmuster.BitmusterInByteTesten(bitmuster, bitPositon));
+        Assert.Equal(ergebnis, Bitmuster.BitmusterInByteTesten(bitmuster, bitPositon));
     }
 
 
@@ -42,6 +42,6 @@ public class Bitmuster
     [InlineData(new byte[] { 0x00, 0xff }, 8, true)]
     public void BitInByteArrayTesten(IReadOnlyList<byte> datenArray, int i, bool expexted)
     {
-        Assert.Equal(expexted, LibPlcTools.Bitmuster.BitInByteArrayTesten(datenArray, i));
+        Assert.Equal(expexted, Bitmuster.BitInByteArrayTesten(datenArray, i));
     }
 }

@@ -50,42 +50,13 @@ public partial class TestAutomat
         var diIst = new Uint(GetDigtalInputWord().ToString());
         var daIst = new Uint(GetDigitalOutputWord().ToString());
         var daSoll = new Uint(digOutSoll.ToString());
-       
-        _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid,
+
+        _cbUpdateDataGrid?.Invoke(new DataGridZeile(_zeilenNummerDataGrid,
             $"{GetElapsedMilliseconds()}ms",
             testErgebnis,
             diIst.GetBinBit(GetAnzahlBitEingaenge()),
             daSoll.GetBinBit(GetAnzahlBitAusgaenge()),
             daIst.GetBinBit(GetAnzahlBitAusgaenge()),
             silkKommentar));
-       
-
-        // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
-        /*
-        switch (testErgebnis)
-        {
-            case TestAnzeige.Kommentar:
-            case TestAnzeige.Projektbezeichnung:
-                VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
-                    VmAutoTesterSilk.ZeilenNummerDataGrid,
-                    "",
-                    testErgebnis,
-                    silkKommentar,
-                    "",
-                    "",
-                    ""));
-                break;
-            default:
-                VmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
-                    VmAutoTesterSilk.ZeilenNummerDataGrid,
-                    $"{SilkStopwatch.ElapsedMilliseconds}ms",
-                    testErgebnis,
-                    dInput.GetBinBit(TestAutomat.GetAnzahlBitEingaenge()),
-                    dOutputSoll.GetBinBit(TestAutomat.GetAnzahlBitAusgaenge()),
-                    dOutputIst.GetBinBit(TestAutomat.GetAnzahlBitAusgaenge()),
-                    silkKommentar));
-                break;
-        }
-        */
     }
 }

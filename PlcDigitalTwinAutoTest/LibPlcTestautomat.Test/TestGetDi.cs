@@ -4,7 +4,7 @@ using Xunit;
 
 namespace LibPlcTestautomat.Test;
 
-public class GetDiTest
+public class TestGetDi
 {
     [Theory]
     [InlineData(0, 0, 0)]
@@ -12,7 +12,7 @@ public class GetDiTest
     [InlineData(0, 1, 256)]
     public void GetDiTests(byte di0, byte di1, uint erwartet)
     {
-        CancellationTokenSource cancellationTokenSource = new();
+        var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
 
