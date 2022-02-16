@@ -31,8 +31,8 @@ public class AutoTesterSilk
         _cancellationTokenSource = cancellationTokenSource;
 
         Silk = new Silk.Silk();
-        _vmAutoTesterSilk = new VmAutoTesterSilk(cancellationTokenSource);
-        _autoTesterWindow = new AutoTesterWindow(_vmAutoTesterSilk, closeWindow);
+        _vmAutoTesterSilk = new VmAutoTesterSilk(cancellationTokenSource.Token);
+        _autoTesterWindow = new AutoTesterWindow(_vmAutoTesterSilk, cancellationTokenSource, closeWindow);
 
         _testAutomat.SetReferenzen(_vmAutoTesterSilk.ZeilenNummerDataGrid);
         _testAutomat.SetCallbackDatagridUpdaten(_vmAutoTesterSilk.UpdateDataGrid);
@@ -61,14 +61,14 @@ public class AutoTesterSilk
             _testAutomat.InfoAnzeigen($"{_testAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.CompilerErfolgreich, "");
             _testAutomat.FuncRestartStopwatch();
 
-            System.Threading.Tasks.Task.Run(SilkTask,_cancellationTokenSource.Token);
+            System.Threading.Tasks.Task.Run(SilkTask, _cancellationTokenSource.Token);
         }
         else
         {
             foreach (var error in compiler.Errors) _testAutomat.InfoAnzeigen($"{_testAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.CompilerError, error.ToString());
         }
     }
-    private void SilkTask() => Silk.RunProgram(_compiledProgram);
+    private void SilkTask() => Silk.RunProgram(_compiledProgram, _cancellationTokenSource.Token);
     public void AutoTestFensterOeffnen()
     {
         _vmAutoTesterSilk.DataGridZeilen.Clear();

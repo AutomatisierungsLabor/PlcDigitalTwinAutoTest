@@ -1,4 +1,5 @@
-﻿using Contracts;
+﻿using System.Threading;
+using Contracts;
 using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk.Silk;
@@ -7,11 +8,11 @@ public partial class Silk
 {
     // Register intrinsic functions - NOTE that silk internal functions are also available
     // as per https://github.com/SoftCircuits/Silk/blob/master/docs/InternalFunctions.md
-    
-    public void RunProgram(CompiledProgram program)
+
+    public void RunProgram(CompiledProgram program, CancellationToken cancellationToken)
     {
-        var runtime = new Runtime(program);
-        
+        var runtime = new Runtime(program, cancellationToken);
+
         runtime.Begin += Runtime_Begin;
         runtime.Function += Runtime_Function;
         runtime.End += Runtime_End;
