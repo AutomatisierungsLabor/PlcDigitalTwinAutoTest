@@ -62,7 +62,7 @@ public abstract partial class VmBase
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
     private ICommand _btnTaster;
     // ReSharper disable once UnusedMember.Global

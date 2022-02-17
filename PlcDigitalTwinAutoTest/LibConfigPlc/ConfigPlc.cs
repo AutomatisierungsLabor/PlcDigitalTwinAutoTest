@@ -37,7 +37,8 @@ public class ConfigPlc
     public T SetPath<T, TEinstellungen>(string pfad, EaConfig<TEinstellungen> ioConfig) where T : EaConfig<TEinstellungen>
     {
         ioConfig.ConfigOk = false;
-        var dateiPfad = $"{pfad}/{typeof(T).Name.ToUpper()}.json";
+        var jsonDatei = $"{typeof(T).Name.ToUpper()}.json";
+        var dateiPfad = Path.Combine(pfad, jsonDatei);
         if (!File.Exists(dateiPfad))
         {
             Log.Debug("ConfigPlc Datei nicht gefunden: " + dateiPfad);
