@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LbsFeldkirch.Silk" Version="2.0.0" />
     <PackageReference Include="log4net" Version="2.0.14" />
   </ItemGroup>
 
@@ -16,12 +17,6 @@
     <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
     <ProjectReference Include="..\LibPlcTools\LibPlcTools.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Silk">
-      <HintPath>..\..\..\Silk\Silk\bin\Debug\net6.0-windows8.0\Silk.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 
