@@ -49,9 +49,11 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         Text[(int)WpfObjects.B2] = "B2";
         Text[(int)WpfObjects.F1] = "F1";
 
-        Text[(int)WpfObjects.S1] = "S1";
-        Text[(int)WpfObjects.S2] = "S2";
-
+        Text[(int)WpfObjects.S1] = "Aus";
+        Text[(int)WpfObjects.S2] = "Ein";
+        Text[(int)WpfObjects.P1] = "Störung";
+        Text[(int)WpfObjects.P2] = "Betriebsbereit";
+        Text[(int)WpfObjects.Kurzschluss] = "Kurzschluss";
     }
     protected override void ViewModelAufrufThread()
     {
