@@ -1,9 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading;
-using LibAutoTestSilk.TestAutomat;
+﻿using Contracts;
 using LibPlcTools;
 using SoftCircuits.Silk;
+using System;
+using System.Diagnostics;
+using System.Threading;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -15,51 +15,19 @@ public partial class Silk
         AufNegFlankeWarten
     }
 
-    internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Di[0], Datenstruktur.Di[1]);
-    internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(Datenstruktur.Da[0], Datenstruktur.Da[1]);
-    private void GetDigitaleAusgaenge(FunctionEventArgs e)
+    internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Di[0], _datenstruktur.Di[1]);
+    internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Da[0], _datenstruktur.Da[1]);
+
+    private void FuncBitmusterBlinktTesten(FunctionEventArgs args)
     {
-        var digitalOutput = GetDigitalOutputWord();
-        e.ReturnValue.SetValue((int)digitalOutput);
-    }
-    private void BitmusterTesten(FunctionEventArgs e)
-    {
-        var bitMuster = e.Parameters[0].ToInteger();
-        var bitMaske = e.Parameters[1].ToInteger();
-        var timeout = new ZeitDauer(e.Parameters[2].ToString());
-        var kommentar = e.Parameters[3].ToString();
-
-        var stopwatch = new Stopwatch();
-        stopwatch.Start();
-
-        while (stopwatch.ElapsedMilliseconds < timeout.DauerMs)
-        {
-
-            Thread.Sleep(10);
-
-            var digitalOutput = GetDigitalOutputWord();
-
-            if ((digitalOutput & (short)bitMaske) == (short)bitMuster)
-            {
-                DataGridAnzeigeUpdaten(TestAnzeige.Erfolgreich, (uint)bitMuster, kommentar);
-                return;
-            }
-
-            DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)bitMuster, kommentar);
-        }
-
-        DataGridAnzeigeUpdaten(TestAnzeige.Timeout, (uint)bitMuster, kommentar);
-    }
-    private void BitmusterBlinktTesten(FunctionEventArgs e)
-    {
-        var bitMuster = e.Parameters[0].ToInteger();
-        var bitMaske = e.Parameters[1].ToInteger();
-        var periodenDauer = new ZeitDauer(e.Parameters[2].ToString());
-        var tastVerhaeltnis = e.Parameters[3].ToFloat();
-        var anzahlPerioden = e.Parameters[4].ToInteger();
-        var toleranz = e.Parameters[5].ToFloat();
-        var timeout = new ZeitDauer(e.Parameters[6].ToString());
-        var kommentar = e.Parameters[7].ToString();
+        var bitMuster = args.Parameters[0].ToInteger();
+        var bitMaske = args.Parameters[1].ToInteger();
+        var periodenDauer = new ZeitDauer(args.Parameters[2].ToString());
+        var tastVerhaeltnis = args.Parameters[3].ToFloat();
+        var anzahlPerioden = args.Parameters[4].ToInteger();
+        var toleranz = args.Parameters[5].ToFloat();
+        var timeout = new ZeitDauer(args.Parameters[6].ToString());
+        var kommentar = args.Parameters[7].ToString();
 
         var periodenDauerMax = periodenDauer.DauerMs * (1 + toleranz);
         var periodenDauerMin = periodenDauer.DauerMs * (1 - toleranz);
@@ -130,7 +98,7 @@ public partial class Silk
                     break;
 
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(schritte.ToString());
             }
 
             DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)bitMuster, $"{kommentar}: I:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");

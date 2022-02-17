@@ -44,8 +44,10 @@ public class DreiwegeVentil
         // ReSharper disable once FunctionNeverReturns
     }
 
+    // ReSharper disable UnusedMember.Global
     public void VentilOeffnen(bool wert) => _ventilOeffnen = wert;
     public void VentilSchliessen(bool wert) => _ventilSchliessen = wert;
+    // ReSharper restore UnusedMember.Global
     public double GetPosition() => _positionProzent;
 
     private void VentilPositionLimitieren()

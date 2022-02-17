@@ -33,7 +33,4 @@ main()
     VersionAnzeigen
 
     UpdateAnzeige "Init", ""
-    IncrementDataGridId
-
-    UpdateAnzeige "Test abgeschlossen", " "
 }

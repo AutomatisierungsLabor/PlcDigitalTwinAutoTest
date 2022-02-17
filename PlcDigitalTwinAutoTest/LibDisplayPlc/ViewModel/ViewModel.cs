@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using LibConfigPlc;
+using LibDatenstruktur;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
-using LibConfigPlc;
-using LibDatenstruktur;
 
 namespace LibDisplayPlc.ViewModel;
 
@@ -89,13 +88,17 @@ public class ViewModel
     private readonly ConfigPlc _configPlc;
     private readonly Datenstruktur _datenstruktur;
     private readonly CancellationTokenSource _cancellationTokenSource;
+
+    private ObservableCollection<DaEinstellungen> _daZeilenAlt = new();
+    private ObservableCollection<DiEinstellungen> _diZeilenAlt = new();
+
     public ViewModel(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
-        
+
         _datenstruktur = datenstruktur;
         _configPlc = configPlc;
-        _cancellationTokenSource=cancellationTokenSource;
+        _cancellationTokenSource = cancellationTokenSource;
 
         for (var i = 0; i < 100; i++)
         {
@@ -110,39 +113,54 @@ public class ViewModel
     {
         while (!_cancellationTokenSource.IsCancellationRequested)
         {
-            for (var i = 0; i < 100; i++) SichtbarEin[i] = Visibility.Collapsed;
-
-            foreach (var zeile in _configPlc.Di.Zeilen)
-            {
-                var bitnummer = zeile.StartBit + 8 * zeile.StartByte;
-                Text[(int)WpfObjects.Di00 + bitnummer] = zeile.Bezeichnung;
-                Text[(int)WpfObjects.DiBeschreibung00 + bitnummer] = zeile.Kommentar;
-                SichtbarEin[(int)WpfObjects.Di00 + bitnummer] = Visibility.Visible;
-                SichtbarEin[(int)WpfObjects.DiBeschreibung00 + bitnummer] = Visibility.Visible;
-            }
-
-            foreach (var zeile in _configPlc.Da.Zeilen)
-            {
-                var bitnummer = zeile.StartBit + 8 * zeile.StartByte;
-                Text[(int)WpfObjects.Da00 + bitnummer] = zeile.Bezeichnung;
-                Text[(int)WpfObjects.DaBeschreibung00 + bitnummer] = zeile.Kommentar;
-                SichtbarEin[(int)WpfObjects.Da00 + bitnummer] = Visibility.Visible;
-                SichtbarEin[(int)WpfObjects.DaBeschreibung00 + bitnummer] = Visibility.Visible;
-            }
+            DiZeilenBeschriften(_configPlc.Di.Zeilen);
+            DaZeilenBeschriften(_configPlc.Da.Zeilen);
 
             for (var i = 0; i < 16; i++)
             {
-                FarbeUmschalten(BitTesten(_datenstruktur.Di, i), (int)WpfObjects.Di00 + i, Brushes.Yellow, Brushes.DarkGray);
-                FarbeUmschalten(BitTesten(_datenstruktur.Da, i), (int)WpfObjects.Da00 + i, Brushes.LawnGreen, Brushes.DarkGray);
+                FarbeUmschalten(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, i), (int)WpfObjects.Di00 + i, Brushes.Yellow, Brushes.DarkGray);
+                FarbeUmschalten(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, i), (int)WpfObjects.Da00 + i, Brushes.LawnGreen, Brushes.DarkGray);
             }
 
             Thread.Sleep(10);
         }
-        // ReSharper disable once FunctionNeverReturns
+    }
+    private void DaZeilenBeschriften(ObservableCollection<DaEinstellungen> daZeilen)
+    {
+        if (_daZeilenAlt == daZeilen) return;
+
+        _daZeilenAlt = daZeilen;
+
+        for (var i = (int)WpfObjects.Da00; i <= (int)WpfObjects.DaBeschreibung17; i++) SichtbarEin[i] = Visibility.Collapsed;
+        
+        foreach (var zeile in _configPlc.Da.Zeilen)
+        {
+            var bitnummer = zeile.StartBit + 8 * zeile.StartByte;
+            Text[(int)WpfObjects.Da00 + bitnummer] = zeile.Bezeichnung;
+            Text[(int)WpfObjects.DaBeschreibung00 + bitnummer] = zeile.Kommentar;
+            SichtbarEin[(int)WpfObjects.Da00 + bitnummer] = Visibility.Visible;
+            SichtbarEin[(int)WpfObjects.DaBeschreibung00 + bitnummer] = Visibility.Visible;
+        }
+    }
+    private void DiZeilenBeschriften(ObservableCollection<DiEinstellungen> diZeilen)
+    {
+        if (_diZeilenAlt == diZeilen) return;
+
+        _diZeilenAlt = diZeilen;
+
+        for (var i = (int)WpfObjects.Di00; i <= (int)WpfObjects.DiBeschreibung17; i++) SichtbarEin[i] = Visibility.Collapsed;
+
+        foreach (var zeile in _configPlc.Di.Zeilen)
+        {
+            var bitnummer = zeile.StartBit + 8 * zeile.StartByte;
+            Text[(int)WpfObjects.Di00 + bitnummer] = zeile.Bezeichnung;
+            Text[(int)WpfObjects.DiBeschreibung00 + bitnummer] = zeile.Kommentar;
+            SichtbarEin[(int)WpfObjects.Di00 + bitnummer] = Visibility.Visible;
+            SichtbarEin[(int)WpfObjects.DiBeschreibung00 + bitnummer] = Visibility.Visible;
+        }
     }
 
     private void FarbeUmschalten(bool val, int i, Brush farbe1, Brush farbe2) => Farbe[i] = val ? farbe1 : farbe2;
-  
 
     private ObservableCollection<Visibility> _sichtbarEin = new();
     public ObservableCollection<Visibility> SichtbarEin
@@ -180,11 +198,5 @@ public class ViewModel
     public event PropertyChangedEventHandler PropertyChanged;
     private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-    private static bool BitTesten(IReadOnlyList<byte> datenArray, int i)
-    {
-        var ibyte = i / 8;
-        var bitMuster = (byte)(1 << (i % 8));
 
-        return (datenArray[ibyte] & bitMuster) == bitMuster;
-    }
 }

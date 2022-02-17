@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Contracts;
+using DtKata.Model;
+using LibDatenstruktur;
+using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtKata.Model;
-using LibDatenstruktur;
 
 namespace DtKata.ViewModel;
 public enum WpfObjects
@@ -33,13 +34,12 @@ public enum WpfObjects
 public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelKata _modelKata;
-    private LibWpf.LibWpf _libWpfTabBeschreibung;
-    private LibWpf.LibWpf _libWpfLaborPlatte;
-    private LibWpf.LibWpf _libWpfSimulation;
+    private readonly Datenstruktur _datenstruktur;
 
     public VmKata(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _modelKata = model as ModelKata;
+        _datenstruktur = datenstruktur;
 
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
@@ -57,7 +57,7 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
     protected override void ViewModelAufrufThread()
     {
         if (_modelKata == null) return;
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
+        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelKata.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_modelKata.S2, (int)WpfObjects.S2);
@@ -76,10 +76,6 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         FarbeUmschalten(_modelKata.P6, (int)WpfObjects.P6, Brushes.Yellow, Brushes.White);
         FarbeUmschalten(_modelKata.P7, (int)WpfObjects.P7, Brushes.Red, Brushes.White);
         FarbeUmschalten(_modelKata.P8, (int)WpfObjects.P8, Brushes.Red, Brushes.White);
-
-        _libWpfTabBeschreibung?.PlcError(PlcDaemon, Datenstruktur);
-        _libWpfLaborPlatte?.PlcError(PlcDaemon, Datenstruktur);
-        _libWpfSimulation?.PlcError(PlcDaemon, Datenstruktur);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
@@ -104,7 +100,7 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         }
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
-    public override void BeschreibungZeichnen(TabItem tabItem) => _libWpfTabBeschreibung = TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
-    public override void LaborPlatteZeichnen(TabItem tabItem) => _libWpfLaborPlatte = TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
-    public override void SimulationZeichnen(TabItem tabItem) => _libWpfSimulation = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
+    public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
+    public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
+    public override void SimulationZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
 }

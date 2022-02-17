@@ -29,7 +29,7 @@ public partial class LibWpf
             VerticalAlignment = vertical
         };
 
-        
+
         label.SetContentBinding(wpfId);
         label.SetSichtbarkeitEinBinding(wpfId);
 

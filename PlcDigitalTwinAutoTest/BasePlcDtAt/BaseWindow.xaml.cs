@@ -1,12 +1,13 @@
-﻿using System.ComponentModel;
-using System.Threading;
-using System.Windows;
-using System.Windows.Controls;
-using BasePlcDtAt.BaseViewModel;
+﻿using BasePlcDtAt.BaseViewModel;
 using LibAutoTest;
 using LibConfigPlc;
 using LibDatenstruktur;
 using LibDisplayPlc;
+using LibPlcTestautomat;
+using System.ComponentModel;
+using System.Threading;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace BasePlcDtAt;
 
@@ -16,31 +17,35 @@ public partial class BaseWindow
     public ConfigPlc ConfigPlc { get; set; }
     public DisplayPlc DisplayPlc { get; set; }
     public AutoTest AutoTest { get; set; }
+    public TestAutomat TestAutomat { get; set; }
 
     private readonly VmBase _vmBase;
-    private readonly CancellationTokenSource _cancellationTokenSource;
+    private readonly CancellationTokenSource _baseCancellationToken;
+    private const string PfadConfigTests = "ConfigTests";
+    private const string PfadConfigPlc = "ConfigPlc";
 
-    public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex, CancellationTokenSource cancellationTokenSource)
+    public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex, CancellationTokenSource baseCancellationToken)
     {
         _vmBase = vmBase;
         Datenstruktur = datenstruktur;
-        _cancellationTokenSource = cancellationTokenSource;
+        _baseCancellationToken = baseCancellationToken;
 
         InitializeComponent();
         DataContext = _vmBase;
 
-        ConfigPlc = new ConfigPlc("/ConfigPlc");
+        ConfigPlc = new ConfigPlc(PfadConfigPlc);
 
         _vmBase.BeschreibungZeichnen(TabBeschreibung);
         _vmBase.LaborPlatteZeichnen(TabLaborPlatte);
         _vmBase.SimulationZeichnen(TabSimulation);
 
-        AutoTest = new AutoTest(Datenstruktur, ConfigPlc, TabAutoTest, "/ConfigTests");
+        TestAutomat = new TestAutomat(Datenstruktur,_baseCancellationToken);
+
+        AutoTest = new AutoTest(Datenstruktur, _vmBase.PlcDaemon, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests, _baseCancellationToken);
         AutoTest.SetCallback(ConfigPlc.SetPath);
-        _vmBase.SetAutoTestRef(AutoTest);
 
         BaseTabControl.SelectedIndex = startUpTabIndex;
-        DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc, _cancellationTokenSource);
+        DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc, _baseCancellationToken);
     }
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -48,19 +53,19 @@ public partial class BaseWindow
 
         switch (tc.SelectedIndex)
         {
-            case (int)VmBase.WpfBase.TabBeschreibung:
-                ConfigPlc.SetPathRelativ("/ConfigPlc");
+            case (int)Contracts.WpfBase.TabBeschreibung:
+                ConfigPlc.SetPathRelativ(PfadConfigPlc);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.BeschreibungAnzeigen;
                 break;
-            case (int)VmBase.WpfBase.TabLaborplatte:
-                ConfigPlc.SetPathRelativ("/ConfigPlc");
+            case (int)Contracts.WpfBase.TabLaborplatte:
+                ConfigPlc.SetPathRelativ(PfadConfigPlc);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
                 break;
-            case (int)VmBase.WpfBase.TabSimulation:
-                ConfigPlc.SetPathRelativ("/ConfigPlc");
+            case (int)Contracts.WpfBase.TabSimulation:
+                ConfigPlc.SetPathRelativ(PfadConfigPlc);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.Simulation;
                 break;
-            case (int)VmBase.WpfBase.TabAutoTest:
+            case (int)Contracts.WpfBase.TabAutoTest:
                 AutoTest.ResetSelectedProject();
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.AutomatischerSoftwareTest;
                 break;
@@ -71,13 +76,13 @@ public partial class BaseWindow
     }
     private void PlcButtonClick(object sender, RoutedEventArgs e)
     {
-        if (DisplayPlc.FensterAktiv) DisplayPlc.Schliessen();
-        else DisplayPlc.Oeffnen();
+        if (DisplayPlc.FensterAktiv) DisplayPlc.PlcFensterAusblenden();
+        else DisplayPlc.PlcFensterAnzeigen();
     }
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _vmBase.PlotterButtonClick(sender, e);
     private void BaseWindow_OnClosing(object sender, CancelEventArgs e)
     {
-        _cancellationTokenSource.Cancel();
+        _baseCancellationToken.Cancel();
         Application.Current.Shutdown();
     }
 }

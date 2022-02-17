@@ -10,19 +10,18 @@ public enum SiemensDatenbausteine
 
 public class PlcSiemens : IPlc
 {
+    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
+
     public short AnzBytePcToPlc = 222;
     public short AnzBytePlcToPc = 222;
-
-    private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     private readonly IpAdressenSiemens _ipAdressenSiemens;
     private readonly byte[] _pcToPlc;
     private readonly byte[] _plcToPc;
     private readonly S7Client _s7Client;
-
     private SiemensStatus _siemensStatus;
 
-    public enum SiemensStatus
+    private enum SiemensStatus
     {
         Verbinden = 0,
         Kommunizieren = 1
@@ -36,7 +35,6 @@ public class PlcSiemens : IPlc
         _pcToPlc = pcToPlc;
         _plcToPc = plcToPc;
         _s7Client = new S7Client();
-
     }
     public PlcState State => new()
     {

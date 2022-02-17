@@ -41,6 +41,17 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
+    public void RechteckVis(int xPos, int xSpan, int yPos, int ySpan, Brush rand, object wpfId)
+    {
+        var rectangle = new Rectangle
+        {
+            Stroke = rand
+        };
+        rectangle.SetFillingBinding(wpfId);
+        rectangle.SetSichtbarkeitEinBinding(wpfId);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
     public void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, object wpfId)
     {
         var rectangle = new Rectangle

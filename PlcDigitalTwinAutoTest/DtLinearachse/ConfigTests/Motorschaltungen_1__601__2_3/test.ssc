@@ -51,79 +51,88 @@ main()
 
     Sleep("T#100ms")
     UpdateAnzeige "Init", ""
-    IncrementDataGridId
+    
 
     UpdateAnzeige "Kommentar", "Ohne Störung testen"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S1 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Betriebsbereit?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S1 + S2 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P4, Maske_P2_P3_P4, "T#5s", "Motor Ein?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S2 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P4, Maske_P2_P3_P4, "T#5s", "Motor noch Ein?"
-    IncrementDataGridId
+    IncrementDaaGridId
 
     SetDigitaleEingaenge (S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Betriebsbereit?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S1 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Immer noch Betriebsbereit?"
-    IncrementDataGridId
+    
 
     UpdateAnzeige "Kommentar", "Störung Thermorelais und Not-Halt"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge AllesAus
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4, "T#5s", "Störung und Motor Aus?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Betriebsbereit?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S1 + S2 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P4, Maske_P2_P3_P4, "T#5s", "Motor wieder Ein?"
-    IncrementDataGridId
+    
 
     UpdateAnzeige "Kommentar", "Störung Thermorelais"
-    IncrementDataGridId
+    
     
     SetDigitaleEingaenge (S2 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4, "T#5s", "Störung Thermorelais und Motor Aus?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S1 + S2 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P4, Maske_P2_P3_P4, "T#5s", "Motor wieder Ein?"
-    IncrementDataGridId
+    
 
     UpdateAnzeige "Kommentar", "Störung Not-Halt"
-    IncrementDataGridId
+    
     
     SetDigitaleEingaenge (S1 + S2 + S9)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4, "T#5s", "Störung Not-Halt und Motor Aus?"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Betriebsbereit?"
-    IncrementDataGridId
-
-    UpdateAnzeige "Test abgeschlossen", " "
 }

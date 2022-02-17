@@ -6,15 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LbsFeldkirch.Silk" Version="2.0.0" />
     <PackageReference Include="log4net" Version="2.0.14" />
-    <PackageReference Include="SoftCircuits.Silk" Version="1.5.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
+    <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
     <ProjectReference Include="..\LibPlcTools\LibPlcTools.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
   </ItemGroup>
+
 
 </Project>

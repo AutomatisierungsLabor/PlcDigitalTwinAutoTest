@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Contracts;
+using DtBlinker.Model;
+using LibDatenstruktur;
+using ScottPlot;
+using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtBlinker.Model;
-using LibDatenstruktur;
-using ScottPlot;
 
 namespace DtBlinker.ViewModel;
+
 public enum WpfObjects
 {
     // ReSharper disable once UnusedMember.Global
@@ -24,18 +26,17 @@ public enum WpfObjects
 public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelBlinker _modelBlinker;
-    private LibWpf.LibWpf _libWpfTabBeschreibung;
-    private LibWpf.LibWpf _libWpfLaborPlatte;
-    private LibWpf.LibWpf _libWpfSimulation;
+    private readonly Datenstruktur _datenstruktur;
     private WpfPlot _scottPlot;
     private readonly double[] _zeitachse;
     private short _nextDataIndex = 1;
-    public double[] WertLeuchtMelder { get; set; } = new double[5_000];
-
+    private readonly double[] _wertLeuchtMelder;
 
     public VmBlinker(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
-        _zeitachse = DataGen.Consecutive(5000);
+        _datenstruktur= datenstruktur;
+        _wertLeuchtMelder = new double[5_000];
+        _zeitachse = DataGen.Consecutive(5_000);
 
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
@@ -58,7 +59,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     {
         if (_modelBlinker == null) return;
 
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
+        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelBlinker.S1, (int)WpfObjects.S1);
         SichtbarkeitUmschalten(_modelBlinker.S2, (int)WpfObjects.S2);
@@ -67,9 +68,8 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarkeitUmschalten(_modelBlinker.S5, (int)WpfObjects.S5);
 
         FarbeUmschalten(_modelBlinker.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
-        
+
         ScottPlotAktualisieren();
-        ErrorAnzeigen();
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
@@ -86,23 +86,16 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
     }
     protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
-    public override void BeschreibungZeichnen(TabItem tabItem) => _libWpfTabBeschreibung = TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
-    public override void LaborPlatteZeichnen(TabItem tabItem) => _libWpfLaborPlatte = TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
+    public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
+    public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
     public override void SimulationZeichnen(TabItem tabItem)
     {
-        (_libWpfSimulation, _scottPlot) = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
+        _scottPlot = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
 
         _scottPlot.Plot.YLabel("Leuchtmelder");
         _scottPlot.Plot.XLabel("Zeit [ms]");
 
-        _scottPlot.Plot.AddScatter(_zeitachse, WertLeuchtMelder, label: "LED");
-
-    }
-    private void ErrorAnzeigen()
-    {
-        _libWpfTabBeschreibung?.PlcError(PlcDaemon, Datenstruktur);
-        _libWpfLaborPlatte?.PlcError(PlcDaemon, Datenstruktur);
-        _libWpfSimulation?.PlcError(PlcDaemon, Datenstruktur);
+        _scottPlot.Plot.AddScatter(_zeitachse, _wertLeuchtMelder, label: "LED");
     }
     private void ScottPlotAktualisieren()
     {
@@ -110,7 +103,7 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 
         for (var i = 0; i < 10; i++)
         {
-            WertLeuchtMelder[_nextDataIndex + i] = _modelBlinker.P1 ? 1 : 0;
+            _wertLeuchtMelder[_nextDataIndex + i] = _modelBlinker.P1 ? 1 : 0;
         }
 
         _nextDataIndex += 10;

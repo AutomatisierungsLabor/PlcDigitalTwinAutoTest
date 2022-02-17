@@ -1,13 +1,13 @@
-﻿using System.Windows;
+﻿using DtGetriebemotor.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtGetriebemotor.ViewModel;
 
 namespace DtGetriebemotor.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static LibWpf.LibWpf TabSimulationZeichnen(VmGetriebemotor vmGetriebemotor, TabItem tabItem, string hintergrund)
+    public static void TabSimulationZeichnen(VmGetriebemotor vmGetriebemotor, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
@@ -60,8 +60,6 @@ public partial class TabZeichnen
         libWpf.Text("-S8", 15, 2, 16, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.ButtonRounded(17, 3, 16, 3, 50, 15, buttonRand, Brushes.LawnGreen, vmGetriebemotor.BtnTaster, WpfObjects.S8, false, false);
 
-
-
         var kreisRand = new Thickness(2, 2, 2, 2);
         var kreisRandFarbe = new SolidColorBrush(Colors.Black);
 
@@ -78,7 +76,6 @@ public partial class TabZeichnen
         libWpf.KreisRandVis(17, 3, 20, 3, kreisRandFarbe, kreisRand, WpfObjects.P3);
 
 
-
-        return libWpf;
+        libWpf.PlcError();
     }
 }

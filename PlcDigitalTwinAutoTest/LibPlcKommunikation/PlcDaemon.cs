@@ -1,7 +1,7 @@
-﻿using System.Net.NetworkInformation;
-using System.Text;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
 using Newtonsoft.Json;
+using System.Net.NetworkInformation;
+using System.Text;
 
 namespace LibPlcKommunikation;
 
@@ -9,36 +9,40 @@ public class PlcDaemon
 {
     private enum PlcDaemonStatus
     {
-        SpsPingen = 0,
-        SpsBeckhoff = 1,
-        SpsSiemens = 2
+        SpsPingStarten = 0,
+        SpsPingErgebnis = 1,
+        SpsBeckhoff = 2,
+        SpsSiemens = 3
     }
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-    public PlcKeine PlcKeine { get; set; }
-    public PlcBeckhoff PlcBeckhoff { get; set; }
-    public PlcSiemens PlcSiemens { get; set; }
+
     public PlcState PlcState { get; set; }
 
-    public byte[] PcToPlc = new byte[1024];
-    public byte[] PlcToPc = new byte[1024];
+    private readonly byte[] _pcToPlc;
+    private readonly byte[] _plcToPc;
 
+    private readonly PlcKeine _plcKeine;
+    private readonly PlcBeckhoff _plcBeckhoff;
+    private readonly PlcSiemens _plcSiemens;
     private readonly Datenstruktur _datenstruktur;
     private readonly IpAdressenSiemens _ipAdressenSiemens;
     private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
     private PlcDaemonStatus _plcDaemonStatus;
     private readonly CancellationTokenSource _cancellationTokenSource;
 
+
     public PlcDaemon(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Daemon gestartet");
 
         _datenstruktur = datenstruktur;
-        _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+        _plcDaemonStatus = PlcDaemonStatus.SpsPingStarten;
         _cancellationTokenSource = cancellationTokenSource;
-        
-        Log.Debug("SPS pingen");
+
+        _pcToPlc = new byte[1024];
+        _plcToPc = new byte[1024];
 
         try
         {
@@ -58,59 +62,60 @@ public class PlcDaemon
             Log.Debug("Datei nicht gefunden: IpAdressenBeckhoff.json" + ex);
         }
 
-        PlcKeine = new PlcKeine(_datenstruktur);
-        PlcBeckhoff = new PlcBeckhoff(_ipAdressenBeckhoff, PcToPlc, PlcToPc);
-        PlcSiemens = new PlcSiemens(_ipAdressenSiemens, PcToPlc, PlcToPc);
+        Log.Debug("SPS pingen");
+
+
+        _plcKeine = new PlcKeine(_datenstruktur);
+        _plcBeckhoff = new PlcBeckhoff(_ipAdressenBeckhoff, _pcToPlc, _plcToPc);
+        _plcSiemens = new PlcSiemens(_ipAdressenSiemens, _pcToPlc, _plcToPc);
 
         Task.Run(PlcDaemonTask);
     }
     private void PlcDaemonTask()
     {
         var pingBeckhoff = new Ping();
-        var pingSiemens = new Ping();
+        pingBeckhoff.PingCompleted += (_, args) => _plcDaemonStatus = args.Reply is { Status: IPStatus.Success } ? PlcDaemonStatus.SpsBeckhoff : PlcDaemonStatus.SpsPingStarten;
 
-        PlcKeine.PlcTask();
-        PlcState = PlcKeine.State;
+        var pingSiemens = new Ping();
+        pingSiemens.PingCompleted += (_, args) => _plcDaemonStatus = args.Reply is { Status: IPStatus.Success } ? PlcDaemonStatus.SpsSiemens : PlcDaemonStatus.SpsPingStarten;
+
+        _plcKeine.PlcTask();
+        PlcState = _plcKeine.State;
 
         while (!_cancellationTokenSource.IsCancellationRequested)
         {
             switch (_plcDaemonStatus)
             {
-                case PlcDaemonStatus.SpsPingen:
+                case PlcDaemonStatus.SpsPingStarten:
+                    pingBeckhoff.SendAsync(_ipAdressenBeckhoff.IpAdresse, 1000, null);
+                    pingSiemens.SendAsync(_ipAdressenSiemens.Adress, 1000, null);
 
-                    try
-                    {
-                        var replyBeckhoff = pingBeckhoff.Send(_ipAdressenBeckhoff.IpAdresse);
-                        var replySiemens = pingSiemens.Send(_ipAdressenSiemens.Adress);
+                    _datenstruktur.VersionsStringPlc = PlcState.PlcBezeichnung;
+                    _plcDaemonStatus = PlcDaemonStatus.SpsPingErgebnis;
+                    break;
 
-                        if (replyBeckhoff is { Status: IPStatus.Success })
-                        {
-                            Log.Debug("Beckhoff SPS erkannt");
-                            _plcDaemonStatus = PlcDaemonStatus.SpsBeckhoff;
-                        }
-
-                        if (replySiemens is { Status: IPStatus.Success })
-                        {
-                            Log.Debug("Siemens SPS erkannt");
-                            _plcDaemonStatus = PlcDaemonStatus.SpsSiemens;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Debug("Problem beim pingen:" + ex);
-                    }
+                case PlcDaemonStatus.SpsPingErgebnis:
+                    // einfach nichts tun und auf das Ergebnis warten
                     break;
 
                 case PlcDaemonStatus.SpsBeckhoff:
-                    PlcBeckhoff.PlcTask();
-                    PlcState = PlcBeckhoff.State;
-                    if (PlcBeckhoff.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+                    _plcBeckhoff.PlcTask();
+                    PlcState = _plcBeckhoff.State;
+                    DatenPcToPlcRangieren();
+                    if (_plcBeckhoff.State.PlcError)
+                    {
+                        _plcDaemonStatus = PlcDaemonStatus.SpsPingStarten;
+                    }
                     break;
 
                 case PlcDaemonStatus.SpsSiemens:
-                    PlcSiemens.PlcTask();
-                    PlcState = PlcSiemens.State;
-                    if (PlcSiemens.State.PlcError) _plcDaemonStatus = PlcDaemonStatus.SpsPingen;
+                    _plcSiemens.PlcTask();
+                    PlcState = _plcSiemens.State;
+                    DatenPcToPlcRangieren();
+                    if (_plcSiemens.State.PlcError)
+                    {
+                        _plcDaemonStatus = PlcDaemonStatus.SpsPingStarten;
+                    }
                     break;
 
                 default:
@@ -119,8 +124,6 @@ public class PlcDaemon
 
             if (_datenstruktur.SimulationAktiv()) _datenstruktur.BefehlePlc[0] = 1;
             else _datenstruktur.BefehlePlc[0] = 0;
-
-            DatenPcToPlcRangieren();
 
             Thread.Sleep(10);
         }
@@ -151,16 +154,16 @@ public class PlcDaemon
 
         var versionsStringPlc = new byte[256];
 
-        if (anzDi + anzAi + anzBefehle > PlcSiemens.AnzBytePcToPlc) throw new ArgumentOutOfRangeException();
-        if (anzDa + anzAa + anzVersionsbez > PlcSiemens.AnzBytePlcToPc) throw new ArgumentOutOfRangeException();
+        if (anzDi + anzAi + anzBefehle > _plcSiemens.AnzBytePcToPlc) throw new ArgumentOutOfRangeException();
+        if (anzDa + anzAa + anzVersionsbez > _plcSiemens.AnzBytePlcToPc) throw new ArgumentOutOfRangeException();
 
-        Buffer.BlockCopy(_datenstruktur.Di, 0, PcToPlc, anfangDi, anzDi);
-        Buffer.BlockCopy(_datenstruktur.Ai, 0, PcToPlc, anfangAi, anzAi);
-        Buffer.BlockCopy(_datenstruktur.BefehlePlc, 0, PcToPlc, anfangBefehle, anzBefehle);
+        Buffer.BlockCopy(_datenstruktur.Di, 0, _pcToPlc, anfangDi, anzDi);
+        Buffer.BlockCopy(_datenstruktur.Ai, 0, _pcToPlc, anfangAi, anzAi);
+        Buffer.BlockCopy(_datenstruktur.BefehlePlc, 0, _pcToPlc, anfangBefehle, anzBefehle);
 
-        Buffer.BlockCopy(PlcToPc, anfangDa, _datenstruktur.Da, 0, anzDa);
-        Buffer.BlockCopy(PlcToPc, anfangAa, _datenstruktur.Aa, 0, anzAa);
-        Buffer.BlockCopy(PlcToPc, anfangVersion, versionsStringPlc, 0, anzVersionsbez);
+        Buffer.BlockCopy(_plcToPc, anfangDa, _datenstruktur.Da, 0, anzDa);
+        Buffer.BlockCopy(_plcToPc, anfangAa, _datenstruktur.Aa, 0, anzAa);
+        Buffer.BlockCopy(_plcToPc, anfangVersion, versionsStringPlc, 0, anzVersionsbez);
 
         var textLaenge = 0;
         for (var i = 0; i < 255; i++)

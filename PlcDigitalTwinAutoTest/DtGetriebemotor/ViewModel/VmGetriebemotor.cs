@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Contracts;
+using DtGetriebemotor.Model;
+using LibDatenstruktur;
+using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtGetriebemotor.Model;
-using LibDatenstruktur;
 
 namespace DtGetriebemotor.ViewModel;
 public enum WpfObjects
@@ -28,20 +29,19 @@ public enum WpfObjects
     S6 = 46,
     S8 = 47,
     S91 = 48,
+    // ReSharper disable once UnusedMember.Global
     S92 = 49,
 
-    WinkelGetriebemotor=50
+    WinkelGetriebemotor = 50
 
 }
 public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelGetriebemotor _modelGetriebemotor;
-    private LibWpf.LibWpf _libWpfTabBeschreibung;
-    private LibWpf.LibWpf _libWpfLaborPlatte;
-    private LibWpf.LibWpf _libWpfSimulation;
-
+    private readonly Datenstruktur _datenstruktur;
     public VmGetriebemotor(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
+        _datenstruktur= datenstruktur;
 
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
         SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Visible;
@@ -69,7 +69,7 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
     {
         if (_modelGetriebemotor == null) return;
 
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + Datenstruktur.VersionsStringLokal;
+        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         SichtbarkeitUmschalten(_modelGetriebemotor.B1, (int)WpfObjects.B1);
         SichtbarkeitUmschalten(_modelGetriebemotor.B2, (int)WpfObjects.B1);
@@ -79,8 +79,6 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
         FarbeUmschalten(_modelGetriebemotor.P3, (int)WpfObjects.P3, Brushes.Red, Brushes.LightGray);
 
         Winkel[(int)WpfObjects.WinkelGetriebemotor] = _modelGetriebemotor.WinkelGetriebemotor;
-
-        ErrorAnzeigen();
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
@@ -110,15 +108,7 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
         }
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
-    public override void BeschreibungZeichnen(TabItem tabItem) => _libWpfTabBeschreibung = TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
-    public override void LaborPlatteZeichnen(TabItem tabItem) => _libWpfLaborPlatte = TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
-    public override void SimulationZeichnen(TabItem tabItem) => _libWpfSimulation = TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
-
-    private void ErrorAnzeigen()
-    {
-        _libWpfTabBeschreibung?.PlcError(PlcDaemon, Datenstruktur);
-        _libWpfLaborPlatte?.PlcError(PlcDaemon, Datenstruktur);
-        _libWpfSimulation?.PlcError(PlcDaemon, Datenstruktur);
-    }
-
+    public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
+    public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
+    public override void SimulationZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
 }

@@ -33,6 +33,7 @@ public class Rechteck
                r2.GetOben() < r1.GetUnten();
     }
 
+    // ReSharper disable once UnusedMember.Global
     public static bool Ausgebremst(Rechteck bewegt, Rechteck hinderniss, RichtungX richtungX, RichtungY richtungY)
     {
         if (Kollision(bewegt, hinderniss)) return true;

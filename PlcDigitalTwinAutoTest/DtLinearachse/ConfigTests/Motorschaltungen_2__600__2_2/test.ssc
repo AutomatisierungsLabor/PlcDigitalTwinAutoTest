@@ -56,17 +56,19 @@ main()
 
     Sleep("T#100ms")
     UpdateAnzeige "Init", ""
-    IncrementDataGridId
+    
 
     UpdateAnzeige "Kommentar", "Ohne Störung testen"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S8 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3_P4_Q1_Q2, "T#5s", "Linearachse Aus ? (Mögliche Störung quittieren)"
-    IncrementDataGridId
+    
 
     ResetStopwatch
+    Sleep("T#100ms")
 
     setArray = {
         {S1 + S9 + S10, "T#500ms",  "S1 drücken"},
@@ -82,8 +84,9 @@ main()
 
     SetDigitaleEingaenge (S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
-    IncrementDataGridId
+    
 
     ///////////////////////////////////////////////////////////////
     //
@@ -92,70 +95,76 @@ main()
     ///////////////////////////////////////////////////////////////
 
     UpdateAnzeige "Kommentar", "Störungen Thermorelais testen"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S1 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten (P4 + Q1), Maske_P2_P3_P4_Q1_Q2, "T#5s", "Linearachse Rechtslauf?"
-    IncrementDataGridId
+    
 
     Sleep("T#200ms")
 
     SetDigitaleEingaenge (S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4_Q1_Q2, "T#5s", "Störung Thermorelais"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge(S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterBlinktTesten P3, Maske_P2_P3_P4_Q1_Q2, "T#1s500ms", 0.50, 2, 1.1, "T#10s", "Störung (1,1Hz) und Linearachse steht"
-    IncrementDataGridId
+    
 
     // Zuerst nur den Q testen 
     SetDigitaleEingaenge (S8 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten Q2, Q2, "T#5s", "Quittieren -> Linearachse fährt nach links"
-    IncrementDataGridId
+    
 
     // jetzt das Blinken kontrollieren
     SetDigitaleEingaenge (S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterBlinktTesten P2, P2, "T#800ms", 0.50, 1, 1.1, "T#10s", "Störung blinkt; Linearachse fährt nach links"
-    IncrementDataGridId
+    
 
 
     UpdateAnzeige "Kommentar", "Störungen Not-Halt testen"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge (S1 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten (P4 + Q1), Maske_P2_P3_P4_Q1_Q2, "T#5s", "Linearachse Rechtslauf?"
-    IncrementDataGridId
+    
 
     Sleep("T#200ms")
 
     SetDigitaleEingaenge (S9)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4_Q1_Q2, "T#5s", "Störung Not-Halt"
-    IncrementDataGridId
+    
 
     SetDigitaleEingaenge(S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterBlinktTesten P3, Maske_P2_P3_P4_Q1_Q2, "T#1s500ms", 0.50, 2, 1.1, "T#10s", "Störung (1,1Hz) und Linearachse steht"
-    IncrementDataGridId
+    
 
     // Zuerst nur den Q testen 
     SetDigitaleEingaenge (S8 + S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterTesten Q2, Q2, "T#5s", "Quittieren -> Linearachse fährt nach links"
-    IncrementDataGridId
+    
 
     // jetzt das Blinken kontrollieren
     SetDigitaleEingaenge (S9 + S10)
     ResetStopwatch
+    Sleep("T#100ms")
     BitmusterBlinktTesten P2, P2, "T#800ms", 0.50, 1, 1.1, "T#10s", "Störung blinkt; Linearachse fährt nach links"
-    IncrementDataGridId
-
-
-    UpdateAnzeige "Test abgeschlossen", " "
 }

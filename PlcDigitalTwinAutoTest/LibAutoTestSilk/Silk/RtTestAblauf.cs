@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Contracts;
+using SoftCircuits.Silk;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
-using LibAutoTestSilk.TestAutomat;
-using SoftCircuits.Silk;
 
 namespace LibAutoTestSilk.Silk;
 
@@ -12,32 +12,32 @@ public partial class Silk
 {
     private int _diAktuellerSchtritt;
     private int _daAktuellerSchritt;
-    private void TestAblauf(FunctionEventArgs e)
+    private void FuncTestAblauf(FunctionEventArgs args)
     {
         var listeDigEingaenge = new List<DiSetzen>();
         _diAktuellerSchtritt = 0;
 
-        for (var i = 0; i < e.Parameters[0].ListCount; i++)
+        for (var i = 0; i < args.Parameters[0].ListCount; i++)
         {
             listeDigEingaenge.Add(new DiSetzen(
-                (ulong)e.Parameters[0][i][0].ToInteger(),
-                e.Parameters[0][i][1].ToString(),
-                e.Parameters[0][i][2].ToString()));
+                (ulong)args.Parameters[0][i][0].ToInteger(),
+                args.Parameters[0][i][1].ToString(),
+                args.Parameters[0][i][2].ToString()));
         }
 
 
         var listeDigAusgaenge = new List<DaTesten>();
         _daAktuellerSchritt = 0;
 
-        for (var i = 0; i < e.Parameters[1].ListCount; i++)
+        for (var i = 0; i < args.Parameters[1].ListCount; i++)
         {
             listeDigAusgaenge.Add(new DaTesten(
-                (ulong)e.Parameters[1][i][0].ToInteger(),
-                (ulong)e.Parameters[1][i][1].ToInteger(),
-                e.Parameters[1][i][2].ToString(),
-                e.Parameters[1][i][3].ToFloat(),
-                e.Parameters[1][i][4].ToString(),
-                e.Parameters[1][i][5].ToString()));
+                (ulong)args.Parameters[1][i][0].ToInteger(),
+                (ulong)args.Parameters[1][i][1].ToInteger(),
+                args.Parameters[1][i][2].ToString(),
+                args.Parameters[1][i][3].ToFloat(),
+                args.Parameters[1][i][4].ToString(),
+                args.Parameters[1][i][5].ToString()));
         }
 
         var gesamteTimeOutZeit = listeDigAusgaenge.Sum(test => test.GetTimeoutMs());
@@ -92,7 +92,7 @@ public partial class Silk
     }
     private bool FunktionDigAusgaenge(IReadOnlyList<DaTesten> listeDa, Stopwatch aktuelleZeit)
     {
-        if (_daAktuellerSchritt>= listeDa.Count) return true;
+        if (_daAktuellerSchritt >= listeDa.Count) return true;
         var aktZeileDa = listeDa[_daAktuellerSchritt];
 
         var digBitmaske = aktZeileDa.GetBitMaske().GetDec();
@@ -104,7 +104,7 @@ public partial class Silk
             case DaTesten.StatusDigAusgaenge.Init:
                 aktZeileDa.SetStartzeit(aktuelleZeit.ElapsedMilliseconds);
                 aktZeileDa.SetAktuellerStatus(DaTesten.StatusDigAusgaenge.AufBitmusterWarten);
-                VmAutoTesterSilk.ZeilenNummerDataGrid++;
+                _vmAutoTesterSilk.ZeilenNummerDataGrid++;
                 DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)digBitmuster, "DA[" + _daAktuellerSchritt + "]: " + aktZeileDa.GetKommentar());
                 return false;
 

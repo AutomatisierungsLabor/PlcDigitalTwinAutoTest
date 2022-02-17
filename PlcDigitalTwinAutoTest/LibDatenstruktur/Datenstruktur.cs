@@ -7,7 +7,6 @@ public enum BetriebsartProjekt
     Simulation = 2,
     AutomatischerSoftwareTest = 3
 }
-
 public enum DatenBereich
 {
     Di = 0,
@@ -39,7 +38,7 @@ public class Datenstruktur
         DiagrammZeitbereich = 20;
         BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
     }
-
+    public void SetVersionLokal(string vLokal) => VersionsStringLokal = vLokal;
     public void SetBitmuster(DatenBereich datenBereich, short offset, params bool[] bits)
     {
         byte wert = 0;
@@ -83,16 +82,13 @@ public class Datenstruktur
     }
     public bool SimulationAktiv()
     {
-        switch (BetriebsartProjekt)
+        return BetriebsartProjekt switch
         {
-
-            case BetriebsartProjekt.Simulation:
-            case BetriebsartProjekt.AutomatischerSoftwareTest:
-                return true;
-            case BetriebsartProjekt.BeschreibungAnzeigen:
-            case BetriebsartProjekt.LaborPlatte:
-            default:
-                return false;
-        }
+            BetriebsartProjekt.Simulation => true,
+            BetriebsartProjekt.AutomatischerSoftwareTest => true,
+            BetriebsartProjekt.BeschreibungAnzeigen => false,
+            BetriebsartProjekt.LaborPlatte => false,
+            _ => false
+        };
     }
 }

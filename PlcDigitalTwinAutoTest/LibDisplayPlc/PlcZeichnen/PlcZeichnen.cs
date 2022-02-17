@@ -1,19 +1,22 @@
-﻿using System.Windows;
+﻿using LibDisplayPlc.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using LibDisplayPlc.ViewModel;
 
 namespace LibDisplayPlc.PlcZeichnen;
 
 public class PlcZeichnen
 {
-    public  PlcZeichnen(Grid plcGrid)
+    private readonly Grid _plcGrid;
+
+    public PlcZeichnen(Grid plcGrid) => _plcGrid = plcGrid;
+    public void Zeichnen()
     {
         const int schriftGanzGross = 50;
         const int schriftGross = 25;
         const int schriftKlein = 18;
 
-        var libWpf = new LibWpf.LibWpf(plcGrid);
+        var libWpf = new LibWpf.LibWpf(_plcGrid);
 
         libWpf.GridZeichnen(25, 30, 28, 30, false);
 

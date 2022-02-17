@@ -1,5 +1,5 @@
-﻿using System.Threading;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
+using System.Threading;
 
 namespace DtGetriebemotor.Model;
 
@@ -28,14 +28,12 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
 
     private const double GeschwindigkeitGetriebemotorLangsam = 1;
     private const double GeschwindigkeitGetriebemotorSchnell = 2 * GeschwindigkeitGetriebemotorLangsam;
-
-    private readonly Datenstruktur _datenstruktur;
+    
     private readonly DatenRangieren _datenRangieren;
 
     public ModelGetriebemotor(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
-        _datenstruktur = datenstruktur;
-        _datenRangieren = new DatenRangieren(this, _datenstruktur);
+        _datenRangieren = new DatenRangieren(this, datenstruktur);
 
         S2 = true;
         S4 = true;
@@ -56,7 +54,7 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
             if (Q1) WinkelGetriebemotor += GeschwindigkeitGetriebemotorSchnell;
             if (Q3) WinkelGetriebemotor += GeschwindigkeitGetriebemotorLangsam;
         }
-       
+
 
         if (WinkelGetriebemotor > 360) WinkelGetriebemotor -= 360;
         if (WinkelGetriebemotor < 0) WinkelGetriebemotor += 360;
@@ -66,5 +64,4 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
 
         _datenRangieren?.Rangieren();
     }
-    public void SetVersionLokal(string vLokal) => _datenstruktur.VersionsStringLokal = vLokal;
 }

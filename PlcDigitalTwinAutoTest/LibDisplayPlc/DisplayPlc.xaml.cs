@@ -1,43 +1,41 @@
-﻿using System.Threading;
-using System.Windows.Controls;
-using LibConfigPlc;
+﻿using LibConfigPlc;
 using LibDatenstruktur;
+using System.Threading;
+using System.Windows.Controls;
 
 namespace LibDisplayPlc;
 
 public partial class DisplayPlc
 {
-    public ViewModel.ViewModel ViewModel { get; set; }
-    public PlcZeichnen.PlcZeichnen PlcZeichnen { get; set; }
-    public Grid Grid { get; set; }
     public bool FensterAktiv { get; set; }
 
     public DisplayPlc(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
     {
-        ViewModel = new ViewModel.ViewModel(datenstruktur, configPlc, cancellationTokenSource);
-
-        Grid = new Grid();
-        Content = Grid;
+        var grid = new Grid();
+        Content = grid;
 
         Width = 800;
         Height = 900;
 
-        PlcZeichnen = new PlcZeichnen.PlcZeichnen(Grid);
+        var viewModel = new ViewModel.ViewModel(datenstruktur, configPlc, cancellationTokenSource);
 
-        DataContext = ViewModel;
+        var plcZeichnen = new PlcZeichnen.PlcZeichnen(grid);
+        plcZeichnen.Zeichnen();
+
+        DataContext = viewModel;
 
         Closing += (_, e) =>
         {
             e.Cancel = true;
-            Schliessen();
+            PlcFensterAusblenden();
         };
     }
-    public void Schliessen()
+    public void PlcFensterAusblenden()
     {
         FensterAktiv = false;
         Hide();
     }
-    public void Oeffnen()
+    public void PlcFensterAnzeigen()
     {
         Show();
         Title = "PLC";

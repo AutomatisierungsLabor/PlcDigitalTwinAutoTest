@@ -1,33 +1,19 @@
-﻿using System;
-using BasePlcDtAt.BaseCommands;
+﻿using BasePlcDtAt.BaseCommands;
+using Contracts;
+using LibDatenstruktur;
+using LibPlcKommunikation;
+using System;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using LibDatenstruktur;
-using LibPlcKommunikation;
 
 namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class VmBase
 {
-    public enum WpfBase
-    {
-        TabBeschreibung = 0,
-        TabLaborplatte = 1,
-        TabSimulation = 2,
-        TabAutoTest = 3,
-        BtnPlcAnzeigen = 4,
-        BtnPlottAnzeigen = 5,
-        // ReSharper disable UnusedMember.Global
-        ErrorAnzeige = 6,
-        ErrorVersionLokal = 7,
-        ErrorVersionPlc = 8
-        // ReSharper restore UnusedMember.Global
-    }
-
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     protected abstract void ViewModelAufrufThread();
@@ -35,18 +21,19 @@ public abstract partial class VmBase
     protected abstract void ViewModelAufrufSchalter(Enum schalterId);
 
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
-
-    public Datenstruktur Datenstruktur { get; set; }
     public BaseModel.BaseModel Model { get; set; }
-
     public PlcDaemon PlcDaemon { get; set; }
+
+
+    private readonly Datenstruktur _datenstruktur;
+
     protected VmBase(BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
 
         PlcDaemon = new PlcDaemon(datenstruktur, cancellationTokenSource);
         Model = model;
-        Datenstruktur = datenstruktur;
+        _datenstruktur = datenstruktur;
 
         FensterTitel = "Unbekannter Titel";
 
@@ -68,6 +55,8 @@ public abstract partial class VmBase
             TransformOrigin.Add(new Point(0, 0));
             Winkel.Add(0);
         }
+
+        Farbe[(int)WpfBase.ErrorAnzeige] = Brushes.Red;
 
         System.Threading.Tasks.Task.Run(() => ViewModelTask(cancellationTokenSource));
     }

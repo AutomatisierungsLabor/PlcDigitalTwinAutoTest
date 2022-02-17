@@ -31,9 +31,11 @@ public class Pt1Zeitglied
         }
         // ReSharper disable once FunctionNeverReturns
     }
+    // ReSharper disable once UnusedMember.Global
     public void SetNeuerEingangswert(double neu) => _neuerSollwert = neu;
     public double GetAktuellerWert() => _aktuell;
 
+    // ReSharper disable once UnusedMember.Global
     public void TestZeitglied(int anzahl)
     {
         for (var i = 0; i < anzahl; i++) EinZyklusAbwarten();

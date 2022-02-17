@@ -6,13 +6,13 @@ namespace DtFibonacci.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static LibWpf.LibWpf TabLaborPlatteZeichnen(ViewModel.VmFibonacci vmFibonacci, TabItem tabItem, string hintergrund)
+    public static void TabLaborPlatteZeichnen(ViewModel.VmFibonacci vmFibonacci, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
 
         libWpf.GridZeichnen(50, 30, 30, 30, true);
         libWpf.Text("Laborplatte", 2, 20, 25, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.Black);
-     
-        return libWpf;
+
+        libWpf.PlcError();
     }
 }

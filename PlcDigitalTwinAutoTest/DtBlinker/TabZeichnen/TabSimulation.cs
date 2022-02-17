@@ -1,13 +1,13 @@
-﻿using System.Windows;
+﻿using DtBlinker.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtBlinker.ViewModel;
 
 namespace DtBlinker.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static (LibWpf.LibWpf libWpf, ScottPlot.WpfPlot scottPlot) TabSimulationZeichnen(VmBlinker vmBlinker, TabItem tabItem, string hintergrund)
+    public static ScottPlot.WpfPlot TabSimulationZeichnen(VmBlinker vmBlinker, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
@@ -33,6 +33,7 @@ public partial class TabZeichnen
 
         libWpf.ButtonRounded(28, 4, 1, 4, 30, 15, buttonRand, Brushes.Violet, vmBlinker.BtnTaster, WpfObjects.S5, false, false);
 
-        return (libWpf, scottPlot);
+        libWpf.PlcError();
+        return scottPlot;
     }
 }
