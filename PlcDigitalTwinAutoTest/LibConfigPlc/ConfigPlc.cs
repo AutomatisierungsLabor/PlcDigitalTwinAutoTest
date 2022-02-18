@@ -20,6 +20,7 @@ public class ConfigPlc
         Bit,
         Byte,
         Word,
+        DWord,
         Ascii,
         BitmusterByte,
         SiemensAnalogwertProzent,

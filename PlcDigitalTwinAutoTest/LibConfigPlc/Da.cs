@@ -54,7 +54,7 @@ public class Da : EaConfig<DaEinstellungen>
     }
     private void LogConfigError(DaEinstellungen zeile)
     {
-        Log.Debug("DA: Kollision 'BitmusterByte'; Byte: " + zeile.StartByte + "Bit: " + zeile.StartBit);
+        Log.Debug($"DA: Kollision -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit}");
         ConfigOk = false;
     }
 }

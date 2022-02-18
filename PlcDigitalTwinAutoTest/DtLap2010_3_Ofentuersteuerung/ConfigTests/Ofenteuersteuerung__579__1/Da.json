@@ -1,0 +1,25 @@
+﻿{
+  "Zeilen": [
+    {
+      "Byte": 0,
+      "Bit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "P1",
+      "Kommentar": "Meldeleuchte Schliessen"
+    },
+    {
+      "Byte": 0,
+      "Bit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "Q1",
+      "Kommentar": "Motor LL - Öffnen"
+    },
+    {
+      "Byte": 0,
+      "Bit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "Q2",
+      "Kommentar": "Motor RL - Schliessen"
+    }
+  ]
+}

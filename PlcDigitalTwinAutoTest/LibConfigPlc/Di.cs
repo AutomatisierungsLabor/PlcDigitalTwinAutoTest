@@ -56,7 +56,7 @@ public class Di : EaConfig<DiEinstellungen>
 
     private void LogConfigError(DiEinstellungen zeile)
     {
-        Log.Debug("DI: Kollision 'BitmusterByte'; Byte: " + zeile.StartByte + "Bit: " + zeile.StartBit);
+        Log.Debug($"DI: Kollision -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit}");
         ConfigOk = false;
     }
 }

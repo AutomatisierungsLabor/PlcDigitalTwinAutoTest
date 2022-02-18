@@ -5,25 +5,25 @@ namespace DtLap2010_1_Kompressoranlage.Model;
 public class DatenRangieren
 
 {
-    private readonly ModelLap2010 _kata;
+    private readonly ModelLap2010 _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
 
-    public DatenRangieren(ModelLap2010 kata, Datenstruktur datenstruktur)
+    public DatenRangieren(ModelLap2010 modelLap2010, Datenstruktur datenstruktur)
     {
-        _kata = kata;
+        _modelLap2010 = modelLap2010;
         _datenstruktur = datenstruktur;
     }
     internal void Rangieren()
     {
         if (_datenstruktur.SimulationAktiv())
         {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _kata.B1, _kata.B2, _kata.F1, _kata.S1, _kata.S2);
+            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelLap2010.B1, _modelLap2010.B2, _modelLap2010.F1, _modelLap2010.S1, _modelLap2010.S2);
         }
         else
         {
-            (_kata.B1, _kata.B2, _kata.F1, _kata.S1, _kata.S2, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
+            (_modelLap2010.B1, _modelLap2010.B2, _modelLap2010.F1, _modelLap2010.S1, _modelLap2010.S2, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
         }
 
-        (_kata.P1, _kata.P2, _kata.Q1, _kata.Q2, _kata.Q3, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
+        (_modelLap2010.P1, _modelLap2010.P2, _modelLap2010.Q1, _modelLap2010.Q2, _modelLap2010.Q3, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }
 }

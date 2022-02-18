@@ -31,6 +31,13 @@ public class Ai : EaConfig<AiEinstellungen>
                     if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) LogConfigError(zeile);
                     break;
+                case ConfigPlc.EaTypen.DWord:
+                    if (zeile.StartBit > 0) LogConfigError(zeile);
+                    if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
+                    if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) LogConfigError(zeile);
+                    if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 2, 0xFF)) LogConfigError(zeile);
+                    if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 3, 0xFF)) LogConfigError(zeile);
+                    break;
                 case ConfigPlc.EaTypen.NichtBelegt: break;
                 default: LogConfigError(zeile); break;
             }
@@ -40,7 +47,7 @@ public class Ai : EaConfig<AiEinstellungen>
     }
     private void LogConfigError(AiEinstellungen zeile)
     {
-        Log.Debug("AI: Kollision 'BitmusterByte'; Byte: " + zeile.StartByte + "Bit: " + zeile.StartBit);
+        Log.Debug($"AI: Kollision -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit}");
         ConfigOk = false;
     }
 }
