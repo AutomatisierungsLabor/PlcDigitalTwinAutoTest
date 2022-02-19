@@ -1,4 +1,6 @@
-﻿namespace LAP_2010_4_Abfuellanlage.Model;
+﻿using LibUtil;
+
+namespace DtLap2010_4_Abfuellanlage.Model;
 
 public class BlechDosen
 {

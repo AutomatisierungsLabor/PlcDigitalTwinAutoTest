@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using LAP_2010_4_Abfuellanlage.Model;
 using LibDatenstruktur;
 
 namespace DtLap2010_4_Abfuellanlage.Model;

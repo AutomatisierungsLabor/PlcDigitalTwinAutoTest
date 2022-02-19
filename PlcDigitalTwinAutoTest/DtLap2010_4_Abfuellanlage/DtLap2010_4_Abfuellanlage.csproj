@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BasePlcDtAt\BasePlcDtAt.csproj" />
+    <ProjectReference Include="..\LibUtil\LibUtil.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
   </ItemGroup>
 

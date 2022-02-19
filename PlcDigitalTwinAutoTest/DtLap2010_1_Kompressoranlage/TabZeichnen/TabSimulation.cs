@@ -30,8 +30,10 @@ public partial class TabZeichnen
         libWpf.Text("P1", 21, 2, 5, 2, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P2", 25, 2, 5, 2, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonRounded(22, 2, 2, 2, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1, false, false);
-        libWpf.ButtonRounded(27, 2, 2, 2, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2, false, false);
+        libWpf.ButtonRounded(22, 2, 2, 2, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1, false,
+            false);
+        libWpf.ButtonRounded(27, 2, 2, 2, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2, false,
+            false);
 
         libWpf.KreisRandVis(22, 2, 5, 2, kreisRandFarbe, kreisRand, WpfObjects.P1);
         libWpf.KreisRandVis(27, 2, 5, 2, kreisRandFarbe, kreisRand, WpfObjects.P2);
@@ -45,7 +47,7 @@ public partial class TabZeichnen
 
 
 
-
+        libWpf.Polygon(1, 5, 15, 5, Brushes.LightBlue, Brushes.Black, 2, new double[][] { new double[]{ 120, 10 }, new double[] { 180, 10 }, new double[] { 180, 160 }, new double[] { 12, 160 }, new double[] { 12, 100 }, new double[] { 120, 100 } });
 
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
@@ -68,7 +70,7 @@ public partial class TabZeichnen
 
 
         libWpf.ButtonRounded(10, 4, 18, 2, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnSchalter, WpfObjects.F1, false, false);
-        libWpf.TextVis(10, 4, 18, 2, HorizontalAlignment.Center, VerticalAlignment.Center,20, Brushes.Black,WpfObjects.Kurzschluss);
+        libWpf.TextVis(10, 4, 18, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.Kurzschluss);
 
         libWpf.KreisRandVis(15, 4, 15, 4, Brushes.Red, new Thickness(0, 0, 0, 0), WpfObjects.Kurzschluss);
 

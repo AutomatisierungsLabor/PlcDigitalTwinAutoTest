@@ -43,36 +43,6 @@ public partial class TabZeichnen
         //
         ///////////////////////////////////////////////////////////
 
-
-
-
-
-
-        var kontakteRand = new Thickness(0, 5, 5, 5);
-
-        libWpf.Text("B1", 5, 4, 15, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 10, Brushes.Black);
-        libWpf.BildVisAus("Initiatoren_SchliesserHellgrau.jpg", 7, 2, 15, 2, kontakteRand, WpfObjects.B1);
-        libWpf.BildVisEin("Initiatoren_BetaetigtHellgrau.jpg", 7, 2, 15, 2, kontakteRand, WpfObjects.B1);
-
-
-
-
-
-
-        libWpf.RechteckFarbeUmschalten(10, 4, 15, 1, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
-        libWpf.RechteckFarbeUmschalten(10, 2, 16, 1, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
-        libWpf.RechteckFarbeUmschalten(12, 2, 16, 1, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q3);
-        libWpf.Text("Q1 (Netz)", 10, 4, 15, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 10, Brushes.Black);
-        libWpf.Text("Q2 ( Y )", 10, 2, 16, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 10, Brushes.Black);
-        libWpf.Text("Q3 ( D )", 12, 2, 16, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 10, Brushes.Black);
-
-
-        libWpf.ButtonRounded(10, 4, 18, 2, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnSchalter, WpfObjects.F1, false, false);
-        libWpf.TextVis(10, 4, 18, 2, HorizontalAlignment.Center, VerticalAlignment.Center,20, Brushes.Black,WpfObjects.Kurzschluss);
-
-        libWpf.KreisRandVis(15, 4, 15, 4, Brushes.Red, new Thickness(0, 0, 0, 0), WpfObjects.Kurzschluss);
-
-
         // libWpf.PlcError();
     }
 }
