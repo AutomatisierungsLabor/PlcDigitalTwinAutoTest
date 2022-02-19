@@ -17,11 +17,35 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
 
-    public void RechteckRand(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, object wpfId)
+    public void RechteckFill(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, Thickness margin)
     {
         var rectangle = new Rectangle
         {
-            Fill = farbe
+            Fill = fill,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
+
+    public void RechteckFillStroke(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, Thickness margin)
+    {
+        var rectangle = new Rectangle
+        {
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
+
+    public void RechteckRand(int xPos, int xSpan, int yPos, int ySpan, Brush fill, object wpfId)
+    {
+        var rectangle = new Rectangle
+        {
+            Fill = fill
         };
         rectangle.SetMarginBinding(wpfId);
 
@@ -40,12 +64,12 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
 
-    public void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand,
+    public void RechteckFarbeUmschalten(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush stroke,
         Thickness margin, object wpfId)
     {
         var rectangle = new Rectangle
         {
-            Stroke = rand,
+            Stroke = stroke,
             Margin = margin,
             Fill = new SolidColorBrush(Colors.Red)
         };
@@ -55,13 +79,13 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
 
-    public void RechteckRotieren(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush farbe, Thickness margin,
+    public void RechteckRotieren(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, Thickness margin,
         object wpfId)
     {
         var rectangle = new Rectangle
         {
             Margin = margin,
-            Fill = farbe
+            Fill = fill
         };
 
         var b = new Binding($"Winkel[{(int)wpfId}]");
@@ -72,5 +96,25 @@ public partial class LibWpf
         rectangle.SetTransformOriginBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
+
+    public void RechteckRundung(int xPos, int xSpan, int yPos, int ySpan, double radiusX, double radiusY, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, Rect rect)
+    {
+        var rectangleGeometry = new RectangleGeometry
+        {
+            Rect = rect,
+            RadiusX = radiusX,
+            RadiusY = radiusY
+        };
+
+        var path = new Path
+        {
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes,
+            Data = rectangleGeometry
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, path);
     }
 }

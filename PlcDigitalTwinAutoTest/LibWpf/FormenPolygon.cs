@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -20,10 +19,6 @@ public partial class LibWpf
             Points = polyPoints
         };
 
-        Grid.SetColumn(polygon, xPos);
-        Grid.SetColumnSpan(polygon, xSpan);
-        Grid.SetRow(polygon, yPos);
-        Grid.SetRowSpan(polygon, ySpan);
-        Grid.Children.Add(polygon);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, polygon);
     }
 }

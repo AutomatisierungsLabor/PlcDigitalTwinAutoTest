@@ -33,6 +33,9 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
     }
     protected override void ModelThread()
     {
+        Q1=true;
+        Q3=true;// todo löschen
+
         if (Q1 && Q3) Druck += DruckAnstieg;
         Druck *= DruckVerlust;
 
