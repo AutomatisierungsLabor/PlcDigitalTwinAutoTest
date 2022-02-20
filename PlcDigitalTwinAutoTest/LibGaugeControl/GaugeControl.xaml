@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             x:Class="GaugeControl.GaugeControl"
+             x:Class="LibGaugeControl.GaugeControl"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" MinWidth="300" MinHeight="299">
     <Grid x:Name="GesamtesGrid" MaxWidth="300" MaxHeight="300" >

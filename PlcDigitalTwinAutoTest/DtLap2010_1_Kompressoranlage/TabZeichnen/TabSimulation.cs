@@ -47,10 +47,10 @@ public partial class TabZeichnen
         libWpf.RechteckFillStroke(4, 3, 11, 3, Brushes.LightBlue, Brushes.Black, 2, new Thickness(10, 0, 10, 0));
         libWpf.RechteckFill(4, 3, 10, 2, Brushes.LightBlue, new Thickness(12, 0, 12, 0));
 
-        libWpf.Polygon(0, 7, 15, 6, Brushes.LightBlue, Brushes.Black, 2, new double[][] { new double[] { 130, 20 }, new double[] { 200, 20 }, new double[] { 200, 150 }, new double[] { 20, 150 }, new double[] { 20, 90 }, new double[] { 130, 90 } });
+        libWpf.Polygon(0, 7, 15, 6, Brushes.LightBlue, Brushes.Black, 2, new[] { new double[] { 130, 20 }, new double[] { 200, 20 }, new double[] { 200, 150 }, new double[] { 20, 150 }, new double[] { 20, 90 }, new double[] { 130, 90 } });
 
         libWpf.KreisFillStroke(3, 5, 12, 5, Brushes.Blue, Brushes.Black, 2, new Thickness(10, 10, 10, 10));
-        libWpf.Polygon(3, 5, 13, 5, Brushes.Blue, Brushes.Black, 2, new double[][] { new double[] { 70, 2 }, new double[] { 90, 30 }, new double[] { 50, 30 } });
+        libWpf.Polygon(3, 5, 13, 5, Brushes.Blue, Brushes.Black, 2, new[] { new double[] { 70, 2 }, new double[] { 90, 30 }, new double[] { 50, 30 } });
 
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
@@ -75,7 +75,7 @@ public partial class TabZeichnen
         libWpf.KreisRandVis(15, 4, 15, 4, Brushes.Red, new Thickness(0, 0, 0, 0), WpfObjects.Kurzschluss);
 
 
-        libWpf.GaugeControl(20, 10, 12, 10, "Druck", 0, 10, 165, 188, "AktuellerDruck");
+        libWpf.PointerGauge(20, 10, 12, 10, "Druck", 0, 10, 165, 188, "AktuellerDruck");
 
         // libWpf.PlcError();
     }

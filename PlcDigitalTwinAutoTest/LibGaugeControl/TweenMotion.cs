@@ -3,7 +3,7 @@
 
 using System;
 
-namespace GaugeControl;
+namespace LibGaugeControl;
 
 public class TweenMotion
 {

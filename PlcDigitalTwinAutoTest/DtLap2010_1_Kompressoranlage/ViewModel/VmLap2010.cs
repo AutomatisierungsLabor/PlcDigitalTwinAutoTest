@@ -25,8 +25,7 @@ public enum WpfObjects
     S1 = 34,
     S2 = 35,
 
-    Kurzschluss = 40,
-    AktuellerDruck = 50
+    Kurzschluss = 40
 }
 public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 {

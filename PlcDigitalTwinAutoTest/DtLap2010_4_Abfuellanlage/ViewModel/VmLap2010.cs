@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using Contracts;
 using DtLap2010_4_Abfuellanlage.Model;
 using LibDatenstruktur;

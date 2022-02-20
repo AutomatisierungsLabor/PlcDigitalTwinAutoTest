@@ -10,7 +10,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using static System.Windows.Controls.Canvas;
 
-namespace GaugeControl;
+namespace LibGaugeControl;
 
 public partial class GaugeControl
 {
@@ -243,13 +243,8 @@ public partial class GaugeControl
     {
         foreach (UIElement element in Canvas.Children)
         {
-            if (!(element is Label)) continue;
-
-            var lbl = (Label)element;
-            if (lbl.Name != "descr_label")
-            {
-                Canvas.Children.Remove(lbl);
-            }
+            if (element is not Label lbl) continue;
+            if (lbl.Name != "descr_label") Canvas.Children.Remove(lbl);
         }
     }
     // Change the labels
@@ -257,9 +252,8 @@ public partial class GaugeControl
     {
         foreach (UIElement element in Canvas.Children)
         {
-            if (!(element is Label)) continue;
+            if (element is not Label lbl) continue;
 
-            var lbl = (Label)element;
             if (lbl.Name != "descr_label")
             {
                 lbl.Foreground = _labelColor;
@@ -820,6 +814,7 @@ public partial class GaugeControl
     }
 
     private Visibility _sichtbarkeit;
+    // ReSharper disable once UnusedMember.Global
     public Visibility Sichtbarkeit
     {
         get => _sichtbarkeit;
@@ -843,6 +838,7 @@ public partial class GaugeControl
 
 
     private double _currentValue;
+    // ReSharper disable once UnusedMember.Global
     public double CurrentValue
     {
         get => _currentValue;

@@ -41,25 +41,22 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
 
     protected override void ModelThread()
     {
-        while (true)
+        if (K2) Pegel -= LeerGeschwindigkeit;
+        if (Pegel < 0) Pegel = 0;
+
+        B1 = Pegel > 0.1;
+
+        if (K1) AlleDosen[_aktuelleDose].DosenVereinzeln();
+
+        B2 = false;
+        foreach (var dose in AlleDosen)
         {
-            if (K2) Pegel -= LeerGeschwindigkeit;
-            if (Pegel < 0) Pegel = 0;
-
-            B1 = Pegel > 0.1;
-
-            if (K1) AlleDosen[_aktuelleDose].DosenVereinzeln();
-
-            B2 = false;
-            foreach (var dose in AlleDosen)
-            {
-                bool lichtschranke;
-                (lichtschranke, _aktuelleDose) = dose.DosenBewegen(Q1, _anzahlDosen, _aktuelleDose);
-                B2 |= lichtschranke;
-            }
-
-            _datenRangieren.Rangieren();
+            bool lichtschranke;
+            (lichtschranke, _aktuelleDose) = dose.DosenBewegen(Q1, _anzahlDosen, _aktuelleDose);
+            B2 |= lichtschranke;
         }
+
+        _datenRangieren.Rangieren();
     }
 
     internal void Nachfuellen() => Pegel = 1;
