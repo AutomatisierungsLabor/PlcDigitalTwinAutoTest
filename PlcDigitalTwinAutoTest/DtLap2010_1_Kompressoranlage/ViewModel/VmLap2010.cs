@@ -44,6 +44,8 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
+        SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
+        SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
 
         Text[(int)WpfObjects.B1] = "B1";
         Text[(int)WpfObjects.B2] = "B2";

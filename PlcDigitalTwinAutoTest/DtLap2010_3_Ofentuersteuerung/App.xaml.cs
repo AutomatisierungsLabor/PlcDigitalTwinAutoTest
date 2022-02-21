@@ -13,6 +13,7 @@ public partial class App
     {
         var datenstruktur = new Datenstruktur();
         datenstruktur.SetVersionLokal("LAP 2010/3 Ofentürsteuerung V3.0");
+        datenstruktur.SetVorbeitungId(579);
 
         var modelLap2010 = new ModelLap2010(datenstruktur, _cancellationTokenSource);
         var vmLap2010 = new ViewModel.VmLap2010(modelLap2010, datenstruktur, _cancellationTokenSource);

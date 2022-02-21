@@ -20,7 +20,7 @@ public class Datenstruktur
 
     public string VersionsStringLokal { get; set; }
     public string VersionsStringPlc { get; set; }
-
+    public int VorbereitungId { get; set; }
     public byte[] BefehlePlc { get; } = new byte[1024];
 
     public byte[] Di { get; } = new byte[1024];
@@ -91,4 +91,5 @@ public class Datenstruktur
             _ => false
         };
     }
+    public void SetVorbeitungId(int id) => VorbereitungId = id;
 }

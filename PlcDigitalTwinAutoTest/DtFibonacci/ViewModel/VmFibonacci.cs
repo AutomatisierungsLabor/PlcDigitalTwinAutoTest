@@ -39,7 +39,9 @@ public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
+        SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible; 
+        SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
+        SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
 
         Text[(int)WpfObjects.S1] = "Start";
 

@@ -5,6 +5,7 @@ using LibDatenstruktur;
 using LibDisplayPlc;
 using LibPlcTestautomat;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,7 +40,7 @@ public partial class BaseWindow
         _vmBase.LaborPlatteZeichnen(TabLaborPlatte);
         _vmBase.SimulationZeichnen(TabSimulation);
 
-        TestAutomat = new TestAutomat(Datenstruktur,_baseCancellationToken);
+        TestAutomat = new TestAutomat(Datenstruktur, _baseCancellationToken);
 
         AutoTest = new AutoTest(Datenstruktur, _vmBase.PlcDaemon, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests, _baseCancellationToken);
         AutoTest.SetCallback(ConfigPlc.SetPath);
@@ -74,15 +75,33 @@ public partial class BaseWindow
                 break;
         }
     }
+    private void BaseWindow_OnClosing(object sender, CancelEventArgs e)
+    {
+        _baseCancellationToken.Cancel();
+        Application.Current.Shutdown();
+    }
     private void PlcButtonClick(object sender, RoutedEventArgs e)
     {
         if (DisplayPlc.FensterAktiv) DisplayPlc.PlcFensterAusblenden();
         else DisplayPlc.PlcFensterAnzeigen();
     }
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _vmBase.PlotterButtonClick(sender, e);
-    private void BaseWindow_OnClosing(object sender, CancelEventArgs e)
+    private void LinkHomepageClick(object sender, RoutedEventArgs e)
     {
-        _baseCancellationToken.Cancel();
-        Application.Current.Shutdown();
+        var url = $"https://linderonline.at/fk/plc_beschreibung.php?ID={Datenstruktur.VorbereitungId}";
+
+        try
+        {
+            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+        }
+        catch (System.Exception other)
+        {
+            MessageBox.Show(other.Message);
+        }
+    }
+
+    private void AlarmVerwaltungClick(object sender, RoutedEventArgs e)
+    {
+        //_vmBase.AlarmVerwaltungButtonClick(sender, e);
     }
 }
