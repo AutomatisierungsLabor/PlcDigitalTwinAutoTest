@@ -8,7 +8,9 @@
 
   <ItemGroup>
     <None Remove="Bilder\getriebemotor_mit_gabellichtschranke.jpg" />
+    <None Remove="Bilder\iconAlarm.jpg" />
     <None Remove="Bilder\iconAlarm.png" />
+    <None Remove="Bilder\iconHomepage.jpg" />
     <None Remove="Bilder\iconHomepage.png" />
     <None Remove="Bilder\IconPlotter.jpg" />
     <None Remove="Bilder\Initiatoren_BetaetigtHellgrau.jpg" />
@@ -37,8 +39,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Bilder\iconAlarm.png" />
-    <Resource Include="Bilder\iconHomepage.png" />
+    <Resource Include="Bilder\iconAlarm.jpg" />
+    <Resource Include="Bilder\iconHomepage.jpg" />
     <Resource Include="Bilder\iconPlotter.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
