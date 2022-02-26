@@ -14,7 +14,7 @@ public partial class App
     {
         var datenstruktur = new Datenstruktur();
         datenstruktur.SetVersionLokal("Fibonacci V3.0");
-        datenstruktur.SetVorbeitungId(607);
+        datenstruktur.SetVorbeitungId("607");
 
         var modelFibonacci = new ModelFibonacci(datenstruktur, _cancellationTokenSource);
         var vmFibonacci = new VmFibonacci(modelFibonacci, datenstruktur, _cancellationTokenSource);

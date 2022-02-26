@@ -21,6 +21,8 @@
     <None Remove="Bilder\SchiebeSchalterOn.JPG" />
     <None Remove="Bilder\Taster_BetaetigtHellgrau.jpg" />
     <None Remove="Bilder\Taster_SchliesserHellgrau.jpg" />
+    <None Remove="Bilder\zahnrad.png" />
+    <None Remove="Bilder\zahnstange.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,11 +64,16 @@
     <Resource Include="Bilder\Taster_SchliesserHellgrau.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Bilder\zahnrad.png" />
+    <Resource Include="Bilder\zahnstange.png" />
   </ItemGroup>
 
 
   <ItemGroup>
     <None Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Videos\flammen.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

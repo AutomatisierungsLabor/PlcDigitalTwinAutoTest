@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
 using Contracts;
 using DtLap2010_3_Ofentuersteuerung.Model;
 using LibDatenstruktur;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace DtLap2010_3_Ofentuersteuerung.ViewModel;
 public enum WpfObjects
@@ -13,16 +14,16 @@ public enum WpfObjects
     ReserveFuerBasisViewModel = 20, // enum WpfBase
 
     P1 = 21,
-    P2 = 22,
+
     Q1 = 23,
     Q2 = 24,
-    Q3 = 25,
 
     B1 = 31,
     B2 = 32,
-    F1 = 33,
+    B3 = 33,
     S1 = 34,
     S2 = 35,
+    S3 = 36,
 
     Kurzschluss = 40
 }
@@ -46,37 +47,48 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
 
-        Text[(int)WpfObjects.B1] = "B1";
-        Text[(int)WpfObjects.B2] = "B2";
-        Text[(int)WpfObjects.F1] = "F1";
+        Text[(int)WpfObjects.B2] = "Lichtschranke";
 
-        Text[(int)WpfObjects.S1] = "Aus";
-        Text[(int)WpfObjects.S2] = "Ein";
-        Text[(int)WpfObjects.P1] = "Störung";
-        Text[(int)WpfObjects.P2] = "Betriebsbereit";
+        Text[(int)WpfObjects.S1] = "Halt";
+        Text[(int)WpfObjects.S2] = "Öffnen";
+        Text[(int)WpfObjects.S3] = "Schliessen";
+        Text[(int)WpfObjects.P1] = "Schliessen";
+        Text[(int)WpfObjects.Q1] = "Q1 (LL)";
+        Text[(int)WpfObjects.Q2] = "Q2 (RL)";
+
         Text[(int)WpfObjects.Kurzschluss] = "Kurzschluss";
     }
     protected override void ViewModelAufrufThread()
     {
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
+        OfentuerePosition = _modelLap2010!.PositionOfentuere;
+        ZahnstangePosition = _modelLap2010!.PositionZahnstange;
+        ZahnradWinkel = _modelLap2010!.WinkelZahnrad;
+
+        SichtbarkeitUmschalten(_modelLap2010.B1, 1);
+        SichtbarkeitUmschalten(_modelLap2010.B2, 2);
+        SichtbarkeitUmschalten(_modelLap2010.B3, 3);
+        SichtbarkeitUmschalten(_modelLap2010.Q1 && _modelLap2010.Q2, 20);
+
+        FarbeUmschalten(_modelLap2010.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2010.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2010.Q2, (int)WpfObjects.Q2, Brushes.LawnGreen, Brushes.White);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
         switch (tasterId)
         {
+
+            case WpfObjects.B3: _modelLap2010!.B3 = !gedrueckt; break;
             case WpfObjects.S1: _modelLap2010!.S1 = !gedrueckt; break;
             case WpfObjects.S2: _modelLap2010!.S2 = gedrueckt; break;
+            case WpfObjects.S3: _modelLap2010!.S3 = gedrueckt; break;
             default: throw new ArgumentOutOfRangeException(nameof(tasterId));
         }
     }
-    protected override void ViewModelAufrufSchalter(Enum schalterId)
-    {
-        switch (schalterId)
-        {
-            default: throw new ArgumentOutOfRangeException(nameof(schalterId));
-        }
-    }
+    protected override void ViewModelAufrufSchalter(Enum schalterId) { }
+
     private double _aktuellerDruck;
     public double AktuellerDruck
     {
@@ -85,6 +97,39 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         {
             _aktuellerDruck = value;
             OnPropertyChanged(nameof(AktuellerDruck));
+        }
+    }
+
+    private double _zahnradWinkel;
+    public double ZahnradWinkel
+    {
+        get => _zahnradWinkel;
+        set
+        {
+            _zahnradWinkel = value;
+            OnPropertyChanged(nameof(ZahnradWinkel));
+        }
+    }
+
+    private double _zahnstangePosition;
+    public double ZahnstangePosition
+    {
+        get => _zahnstangePosition;
+        set
+        {
+            _zahnstangePosition = value;
+            OnPropertyChanged(nameof(ZahnstangePosition));
+        }
+    }
+
+    private double _ofentuerePosition;
+    public double OfentuerePosition
+    {
+        get => _ofentuerePosition;
+        set
+        {
+            _ofentuerePosition = value;
+            OnPropertyChanged(nameof(OfentuerePosition));
         }
     }
 

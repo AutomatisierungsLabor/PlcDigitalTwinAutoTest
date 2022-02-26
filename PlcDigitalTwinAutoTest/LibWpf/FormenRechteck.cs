@@ -16,7 +16,15 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
+    public void RechteckRand(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, string margin)
+    {
+        var rectangle = new Rectangle
+        {
+            Fill = fill
+        };
 
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
     public void RechteckFill(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, Thickness margin)
     {
         var rectangle = new Rectangle

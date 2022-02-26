@@ -45,4 +45,29 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
+
+
+
+    public void BildDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string winkel)
+    {
+        var image = new Image
+        {
+            Source = new BitmapImage(new Uri(@$"Bilder\{source}", UriKind.Relative)),
+            Stretch = Stretch.Fill,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
+
+    public void BildRand(string source, int xPos, int xSpan, int yPos, int ySpan, string margin)
+    {
+        var image = new Image
+        {
+            Source = new BitmapImage(new Uri(@$"Bilder\{source}", UriKind.Relative)),
+            Stretch = Stretch.Fill
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
 }

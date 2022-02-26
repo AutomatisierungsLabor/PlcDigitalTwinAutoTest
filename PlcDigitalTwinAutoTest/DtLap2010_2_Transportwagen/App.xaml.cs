@@ -12,7 +12,7 @@ public partial class App
     {
         var datenstruktur = new Datenstruktur();
         datenstruktur.SetVersionLokal("LAP 2010/2 Transportwagen V3.0");
-        datenstruktur.SetVorbeitungId(578);
+        datenstruktur.SetVorbeitungId("578");
 
         var modelLap2010 = new ModelLap2010(datenstruktur, _cancellationTokenSource);
         var vmLap2010 = new ViewModel.VmLap2010(modelLap2010, datenstruktur, _cancellationTokenSource);

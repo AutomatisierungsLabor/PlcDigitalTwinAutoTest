@@ -88,15 +88,18 @@ public partial class BaseWindow
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _vmBase.PlotterButtonClick(sender, e);
     private void LinkHomepageClick(object sender, RoutedEventArgs e)
     {
-        var url = $"https://linderonline.at/fk/plc_beschreibung.php?ID={Datenstruktur.VorbereitungId}";
+        var idListe = Datenstruktur.VorbereitungId.Split(",");
 
-        try
+        foreach (var id in idListe)
         {
-            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
-        }
-        catch (System.Exception other)
-        {
-            MessageBox.Show(other.Message);
+            try
+            {
+                Process.Start(new ProcessStartInfo($"https://linderonline.at/fk/plc_beschreibung.php?ID={id}") { UseShellExecute = true });
+            }
+            catch (System.Exception other)
+            {
+                MessageBox.Show(other.Message);
+            }
         }
     }
 
