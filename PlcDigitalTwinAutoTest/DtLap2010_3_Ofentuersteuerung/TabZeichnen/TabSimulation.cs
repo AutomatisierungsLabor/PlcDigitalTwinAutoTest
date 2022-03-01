@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.Rechteck(20, 10, 2, 10, Brushes.LightGray);
+        libWpf.RechteckFill(20, 10, 2, 10, Brushes.LightGray);
 
         libWpf.Text("S1", 19, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 19, 3, 5, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -36,7 +36,7 @@ public partial class TabZeichnen
         libWpf.ButtonRounded(22, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2, false, false);
         libWpf.ButtonRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S3, false, false);
 
-        libWpf.KreisRandVis(22, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.KreisStrokeMarginSetFilling(22, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
         libWpf.Text("Schliessen", 22, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
 
 
@@ -46,32 +46,32 @@ public partial class TabZeichnen
         //
         ///////////////////////////////////////////////////////////
 
-        libWpf.VideoAutoPlay("flammen.mp4", 7, 3, 5, 3);
+        libWpf.VideoAutoPlay("Flammen.mp4", 7, 3, 5, 3);
 
-        libWpf.BildDrehen("zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), "ZahnradWinkel");
-        libWpf.BildRand("zahnstange.png", 2, 20, 8, 3, "ZahnstangePosition");
+        libWpf.BildDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0),  WpfObjects.ZahnradWinkel);
+        libWpf.BildRand("Zahnstange.png", 2, 20, 8, 3, WpfObjects.ZahnstangePosition);
 
-        libWpf.RechteckRand(2,4,5,4,Brushes.Gray, "OfentuerePosition");
+        libWpf.RechteckFillStrokeSetMargin(2,4,5,4,Brushes.Gray, Brushes.Black,2, WpfObjects.OfentuerePosition);
 
         libWpf.ButtonRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.B2, false, false);
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 8, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildVisAus("Initiatoren_SchliesserHellgrau.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
-        libWpf.BildVisEin("Initiatoren_BetaetigtHellgrau.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSichtbarkeitAus("InitiatorenSchliesserHellgrau.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigtHellgrau.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
 
         libWpf.Text("B2", 12, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildVisAus("Initiatoren_SchliesserHellgrau.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
-        libWpf.BildVisEin("Initiatoren_BetaetigtHellgrau.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSichtbarkeitAus("InitiatorenSchliesserHellgrau.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigtHellgrau.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
 
         libWpf.Text("B3", 16, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildVisAus("Initiatoren_SchliesserHellgrau.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
-        libWpf.BildVisEin("Initiatoren_BetaetigtHellgrau.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
+        libWpf.BildSichtbarkeitAus("InitiatorenSchliesserHellgrau.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
+        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigtHellgrau.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
 
 
-        libWpf.RechteckFarbeUmschalten(2, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
-        libWpf.RechteckFarbeUmschalten(4, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
+        libWpf.RechteckSetFill(2, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
+        libWpf.RechteckSetFill(4, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
         libWpf.Text("Q1 (LL)", 2, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("Q2 (RL)", 4, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
 

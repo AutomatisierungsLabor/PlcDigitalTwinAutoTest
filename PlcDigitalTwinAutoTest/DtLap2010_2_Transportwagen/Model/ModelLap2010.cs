@@ -39,8 +39,8 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
         if (B2 && _laufzeitFuellen <= MaximaleFuellzeit) _laufzeitFuellen++;
         Fuellen = _laufzeitFuellen is > 1 and < MaximaleFuellzeit;
 
-     //   if (Q1) Position -= Geschwindigkeit;
-     //   if (Q2) Position += Geschwindigkeit;
+        if (Q1) Position -= Geschwindigkeit;
+        if (Q2) Position += Geschwindigkeit;
 
         if (Position < 0) Position = 0;
         if (Position > 1) Position = 1;

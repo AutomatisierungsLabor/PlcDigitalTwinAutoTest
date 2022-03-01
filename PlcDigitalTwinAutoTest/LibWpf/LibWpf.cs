@@ -7,7 +7,6 @@ namespace LibWpf;
 public partial class LibWpf
 {
     public Grid Grid;
-
     public LibWpf(Grid grid) => Grid = grid;
     public LibWpf(ContentControl tabItem)
     {

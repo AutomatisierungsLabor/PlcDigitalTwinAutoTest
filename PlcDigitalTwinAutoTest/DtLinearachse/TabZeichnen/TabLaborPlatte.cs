@@ -10,7 +10,7 @@ public partial class TabZeichnen
         var libWpf = new LibWpf.LibWpf(tabItem);
 
         libWpf.GridZeichnen(50, 30, 30, 30, false);
-        libWpf.Bild("platte_linearachse.jpg", 1, 25, 1, 22, new Thickness(0, 0, 0, 0));
+        libWpf.Bild("PlatteLinearachse.jpg", 1, 25, 1, 22, new Thickness(0, 0, 0, 0));
 
         libWpf.PlcError();
     }

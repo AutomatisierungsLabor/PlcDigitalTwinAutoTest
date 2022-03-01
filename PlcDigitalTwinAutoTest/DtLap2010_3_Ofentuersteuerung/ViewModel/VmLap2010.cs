@@ -25,7 +25,11 @@ public enum WpfObjects
     S2 = 35,
     S3 = 36,
 
-    Kurzschluss = 40
+    Kurzschluss = 40,
+
+    ZahnradWinkel = 50,
+    ZahnstangePosition = 51,
+    OfentuerePosition = 52
 }
 public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 {
@@ -62,9 +66,9 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        OfentuerePosition = _modelLap2010!.PositionOfentuere;
-        ZahnstangePosition = _modelLap2010!.PositionZahnstange;
-        ZahnradWinkel = _modelLap2010!.WinkelZahnrad;
+        Margin[(int)WpfObjects.OfentuerePosition] = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionOfentuere;
+        Margin[(int)WpfObjects.ZahnstangePosition] = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionZahnstange;
+        Winkel[(int)WpfObjects.ZahnradWinkel] = _modelLap2010!.WinkelZahnrad;
 
         SichtbarkeitUmschalten(_modelLap2010.B1, 1);
         SichtbarkeitUmschalten(_modelLap2010.B2, 2);
@@ -97,39 +101,6 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         {
             _aktuellerDruck = value;
             OnPropertyChanged(nameof(AktuellerDruck));
-        }
-    }
-
-    private double _zahnradWinkel;
-    public double ZahnradWinkel
-    {
-        get => _zahnradWinkel;
-        set
-        {
-            _zahnradWinkel = value;
-            OnPropertyChanged(nameof(ZahnradWinkel));
-        }
-    }
-
-    private double _zahnstangePosition;
-    public double ZahnstangePosition
-    {
-        get => _zahnstangePosition;
-        set
-        {
-            _zahnstangePosition = value;
-            OnPropertyChanged(nameof(ZahnstangePosition));
-        }
-    }
-
-    private double _ofentuerePosition;
-    public double OfentuerePosition
-    {
-        get => _ofentuerePosition;
-        set
-        {
-            _ofentuerePosition = value;
-            OnPropertyChanged(nameof(OfentuerePosition));
         }
     }
 

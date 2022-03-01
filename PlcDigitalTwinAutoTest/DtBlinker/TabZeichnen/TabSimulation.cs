@@ -19,7 +19,7 @@ public partial class TabZeichnen
         var kreisRand = new Thickness(2, 2, 2, 2);
         var kreisRandFarbe = new SolidColorBrush(Colors.Black);
 
-        libWpf.KreisRandVis(10, 4, 1, 4, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.KreisStrokeMarginSetFilling(10, 4, 1, 4, kreisRandFarbe, kreisRand, WpfObjects.P1);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
 

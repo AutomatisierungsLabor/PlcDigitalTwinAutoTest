@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.Rechteck(20, 10, 2, 10, Brushes.LightGray);
+        libWpf.RechteckFill(20, 10, 2, 10, Brushes.LightGray);
 
         libWpf.Text("S1", 21, 2, 2, 2, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 25, 2, 2, 2, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -33,8 +33,8 @@ public partial class TabZeichnen
         libWpf.ButtonRounded(22, 2, 2, 2, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1, false, false);
         libWpf.ButtonRounded(27, 2, 2, 2, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2, false, false);
 
-        libWpf.KreisRandVis(22, 2, 5, 2, kreisRandFarbe, kreisRand, WpfObjects.P1);
-        libWpf.KreisRandVis(27, 2, 5, 2, kreisRandFarbe, kreisRand, WpfObjects.P2);
+        libWpf.KreisStrokeMarginSetFilling(22, 2, 5, 2, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.KreisStrokeMarginSetFilling(27, 2, 5, 2, kreisRandFarbe, kreisRand, WpfObjects.P2);
 
 
         ///////////////////////////////////////////////////////////

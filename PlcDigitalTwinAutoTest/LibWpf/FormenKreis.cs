@@ -5,19 +5,20 @@ using System.Windows.Shapes;
 namespace LibWpf;
 
 public partial class LibWpf
-{
-    public void Kreis(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush farbe, Thickness rand)
+{  
+    public void KreisFillStrokeMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, Thickness margin)
     {
         var ellipse = new Ellipse
         {
-            Margin = rand,
-            Fill = farbe
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes,
+            Margin = margin
         };
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
-
-    public void KreisRandVis(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, object wpfId)
+    public void KreisStrokeMarginSetFilling(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, object wpfId)
     {
         var ellipse = new Ellipse
         {
@@ -30,21 +31,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
-
-    public void KreisFillStroke(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, Thickness margin)
-    {
-        var ellipse = new Ellipse
-        {
-            Fill = fill,
-            Stroke = stroke,
-            StrokeThickness = strokeThicknes,
-            Margin = margin
-        };
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
-    }
-
-    public void KreisRandPosition(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, object wpfId)
+    public void KreisFillStrokeSetMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, object wpfId)
     {
         var ellipse = new Ellipse
         {

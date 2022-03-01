@@ -21,7 +21,6 @@ public partial class LibWpf
 
         AddToGrid(0, xSpan, 0, ySpan, grid, linie);
     }
-
     public void Border(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Thickness rand)
     {
         var border = new Border
@@ -32,8 +31,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, border);
     }
-
-
     public StackPanel StackPanel(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)
     {
         var stackPanel = new StackPanel

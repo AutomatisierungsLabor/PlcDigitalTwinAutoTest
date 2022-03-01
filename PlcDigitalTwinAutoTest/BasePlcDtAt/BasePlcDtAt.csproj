@@ -7,26 +7,34 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Bilder\getriebemotor_mit_gabellichtschranke.jpg" />
+    <None Remove="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
     <None Remove="Bilder\iconAlarm.jpg" />
     <None Remove="Bilder\iconAlarm.png" />
     <None Remove="Bilder\iconHomepage.jpg" />
     <None Remove="Bilder\iconHomepage.png" />
     <None Remove="Bilder\IconPlotter.jpg" />
-    <None Remove="Bilder\Initiatoren_BetaetigtHellgrau.jpg" />
-    <None Remove="Bilder\Initiatoren_SchliesserHellgrau.jpg" />
-    <None Remove="Bilder\platte_linearachse.jpg" />
+    <None Remove="Bilder\InitiatorenBetaetigtHellgrau.jpg" />
+    <None Remove="Bilder\InitiatorenSchliesserHellgrau.jpg" />
+    <None Remove="Bilder\PlatteLinearachse.jpg" />
+    <None Remove="Bilder\PumpeAusWeiss.jpg" />
+    <None Remove="Bilder\PumpeEinWeiss.jpg" />
+    <None Remove="Bilder\PumpeWaagrechtAusWeiss.jpg" />
+    <None Remove="Bilder\PumpeWaagrechtEinWeiss.jpg" />
     <None Remove="Bilder\S7_1200.jpg" />
-    <None Remove="Bilder\SchiebeSchalterOff.JPG" />
-    <None Remove="Bilder\SchiebeSchalterOn.JPG" />
-    <None Remove="Bilder\Taster_BetaetigtHellgrau.jpg" />
-    <None Remove="Bilder\Taster_SchliesserHellgrau.jpg" />
+    <None Remove="Bilder\SchiebeSchalterOff.jpg" />
+    <None Remove="Bilder\SchiebeSchalterOn.jpg" />
+    <None Remove="Bilder\SchwimmerschalterBetaetigtWeiss.jpg" />
+    <None Remove="Bilder\SchwimmerschalterWeiss.jpg" />
+    <None Remove="Bilder\TasterBetaetigtHellgrau.jpg" />
+    <None Remove="Bilder\TasterSchliesserHellgrau.jpg" />
+    <None Remove="Bilder\VentilElektrischAusWeiss.jpg" />
+    <None Remove="Bilder\VentilElektrischEinWeiss.jpg" />
     <None Remove="Bilder\zahnrad.png" />
     <None Remove="Bilder\zahnstange.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Bilder\getriebemotor_mit_gabellichtschranke.jpg" />
+    <Resource Include="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
     <Content Include="Snap7.ico" />
   </ItemGroup>
 
@@ -41,31 +49,39 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Bilder\iconAlarm.jpg" />
-    <Resource Include="Bilder\iconHomepage.jpg" />
-    <Resource Include="Bilder\iconPlotter.jpg">
+    <Resource Include="Bilder\IconAlarm.jpg" />
+    <Resource Include="Bilder\IconHomepage.jpg" />
+    <Resource Include="Bilder\IconPlotter.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Bilder\Initiatoren_BetaetigtHellgrau.jpg" />
-    <Resource Include="Bilder\Initiatoren_SchliesserHellgrau.jpg" />
-    <Resource Include="Bilder\platte_linearachse.jpg" />
+    <Resource Include="Bilder\InitiatorenBetaetigtHellgrau.jpg" />
+    <Resource Include="Bilder\InitiatorenSchliesserHellgrau.jpg" />
+    <Resource Include="Bilder\PlatteLinearachse.jpg" />
+    <Resource Include="Bilder\PumpeAusWeiss.jpg" />
+    <Resource Include="Bilder\PumpeEinWeiss.jpg" />
+    <Resource Include="Bilder\PumpeWaagrechtAusWeiss.jpg" />
+    <Resource Include="Bilder\PumpeWaagrechtEinWeiss.jpg" />
     <Resource Include="Bilder\S7_1200.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Bilder\SchiebeSchalterOff.JPG">
+    <Resource Include="Bilder\SchiebeSchalterOff.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Bilder\SchiebeSchalterOn.JPG">
+    <Resource Include="Bilder\SchiebeSchalterOn.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Bilder\Taster_BetaetigtHellgrau.jpg">
+    <Resource Include="Bilder\SchwimmerschalterBetaetigtWeiss.jpg" />
+    <Resource Include="Bilder\SchwimmerschalterWeiss.jpg" />
+    <Resource Include="Bilder\TasterBetaetigtHellgrau.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Bilder\Taster_SchliesserHellgrau.jpg">
+    <Resource Include="Bilder\TasterSchliesserHellgrau.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Bilder\zahnrad.png" />
-    <Resource Include="Bilder\zahnstange.png" />
+    <Resource Include="Bilder\VentilElektrischAusWeiss.jpg" />
+    <Resource Include="Bilder\VentilElektrischEinWeiss.jpg" />
+    <Resource Include="Bilder\Zahnrad.png" />
+    <Resource Include="Bilder\Zahnstange.png" />
   </ItemGroup>
 
 
@@ -73,7 +89,7 @@
     <None Update="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Videos\flammen.mp4">
+    <None Update="Videos\Flammen.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
