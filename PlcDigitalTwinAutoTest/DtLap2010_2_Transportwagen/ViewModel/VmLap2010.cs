@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Contracts;
 using DtLap2010_2_Transportwagen.Model;
 using LibDatenstruktur;
@@ -13,23 +14,31 @@ public enum WpfObjects
     ReserveFuerBasisViewModel = 20, // enum WpfBase
 
     P1 = 21,
-    P2 = 22,
-    Q1 = 23,
-    Q2 = 24,
-    Q3 = 25,
+    Q1 = 22,
+    Q2 = 23,
 
     B1 = 31,
     B2 = 32,
     F1 = 33,
     S1 = 34,
     S2 = 35,
+    S3 = 36,
 
-    Kurzschluss = 40
+    Fuellen = 40,
+    Kurzschluss = 41,
+
+    PositionWagenkasten = 50,
+    PositionRadLinks = 51,
+    PositionRadRechts = 52
 }
 public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLap2010? _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
+    
+    private const double BreiteZeichenbereich = 20 * 30;
+    private const double BreiteWagenkasten = 180;
+    private const double BreíteRad = 30;
 
     public VmLap2010(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
@@ -50,24 +59,38 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         Text[(int)WpfObjects.B2] = "B2";
         Text[(int)WpfObjects.F1] = "F1";
 
-        Text[(int)WpfObjects.S1] = "Aus";
-        Text[(int)WpfObjects.S2] = "Ein";
+        Text[(int)WpfObjects.S1] = "Start";
+        Text[(int)WpfObjects.S2] = "Not Halt";
+        Text[(int)WpfObjects.S3] = "Reset";
         Text[(int)WpfObjects.P1] = "Störung";
-        Text[(int)WpfObjects.P2] = "Betriebsbereit";
-        Text[(int)WpfObjects.Kurzschluss] = "Kurzschluss";
     }
     protected override void ViewModelAufrufThread()
     {
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-    
+        FarbeUmschalten(_modelLap2010!.F1, (int)WpfObjects.F1, Brushes.Red, Brushes.Red);
+        FarbeUmschalten(_modelLap2010!.P1, (int)WpfObjects.P1, Brushes.Red, Brushes.White);
+        FarbeUmschalten(_modelLap2010!.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2010!.Q2, (int)WpfObjects.Q2, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2010!.S2, (int)WpfObjects.S2, Brushes.White, Brushes.Red);
+
+        SichtbarkeitUmschalten(_modelLap2010!.B1, (int)WpfObjects.B1);
+        SichtbarkeitUmschalten(_modelLap2010!.B2, (int)WpfObjects.B2);
+        SichtbarkeitUmschalten(_modelLap2010!.Fuellen, (int)WpfObjects.Fuellen);
+        SichtbarkeitUmschalten(_modelLap2010!.Q1 && _modelLap2010!.Q2, (int)WpfObjects.Kurzschluss);
+
+        var posWagenkastenLinks = _modelLap2010!.Position * (BreiteZeichenbereich - BreiteWagenkasten);
+
+        Margin[(int)WpfObjects.PositionWagenkasten] = new Thickness(posWagenkastenLinks, 0, BreiteZeichenbereich - posWagenkastenLinks - BreiteWagenkasten, 0);
+        Margin[(int)WpfObjects.PositionRadLinks] = new Thickness(posWagenkastenLinks, 0, BreiteZeichenbereich - posWagenkastenLinks - BreíteRad, 0);
+        Margin[(int)WpfObjects.PositionRadRechts] = new Thickness(posWagenkastenLinks + BreiteWagenkasten - BreíteRad, 0, BreiteZeichenbereich - posWagenkastenLinks - BreiteWagenkasten, 0);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
         switch (tasterId)
         {
-            case WpfObjects.S1: _modelLap2010!.S1 = !gedrueckt; break;
-            case WpfObjects.S2: _modelLap2010!.S2 = gedrueckt; break;
+            case WpfObjects.S1: _modelLap2010!.S1 = gedrueckt; break;
+            case WpfObjects.S3: _modelLap2010!.S3 = gedrueckt; break;
             default: throw new ArgumentOutOfRangeException(nameof(tasterId));
         }
     }
@@ -75,19 +98,9 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         switch (schalterId)
         {
-            case WpfObjects.B2: _modelLap2010!.B2 = !_modelLap2010.B2; break;
             case WpfObjects.F1: _modelLap2010!.F1 = !_modelLap2010.F1; break;
+            case WpfObjects.S2: _modelLap2010!.B2 = !_modelLap2010.S2; break;
             default: throw new ArgumentOutOfRangeException(nameof(schalterId));
-        }
-    }
-    private double _aktuellerDruck;
-    public double AktuellerDruck
-    {
-        get => _aktuellerDruck;
-        set
-        {
-            _aktuellerDruck = value;
-            OnPropertyChanged(nameof(AktuellerDruck));
         }
     }
 

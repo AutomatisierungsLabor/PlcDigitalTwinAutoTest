@@ -49,11 +49,13 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
 
-    public void RechteckRand(int xPos, int xSpan, int yPos, int ySpan, Brush fill, object wpfId)
+    public void RechteckRand(int xPos, int xSpan, int yPos, int ySpan, Brush fill, SolidColorBrush stroke, double strokeThicknes, object wpfId)
     {
         var rectangle = new Rectangle
         {
-            Fill = fill
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes
         };
         rectangle.SetMarginBinding(wpfId);
 

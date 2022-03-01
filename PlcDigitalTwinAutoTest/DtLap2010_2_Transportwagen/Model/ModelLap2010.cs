@@ -14,13 +14,12 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
     public bool B1 { get; set; }    // Endschalter Links
     public bool B2 { get; set; }    // Endschalter Rechts
     public double Position { get; set; }
-    public double AbstandRadRechts { get; set; }
     public bool Fuellen { get; internal set; }
 
-    private const double Geschwindigkeit = 1;
-    private const double RandLinks = 30;
-    private const double RandRechts = 430;
-    private const double MaximaleFuellzeit = 500; // Zykluszeit ist 10ms --> 5 oder7"
+    private const double Geschwindigkeit = 0.1;
+
+    private const double BereichSensor = 0.1;
+    private const double MaximaleFuellzeit = 500; // Zykluszeit ist 10ms --> 5 oder 7"
     private double _laufzeitFuellen;
 
     private readonly DatenRangieren _datenRangieren;
@@ -29,8 +28,7 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
-        Position = 30;
-        AbstandRadRechts = 100;
+        Position = 0;
 
         F1 = true;
         S2 = true;
@@ -41,14 +39,14 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
         if (B2 && _laufzeitFuellen <= MaximaleFuellzeit) _laufzeitFuellen++;
         Fuellen = _laufzeitFuellen is > 1 and < MaximaleFuellzeit;
 
-        if (Q1) Position -= Geschwindigkeit;
-        if (Q2) Position += Geschwindigkeit;
+     //   if (Q1) Position -= Geschwindigkeit;
+     //   if (Q2) Position += Geschwindigkeit;
 
-        if (Position < RandLinks) Position = RandLinks;
-        if (Position > RandRechts) Position = RandRechts;
+        if (Position < 0) Position = 0;
+        if (Position > 1) Position = 1;
 
-        B1 = Position < RandLinks + 2;
-        B2 = Position > RandRechts - 2;
+        B1 = Position < BereichSensor;
+        B2 = Position > 1 - BereichSensor;
 
         _datenRangieren.Rangieren();
     }
