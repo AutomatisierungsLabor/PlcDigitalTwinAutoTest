@@ -32,15 +32,14 @@ public partial class TabZeichnen
         libWpf.Text("P1", 24, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.ButtonRounded(27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S1, false, false);
-        libWpf.ButtonRounded(32, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnSchalter, WpfObjects.S2, false, false);
-        libWpf.ButtonRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S3, false, false);
+        libWpf.ButtonRounded(27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S1);
+        libWpf.ButtonRounded(32, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnSchalter, WpfObjects.S2);
+        libWpf.ButtonRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S3);
 
         libWpf.KreisStrokeMarginSetFilling(27, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
         libWpf.Text("Störung", 27, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
-
-
-        libWpf.ButtonRounded(27, 3, 12, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnSchalter, WpfObjects.F1, false, false);
+        
+        libWpf.ButtonRoundedSetBackground(27, 3, 12, 3, 14, 15, buttonRand, vmLap2010.BtnSchalter, WpfObjects.F1);
 
         ///////////////////////////////////////////////////////////
         //
@@ -63,12 +62,12 @@ public partial class TabZeichnen
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 1, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("InitiatorenSchliesserHellgrau.jpg", 3, 2, 15, 2, kontakteRand, WpfObjects.B1);
-        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigtHellgrau.jpg", 3, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSichtbarkeitAus("InitiatorenSchliesser.jpg", 3, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigt.jpg", 3, 2, 15, 2, kontakteRand, WpfObjects.B1);
 
         libWpf.Text("B2", 16, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("InitiatorenSchliesserHellgrau.jpg", 18, 2, 15, 2, kontakteRand, WpfObjects.B2);
-        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigtHellgrau.jpg", 18, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSichtbarkeitAus("InitiatorenSchliesser.jpg", 18, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigt.jpg", 18, 2, 15, 2, kontakteRand, WpfObjects.B2);
 
 
         libWpf.RechteckSetFill(9, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);

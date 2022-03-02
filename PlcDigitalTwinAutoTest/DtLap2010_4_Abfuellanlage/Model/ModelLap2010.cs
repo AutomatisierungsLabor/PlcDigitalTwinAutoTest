@@ -49,13 +49,14 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
         if (K1) AlleDosen[_aktuelleDose].DosenVereinzeln();
 
         B2 = false;
+        /*
         foreach (var dose in AlleDosen)
         {
             bool lichtschranke;
             (lichtschranke, _aktuelleDose) = dose.DosenBewegen(Q1, _anzahlDosen, _aktuelleDose);
             B2 |= lichtschranke;
         }
-
+        */
         _datenRangieren.Rangieren();
     }
 

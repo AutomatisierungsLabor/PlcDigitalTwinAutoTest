@@ -137,7 +137,7 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         switch (schalterId)
         {
-            case WpfObjects.F1: _modelLap2010!.F1 = !_modelLap2010.B2; break;
+            case WpfObjects.F1: _modelLap2010!.F1 = !_modelLap2010.F1; break;
             case WpfObjects.Y1: _modelLap2010!.Y1 = !_modelLap2010.Y1; break;
             default: throw new ArgumentOutOfRangeException(nameof(schalterId));
         }

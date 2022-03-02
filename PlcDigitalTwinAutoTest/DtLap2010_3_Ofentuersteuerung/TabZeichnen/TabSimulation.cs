@@ -32,9 +32,9 @@ public partial class TabZeichnen
         libWpf.Text("P1", 19, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.ButtonRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1, false, false);
-        libWpf.ButtonRounded(22, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2, false, false);
-        libWpf.ButtonRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S3, false, false);
+        libWpf.ButtonRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
+        libWpf.ButtonRounded(22, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
+        libWpf.ButtonRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S3);
 
         libWpf.KreisStrokeMarginSetFilling(22, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
         libWpf.Text("Schliessen", 22, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
@@ -53,21 +53,21 @@ public partial class TabZeichnen
 
         libWpf.RechteckFillStrokeSetMargin(2,4,5,4,Brushes.Gray, Brushes.Black,2, WpfObjects.OfentuerePosition);
 
-        libWpf.ButtonRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.B2, false, false);
+        libWpf.ButtonRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.B2);
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 8, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("InitiatorenSchliesserHellgrau.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
-        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigtHellgrau.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSichtbarkeitAus("InitiatorenSchliesser.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigt.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
 
         libWpf.Text("B2", 12, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("InitiatorenSchliesserHellgrau.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
-        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigtHellgrau.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSichtbarkeitAus("InitiatorenSchliesser.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigt.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
 
         libWpf.Text("B3", 16, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("InitiatorenSchliesserHellgrau.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
-        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigtHellgrau.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
+        libWpf.BildSichtbarkeitAus("InitiatorenSchliesser.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
+        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
 
 
         libWpf.RechteckSetFill(2, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);

@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Contracts;
 using DtLap2010_4_Abfuellanlage.Model;
 using LibDatenstruktur;
@@ -12,11 +13,10 @@ public enum WpfObjects
     // ReSharper disable once UnusedMember.Global
     ReserveFuerBasisViewModel = 20, // enum WpfBase
 
-    P1 = 21,
-    P2 = 22,
-    Q1 = 23,
-    Q2 = 24,
-    Q3 = 25,
+    K1 = 21,
+    K2 = 22,
+    P1 = 23,
+    Q1 = 24,
 
     B1 = 31,
     B2 = 32,
@@ -24,12 +24,19 @@ public enum WpfObjects
     S1 = 34,
     S2 = 35,
 
-    Kurzschluss = 40
+    Fuellstand = 40,
+    Reset = 41,
+    Nachfuellen = 42,
+
+    Zuleitung=50,
+    Ableitung=51
 }
 public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLap2010? _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
+
+    private const double HoeheFuellBalken = 9 * 35;
 
     public VmLap2010(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
@@ -53,16 +60,23 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         Text[(int)WpfObjects.S1] = "Aus";
         Text[(int)WpfObjects.S2] = "Ein";
         Text[(int)WpfObjects.P1] = "Störung";
-        Text[(int)WpfObjects.P2] = "Betriebsbereit";
         Text[(int)WpfObjects.Q1] = "Betriebsbereit";
-        Text[(int)WpfObjects.Q2] = "Betriebsbereit";
-        Text[(int)WpfObjects.Kurzschluss] = "Kurzschluss";
     }
     protected override void ViewModelAufrufThread()
     {
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-       
+        FarbeUmschalten(_modelLap2010!.P1, 5, Brushes.Red, Brushes.White);
+        FarbeUmschalten(_modelLap2010!.Q1, 6, Brushes.LawnGreen, Brushes.LightGray);
+        FarbeUmschalten(_modelLap2010!.Pegel > 0.01, 21, Brushes.Coral, Brushes.LightCoral);
+
+        SichtbarkeitUmschalten(_modelLap2010!.B1, 1);
+        SichtbarkeitUmschalten(_modelLap2010!.B2, 2);
+        SichtbarkeitUmschalten(_modelLap2010!.K1, 3);
+        SichtbarkeitUmschalten(_modelLap2010!.K2, 4);
+        SichtbarkeitUmschalten(_modelLap2010!.K2 && _modelLap2010!.Pegel > 0.01, 20);
+
+        Margin[(int)WpfObjects.Fuellstand] = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2010!.Pegel), 0, 0);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
@@ -70,6 +84,8 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         {
             case WpfObjects.S1: _modelLap2010!.S1 = !gedrueckt; break;
             case WpfObjects.S2: _modelLap2010!.S2 = gedrueckt; break;
+            case WpfObjects.Reset: _modelLap2010!.AllesReset(); break;
+            case WpfObjects.Nachfuellen: _modelLap2010!.Nachfuellen(); break;
             default: throw new ArgumentOutOfRangeException(nameof(tasterId));
         }
     }
@@ -78,21 +94,11 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         switch (schalterId)
         {
             case WpfObjects.B2: _modelLap2010!.B2 = !_modelLap2010.B2; break;
-       
+
             default: throw new ArgumentOutOfRangeException(nameof(schalterId));
         }
     }
-    private double _aktuellerDruck;
-    public double AktuellerDruck
-    {
-        get => _aktuellerDruck;
-        set
-        {
-            _aktuellerDruck = value;
-            OnPropertyChanged(nameof(AktuellerDruck));
-        }
-    }
-
+ 
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");

@@ -30,8 +30,8 @@ public partial class TabZeichnen
         libWpf.Text("P1", 19, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P2", 24, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonRounded(22, 3, 2, 3, 20, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1, false, false);
-        libWpf.ButtonRounded(27, 3, 2, 3, 20, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2, false, false);
+        libWpf.ButtonRounded(22, 3, 2, 3, 20, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
+        libWpf.ButtonRounded(27, 3, 2, 3, 20, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
 
         libWpf.KreisStrokeMarginSetFilling(22, 3, 6, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
         libWpf.KreisStrokeMarginSetFilling(27, 3, 6, 3, kreisRandFarbe, kreisRand, WpfObjects.P2);
@@ -56,8 +56,8 @@ public partial class TabZeichnen
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 9, 2, 5, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("InitiatorenSchliesserHellgrau.jpg", 11, 2, 5, 2, kontakteRand, WpfObjects.B1);
-        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigtHellgrau.jpg", 11, 2, 5, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSichtbarkeitAus("InitiatorenSchliesser.jpg", 11, 2, 5, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigt.jpg", 11, 2, 5, 2, kontakteRand, WpfObjects.B1);
 
 
 
@@ -69,7 +69,7 @@ public partial class TabZeichnen
         libWpf.Text("Q3 ( △ )", 12, 2, 16, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 15, Brushes.Black);
 
 
-        libWpf.ButtonRounded(10, 4, 18, 2, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnSchalter, WpfObjects.F1, false, false);
+        libWpf.ButtonRoundedSetBackground(10, 4, 18, 2, 14, 5, new Thickness(0,0,0,0), vmLap2010.BtnSchalter, WpfObjects.F1);
 
         libWpf.TextSetContendSetVisibility(10, 4, 18, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.Kurzschluss);
         libWpf.KreisStrokeMarginSetFilling(15, 4, 15, 4, Brushes.Red, new Thickness(0, 0, 0, 0), WpfObjects.Kurzschluss);

@@ -7,8 +7,8 @@ namespace LibWpf;
 
 public static class Extensions
 {
-    public static void SetIsEnabledBinding(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.IsEnabledProperty, $"ButtonIsEnabled[{(int)wpfId}]");
     public static void SetBtnContentBinding(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");
+    public static void SetBtnBackgroundBinding(this Button element, object wpfId) => element.SetBinding(Control.BackgroundProperty, $"Farbe[{(int)wpfId}]");
     public static void SetContentBinding(this ContentControl element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");
     public static void SetBtnClickModeBinding(this Button element, object wpfId) => element.SetBinding(ButtonBase.ClickModeProperty, $"ClkMode[{(int)wpfId}]");
     public static void SetSichtbarkeitEinBinding(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"SichtbarEin[{(int)wpfId}]");

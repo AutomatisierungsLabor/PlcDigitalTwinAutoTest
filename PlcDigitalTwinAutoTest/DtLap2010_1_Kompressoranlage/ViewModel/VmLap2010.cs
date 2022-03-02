@@ -62,12 +62,12 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         FarbeUmschalten(_modelLap2010!.B2, 2, Brushes.LawnGreen, Brushes.Red);
-        FarbeUmschalten(_modelLap2010.F1, 3, Brushes.LawnGreen, Brushes.Red);
-        FarbeUmschalten(_modelLap2010.P1, 4, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2010.P2, 5, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2010.Q1, 6, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2010.Q2, 7, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2010.Q3, 8, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2010!.F1, 3, Brushes.LawnGreen, Brushes.Red);
+        FarbeUmschalten(_modelLap2010!.P1, 4, Brushes.Red, Brushes.White);
+        FarbeUmschalten(_modelLap2010!.P2, 5, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2010!.Q1, 6, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2010!.Q2, 7, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2010!.Q3, 8, Brushes.LawnGreen, Brushes.White);
 
         SichtbarkeitUmschalten(_modelLap2010.B1, (int)WpfObjects.B1);
         SichtbarkeitUmschalten(_modelLap2010.Q2 && _modelLap2010.Q3, (int)WpfObjects.Kurzschluss);

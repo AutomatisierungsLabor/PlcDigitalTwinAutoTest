@@ -9,13 +9,13 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void ButtonRounded(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush farbe, ICommand cmd, object cmdParameter, bool enabled = true, bool visibility = true)
+    public void ButtonRounded(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, object cmdParameter)
     {
         var button = new Button
         {
             FontSize = fontSize,
             Margin = margin,
-            Background = farbe,
+            Background = background,
             Command = cmd,
             CommandParameter = cmdParameter
         };
@@ -25,8 +25,27 @@ public partial class LibWpf
             if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
         };
 
-        if (enabled) button.SetIsEnabledBinding(cmdParameter);
-        if (visibility) button.SetSichtbarkeitEinBinding(cmdParameter);
+        button.SetBtnContentBinding(cmdParameter);
+        button.SetBtnClickModeBinding(cmdParameter);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
+    }
+    public void ButtonRoundedSetBackground(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, ICommand cmd, object cmdParameter)
+    {
+        var button = new Button
+        {
+            FontSize = fontSize,
+            Margin = margin,
+            Command = cmd,
+            CommandParameter = cmdParameter
+        };
+
+        button.Loaded += (_, _) =>
+        {
+            if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
+        };
+
+        button.SetBtnBackgroundBinding(cmdParameter);
         button.SetBtnContentBinding(cmdParameter);
         button.SetBtnClickModeBinding(cmdParameter);
 
