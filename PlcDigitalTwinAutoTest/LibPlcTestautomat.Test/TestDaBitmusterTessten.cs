@@ -21,7 +21,9 @@ public class TestDaBitmusterTesten
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
-        var args = new FunctionEventArgs("BitmusterTesten", new[] { new Variable(bitMuster), new Variable(bitMaske), new Variable(zeitDauer), new Variable(kommentar) }, new Variable());
+        var args = new FunctionEventArgs("BitmusterTesten",
+            new[] { new Variable(bitMuster), new Variable(bitMaske), new Variable(zeitDauer), new Variable(kommentar) },
+            new Variable());
 
         datenstruktur.Da[0] = da0;
         datenstruktur.Da[1] = da1;

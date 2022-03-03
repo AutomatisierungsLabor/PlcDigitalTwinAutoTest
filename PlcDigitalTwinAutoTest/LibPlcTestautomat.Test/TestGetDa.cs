@@ -20,7 +20,7 @@ public class TestGetDa
 
         datenstruktur.Da[0] = da0;
         datenstruktur.Da[1] = da1;
-   
+
         Assert.Equal(erwartet, testAutomat.GetDigitalOutputWord());
     }
 
@@ -38,7 +38,10 @@ public class TestGetDa
         datenstruktur.Da[0] = da0;
         datenstruktur.Da[1] = da1;
 
-        var args = new FunctionEventArgs("GetDigitaleAusgaenge",new[] { new Variable(0) } , new Variable());
+        var args = new FunctionEventArgs("GetDigitaleAusgaenge",
+            new[] { new Variable(0) },
+            new Variable());
+
         testAutomat.FuncGetDigitaleAusgaenge(args);
 
         Assert.Equal(erwartet, args.ReturnValue[0].ToInteger());

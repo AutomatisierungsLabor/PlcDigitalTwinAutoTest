@@ -20,7 +20,9 @@ public class TestKonvertierungen
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
-        var args = new FunctionEventArgs("PlcToDec", new[] { new Variable(zahl) }, new Variable());
+        var args = new FunctionEventArgs("PlcToDec",
+            new[] { new Variable(zahl) },
+            new Variable());
 
         testAutomat.FuncPlcToDec(args);
         Assert.Equal(ergebnis, args.ReturnValue[0].ToInteger());

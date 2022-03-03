@@ -17,7 +17,9 @@ public class TestSetDi
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
-        var args = new FunctionEventArgs("SetDigitaleEingaenge",new[] { new Variable(zahl) } , new Variable());
+        var args = new FunctionEventArgs("SetDigitaleEingaenge",
+            new[] { new Variable(zahl) },
+            new Variable());
 
         testAutomat.FuncSetDigitaleEingaenge(args);
         Assert.Equal(di0, datenstruktur.Di[0]);

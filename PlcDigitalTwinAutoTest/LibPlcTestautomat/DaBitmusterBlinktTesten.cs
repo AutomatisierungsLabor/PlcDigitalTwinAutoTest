@@ -31,10 +31,12 @@ public partial class TestAutomat
         var tastVerhaeltnisMax = tastVerhaeltnis * (1 + toleranz);
         var tastVerhaeltnisMin = tastVerhaeltnis * (1 - toleranz);
 
+        var anzeigeUpdaten = 0;
+        const int anzeigeUpdatenSollwert = 10;
 
         var messungAktiv = false;
         var tastverhaeltnis = 0.0;
-        var periodenAnzahl = 0;
+        var halbwellenAnzahl = 0;
         var zeitImpuls = 0.0;
         var zeitPause = 0.0;
         var schritte = SchritteBlinken.Starten;
@@ -54,55 +56,65 @@ public partial class TestAutomat
             switch (schritte)
             {
                 case SchritteBlinken.Starten:
-                    schritte = (digitalOutput & (short)bitMaske) > 0 ? SchritteBlinken.AufNegFlankeWarten : SchritteBlinken.AufPosFlankeWarten;
+                    messungAktiv = false;
+
+                    schritte = (digitalOutput & (short)bitMaske) > 0
+                        ? SchritteBlinken.AufNegFlankeWarten
+                        : SchritteBlinken.AufPosFlankeWarten;
                     break;
 
                 case SchritteBlinken.AufPosFlankeWarten:
-                    zeitPause = periodenDauerMessen.ElapsedMilliseconds;
 
                     if ((digitalOutput & (short)bitMaske) == (short)bitMuster)
                     {
-                        if (messungAktiv)
-                        {
-                            if (aktuellePeriodenDauer > periodenDauerMax || aktuellePeriodenDauer < periodenDauerMin)
-                            {
-                                DataGridUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsche Periodendauer: {aktuellePeriodenDauer}ms");
-                                return;
-                            }
+                        if (messungAktiv) zeitPause = periodenDauerMessen.ElapsedMilliseconds;
 
-                            if (tastverhaeltnis > tastVerhaeltnisMax || tastverhaeltnis < tastVerhaeltnisMin)
-                            {
-                                DataGridUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsches Tastverhältnis: {tastverhaeltnis:F2}ms");
-                                return;
-                            }
-
-                            periodenAnzahl++;
-                            if (periodenAnzahl > anzahlPerioden)
-                            {
-                                DataGridUpdaten(TestAnzeige.Erfolgreich, (uint)bitMuster, $"{kommentar}: E:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
-                                return;
-                            }
-                        }
-
-                        messungAktiv = true;
                         schritte = SchritteBlinken.AufNegFlankeWarten;
                         periodenDauerMessen.Restart();
+                        halbwellenAnzahl++;
+                        messungAktiv = true;
                     }
-
                     break;
 
                 case SchritteBlinken.AufNegFlankeWarten:
-                    zeitImpuls = periodenDauerMessen.ElapsedMilliseconds;
                     if ((digitalOutput & (short)bitMaske) == 0)
                     {
-                        if (messungAktiv) periodenDauerMessen.Restart();
-                        schritte = SchritteBlinken.AufPosFlankeWarten;
-                    }
+                        if (messungAktiv) zeitImpuls = periodenDauerMessen.ElapsedMilliseconds;
 
+                        schritte = SchritteBlinken.AufPosFlankeWarten;
+                        periodenDauerMessen.Restart();
+                        halbwellenAnzahl++;
+                        messungAktiv = true;
+                    }
                     break;
 
                 default:
                     throw new ArgumentOutOfRangeException(schritte.ToString());
+            }
+
+            if (anzeigeUpdaten++ <= anzeigeUpdatenSollwert) continue;
+            anzeigeUpdaten = 0;
+
+            if (messungAktiv)
+            {
+                if (aktuellePeriodenDauer > periodenDauerMax || aktuellePeriodenDauer < periodenDauerMin)
+                {
+                    DataGridUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsche Periodendauer: {aktuellePeriodenDauer}ms");
+                    return;
+                }
+
+                if (tastverhaeltnis > tastVerhaeltnisMax || tastverhaeltnis < tastVerhaeltnisMin)
+                {
+                    DataGridUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsches Tastverhältnis: {tastverhaeltnis:F2}ms");
+                    return;
+                }
+
+
+                if (halbwellenAnzahl > 2 * anzahlPerioden)
+                {
+                    DataGridUpdaten(TestAnzeige.Erfolgreich, (uint)bitMuster, $"{kommentar}: E:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
+                    return;
+                }
             }
             DataGridUpdaten(TestAnzeige.Aktiv, (uint)bitMuster, $"{kommentar}: I:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
         }
