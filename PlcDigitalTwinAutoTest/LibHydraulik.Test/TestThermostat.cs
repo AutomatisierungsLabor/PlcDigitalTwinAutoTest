@@ -8,7 +8,7 @@ public class TestThermostat
     [Theory]
     [InlineData(50, 60)]
     [InlineData(-50, 60)]
-    public void KonstruktorOk(double min, double max)
+    public void TestsKonstruktorOk(double min, double max)
     {
         var thermostat = new Thermostat(min, max);
 
@@ -20,7 +20,7 @@ public class TestThermostat
     [Theory]
     [InlineData(60, 50)]
     [InlineData(60, 60)]
-    public void KonstruktorFails(double min, double max)
+    public void TestsKonstruktorFails(double min, double max)
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => new Thermostat(min, max));
     }
@@ -29,7 +29,7 @@ public class TestThermostat
     [InlineData(false, 50, 60, 0, 0)]
     [InlineData(true, 50, 60, 0, 70)]
     [InlineData(false, 50, 60, 70, 40)]
-    public void HystereseTesten(bool exp, double min, double max, double temp1, double temp2)
+    public void TestsHysterese(bool exp, double min, double max, double temp1, double temp2)
     {
         var thermostat = new Thermostat(min, max);
 

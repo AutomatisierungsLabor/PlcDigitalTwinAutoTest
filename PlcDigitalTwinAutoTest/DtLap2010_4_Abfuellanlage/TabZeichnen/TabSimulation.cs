@@ -54,7 +54,7 @@ public partial class TabZeichnen
         libWpf.RechteckFill(10, 6, 2, 6, Brushes.Coral);
         libWpf.RechteckFillStrokeSetMargin(10, 6, 2, 6, Brushes.BurlyWood, Brushes.BurlyWood, 0, WpfObjects.Fuellstand);
 
-        libWpf.RechteckSetFill(12,2,8,2, Brushes.BurlyWood,0, WpfObjects.Zuleitung);
+        libWpf.RechteckSetFill(12,2,8,2, Brushes.BurlyWood,new Thickness(0,0,0,0), WpfObjects.Zuleitung);
 
 
         libWpf.Text("K2", 8, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);

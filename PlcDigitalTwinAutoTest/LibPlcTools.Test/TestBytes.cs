@@ -11,7 +11,7 @@ public class TestBytes
     [InlineData(2, new byte[] { 0, 1, 0, 0 })]
     [InlineData(1, new byte[] { 2 })]
     [InlineData(2, new byte[] { 1, 2 })]
-    public void AnzahlByteEinlesenTesten(short anzahl, byte[] bytes)
+    public void TestsAnzahlByteEinlesen(short anzahl, byte[] bytes)
     {
         Assert.Equal(anzahl, Bytes.MaxBytePositionBestimmen(bytes));
     }
@@ -21,7 +21,7 @@ public class TestBytes
     [InlineData(new byte[] { }, 0, 0)]
     [InlineData(new byte[] { 0 }, 1, 0)]
     [InlineData(new byte[] { 0 }, 300, 0)]
-    public void BitmusterException(byte[] bytes, short posByte, byte bitMuster)
+    public void TestsBitmusterException(byte[] bytes, short posByte, byte bitMuster)
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => Bytes.BitMusterAufKollissionTesten(bytes, posByte, bitMuster));
     }
@@ -31,7 +31,7 @@ public class TestBytes
     [InlineData(true, new byte[] { 1 }, 0, 1)]
     [InlineData(true, new byte[] { 0, 3 }, 1, 1)]
     [InlineData(true, new byte[] { 0, 3 }, 1, 2)]
-    public void BitMusterTesten(bool ergebnis, byte[] bytes, short posByte, byte bitMuster)
+    public void TestsBitMuster(bool ergebnis, byte[] bytes, short posByte, byte bitMuster)
     {
         Assert.Equal(ergebnis, Bytes.BitMusterAufKollissionTesten(bytes, posByte, bitMuster));
     }

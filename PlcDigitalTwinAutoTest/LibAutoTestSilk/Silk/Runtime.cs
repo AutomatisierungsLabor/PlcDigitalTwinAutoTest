@@ -51,7 +51,7 @@ public partial class Silk
     {
         switch (args.Name)
         {
-            case "BitmusterBlinktTesten": FuncBitmusterBlinktTesten(args); break;
+            case "BitmusterBlinktTesten": _testAutomat.FuncBitmusterBlinktTesten(args); break;
             case "BitmusterTesten": _testAutomat.FuncBitmusterTesten(args); break;
             case "GetDigitaleAusgaenge": _testAutomat.FuncGetDigitaleAusgaenge(args); break;
             case "IncrementDataGridId": FuncIncrementDataGridId(); break; // wird für Einzelschrittmodus genutzt!
@@ -60,7 +60,7 @@ public partial class Silk
             case "PlcColdStart": _testAutomat.FuncPlcColdStart(); break;
             case "PlcGetStatus": _testAutomat.FuncPlcGetStatus(); break;
             case "PlcHotStart": _testAutomat.FuncPlcHotStart(); break;
-            case "tStopwatch": _testAutomat.FuncRestartStopwatch(); break;
+            case "ResetStopwatch": _testAutomat.FuncRestartStopwatch(); break;
             case "SetAnalogerEingang": _testAutomat.FuncSetAnalogerEingang(args); break;
             case "SetDataGridBitAnzahl": _testAutomat.FuncSetDataGridBitAnzahl(); break; // Anzeige mit 16 bit 
             case "SetDiagrammZeitbereich": _testAutomat.FuncSetDiagrammZeitbereich(args); break;

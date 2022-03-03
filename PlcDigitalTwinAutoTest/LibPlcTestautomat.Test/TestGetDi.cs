@@ -10,7 +10,7 @@ public class TestGetDi
     [InlineData(0, 0, 0)]
     [InlineData(1, 0, 1)]
     [InlineData(0, 1, 256)]
-    public void GetDiTests(byte di0, byte di1, uint erwartet)
+    public void TestsGetDi(byte di0, byte di1, uint erwartet)
     {
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();

@@ -10,7 +10,7 @@ public class TestWinkel
     [InlineData(180, Math.PI)]
     [InlineData(360, 2 * Math.PI)]
 
-    public void WinkelDegToRadTest(double deg, double rad)
+    public void TestsWinkelDegToRad(double deg, double rad)
     {
         Assert.Equal(rad, Winkel.DegToRad(deg), 3);
     }
@@ -20,7 +20,7 @@ public class TestWinkel
     [InlineData(Math.PI, 180)]
     [InlineData(2 * Math.PI, 360)]
 
-    public void WinkelRadToDegTest(double rad, double deg)
+    public void TestsWinkelRadToDeg(double rad, double deg)
     {
         Assert.Equal(deg, Winkel.RadToDeg(rad), 3);
     }

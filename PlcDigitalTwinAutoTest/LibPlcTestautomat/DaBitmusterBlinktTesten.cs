@@ -1,24 +1,20 @@
 ﻿using Contracts;
 using LibPlcTools;
-using SoftCircuits.Silk;
-using System;
 using System.Diagnostics;
-using System.Threading;
+using SoftCircuits.Silk;
 
-namespace LibAutoTestSilk.Silk;
+namespace LibPlcTestautomat;
 
-public partial class Silk
+public partial class TestAutomat
 {
     private enum SchritteBlinken
     {
-        AufPosFlankeWarten = 0,
-        AufNegFlankeWarten
+        Starten = 0,
+        AufPosFlankeWarten = 1,
+        AufNegFlankeWarten = 2
     }
 
-    internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Di[0], _datenstruktur.Di[1]);
-    internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Da[0], _datenstruktur.Da[1]);
-
-    private void FuncBitmusterBlinktTesten(FunctionEventArgs args)
+    public void FuncBitmusterBlinktTesten(FunctionEventArgs args)
     {
         var bitMuster = args.Parameters[0].ToInteger();
         var bitMaske = args.Parameters[1].ToInteger();
@@ -35,12 +31,13 @@ public partial class Silk
         var tastVerhaeltnisMax = tastVerhaeltnis * (1 + toleranz);
         var tastVerhaeltnisMin = tastVerhaeltnis * (1 - toleranz);
 
+
         var messungAktiv = false;
         var tastverhaeltnis = 0.0;
         var periodenAnzahl = 0;
         var zeitImpuls = 0.0;
         var zeitPause = 0.0;
-        var schritte = SchritteBlinken.AufNegFlankeWarten;
+        var schritte = SchritteBlinken.Starten;
         var periodenDauerMessen = new Stopwatch();
         var stopwatch = new Stopwatch();
         stopwatch.Start();
@@ -50,12 +47,16 @@ public partial class Silk
             Thread.Sleep(10);
 
             var digitalOutput = GetDigitalOutputWord();
-
             var aktuellePeriodenDauer = zeitImpuls + zeitPause;
+
             if (zeitImpuls > 0) tastverhaeltnis = zeitImpuls / aktuellePeriodenDauer;
 
             switch (schritte)
             {
+                case SchritteBlinken.Starten:
+                    schritte = (digitalOutput & (short)bitMaske) > 0 ? SchritteBlinken.AufNegFlankeWarten : SchritteBlinken.AufPosFlankeWarten;
+                    break;
+
                 case SchritteBlinken.AufPosFlankeWarten:
                     zeitPause = periodenDauerMessen.ElapsedMilliseconds;
 
@@ -65,27 +66,29 @@ public partial class Silk
                         {
                             if (aktuellePeriodenDauer > periodenDauerMax || aktuellePeriodenDauer < periodenDauerMin)
                             {
-                                DataGridAnzeigeUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsche Periodendauer: {aktuellePeriodenDauer}ms");
+                                DataGridUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsche Periodendauer: {aktuellePeriodenDauer}ms");
                                 return;
                             }
 
                             if (tastverhaeltnis > tastVerhaeltnisMax || tastverhaeltnis < tastVerhaeltnisMin)
                             {
-                                DataGridAnzeigeUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsches Tastverhältnis: {tastverhaeltnis:F2}ms");
+                                DataGridUpdaten(TestAnzeige.Fehler, (uint)bitMuster, $"{kommentar}: Falsches Tastverhältnis: {tastverhaeltnis:F2}ms");
                                 return;
                             }
 
                             periodenAnzahl++;
                             if (periodenAnzahl > anzahlPerioden)
                             {
-                                DataGridAnzeigeUpdaten(TestAnzeige.Erfolgreich, (uint)bitMuster, $"{kommentar}: E:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
+                                DataGridUpdaten(TestAnzeige.Erfolgreich, (uint)bitMuster, $"{kommentar}: E:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
                                 return;
                             }
                         }
+
                         messungAktiv = true;
                         schritte = SchritteBlinken.AufNegFlankeWarten;
                         periodenDauerMessen.Restart();
                     }
+
                     break;
 
                 case SchritteBlinken.AufNegFlankeWarten:
@@ -95,15 +98,14 @@ public partial class Silk
                         if (messungAktiv) periodenDauerMessen.Restart();
                         schritte = SchritteBlinken.AufPosFlankeWarten;
                     }
+
                     break;
 
                 default:
                     throw new ArgumentOutOfRangeException(schritte.ToString());
             }
-
-            DataGridAnzeigeUpdaten(TestAnzeige.Aktiv, (uint)bitMuster, $"{kommentar}: I:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
+            DataGridUpdaten(TestAnzeige.Aktiv, (uint)bitMuster, $"{kommentar}: I:{zeitImpuls}ms A: {zeitPause}ms → {100 * tastverhaeltnis:F1}%");
         }
-
-        DataGridAnzeigeUpdaten(TestAnzeige.Timeout, (uint)bitMuster, kommentar);
+        DataGridUpdaten(TestAnzeige.Timeout, (uint)bitMuster, kommentar);
     }
 }

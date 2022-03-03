@@ -6,7 +6,7 @@ using Xunit;
 
 namespace LibPlcTestautomat.Test;
 
-public class TestDaBitmusterTessten
+public class TestDaBitmusterTesten
 {
 
     [Theory]
@@ -16,7 +16,7 @@ public class TestDaBitmusterTessten
     [InlineData(3, 3, "T#100ms", "kein Kommentart", 3, 0, TestAnzeige.Erfolgreich)]
     [InlineData(1, 2, "T#100ms", "kein Kommentart", 3, 0, TestAnzeige.Timeout)]
 
-    public void DaBitmusterTestenTimeout(int bitMuster, int bitMaske, string zeitDauer, string kommentar, byte da0, byte da1, TestAnzeige testAnzeige)
+    public void TestsDaBitmusterTimeout(int bitMuster, int bitMaske, string zeitDauer, string kommentar, byte da0, byte da1, TestAnzeige testAnzeige)
     {
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();

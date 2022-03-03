@@ -11,7 +11,7 @@ public class TestZeitfunktionen
     [InlineData(0, 0, 5)]
     [InlineData(10, 10, 25)]
     [InlineData(100, 100, 120)]
-    public void StopwatchTests(short dauer, short min, short max)
+    public void TestsStopwatch(short dauer, short min, short max)
     {
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();

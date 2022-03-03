@@ -12,7 +12,7 @@ public class TestSetDi
     [InlineData(1, 1, 0)]
     [InlineData(2, 2, 0)]
     [InlineData(256, 0, 1)]
-    public void SetDiTests(short zahl, byte di0, byte di1)
+    public void TestsSetDi(short zahl, byte di0, byte di1)
     {
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();

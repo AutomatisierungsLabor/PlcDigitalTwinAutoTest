@@ -15,7 +15,7 @@ public class TestKonvertierungen
     [InlineData("16#00", 0)]
     [InlineData("16#01", 1)]
     [InlineData("16#FF", 255)]
-    public void PlcToDecTest(string zahl, short ergebnis)
+    public void TestsPlcToDec(string zahl, short ergebnis)
     {
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();

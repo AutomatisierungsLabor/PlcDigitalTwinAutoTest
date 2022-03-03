@@ -9,7 +9,7 @@ public class TestPunkt
     [InlineData(0, 0)]
     [InlineData(1, 1)]
 
-    public void ZeigerPunktXy(double x, double y)
+    public void TestsZeigerPunktXy(double x, double y)
     {
         var p = new Punkt(x, y);
 
@@ -21,7 +21,7 @@ public class TestPunkt
     [InlineData(0, 0, 0, 0)]
     [InlineData(14.1421356237, 45, 10, 10)]
 
-    public void ZeigerPunktRad(double rad, double winkel, double x, double y)
+    public void TestsZeigerPunktRad(double rad, double winkel, double x, double y)
     {
         var p = new Punkt(rad, winkel, 0);
 
@@ -33,7 +33,7 @@ public class TestPunkt
     [InlineData(0, 0)]
     [InlineData(1, 1)]
 
-    public void ZeigerPunktClone(double x, double y)
+    public void TestsZeigerPunktClone(double x, double y)
     {
         var p1 = new Punkt(x, y);
         var p2 = p1.Clone();

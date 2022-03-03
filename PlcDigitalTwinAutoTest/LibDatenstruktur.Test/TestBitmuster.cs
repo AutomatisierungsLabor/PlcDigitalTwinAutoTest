@@ -26,7 +26,7 @@ public class TestBitmuster
     [InlineData(128, true, false, false, false, false, false, false, false)]
     [InlineData(255, true, true, true, true, true, true, true, true)]
 
-    public void BitmusterSchreibenTesten(byte expexted, bool b7, bool b6, bool b5, bool b4, bool b3, bool b2, bool b1, bool lsb)
+    public void TestsBitmusterSchreiben(byte expexted, bool b7, bool b6, bool b5, bool b4, bool b3, bool b2, bool b1, bool lsb)
     {
         var datenstruktur = new Datenstruktur();
 
@@ -47,7 +47,7 @@ public class TestBitmuster
     [InlineData(128, true, false, false, false, false, false, false, false)]
     [InlineData(255, true, true, true, true, true, true, true, true)]
 
-    public void BitmusterLesenTesten(byte wert, bool eb7, bool eb6, bool eb5, bool eb4, bool eb3, bool eb2, bool eb1, bool elsb)
+    public void TestsBitmusterLesen(byte wert, bool eb7, bool eb6, bool eb5, bool eb4, bool eb3, bool eb2, bool eb1, bool elsb)
     {
 
         var datenstruktur = new Datenstruktur

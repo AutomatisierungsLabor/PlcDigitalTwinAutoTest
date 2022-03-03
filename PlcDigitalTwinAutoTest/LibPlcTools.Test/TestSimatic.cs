@@ -12,7 +12,7 @@ public class TestSimatic
     [InlineData(1000, 100, 27648)]
     [InlineData(-1000, 100, -27648)]
 
-    public void AnalogToInt16Test(double analog, double scale, int siemens)
+    public void TestsAnalogToInt16(double analog, double scale, int siemens)
     {
         Assert.Equal(siemens, Simatic.Analog_2_Int16(analog, scale));
     }
@@ -24,7 +24,7 @@ public class TestSimatic
     [InlineData(1000, 100, 27648)]
     [InlineData(-1000, 100, -27648)]
 
-    public void AnalogToInt32Test(double analog, double scale, int siemens)
+    public void TestsAnalogToInt32(double analog, double scale, int siemens)
     {
         Assert.Equal(siemens, Simatic.Analog_2_Int32(analog, scale));
     }
@@ -34,7 +34,7 @@ public class TestSimatic
     [InlineData(27648, 100, 100)]
     [InlineData(-27648, 100, -100)]
 
-    public void AnalogToToDoubleTest(int analog, double scale, int siemens)
+    public void TestsAnalogToToDouble(int analog, double scale, int siemens)
     {
         Assert.Equal(siemens, Simatic.Analog_2_Double(analog, scale), 3);
     }
@@ -46,7 +46,7 @@ public class TestSimatic
     [InlineData(200, -100, 100, 100)]
     [InlineData(-200, -100, 100, -100)]
 
-    public void ClampTest(int wert, double min, double max, double exp)
+    public void TestsClamp(int wert, double min, double max, double exp)
     {
         Assert.Equal(exp, Simatic.Clamp(wert, min, max), 3);
     }
@@ -63,7 +63,7 @@ public class TestSimatic
     [InlineData(3840, 0)]
     [InlineData(65535, 255)]
 
-    public void GetLowByteTest(uint wert, byte exp)
+    public void TestsGetLowByte(uint wert, byte exp)
     {
         Assert.Equal(exp, Simatic.Digital_GetLowByte(wert));
     }
@@ -75,7 +75,7 @@ public class TestSimatic
     [InlineData(3840, 15)]
     [InlineData(65535, 255)]
 
-    public void GetHighByteTest(uint wert, byte exp)
+    public void TestsGetHighByte(uint wert, byte exp)
     {
         Assert.Equal(exp, Simatic.Digital_GetHighByte(wert));
     }
@@ -86,7 +86,7 @@ public class TestSimatic
     [InlineData(1, 0, 1)]
     [InlineData(0, 1, 256)]
 
-    public void GetCombineByteTest(byte low, byte high, uint exp)
+    public void TestsGetCombineByte(byte low, byte high, uint exp)
     {
         Assert.Equal(exp, Simatic.Digital_CombineTwoByte(low, high));
     }

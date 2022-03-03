@@ -9,7 +9,7 @@ public class TestHeizkurve
     [InlineData(0, 20, 0, 100, 20, 0, 40)]
     [InlineData(1, 20, 0, 100, 20, 0, 62.28)]
 
-    public void Test(double neigung, double niveau, double vorlaufMin, double vorlaufMax, double raumtempteratur, double witterungstemperatur, double vorlaufSolltemperatur)
+    public void TestsHeizkurve(double neigung, double niveau, double vorlaufMin, double vorlaufMax, double raumtempteratur, double witterungstemperatur, double vorlaufSolltemperatur)
     {
         var heizkurve = new Heizkurve(neigung, niveau, vorlaufMin, vorlaufMax);
 

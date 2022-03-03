@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Bilder\Dose1.jpg" />
+    <None Remove="Bilder\Dose2.jpg" />
+    <None Remove="Bilder\Dose3.jpg" />
+    <None Remove="Bilder\Dose4.jpg" />
+    <None Remove="Bilder\Dose5.jpg" />
+    <None Remove="Bilder\Fohrenburger0.jpg" />
+    <None Remove="Bilder\Fohrenburger1.jpg" />
+    <None Remove="Bilder\Fohrenburger2.jpg" />
+    <None Remove="Bilder\Fohrenburger3.jpg" />
+    <None Remove="Bilder\Fohrenburger4.jpg" />
+    <None Remove="Bilder\Fohrenburger5.jpg" />
+    <None Remove="Bilder\Fohrenburger6.jpg" />
+    <None Remove="Bilder\Fransziskaner.jpg" />
     <None Remove="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
     <None Remove="Bilder\iconAlarm.jpg" />
     <None Remove="Bilder\iconAlarm.png" />
@@ -15,6 +28,15 @@
     <None Remove="Bilder\IconPlotter.jpg" />
     <None Remove="Bilder\InitiatorenBetaetigt.jpg" />
     <None Remove="Bilder\InitiatorenSchliesser.jpg" />
+    <None Remove="Bilder\Kellerbier.jpg" />
+    <None Remove="Bilder\Mohren0.jpg" />
+    <None Remove="Bilder\Mohren1.jpg" />
+    <None Remove="Bilder\Mohren2.jpg" />
+    <None Remove="Bilder\Mohren3.jpg" />
+    <None Remove="Bilder\Mohren4.jpg" />
+    <None Remove="Bilder\Mohren5.jpg" />
+    <None Remove="Bilder\Mohren6.jpg" />
+    <None Remove="Bilder\OberLänder.jpg" />
     <None Remove="Bilder\PlatteLinearachse.jpg" />
     <None Remove="Bilder\PumpeAus.jpg" />
     <None Remove="Bilder\PumpeEin.jpg" />
@@ -34,6 +56,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Bilder\Dose1.jpg" />
+    <Resource Include="Bilder\Dose2.jpg" />
+    <Resource Include="Bilder\Dose3.jpg" />
+    <Resource Include="Bilder\Dose4.jpg" />
+    <Resource Include="Bilder\Dose5.jpg" />
+    <Resource Include="Bilder\Fohrenburger0.jpg" />
+    <Resource Include="Bilder\Fohrenburger1.jpg" />
+    <Resource Include="Bilder\Fohrenburger2.jpg" />
+    <Resource Include="Bilder\Fohrenburger3.jpg" />
+    <Resource Include="Bilder\Fohrenburger4.jpg" />
+    <Resource Include="Bilder\Fohrenburger5.jpg" />
+    <Resource Include="Bilder\Fohrenburger6.jpg" />
+    <Resource Include="Bilder\Fransziskaner.jpg" />
     <Resource Include="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
     <Content Include="Snap7.ico" />
   </ItemGroup>
@@ -56,6 +91,15 @@
     </Resource>
     <Resource Include="Bilder\InitiatorenBetaetigt.jpg" />
     <Resource Include="Bilder\InitiatorenSchliesser.jpg" />
+    <Resource Include="Bilder\Kellerbier.jpg" />
+    <Resource Include="Bilder\Mohren0.jpg" />
+    <Resource Include="Bilder\Mohren1.jpg" />
+    <Resource Include="Bilder\Mohren2.jpg" />
+    <Resource Include="Bilder\Mohren3.jpg" />
+    <Resource Include="Bilder\Mohren4.jpg" />
+    <Resource Include="Bilder\Mohren5.jpg" />
+    <Resource Include="Bilder\Mohren6.jpg" />
+    <Resource Include="Bilder\OberLänder.jpg" />
     <Resource Include="Bilder\PlatteLinearachse.jpg" />
     <Resource Include="Bilder\PumpeAus.jpg" />
     <Resource Include="Bilder\PumpeEin.jpg" />

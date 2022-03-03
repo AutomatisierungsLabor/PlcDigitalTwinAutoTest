@@ -12,7 +12,7 @@ public class TestGetDa
     [InlineData(0, 0, 0)]
     [InlineData(1, 0, 1)]
     [InlineData(0, 1, 256)]
-    public void GetDigitalOutputWordTests(byte da0, byte da1, uint erwartet)
+    public void TestsGetDigitalOutputWord(byte da0, byte da1, uint erwartet)
     {
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
@@ -29,7 +29,7 @@ public class TestGetDa
     [InlineData(0, 0, 0)]
     [InlineData(1, 0, 1)]
     [InlineData(0, 1, 256)]
-    public void GetDaTests(byte da0, byte da1, short erwartet)
+    public void TestsGetDa(byte da0, byte da1, short erwartet)
     {
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
