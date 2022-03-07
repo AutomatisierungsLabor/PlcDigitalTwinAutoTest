@@ -49,10 +49,10 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
     
 
-    UpdateAnzeige "Kommentar", "Ohne Störung testen"
+    KommentarAnzeigen "Ohne Störung testen"
     
 
     SetDigitaleEingaenge(S1 + S9)

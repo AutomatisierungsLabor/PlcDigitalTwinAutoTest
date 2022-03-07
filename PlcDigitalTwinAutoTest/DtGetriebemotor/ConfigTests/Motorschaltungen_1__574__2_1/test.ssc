@@ -47,9 +47,9 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
 
-    UpdateAnzeige "Kommentar", "Normalbetrieb testen"
+    KommentarAnzeigen "Normalbetrieb testen"
 
     SetDigitaleEingaenge 0
     ResetStopwatch

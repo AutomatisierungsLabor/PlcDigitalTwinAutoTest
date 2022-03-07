@@ -50,14 +50,14 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
 
     SetDigitaleEingaenge 0
     ResetStopwatch
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
 
-    UpdateAnzeige "Kommentar", "Einen kompletten Zyklus testen"
+    KommentarAnzeigen "Einen kompletten Zyklus testen"
 
    setArray = {
         {S1 + S2,   "T#1s",         "S1 drücken"},
@@ -77,7 +77,7 @@ main()
     SetDigitaleEingaenge 0
     Sleep("T#500ms")
 
-    UpdateAnzeige "Kommentar", "Einen kompletten Zyklus mit Aus"
+    KommentarAnzeigen "Einen kompletten Zyklus mit Aus"
 
 
 

@@ -43,10 +43,10 @@ main()
     SetDiagrammZeitbereich "T#10s"
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
     IncrementDataGridId
 
-    UpdateAnzeige "Kommentar", "Störungen zurücksetzen"
+    KommentarAnzeigen "Störungen zurücksetzen"
     IncrementDataGridId
 
     SetDigitaleEingaenge (B1 + B2 + F1)
@@ -63,7 +63,7 @@ main()
 
 
 
-    UpdateAnzeige "Kommentar", "Ohne Störung Stern-Dreieck-Anlauf testen"
+    KommentarAnzeigen "Ohne Störung Stern-Dreieck-Anlauf testen"
     IncrementDataGridId
 
         setArray = {
@@ -81,5 +81,5 @@ main()
 
 
 
-    UpdateAnzeige "Test abgeschlossen", " "
+    KommentarAnzeigen "Test abgeschlossen", " "
 }

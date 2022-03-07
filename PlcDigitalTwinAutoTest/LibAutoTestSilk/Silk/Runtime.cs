@@ -27,7 +27,6 @@ public partial class Silk
         compiler.RegisterFunction("BitmusterBlinktTesten", 8, 8);
         compiler.RegisterFunction("BitmusterTesten", 4, 4);
         compiler.RegisterFunction("Debug", 0, Function.NoParameterLimit);
-        compiler.RegisterFunction("GetDigitaleAusgaenge", 0, 0);
         compiler.RegisterFunction("IncrementDataGridId", 0, 0);
         compiler.RegisterFunction("KommentarAnzeigen", 1, 1);
         compiler.RegisterFunction("PlcToDec", 1, 1);
@@ -43,7 +42,6 @@ public partial class Silk
         compiler.RegisterFunction("SetDigitaleEingaenge", 1, 1);
         compiler.RegisterFunction("Sleep", 1, 1);
         compiler.RegisterFunction("TestAblauf", 0, 2);
-        compiler.RegisterFunction("UpdateAnzeige", 2, 2);
         compiler.RegisterFunction("VersionAnzeigen", 0, 0);
         // ReSharper restore RedundantArgumentDefaultValue
     }
@@ -53,7 +51,6 @@ public partial class Silk
         {
             case "BitmusterBlinktTesten": _testAutomat.FuncBitmusterBlinktTesten(args); break;
             case "BitmusterTesten": _testAutomat.FuncBitmusterTesten(args); break;
-            case "GetDigitaleAusgaenge": _testAutomat.FuncGetDigitaleAusgaenge(args); break;
             case "IncrementDataGridId": FuncIncrementDataGridId(); break; // wird für Einzelschrittmodus genutzt!
             case "KommentarAnzeigen": _testAutomat.FuncKommentarAnzeigen(args); break;
             case "PlcToDec": _testAutomat.FuncPlcToDec(args); break;
@@ -67,7 +64,6 @@ public partial class Silk
             case "SetDigitaleEingaenge": _testAutomat.FuncSetDigitaleEingaenge(args); break;
             case "Sleep": _testAutomat.FuncSleep(args); break;
             case "TestAblauf": FuncTestAblauf(args); break;
-            case "UpdateAnzeige": _testAutomat.FuncUpdateAnzeige(args); break;
             case "VersionAnzeigen": _testAutomat.FuncVersionAnzeigen(); break;
         }
     }

@@ -38,12 +38,12 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
     IncrementDataGridId
 
 
 
 
 
-        UpdateAnzeige "Test abgeschlossen", " "
+        KommentarAnzeigen "Test abgeschlossen", " "
 }
