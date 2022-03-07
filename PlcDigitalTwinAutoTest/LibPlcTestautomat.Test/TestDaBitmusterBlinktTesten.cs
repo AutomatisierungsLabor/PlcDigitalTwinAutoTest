@@ -9,7 +9,8 @@ namespace LibPlcTestautomat.Test;
 
 public class TestDaBitmusterBlinktTesten
 {
-    public Datenstruktur Datenstruktur = new();
+    private readonly Datenstruktur _datenstruktur = new();
+    private DataGridZeile _zeile = new(0, "", TestAnzeige.CompilerErfolgreich, "", "", "", "");
 
     [Theory]
     [InlineData(1, 1, "T#20ms", 0.5, 2, 0.2, "T#300ms", "kein TestKommentar", 10, 20, 1, TestAnzeige.Erfolgreich)]
@@ -21,7 +22,7 @@ public class TestDaBitmusterBlinktTesten
 
     public void TestsDaBitmusterBlinktTimeout(int bitMuster, int bitMaske, string periodendauer, float tastverhaeltnis, int anzahlPerioden, float toleranz, string timeout, string kommentar, int tEin, int tPeriodendauer, byte blinkerBitMuster, TestAnzeige testAnzeige)
     {
-        Datenstruktur.Da[1] = 0;
+        _datenstruktur.Da[1] = 0;
         var zeit = 0;
         var highResTimer = new HighResTimer
         {
@@ -31,14 +32,14 @@ public class TestDaBitmusterBlinktTesten
 
         highResTimer.MicroTimerElapsed += (_, _) =>
         {
-            if (zeit < tEin) Datenstruktur.Da[0] = blinkerBitMuster;
-            else Datenstruktur.Da[0] = (byte)~blinkerBitMuster;
+            if (zeit < tEin) _datenstruktur.Da[0] = blinkerBitMuster;
+            else _datenstruktur.Da[0] = (byte)~blinkerBitMuster;
 
             if (zeit++ >= tPeriodendauer) zeit = 0;
         };
 
         var cancellationTokenSource = new CancellationTokenSource();
-        var testAutomat = new TestAutomat(Datenstruktur, cancellationTokenSource);
+        var testAutomat = new TestAutomat(_datenstruktur, cancellationTokenSource);
         var args = new FunctionEventArgs("BitmusterBlinktTesten",
             new[] { new Variable(bitMuster), new Variable(bitMaske), new Variable(periodendauer), new Variable(tastverhaeltnis), new Variable(anzahlPerioden), new Variable(toleranz), new Variable(timeout), new Variable(kommentar) },
             new Variable());
@@ -51,6 +52,5 @@ public class TestDaBitmusterBlinktTesten
 
         highResTimer.Enabled = false;
     }
-    private DataGridZeile _zeile = new(0, "", TestAnzeige.CompilerErfolgreich, "", "", "", "");
     private void DatenSpeichern(DataGridZeile zeile) => _zeile = zeile;
 }
