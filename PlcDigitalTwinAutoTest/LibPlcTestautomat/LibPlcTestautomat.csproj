@@ -12,5 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\LibHighResolutionTimer\LibHighResTimer.csproj" />
   </ItemGroup>
 </Project>
