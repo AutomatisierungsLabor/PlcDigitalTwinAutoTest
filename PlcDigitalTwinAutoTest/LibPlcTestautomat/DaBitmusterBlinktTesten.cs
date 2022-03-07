@@ -63,21 +63,24 @@ public partial class TestAutomat
         var schritte = SchritteBlinken.Starten;
 
         var stopwatch = new Stopwatch();
-
-
+        var wieOft = 0;
         Array.Fill(_ergebnisse, new BlinkerPeriode());
         stopwatch.Start();
-
+        var dauers = new List<long>();
+        var dauers2 = new List<long>();
 
         while (stopwatch.ElapsedMilliseconds < timeout.DauerMs)
         {
-            Thread.Sleep(1);
-
+            var start = stopwatch.ElapsedMilliseconds;
+            //Thread.Sleep(1);
+            var task = Task.Delay(1);
+            Task.WaitAll(task);
             var digitalOutput = GetDigitalOutputWord();
             // var aktuellePeriodenDauer = zeitImpuls + zeitPause;
 
+            dauers2.Add(stopwatch.ElapsedMilliseconds);
             //  if (zeitImpuls > 0) tastverhaeltnis = zeitImpuls / aktuellePeriodenDauer;
-
+            wieOft++;
             switch (schritte)
             {
                 case SchritteBlinken.Starten:
@@ -107,8 +110,13 @@ public partial class TestAutomat
                 default:
                     throw new ArgumentOutOfRangeException(schritte.ToString());
             }
-
+            dauers.Add(stopwatch.ElapsedMilliseconds - start);
             /*
+
+
+            todo: länge array überwachen!
+
+
                      if (anzeigeUpdaten++ <= anzeigeUpdatenSollwert) continue;
                      anzeigeUpdaten = 0;
 

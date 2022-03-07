@@ -1,17 +1,17 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
+using System.Timers;
 using Contracts;
 using LibDatenstruktur;
 using SoftCircuits.Silk;
 using Xunit;
+using Timer = System.Timers.Timer;
 
 namespace LibPlcTestautomat.Test;
 
 public class TestDaBitmusterBlinktTesten
 {
-    private (int _tEin, int _tPeriodendauer, byte _bitMuster) _blinkerDaten;
-
-
     public bool ThreadAktiv;
     public Datenstruktur Datenstruktur = new();
 
@@ -23,24 +23,36 @@ public class TestDaBitmusterBlinktTesten
 
     public void TestsDaBitmusterBlinktTimeout(int bitMuster, int bitMaske, string periodendauer, float tastverhaeltnis, int anzahlPerioden, float toleranz, string timeout, string kommentar, int tEin, int tPeriodendauer, byte blinkerBitMuster, TestAnzeige testAnzeige)
     {
-        _blinkerDaten = (tEin, tPeriodendauer, blinkerBitMuster);
-        ThreadAktiv = true;
-        System.Threading.Tasks.Task.Run(BlinkerTask);
+        Datenstruktur.Da[1] = 0;
+        var zeit = 0;
+        var dauers = new List<long>();
+        var timer = new Timer(1);
+        var sw = new Stopwatch();
+        sw.Start();
+        timer.Elapsed += (sender, eventArgs) =>
+        {
+            dauers.Add(sw.ElapsedMilliseconds);
+            if (zeit < tEin) Datenstruktur.Da[0] = blinkerBitMuster;
+            else Datenstruktur.Da[0] = (byte)~blinkerBitMuster;
+
+            if (zeit++ > tPeriodendauer) zeit = 0;
+        };
+        timer.Start();
+
 
         var cancellationTokenSource = new CancellationTokenSource();
         var testAutomat = new TestAutomat(Datenstruktur, cancellationTokenSource);
         var args = new FunctionEventArgs("BitmusterBlinktTesten",
             new[] { new Variable(bitMuster), new Variable(bitMaske), new Variable(periodendauer), new Variable(tastverhaeltnis), new Variable(anzahlPerioden), new Variable(toleranz), new Variable(timeout), new Variable(kommentar) },
             new Variable());
-
-
+        
         testAutomat.SetCallbackDatagridUpdaten(DatenSpeichern);
         testAutomat.FuncBitmusterBlinktTesten(args);
 
         // Assert.Equal(kommentar, _zeile.Kommentar);
         Assert.Equal(testAnzeige, _zeile.Ergebnis);
 
-        // ThreadAktiv = false;
+        timer.Stop();
     }
     private DataGridZeile _zeile = new(0, "", TestAnzeige.CompilerErfolgreich, "", "", "", "");
     private void DatenSpeichern(DataGridZeile zeile) => _zeile = zeile;
@@ -49,14 +61,13 @@ public class TestDaBitmusterBlinktTesten
         var zeitMessung = new Stopwatch();
         zeitMessung.Start();
 
-        Datenstruktur.Da[1] = 0;
+
+
+
+
 
         do
         {
-            if (zeitMessung.ElapsedMilliseconds < _blinkerDaten._tEin) Datenstruktur.Da[0] = _blinkerDaten._bitMuster;
-            else Datenstruktur.Da[0] = (byte)~_blinkerDaten._bitMuster;
-
-            if (zeitMessung.ElapsedMilliseconds > _blinkerDaten._tPeriodendauer) zeitMessung.Restart();
 
             Thread.Sleep(1);
         } while (ThreadAktiv);
