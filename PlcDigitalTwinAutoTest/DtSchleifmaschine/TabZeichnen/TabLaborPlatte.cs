@@ -1,12 +1,13 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using DtSchleifmaschine.ViewModel;
 
-namespace DtLap2010_3_Ofentuersteuerung.TabZeichnen;
+namespace DtSchleifmaschine.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static void TabLaborPlatteZeichnen(ViewModel.VmLap2010 vmLap2010, TabItem tabItem, string hintergrund)
+    public static void TabLaborPlatteZeichnen(VmSchleifmaschine vmSchleifmaschine, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
 

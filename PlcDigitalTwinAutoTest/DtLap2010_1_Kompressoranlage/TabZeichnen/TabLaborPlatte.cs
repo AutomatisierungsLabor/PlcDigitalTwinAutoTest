@@ -6,7 +6,7 @@ namespace DtLap2010_1_Kompressoranlage.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static void TabLaborPlatteZeichnen(ViewModel.VmLap2010 vmKata, TabItem tabItem, string hintergrund)
+    public static void TabLaborPlatteZeichnen(ViewModel.VmLap2010 vmLap2010, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
 

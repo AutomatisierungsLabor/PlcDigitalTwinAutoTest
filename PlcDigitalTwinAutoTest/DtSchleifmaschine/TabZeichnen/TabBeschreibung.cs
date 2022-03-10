@@ -2,11 +2,11 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DtLap2010_2_Transportwagen.TabZeichnen;
+namespace DtSchleifmaschine.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static void TabBeschreibungZeichnen(ViewModel.VmLap2010 vmLap2010, TabItem tabItem, string hintergrund)
+    public static void TabBeschreibungZeichnen(ViewModel.VmSchleifmaschine vmSchleifmaschine, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
 

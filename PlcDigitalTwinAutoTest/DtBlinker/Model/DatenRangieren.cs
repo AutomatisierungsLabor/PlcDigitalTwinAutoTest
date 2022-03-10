@@ -8,9 +8,9 @@ public class DatenRangieren
     private readonly ModelBlinker _blinker;
     private readonly Datenstruktur _datenstruktur;
 
-    public DatenRangieren(ModelBlinker kata, Datenstruktur datenstruktur)
+    public DatenRangieren(ModelBlinker blinker, Datenstruktur datenstruktur)
     {
-        _blinker = kata;
+        _blinker = blinker;
         _datenstruktur = datenstruktur;
     }
     internal void Rangieren()
