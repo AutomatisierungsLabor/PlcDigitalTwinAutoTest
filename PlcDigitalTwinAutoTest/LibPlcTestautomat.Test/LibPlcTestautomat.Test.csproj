@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LibHighResolutionTimer.Test\LibHighResTimer.Test.csproj" />
     <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
   </ItemGroup>
 

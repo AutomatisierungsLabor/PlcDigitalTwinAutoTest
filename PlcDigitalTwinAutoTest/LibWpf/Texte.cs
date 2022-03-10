@@ -19,7 +19,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
-    public void TextVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, object wpfId)
+    public void TextSetContendSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, object wpfId)
     {
         var label = new Label
         {
@@ -29,13 +29,12 @@ public partial class LibWpf
             VerticalAlignment = vertical
         };
 
-
         label.SetContentBinding(wpfId);
         label.SetSichtbarkeitEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
-    public void TextVertikalVis(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Thickness rand, int width, Brush farbe, object wpfId)
+    public void TextVerticalSetTextSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Thickness rand, int width, Brush farbe, object wpfId)
     {
         var text = new TextBlock
         {

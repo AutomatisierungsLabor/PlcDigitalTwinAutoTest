@@ -19,7 +19,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildVisEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    public void BildSichtbarkeitEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var image = new Image
         {
@@ -32,7 +32,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildVisAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    public void BildSichtbarkeitAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var image = new Image
         {
@@ -42,6 +42,27 @@ public partial class LibWpf
         };
 
         image.SetSichtbarkeitAusBinding(wpfId);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
+    public void BildDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    {
+        var image = new Image
+        {
+            Source = new BitmapImage(new Uri(@$"Bilder\{source}", UriKind.Relative)),
+            Stretch = Stretch.Fill,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
+    public void BildRand(string source, int xPos, int xSpan, int yPos, int ySpan, object wpfId)
+    {
+        var image = new Image
+        {
+            Source = new BitmapImage(new Uri(@$"Bilder\{source}", UriKind.Relative)),
+            Stretch = Stretch.Fill
+        };
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }

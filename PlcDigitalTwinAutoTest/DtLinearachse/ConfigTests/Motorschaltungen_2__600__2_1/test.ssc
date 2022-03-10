@@ -49,7 +49,7 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
     
 
     SetDigitaleEingaenge 0

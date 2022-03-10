@@ -47,9 +47,9 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
  
-    UpdateAnzeige "Kommentar", "Normalbetrieb testen"
+    KommentarAnzeigen "Normalbetrieb testen"
 
     SetDigitaleEingaenge (S1 + S4)
     ResetStopwatch
@@ -71,7 +71,7 @@ main()
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3, "T#5s", "Motor Aus?"
 
-    UpdateAnzeige "Kommentar", "Störung Thermorelais testen"
+    KommentarAnzeigen "Störung Thermorelais testen"
 
     SetDigitaleEingaenge AllesAus
     ResetStopwatch

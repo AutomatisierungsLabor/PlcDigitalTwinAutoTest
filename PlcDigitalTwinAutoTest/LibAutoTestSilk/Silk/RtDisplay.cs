@@ -65,4 +65,7 @@ public partial class Silk
     }
     public void EinzelnerSchrittAusfuehren() => _einzelSchrittAusfuehren = true;
     public void SetBetriebsart(bool b) => _betriebsartAutoTest = b ? BetriebsartAutoTest.Einzelschritt : BetriebsartAutoTest.Automatik;
+
+    internal uint GetDigtalInputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Di[0], _datenstruktur.Di[1]);
+    internal uint GetDigitalOutputWord() => Simatic.Digital_CombineTwoByte(_datenstruktur.Da[0], _datenstruktur.Da[1]);
 }

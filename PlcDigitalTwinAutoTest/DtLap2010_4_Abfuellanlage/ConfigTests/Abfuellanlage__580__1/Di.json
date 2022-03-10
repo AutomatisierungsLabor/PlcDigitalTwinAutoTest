@@ -1,0 +1,32 @@
+﻿{
+  "DiBeschriftung": [
+    {
+      "Byte": 0,
+      "Bit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "B1",
+      "Kommentar": "Füllstand"
+    },
+    {
+      "Byte": 0,
+      "Bit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "B2",
+      "Kommentar": "Position Dose"
+    },
+    {
+      "Byte": 0,
+      "Bit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar": "Taster Reset"
+    },
+    {
+      "Byte": 0,
+      "Bit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "S2",
+      "Kommentar": "Taster Start"
+    }
+  ]
+}

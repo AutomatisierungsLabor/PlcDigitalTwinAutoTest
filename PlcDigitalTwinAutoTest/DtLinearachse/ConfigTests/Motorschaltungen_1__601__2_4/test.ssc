@@ -50,10 +50,10 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
     
 
-    UpdateAnzeige "Kommentar", "Ohne Störungen testen"
+    KommentarAnzeigen "Ohne Störungen testen"
     
     
     SetDigitaleEingaenge(S2 + S8 + S9 + S10)
@@ -92,7 +92,7 @@ main()
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Immer noch Betriebsbereit?"
     
 
-    UpdateAnzeige "Kommentar", "Störung Thermorelais"
+    KommentarAnzeigen "Störung Thermorelais"
     
 
     SetDigitaleEingaenge(S2 + S10)
@@ -125,7 +125,7 @@ main()
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Quittieren -> Betriebsbereit?"
     
 
-    UpdateAnzeige "Kommentar", "Störung Not-Halt"
+    KommentarAnzeigen "Störung Not-Halt"
     
 
     SetDigitaleEingaenge(S2 + S9)

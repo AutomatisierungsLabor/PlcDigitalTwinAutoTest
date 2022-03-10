@@ -55,10 +55,10 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
     
 
-    UpdateAnzeige "Kommentar", "Ohne Störung testen"
+    KommentarAnzeigen "Ohne Störung testen"
     
 
     SetDigitaleEingaenge (S8 + S9 + S10)
@@ -94,7 +94,7 @@ main()
     //
     ///////////////////////////////////////////////////////////////
 
-    UpdateAnzeige "Kommentar", "Störungen Thermorelais testen"
+    KommentarAnzeigen "Störungen Thermorelais testen"
     
 
     SetDigitaleEingaenge (S1 + S9 + S10)
@@ -132,7 +132,7 @@ main()
     
 
 
-    UpdateAnzeige "Kommentar", "Störungen Not-Halt testen"
+    KommentarAnzeigen "Störungen Not-Halt testen"
     
 
     SetDigitaleEingaenge (S1 + S9 + S10)

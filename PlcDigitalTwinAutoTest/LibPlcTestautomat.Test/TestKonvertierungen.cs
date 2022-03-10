@@ -15,12 +15,14 @@ public class TestKonvertierungen
     [InlineData("16#00", 0)]
     [InlineData("16#01", 1)]
     [InlineData("16#FF", 255)]
-    public void PlcToDecTest(string zahl, short ergebnis)
+    public void TestsPlcToDec(string zahl, short ergebnis)
     {
         var cancellationTokenSource = new CancellationTokenSource();
         var datenstruktur = new Datenstruktur();
         var testAutomat = new TestAutomat(datenstruktur, cancellationTokenSource);
-        var args = new FunctionEventArgs("PlcToDec", new[] { new Variable(zahl) }, new Variable());
+        var args = new FunctionEventArgs("PlcToDec",
+            new[] { new Variable(zahl) },
+            new Variable());
 
         testAutomat.FuncPlcToDec(args);
         Assert.Equal(ergebnis, args.ReturnValue[0].ToInteger());

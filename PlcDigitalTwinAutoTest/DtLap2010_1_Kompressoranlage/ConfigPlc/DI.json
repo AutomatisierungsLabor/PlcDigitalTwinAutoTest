@@ -1,0 +1,39 @@
+﻿{
+  "Zeilen": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "B1",
+      "Kommentar": "Druckschalter"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "B2",
+      "Kommentar": "Temperaturfühler Kompressor"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "F1",
+      "Kommentar": "Störung Motorschutzschalter"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar": "Taster Aus"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "S2",
+      "Kommentar": "Taster Ein"
+    }
+  ]
+}

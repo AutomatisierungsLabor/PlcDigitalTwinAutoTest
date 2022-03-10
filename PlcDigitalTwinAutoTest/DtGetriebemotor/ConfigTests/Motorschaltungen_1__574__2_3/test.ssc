@@ -47,9 +47,9 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
+    KommentarAnzeigen "Init"
  
-    UpdateAnzeige "Kommentar", "Normalbetrieb testen"
+    KommentarAnzeigen "Normalbetrieb testen"
 
     SetDigitaleEingaenge (S1 + S4 + S92)
     ResetStopwatch
@@ -76,7 +76,7 @@ main()
     Sleep("T#100ms")
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Immer noch Betriebsbereit?"
 
-    UpdateAnzeige "Kommentar", "Störung Thermorelais und Not-Halt testen"
+    KommentarAnzeigen "Störung Thermorelais und Not-Halt testen"
 
     SetDigitaleEingaenge AllesAus
     ResetStopwatch
@@ -93,7 +93,7 @@ main()
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor wieder Ein?"
 
-    UpdateAnzeige "Kommentar", "Störung Thermorelais testen"
+    KommentarAnzeigen "Störung Thermorelais testen"
 
     SetDigitaleEingaenge (S1 + S2 + S92)
     ResetStopwatch
@@ -105,7 +105,7 @@ main()
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor wieder Ein?"
 
-    UpdateAnzeige "Kommentar", "Störung Not-Halt testen"
+    KommentarAnzeigen "Störung Not-Halt testen"
 
     SetDigitaleEingaenge (S1 + S2 + S4)
     ResetStopwatch

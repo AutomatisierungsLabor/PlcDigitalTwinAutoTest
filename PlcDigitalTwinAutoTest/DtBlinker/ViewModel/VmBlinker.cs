@@ -45,6 +45,8 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
+        SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
+        SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
 
         Text[(int)WpfObjects.S1] = "Niedriger";
         Text[(int)WpfObjects.S2] = "Höher";

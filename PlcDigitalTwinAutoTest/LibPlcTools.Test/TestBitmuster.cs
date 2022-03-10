@@ -12,14 +12,14 @@ public class TestBitmuster
     [InlineData(2, 4)]
     [InlineData(3, 8)]
     [InlineData(7, 128)]
-    public void BitmusterTest(byte bitmuster, byte ergebnis)
+    public void TestsBitmuster(byte bitmuster, byte ergebnis)
     {
         Assert.Equal(ergebnis, Bitmuster.BitmusterErzeugen(bitmuster));
     }
 
     [Theory]
     [InlineData(8)]
-    public void BitmusterException(byte bitmuster)
+    public void TestsBitmusterException(byte bitmuster)
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => Bitmuster.BitmusterErzeugen(bitmuster));
     }
@@ -31,7 +31,7 @@ public class TestBitmuster
     [InlineData(0b0100_1001, 0, true)]
     [InlineData(0b0010_0010, 1, true)]
     [InlineData(0b0000_1000, 3, true)]
-    public void BitmusterInByteTesten(byte bitmuster, int bitPositon, bool ergebnis)
+    public void TestsBitmusterInByte(byte bitmuster, int bitPositon, bool ergebnis)
     {
         Assert.Equal(ergebnis, Bitmuster.BitmusterInByteTesten(bitmuster, bitPositon));
     }
@@ -40,7 +40,7 @@ public class TestBitmuster
     [Theory]
     [InlineData(new byte[] { 0x00, 0xff }, 0, false)]
     [InlineData(new byte[] { 0x00, 0xff }, 8, true)]
-    public void BitInByteArrayTesten(IReadOnlyList<byte> datenArray, int i, bool expexted)
+    public void TestsBitInByteArray(IReadOnlyList<byte> datenArray, int i, bool expexted)
     {
         Assert.Equal(expexted, Bitmuster.BitInByteArrayTesten(datenArray, i));
     }

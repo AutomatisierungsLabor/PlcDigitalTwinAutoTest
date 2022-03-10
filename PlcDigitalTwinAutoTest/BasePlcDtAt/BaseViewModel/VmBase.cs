@@ -21,6 +21,11 @@ public abstract partial class VmBase
     protected abstract void ViewModelAufrufSchalter(Enum schalterId);
 
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
+  //  public abstract void HomepageButtonClick(object sender, RoutedEventArgs e);
+   // public abstract void AlarmVerwaltungButtonClick(object sender, RoutedEventArgs e);
+
+
+
     public BaseModel.BaseModel Model { get; set; }
     public PlcDaemon PlcDaemon { get; set; }
 
@@ -62,7 +67,7 @@ public abstract partial class VmBase
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    public void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
     private ICommand _btnTaster;
     // ReSharper disable once UnusedMember.Global

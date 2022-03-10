@@ -11,7 +11,7 @@ public class TestZeitDauer
     [InlineData("T#5s123ms", 5123)]
     [InlineData("T#123ms", 123)]
 
-    public void TestKonstruktorLong(string zahl, long ergebnis)
+    public void TestsKonstruktorLong(string zahl, long ergebnis)
     {
         var zeitMs = new ZeitDauer(zahl);
         Assert.Equal(ergebnis, zeitMs.DauerMs);
@@ -24,7 +24,7 @@ public class TestZeitDauer
     [InlineData("T#5s123ms", 5123)]
     [InlineData("T#123ms", 123)]
 
-    public void TestKonstruktorDouble(string zahl, long ergebnis)
+    public void TestsKonstruktorDouble(string zahl, long ergebnis)
     {
         var zeitMs = new ZeitDauer(zahl);
         Assert.Equal(ergebnis, zeitMs.DauerMs);
@@ -37,7 +37,7 @@ public class TestZeitDauer
     [InlineData(60000, "1min 0s 0ms")]
     [InlineData(6101100, "1h 41min 41s 100ms")]
 
-    public void FormatiertAusgebenTest(long dauer, string ergebnis)
+    public void TestsFormatiertAusgeben(long dauer, string ergebnis)
     {
         Assert.Equal(ergebnis, ZeitDauer.ConvertLongToMs(dauer));
     }

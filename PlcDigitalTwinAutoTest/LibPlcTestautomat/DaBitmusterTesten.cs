@@ -20,7 +20,7 @@ public partial class TestAutomat
         while (stopwatch.ElapsedMilliseconds < timeout.DauerMs && !_cancellationTokenSource.IsCancellationRequested)
         {
             Thread.Sleep(50);
-            
+
             if ((GetDigitalOutputWord() & (short)daBitMaske) == (short)daBitMuster)
             {
                 DataGridUpdaten(TestAnzeige.Erfolgreich, (uint)daBitMuster, kommentar);
@@ -29,7 +29,6 @@ public partial class TestAutomat
 
             DataGridUpdaten(TestAnzeige.Aktiv, (uint)daBitMuster, kommentar);
         }
-
         DataGridUpdaten(TestAnzeige.Timeout, (uint)daBitMuster, kommentar);
     }
 }

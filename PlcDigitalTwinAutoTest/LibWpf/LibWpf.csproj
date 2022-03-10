@@ -4,17 +4,14 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="LibFormen.cs~RF1f8b0ed.TMP" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="ScottPlot.WPF" Version="4.1.30" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\LibGaugeControl\LibGaugeControl.csproj" />
     <ProjectReference Include="..\LibPlcKommunikation\LibPlcKommunikation.csproj" />
   </ItemGroup>
 

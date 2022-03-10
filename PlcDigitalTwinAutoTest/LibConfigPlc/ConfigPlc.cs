@@ -15,11 +15,12 @@ public class ConfigPlc
 
     public enum EaTypen
     {
-        NichtBelegt,
         // ReSharper disable UnusedMember.Global
+        NichtBelegt,
         Bit,
         Byte,
         Word,
+        DWord,
         Ascii,
         BitmusterByte,
         SiemensAnalogwertProzent,
@@ -27,9 +28,7 @@ public class ConfigPlc
         SiemensAnalogwertSchieberegler
         // ReSharper restore UnusedMember.Global
     }
-
-    public string PfadAbsolut { get; set; }
-
+    
     public Di Di { get; set; } = new(new ObservableCollection<DiEinstellungen>());
     public Da Da { get; set; } = new(new ObservableCollection<DaEinstellungen>());
     public Ai Ai { get; set; } = new(new ObservableCollection<AiEinstellungen>());
@@ -37,7 +36,8 @@ public class ConfigPlc
     public T SetPath<T, TEinstellungen>(string pfad, EaConfig<TEinstellungen> ioConfig) where T : EaConfig<TEinstellungen>
     {
         ioConfig.ConfigOk = false;
-        var dateiPfad = $"{pfad}/{typeof(T).Name.ToUpper()}.json";
+        var jsonDatei = $"{typeof(T).Name.ToUpper()}.json";
+        var dateiPfad = Path.Combine(pfad, jsonDatei);
         if (!File.Exists(dateiPfad))
         {
             Log.Debug("ConfigPlc Datei nicht gefunden: " + dateiPfad);
@@ -57,7 +57,6 @@ public class ConfigPlc
     public void SetPathRelativ(string pfad) => SetPath(new string(Path.Combine(Environment.CurrentDirectory, pfad)));
     public void SetPath(string pfad)
     {
-        PfadAbsolut = pfad;
         Di = SetPath<Di, DiEinstellungen>(pfad, Di);
         Da = SetPath<Da, DaEinstellungen>(pfad, Da);
         Ai = SetPath<Ai, AiEinstellungen>(pfad, Ai);

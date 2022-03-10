@@ -1,0 +1,46 @@
+﻿{
+  "Zeilen": [
+    {
+      "Byte": 0,
+      "Bit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "B1",
+      "Kommentar": "Schwimmerschalter oben"
+    },
+    {
+      "Byte": 0,
+      "Bit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "B2",
+      "Kommentar": "Schwimmerschalter unten"
+    },
+    {
+      "Byte": 0,
+      "Bit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "F1",
+      "Kommentar": "Thermorelais"
+    },
+    {
+      "Byte": 0,
+      "Bit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar": "Wahlschalter Hand"
+    },
+    {
+      "Byte": 0,
+      "Bit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "S2",
+      "Kommentar": "Wahlschalter Automatik"
+    },
+    {
+      "Byte": 0,
+      "Bit": 5,
+      "Type": "Bit",
+      "Bezeichnung": "S3",
+      "Kommentar": "Taster Störung quittieren"
+    }
+  ]
+}

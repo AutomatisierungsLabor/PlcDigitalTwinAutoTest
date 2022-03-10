@@ -25,26 +25,6 @@ public partial class TestAutomat
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Projektbezeichnung, $"SW PLC: {_datenstruktur.VersionsStringPlc}", "", "", ""));
         _zeilenNummerDataGrid++;
     }
-    public void FuncUpdateAnzeige(FunctionEventArgs args)
-    {
-        var silkTestergebnis = args.Parameters[0].ToString();
-        var silkKommentar = args.Parameters[1].ToString();
-
-        var ergebnis = silkTestergebnis switch
-        {
-            "Kommentar" => TestAnzeige.Kommentar,
-            "Aktiv" => TestAnzeige.Aktiv,
-            "Init" => TestAnzeige.Init,
-            "Erfolgreich" => TestAnzeige.Erfolgreich,
-            "Timeout" => TestAnzeige.Timeout,
-            "Fehler" => TestAnzeige.Fehler,
-            "TestEnde" => TestAnzeige.TestEnde,
-            _ => TestAnzeige.UnbekanntesErgebnis
-        };
-
-        _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", ergebnis, silkKommentar, "", "", ""));
-        _zeilenNummerDataGrid++;
-    }
     private void DataGridUpdaten(TestAnzeige testErgebnis, uint digOutSoll, string silkKommentar)
     {
         var diIst = new Uint(GetDigtalInputWord().ToString());

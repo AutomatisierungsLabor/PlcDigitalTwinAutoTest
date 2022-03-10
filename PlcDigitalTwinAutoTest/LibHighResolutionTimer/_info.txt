@@ -1,0 +1,4 @@
+﻿
+https://www.codeproject.com/Articles/98346/Microsecond-and-Millisecond-NET-Timer
+
+

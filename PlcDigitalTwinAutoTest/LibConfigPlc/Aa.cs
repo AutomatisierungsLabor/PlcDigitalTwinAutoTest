@@ -5,7 +5,7 @@ namespace LibConfigPlc;
 public class Aa : EaConfig<AaEinstellungen>
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
- 
+
     public Aa(ObservableCollection<AaEinstellungen> zeilen) : base(zeilen) { }
     protected override void ConfigTesten(byte[] speicherAbbild)
     {
@@ -29,6 +29,13 @@ public class Aa : EaConfig<AaEinstellungen>
                     if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) LogConfigError(zeile);
                     break;
+                case ConfigPlc.EaTypen.DWord:
+                    if (zeile.StartBit > 0) LogConfigError(zeile);
+                    if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
+                    if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) LogConfigError(zeile);
+                    if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 2, 0xFF)) LogConfigError(zeile);
+                    if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 3, 0xFF)) LogConfigError(zeile);
+                    break;
                 case ConfigPlc.EaTypen.NichtBelegt: break;
                 default: LogConfigError(zeile); break;
             }
@@ -38,7 +45,7 @@ public class Aa : EaConfig<AaEinstellungen>
     }
     private void LogConfigError(AaEinstellungen zeile)
     {
-        Log.Debug("AI: Kollision 'BitmusterByte'; Byte: " + zeile.StartByte + "Bit: " + zeile.StartBit);
+        Log.Debug($"AA: Kollision -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit}");
         ConfigOk = false;
     }
 }

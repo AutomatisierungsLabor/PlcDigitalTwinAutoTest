@@ -8,8 +8,10 @@ public enum WpfBase
     TabAutoTest = 3,
     BtnPlcAnzeigen = 4,
     BtnPlottAnzeigen = 5,
-    ErrorAnzeige = 6,
-    ErrorMeldung = 7,
-    ErrorVersionLokal = 8,
-    ErrorVersionPlc = 9
+    BtnLinkHomepageAnzeigen = 6,
+    BtnAlwarmVerwaltungAnzeigen = 7,
+    ErrorAnzeige = 8,
+    ErrorMeldung = 9,
+    ErrorVersionLokal = 10,
+    ErrorVersionPlc = 11
 }
