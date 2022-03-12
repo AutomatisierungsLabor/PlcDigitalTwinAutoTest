@@ -1,4 +1,4 @@
-name: DigitalTwin Blinker
+name: DigitalTwin Fibonacci
 
 on:
   push:
