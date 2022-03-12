@@ -1,11 +1,11 @@
-name: DigitalTwin Blinker
+name: DigitalTwin Lap2010_1_Kompressoranlage
 
 on:
   push:
     branches: [ main ]
 
 env:
-      PROJECT_PATH: PlcDigitalTwinAutoTest/DtBlinker/DtBlinker.csproj
+      PROJECT_PATH: PlcDigitalTwinAutoTest/DtLap2010_1_Kompressoranlage/DtLap2010_1_Kompressoranlage.csproj
       
 jobs:
   deploy:
@@ -22,5 +22,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: DtBlinker Min
+        name: DtLap2010_1_Kompressoranlage Min
         path: PublishMin

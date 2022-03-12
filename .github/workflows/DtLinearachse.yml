@@ -1,11 +1,11 @@
-name: DigitalTwin Blinker
+name: DigitalTwin Linearachse
 
 on:
   push:
     branches: [ main ]
 
 env:
-      PROJECT_PATH: PlcDigitalTwinAutoTest/DtBlinker/DtBlinker.csproj
+      PROJECT_PATH: PlcDigitalTwinAutoTest/DtLinearachse/DtLinearachse.csproj
       
 jobs:
   deploy:
@@ -22,5 +22,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: DtBlinker Min
+        name: DtLinearachse Min
         path: PublishMin

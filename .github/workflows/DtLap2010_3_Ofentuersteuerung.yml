@@ -1,11 +1,11 @@
-name: DigitalTwin Blinker
+name: DigitalTwin Lap2010_3_Ofentuersteuerung
 
 on:
   push:
     branches: [ main ]
 
 env:
-      PROJECT_PATH: PlcDigitalTwinAutoTest/DtBlinker/DtBlinker.csproj
+      PROJECT_PATH: PlcDigitalTwinAutoTest/DtLap2010_3_Ofentuersteuerung/DtLap2010_3_Ofentuersteuerung.csproj
       
 jobs:
   deploy:
@@ -22,5 +22,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: DtBlinker Min
+        name: DtLap2010_3_Ofentuersteuerung Min
         path: PublishMin

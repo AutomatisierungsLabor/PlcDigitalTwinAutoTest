@@ -1,11 +1,11 @@
-name: DigitalTwin Blinker
+name: DigitalTwin Kata
 
 on:
   push:
     branches: [ main ]
 
 env:
-      PROJECT_PATH: PlcDigitalTwinAutoTest/DtBlinker/DtBlinker.csproj
+      PROJECT_PATH: PlcDigitalTwinAutoTest/DtKata/DtKata.csproj
       
 jobs:
   deploy:
@@ -22,5 +22,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: DtBlinker Min
+        name: DtKata Min
         path: PublishMin
