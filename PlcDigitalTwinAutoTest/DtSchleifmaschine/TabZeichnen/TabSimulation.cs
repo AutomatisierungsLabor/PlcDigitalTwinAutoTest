@@ -11,7 +11,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 30, 40, 30, true);
+        libWpf.GridZeichnen(50, 30, 40, 30, false);
 
 
         libWpf.KreisFillStrokeMargin(2, 8, 1, 8, Brushes.SlateGray, Brushes.SlateGray, 0, new Thickness(2, 2, 2, 2));
@@ -81,9 +81,8 @@ public partial class TabZeichnen
 
 
 
-
-
-
+        libWpf.ButtonZweiBilder(20, 4, 15, 4, 10, "NotHalt.png", "NotHaltGedrueckt.jpg", new Thickness(0,0,0,0), vmSchleifmaschine.BtnSchalter, WpfObjects.S3);
+        libWpf.Text("-S3", 20, 2, 15, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         // libWpf.PlcError();
     }
 }

@@ -36,6 +36,8 @@
     <None Remove="Bilder\Mohren4.jpg" />
     <None Remove="Bilder\Mohren5.jpg" />
     <None Remove="Bilder\Mohren6.jpg" />
+    <None Remove="Bilder\NotHalt.JPG" />
+    <None Remove="Bilder\NotHaltGedrueckt.JPG" />
     <None Remove="Bilder\OberLänder.jpg" />
     <None Remove="Bilder\PlatteLinearachse.jpg" />
     <None Remove="Bilder\PumpeAus.jpg" />
@@ -70,6 +72,36 @@
     <Resource Include="Bilder\Fohrenburger6.jpg" />
     <Resource Include="Bilder\Fransziskaner.jpg" />
     <Resource Include="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
+    <Resource Include="Bilder\IconAlarm.jpg" />
+    <Resource Include="Bilder\IconHomepage.jpg" />
+    <Resource Include="Bilder\IconPlotter.jpg" />
+    <Resource Include="Bilder\InitiatorenBetaetigt.jpg" />
+    <Resource Include="Bilder\InitiatorenSchliesser.jpg" />
+    <Resource Include="Bilder\Kellerbier.jpg" />
+    <Resource Include="Bilder\Mohren0.jpg" />
+    <Resource Include="Bilder\Mohren1.jpg" />
+    <Resource Include="Bilder\Mohren2.jpg" />
+    <Resource Include="Bilder\Mohren3.jpg" />
+    <Resource Include="Bilder\Mohren4.jpg" />
+    <Resource Include="Bilder\Mohren5.jpg" />
+    <Resource Include="Bilder\Mohren6.jpg" />
+    <Resource Include="Bilder\NotHalt.jpg" />
+    <Resource Include="Bilder\NotHaltGedrueckt.jpg"/>
+    <Resource Include="Bilder\OberLänder.jpg" />
+    <Resource Include="Bilder\PlatteLinearachse.jpg" />
+    <Resource Include="Bilder\PumpeAus.jpg" />
+    <Resource Include="Bilder\PumpeEin.jpg" />
+    <Resource Include="Bilder\PumpeWaagrechtAus.jpg" />
+    <Resource Include="Bilder\PumpeWaagrechtEin.jpg" />
+    <Resource Include="Bilder\S7_1200.jpg" />
+    <Resource Include="Bilder\SchiebeSchalterOff.jpg" />
+    <Resource Include="Bilder\SchiebeSchalterOn.jpg" />
+    <Resource Include="Bilder\SchwimmerschalterBetaetigt.jpg" />
+    <Resource Include="Bilder\Schwimmerschalter.jpg" />
+    <Resource Include="Bilder\VentilElektrischAus.jpg" />
+    <Resource Include="Bilder\VentilElektrischEin.jpg" />
+    <Resource Include="Bilder\Zahnrad.png" />
+    <Resource Include="Bilder\Zahnstange.png" />
     <Content Include="Snap7.ico" />
   </ItemGroup>
 
@@ -82,46 +114,6 @@
     <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
     <ProjectReference Include="..\LibPlcTools\LibPlcTools.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Bilder\IconAlarm.jpg" />
-    <Resource Include="Bilder\IconHomepage.jpg" />
-    <Resource Include="Bilder\IconPlotter.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Bilder\InitiatorenBetaetigt.jpg" />
-    <Resource Include="Bilder\InitiatorenSchliesser.jpg" />
-    <Resource Include="Bilder\Kellerbier.jpg" />
-    <Resource Include="Bilder\Mohren0.jpg" />
-    <Resource Include="Bilder\Mohren1.jpg" />
-    <Resource Include="Bilder\Mohren2.jpg" />
-    <Resource Include="Bilder\Mohren3.jpg" />
-    <Resource Include="Bilder\Mohren4.jpg" />
-    <Resource Include="Bilder\Mohren5.jpg" />
-    <Resource Include="Bilder\Mohren6.jpg" />
-    <Resource Include="Bilder\OberLänder.jpg" />
-    <Resource Include="Bilder\PlatteLinearachse.jpg" />
-    <Resource Include="Bilder\PumpeAus.jpg" />
-    <Resource Include="Bilder\PumpeEin.jpg" />
-    <Resource Include="Bilder\PumpeWaagrechtAus.jpg" />
-    <Resource Include="Bilder\PumpeWaagrechtEin.jpg" />
-    <Resource Include="Bilder\S7_1200.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Bilder\SchiebeSchalterOff.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Bilder\SchiebeSchalterOn.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Bilder\SchwimmerschalterBetaetigt.jpg" />
-    <Resource Include="Bilder\Schwimmerschalter.jpg" />
-    <Resource Include="Bilder\VentilElektrischAus.jpg" />
-    <Resource Include="Bilder\VentilElektrischEin.jpg" />
-    <Resource Include="Bilder\Zahnrad.png" />
-    <Resource Include="Bilder\Zahnstange.png" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <None Update="log4net.config">
