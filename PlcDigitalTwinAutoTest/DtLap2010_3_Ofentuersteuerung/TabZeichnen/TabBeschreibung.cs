@@ -6,7 +6,7 @@ namespace DtLap2010_3_Ofentuersteuerung.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static void TabBeschreibungZeichnen(ViewModel.VmLap2010 vmKata, TabItem tabItem, string hintergrund)
+    public static void TabBeschreibungZeichnen(ViewModel.VmLap2010 vmLap2010, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
 

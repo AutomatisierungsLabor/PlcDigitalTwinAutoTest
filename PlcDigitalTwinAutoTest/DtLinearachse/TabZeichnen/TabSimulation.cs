@@ -94,6 +94,11 @@ public partial class TabZeichnen
         libWpf.Text("-P4", 15, 2, 20, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.KreisStrokeMarginSetFilling(17, 3, 20, 3, kreisRandFarbe, kreisRand, WpfObjects.P4);
 
+        libWpf.RechteckFill(22, 5, 20, 3, Brushes.LightGray);
+        libWpf.ButtonZweiBilder(24, 3, 20, 3, 10, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmLinearachse.BtnSchalter, WpfObjects.S10);
+        libWpf.Text("-S10", 22, 2, 20, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.Text("-S11", 22, 2, 21, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
+
         libWpf.PlcError();
     }
 }

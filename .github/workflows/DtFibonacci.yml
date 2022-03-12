@@ -1,0 +1,26 @@
+name: DigitalTwin Blinker
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+      PROJECT_PATH: PlcDigitalTwinAutoTest/DtFibonacci/DtFibonacci.csproj
+      
+jobs:
+  deploy:
+    runs-on: windows-latest 
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.x
+
+    - run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o PublishMin
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: DtFibonacci Min
+        path: PublishMin
