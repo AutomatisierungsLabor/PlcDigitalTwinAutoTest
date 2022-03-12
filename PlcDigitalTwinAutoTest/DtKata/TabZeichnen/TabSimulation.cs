@@ -9,7 +9,6 @@ public partial class TabZeichnen
 {
     public static void TabSimulationZeichnen(VmKata vmKata, TabItem tabItem, string hintergrund)
     {
-        // var viewmodel = grid.DataContext as BasePlcDtAt.BaseViewModel.VmBase ?? throw new ArgumentNullException($"{nameof(ViewModel)}", "Datacontext is not of type viewmodel");
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
         libWpf.GridZeichnen(50, 30, 40, 30, false);
@@ -23,8 +22,8 @@ public partial class TabZeichnen
 
         libWpf.ButtonZweiBilder(1, 3, 10, 2, 10, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S5);
         libWpf.ButtonZweiBilder(1, 3, 12, 2, 10, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S6);
-        libWpf.ButtonZweiBilder(1, 3, 14, 2, 10, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S7);
-        libWpf.ButtonZweiBilder(1, 3, 16, 2, 10, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S8);
+        libWpf.ButtonZweiBilder(1, 3, 14, 2, 10, "KippSchalterOn.jpg", "KippSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S7);
+        libWpf.ButtonZweiBilder(1, 3, 16, 2, 10, "KippSchalterOn.jpg", "KippSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S8);
 
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
@@ -65,6 +64,11 @@ public partial class TabZeichnen
         libWpf.KreisStrokeMarginSetFilling(10, 2, 12, 2, kreisRandFarbe, kreisRand, WpfObjects.P6);
         libWpf.KreisStrokeMarginSetFilling(10, 2, 14, 2, kreisRandFarbe, kreisRand, WpfObjects.P7);
         libWpf.KreisStrokeMarginSetFilling(10, 2, 16, 2, kreisRandFarbe, kreisRand, WpfObjects.P8);
+
+
+        libWpf.ButtonZweiBilder(20, 4, 15, 4, 10, "NotHalt.jpg", "NotHaltGedrueckt.jpg", new Thickness(0, 0, 0, 0), vmKata.BtnSchalter, WpfObjects.S3);
+
+
 
         libWpf.PlcError();
     }

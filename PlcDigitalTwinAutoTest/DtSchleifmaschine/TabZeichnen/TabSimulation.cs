@@ -44,6 +44,8 @@ public partial class TabZeichnen
         libWpf.KreisFillStrokeMargin(15,4,15,4,Brushes.Yellow,Brushes.Red, 2, new Thickness(0,0,0,0));
 
 
+    
+
 
         var kreisRand = new Thickness(2, 2, 2, 2);
         var kreisRandFarbe = new SolidColorBrush(Colors.Black);
@@ -79,10 +81,10 @@ public partial class TabZeichnen
         libWpf.Text("-S4", 30, 2, 21, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.ButtonRounded(32, 3, 21, 2, 20, 5, buttonRand, Brushes.Red, vmSchleifmaschine.BtnTaster, WpfObjects.S4);
 
+        libWpf.ButtonZweiBilder(22, 4, 15, 4, 10, "NotHalt.jpg", "NotHaltGedrueckt.jpg", new Thickness(0, 0, 0, 0), vmSchleifmaschine.BtnSchalter, WpfObjects.S3);
+        libWpf.Text("-S3", 20, 2, 16, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.ButtonZweiBilder(20, 4, 15, 4, 10, "NotHalt.png", "NotHaltGedrueckt.jpg", new Thickness(0,0,0,0), vmSchleifmaschine.BtnSchalter, WpfObjects.S3);
-        libWpf.Text("-S3", 20, 2, 15, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         // libWpf.PlcError();
     }
 }

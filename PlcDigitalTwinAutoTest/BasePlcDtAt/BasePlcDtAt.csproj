@@ -29,6 +29,8 @@
     <None Remove="Bilder\InitiatorenBetaetigt.jpg" />
     <None Remove="Bilder\InitiatorenSchliesser.jpg" />
     <None Remove="Bilder\Kellerbier.jpg" />
+    <None Remove="Bilder\KippschalterOff.jpg" />
+    <None Remove="Bilder\KippschalterOn.jpg" />
     <None Remove="Bilder\Mohren0.jpg" />
     <None Remove="Bilder\Mohren1.jpg" />
     <None Remove="Bilder\Mohren2.jpg" />
@@ -78,6 +80,8 @@
     <Resource Include="Bilder\InitiatorenBetaetigt.jpg" />
     <Resource Include="Bilder\InitiatorenSchliesser.jpg" />
     <Resource Include="Bilder\Kellerbier.jpg" />
+    <Resource Include="Bilder\KippschalterOff.jpg" />
+    <Resource Include="Bilder\KippschalterOn.jpg" />
     <Resource Include="Bilder\Mohren0.jpg" />
     <Resource Include="Bilder\Mohren1.jpg" />
     <Resource Include="Bilder\Mohren2.jpg" />
@@ -86,7 +90,7 @@
     <Resource Include="Bilder\Mohren5.jpg" />
     <Resource Include="Bilder\Mohren6.jpg" />
     <Resource Include="Bilder\NotHalt.jpg" />
-    <Resource Include="Bilder\NotHaltGedrueckt.jpg"/>
+    <Resource Include="Bilder\NotHaltGedrueckt.jpg" />
     <Resource Include="Bilder\OberLänder.jpg" />
     <Resource Include="Bilder\PlatteLinearachse.jpg" />
     <Resource Include="Bilder\PumpeAus.jpg" />

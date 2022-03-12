@@ -79,6 +79,7 @@ public partial class TabZeichnen
         libWpf.ButtonZweiBilder(20, 4, 4, 4, 10, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmGetriebemotor.BtnSchalter, WpfObjects.S91);
         libWpf.Text("-S9.1", 18, 2, 4, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("-S9.2", 18, 2, 5, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        //libWpf.PlcError();
+        
+        libWpf.PlcError();
     }
 }
