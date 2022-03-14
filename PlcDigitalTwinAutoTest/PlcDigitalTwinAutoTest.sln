@@ -71,7 +71,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibHighResTimer", "LibHighR
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibHighResTimer.Test", "LibHighResolutionTimer.Test\LibHighResTimer.Test.csproj", "{1544A1F1-DFCE-4FDE-87B3-EF913583E329}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtSchleifmaschine", "DtSchleifmaschine\DtSchleifmaschine.csproj", "{352037B6-B8E1-49B1-AB3F-BD74A861903A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtSchleifmaschine", "DtSchleifmaschine\DtSchleifmaschine.csproj", "{352037B6-B8E1-49B1-AB3F-BD74A861903A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtNadeltelegraph", "DtNadeltelegraph\DtNadeltelegraph.csproj", "{CEE23395-A695-413F-A234-223229C6221A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -219,6 +221,10 @@ Global
 		{352037B6-B8E1-49B1-AB3F-BD74A861903A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{352037B6-B8E1-49B1-AB3F-BD74A861903A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{352037B6-B8E1-49B1-AB3F-BD74A861903A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE23395-A695-413F-A234-223229C6221A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE23395-A695-413F-A234-223229C6221A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE23395-A695-413F-A234-223229C6221A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE23395-A695-413F-A234-223229C6221A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
