@@ -73,7 +73,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibHighResTimer.Test", "Lib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtSchleifmaschine", "DtSchleifmaschine\DtSchleifmaschine.csproj", "{352037B6-B8E1-49B1-AB3F-BD74A861903A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtNadeltelegraph", "DtNadeltelegraph\DtNadeltelegraph.csproj", "{CEE23395-A695-413F-A234-223229C6221A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtNadeltelegraph", "DtNadeltelegraph\DtNadeltelegraph.csproj", "{CEE23395-A695-413F-A234-223229C6221A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtLap2018_1_Silosteuerung", "DtLap2018_1_Silosteuerung\DtLap2018_1_Silosteuerung.csproj", "{EAC45D1B-9C8D-4E08-AD76-B769872A1344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -225,6 +227,10 @@ Global
 		{CEE23395-A695-413F-A234-223229C6221A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEE23395-A695-413F-A234-223229C6221A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEE23395-A695-413F-A234-223229C6221A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC45D1B-9C8D-4E08-AD76-B769872A1344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC45D1B-9C8D-4E08-AD76-B769872A1344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC45D1B-9C8D-4E08-AD76-B769872A1344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC45D1B-9C8D-4E08-AD76-B769872A1344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
