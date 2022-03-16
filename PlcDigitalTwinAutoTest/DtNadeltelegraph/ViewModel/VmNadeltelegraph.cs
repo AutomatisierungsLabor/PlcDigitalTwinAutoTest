@@ -60,9 +60,6 @@ public enum WpfObjects
     BuchstabeV = 67,
     BuchstabeW = 68,
     BuchstabeY = 69
-
-
-
 }
 public class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
 {
@@ -114,24 +111,22 @@ public class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
 
         Text[(int)WpfObjects.AsciiCode] = $"ASCII Code: {_modelNadeltelegraph.Zeichen} (16#{_modelNadeltelegraph.Zeichen:X2})";
 
-        _modelNadeltelegraph.AlleZeiger[1].SetPosition(_modelNadeltelegraph.P1R, _modelNadeltelegraph.P1L);
-        _modelNadeltelegraph.AlleZeiger[2].SetPosition(_modelNadeltelegraph.P2R, _modelNadeltelegraph.P2L);
-        _modelNadeltelegraph.AlleZeiger[3].SetPosition(_modelNadeltelegraph.P3R, _modelNadeltelegraph.P3L);
-        _modelNadeltelegraph.AlleZeiger[4].SetPosition(_modelNadeltelegraph.P4R, _modelNadeltelegraph.P4L);
-        _modelNadeltelegraph.AlleZeiger[5].SetPosition(_modelNadeltelegraph.P5R, _modelNadeltelegraph.P5L);
-
-        for (var i = 20; i < 100; i++) SichtbarEin[i] = Visibility.Visible;
-
-        for (var i = 1; i < 6; i++)
+        _modelNadeltelegraph.AlleZeiger[0].SetPosition(_modelNadeltelegraph.P1R, _modelNadeltelegraph.P1L);
+        _modelNadeltelegraph.AlleZeiger[1].SetPosition(_modelNadeltelegraph.P2R, _modelNadeltelegraph.P2L);
+        _modelNadeltelegraph.AlleZeiger[2].SetPosition(_modelNadeltelegraph.P3R, _modelNadeltelegraph.P3L);
+        _modelNadeltelegraph.AlleZeiger[3].SetPosition(_modelNadeltelegraph.P4R, _modelNadeltelegraph.P4L);
+        _modelNadeltelegraph.AlleZeiger[4].SetPosition(_modelNadeltelegraph.P5R, _modelNadeltelegraph.P5L);
+        
+        for (var i = 0; i < 5; i++)
         {
-            Winkel[i] = _modelNadeltelegraph.AlleZeiger[i].GetWinkel();
+            Winkel[(int)WpfObjects.Zeiger1 + i] = _modelNadeltelegraph.AlleZeiger[i].GetWinkel();
+        
             SichtbarEin[(int)WpfObjects.LinieLinksOben1 + i] = _modelNadeltelegraph.AlleZeiger[i].GetVisibilityUpLeft();
             SichtbarEin[(int)WpfObjects.LinieRechtsOben1 + i] = _modelNadeltelegraph.AlleZeiger[i].GetVisibilityUpRight();
             SichtbarEin[(int)WpfObjects.LinieLinksUnten1 + i] = _modelNadeltelegraph.AlleZeiger[i].GetVisibilityDownLeft();
             SichtbarEin[(int)WpfObjects.LinieRechtsUnten1 + i] = _modelNadeltelegraph.AlleZeiger[i].GetVisibilityDownRight();
         }
     }
-
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
         if (gedrueckt)
@@ -167,7 +162,6 @@ public class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
         }
 
     }
-
     protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

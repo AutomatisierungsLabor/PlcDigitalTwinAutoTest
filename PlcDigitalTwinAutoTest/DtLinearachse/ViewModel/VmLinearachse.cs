@@ -73,6 +73,7 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 
         SichtbarkeitUmschalten(_modelLinearachse.B1, (int)WpfObjects.B1);
         SichtbarkeitUmschalten(_modelLinearachse.B2, (int)WpfObjects.B2);
+        SichtbarkeitUmschalten(_modelLinearachse.S10, (int)WpfObjects.S10);
 
         FarbeUmschalten(_modelLinearachse.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
         FarbeUmschalten(_modelLinearachse.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.White);

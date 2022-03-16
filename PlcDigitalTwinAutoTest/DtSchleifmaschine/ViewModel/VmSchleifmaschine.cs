@@ -76,6 +76,7 @@ public class VmSchleifmaschine : BasePlcDtAt.BaseViewModel.VmBase
         Text[(int)WpfObjects.SchleifmaschineDrehzahl] = "n=" + _modelSchleifmaschine.DrehzahlSchleifmaschine;
         
         SichtbarkeitUmschalten(_modelSchleifmaschine.B1, (int)WpfObjects.B1);
+        SichtbarkeitUmschalten(_modelSchleifmaschine.S3, (int)WpfObjects.S3);
 
         FarbeUmschalten(_modelSchleifmaschine.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
         FarbeUmschalten(_modelSchleifmaschine.F2, (int)WpfObjects.F2, Brushes.LawnGreen, Brushes.Red);
