@@ -7,7 +7,7 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void Linie(int x1, int y1, int x2, int y2, int xSpan, int ySpan, int breite, Brush farbe, Grid grid)
+    public void Linie(int xPos, int xSpan, int yPos, int ySpan, double x1, double y1, double x2, double y2, double breite, Brush farbe)
     {
         var linie = new Line
         {
@@ -19,7 +19,22 @@ public partial class LibWpf
             Y2 = y2
         };
 
-        AddToGrid(0, xSpan, 0, ySpan, grid, linie);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, linie);
+    }
+    public void LinieSetVisibility(int xPos, int xSpan, int yPos, int ySpan, double x1, double y1, double x2, double y2, double breite, Brush farbe, object wpfId)
+    {
+        var linie = new Line
+        {
+            Stroke = farbe,
+            StrokeThickness = breite,
+            X1 = x1,
+            Y1 = y1,
+            X2 = x2,
+            Y2 = y2
+        };
+        linie.SetSichtbarkeitEinBinding(wpfId);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, linie);
     }
     public void Border(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Thickness rand)
     {

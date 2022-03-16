@@ -76,6 +76,8 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarkeitUmschalten(_modelGetriebemotor.B1, (int)WpfObjects.B1);
         SichtbarkeitUmschalten(_modelGetriebemotor.B2, (int)WpfObjects.B1);
 
+        SichtbarkeitUmschalten(_modelGetriebemotor.S91, (int)WpfObjects.S91);
+
         FarbeUmschalten(_modelGetriebemotor.P1, (int)WpfObjects.P1, Brushes.White, Brushes.LightGray);
         FarbeUmschalten(_modelGetriebemotor.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.LightGray);
         FarbeUmschalten(_modelGetriebemotor.P3, (int)WpfObjects.P3, Brushes.Red, Brushes.LightGray);

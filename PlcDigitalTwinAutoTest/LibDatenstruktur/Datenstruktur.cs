@@ -58,6 +58,17 @@ public class Datenstruktur
             default: throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null);
         }
     }
+    public void SetByte(DatenBereich datenBereich, short offset, byte datenByte)
+    {
+        switch (datenBereich)
+        {
+            case DatenBereich.Di: Di[offset] = datenByte; break;
+            case DatenBereich.Da: Da[offset] = datenByte; break;
+            case DatenBereich.Ai: Ai[offset] = datenByte; break;
+            case DatenBereich.Aa: Aa[offset] = datenByte; break;
+            default: throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null);
+        }
+    }
     public (bool lsb, bool b1, bool b2, bool b3, bool b4, bool b5, bool b6, bool b7) GetBitmuster(DatenBereich datenBereich, short offset)
     {
         var wert = datenBereich switch
