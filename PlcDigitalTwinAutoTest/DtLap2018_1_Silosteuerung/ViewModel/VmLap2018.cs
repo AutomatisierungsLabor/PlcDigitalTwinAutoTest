@@ -6,6 +6,7 @@ using System.Windows.Media;
 using Contracts;
 using DtLap2018_1_Silosteuerung.Model;
 using LibDatenstruktur;
+using WpfAnimatedGif;
 
 namespace DtLap2018_1_Silosteuerung.ViewModel;
 public enum WpfObjects
@@ -34,11 +35,15 @@ public enum WpfObjects
 
 
 }
+
 public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 {
-    private readonly ModelLap2018? _modelLap2018;
-    private readonly Datenstruktur _datenstruktur;
+    public ImageAnimationController ImageAnimationController { get; set; }
+    public Image ImageSchneckenFoerderer { get; set; }
 
+    private readonly ModelLap2018 _modelLap2018;
+    private readonly Datenstruktur _datenstruktur;
+    private bool _imageGeladen;
     public VmLap2018(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _modelLap2018 = model as ModelLap2018;
@@ -54,10 +59,10 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
 
-        Text[(int)WpfObjects.S0] = "S0";
-        Text[(int)WpfObjects.S1] = "S1";
+        Text[(int)WpfObjects.S0] = "Aus";
+        Text[(int)WpfObjects.S1] = "Ein";
         Text[(int)WpfObjects.S2] = "S2";
-        Text[(int)WpfObjects.S3] = "S3";
+        Text[(int)WpfObjects.S3] = "Reset";
 
     }
     protected override void ViewModelAufrufThread()
@@ -66,24 +71,33 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         //   FuellstandSilo(_modelLap2018.Silo.GetFuellstand());
 
-        FarbeUmschalten(_modelLap2018!.F1, 3, Brushes.LawnGreen, Brushes.Red);
-        FarbeUmschalten(_modelLap2018!.F2, 4, Brushes.LawnGreen, Brushes.Red);
+        if (ImageSchneckenFoerderer != null)
+        {
+            if (ImageBehavior.GetIsAnimationLoaded(ImageSchneckenFoerderer))
+            {
+                _imageGeladen = true;
+                ImageAnimationController = ImageBehavior.GetAnimationController(ImageSchneckenFoerderer);
+            }
+        }
 
-        FarbeUmschalten(_modelLap2018!.P1, 5, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2018!.P2, 6, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2018!.Q1, 7, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2018!.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
+        FarbeUmschalten(_modelLap2018!.F2, (int)WpfObjects.F2, Brushes.LawnGreen, Brushes.Red);
 
-        FarbeUmschalten(_modelLap2018!.S2, 12, Brushes.LawnGreen, Brushes.Red);
+        FarbeUmschalten(_modelLap2018!.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2018!.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.White);
+        FarbeUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.White);
 
-        FarbeUmschalten(_modelLap2018!.RutscheVoll, 32, Brushes.Firebrick, Brushes.LightGray);
+        FarbeUmschalten(_modelLap2018!.S2, (int)WpfObjects.S2, Brushes.LawnGreen, Brushes.Red);
 
-        SichtbarkeitUmschalten(_modelLap2018!.B1, 1);
-        SichtbarkeitUmschalten(_modelLap2018!.B2, 2);
-        SichtbarkeitUmschalten(_modelLap2018!.Q1, 7);
-        SichtbarkeitUmschalten(_modelLap2018!.Q2, 8);
-        SichtbarkeitUmschalten(_modelLap2018!.Y1, 20);
-        SichtbarkeitUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01, 30);
-        SichtbarkeitUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, 31);
+        FarbeUmschalten(_modelLap2018!.RutscheVoll, (int)WpfObjects.RutscheVoll, Brushes.Firebrick, Brushes.LightGray);
+
+        SichtbarkeitUmschalten(_modelLap2018!.B1, (int)WpfObjects.B1);
+        SichtbarkeitUmschalten(_modelLap2018!.B2, (int)WpfObjects.B2);
+        SichtbarkeitUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1);
+        SichtbarkeitUmschalten(_modelLap2018!.Q2, (int)WpfObjects.Q2);
+        SichtbarkeitUmschalten(_modelLap2018!.Y1, (int)WpfObjects.Y1);
+        //  SichtbarkeitUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01, 30);
+        //   SichtbarkeitUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, 31);
 
         /*
         TxtLagerSiloVoll = _modelLap2018.RutscheVoll ? "LagerSilo Voll" : "LagerSilo Leer";
@@ -97,9 +111,14 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         if (_mainWindow.AnimationGestartet)
         {
-            if (_modelLap2018.Q2) _mainWindow.Controller.Play(); else _mainWindow.Controller.Pause();
+           
         }
         */
+
+
+        // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+        if (!_imageGeladen) return;
+        if (_modelLap2018.S1) ImageAnimationController.Play(); else ImageAnimationController.Pause();    //Q2
 
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)

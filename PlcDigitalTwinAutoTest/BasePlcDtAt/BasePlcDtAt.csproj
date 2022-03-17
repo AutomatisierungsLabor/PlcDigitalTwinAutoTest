@@ -49,6 +49,7 @@
     <None Remove="Bilder\S7_1200.jpg" />
     <None Remove="Bilder\SchiebeSchalterOff.jpg" />
     <None Remove="Bilder\SchiebeSchalterOn.jpg" />
+    <None Remove="Bilder\Schneckenfoerderer.gif" />
     <None Remove="Bilder\SchwimmerschalterBetaetigt.jpg" />
     <None Remove="Bilder\Schwimmerschalter.jpg" />
     <None Remove="Bilder\TasterBetaetigt.jpg" />
@@ -100,6 +101,7 @@
     <Resource Include="Bilder\S7_1200.jpg" />
     <Resource Include="Bilder\SchiebeSchalterOff.jpg" />
     <Resource Include="Bilder\SchiebeSchalterOn.jpg" />
+    <Resource Include="Bilder\Schneckenfoerderer.gif" />
     <Resource Include="Bilder\SchwimmerschalterBetaetigt.jpg" />
     <Resource Include="Bilder\Schwimmerschalter.jpg" />
     <Resource Include="Bilder\VentilElektrischAus.jpg" />

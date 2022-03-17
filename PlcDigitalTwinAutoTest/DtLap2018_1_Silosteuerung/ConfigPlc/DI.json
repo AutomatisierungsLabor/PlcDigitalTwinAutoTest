@@ -3,56 +3,56 @@
     {
       "StartByte": 0,
       "StartBit": 0,
-      "Type": "Default",
+      "Type": "Bit",
       "Bezeichnung": "B1",
       "Kommentar": "Wagen vorhanden"
     },
     {
       "StartByte": 0,
       "StartBit": 1,
-      "Type": "Default",
+      "Type": "Bit",
       "Bezeichnung": "B2",
       "Kommentar": "Wagen voll"
     },
     {
       "StartByte": 0,
       "StartBit": 2,
-      "Type": "Default",
+      "Type": "Bit",
       "Bezeichnung": "F1",
       "Kommentar": "Motorschutzschalter Förderband"
     },
     {
       "StartByte": 0,
       "StartBit": 3,
-      "Type": "Default",
+      "Type": "Bit",
       "Bezeichnung": "F2",
       "Kommentar": "Motorschutzschalter Schneckenförderer"
     },
     {
       "StartByte": 0,
       "StartBit": 4,
-      "Type": "Default",
+      "Type": "Bit",
       "Bezeichnung": "S0",
       "Kommentar": "Taster Anlage Aus"
     },
     {
       "StartByte": 0,
       "StartBit": 5,
-      "Type": "Default",
+      "Type": "Bit",
       "Bezeichnung": "S1",
       "Kommentar": "Taster Anlage Ein"
     },
     {
       "StartByte": 0,
       "StartBit": 6,
-      "Type": "Default",
+      "Type": "Bit",
       "Bezeichnung": "S2",
       "Kommentar": "Not Halt"
     },
     {
       "StartByte": 0,
       "StartBit": 7,
-      "Type": "Default",
+      "Type": "Bit",
       "Bezeichnung": "S3",
       "Kommentar": "Störungen quittieren"
     }
