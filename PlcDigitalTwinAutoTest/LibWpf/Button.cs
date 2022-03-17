@@ -53,15 +53,13 @@ public partial class LibWpf
     }
     public void ButtonZweiBilder(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter)
     {
-        var binding = (int)cmdParameter;
-
         var imageOn = new Image
         {
             Source = new BitmapImage(new Uri(@$"Bilder/{sourceOn}", UriKind.Relative)),
             Stretch = Stretch.Fill,
             Margin = margin
         };
-        imageOn.SetSichtbarkeitEinBinding(binding);
+        imageOn.SetSichtbarkeitEinBinding(cmdParameter);
 
         var imageOff = new Image
         {
@@ -69,7 +67,7 @@ public partial class LibWpf
             Stretch = Stretch.Fill,
             Margin = margin
         };
-        imageOff.SetSichtbarkeitAusBinding(binding);
+        imageOff.SetSichtbarkeitAusBinding(cmdParameter);
 
         var stackPanel = new StackPanel();
         stackPanel.Children.Add(imageOn);
@@ -84,7 +82,7 @@ public partial class LibWpf
             CommandParameter = cmdParameter
         };
 
-        button.SetBtnClickModeBinding(binding);
+        button.SetBtnClickModeBinding(cmdParameter);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }

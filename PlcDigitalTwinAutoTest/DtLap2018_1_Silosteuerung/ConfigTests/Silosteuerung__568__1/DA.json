@@ -1,38 +1,33 @@
 ﻿{
   "Zeilen": [
     {
-      "StartByte": 0,
-      "StartBit": 0,
-      "Type": "Default",
+      "Byte": 0,
+      "Bit": 0,
       "Bezeichnung": "P1",
       "Kommentar": "Meldeleuchte Anlage Ein"
     },
     {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Default",
+      "Byte": 0,
+      "Bit": 1,
       "Bezeichnung": "P2",
       "Kommentar": "Meldeleuchte Sammelstörung"
     },
     {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Type": "Default",
+      "Byte": 0,
+      "Bit": 2,
       "Bezeichnung": "Q1",
       "Kommentar": "Motor Förderband "
     },
 
     {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Type": "Default",
+      "Byte": 0,
+      "Bit": 3,
       "Bezeichnung": "Q2",
       "Kommentar": "Freigabe Frequenzumrichter"
     },
     {
-      "StartByte": 0,
-      "StartBit": 4,
-      "Type": "Default",
+      "Byte": 0,
+      "Bit": 4,
       "Bezeichnung": "Y1",
       "Kommentar": "Magnetventil"
     }

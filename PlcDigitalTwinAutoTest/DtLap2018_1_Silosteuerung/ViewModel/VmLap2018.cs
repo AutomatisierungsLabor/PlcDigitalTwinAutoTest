@@ -1,13 +1,13 @@
-﻿using Contracts;
-using DtKata.Model;
-using LibDatenstruktur;
-using System;
+﻿using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
+using DtLap2018_1_Silosteuerung.Model;
+using LibDatenstruktur;
 
-namespace DtKata.ViewModel;
+namespace DtLap2018_1_Silosteuerung.ViewModel;
 public enum WpfObjects
 {
     // ReSharper disable once UnusedMember.Global
@@ -15,30 +15,33 @@ public enum WpfObjects
 
     P1 = 21,
     P2 = 22,
-    P3 = 23,
-    P4 = 24,
-    P5 = 25,
-    P6 = 26,
-    P7 = 27,
-    P8 = 28,
+    Q1 = 23,
+    Q2 = 24,
+    Y1 = 25,
 
-    S1 = 31,
-    S2 = 32,
-    S3 = 33,
-    S4 = 34,
-    S5 = 35,
-    S6 = 36,
-    S7 = 37,
-    S8 = 38
+    B1 = 30,
+    B2 = 31,
+    F1 = 32,
+    F2 = 33,
+    S0 = 34,
+    S1 = 35,
+    S2 = 36,
+    S3 = 37,
+
+    WagenNachLinks = 40,
+    WagenNachRechts = 41,
+    RutscheVoll = 42
+
+
 }
 public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 {
-    private readonly ModelKata _modelKata;
+    private readonly ModelLap2018? _modelLap2018;
     private readonly Datenstruktur _datenstruktur;
 
     public VmLap2018(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
-        _modelKata = model as ModelKata;
+        _modelLap2018 = model as ModelLap2018;
         _datenstruktur = datenstruktur;
 
         SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
@@ -51,42 +54,63 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
 
+        Text[(int)WpfObjects.S0] = "S0";
         Text[(int)WpfObjects.S1] = "S1";
         Text[(int)WpfObjects.S2] = "S2";
         Text[(int)WpfObjects.S3] = "S3";
-        Text[(int)WpfObjects.S4] = "S4";
+
     }
     protected override void ViewModelAufrufThread()
     {
-        if (_modelKata == null) return;
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        SichtbarkeitUmschalten(_modelKata.S1, (int)WpfObjects.S1);
-        SichtbarkeitUmschalten(_modelKata.S2, (int)WpfObjects.S2);
-        SichtbarkeitUmschalten(_modelKata.S3, (int)WpfObjects.S3);
-        SichtbarkeitUmschalten(_modelKata.S4, (int)WpfObjects.S4);
-        SichtbarkeitUmschalten(_modelKata.S5, (int)WpfObjects.S5);
-        SichtbarkeitUmschalten(_modelKata.S6, (int)WpfObjects.S6);
-        SichtbarkeitUmschalten(_modelKata.S7, (int)WpfObjects.S7);
-        SichtbarkeitUmschalten(_modelKata.S8, (int)WpfObjects.S8);
+        //   FuellstandSilo(_modelLap2018.Silo.GetFuellstand());
 
-        FarbeUmschalten(_modelKata.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelKata.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelKata.P3, (int)WpfObjects.P3, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelKata.P4, (int)WpfObjects.P4, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelKata.P5, (int)WpfObjects.P5, Brushes.Yellow, Brushes.White);
-        FarbeUmschalten(_modelKata.P6, (int)WpfObjects.P6, Brushes.Yellow, Brushes.White);
-        FarbeUmschalten(_modelKata.P7, (int)WpfObjects.P7, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelKata.P8, (int)WpfObjects.P8, Brushes.Red, Brushes.White);
+        FarbeUmschalten(_modelLap2018!.F1, 3, Brushes.LawnGreen, Brushes.Red);
+        FarbeUmschalten(_modelLap2018!.F2, 4, Brushes.LawnGreen, Brushes.Red);
+
+        FarbeUmschalten(_modelLap2018!.P1, 5, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2018!.P2, 6, Brushes.Red, Brushes.White);
+        FarbeUmschalten(_modelLap2018!.Q1, 7, Brushes.LawnGreen, Brushes.White);
+
+        FarbeUmschalten(_modelLap2018!.S2, 12, Brushes.LawnGreen, Brushes.Red);
+
+        FarbeUmschalten(_modelLap2018!.RutscheVoll, 32, Brushes.Firebrick, Brushes.LightGray);
+
+        SichtbarkeitUmschalten(_modelLap2018!.B1, 1);
+        SichtbarkeitUmschalten(_modelLap2018!.B2, 2);
+        SichtbarkeitUmschalten(_modelLap2018!.Q1, 7);
+        SichtbarkeitUmschalten(_modelLap2018!.Q2, 8);
+        SichtbarkeitUmschalten(_modelLap2018!.Y1, 20);
+        SichtbarkeitUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01, 30);
+        SichtbarkeitUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, 31);
+
+        /*
+        TxtLagerSiloVoll = _modelLap2018.RutscheVoll ? "LagerSilo Voll" : "LagerSilo Leer";
+
+        PositionWagenBeschriftung(_modelLap2018.Wagen.GetPosition());
+        PositionWagen(_modelLap2018.Wagen.GetPosition());
+        PositionWagenInhalt(_modelLap2018.Wagen.GetPosition(), _modelLap2018.Wagen.GetFuellstand());
+        WagenFuellstand = Math.Floor(_modelLap2018.Wagen.GetFuellstand());
+
+        FuellstandProzent = (100 * _modelLap2018.Silo.GetFuellstand()).ToString("F0") + "%";
+
+        if (_mainWindow.AnimationGestartet)
+        {
+            if (_modelLap2018.Q2) _mainWindow.Controller.Play(); else _mainWindow.Controller.Pause();
+        }
+        */
+
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
         switch (tasterId)
         {
-            case WpfObjects.S1: _modelKata.S1 = gedrueckt; break;
-            case WpfObjects.S2: _modelKata.S2 = gedrueckt; break;
-            case WpfObjects.S3: _modelKata.S3 = !gedrueckt; break;
-            case WpfObjects.S4: _modelKata.S4 = !gedrueckt; break;
+            case WpfObjects.S0: _modelLap2018!.S0 = !gedrueckt; break;
+            case WpfObjects.S1: _modelLap2018!.S1 = gedrueckt; break;
+            case WpfObjects.S3: _modelLap2018!.S3 = gedrueckt; break;
+            case WpfObjects.WagenNachLinks: _modelLap2018!.WagenNachLinks(); break;
+            case WpfObjects.WagenNachRechts: _modelLap2018!.WagenNachRechts(); break;
             default: throw new ArgumentOutOfRangeException(nameof(tasterId));
         }
     }
@@ -94,10 +118,10 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     {
         switch (schalterId)
         {
-            case WpfObjects.S5: _modelKata.S5 = !_modelKata.S5; break;
-            case WpfObjects.S6: _modelKata.S6 = !_modelKata.S6; break;
-            case WpfObjects.S7: _modelKata.S7 = !_modelKata.S7; break;
-            case WpfObjects.S8: _modelKata.S8 = !_modelKata.S8; break;
+            case WpfObjects.F1: _modelLap2018!.F1 = !_modelLap2018.F1; break;
+            case WpfObjects.F2: _modelLap2018!.F2 = !_modelLap2018.F2; break;
+            case WpfObjects.S2: _modelLap2018!.S2 = !_modelLap2018.S2; break;
+            case WpfObjects.RutscheVoll: _modelLap2018!.RutscheVoll = !_modelLap2018.RutscheVoll; break;
             default: throw new ArgumentOutOfRangeException(nameof(schalterId));
         }
     }

@@ -1,29 +1,29 @@
 ﻿using LibDatenstruktur;
 
-namespace DtKata.Model;
+namespace DtLap2018_1_Silosteuerung.Model;
 
 public class DatenRangieren
 
 {
-    private readonly ModelKata _kata;
+    private readonly ModelLap2018 _modelLap2018;
     private readonly Datenstruktur _datenstruktur;
 
-    public DatenRangieren(ModelKata kata, Datenstruktur datenstruktur)
+    public DatenRangieren(ModelLap2018 modelLap2018, Datenstruktur datenstruktur)
     {
-        _kata = kata;
+        _modelLap2018 = modelLap2018;
         _datenstruktur = datenstruktur;
     }
     internal void Rangieren()
     {
         if (_datenstruktur.SimulationAktiv())
         {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _kata.S1, _kata.S2, _kata.S3, _kata.S4, _kata.S5, _kata.S6, _kata.S7, _kata.S8);
+            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelLap2018.B1, _modelLap2018.B2, _modelLap2018.F1, _modelLap2018.F2, _modelLap2018.S0, _modelLap2018.S1, _modelLap2018.S2, _modelLap2018.S3);
         }
         else
         {
-            (_kata.S1, _kata.S2, _kata.S3, _kata.S4, _kata.S5, _kata.S6, _kata.S7, _kata.S8) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
+            (_modelLap2018.B1, _modelLap2018.B2, _modelLap2018.F1, _modelLap2018.F2, _modelLap2018.S0, _modelLap2018.S1, _modelLap2018.S2, _modelLap2018.S3) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
         }
 
-        (_kata.P1, _kata.P2, _kata.P3, _kata.P4, _kata.P5, _kata.P6, _kata.P7, _kata.P8) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
+        (_modelLap2018.P1, _modelLap2018.P2, _modelLap2018.Q1, _modelLap2018.Q2, _modelLap2018.Y1, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }
 }

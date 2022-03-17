@@ -44,10 +44,10 @@ public abstract partial class VmBase
 
             ViewModelAufrufThread();
 
-            for (var i = 0; i < 100; i++)
+            for (var i = 20; i < 100; i++)
             {
+                // die ersten 20 sind z.T Collapsed und nicht Hidden!
                 if (SichtbarEin[i] != Visibility.Visible && SichtbarEin[i] != Visibility.Hidden) SichtbarEin[i] = Visibility.Visible;
-
                 SichtbarAus[i] = SichtbarEin[i] == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
             }
 

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using DtKata.Model;
-using DtKata.ViewModel;
+﻿using System.Threading;
+using BasePlcDtAt;
+using DtLap2018_1_Silosteuerung.Model;
+using DtLap2018_1_Silosteuerung.ViewModel;
+using LibDatenstruktur;
 
 namespace DtLap2018_1_Silosteuerung;
 
@@ -17,12 +12,12 @@ public partial class App
     public App()
     {
         var datenstruktur = new Datenstruktur();
-        datenstruktur.SetVersionLokal("Kata V3.0");
-        datenstruktur.SetVorbeitungId("610");
+        datenstruktur.SetVersionLokal("LAP 2018/1 Silosteuerung V3.0");
+        datenstruktur.SetVorbeitungId("568");
 
-        var modelKata = new ModelKata(datenstruktur, _cancellationTokenSource);
-        var vmKata = new VmKata(modelKata, datenstruktur, _cancellationTokenSource);
-        var baseWindow = new BaseWindow(vmKata, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
+        var modelLap2018 = new ModelLap2018(datenstruktur, _cancellationTokenSource);
+        var vmLap2018 = new VmLap2018(modelLap2018, datenstruktur, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmLap2018, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
 
         baseWindow.Show();
     }

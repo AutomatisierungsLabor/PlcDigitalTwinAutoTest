@@ -2,11 +2,11 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DtKata.TabZeichnen;
+namespace DtLap2018_1_Silosteuerung.TabZeichnen;
 
 public partial class TabZeichnen
 {
-    public static void TabLaborPlatteZeichnen(ViewModel.VmLap2018 vmKata, TabItem tabItem, string hintergrund)
+    public static void TabLaborPlatteZeichnen(ViewModel.VmLap2018 vmLap2018, TabItem tabItem, string hintergrund)
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
 
