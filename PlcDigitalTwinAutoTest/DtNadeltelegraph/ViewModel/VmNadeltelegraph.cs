@@ -25,7 +25,7 @@ public enum WpfObjects
     LinieRechtsOben3 = 32,
     LinieRechtsOben4 = 33,
 
-    LinieRechtsUnten1 = 36,
+    LinieRechtsUnten1 = 35,
     LinieRechtsUnten2 = 36,
     LinieRechtsUnten3 = 37,
     LinieRechtsUnten4 = 38,

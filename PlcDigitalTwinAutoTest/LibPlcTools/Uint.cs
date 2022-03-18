@@ -8,7 +8,7 @@ public class Uint
 
     public Uint(string zahl)
     {
-        if (zahl.Contains("#"))
+        if (zahl.Contains('#'))
         {
             // ReSharper disable once ConvertIfStatementToSwitchStatement
             if (zahl[..2] == "2#")

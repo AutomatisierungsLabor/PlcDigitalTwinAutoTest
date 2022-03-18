@@ -69,21 +69,17 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public Image BildAnimiert(string source, int xPos, int xSpan, int yPos, int ySpan)
+    public void BildAnimiert(string source, int xPos, int xSpan, int yPos, int ySpan, RoutedEventHandler eventHandler)
     {
-
         var img = new Image();
         var image = new BitmapImage();
-
         image.BeginInit();
         image.UriSource = new Uri(@$"Bilder\{source}", UriKind.Relative);
         image.EndInit();
 
         ImageBehavior.SetAnimatedSource(img, image);
         ImageBehavior.SetAutoStart(img, false);
-
+        ImageBehavior.AddAnimationLoadedHandler(img, eventHandler);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, img);
-
-        return img;
     }
 }

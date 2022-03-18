@@ -65,6 +65,15 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         Text[(int)WpfObjects.S3] = "Reset";
 
     }
+
+
+    public void AnimatedLoaded(object sender, RoutedEventArgs e)
+    {
+        if (sender is not Image img) return;
+        _imageGeladen = true;
+        ImageAnimationController = ImageBehavior.GetAnimationController(img);
+    }
+
     protected override void ViewModelAufrufThread()
     {
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;

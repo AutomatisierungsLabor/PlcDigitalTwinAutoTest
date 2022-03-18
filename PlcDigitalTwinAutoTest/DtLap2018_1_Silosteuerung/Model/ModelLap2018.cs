@@ -42,11 +42,10 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
         S0 = true;
         S2 = true;
     }
-
-    [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
+    
     protected override void ModelThread()
     {
-        if (Wagen != null && Silo != null)  // Reihenfolge der Aufrufe ist nicht immer definiert!
+        if (Wagen != null && Silo != null)  // Reihenfolge der Aufrufe ist immer definiert!
         {
             Wagen.WagenTask();
             B1 = Wagen.IstWagenRechts();

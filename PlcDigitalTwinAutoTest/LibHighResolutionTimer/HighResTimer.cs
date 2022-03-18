@@ -41,7 +41,7 @@ public class HighResTimer
         set
         {
             if (value) Start();
-           else Stop();
+            else Stop();
         }
         get => _threadTimer is { IsAlive: true };
     }
@@ -71,7 +71,7 @@ public class HighResTimer
         _stopTimer = true;
 
         if (!Enabled || _threadTimer.ManagedThreadId ==
-            Thread.CurrentThread.ManagedThreadId)
+            Environment.CurrentManagedThreadId)
         {
             return true;
         }
@@ -80,7 +80,7 @@ public class HighResTimer
     }
     private void NotificationTimer(ref long timerIntervalInMicroSec, ref long ignoreEventIfLateBy, ref bool stopTimer)
     {
-        var  timerCount = 0;
+        var timerCount = 0;
         long nextNotification = 0;
 
         var highResStopwatch = new HighResStopwatch();
@@ -96,7 +96,7 @@ public class HighResTimer
             timerCount++;
             long elapsedMicroseconds;
 
-            while ( (elapsedMicroseconds = highResStopwatch.ElapsedMicroseconds) < nextNotification)
+            while ((elapsedMicroseconds = highResStopwatch.ElapsedMicroseconds) < nextNotification)
             {
                 Thread.SpinWait(10);
             }
@@ -117,11 +117,11 @@ public class HighResTimer
 }
 public class MicroTimerEventArgs : EventArgs
 {
-    public int  TimerCount { get; }// Simple counter, number times timed event (callback function) executed
-   public long ElapsedMicroseconds { get; } // Time when timed event was called since timer started
+    public int TimerCount { get; } // Simple counter, number times timed event (callback function) executed
+    public long ElapsedMicroseconds { get; } // Time when timed event was called since timer started
     public long TimerLateBy { get; }// How late the timer was compared to when it should have been called
     public long CallbackFunctionExecutionTime { get; }// Time it took to execute previous call to callback function (OnTimedEvent)
-    public MicroTimerEventArgs(int  timerCount, long elapsedMicroseconds, long timerLateBy, long callbackFunctionExecutionTime)
+    public MicroTimerEventArgs(int timerCount, long elapsedMicroseconds, long timerLateBy, long callbackFunctionExecutionTime)
     {
         TimerCount = timerCount;
         ElapsedMicroseconds = elapsedMicroseconds;

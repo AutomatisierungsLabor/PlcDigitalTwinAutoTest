@@ -58,6 +58,7 @@ public partial class TabZeichnen
         ///////////////////////////////////////////////////////////
 
 
+        
 
 
 
@@ -65,18 +66,7 @@ public partial class TabZeichnen
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        vmLap2018.ImageSchneckenFoerderer = libWpf.BildAnimiert("Schneckenfoerderer.gif", 4, 6, 2, 7);
+       libWpf.BildAnimiert("Schneckenfoerderer.gif", 4, 6, 2, 7, vmLap2018.AnimatedLoaded);
 
     }
 }
