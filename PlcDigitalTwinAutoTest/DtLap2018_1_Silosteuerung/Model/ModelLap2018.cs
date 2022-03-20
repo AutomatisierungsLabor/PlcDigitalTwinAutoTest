@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
 
 namespace DtLap2018_1_Silosteuerung.Model;
 

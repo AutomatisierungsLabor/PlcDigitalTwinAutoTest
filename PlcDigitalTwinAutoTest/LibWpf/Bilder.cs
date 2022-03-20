@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Accessibility;
 using WpfAnimatedGif;
 
 namespace LibWpf;
@@ -50,7 +49,8 @@ public partial class LibWpf
     }
     public void BildDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
-        var image = new Image
+        _ = wpfId; // TODO noch fertigstellen!
+       var image = new Image
         {
             Source = new BitmapImage(new Uri(@$"Bilder\{source}", UriKind.Relative)),
             Stretch = Stretch.Fill,
@@ -61,7 +61,8 @@ public partial class LibWpf
     }
     public void BildRand(string source, int xPos, int xSpan, int yPos, int ySpan, object wpfId)
     {
-        var image = new Image
+        _ = wpfId; // TODO noch fertigstellen!
+       var image = new Image
         {
             Source = new BitmapImage(new Uri(@$"Bilder\{source}", UriKind.Relative)),
             Stretch = Stretch.Fill

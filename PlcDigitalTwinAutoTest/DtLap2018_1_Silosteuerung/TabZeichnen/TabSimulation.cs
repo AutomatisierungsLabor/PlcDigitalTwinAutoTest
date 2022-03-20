@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using DtLap2018_1_Silosteuerung.ViewModel;
-using WpfAnimatedGif;
 
 namespace DtLap2018_1_Silosteuerung.TabZeichnen;
 

@@ -70,8 +70,7 @@ public class HighResTimer
     {
         _stopTimer = true;
 
-        if (!Enabled || _threadTimer.ManagedThreadId ==
-            Environment.CurrentManagedThreadId)
+        if (!Enabled || _threadTimer.ManagedThreadId == Environment.CurrentManagedThreadId)
         {
             return true;
         }
