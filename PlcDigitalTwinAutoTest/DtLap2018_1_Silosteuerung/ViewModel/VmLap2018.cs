@@ -127,7 +127,7 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         // ReSharper disable once ConditionIsAlwaysTrueOrFalse
         if (!_imageGeladen) return;
-        if (_modelLap2018.S1) ImageAnimationController.Play(); else ImageAnimationController.Pause();    //Q2
+        if (_modelLap2018.Q2) ImageAnimationController.Play(); else ImageAnimationController.Pause();
 
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
