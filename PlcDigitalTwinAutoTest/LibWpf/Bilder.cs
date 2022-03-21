@@ -21,6 +21,18 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
+    // ReSharper disable once UnusedMember.Global
+    public void BildAbsoluterPfad(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin)
+    {
+        var image = new Image
+        {
+            Source = new BitmapImage(new Uri(@$"{source}", UriKind.Absolute)),
+            Stretch = Stretch.Uniform,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
     public void BildSichtbarkeitEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var image = new Image
