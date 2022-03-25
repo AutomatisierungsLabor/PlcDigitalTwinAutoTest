@@ -129,6 +129,9 @@
     <None Update="ConfigTests\Kata__610__4\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="ConfigTests\Kata__610__4\test.scl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="ConfigTests\Kata__610__4\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

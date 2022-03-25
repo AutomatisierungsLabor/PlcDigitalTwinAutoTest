@@ -1,0 +1,53 @@
+﻿FUNCTION_BLOCK "Programm"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR 
+      Schritt : Int;
+      BitPosition : Int;
+      Blinker : Bool;
+      Taktgeber {OriginalPartName := 'IEC_TIMER'; LibVersion := '1.0'} : TON_TIME;
+   END_VAR
+
+
+BEGIN
+	#Taktgeber(IN:=NOT #Blinker, PT:=T#50ms, Q=>#Blinker);
+	
+	CASE #Schritt OF
+	    0:  // Wird der Testeingang DI 0.0 mit einem Ausgang DQ0.0 .... DQ0.7 verbunden?
+	        #BitPosition := 8;
+	        "AlleAusgänge":= 16#FF;
+	        "x_NichtVerbunden" := TRUE;
+	        "x_AderErkennen" := FALSE;
+	        "b_AlleAdern" := 0;
+	        IF "TestEingang" THEN
+	            "AlleAusgänge" := 0;
+	            #Schritt := 1;
+	        END_IF;
+	        
+	    1:  // Alle Ausgänge durchfahren und die Verbindung suchen
+	        "x_NichtVerbunden" := FALSE;
+	        "x_AderErkennen" := TRUE;
+	        "AlleAusgänge" := SHL_WORD(IN := 2#1, N := #BitPosition);
+	        
+	        IF #Blinker THEN
+	            IF "TestEingang" THEN
+	                #Schritt := 2;
+	            ELSE
+	                #BitPosition += 1;
+	            END_IF;
+	        END_IF;
+	        
+	        #BitPosition := #BitPosition MOD 8;
+	        
+	    2: // Verbindung anzeigen
+	        "x_NichtVerbunden" := FALSE;
+	        "x_AderErkennen" := FALSE;
+	        "b_AlleAdern" := SHL_WORD(IN := 2#1, N := #BitPosition);
+	        
+	        IF NOT "TestEingang" THEN #Schritt := 0; END_IF;
+	       
+	    ELSE  // Unbekannter Schritt
+	        #Schritt := 0;   ;
+	END_CASE;
+END_FUNCTION_BLOCK
+

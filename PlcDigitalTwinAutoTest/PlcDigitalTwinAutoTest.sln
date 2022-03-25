@@ -77,7 +77,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtNadeltelegraph", "DtNadel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtLap2018_1_Silosteuerung", "DtLap2018_1_Silosteuerung\DtLap2018_1_Silosteuerung.csproj", "{EAC45D1B-9C8D-4E08-AD76-B769872A1344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlleBilderAnzeigen", "AlleBilderAnzeigen\AlleBilderAnzeigen.csproj", "{81C47655-D5FD-4E8F-B723-E298A15BF2E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlleBilderAnzeigen", "AlleBilderAnzeigen\AlleBilderAnzeigen.csproj", "{81C47655-D5FD-4E8F-B723-E298A15BF2E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtLeitungszuordnungsTester", "DtLeitungszuordnungsTester\DtLeitungszuordnungsTester.csproj", "{8CC874B3-335E-4963-B961-D33E92D910FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -237,6 +239,10 @@ Global
 		{81C47655-D5FD-4E8F-B723-E298A15BF2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81C47655-D5FD-4E8F-B723-E298A15BF2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81C47655-D5FD-4E8F-B723-E298A15BF2E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CC874B3-335E-4963-B961-D33E92D910FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC874B3-335E-4963-B961-D33E92D910FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC874B3-335E-4963-B961-D33E92D910FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC874B3-335E-4963-B961-D33E92D910FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

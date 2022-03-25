@@ -1,0 +1,35 @@
+﻿FUNCTION_BLOCK "Blinker"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR 
+      Frequenz : REAL := 1.0;
+      Tastverhältnis : REAL := 0.5;
+      "F plus alt" : BOOL;
+      "F minus alt" : BOOL;
+      "T plus alt" : BOOL;
+      "T minus alt" : BOOL;
+      Gesamtzeit {OriginalPartName := 'IEC_TIMER'; LibVersion := '1.0'} : TON_TIME;
+   END_VAR
+
+
+BEGIN
+	IF "DigInput".S5 THEN
+	    #Frequenz := 1.0;
+	    #Tastverhältnis := 0.5;
+	END_IF;
+	
+	IF "DigInput".S1 AND (NOT #"F minus alt") THEN #Frequenz * = 0.9; END_IF;
+	IF "DigInput".S2 AND (NOT #"F plus alt") THEN #Frequenz * = 1.1;END_IF;
+	IF "DigInput".S3 AND (NOT #"T minus alt") THEN #Tastverhältnis * = 0.9; END_IF;
+	IF "DigInput".S4 AND (NOT #"T plus alt") THEN #Tastverhältnis * = 1.1; END_IF;
+	
+	#Gesamtzeit(IN := NOT #Gesamtzeit.Q, PT := REAL_TO_UDINT(  1000.0 / #Frequenz));
+	
+	"DigOutput".P1 := #Gesamtzeit.ET <  UDINT_TO_TIME( REAL_TO_UDINT( (1000.0 / #Frequenz) * #Tastverhältnis));
+	
+	#"F minus alt" := "DigInput".S1;
+	#"F plus alt" := "DigInput".S2;
+	#"T minus alt"  := "DigInput".S3;
+	#"T plus alt" := "DigInput".S4;
+END_FUNCTION_BLOCK
+
