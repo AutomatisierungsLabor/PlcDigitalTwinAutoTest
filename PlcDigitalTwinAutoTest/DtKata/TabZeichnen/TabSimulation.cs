@@ -65,11 +65,6 @@ public partial class TabZeichnen
         libWpf.KreisStrokeMarginSetFilling(10, 2, 14, 2, kreisRandFarbe, kreisRand, WpfObjects.P7);
         libWpf.KreisStrokeMarginSetFilling(10, 2, 16, 2, kreisRandFarbe, kreisRand, WpfObjects.P8);
 
-
-        libWpf.ButtonZweiBilder(20, 4, 15, 4, 10, "NotHalt.jpg", "NotHaltGedrueckt.jpg", new Thickness(0, 0, 0, 0), vmKata.BtnSchalter, WpfObjects.S3);
-
-
-
         libWpf.PlcError();
     }
 }

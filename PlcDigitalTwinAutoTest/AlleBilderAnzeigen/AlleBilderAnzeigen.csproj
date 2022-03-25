@@ -15,6 +15,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Dose1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Snap7.ico" />
   </ItemGroup>
   

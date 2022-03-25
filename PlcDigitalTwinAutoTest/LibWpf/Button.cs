@@ -1,9 +1,7 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace LibWpf;
 
@@ -53,20 +51,10 @@ public partial class LibWpf
     }
     public void ButtonZweiBilder(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter)
     {
-        var imageOn = new Image
-        {
-            Source = new BitmapImage(new Uri(@$"Bilder/{sourceOn}", UriKind.Relative)),
-            Stretch = Stretch.Fill,
-            Margin = margin
-        };
+        var imageOn = ImageErzeugen(sourceOn, margin);
         imageOn.SetSichtbarkeitEinBinding(cmdParameter);
 
-        var imageOff = new Image
-        {
-            Source = new BitmapImage(new Uri(@$"Bilder/{sourceOff}", UriKind.Relative)),
-            Stretch = Stretch.Fill,
-            Margin = margin
-        };
+        var imageOff = ImageErzeugen(sourceOff, margin);
         imageOff.SetSichtbarkeitAusBinding(cmdParameter);
 
         var stackPanel = new StackPanel();

@@ -196,7 +196,7 @@ public class TweenMotion
                 break;
 
             default:
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(_motionType.ToString());
         }
 
         MyMotion?.Invoke(_motionValue, _motionType);

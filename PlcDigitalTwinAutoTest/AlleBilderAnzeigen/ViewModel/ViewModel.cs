@@ -17,16 +17,15 @@ public class ViewModel
         _libWpf = new LibWpf.LibWpf(grid);
         _libWpf.GridZeichnen(AnzX, BreiteX, AnzY, BreiteY, true);
     }
-    public void AlleBilderAnzeigen(List<(string name, string nameMitPfad)> alleBilder)
+    public void AlleBilderAnzeigen(List<string> alleBilder)
     {
         var posX = 0;
         var posY = 0;
         var bilderRand = new Thickness(0, 0, 0, 30);
 
-        foreach (var (name, nameMitPfad) in alleBilder)
+        foreach (var name in alleBilder)
         {
-           // _libWpf.Bild(name, posX, 1, posY, 1, bilderRand);
-            _libWpf.BildAbsoluterPfad(nameMitPfad, posX, 1, posY, 1, bilderRand);
+            _libWpf.Bild(name, posX, 1, posY, 1, bilderRand);
             _libWpf.Text(name, posX, 1, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 20, Brushes.Black);
 
             posX++;

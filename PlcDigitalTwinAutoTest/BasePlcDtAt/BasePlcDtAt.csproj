@@ -14,111 +14,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Snap7.ico" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <None Remove="Bilder\Dose1.jpg" />
-    <None Remove="Bilder\Dose2.jpg" />
-    <None Remove="Bilder\Dose3.jpg" />
-    <None Remove="Bilder\Dose4.jpg" />
-    <None Remove="Bilder\Dose5.jpg" />
-    <None Remove="Bilder\Fohrenburger0.jpg" />
-    <None Remove="Bilder\Fohrenburger1.jpg" />
-    <None Remove="Bilder\Fohrenburger2.jpg" />
-    <None Remove="Bilder\Fohrenburger3.jpg" />
-    <None Remove="Bilder\Fohrenburger4.jpg" />
-    <None Remove="Bilder\Fohrenburger5.jpg" />
-    <None Remove="Bilder\Fohrenburger6.jpg" />
-    <None Remove="Bilder\Fransziskaner.jpg" />
-    <None Remove="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
-    <None Remove="Bilder\iconAlarm.jpg" />
-    <None Remove="Bilder\iconAlarm.png" />
-    <None Remove="Bilder\iconHomepage.jpg" />
-    <None Remove="Bilder\iconHomepage.png" />
+    <None Remove="Bilder\IconAlarm.jpg" />
+    <None Remove="Bilder\IconHomepage.jpg" />
     <None Remove="Bilder\IconPlotter.jpg" />
-    <None Remove="Bilder\InitiatorenBetaetigt.jpg" />
-    <None Remove="Bilder\InitiatorenSchliesser.jpg" />
-    <None Remove="Bilder\Kellerbier.jpg" />
-    <None Remove="Bilder\KippschalterOff.jpg" />
-    <None Remove="Bilder\KippschalterOn.jpg" />
-    <None Remove="Bilder\Mohren0.jpg" />
-    <None Remove="Bilder\Mohren1.jpg" />
-    <None Remove="Bilder\Mohren2.jpg" />
-    <None Remove="Bilder\Mohren3.jpg" />
-    <None Remove="Bilder\Mohren4.jpg" />
-    <None Remove="Bilder\Mohren5.jpg" />
-    <None Remove="Bilder\Mohren6.jpg" />
-    <None Remove="Bilder\NotHalt.JPG" />
-    <None Remove="Bilder\NotHaltGedrueckt.JPG" />
-    <None Remove="Bilder\OberLänder.jpg" />
-    <None Remove="Bilder\PlatteLinearachse.jpg" />
-    <None Remove="Bilder\PumpeAus.jpg" />
-    <None Remove="Bilder\PumpeEin.jpg" />
-    <None Remove="Bilder\PumpeWaagrechtAus.jpg" />
-    <None Remove="Bilder\PumpeWaagrechtEin.jpg" />
     <None Remove="Bilder\S7_1200.jpg" />
-    <None Remove="Bilder\SchiebeSchalterOff.jpg" />
-    <None Remove="Bilder\SchiebeSchalterOn.jpg" />
-    <None Remove="Bilder\Schneckenfoerderer.gif" />
-    <None Remove="Bilder\SchwimmerschalterBetaetigt.jpg" />
-    <None Remove="Bilder\Schwimmerschalter.jpg" />
-    <None Remove="Bilder\TasterBetaetigt.jpg" />
-    <None Remove="Bilder\TasterSchliesser.jpg" />
-    <None Remove="Bilder\VentilElektrischAus.jpg" />
-    <None Remove="Bilder\VentilElektrischEin.jpg" />
-    <None Remove="Bilder\zahnrad.png" />
-    <None Remove="Bilder\zahnstange.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Bilder\Dose1.jpg" />
-    <Resource Include="Bilder\Dose2.jpg" />
-    <Resource Include="Bilder\Dose3.jpg" />
-    <Resource Include="Bilder\Dose4.jpg" />
-    <Resource Include="Bilder\Dose5.jpg" />
-    <Resource Include="Bilder\Fohrenburger0.jpg" />
-    <Resource Include="Bilder\Fohrenburger1.jpg" />
-    <Resource Include="Bilder\Fohrenburger2.jpg" />
-    <Resource Include="Bilder\Fohrenburger3.jpg" />
-    <Resource Include="Bilder\Fohrenburger4.jpg" />
-    <Resource Include="Bilder\Fohrenburger5.jpg" />
-    <Resource Include="Bilder\Fohrenburger6.jpg" />
-    <Resource Include="Bilder\Fransziskaner.jpg" />
-    <Resource Include="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
-    <Resource Include="Bilder\IconAlarm.jpg" />
-    <Resource Include="Bilder\IconHomepage.jpg" />
-    <Resource Include="Bilder\IconPlotter.jpg" />
-    <Resource Include="Bilder\InitiatorenBetaetigt.jpg" />
-    <Resource Include="Bilder\InitiatorenSchliesser.jpg" />
-    <Resource Include="Bilder\Kellerbier.jpg" />
-    <Resource Include="Bilder\KippschalterOff.jpg" />
-    <Resource Include="Bilder\KippschalterOn.jpg" />
-    <Resource Include="Bilder\Mohren0.jpg" />
-    <Resource Include="Bilder\Mohren1.jpg" />
-    <Resource Include="Bilder\Mohren2.jpg" />
-    <Resource Include="Bilder\Mohren3.jpg" />
-    <Resource Include="Bilder\Mohren4.jpg" />
-    <Resource Include="Bilder\Mohren5.jpg" />
-    <Resource Include="Bilder\Mohren6.jpg" />
-    <Resource Include="Bilder\NotHalt.jpg" />
-    <Resource Include="Bilder\NotHaltGedrueckt.jpg" />
-    <Resource Include="Bilder\OberLänder.jpg" />
-    <Resource Include="Bilder\PlatteLinearachse.jpg" />
-    <Resource Include="Bilder\PumpeAus.jpg" />
-    <Resource Include="Bilder\PumpeEin.jpg" />
-    <Resource Include="Bilder\PumpeWaagrechtAus.jpg" />
-    <Resource Include="Bilder\PumpeWaagrechtEin.jpg" />
-    <Resource Include="Bilder\S7_1200.jpg" />
-    <Resource Include="Bilder\SchiebeSchalterOff.jpg" />
-    <Resource Include="Bilder\SchiebeSchalterOn.jpg" />
-    <Resource Include="Bilder\Schneckenfoerderer.gif" />
-    <Resource Include="Bilder\SchwimmerschalterBetaetigt.jpg" />
-    <Resource Include="Bilder\Schwimmerschalter.jpg" />
-    <Resource Include="Bilder\VentilElektrischAus.jpg" />
-    <Resource Include="Bilder\VentilElektrischEin.jpg" />
-    <Resource Include="Bilder\Zahnrad.png" />
-    <Resource Include="Bilder\Zahnstange.png" />
     <Content Include="Snap7.ico" />
   </ItemGroup>
 
@@ -133,10 +35,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Bilder\IconAlarm.jpg" />
+    <Resource Include="Bilder\IconHomepage.jpg" />
+    <Resource Include="Bilder\IconPlotter.jpg" />
+    <Resource Include="Bilder\S7_1200.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Videos\Flammen.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
