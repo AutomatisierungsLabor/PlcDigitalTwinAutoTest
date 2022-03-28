@@ -34,5 +34,5 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: AlleBilderAnzeigen echo ${{ env.TIME }}
+        name: AlleBilderAnzeigen $TIME
         path: PublishMin
