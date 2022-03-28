@@ -3,22 +3,27 @@ name: AlleBilderAnzeigen
 on:
   push:
     branches: [ main ]
-
-  label: 
-    uses: nanzm/get-time-action@v1.1
-    with:
-          timeZone: 0
-          format: 'YYYY-MM-DD-HH-mm-ss'
-
 env:
-      PROJECT_PATH: PlcDigitalTwinAutoTest/AlleBilderAnzeigen/AlleBilderAnzeigen.csproj
-      TIME: "${{ steps.time.outputs.time }}"
+    PROJECT_PATH: PlcDigitalTwinAutoTest/AlleBilderAnzeigen/AlleBilderAnzeigen.csproj
       
 jobs:
   deploy:
     runs-on: windows-latest 
 
     steps:
+    - name: Get Time
+      id: time
+      uses: nanzm/get-time-action@v1.1
+      with:
+          timeZone: 8
+          format: 'YYYY-MM-DD-HH-mm-ss'
+
+    - name: Usage
+      env:
+          TIME: "${{ steps.time.outputs.time }}"
+      run: |
+          echo $TIME
+
     - uses: actions/checkout@v2
 
     - uses: actions/setup-dotnet@v1
