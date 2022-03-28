@@ -148,6 +148,6 @@ public partial class TabZeichnen
             gesamteHoehe - obererRand - height
         );
 
-        libWpf.ButtonRounded(0, 30, 0, 30, 20, 10, thickness, Brushes.LightGray, vmNadeltelegraph.BtnTaster, wpfObjects);
+        libWpf.ButtonContentRounded(0, 30, 0, 30, 20, 10, thickness, Brushes.LightGray, vmNadeltelegraph.BtnTaster, wpfObjects);
     }
 }

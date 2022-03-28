@@ -1,62 +1,73 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using WpfAnimatedGif;
-using Image = System.Windows.Controls.Image;
 
 namespace LibWpf;
 
 public partial class LibWpf
 {
-    private static Image ImageErzeugen(string source, Thickness margin)
+    private static (Image image, BitmapImage bitmapImage) ImageErzeugen(string source, Thickness margin)
     {
         var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LibWpf.Bilder." + source);
         if (stream == null) throw new Exception("Bild nicht gefunden:" + source);
 
-        var bitmap = new BitmapImage();
+        var bitmapImage = new BitmapImage();
         var image = new Image();
-        
+
         stream.Position = 0;
 
-        bitmap.BeginInit();
-        bitmap.CacheOption = BitmapCacheOption.OnLoad;
-        bitmap.StreamSource = stream;
-        bitmap.EndInit();
+        bitmapImage.BeginInit();
+        bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+        bitmapImage.StreamSource = stream;
+        bitmapImage.EndInit();
 
-
-        image.Source = bitmap;
+        image.Source = bitmapImage;
         image.Stretch = Stretch.Uniform;
         image.Margin = margin;
 
-        return image;
+        return (image, bitmapImage);
     }
     public void Bild(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin)
     {
-        var image = ImageErzeugen(source, margin);
+        var (image, _) = ImageErzeugen(source, margin);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
     public void BildSichtbarkeitEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
-        var image = ImageErzeugen(source, margin);
+        var (image, _) = ImageErzeugen(source, margin);
         image.SetSichtbarkeitEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
     public void BildSichtbarkeitAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
-        var image = ImageErzeugen(source, margin);
+        var (image, _) = ImageErzeugen(source, margin);
         image.SetSichtbarkeitAusBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
+    public void BildSichtbarEinAus(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    {
+        var (imageOn, _) = ImageErzeugen(sourceOn, margin);
+        imageOn.SetSichtbarkeitEinBinding(wpfId);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOn);
+
+        var (imageOff, _) = ImageErzeugen(sourceOff, margin);
+        imageOff.SetSichtbarkeitAusBinding(wpfId);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
     }
     public void BildDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         _ = wpfId; // TODO noch fertigstellen!
 
-        var image = ImageErzeugen(source, margin);
+        var (image, _) = ImageErzeugen(source, margin);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
@@ -64,22 +75,18 @@ public partial class LibWpf
     {
         _ = wpfId; // TODO noch fertigstellen!
 
-        var image = ImageErzeugen(source, margin);
+        var (image, _) = ImageErzeugen(source, margin);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
     public void BildAnimiert(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, RoutedEventHandler eventHandler)
     {
-        _ = margin;
-        var img = new Image();
-        var image = new BitmapImage();
-        image.BeginInit();
-        image.UriSource = new Uri(@$"Bilder\{source}", UriKind.Relative);
-        image.EndInit();
+        var (image, bitmapImage) = ImageErzeugen(source, margin);
 
-        ImageBehavior.SetAnimatedSource(img, image);
-        ImageBehavior.SetAutoStart(img, false);
-        ImageBehavior.AddAnimationLoadedHandler(img, eventHandler);
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, img);
+        ImageBehavior.SetAnimatedSource(image, bitmapImage);
+        ImageBehavior.SetAutoStart(image, false);
+        ImageBehavior.AddAnimationLoadedHandler(image, eventHandler);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
 }

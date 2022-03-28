@@ -14,6 +14,7 @@ public enum WpfObjects
     // ReSharper disable once UnusedMember.Global
     ReserveFuerBasisViewModel = 20, // enum WpfBase
 
+
     P1 = 21,
     P2 = 22,
     Q1 = 23,
@@ -31,9 +32,14 @@ public enum WpfObjects
 
     WagenNachLinks = 40,
     WagenNachRechts = 41,
-    RutscheVoll = 42
+    RutscheVoll = 42,
 
-
+    MaterialUnten = 45,
+    MaterialOben = 46,
+    MaterialSilo = 47,
+    MaterialSiloFuellstand = 48,
+    PositionWagen = 50,
+    PostionWagenInhalt = 51
 }
 
 public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
@@ -44,6 +50,8 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     private readonly ModelLap2018 _modelLap2018;
     private readonly Datenstruktur _datenstruktur;
     private bool _imageGeladen;
+
+    private const double BreiteFahrbereichWagen = 300;
     public VmLap2018(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _modelLap2018 = model as ModelLap2018;
@@ -58,22 +66,22 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
+        SichtbarEin[(int)WpfObjects.MaterialSiloFuellstand] = Visibility.Visible;
+
+        Text[(int)WpfObjects.F1] = "F1";
+        Text[(int)WpfObjects.F2] = "F2";
 
         Text[(int)WpfObjects.S0] = "Aus";
         Text[(int)WpfObjects.S1] = "Ein";
         Text[(int)WpfObjects.S2] = "S2";
         Text[(int)WpfObjects.S3] = "Reset";
 
+        Text[(int)WpfObjects.WagenNachRechts] = "Nach Rechts";
+        Text[(int)WpfObjects.WagenNachLinks] = "Nach Links";
+
+        Farbe[(int)WpfObjects.MaterialOben] = Brushes.Firebrick;
+        Farbe[(int)WpfObjects.MaterialUnten] = Brushes.Firebrick;
     }
-
-
-    public void AnimatedLoaded(object sender, RoutedEventArgs e)
-    {
-        if (sender is not Image img) return;
-        _imageGeladen = true;
-        ImageAnimationController = ImageBehavior.GetAnimationController(img);
-    }
-
     protected override void ViewModelAufrufThread()
     {
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
@@ -89,12 +97,15 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
             }
         }
 
+        if (_modelLap2018.RutscheVoll) Text[(int)WpfObjects.RutscheVoll] = "Materialmangel"; else Text[(int)WpfObjects.RutscheVoll] = "Rutsche voll";
+
+
         FarbeUmschalten(_modelLap2018!.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
         FarbeUmschalten(_modelLap2018!.F2, (int)WpfObjects.F2, Brushes.LawnGreen, Brushes.Red);
 
         FarbeUmschalten(_modelLap2018!.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
         FarbeUmschalten(_modelLap2018!.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.White);
+        FarbeUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.Gray);
 
         FarbeUmschalten(_modelLap2018!.S2, (int)WpfObjects.S2, Brushes.LawnGreen, Brushes.Red);
 
@@ -105,30 +116,20 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarkeitUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1);
         SichtbarkeitUmschalten(_modelLap2018!.Q2, (int)WpfObjects.Q2);
         SichtbarkeitUmschalten(_modelLap2018!.Y1, (int)WpfObjects.Y1);
-        //  SichtbarkeitUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01, 30);
-        //   SichtbarkeitUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, 31);
+        SichtbarkeitUmschalten(true, (int)WpfObjects.MaterialOben);
+        SichtbarkeitUmschalten(true, (int)WpfObjects.MaterialUnten);
 
-        /*
-        TxtLagerSiloVoll = _modelLap2018.RutscheVoll ? "LagerSilo Voll" : "LagerSilo Leer";
+        FarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01, (int)WpfObjects.MaterialOben, Brushes.LightGray, Brushes.Firebrick);
+        FarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, (int)WpfObjects.MaterialUnten, Brushes.LightGray, Brushes.Firebrick);
 
-        PositionWagenBeschriftung(_modelLap2018.Wagen.GetPosition());
-        PositionWagen(_modelLap2018.Wagen.GetPosition());
-        PositionWagenInhalt(_modelLap2018.Wagen.GetPosition(), _modelLap2018.Wagen.GetFuellstand());
-        WagenFuellstand = Math.Floor(_modelLap2018.Wagen.GetFuellstand());
+        Margin[(int)WpfObjects.PositionWagen] = new Thickness(_modelLap2018.Wagen.GetPosition().X, 0, BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
+        Margin[(int)WpfObjects.PostionWagenInhalt] = new Thickness(_modelLap2018.Wagen.GetPosition().X, _modelLap2018.Wagen.GetFuellstand(), BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
 
-        FuellstandProzent = (100 * _modelLap2018.Silo.GetFuellstand()).ToString("F0") + "%";
-
-        if (_mainWindow.AnimationGestartet)
-        {
-           
-        }
-        */
-
+        Text[(int)WpfObjects.MaterialSiloFuellstand] = (100 * _modelLap2018.Silo.GetFuellstand()).ToString("F0") + "%";
 
         // ReSharper disable once ConditionIsAlwaysTrueOrFalse
         if (!_imageGeladen) return;
         if (_modelLap2018.Q2) ImageAnimationController.Play(); else ImageAnimationController.Pause();
-
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {
@@ -157,4 +158,10 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
     public override void SimulationZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");
+    public void AnimatedLoaded(object sender, RoutedEventArgs e)
+    {
+        if (sender is not Image img) return;
+        _imageGeladen = true;
+        ImageAnimationController = ImageBehavior.GetAnimationController(img);
+    }
 }

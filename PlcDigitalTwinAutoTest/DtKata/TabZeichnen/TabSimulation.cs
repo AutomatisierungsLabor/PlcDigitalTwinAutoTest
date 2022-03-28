@@ -15,15 +15,15 @@ public partial class TabZeichnen
 
         var buttonRand = new Thickness(2, 5, 2, 5);
 
-        libWpf.ButtonRounded(1, 3, 1, 2, 20, 15, buttonRand, Brushes.LawnGreen, vmKata.BtnTaster, WpfObjects.S1);
-        libWpf.ButtonRounded(1, 3, 3, 2, 20, 15, buttonRand, Brushes.LawnGreen, vmKata.BtnTaster, WpfObjects.S2);
-        libWpf.ButtonRounded(1, 3, 5, 2, 20, 15, buttonRand, Brushes.Red, vmKata.BtnTaster, WpfObjects.S3);
-        libWpf.ButtonRounded(1, 3, 7, 2, 20, 15, buttonRand, Brushes.Red, vmKata.BtnTaster, WpfObjects.S4);
+        libWpf.ButtonContentRounded(1, 3, 1, 2, 20, 15, buttonRand, Brushes.LawnGreen, vmKata.BtnTaster, WpfObjects.S1);
+        libWpf.ButtonContentRounded(1, 3, 3, 2, 20, 15, buttonRand, Brushes.LawnGreen, vmKata.BtnTaster, WpfObjects.S2);
+        libWpf.ButtonContentRounded(1, 3, 5, 2, 20, 15, buttonRand, Brushes.Red, vmKata.BtnTaster, WpfObjects.S3);
+        libWpf.ButtonContentRounded(1, 3, 7, 2, 20, 15, buttonRand, Brushes.Red, vmKata.BtnTaster, WpfObjects.S4);
 
-        libWpf.ButtonZweiBilder(1, 3, 10, 2, 10, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S5);
-        libWpf.ButtonZweiBilder(1, 3, 12, 2, 10, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S6);
-        libWpf.ButtonZweiBilder(1, 3, 14, 2, 10, "KippSchalterOn.jpg", "KippSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S7);
-        libWpf.ButtonZweiBilder(1, 3, 16, 2, 10, "KippSchalterOn.jpg", "KippSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S8);
+        libWpf.ButtonZweiBilder(1, 3, 10, 2, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S5);
+        libWpf.ButtonZweiBilder(1, 3, 12, 2, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S6);
+        libWpf.ButtonZweiBilder(1, 3, 14, 2, "KippschalterOn.jpg", "KippschalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S7);
+        libWpf.ButtonZweiBilder(1, 3, 16, 2, "KippschalterOn.jpg", "KippschalterOff.jpg", buttonRand, vmKata.BtnSchalter, WpfObjects.S8);
 
 
         var kontakteRand = new Thickness(0, 5, 5, 5);

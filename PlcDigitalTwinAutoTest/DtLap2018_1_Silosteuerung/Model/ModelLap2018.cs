@@ -29,7 +29,7 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
     public ModelLap2018(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
-
+     
         Wagen = new Wagen();
         Silo = new Silo();
 
