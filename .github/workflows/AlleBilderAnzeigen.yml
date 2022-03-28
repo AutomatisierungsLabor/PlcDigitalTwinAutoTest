@@ -15,7 +15,7 @@ jobs:
       id: time
       uses: nanzm/get-time-action@v1.1
       with:
-          timeZone: 8
+          timeZone: 1
           format: 'YYYY-MM-DD-HH-mm-ss'
 
     - name: Usage
@@ -32,7 +32,7 @@ jobs:
         
     - run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o PublishMin
 
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
-        name: AlleBilderAnzeigen ${{ env.TIME }}
+        name: AlleBilderAnzeigen echo ${{ env.TIME }}
         path: PublishMin
