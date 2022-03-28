@@ -73,7 +73,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibHighResTimer.Test", "Lib
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtSchleifmaschine", "DtSchleifmaschine\DtSchleifmaschine.csproj", "{352037B6-B8E1-49B1-AB3F-BD74A861903A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtNadeltelegraph", "DtNadeltelegraph\DtNadeltelegraph.csproj", "{CEE23395-A695-413F-A234-223229C6221A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtNadeltelegraph", "DtNadeltelegraph\DtNadeltelegraph.csproj", "{CEE23395-A695-413F-A234-223229C6221A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtLap2018_1_Silosteuerung", "DtLap2018_1_Silosteuerung\DtLap2018_1_Silosteuerung.csproj", "{EAC45D1B-9C8D-4E08-AD76-B769872A1344}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlleBilderAnzeigen", "AlleBilderAnzeigen\AlleBilderAnzeigen.csproj", "{81C47655-D5FD-4E8F-B723-E298A15BF2E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtLeitungszuordnungsTester", "DtLeitungszuordnungsTester\DtLeitungszuordnungsTester.csproj", "{8CC874B3-335E-4963-B961-D33E92D910FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -225,6 +231,18 @@ Global
 		{CEE23395-A695-413F-A234-223229C6221A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEE23395-A695-413F-A234-223229C6221A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEE23395-A695-413F-A234-223229C6221A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAC45D1B-9C8D-4E08-AD76-B769872A1344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC45D1B-9C8D-4E08-AD76-B769872A1344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC45D1B-9C8D-4E08-AD76-B769872A1344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC45D1B-9C8D-4E08-AD76-B769872A1344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C47655-D5FD-4E8F-B723-E298A15BF2E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C47655-D5FD-4E8F-B723-E298A15BF2E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C47655-D5FD-4E8F-B723-E298A15BF2E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C47655-D5FD-4E8F-B723-E298A15BF2E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CC874B3-335E-4963-B961-D33E92D910FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC874B3-335E-4963-B961-D33E92D910FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC874B3-335E-4963-B961-D33E92D910FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC874B3-335E-4963-B961-D33E92D910FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

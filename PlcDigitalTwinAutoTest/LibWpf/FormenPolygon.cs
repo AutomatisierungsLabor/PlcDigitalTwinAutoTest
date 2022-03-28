@@ -21,6 +21,25 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, polygon);
     }
+
+    public void PolygonSetMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThickness, double[][] punkte, object wpfId)
+    {
+        var polyPoints = new PointCollection();
+        foreach (var punkt in punkte) polyPoints.Add(new System.Windows.Point(punkt[0], punkt[1]));
+
+        var polygon = new Polygon
+        {
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThickness,
+            Points = polyPoints
+        };
+
+        polygon.SetMarginBinding(wpfId);
+
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, polygon);
+    }
     public void PolygonSetWinkel(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThickness, double[][] punkte, object wpfId)
     {
         var polyPoints = new PointCollection();

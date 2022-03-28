@@ -2,13 +2,12 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace LibWpf;
 
 public partial class LibWpf
 {
-    public WebBrowser WebBrowser(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)
+    public WebBrowser WebBrowser(int xPos, int xSpan, int yPos, int ySpan, Thickness margin)
     {
         var werBrowser = new WebBrowser
         {

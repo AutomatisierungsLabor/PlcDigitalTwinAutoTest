@@ -1,15 +1,13 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void ButtonRounded(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, object cmdParameter)
+    public void ButtonContentRounded(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, object cmdParameter)
     {
         var button = new Button
         {
@@ -30,7 +28,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-    public void ButtonRoundedSetBackground(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, ICommand cmd, object cmdParameter)
+    public void ButtonBackgroundContentRounded(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, ICommand cmd, object cmdParameter)
     {
         var button = new Button
         {
@@ -51,41 +49,28 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-    public void ButtonZweiBilder(int xPos, int xSpan, int yPos, int ySpan, int fontSize, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter)
+    public void ButtonZweiBilder(int xPos, int xSpan, int yPos, int ySpan, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter)
     {
-        var binding = (int)cmdParameter;
-
-        var imageOn = new Image
+        var (imageOn, _) = ImageErzeugen(sourceOn, margin);
+        var buttonOn = new Button
         {
-            Source = new BitmapImage(new Uri(@$"Bilder/{sourceOn}", UriKind.Relative)),
-            Stretch = Stretch.Fill,
-            Margin = margin
-        };
-        imageOn.SetSichtbarkeitEinBinding(binding);
-
-        var imageOff = new Image
-        {
-            Source = new BitmapImage(new Uri(@$"Bilder/{sourceOff}", UriKind.Relative)),
-            Stretch = Stretch.Fill,
-            Margin = margin
-        };
-        imageOff.SetSichtbarkeitAusBinding(binding);
-
-        var stackPanel = new StackPanel();
-        stackPanel.Children.Add(imageOn);
-        stackPanel.Children.Add(imageOff);
-
-        var button = new Button
-        {
-            Content = stackPanel,
-            FontSize = fontSize,
+            Content = imageOn,
             Margin = margin,
             Command = cmd,
             CommandParameter = cmdParameter
         };
+        buttonOn.SetSichtbarkeitEinBinding(cmdParameter);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, buttonOn);
 
-        button.SetBtnClickModeBinding(binding);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
+        var (imageOff, _) = ImageErzeugen(sourceOff, margin);
+        var buttonOff = new Button
+        {
+            Content = imageOff,
+            Margin = margin,
+            Command = cmd,
+            CommandParameter = cmdParameter
+        };
+        buttonOff.SetSichtbarkeitAusBinding(cmdParameter);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, buttonOff);
     }
 }

@@ -31,16 +31,16 @@ var DQ_0_6 = "2#0100_0000"  // P3 Meldeleuchte Störung(rot)
 
 main()
 {
-    var F1 = Plc2Dec(DI_0_2)    // Thermorelais
-    var S1 = Plc2Dec(DI_0_0)    // Stop
-    var S2 = Plc2Dec(DI_0_1)    // Start
-    var S7 = Plc2Dec(DI_0_5)    // Quittieren
-    var S92 = Plc2Dec(DI_1_1)   // Not-Halt
+    var F1 = PlcToDec(DI_0_2)    // Thermorelais
+    var S1 = PlcToDec(DI_0_0)    // Stop
+    var S2 = PlcToDec(DI_0_1)    // Start
+    var S7 = PlcToDec(DI_0_5)    // Quittieren
+    var S92 = PlcToDec(DI_1_1)   // Not-Halt
 
     var AllesAus = 0
-    var P1 = Plc2Dec(DQ_0_4)    // weiß
-    var P2 = Plc2Dec(DQ_0_5)    // grün
-    var P3 = Plc2Dec(DQ_0_6)    // rot
+    var P1 = PlcToDec(DQ_0_4)    // weiß
+    var P2 = PlcToDec(DQ_0_5)    // grün
+    var P3 = PlcToDec(DQ_0_6)    // rot
     var Maske_P1_P2_P3 = P1 + P2 + P3
 
     SetDataGridBitAnzahl 0, 0

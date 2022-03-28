@@ -32,9 +32,9 @@ public partial class TabZeichnen
         libWpf.Text("P1", 19, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.ButtonRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
-        libWpf.ButtonRounded(22, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
-        libWpf.ButtonRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S3);
+        libWpf.ButtonContentRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
+        libWpf.ButtonContentRounded(22, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
+        libWpf.ButtonContentRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S3);
 
         libWpf.KreisStrokeMarginSetFilling(22, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
         libWpf.Text("Schliessen", 22, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
@@ -48,12 +48,12 @@ public partial class TabZeichnen
 
         libWpf.VideoAutoPlay("Flammen.mp4", 7, 3, 5, 3);
 
-        libWpf.BildDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0),  WpfObjects.ZahnradWinkel);
-        libWpf.BildRand("Zahnstange.png", 2, 20, 8, 3, WpfObjects.ZahnstangePosition);
+        libWpf.BildDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnradWinkel);
+        libWpf.BildRand("Zahnstange.png", 2, 20, 8, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnstangePosition);
 
-        libWpf.RechteckFillStrokeSetMargin(2,4,5,4,Brushes.Gray, Brushes.Black,2, WpfObjects.OfentuerePosition);
+        libWpf.RechteckFillStrokeSetMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, WpfObjects.OfentuerePosition);
 
-        libWpf.ButtonRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.B2);
+        libWpf.ButtonContentRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.B2);
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 

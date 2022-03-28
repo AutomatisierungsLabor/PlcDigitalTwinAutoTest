@@ -1,0 +1,11 @@
+﻿{
+  "Zeilen": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "SiemensAnalogwertProzent",
+      "Bezeichnung": "Pegel",
+      "Kommentar": "Füllstand"
+    }
+  ]
+}

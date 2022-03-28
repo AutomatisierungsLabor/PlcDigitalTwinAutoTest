@@ -6,19 +6,19 @@
 
 main()
 {
-    var P1R = Plc2Dec("2#0000_0000_0001")
-    var P1L = Plc2Dec("2#0000_0000_0010")
-    var P2R = Plc2Dec("2#0000_0000_0100")
-    var P2L = Plc2Dec("2#0000_0000_1000")
-    var P3R = Plc2Dec("2#0000_0001_0000")
-    var P3L = Plc2Dec("2#0000_0010_0000")
-    var P4R = Plc2Dec("2#0000_0100_0000")
-    var P4L = Plc2Dec("2#0000_1000_0000")
-    var P5R = Plc2Dec("2#0001_0000_0000")
-    var P5L = Plc2Dec("2#0010_0000_0000")
+    var P1R = PlcToDec("2#0000_0000_0001")
+    var P1L = PlcToDec("2#0000_0000_0010")
+    var P2R = PlcToDec("2#0000_0000_0100")
+    var P2L = PlcToDec("2#0000_0000_1000")
+    var P3R = PlcToDec("2#0000_0001_0000")
+    var P3L = PlcToDec("2#0000_0010_0000")
+    var P4R = PlcToDec("2#0000_0100_0000")
+    var P4L = PlcToDec("2#0000_1000_0000")
+    var P5R = PlcToDec("2#0001_0000_0000")
+    var P5L = PlcToDec("2#0010_0000_0000")
 
     var AllesAus = 0
-    var Maske_Alle_Nadeln = Plc2Dec("2#0011_1111_1111")
+    var Maske_Alle_Nadeln = PlcToDec("2#0011_1111_1111")
 
     SetDataGridBitAnzahl 8, 12
     VersionAnzeigen

@@ -3,16 +3,129 @@
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <PackageProjectUrl>https://github.com/AutomatisierungsLabor/PlcDigitalTwinAutoTest</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AutomatisierungsLabor/PlcDigitalTwinAutoTest</RepositoryUrl>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Version>3.0.0</Version>
+    <Authors>Kurt Linder</Authors>
+    <Copyright>Copyright © 2019-2022 Kurt Linder</Copyright>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Bilder\Dose1.jpg" />
+    <None Remove="Bilder\Dose2.jpg" />
+    <None Remove="Bilder\Dose3.jpg" />
+    <None Remove="Bilder\Dose4.jpg" />
+    <None Remove="Bilder\Dose5.jpg" />
+    <None Remove="Bilder\Fohrenburger0.jpg" />
+    <None Remove="Bilder\Fohrenburger1.jpg" />
+    <None Remove="Bilder\Fohrenburger2.jpg" />
+    <None Remove="Bilder\Fohrenburger3.jpg" />
+    <None Remove="Bilder\Fohrenburger4.jpg" />
+    <None Remove="Bilder\Fohrenburger5.jpg" />
+    <None Remove="Bilder\Fohrenburger6.jpg" />
+    <None Remove="Bilder\Fransziskaner.jpg" />
+    <None Remove="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
+    <None Remove="Bilder\InitiatorenBetaetigt.jpg" />
+    <None Remove="Bilder\InitiatorenSchliesser.jpg" />
+    <None Remove="Bilder\Kellerbier.jpg" />
+    <None Remove="Bilder\KippschalterOff.jpg" />
+    <None Remove="Bilder\KippschalterOn.jpg" />
+    <None Remove="Bilder\Mohren0.jpg" />
+    <None Remove="Bilder\Mohren1.jpg" />
+    <None Remove="Bilder\Mohren2.jpg" />
+    <None Remove="Bilder\Mohren3.jpg" />
+    <None Remove="Bilder\Mohren4.jpg" />
+    <None Remove="Bilder\Mohren5.jpg" />
+    <None Remove="Bilder\Mohren6.jpg" />
+    <None Remove="Bilder\NotHalt.jpg" />
+    <None Remove="Bilder\NotHalt.png" />
+    <None Remove="Bilder\NotHaltGedrueckt.jpg" />
+    <None Remove="Bilder\OberLänder.jpg" />
+    <None Remove="Bilder\PlatteLinearachse.jpg" />
+    <None Remove="Bilder\PumpeAus.jpg" />
+    <None Remove="Bilder\PumpeEin.jpg" />
+    <None Remove="Bilder\PumpeWaagrechtAus.jpg" />
+    <None Remove="Bilder\PumpeWaagrechtEin.jpg" />
+    <None Remove="Bilder\SchiebeSchalterOff.jpg" />
+    <None Remove="Bilder\SchiebeSchalterOn.jpg" />
+    <None Remove="Bilder\Schneckenfoerderer.gif" />
+    <None Remove="Bilder\Schwimmerschalter.jpg" />
+    <None Remove="Bilder\SchwimmerschalterBetaetigt.jpg" />
+    <None Remove="Bilder\TasterBetaetigt.jpg" />
+    <None Remove="Bilder\TasterSchliesser.jpg" />
+    <None Remove="Bilder\VentilElektrischAus.jpg" />
+    <None Remove="Bilder\VentilElektrischEin.jpg" />
+    <None Remove="Bilder\Zahnrad.png" />
+    <None Remove="Bilder\Zahnstange.png" />
+  </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="ScottPlot.WPF" Version="4.1.30" />
+    <PackageReference Include="ScottPlot.WPF" Version="4.1.35" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\LibGaugeControl\LibGaugeControl.csproj" />
     <ProjectReference Include="..\LibPlcKommunikation\LibPlcKommunikation.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Bilder\Dose1.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bilder\Dose2.jpg" />
+    <EmbeddedResource Include="Bilder\Dose3.jpg" />
+    <EmbeddedResource Include="Bilder\Dose4.jpg" />
+    <EmbeddedResource Include="Bilder\Dose5.jpg" />
+    <EmbeddedResource Include="Bilder\Fohrenburger0.jpg" />
+    <EmbeddedResource Include="Bilder\Fohrenburger1.jpg" />
+    <EmbeddedResource Include="Bilder\Fohrenburger2.jpg" />
+    <EmbeddedResource Include="Bilder\Fohrenburger3.jpg" />
+    <EmbeddedResource Include="Bilder\Fohrenburger4.jpg" />
+    <EmbeddedResource Include="Bilder\Fohrenburger5.jpg" />
+    <EmbeddedResource Include="Bilder\Fohrenburger6.jpg" />
+    <EmbeddedResource Include="Bilder\Fransziskaner.jpg" />
+    <EmbeddedResource Include="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
+    <EmbeddedResource Include="Bilder\InitiatorenBetaetigt.jpg" />
+    <EmbeddedResource Include="Bilder\InitiatorenSchliesser.jpg" />
+    <EmbeddedResource Include="Bilder\Kellerbier.jpg" />
+    <EmbeddedResource Include="Bilder\KippschalterOff.jpg" />
+    <EmbeddedResource Include="Bilder\KippschalterOn.jpg" />
+    <EmbeddedResource Include="Bilder\Mohren0.jpg" />
+    <EmbeddedResource Include="Bilder\Mohren1.jpg" />
+    <EmbeddedResource Include="Bilder\Mohren2.jpg" />
+    <EmbeddedResource Include="Bilder\Mohren3.jpg" />
+    <EmbeddedResource Include="Bilder\Mohren4.jpg" />
+    <EmbeddedResource Include="Bilder\Mohren5.jpg" />
+    <EmbeddedResource Include="Bilder\Mohren6.jpg" />
+    <EmbeddedResource Include="Bilder\NotHalt.jpg" />
+    <EmbeddedResource Include="Bilder\NotHaltGedrueckt.jpg" />
+    <EmbeddedResource Include="Bilder\OberLänder.jpg" />
+    <EmbeddedResource Include="Bilder\PlatteLinearachse.jpg" />
+    <EmbeddedResource Include="Bilder\PumpeAus.jpg" />
+    <EmbeddedResource Include="Bilder\PumpeEin.jpg" />
+    <EmbeddedResource Include="Bilder\PumpeWaagrechtAus.jpg" />
+    <EmbeddedResource Include="Bilder\PumpeWaagrechtEin.jpg" />
+    <EmbeddedResource Include="Bilder\SchiebeSchalterOff.jpg" />
+    <EmbeddedResource Include="Bilder\SchiebeSchalterOn.jpg" />
+    <EmbeddedResource Include="Bilder\Schneckenfoerderer.gif" />
+    <EmbeddedResource Include="Bilder\Schwimmerschalter.jpg" />
+    <EmbeddedResource Include="Bilder\SchwimmerschalterBetaetigt.jpg" />
+    <EmbeddedResource Include="Bilder\TasterBetaetigt.jpg" />
+    <EmbeddedResource Include="Bilder\TasterSchliesser.jpg" />
+    <EmbeddedResource Include="Bilder\VentilElektrischAus.jpg" />
+    <EmbeddedResource Include="Bilder\VentilElektrischEin.jpg" />
+    <EmbeddedResource Include="Bilder\Zahnrad.png" />
+    <EmbeddedResource Include="Bilder\Zahnstange.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Videos\Flammen.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

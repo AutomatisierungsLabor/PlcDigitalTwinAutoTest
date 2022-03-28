@@ -20,16 +20,16 @@ var DQ_0_3  ="2#1000"       // Q1 	Antrieb Förderband
 
 main()
 {
-    var B1 = Plc2Dec(DI_0_0)    // Füllstand
-    var B2 = Plc2Dec(DI_0_1)    // Position Dose 
-    var S1 = Plc2Dec(DI_0_2)    // Taster "Reset" 
-    var S2 = Plc2Dec(DI_0_3)    // Taster "Start" 
+    var B1 = PlcToDec(DI_0_0)    // Füllstand
+    var B2 = PlcToDec(DI_0_1)    // Position Dose 
+    var S1 = PlcToDec(DI_0_2)    // Taster "Reset" 
+    var S2 = PlcToDec(DI_0_3)    // Taster "Start" 
 
     var AllesAus = 0
-    var K1 = Plc2Dec(DQ_0_0)    // Spule Vereinzelner 
-    var K2 = Plc2Dec(DQ_0_1)    // Spule Füllen 
-    var P1 = Plc2Dec(DQ_0_2)    // Meldeleuchte "Behälter leer" 
-    var Q1 = Plc2Dec(DQ_0_3)    // Antrieb Förderband 
+    var K1 = PlcToDec(DQ_0_0)    // Spule Vereinzelner 
+    var K2 = PlcToDec(DQ_0_1)    // Spule Füllen 
+    var P1 = PlcToDec(DQ_0_2)    // Meldeleuchte "Behälter leer" 
+    var Q1 = PlcToDec(DQ_0_3)    // Antrieb Förderband 
 
     var Maske_K1_K2_P1_Q1 = K1 + K2 + P1 + Q1
 

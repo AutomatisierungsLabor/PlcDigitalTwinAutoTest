@@ -1,0 +1,94 @@
+﻿FUNCTION_BLOCK "DeleteMe"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR 
+      Anzahl : Int;
+      Funktion : Int;
+      LinksAlt { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+      RechtsAlt { ExternalAccessible := 'False'; ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool;
+   END_VAR
+
+
+BEGIN
+	"LinksGedrückt".TON(IN:="DigInput".S5,  PT:=t#500ms);
+	"RechtsGedrückt".TON(IN:="DigInput".S6, PT:=t#500ms);
+	"Blinker".PT := t#1s600ms;
+	
+	CASE #Funktion OF
+	    0:  // Aus
+	        #Anzahl := 0;
+	        "Blinker".TON(IN := FALSE, PT := t#1s600ms);
+	        "DigOutput".P3 := FALSE;
+	        "DigOutput".P4 := FALSE;
+	        
+	        IF ("DigInput".S5 AND (NOT #LinksAlt)) THEN #Funktion := 1; END_IF;
+	        IF ("DigInput".S6 AND (NOT #RechtsAlt)) THEN #Funktion := 3; END_IF;
+	        
+	    1:  // links kurz gedrückt
+	        "Blinker".TON(IN := TRUE, PT := t#1s600ms);
+	        IF "Blinker".Q THEN
+	            "Blinker".TON(IN := FALSE, PT := t#1s600ms);
+	            #Anzahl += 1;
+	        END_IF;
+	        
+	        "DigOutput".P3 := "Blinker".ET < t#800ms;
+	        "DigOutput".P4 := FALSE;
+	        
+	        IF "LinksGedrückt".Q THEN #Funktion := 2; END_IF;   // länger als 0,5" gedrückt
+	        IF #Anzahl > 1 AND "Blinker".ET > T#800ms THEN #Funktion := 0; END_IF;
+	        
+	    2:  // links lange gedrückt
+	        "Blinker".TON(IN := TRUE, PT := t#1s600ms);
+	        IF "Blinker".Q THEN
+	            "Blinker".TON(IN := FALSE, PT := t#1s600ms);
+	            #Anzahl += 1;
+	        END_IF;
+	        
+	        "DigOutput".P3 := "Blinker".ET < t#800ms;
+	        "DigOutput".P4 := FALSE;
+	        
+	        IF ("DigInput".S5 AND (NOT #LinksAlt)) THEN #Funktion := 0; END_IF;
+	        IF "DigInput".S6 THEN
+	            "Blinker".TON(IN := FALSE, PT := t#1s600ms);
+	            #Anzahl := 0;
+	            #Funktion := 3;
+	        END_IF;
+	        
+	    3:  // rechts kurz
+	        "Blinker".TON(IN := TRUE, PT := t#1s600ms);
+	        IF "Blinker".Q THEN
+	            "Blinker".TON(IN := FALSE, PT := t#1s600ms);
+	            #Anzahl += 1;
+	        END_IF;
+	        
+	        "DigOutput".P3 := FALSE;
+	        "DigOutput".P4 := "Blinker".ET < t#800ms;
+	        
+	        IF "RechtsGedrückt".Q THEN #Funktion := 4; END_IF;   // länger als 0,5" gedrückt
+	        IF #Anzahl > 1 AND "Blinker".ET > T#800ms THEN #Funktion := 0; END_IF;
+	        
+	    4: // rechts lange
+	        "Blinker".TON(IN := TRUE, PT := t#1s600ms);
+	        IF "Blinker".Q THEN
+	            "Blinker".TON(IN := FALSE, PT := t#1s600ms);
+	            #Anzahl += 1;
+	        END_IF;
+	        
+	        "DigOutput".P3 := FALSE;
+	        "DigOutput".P4 := "Blinker".ET < t#800ms;
+	        
+	        IF ("DigInput".S6 AND (NOT #RechtsAlt)) THEN #Funktion := 0; END_IF;
+	        IF "DigInput".S5 THEN
+	            "Blinker".TON(IN := FALSE, PT := t#1s600ms);
+	            #Anzahl := 0;
+	            #Funktion := 1;
+	        END_IF;
+	        
+	    ELSE  // Statement section ELSE
+	        #Funktion := 0;
+	END_CASE;
+	
+	#LinksAlt := "DigInput".S5;
+	#RechtsAlt := "DigInput".S6;
+END_FUNCTION_BLOCK
+
