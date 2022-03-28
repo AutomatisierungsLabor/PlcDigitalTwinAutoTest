@@ -20,8 +20,12 @@ jobs:
 
     - name: Usage
       env:
+          NAME: AlleBilderAnzeigen
           TIME: "${{ steps.time.outputs.time }}"
       run: |
+          echo $${{ env.NAME }}
+          echo $${{ env.TIME }}
+          echo $NAME
           echo $TIME
 
     - uses: actions/checkout@v2
@@ -34,5 +38,5 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-        name: ${{ env.TIME }}-AlleBilderAnzeigen
+        name: ${{ env.NAME }}-${{ env.TIME }}
         path: PublishMin
