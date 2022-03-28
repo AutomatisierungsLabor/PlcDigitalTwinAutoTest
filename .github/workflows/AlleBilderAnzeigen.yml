@@ -23,10 +23,8 @@ jobs:
           NAME: AlleBilderAnzeigen
           TIME: "${{ steps.time.outputs.time }}"
       run: |
-          echo $${{ env.NAME }}
-          echo $${{ env.TIME }}
-          echo $NAME
-          echo $TIME
+          echo ${{ env.NAME }}
+          echo ${{ env.TIME }}
 
     - uses: actions/checkout@v2
 
