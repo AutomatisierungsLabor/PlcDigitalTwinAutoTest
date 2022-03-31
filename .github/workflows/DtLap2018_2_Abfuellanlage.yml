@@ -1,0 +1,32 @@
+name: DigitalTwin Lap2018_2_Abfuellanlage
+
+on:
+  push:
+    branches: [ main ]
+
+env:
+      PROJECT_PATH: PlcDigitalTwinAutoTest/Lap2018_2_Abfuellanlage/Lap2018_2_Abfuellanlage.csproj
+      
+jobs:
+  deploy:
+    runs-on: windows-latest 
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.x
+
+    - uses: microsoft/variable-substitution@v1 
+      with:
+        files: 'PlcDigitalTwinAutoTest/LibPlcKommunikation/IpAdressenSiemens.json'
+      env:
+        Adress: "192.168.0.10"
+        
+    - run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o PublishMin
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Lap2018_2_Abfuellanlage Min
+        path: PublishMin

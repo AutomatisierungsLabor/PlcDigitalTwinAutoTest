@@ -1,0 +1,18 @@
+﻿{
+  "Zeilen": [
+    {
+      "StartByte": 0,
+      "AnzahlBit": 16,
+      "Type": "Default",
+      "Bezeichnung": "Pegel",
+      "Kommentar": "Pegel 0-100"
+    },
+    {
+      "StartByte": 2,
+      "AnzahlBit": 16,
+      "Type": "SiemensAnalogwertProzent",
+      "Bezeichnung": "Pegel",
+      "Kommentar": "Pegel"
+    }
+  ]
+}

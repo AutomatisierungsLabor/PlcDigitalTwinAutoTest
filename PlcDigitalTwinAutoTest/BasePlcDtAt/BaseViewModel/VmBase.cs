@@ -59,6 +59,8 @@ public abstract partial class VmBase
             Margin.Add(new Thickness(0, 0, 0, 0));
             TransformOrigin.Add(new Point(0, 0));
             Winkel.Add(0);
+            PosLinks.Add(0);
+            PositionOben.Add(0);
         }
 
         Farbe[(int)WpfBase.ErrorAnzeige] = Brushes.Red;

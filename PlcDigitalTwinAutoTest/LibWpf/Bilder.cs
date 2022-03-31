@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using WpfAnimatedGif;
@@ -37,33 +38,42 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildSichtbarkeitEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    public void BildSetVisibilityEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var (image, _) = ImageErzeugen(source, margin);
-        image.SetSichtbarkeitEinBinding(wpfId);
+        image.SetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildSichtbarkeitAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    public void BildSetVisibilityAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var (image, _) = ImageErzeugen(source, margin);
-        image.SetSichtbarkeitAusBinding(wpfId);
+        image.SetVisibilityAusBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildSichtbarEinAus(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    public void BildSetVisibilityEinAus(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var (imageOn, _) = ImageErzeugen(sourceOn, margin);
-        imageOn.SetSichtbarkeitEinBinding(wpfId);
+        imageOn.SetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOn);
 
         var (imageOff, _) = ImageErzeugen(sourceOff, margin);
-        imageOff.SetSichtbarkeitAusBinding(wpfId);
+        imageOff.SetVisibilityAusBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
     }
-    public void BildDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    public void BildSetMarginVisibilityEin(string source, int xPos, int xSpan, int yPos, int ySpan, object wpfId)
+    {
+        var (image, _) = ImageErzeugen(source, new Thickness(0,0,0,0));
+        image.SetVisibilityEinBinding(wpfId);
+        
+        BindingOperations.SetBinding(image, FrameworkElement.MarginProperty, new Binding($"Margin[{(int)wpfId}]"));
+        
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
+    public void BildSetDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         _ = wpfId; // TODO noch fertigstellen!
 
@@ -71,7 +81,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildRand(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    public void BildSetMargin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         _ = wpfId; // TODO noch fertigstellen!
 

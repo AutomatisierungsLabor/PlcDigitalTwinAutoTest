@@ -47,8 +47,8 @@ public partial class TabZeichnen
         var ventilRand = new Thickness(0, 0, 0, 0);
         libWpf.Text("K1", 4, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.BildSichtbarkeitEin("VentilElektrischEin.jpg", 4, 2, 12, 2, ventilRand, WpfObjects.K1);
-        libWpf.BildSichtbarkeitAus("VentilElektrischAus.jpg", 4, 2, 12, 2, ventilRand, WpfObjects.K1);
+        libWpf.BildSetVisibilityEin("VentilElektrischEin.jpg", 4, 2, 12, 2, ventilRand, WpfObjects.K1);
+        libWpf.BildSetVisibilityAus("VentilElektrischAus.jpg", 4, 2, 12, 2, ventilRand, WpfObjects.K1);
 
 
         libWpf.RechteckFill(10, 6, 2, 6, Brushes.Coral);
@@ -59,8 +59,8 @@ public partial class TabZeichnen
 
         libWpf.Text("K2", 8, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.BildSichtbarkeitEin("VentilElektrischEin.jpg", 10, 2, 12, 2, ventilRand, WpfObjects.K2);
-        libWpf.BildSichtbarkeitAus("VentilElektrischAus.jpg", 10, 2, 12, 2, ventilRand, WpfObjects.K2);
+        libWpf.BildSetVisibilityEin("VentilElektrischEin.jpg", 10, 2, 12, 2, ventilRand, WpfObjects.K2);
+        libWpf.BildSetVisibilityAus("VentilElektrischAus.jpg", 10, 2, 12, 2, ventilRand, WpfObjects.K2);
 
 
         // libWpf.PlcError();

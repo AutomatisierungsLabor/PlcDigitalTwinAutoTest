@@ -48,8 +48,8 @@ public partial class TabZeichnen
 
         libWpf.VideoAutoPlay("Flammen.mp4", 7, 3, 5, 3);
 
-        libWpf.BildDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnradWinkel);
-        libWpf.BildRand("Zahnstange.png", 2, 20, 8, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnstangePosition);
+        libWpf.BildSetDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnradWinkel);
+        libWpf.BildSetMargin("Zahnstange.png", 2, 20, 8, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnstangePosition);
 
         libWpf.RechteckFillStrokeSetMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, WpfObjects.OfentuerePosition);
 
@@ -58,16 +58,16 @@ public partial class TabZeichnen
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 8, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("InitiatorenSchliesser.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
-        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigt.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSetVisibilityAus("InitiatorenSchliesser.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSetVisibilityEin("InitiatorenBetaetigt.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
 
         libWpf.Text("B2", 12, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("InitiatorenSchliesser.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
-        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigt.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSetVisibilityAus("InitiatorenSchliesser.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSetVisibilityEin("InitiatorenBetaetigt.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
 
         libWpf.Text("B3", 16, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("InitiatorenSchliesser.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
-        libWpf.BildSichtbarkeitEin("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
+        libWpf.BildSetVisibilityAus("InitiatorenSchliesser.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
+        libWpf.BildSetVisibilityEin("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
 
 
         libWpf.RechteckSetFill(2, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);

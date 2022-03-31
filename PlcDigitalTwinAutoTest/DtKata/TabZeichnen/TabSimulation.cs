@@ -28,29 +28,29 @@ public partial class TabZeichnen
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
-        libWpf.BildSichtbarkeitAus("TasterSchliesser.jpg", 5, 2, 1, 2, kontakteRand, WpfObjects.S1);
-        libWpf.BildSichtbarkeitEin("TasterBetaetigt.jpg", 5, 2, 1, 2, kontakteRand, WpfObjects.S1);
+        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 5, 2, 1, 2, kontakteRand, WpfObjects.S1);
+        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 5, 2, 1, 2, kontakteRand, WpfObjects.S1);
 
-        libWpf.BildSichtbarkeitAus("TasterSchliesser.jpg", 5, 2, 3, 2, kontakteRand, WpfObjects.S2);
-        libWpf.BildSichtbarkeitEin("TasterBetaetigt.jpg", 5, 2, 3, 2, kontakteRand, WpfObjects.S2);
+        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 5, 2, 3, 2, kontakteRand, WpfObjects.S2);
+        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 5, 2, 3, 2, kontakteRand, WpfObjects.S2);
 
-        libWpf.BildSichtbarkeitAus("TasterSchliesser.jpg", 5, 2, 5, 2, kontakteRand, WpfObjects.S3);
-        libWpf.BildSichtbarkeitEin("TasterBetaetigt.jpg", 5, 2, 5, 2, kontakteRand, WpfObjects.S3);
+        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 5, 2, 5, 2, kontakteRand, WpfObjects.S3);
+        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 5, 2, 5, 2, kontakteRand, WpfObjects.S3);
 
-        libWpf.BildSichtbarkeitAus("TasterSchliesser.jpg", 5, 2, 7, 2, kontakteRand, WpfObjects.S4);
-        libWpf.BildSichtbarkeitEin("TasterBetaetigt.jpg", 5, 2, 7, 2, kontakteRand, WpfObjects.S4);
+        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 5, 2, 7, 2, kontakteRand, WpfObjects.S4);
+        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 5, 2, 7, 2, kontakteRand, WpfObjects.S4);
 
-        libWpf.BildSichtbarkeitAus("TasterSchliesser.jpg", 5, 2, 10, 2, kontakteRand, WpfObjects.S5);
-        libWpf.BildSichtbarkeitEin("TasterBetaetigt.jpg", 5, 2, 10, 2, kontakteRand, WpfObjects.S5);
+        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 5, 2, 10, 2, kontakteRand, WpfObjects.S5);
+        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 5, 2, 10, 2, kontakteRand, WpfObjects.S5);
 
-        libWpf.BildSichtbarkeitAus("TasterSchliesser.jpg", 5, 2, 12, 2, kontakteRand, WpfObjects.S6);
-        libWpf.BildSichtbarkeitEin("TasterBetaetigt.jpg", 5, 2, 12, 2, kontakteRand, WpfObjects.S6);
+        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 5, 2, 12, 2, kontakteRand, WpfObjects.S6);
+        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 5, 2, 12, 2, kontakteRand, WpfObjects.S6);
 
-        libWpf.BildSichtbarkeitAus("TasterSchliesser.jpg", 5, 2, 14, 2, kontakteRand, WpfObjects.S7);
-        libWpf.BildSichtbarkeitEin("TasterBetaetigt.jpg", 5, 2, 14, 2, kontakteRand, WpfObjects.S7);
+        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 5, 2, 14, 2, kontakteRand, WpfObjects.S7);
+        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 5, 2, 14, 2, kontakteRand, WpfObjects.S7);
 
-        libWpf.BildSichtbarkeitAus("TasterSchliesser.jpg", 5, 2, 16, 2, kontakteRand, WpfObjects.S8);
-        libWpf.BildSichtbarkeitEin("TasterBetaetigt.jpg", 5, 2, 16, 2, kontakteRand, WpfObjects.S8);
+        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 5, 2, 16, 2, kontakteRand, WpfObjects.S8);
+        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 5, 2, 16, 2, kontakteRand, WpfObjects.S8);
 
 
         var kreisRand = new Thickness(2, 2, 2, 2);

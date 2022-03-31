@@ -69,8 +69,8 @@ public partial class TabZeichnen
 
         var pumpeRand = new Thickness(0, 0, 0, 0);
         libWpf.Text("Q1", 2, 2, 3, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("PumpeWaagrechtAus.jpg", 4, 2, 4, 2, pumpeRand, WpfObjects.Q1);
-        libWpf.BildSichtbarkeitEin("PumpeWaagrechtEin.jpg", 4, 2, 4, 2, pumpeRand, WpfObjects.Q1);
+        libWpf.BildSetVisibilityAus("PumpeWaagrechtAus.jpg", 4, 2, 4, 2, pumpeRand, WpfObjects.Q1);
+        libWpf.BildSetVisibilityEin("PumpeWaagrechtEin.jpg", 4, 2, 4, 2, pumpeRand, WpfObjects.Q1);
 
 
         libWpf.RechteckMarginSetFill(8, 2, 16, 3, new Thickness(20, 0, 20, 0), WpfObjects.AbleitungOben);
@@ -83,13 +83,13 @@ public partial class TabZeichnen
         var kontakteRand = new Thickness(20, 5, 0, 5);
 
         libWpf.Text("B1", 12, 2, 7, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("Schwimmerschalter.jpg", 13, 2, 7, 2, kontakteRand, WpfObjects.B1);
-        libWpf.BildSichtbarkeitEin("SchwimmerschalterBetaetigt.jpg", 13, 2, 7, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSetVisibilityAus("Schwimmerschalter.jpg", 13, 2, 7, 2, kontakteRand, WpfObjects.B1);
+        libWpf.BildSetVisibilityEin("SchwimmerschalterBetaetigt.jpg", 13, 2, 7, 2, kontakteRand, WpfObjects.B1);
 
 
         libWpf.Text("B2", 12, 2, 14, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarkeitAus("Schwimmerschalter.jpg", 13, 2, 14, 2, kontakteRand, WpfObjects.B2);
-        libWpf.BildSichtbarkeitEin("SchwimmerschalterBetaetigt.jpg", 13, 2, 14, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSetVisibilityAus("Schwimmerschalter.jpg", 13, 2, 14, 2, kontakteRand, WpfObjects.B2);
+        libWpf.BildSetVisibilityEin("SchwimmerschalterBetaetigt.jpg", 13, 2, 14, 2, kontakteRand, WpfObjects.B2);
 
 
 

@@ -41,7 +41,7 @@ public partial class TabZeichnen
         libWpf.TextSetContendSetVisibility(15, 8, 10, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.MaterialSiloFuellstand);
 
         libWpf.Text("Y1", 16, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarEinAus("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 17, 3, 14, 2, new Thickness(0, 0, 5, 0), WpfObjects.Y1);
+        libWpf.BildSetVisibilityEinAus("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 17, 3, 14, 2, new Thickness(0, 0, 5, 0), WpfObjects.Y1);
         libWpf.RechteckMarginSetFill(15, 8, 13, 1, new Thickness(110, 0, 110, 0), WpfObjects.MaterialOben);
         libWpf.RechteckMarginSetFill(15, 8, 16, 2, new Thickness(110, 0, 110, 0), WpfObjects.MaterialUnten);
 
@@ -64,10 +64,10 @@ public partial class TabZeichnen
         libWpf.RechteckFillStrokeSetMargin(1, 20, 21, 10, Brushes.Firebrick, Brushes.Firebrick, 0, WpfObjects.PostionWagenInhalt);
 
         libWpf.Text("B1", 17, 2, 28, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarEinAus("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 19, 2, 28, 2, new Thickness(0, 0, 0, 0), WpfObjects.B1);
+        libWpf.BildSetVisibilityEinAus("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 19, 2, 28, 2, new Thickness(0, 0, 0, 0), WpfObjects.B1);
 
         libWpf.Text("B2", 10, 2, 28, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSichtbarEinAus("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 12, 2, 28, 2, new Thickness(0, 0, 0, 0), WpfObjects.B2);
+        libWpf.BildSetVisibilityEinAus("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 12, 2, 28, 2, new Thickness(0, 0, 0, 0), WpfObjects.B2);
 
         libWpf.ButtonContentRounded(2, 4, 30, 2, 20, 5, new Thickness(0, 0, 0, 0), Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.WagenNachLinks);
         libWpf.ButtonContentRounded(12, 4, 30, 2, 20, 5, new Thickness(0, 0, 0, 0), Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.WagenNachRechts);
