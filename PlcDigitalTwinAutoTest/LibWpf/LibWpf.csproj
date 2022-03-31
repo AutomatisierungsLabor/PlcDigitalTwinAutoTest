@@ -25,7 +25,7 @@
     <None Remove="Bilder\Fohrenburger4.jpg" />
     <None Remove="Bilder\Fohrenburger5.jpg" />
     <None Remove="Bilder\Fohrenburger6.jpg" />
-    <None Remove="Bilder\Fransziskaner.jpg" />
+    <None Remove="Bilder\Franziskaner.jpg" />
     <None Remove="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
     <None Remove="Bilder\InitiatorenBetaetigt.jpg" />
     <None Remove="Bilder\InitiatorenSchliesser.jpg" />
@@ -73,9 +73,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Bilder\Dose1.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Bilder\Dose1.jpg"/>
     <EmbeddedResource Include="Bilder\Dose2.jpg" />
     <EmbeddedResource Include="Bilder\Dose3.jpg" />
     <EmbeddedResource Include="Bilder\Dose4.jpg" />
@@ -87,7 +85,7 @@
     <EmbeddedResource Include="Bilder\Fohrenburger4.jpg" />
     <EmbeddedResource Include="Bilder\Fohrenburger5.jpg" />
     <EmbeddedResource Include="Bilder\Fohrenburger6.jpg" />
-    <EmbeddedResource Include="Bilder\Fransziskaner.jpg" />
+    <EmbeddedResource Include="Bilder\Franziskaner.jpg"/>
     <EmbeddedResource Include="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
     <EmbeddedResource Include="Bilder\InitiatorenBetaetigt.jpg" />
     <EmbeddedResource Include="Bilder\InitiatorenSchliesser.jpg" />

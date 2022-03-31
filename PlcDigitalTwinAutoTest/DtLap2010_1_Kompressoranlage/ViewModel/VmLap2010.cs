@@ -29,7 +29,7 @@ public enum WpfObjects
 }
 public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 {
-    private readonly ModelLap2010? _modelLap2010;
+    private readonly ModelLap2010 _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
 
     public VmLap2010(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)

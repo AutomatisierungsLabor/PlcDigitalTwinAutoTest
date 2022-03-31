@@ -105,7 +105,7 @@ public partial class LibWpf
             Stroke = rand
         };
         rectangle.SetFillingBinding(wpfId);
-        rectangle.SetSichtbarkeitEinBinding(wpfId);
+        rectangle.SetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }

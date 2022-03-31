@@ -32,6 +32,7 @@
     <ProjectReference Include="..\LibPlcKommunikation\LibPlcKommunikation.csproj" />
     <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
     <ProjectReference Include="..\LibPlcTools\LibPlcTools.csproj" />
+    <ProjectReference Include="..\LibUtil\LibUtil.csproj" />
   </ItemGroup>
 
   <ItemGroup>

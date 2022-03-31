@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Media;
+using LibUtil;
 
 namespace BasePlcDtAt.BaseViewModel;
 
@@ -8,7 +10,33 @@ public abstract partial class VmBase
 {
     protected void FarbeUmschalten(bool val, int i, Brush farbeTrue, Brush farbeFalse) => Farbe[i] = val ? farbeTrue : farbeFalse;
     protected void SichtbarkeitUmschalten(bool val, int i) => SichtbarEin[i] = val ? Visibility.Visible : Visibility.Hidden;
+    protected void PositionSetzen(Punkt punkt, Index i)
+    {
+        PosLinks[i] = punkt.X;
+        PositionOben[i] = punkt.Y;
+    }
 
+    private ObservableCollection<double> _positonOben = new();
+    public ObservableCollection<double> PositionOben
+    {
+        get => _positonOben;
+        set
+        {
+            _positonOben = value;
+            OnPropertyChanged(nameof(PositionOben));
+        }
+    }
+
+    private ObservableCollection<double> _positionLinks = new();
+    public ObservableCollection<double> PosLinks
+    {
+        get => _positionLinks;
+        set
+        {
+            _positionLinks = value;
+            OnPropertyChanged(nameof(PosLinks));
+        }
+    }
 
     private ObservableCollection<Visibility> _sichtbarEin = new();
     public ObservableCollection<Visibility> SichtbarEin
