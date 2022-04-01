@@ -1,0 +1,75 @@
+﻿{
+  "Zeilen": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "B1",
+      "Kommentar": "Füllstand Ölbehälter"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "B2",
+      "Kommentar": "Druck erreicht"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "B3",
+      "Kommentar": "Überdruck (Öffner)"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "B4",
+      "Kommentar": "Temperatur Ölbehälter (Öffner)"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "B5",
+      "Kommentar": "Druckschalter Ölfilter (Öffner)"
+    },
+
+    {
+      "StartByte": 0,
+      "StartBit": 5,
+      "Type": "Bit",
+      "Bezeichnung": "F1",
+      "Kommentar": "Störung Motorschutzschalter (Öffner)"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 6,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar": "Taster Start"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 7,
+      "Type": "Bit",
+      "Bezeichnung": "S2",
+      "Kommentar": "Taster Stop"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "S3",
+      "Kommentar": "Taster Quittieren"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "S4",
+      "Kommentar": "Taster Zyklinder"
+    }
+  ]
+}
