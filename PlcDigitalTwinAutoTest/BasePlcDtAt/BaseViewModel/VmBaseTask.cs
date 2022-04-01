@@ -1,5 +1,4 @@
-﻿
-using Contracts;
+﻿using Contracts;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;

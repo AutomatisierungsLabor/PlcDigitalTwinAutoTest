@@ -31,7 +31,7 @@ public enum WpfObjects
     S7 = 37,
     S8 = 38
 }
-public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmKata : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelKata _modelKata;
     private readonly Datenstruktur _datenstruktur;
@@ -41,10 +41,10 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         _modelKata = model as ModelKata;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -61,15 +61,15 @@ public class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         if (_modelKata == null) return;
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        SichtbarkeitUmschalten(_modelKata.S1, (int)WpfObjects.S1);
-        SichtbarkeitUmschalten(_modelKata.S2, (int)WpfObjects.S2);
-        SichtbarkeitUmschalten(_modelKata.S3, (int)WpfObjects.S3);
-        SichtbarkeitUmschalten(_modelKata.S4, (int)WpfObjects.S4);
-        SichtbarkeitUmschalten(_modelKata.S5, (int)WpfObjects.S5);
-        SichtbarkeitUmschalten(_modelKata.S6, (int)WpfObjects.S6);
-        SichtbarkeitUmschalten(_modelKata.S7, (int)WpfObjects.S7);
-        SichtbarkeitUmschalten(_modelKata.S8, (int)WpfObjects.S8);
-
+        (VisibilityEinS1, VisibilityAusS1) = SetVisibility(_modelKata.S1);
+        (VisibilityEinS2, VisibilityAusS2) = SetVisibility(_modelKata.S2);
+        (VisibilityEinS3, VisibilityAusS3) = SetVisibility(_modelKata.S3);
+        (VisibilityEinS4, VisibilityAusS4) = SetVisibility(_modelKata.S4);
+        (VisibilityEinS5, VisibilityAusS5) = SetVisibility(_modelKata.S5);
+        (VisibilityEinS6, VisibilityAusS6) = SetVisibility(_modelKata.S6);
+        (VisibilityEinS7, VisibilityAusS7) = SetVisibility(_modelKata.S7);
+        (VisibilityEinS8, VisibilityAusS8) = SetVisibility(_modelKata.S8);
+        
         FarbeUmschalten(_modelKata.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
         FarbeUmschalten(_modelKata.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.White);
         FarbeUmschalten(_modelKata.P3, (int)WpfObjects.P3, Brushes.LawnGreen, Brushes.White);

@@ -29,7 +29,7 @@ public enum WpfObjects
     S7 = 37,
     S8 = 38
 }
-public class VmLeitungszuordnungsTester : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmLeitungszuordnungsTester : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly Datenstruktur _datenstruktur;
 
@@ -38,10 +38,10 @@ public class VmLeitungszuordnungsTester : BasePlcDtAt.BaseViewModel.VmBase
        // _modelLeitungszuordnungsTester = model as ModelLeitungszuordnungsTester;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;

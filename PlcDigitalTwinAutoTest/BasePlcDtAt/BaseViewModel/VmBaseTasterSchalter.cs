@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Windows.Controls;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class VmBase : INotifyPropertyChanged
+public abstract partial class VmBase
 {
     internal void Taster(object id)
     {

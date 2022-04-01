@@ -59,7 +59,7 @@ public partial class LibWpf
             Command = cmd,
             CommandParameter = cmdParameter
         };
-        buttonOn.SetVisibilityEinBinding(cmdParameter);
+        buttonOn.RipSetVisibilityEinBinding(cmdParameter);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, buttonOn);
 
         var (imageOff, _) = ImageErzeugen(sourceOff, margin);
@@ -70,7 +70,7 @@ public partial class LibWpf
             Command = cmd,
             CommandParameter = cmdParameter
         };
-        buttonOff.SetVisibilityAusBinding(cmdParameter);
+        buttonOff.RipSetVisibilityAusBinding(cmdParameter);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, buttonOff);
     }
 }

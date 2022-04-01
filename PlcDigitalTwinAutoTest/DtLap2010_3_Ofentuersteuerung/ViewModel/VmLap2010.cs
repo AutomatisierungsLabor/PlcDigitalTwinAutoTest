@@ -31,7 +31,7 @@ public enum WpfObjects
     ZahnstangePosition = 51,
     OfentuerePosition = 52
 }
-public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLap2010? _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
@@ -41,10 +41,10 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         _modelLap2010 = model as ModelLap2010;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -70,10 +70,10 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         Margin[(int)WpfObjects.ZahnstangePosition] = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionZahnstange;
         Winkel[(int)WpfObjects.ZahnradWinkel] = _modelLap2010!.WinkelZahnrad;
 
-        SichtbarkeitUmschalten(_modelLap2010.B1, 1);
-        SichtbarkeitUmschalten(_modelLap2010.B2, 2);
-        SichtbarkeitUmschalten(_modelLap2010.B3, 3);
-        SichtbarkeitUmschalten(_modelLap2010.Q1 && _modelLap2010.Q2, 20);
+        RipSichtbarkeitUmschalten(_modelLap2010.B1, 1);
+        RipSichtbarkeitUmschalten(_modelLap2010.B2, 2);
+        RipSichtbarkeitUmschalten(_modelLap2010.B3, 3);
+        RipSichtbarkeitUmschalten(_modelLap2010.Q1 && _modelLap2010.Q2, 20);
 
         FarbeUmschalten(_modelLap2010.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
         FarbeUmschalten(_modelLap2010.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.White);

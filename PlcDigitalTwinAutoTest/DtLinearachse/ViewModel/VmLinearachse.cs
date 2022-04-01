@@ -34,7 +34,7 @@ public enum WpfObjects
 
     PositionSchlitten = 60
 }
-public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLinearachse _modelLinearachse;
     private readonly Datenstruktur _datenstruktur;
@@ -43,10 +43,10 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
     {
         _datenstruktur= datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Visible;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -71,9 +71,9 @@ public class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        SichtbarkeitUmschalten(_modelLinearachse.B1, (int)WpfObjects.B1);
-        SichtbarkeitUmschalten(_modelLinearachse.B2, (int)WpfObjects.B2);
-        SichtbarkeitUmschalten(_modelLinearachse.S10, (int)WpfObjects.S10);
+        RipSichtbarkeitUmschalten(_modelLinearachse.B1, (int)WpfObjects.B1);
+        RipSichtbarkeitUmschalten(_modelLinearachse.B2, (int)WpfObjects.B2);
+        RipSichtbarkeitUmschalten(_modelLinearachse.S10, (int)WpfObjects.S10);
 
         FarbeUmschalten(_modelLinearachse.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
         FarbeUmschalten(_modelLinearachse.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.White);

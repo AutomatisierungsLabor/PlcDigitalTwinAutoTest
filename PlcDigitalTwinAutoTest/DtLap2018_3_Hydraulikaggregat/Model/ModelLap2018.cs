@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Windows;
 using LibDatenstruktur;
 
 namespace DtLap2018_3_Hydraulikaggregat.Model;

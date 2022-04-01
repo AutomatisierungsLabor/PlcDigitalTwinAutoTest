@@ -30,7 +30,7 @@ public partial class LibWpf
         };
 
         label.SetContentBinding(wpfId);
-        label.SetVisibilityEinBinding(wpfId);
+        label.RipSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
@@ -50,7 +50,7 @@ public partial class LibWpf
         };
 
         text.SetTextBlockBinding(wpfId);
-        text.SetVisibilityEinBinding(wpfId);
+        text.RipSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, text);
     }

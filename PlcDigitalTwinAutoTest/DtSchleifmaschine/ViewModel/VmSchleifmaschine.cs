@@ -34,7 +34,7 @@ public enum WpfObjects
     WinkelSchleifmaschine = 50,
     SchleifmaschineDrehzahl = 51
 }
-public class VmSchleifmaschine : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmSchleifmaschine : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelSchleifmaschine _modelSchleifmaschine;
     private readonly Datenstruktur _datenstruktur;
@@ -43,10 +43,10 @@ public class VmSchleifmaschine : BasePlcDtAt.BaseViewModel.VmBase
     {
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -75,8 +75,8 @@ public class VmSchleifmaschine : BasePlcDtAt.BaseViewModel.VmBase
         AktuelleDrehzahl = _modelSchleifmaschine.DrehzahlSchleifmaschine;
         Text[(int)WpfObjects.SchleifmaschineDrehzahl] = "n=" + _modelSchleifmaschine.DrehzahlSchleifmaschine;
         
-        SichtbarkeitUmschalten(_modelSchleifmaschine.B1, (int)WpfObjects.B1);
-        SichtbarkeitUmschalten(_modelSchleifmaschine.S3, (int)WpfObjects.S3);
+        RipSichtbarkeitUmschalten(_modelSchleifmaschine.B1, (int)WpfObjects.B1);
+        RipSichtbarkeitUmschalten(_modelSchleifmaschine.S3, (int)WpfObjects.S3);
 
         FarbeUmschalten(_modelSchleifmaschine.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
         FarbeUmschalten(_modelSchleifmaschine.F2, (int)WpfObjects.F2, Brushes.LawnGreen, Brushes.Red);

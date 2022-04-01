@@ -21,12 +21,12 @@ public partial class TabZeichnen
 
         var kontakteRand = new Thickness(2, 5, 2, 5);
 
-        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 10, 2, 0, 2, kontakteRand, WpfObjects.B1);
-        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 10, 2, 0, 2, kontakteRand, WpfObjects.B1);
+        libWpf.RipBildSetVisibilityAus("TasterSchliesser.jpg", 10, 2, 0, 2, kontakteRand, WpfObjects.B1);
+        libWpf.RipBildSetVisibilityEin("TasterBetaetigt.jpg", 10, 2, 0, 2, kontakteRand, WpfObjects.B1);
         libWpf.Text("-B1", 9, 2, 0, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.BildSetVisibilityAus("TasterSchliesser.jpg", 15, 2, 2, 2, kontakteRand, WpfObjects.B2);
-        libWpf.BildSetVisibilityEin("TasterBetaetigt.jpg", 15, 2, 2, 2, kontakteRand, WpfObjects.B2);
+        libWpf.RipBildSetVisibilityAus("TasterSchliesser.jpg", 15, 2, 2, 2, kontakteRand, WpfObjects.B2);
+        libWpf.RipBildSetVisibilityEin("TasterBetaetigt.jpg", 15, 2, 2, 2, kontakteRand, WpfObjects.B2);
         libWpf.Text("-B2", 14, 2, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
         var buttonRand = new Thickness(2, 5, 2, 5);

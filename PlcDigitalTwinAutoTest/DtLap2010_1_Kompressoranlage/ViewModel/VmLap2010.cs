@@ -27,7 +27,7 @@ public enum WpfObjects
 
     Kurzschluss = 40
 }
-public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLap2010 _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
@@ -37,10 +37,10 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         _modelLap2010 = model as ModelLap2010;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -69,8 +69,8 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         FarbeUmschalten(_modelLap2010!.Q2, 7, Brushes.LawnGreen, Brushes.White);
         FarbeUmschalten(_modelLap2010!.Q3, 8, Brushes.LawnGreen, Brushes.White);
 
-        SichtbarkeitUmschalten(_modelLap2010.B1, (int)WpfObjects.B1);
-        SichtbarkeitUmschalten(_modelLap2010.Q2 && _modelLap2010.Q3, (int)WpfObjects.Kurzschluss);
+        RipSichtbarkeitUmschalten(_modelLap2010.B1, (int)WpfObjects.B1);
+        RipSichtbarkeitUmschalten(_modelLap2010.Q2 && _modelLap2010.Q3, (int)WpfObjects.Kurzschluss);
 
         AktuellerDruck = _modelLap2010.Druck;
     }

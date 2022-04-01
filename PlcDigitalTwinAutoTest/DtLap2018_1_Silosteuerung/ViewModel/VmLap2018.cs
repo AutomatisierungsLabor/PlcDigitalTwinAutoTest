@@ -42,7 +42,7 @@ public enum WpfObjects
     PostionWagenInhalt = 51
 }
 
-public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 {
     public ImageAnimationController ImageAnimationController { get; set; }
     public Image ImageSchneckenFoerderer { get; set; }
@@ -57,10 +57,10 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         _modelLap2018 = model as ModelLap2018;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -111,13 +111,13 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         FarbeUmschalten(_modelLap2018!.RutscheVoll, (int)WpfObjects.RutscheVoll, Brushes.Firebrick, Brushes.LightGray);
 
-        SichtbarkeitUmschalten(_modelLap2018!.B1, (int)WpfObjects.B1);
-        SichtbarkeitUmschalten(_modelLap2018!.B2, (int)WpfObjects.B2);
-        SichtbarkeitUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1);
-        SichtbarkeitUmschalten(_modelLap2018!.Q2, (int)WpfObjects.Q2);
-        SichtbarkeitUmschalten(_modelLap2018!.Y1, (int)WpfObjects.Y1);
-        SichtbarkeitUmschalten(true, (int)WpfObjects.MaterialOben);
-        SichtbarkeitUmschalten(true, (int)WpfObjects.MaterialUnten);
+        RipSichtbarkeitUmschalten(_modelLap2018!.B1, (int)WpfObjects.B1);
+        RipSichtbarkeitUmschalten(_modelLap2018!.B2, (int)WpfObjects.B2);
+        RipSichtbarkeitUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1);
+        RipSichtbarkeitUmschalten(_modelLap2018!.Q2, (int)WpfObjects.Q2);
+        RipSichtbarkeitUmschalten(_modelLap2018!.Y1, (int)WpfObjects.Y1);
+        RipSichtbarkeitUmschalten(true, (int)WpfObjects.MaterialOben);
+        RipSichtbarkeitUmschalten(true, (int)WpfObjects.MaterialUnten);
 
         FarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01, (int)WpfObjects.MaterialOben, Brushes.LightGray, Brushes.Firebrick);
         FarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, (int)WpfObjects.MaterialUnten, Brushes.LightGray, Brushes.Firebrick);

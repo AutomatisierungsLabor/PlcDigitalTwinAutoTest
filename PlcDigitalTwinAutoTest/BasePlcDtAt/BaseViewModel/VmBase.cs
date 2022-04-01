@@ -9,10 +9,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace BasePlcDtAt.BaseViewModel;
 
-public abstract partial class VmBase
+public abstract partial class VmBase : ObservableObject
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
@@ -21,8 +22,8 @@ public abstract partial class VmBase
     protected abstract void ViewModelAufrufSchalter(Enum schalterId);
 
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
-  //  public abstract void HomepageButtonClick(object sender, RoutedEventArgs e);
-   // public abstract void AlarmVerwaltungButtonClick(object sender, RoutedEventArgs e);
+    //  public abstract void HomepageButtonClick(object sender, RoutedEventArgs e);
+    // public abstract void AlarmVerwaltungButtonClick(object sender, RoutedEventArgs e);
 
 
 

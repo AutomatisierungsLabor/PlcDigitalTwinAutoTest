@@ -31,7 +31,7 @@ public enum WpfObjects
     PositionRadLinks = 51,
     PositionRadRechts = 52
 }
-public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLap2010? _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
@@ -45,10 +45,10 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         _modelLap2010 = model as ModelLap2010;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -74,10 +74,10 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         FarbeUmschalten(_modelLap2010!.Q2, (int)WpfObjects.Q2, Brushes.LawnGreen, Brushes.White);
         FarbeUmschalten(_modelLap2010!.S2, (int)WpfObjects.S2, Brushes.White, Brushes.Red);
 
-        SichtbarkeitUmschalten(_modelLap2010!.B1, (int)WpfObjects.B1);
-        SichtbarkeitUmschalten(_modelLap2010!.B2, (int)WpfObjects.B2);
-        SichtbarkeitUmschalten(_modelLap2010!.Fuellen, (int)WpfObjects.Fuellen);
-        SichtbarkeitUmschalten(_modelLap2010!.Q1 && _modelLap2010!.Q2, (int)WpfObjects.Kurzschluss);
+        RipSichtbarkeitUmschalten(_modelLap2010!.B1, (int)WpfObjects.B1);
+        RipSichtbarkeitUmschalten(_modelLap2010!.B2, (int)WpfObjects.B2);
+        RipSichtbarkeitUmschalten(_modelLap2010!.Fuellen, (int)WpfObjects.Fuellen);
+        RipSichtbarkeitUmschalten(_modelLap2010!.Q1 && _modelLap2010!.Q2, (int)WpfObjects.Kurzschluss);
 
         var posWagenkastenLinks = _modelLap2010!.Position * (BreiteZeichenbereich - BreiteWagenkasten);
 

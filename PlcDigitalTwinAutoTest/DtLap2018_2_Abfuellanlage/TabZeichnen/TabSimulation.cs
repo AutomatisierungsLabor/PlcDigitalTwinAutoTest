@@ -94,21 +94,21 @@ public partial class TabZeichnen
         libWpf.BildSetMarginVisibilityEin("Kellerbier.jpg", 1, 20, 1, 20, WpfObjects.Flasche5);
         libWpf.BildSetMarginVisibilityEin("OberLänder.jpg", 1, 20, 1, 20, WpfObjects.Flasche6);
 
-        libWpf.BildSetVisibilityEin("Fohrenburger0.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger0);
-        libWpf.BildSetVisibilityEin("Fohrenburger1.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger1);
-        libWpf.BildSetVisibilityEin("Fohrenburger2.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger2);
-        libWpf.BildSetVisibilityEin("Fohrenburger3.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger3);
-        libWpf.BildSetVisibilityEin("Fohrenburger4.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger4);
-        libWpf.BildSetVisibilityEin("Fohrenburger5.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger5);
-        libWpf.BildSetVisibilityEin("Fohrenburger6.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger6);
+        libWpf.RipBildSetVisibilityEin("Fohrenburger0.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger0);
+        libWpf.RipBildSetVisibilityEin("Fohrenburger1.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger1);
+        libWpf.RipBildSetVisibilityEin("Fohrenburger2.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger2);
+        libWpf.RipBildSetVisibilityEin("Fohrenburger3.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger3);
+        libWpf.RipBildSetVisibilityEin("Fohrenburger4.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger4);
+        libWpf.RipBildSetVisibilityEin("Fohrenburger5.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger5);
+        libWpf.RipBildSetVisibilityEin("Fohrenburger6.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Fohrenburger6);
 
-        libWpf.BildSetVisibilityEin("Mohren0.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren0);
-        libWpf.BildSetVisibilityEin("Mohren1.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren1);
-        libWpf.BildSetVisibilityEin("Mohren2.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren2);
-        libWpf.BildSetVisibilityEin("Mohren3.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren3);
-        libWpf.BildSetVisibilityEin("Mohren4.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren4);
-        libWpf.BildSetVisibilityEin("Mohren5.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren5);
-        libWpf.BildSetVisibilityEin("Mohren6.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren6);
+        libWpf.RipBildSetVisibilityEin("Mohren0.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren0);
+        libWpf.RipBildSetVisibilityEin("Mohren1.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren1);
+        libWpf.RipBildSetVisibilityEin("Mohren2.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren2);
+        libWpf.RipBildSetVisibilityEin("Mohren3.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren3);
+        libWpf.RipBildSetVisibilityEin("Mohren4.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren4);
+        libWpf.RipBildSetVisibilityEin("Mohren5.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren5);
+        libWpf.RipBildSetVisibilityEin("Mohren6.jpg", 18, 6, 24, 6, new Thickness(0, 0, 0, 0), WpfObjects.Mohren6);
 
 
         // libWpf.PlcError();

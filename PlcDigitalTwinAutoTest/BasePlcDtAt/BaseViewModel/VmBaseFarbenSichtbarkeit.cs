@@ -9,7 +9,12 @@ namespace BasePlcDtAt.BaseViewModel;
 public abstract partial class VmBase
 {
     protected void FarbeUmschalten(bool val, int i, Brush farbeTrue, Brush farbeFalse) => Farbe[i] = val ? farbeTrue : farbeFalse;
-    protected void SichtbarkeitUmschalten(bool val, int i) => SichtbarEin[i] = val ? Visibility.Visible : Visibility.Hidden;
+    protected (Visibility Ein, Visibility Aus) SetVisibility(bool val)
+    {
+        return val ? (Visibility.Visible, Visibility.Hidden) : (Visibility.Hidden, Visibility.Visible);
+    }
+
+    protected void RipSichtbarkeitUmschalten(bool val, int i) => SichtbarEin[i] = val ? Visibility.Visible : Visibility.Hidden;
     protected void PositionSetzen(Punkt punkt, Index i)
     {
         PosLinks[i] = punkt.X;

@@ -23,7 +23,7 @@ public enum WpfObjects
     S4 = 34,
     S5 = 35
 }
-public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelBlinker _modelBlinker;
     private readonly Datenstruktur _datenstruktur;
@@ -38,10 +38,10 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         _wertLeuchtMelder = new double[5_000];
         _zeitachse = DataGen.Consecutive(5_000);
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -63,11 +63,11 @@ public class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        SichtbarkeitUmschalten(_modelBlinker.S1, (int)WpfObjects.S1);
-        SichtbarkeitUmschalten(_modelBlinker.S2, (int)WpfObjects.S2);
-        SichtbarkeitUmschalten(_modelBlinker.S3, (int)WpfObjects.S3);
-        SichtbarkeitUmschalten(_modelBlinker.S4, (int)WpfObjects.S4);
-        SichtbarkeitUmschalten(_modelBlinker.S5, (int)WpfObjects.S5);
+        RipSichtbarkeitUmschalten(_modelBlinker.S1, (int)WpfObjects.S1);
+        RipSichtbarkeitUmschalten(_modelBlinker.S2, (int)WpfObjects.S2);
+        RipSichtbarkeitUmschalten(_modelBlinker.S3, (int)WpfObjects.S3);
+        RipSichtbarkeitUmschalten(_modelBlinker.S4, (int)WpfObjects.S4);
+        RipSichtbarkeitUmschalten(_modelBlinker.S5, (int)WpfObjects.S5);
 
         FarbeUmschalten(_modelBlinker.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
 

@@ -35,7 +35,7 @@ public enum WpfObjects
     WinkelGetriebemotor = 50
 
 }
-public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelGetriebemotor _modelGetriebemotor;
     private readonly Datenstruktur _datenstruktur;
@@ -43,10 +43,10 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
     {
         _datenstruktur= datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Visible;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -73,10 +73,10 @@ public class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
 
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        SichtbarkeitUmschalten(_modelGetriebemotor.B1, (int)WpfObjects.B1);
-        SichtbarkeitUmschalten(_modelGetriebemotor.B2, (int)WpfObjects.B1);
+        RipSichtbarkeitUmschalten(_modelGetriebemotor.B1, (int)WpfObjects.B1);
+        RipSichtbarkeitUmschalten(_modelGetriebemotor.B2, (int)WpfObjects.B1);
 
-        SichtbarkeitUmschalten(_modelGetriebemotor.S91, (int)WpfObjects.S91);
+        RipSichtbarkeitUmschalten(_modelGetriebemotor.S91, (int)WpfObjects.S91);
 
         FarbeUmschalten(_modelGetriebemotor.P1, (int)WpfObjects.P1, Brushes.White, Brushes.LightGray);
         FarbeUmschalten(_modelGetriebemotor.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.LightGray);

@@ -31,7 +31,7 @@ public enum WpfObjects
     Zuleitung=50,
     Ableitung=51
 }
-public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLap2010? _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
@@ -43,10 +43,10 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         _modelLap2010 = model as ModelLap2010;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -70,11 +70,11 @@ public class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         FarbeUmschalten(_modelLap2010!.Q1, 6, Brushes.LawnGreen, Brushes.LightGray);
         FarbeUmschalten(_modelLap2010!.Pegel > 0.01, 21, Brushes.Coral, Brushes.LightCoral);
 
-        SichtbarkeitUmschalten(_modelLap2010!.B1, 1);
-        SichtbarkeitUmschalten(_modelLap2010!.B2, 2);
-        SichtbarkeitUmschalten(_modelLap2010!.K1, 3);
-        SichtbarkeitUmschalten(_modelLap2010!.K2, 4);
-        SichtbarkeitUmschalten(_modelLap2010!.K2 && _modelLap2010!.Pegel > 0.01, 20);
+        RipSichtbarkeitUmschalten(_modelLap2010!.B1, 1);
+        RipSichtbarkeitUmschalten(_modelLap2010!.B2, 2);
+        RipSichtbarkeitUmschalten(_modelLap2010!.K1, 3);
+        RipSichtbarkeitUmschalten(_modelLap2010!.K2, 4);
+        RipSichtbarkeitUmschalten(_modelLap2010!.K2 && _modelLap2010!.Pegel > 0.01, 20);
 
         Margin[(int)WpfObjects.Fuellstand] = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2010!.Pegel), 0, 0);
     }

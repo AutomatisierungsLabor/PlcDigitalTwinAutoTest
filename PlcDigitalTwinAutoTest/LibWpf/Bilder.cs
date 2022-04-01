@@ -38,39 +38,55 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildSetVisibilityEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+
+
+    public void ImageSetVisibilityEin(string sourceEin, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string wpfObject)
+    {
+        var (imageEin, _) = ImageErzeugen(sourceEin, margin);
+        imageEin.BindingSetVisibilityEin(wpfObject);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageEin);
+    }
+    public void ImageSetVisibilityAus(string sourceAus, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string wpfObject)
+    {
+        var (imageAus, _) = ImageErzeugen(sourceAus, margin);
+        imageAus.BindingSetVisibilityAus(wpfObject);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageAus);
+    }
+
+
+    public void RipBildSetVisibilityEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var (image, _) = ImageErzeugen(source, margin);
-        image.SetVisibilityEinBinding(wpfId);
+        image.RipSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildSetVisibilityAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    public void RipBildSetVisibilityAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var (image, _) = ImageErzeugen(source, margin);
-        image.SetVisibilityAusBinding(wpfId);
+        image.RipSetVisibilityAusBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
     public void BildSetVisibilityEinAus(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var (imageOn, _) = ImageErzeugen(sourceOn, margin);
-        imageOn.SetVisibilityEinBinding(wpfId);
+        imageOn.RipSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOn);
 
         var (imageOff, _) = ImageErzeugen(sourceOff, margin);
-        imageOff.SetVisibilityAusBinding(wpfId);
+        imageOff.RipSetVisibilityAusBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
     }
     public void BildSetMarginVisibilityEin(string source, int xPos, int xSpan, int yPos, int ySpan, object wpfId)
     {
-        var (image, _) = ImageErzeugen(source, new Thickness(0,0,0,0));
-        image.SetVisibilityEinBinding(wpfId);
-        
+        var (image, _) = ImageErzeugen(source, new Thickness(0, 0, 0, 0));
+        image.RipSetVisibilityEinBinding(wpfId);
+
         BindingOperations.SetBinding(image, FrameworkElement.MarginProperty, new Binding($"Margin[{(int)wpfId}]"));
-        
+
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
     public void BildSetDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)

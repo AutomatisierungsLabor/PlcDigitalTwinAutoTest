@@ -56,8 +56,8 @@ public partial class TabZeichnen
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 9, 2, 5, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSetVisibilityAus("InitiatorenSchliesser.jpg", 11, 2, 5, 2, kontakteRand, WpfObjects.B1);
-        libWpf.BildSetVisibilityEin("InitiatorenBetaetigt.jpg", 11, 2, 5, 2, kontakteRand, WpfObjects.B1);
+        libWpf.RipBildSetVisibilityAus("InitiatorenSchliesser.jpg", 11, 2, 5, 2, kontakteRand, WpfObjects.B1);
+        libWpf.RipBildSetVisibilityEin("InitiatorenBetaetigt.jpg", 11, 2, 5, 2, kontakteRand, WpfObjects.B1);
 
 
 

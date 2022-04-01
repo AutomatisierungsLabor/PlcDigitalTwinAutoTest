@@ -64,7 +64,7 @@ public enum WpfObjects
     // ReSharper restore UnusedMember.Global
 
 }
-public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLap2018 _modelLap2018;
     private readonly Datenstruktur _datenstruktur;
@@ -75,10 +75,10 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         _modelLap2018 = model as ModelLap2018;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -126,9 +126,9 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     PositionSetzen(_modelLap2018.AlleFlaschen[5].Flasche.GetPosition(), (int)WpfObjects.Flasche6);
         */
 
-        SichtbarkeitUmschalten(_modelLap2018.B1, (int)WpfObjects.B1);
-        SichtbarkeitUmschalten(_modelLap2018.K1, (int)WpfObjects.K1);
-        SichtbarkeitUmschalten(_modelLap2018.K2, (int)WpfObjects.K2);
+        RipSichtbarkeitUmschalten(_modelLap2018.B1, (int)WpfObjects.B1);
+        RipSichtbarkeitUmschalten(_modelLap2018.K1, (int)WpfObjects.K1);
+        RipSichtbarkeitUmschalten(_modelLap2018.K2, (int)WpfObjects.K2);
 
         KisteAnzeigen(_modelLap2018.FlaschenInDerKiste);
 
@@ -148,7 +148,7 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         const double breiteZeichenfeld = 20 * 30;
         const double hoeheZeichenfeld = 20 * 30;
 
-        SichtbarkeitUmschalten(allflaschen.Sichtbar, (int)wpfId);
+        RipSichtbarkeitUmschalten(allflaschen.Sichtbar, (int)wpfId);
         Margin[(int)wpfId] = new Thickness(allflaschen.Flasche.GetLinks(), allflaschen.Flasche.GetOben(), breiteZeichenfeld - allflaschen.Flasche.GetRechts(), hoeheZeichenfeld - allflaschen.Flasche.GetUnten());
     }
 
@@ -167,8 +167,8 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         for (var i = 0; i < 8; i++)
         {
-            SichtbarkeitUmschalten(alleFohrenburgerKisten[i], (int)WpfObjects.Fohrenburger0 + i);
-            SichtbarkeitUmschalten(alleMohrenKisten[i], (int)WpfObjects.Mohren0 + i);
+            RipSichtbarkeitUmschalten(alleFohrenburgerKisten[i], (int)WpfObjects.Fohrenburger0 + i);
+            RipSichtbarkeitUmschalten(alleMohrenKisten[i], (int)WpfObjects.Mohren0 + i);
         }
     }
 

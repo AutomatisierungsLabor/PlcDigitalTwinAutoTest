@@ -50,7 +50,7 @@ public enum WpfObjects
     OelfilterAbgedeckt = 64
 
 }
-public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelLap2018 _modelLap2018;
     private readonly Datenstruktur _datenstruktur;
@@ -60,10 +60,10 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         _modelLap2018 = model as ModelLap2018;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
@@ -107,11 +107,11 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         FarbeUmschalten(_modelLap2018.S4, (int)WpfObjects.S4, Brushes.LawnGreen, Brushes.White);
 
-        SichtbarkeitUmschalten(_modelLap2018.B1, (int)WpfObjects.B1);
-        SichtbarkeitUmschalten(_modelLap2018.B2, (int)WpfObjects.B2);
-        SichtbarkeitUmschalten(_modelLap2018.B3, (int)WpfObjects.B3);
+        RipSichtbarkeitUmschalten(_modelLap2018.B1, (int)WpfObjects.B1);
+        RipSichtbarkeitUmschalten(_modelLap2018.B2, (int)WpfObjects.B2);
+        RipSichtbarkeitUmschalten(_modelLap2018.B3, (int)WpfObjects.B3);
 
-        SichtbarkeitUmschalten(_modelLap2018.Q2 && _modelLap2018.Q3, 40);
+        RipSichtbarkeitUmschalten(_modelLap2018.Q2 && _modelLap2018.Q3, 40);
 
         // Margin_1(_modelLap2018.Pegel);
         
@@ -143,16 +143,16 @@ public class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     /*
     internal void CheckErweiterungOelkuehler()
     {
-        _viewModel.ViAnz.SichtbarkeitUmschalten(_mainWindow.ChkOelkuehler.IsChecked != null && (bool)_mainWindow.ChkOelkuehler.IsChecked, 41);
+        _viewModel.ViAnz.RIPSichtbarkeitUmschalten(_mainWindow.ChkOelkuehler.IsChecked != null && (bool)_mainWindow.ChkOelkuehler.IsChecked, 41);
     }
     internal void CheckErweiterungZylinder()
     {
-        _viewModel.ViAnz.SichtbarkeitUmschalten(
+        _viewModel.ViAnz.RIPSichtbarkeitUmschalten(
             _mainWindow.ChZylinder.IsChecked != null && (bool)_mainWindow.ChZylinder.IsChecked, 42);
     }
     internal void CheckErweiterungOelfilter()
     {
-        _viewModel.ViAnz.SichtbarkeitUmschalten(
+        _viewModel.ViAnz.RIPSichtbarkeitUmschalten(
             _mainWindow.ChkOelfilter.IsChecked != null && (bool)_mainWindow.ChkOelfilter.IsChecked, 43);
     }
     */

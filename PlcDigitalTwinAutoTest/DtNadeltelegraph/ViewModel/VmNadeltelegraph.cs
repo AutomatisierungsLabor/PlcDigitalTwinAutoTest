@@ -61,7 +61,7 @@ public enum WpfObjects
     BuchstabeW = 68,
     BuchstabeY = 69
 }
-public class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelNadeltelegraph _modelNadeltelegraph;
     private readonly Datenstruktur _datenstruktur;
@@ -71,10 +71,10 @@ public class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
         _modelNadeltelegraph = model as ModelNadeltelegraph;
         _datenstruktur = datenstruktur;
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;

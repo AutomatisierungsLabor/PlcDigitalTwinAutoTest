@@ -18,7 +18,7 @@ public enum WpfObjects
 
     S1 = 31
 }
-public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
+public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelFibonacci _modelFibonacci;
     private readonly Datenstruktur _datenstruktur;
@@ -33,10 +33,10 @@ public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
         _wertLeuchtMelder = new double[5_000];
         _zeitachse = DataGen.Consecutive(5000);
 
-        SichtbarEin[(int)WpfBase.TabBeschreibung] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabLaborplatte] = Visibility.Collapsed;
-        SichtbarEin[(int)WpfBase.TabSimulation] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.TabAutoTest] = Visibility.Visible;
+        VisibilityTabBeschreibung = Visibility.Collapsed;
+        VisibilityTabLaborplatte = Visibility.Collapsed;
+        VisibilityTabSimulation = Visibility.Visible;
+        VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible; 
@@ -54,7 +54,7 @@ public class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        SichtbarkeitUmschalten(_modelFibonacci.S1, (int)WpfObjects.S1);
+        RipSichtbarkeitUmschalten(_modelFibonacci.S1, (int)WpfObjects.S1);
 
         FarbeUmschalten(_modelFibonacci.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
 

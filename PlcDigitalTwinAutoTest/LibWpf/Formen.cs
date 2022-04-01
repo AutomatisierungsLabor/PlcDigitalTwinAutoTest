@@ -32,7 +32,7 @@ public partial class LibWpf
             X2 = x2,
             Y2 = y2
         };
-        linie.SetVisibilityEinBinding(wpfId);
+        linie.RipSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, linie);
     }
