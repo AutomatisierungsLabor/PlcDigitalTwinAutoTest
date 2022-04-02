@@ -19,19 +19,20 @@ public partial class TabZeichnen
         var kreisRand = new Thickness(2, 2, 2, 2);
         var kreisRandFarbe = new SolidColorBrush(Colors.Black);
 
-        libWpf.RipKreisStrokeMarginSetFilling(10, 4, 1, 4, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.EllipseMarginStrokeSetFilling(10, 4, 1, 4, kreisRandFarbe,2, kreisRand, nameof(vmBlinker.BrushP1));
 
         var buttonRand = new Thickness(2, 5, 2, 5);
 
         libWpf.Text("Frequenz", 25, 10, 6, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black);
-        libWpf.RipButtonContentRounded(25, 4, 8, 4, 25, 15, buttonRand, Brushes.Yellow, vmBlinker.BtnTaster, WpfObjects.S1);
-        libWpf.RipButtonContentRounded(31, 4, 8, 4, 25, 15, buttonRand, Brushes.GreenYellow, vmBlinker.BtnTaster, WpfObjects.S2);
+        libWpf.ButtonBackgroundMarginRoundedSetContend(25, 4, 8, 4, 25, 15, buttonRand, Brushes.Yellow, vmBlinker.ButtonTasterCommand, "S1", nameof(vmBlinker.ClickModeS1), nameof(vmBlinker.StringS1));
+        libWpf.ButtonBackgroundMarginRoundedSetContend(31, 4, 8, 4, 25, 15, buttonRand, Brushes.GreenYellow, vmBlinker.ButtonTasterCommand, "S2", nameof(vmBlinker.ClickModeS2), nameof(vmBlinker.StringS2));
+
 
         libWpf.Text("Tastverhältnis", 25, 10, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black);
-        libWpf.RipButtonContentRounded(25, 4, 17, 4, 25, 15, buttonRand, Brushes.Yellow, vmBlinker.BtnTaster, WpfObjects.S3);
-        libWpf.RipButtonContentRounded(31, 4, 17, 4, 25, 15, buttonRand, Brushes.GreenYellow, vmBlinker.BtnTaster, WpfObjects.S4);
+        libWpf.ButtonBackgroundMarginRoundedSetContend(25, 4, 17, 4, 25, 15, buttonRand, Brushes.Yellow, vmBlinker.ButtonTasterCommand, "S3", nameof(vmBlinker.ClickModeS3), nameof(vmBlinker.StringS3));
+        libWpf.ButtonBackgroundMarginRoundedSetContend(31, 4, 17, 4, 25, 15, buttonRand, Brushes.GreenYellow, vmBlinker.ButtonTasterCommand, "S4", nameof(vmBlinker.ClickModeS4), nameof(vmBlinker.StringS4));
+        libWpf.ButtonBackgroundMarginRoundedSetContend(28, 4, 1, 4, 30, 15, buttonRand, Brushes.Violet, vmBlinker.ButtonTasterCommand, "S5", nameof(vmBlinker.ClickModeS5), nameof(vmBlinker.StringS5));
 
-        libWpf.RipButtonContentRounded(28, 4, 1, 4, 30, 15, buttonRand, Brushes.Violet, vmBlinker.BtnTaster, WpfObjects.S5);
 
         libWpf.PlcError();
         return scottPlot;

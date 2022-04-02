@@ -10,19 +10,6 @@ using System.Windows.Media;
 
 namespace DtBlinker.ViewModel;
 
-public enum WpfObjects
-{
-    // ReSharper disable once UnusedMember.Global
-    ReserveFuerBasisViewModel = 20,// // enum WpfBase
-
-    P1 = 21,
-
-    S1 = 31,
-    S2 = 32,
-    S3 = 33,
-    S4 = 34,
-    S5 = 35
-}
 public partial class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelBlinker _modelBlinker;
@@ -34,7 +21,7 @@ public partial class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 
     public VmBlinker(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
-        _datenstruktur= datenstruktur;
+        _datenstruktur = datenstruktur;
         _wertLeuchtMelder = new double[5_000];
         _zeitachse = DataGen.Consecutive(5_000);
 
@@ -48,11 +35,11 @@ public partial class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
 
-        Text[(int)WpfObjects.S1] = "Niedriger";
-        Text[(int)WpfObjects.S2] = "Höher";
-        Text[(int)WpfObjects.S3] = "Weniger";
-        Text[(int)WpfObjects.S4] = "Mehr";
-        Text[(int)WpfObjects.S5] = "RESET";
+        StringS1 = "Niedriger";
+        StringS2 = "Höher";
+        StringS3 = "Weniger";
+        StringS4 = "Mehr";
+        StringS5 = "RESET";
 
         _modelBlinker = model as ModelBlinker;
     }
@@ -63,29 +50,11 @@ public partial class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        RipSichtbarkeitUmschalten(_modelBlinker.S1, (int)WpfObjects.S1);
-        RipSichtbarkeitUmschalten(_modelBlinker.S2, (int)WpfObjects.S2);
-        RipSichtbarkeitUmschalten(_modelBlinker.S3, (int)WpfObjects.S3);
-        RipSichtbarkeitUmschalten(_modelBlinker.S4, (int)WpfObjects.S4);
-        RipSichtbarkeitUmschalten(_modelBlinker.S5, (int)WpfObjects.S5);
-
-        RipFarbeUmschalten(_modelBlinker.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        BrushP1 = SetBrush(_modelBlinker.P1, Brushes.LawnGreen, Brushes.White);
 
         ScottPlotAktualisieren();
     }
-    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
-    {
-        switch (tasterId)
-        {
-            case WpfObjects.S1: _modelBlinker.S1 = gedrueckt; break;
-            case WpfObjects.S2: _modelBlinker.S2 = gedrueckt; break;
-            case WpfObjects.S3: _modelBlinker.S3 = gedrueckt; break;
-            case WpfObjects.S4: _modelBlinker.S4 = gedrueckt; break;
-            case WpfObjects.S5: _modelBlinker.S5 = gedrueckt; break;
-
-            default: throw new ArgumentOutOfRangeException(nameof(tasterId));
-        }
-    }
+    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt) { }
     protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

@@ -32,6 +32,7 @@ public partial class LibWpf
 
 
 
+
     public void RipKreisFillStrokeMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, Thickness margin)
     {
         var ellipse = new Ellipse
