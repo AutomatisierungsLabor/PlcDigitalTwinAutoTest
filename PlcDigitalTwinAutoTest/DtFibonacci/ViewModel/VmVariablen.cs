@@ -1,19 +1,14 @@
-﻿namespace DtFibonacci.ViewModel;
+﻿using System.Windows.Controls;
+using System.Windows.Media;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+
+namespace DtFibonacci.ViewModel;
 
 public partial class VmFibonacci
 {
-    /*
-    [ObservableProperty]
-    private Visibility _visibilityTabBeschreibung;
+    [ObservableProperty] private Brush _brushP1;
 
-    [ObservableProperty]
-    private Visibility _visibilityTabLaborplatte;
+    [ObservableProperty] private ClickMode _clickModeS1;
 
-    [ObservableProperty]
-    private Visibility _visibilityTabSimulation;
-
-    [ObservableProperty]
-    private Visibility _visibilityTabSoftwareTest;
-    */
-
+    [ObservableProperty] private string _stringS1;
 }

@@ -9,15 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace DtFibonacci.ViewModel;
-public enum WpfObjects
-{
-    // ReSharper disable once UnusedMember.Global
-    ReserveFuerBasisViewModel = 20,// // enum WpfBase
 
-    P1 = 21,
-
-    S1 = 31
-}
 public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 {
     private readonly ModelFibonacci _modelFibonacci;
@@ -29,7 +21,7 @@ public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 
     public VmFibonacci(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
-        _datenstruktur= datenstruktur;
+        _datenstruktur = datenstruktur;
         _wertLeuchtMelder = new double[5_000];
         _zeitachse = DataGen.Consecutive(5000);
 
@@ -39,11 +31,11 @@ public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityTabSoftwareTest = Visibility.Visible;
 
         SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible; 
+        SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
 
-        Text[(int)WpfObjects.S1] = "Start";
+        StringS1 = "Start";
 
         _modelFibonacci = model as ModelFibonacci;
     }
@@ -54,17 +46,11 @@ public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        RipSichtbarkeitUmschalten(_modelFibonacci.S1, (int)WpfObjects.S1);
-
-        RipFarbeUmschalten(_modelFibonacci.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        BrushP1 = SetBrush(_modelFibonacci.P1, Brushes.LawnGreen, Brushes.White);
 
         ScottPlotAktualisieren();
     }
-    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
-    {
-        if (tasterId is WpfObjects.S1) _modelFibonacci.S1 = gedrueckt;
-        else throw new ArgumentOutOfRangeException(nameof(tasterId));
-    }
+    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt) { }
     protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

@@ -7,14 +7,6 @@ public partial class VmFibonacci
     [ICommand]
     private void ButtonTaster(string taster)
     {
-        switch (taster)
-        {  }
-    }
-
-    [ICommand]
-    private void ButtonSchalter(string schalter)
-    {
-        switch (schalter)
-        { }
+        if (taster == "S1") (_modelFibonacci.S1, ClickModeS1) = ButtonClickMode(ClickModeS1);
     }
 }
