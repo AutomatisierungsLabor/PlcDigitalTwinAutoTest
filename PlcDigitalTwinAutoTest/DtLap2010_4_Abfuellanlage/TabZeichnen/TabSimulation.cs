@@ -29,10 +29,10 @@ public partial class TabZeichnen
         libWpf.Text("S2", 25, 2, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P1", 20, 2, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonContentRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
-        libWpf.ButtonContentRounded(27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
+        libWpf.RipButtonContentRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
+        libWpf.RipButtonContentRounded(27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
 
-        libWpf.KreisStrokeMarginSetFilling(22, 3, 6, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.RipKreisStrokeMarginSetFilling(22, 3, 6, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
         libWpf.Text("Füllstand", 22, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
         ///////////////////////////////////////////////////////////

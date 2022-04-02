@@ -6,6 +6,13 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class VmBase
 {
+    public (bool ergebnis, ClickMode clickModeTaster) ButtonClickMode(ClickMode clickMode) => clickMode == ClickMode.Press ? (true, ClickMode.Release) : (false, ClickMode.Press);
+    public (bool ergebnis, ClickMode clickModeTaster) ButtonClickModeInvertiert(ClickMode clickMode) => clickMode == ClickMode.Press ? (false, ClickMode.Release) : (true, ClickMode.Press);
+
+
+
+
+
     internal void Taster(object id)
     {
         if (id is not Enum enumValue) return;

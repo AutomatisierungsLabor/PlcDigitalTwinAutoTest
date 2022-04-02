@@ -7,19 +7,25 @@ namespace LibWpf;
 
 public static class Extensions
 {
-    public static void BindingSetVisibilityEin(this FrameworkElement element, object wpfObject) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfObject}");
-    public static void BindingSetVisibilityAus(this FrameworkElement element, object wpfObject) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfObject}");
+    public static void BindingSetFilling(this Shape element, object wpfId) => element.SetBinding(Shape.FillProperty, $"{wpfId}");
 
 
+    public static void BindingImageSetVisibility(this FrameworkElement element, object wpfObject) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfObject}");
+   
+    public static void BindingButtonSetContent(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"{wpfId}");
 
-    public static void SetBtnContentBinding(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");
-    public static void SetBtnBackgroundBinding(this Button element, object wpfId) => element.SetBinding(Control.BackgroundProperty, $"Farbe[{(int)wpfId}]");
-    public static void SetContentBinding(this ContentControl element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");
-    public static void SetBtnClickModeBinding(this Button element, object wpfId) => element.SetBinding(ButtonBase.ClickModeProperty, $"ClkMode[{(int)wpfId}]");
-    public static void RipSetVisibilityEinBinding(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"SichtbarEin[{(int)wpfId}]");
+    public static void BindingButtonSetClickMode(this Button element, object wpfId) => element.SetBinding(ButtonBase.ClickModeProperty, $"{wpfId}");
+    public static void BindingButtonSetVisibility(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfId}");
+
+
+    public static void RipSetBtnContentBinding(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");
+    public static void RipSetBtnBackgroundBinding(this Button element, object wpfId) => element.SetBinding(Control.BackgroundProperty, $"Farbe[{(int)wpfId}]");
+    public static void RipSetContentBinding(this ContentControl element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");
+    public static void RipSetBtnClickModeBinding(this Button element, object wpfId) => element.SetBinding(ButtonBase.ClickModeProperty, $"ClkMode[{(int)wpfId}]");
+    public static void RipButtonSetVisibilityEinBinding(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"SichtbarEin[{(int)wpfId}]");
     public static void RipSetVisibilityAusBinding(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"SichtbarAus[{(int)wpfId}]");
-    public static void SetTextBlockBinding(this TextBlock element, object wpfId) => element.SetBinding(TextBlock.TextProperty, $"Text[{(int)wpfId}]");
-    public static void SetFillingBinding(this Shape element, object wpfId) => element.SetBinding(Shape.FillProperty, $"Farbe[{(int)wpfId}]");
-    public static void SetMarginBinding(this Shape element, object wpfId) => element.SetBinding(FrameworkElement.MarginProperty, $"Margin[{(int)wpfId}]");
-    public static void SetTransformOriginBinding(this Shape element, object wpfId) => element.SetBinding(UIElement.RenderTransformOriginProperty, $"TransformOrigin[{(int)wpfId}]");
+    public static void RipSetTextBlockBinding(this TextBlock element, object wpfId) => element.SetBinding(TextBlock.TextProperty, $"Text[{(int)wpfId}]");
+    public static void RipSetFillingBinding(this Shape element, object wpfId) => element.SetBinding(Shape.FillProperty, $"Farbe[{(int)wpfId}]");
+    public static void RipSetMarginBinding(this Shape element, object wpfId) => element.SetBinding(FrameworkElement.MarginProperty, $"Margin[{(int)wpfId}]");
+    public static void RipSetTransformOriginBinding(this Shape element, object wpfId) => element.SetBinding(UIElement.RenderTransformOriginProperty, $"TransformOrigin[{(int)wpfId}]");
 }

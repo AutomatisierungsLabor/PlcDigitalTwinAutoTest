@@ -66,9 +66,9 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        FarbeUmschalten(_modelLap2010!.P1, 5, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2010!.Q1, 6, Brushes.LawnGreen, Brushes.LightGray);
-        FarbeUmschalten(_modelLap2010!.Pegel > 0.01, 21, Brushes.Coral, Brushes.LightCoral);
+        RipFarbeUmschalten(_modelLap2010!.P1, 5, Brushes.Red, Brushes.White);
+        RipFarbeUmschalten(_modelLap2010!.Q1, 6, Brushes.LawnGreen, Brushes.LightGray);
+        RipFarbeUmschalten(_modelLap2010!.Pegel > 0.01, 21, Brushes.Coral, Brushes.LightCoral);
 
         RipSichtbarkeitUmschalten(_modelLap2010!.B1, 1);
         RipSichtbarkeitUmschalten(_modelLap2010!.B2, 2);

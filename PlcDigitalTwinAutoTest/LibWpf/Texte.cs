@@ -29,8 +29,8 @@ public partial class LibWpf
             VerticalAlignment = vertical
         };
 
-        label.SetContentBinding(wpfId);
-        label.RipSetVisibilityEinBinding(wpfId);
+        label.RipSetContentBinding(wpfId);
+        label.RipButtonSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
@@ -49,8 +49,8 @@ public partial class LibWpf
             LayoutTransform = new RotateTransform { Angle = 270 }
         };
 
-        text.SetTextBlockBinding(wpfId);
-        text.RipSetVisibilityEinBinding(wpfId);
+        text.RipSetTextBlockBinding(wpfId);
+        text.RipButtonSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, text);
     }

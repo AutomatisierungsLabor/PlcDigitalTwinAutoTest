@@ -132,12 +132,12 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         KisteAnzeigen(_modelLap2018.FlaschenInDerKiste);
 
-        FarbeUmschalten(_modelLap2018.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
-        FarbeUmschalten(_modelLap2018.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.LightGray);
-        FarbeUmschalten(_modelLap2018.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.LightGray);
-        FarbeUmschalten(_modelLap2018.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.LightGray);
-        FarbeUmschalten(_modelLap2018.Pegel > 0.01, (int)WpfObjects.Zuleitung, Brushes.Blue, Brushes.LightBlue);
-        FarbeUmschalten(_modelLap2018.K1 && _modelLap2018.Pegel > 0.01, (int)WpfObjects.Ableitung, Brushes.Blue, Brushes.LightGray);
+        RipFarbeUmschalten(_modelLap2018.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelLap2018.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.LightGray);
+        RipFarbeUmschalten(_modelLap2018.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.LightGray);
+        RipFarbeUmschalten(_modelLap2018.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.LightGray);
+        RipFarbeUmschalten(_modelLap2018.Pegel > 0.01, (int)WpfObjects.Zuleitung, Brushes.Blue, Brushes.LightBlue);
+        RipFarbeUmschalten(_modelLap2018.K1 && _modelLap2018.Pegel > 0.01, (int)WpfObjects.Ableitung, Brushes.Blue, Brushes.LightGray);
 
         Margin[(int)WpfObjects.Pegel] = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2018.Pegel), 0, 0);
         Text[(int)WpfObjects.FuellstandProzent] = (100 * _modelLap2018.Pegel).ToString("F0") + "%";

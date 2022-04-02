@@ -30,11 +30,11 @@ public partial class TabZeichnen
         libWpf.Text("P1", 19, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P2", 24, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonContentRounded(22, 3, 2, 3, 20, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
-        libWpf.ButtonContentRounded(27, 3, 2, 3, 20, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
+        libWpf.RipButtonContentRounded(22, 3, 2, 3, 20, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
+        libWpf.RipButtonContentRounded(27, 3, 2, 3, 20, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
 
-        libWpf.KreisStrokeMarginSetFilling(22, 3, 6, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
-        libWpf.KreisStrokeMarginSetFilling(27, 3, 6, 3, kreisRandFarbe, kreisRand, WpfObjects.P2);
+        libWpf.RipKreisStrokeMarginSetFilling(22, 3, 6, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.RipKreisStrokeMarginSetFilling(27, 3, 6, 3, kreisRandFarbe, kreisRand, WpfObjects.P2);
 
 
         ///////////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ public partial class TabZeichnen
 
         libWpf.Polygon(0, 7, 15, 6, Brushes.LightBlue, Brushes.Black, 2, new[] { new double[] { 130, 20 }, new double[] { 200, 20 }, new double[] { 200, 150 }, new double[] { 20, 150 }, new double[] { 20, 90 }, new double[] { 130, 90 } });
 
-        libWpf.KreisFillStrokeMargin(3, 5, 12, 5, Brushes.Blue, Brushes.Black, 2, new Thickness(10, 10, 10, 10));
+        libWpf.RipKreisFillStrokeMargin(3, 5, 12, 5, Brushes.Blue, Brushes.Black, 2, new Thickness(10, 10, 10, 10));
         libWpf.Polygon(3, 5, 13, 5, Brushes.Blue, Brushes.Black, 2, new[] { new double[] { 70, 2 }, new double[] { 90, 30 }, new double[] { 50, 30 } });
 
 
@@ -69,10 +69,10 @@ public partial class TabZeichnen
         libWpf.Text("Q3 ( △ )", 12, 2, 16, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 15, Brushes.Black);
 
 
-        libWpf.ButtonBackgroundContentRounded(10, 4, 18, 2, 14, 5, new Thickness(0,0,0,0), vmLap2010.BtnSchalter, WpfObjects.F1);
+        libWpf.RipButtonBackgroundContentRounded(10, 4, 18, 2, 14, 5, new Thickness(0,0,0,0), vmLap2010.BtnSchalter, WpfObjects.F1);
 
         libWpf.TextSetContendSetVisibility(10, 4, 18, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.Kurzschluss);
-        libWpf.KreisStrokeMarginSetFilling(15, 4, 15, 4, Brushes.Red, new Thickness(0, 0, 0, 0), WpfObjects.Kurzschluss);
+        libWpf.RipKreisStrokeMarginSetFilling(15, 4, 15, 4, Brushes.Red, new Thickness(0, 0, 0, 0), WpfObjects.Kurzschluss);
 
 
         libWpf.PointerGauge(20, 10, 12, 10, "Druck", 0, 10, 165, 188, "AktuellerDruck");

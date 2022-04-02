@@ -32,7 +32,7 @@ public partial class LibWpf
             X2 = x2,
             Y2 = y2
         };
-        linie.RipSetVisibilityEinBinding(wpfId);
+        linie.RipButtonSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, linie);
     }

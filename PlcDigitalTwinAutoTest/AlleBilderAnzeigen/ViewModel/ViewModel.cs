@@ -25,7 +25,7 @@ public class ViewModel
 
         foreach (var name in alleBilder)
         {
-            _libWpf.Bild(name, posX, 1, posY, 1, bilderRand);
+            _libWpf.Image(name, posX, 1, posY, 1, bilderRand);
             _libWpf.Text(name, posX, 1, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 20, Brushes.Black);
 
             posX++;

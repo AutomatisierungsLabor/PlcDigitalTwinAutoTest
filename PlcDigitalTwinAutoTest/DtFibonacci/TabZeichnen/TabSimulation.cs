@@ -15,8 +15,8 @@ public partial class TabZeichnen
 
         var scottPlot = libWpf.ScottPlot(1, 37, 6, 17);
 
-        libWpf.KreisStrokeMarginSetFilling(10, 4, 1, 4, new SolidColorBrush(Colors.Black), new Thickness(2, 2, 2, 2), WpfObjects.P1);
-        libWpf.ButtonContentRounded(25, 4, 1, 4, 30, 15, new Thickness(2, 2, 2, 2), Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S1);
+        libWpf.RipKreisStrokeMarginSetFilling(10, 4, 1, 4, new SolidColorBrush(Colors.Black), new Thickness(2, 2, 2, 2), WpfObjects.P1);
+        libWpf.RipButtonContentRounded(25, 4, 1, 4, 30, 15, new Thickness(2, 2, 2, 2), Brushes.LawnGreen, vmFibonacci.BtnTaster, WpfObjects.S1);
 
         libWpf.PlcError();
         return scottPlot;

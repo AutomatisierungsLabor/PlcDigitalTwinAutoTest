@@ -35,7 +35,7 @@ public partial class LibWpf
             Points = polyPoints
         };
 
-        polygon.SetMarginBinding(wpfId);
+        polygon.RipSetMarginBinding(wpfId);
 
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, polygon);

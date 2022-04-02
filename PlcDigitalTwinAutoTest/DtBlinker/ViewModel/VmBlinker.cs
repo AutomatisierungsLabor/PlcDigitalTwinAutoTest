@@ -69,7 +69,7 @@ public partial class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         RipSichtbarkeitUmschalten(_modelBlinker.S4, (int)WpfObjects.S4);
         RipSichtbarkeitUmschalten(_modelBlinker.S5, (int)WpfObjects.S5);
 
-        FarbeUmschalten(_modelBlinker.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelBlinker.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
 
         ScottPlotAktualisieren();
     }

@@ -24,12 +24,12 @@ public partial class TabZeichnen
         libWpf.BildAnimiert("Schneckenfoerderer.gif", 6, 14, 0, 13, new Thickness(0, -20, 0, 0), vmLap2018.AnimatedLoaded);
 
         libWpf.Polygon(1, 10, 1, 10, Brushes.White, Brushes.Black, 2, new[] { new double[] { 10, 10 }, new double[] { 240, 10 }, new double[] { 240, 100 }, new double[] { 150, 200 }, new double[] { 150, 300 }, new double[] { 10, 300 } });
-        libWpf.ButtonBackgroundContentRounded(2, 6, 2, 2, 20, 5, new Thickness(0, 0, 0, 0), vmLap2018.BtnSchalter, WpfObjects.RutscheVoll);
+        libWpf.RipButtonBackgroundContentRounded(2, 6, 2, 2, 20, 5, new Thickness(0, 0, 0, 0), vmLap2018.BtnSchalter, WpfObjects.RutscheVoll);
 
-        libWpf.KreisStrokeMarginSetFilling(4, 2, 9, 2, Brushes.Gray, new Thickness(4, 4, 4, 4), WpfObjects.Q2);
+        libWpf.RipKreisStrokeMarginSetFilling(4, 2, 9, 2, Brushes.Gray, new Thickness(4, 4, 4, 4), WpfObjects.Q2);
         libWpf.Text("Q2", 4, 2, 9, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonBackgroundContentRounded(6, 3, 10, 2, 20, 5, new Thickness(5, 5, 5, 5), vmLap2018.BtnSchalter, WpfObjects.F2);
+        libWpf.RipButtonBackgroundContentRounded(6, 3, 10, 2, 20, 5, new Thickness(5, 5, 5, 5), vmLap2018.BtnSchalter, WpfObjects.F2);
 
 
 
@@ -48,11 +48,11 @@ public partial class TabZeichnen
         // Förderband
         libWpf.RechteckFillMargin(10, 10, 18, 1, Brushes.Gray, new Thickness(0, 0, 0, 20));
         libWpf.RechteckFillMargin(10, 10, 19, 1, Brushes.Gray, new Thickness(0, 20, 0, 0));
-        libWpf.KreisFillStrokeMargin(9, 2, 18, 2, Brushes.Gray, Brushes.Gray, 0, new Thickness(0, 0, 0, 0));
-        libWpf.KreisStrokeMarginSetFilling(19, 2, 18, 2, Brushes.Gray, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
+        libWpf.RipKreisFillStrokeMargin(9, 2, 18, 2, Brushes.Gray, Brushes.Gray, 0, new Thickness(0, 0, 0, 0));
+        libWpf.RipKreisStrokeMarginSetFilling(19, 2, 18, 2, Brushes.Gray, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
         libWpf.Text("Q1", 19, 2, 18, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonBackgroundContentRounded(19, 3, 20, 2, 20, 5, new Thickness(5, 5, 5, 5), vmLap2018.BtnSchalter, WpfObjects.F1);
+        libWpf.RipButtonBackgroundContentRounded(19, 3, 20, 2, 20, 5, new Thickness(5, 5, 5, 5), vmLap2018.BtnSchalter, WpfObjects.F1);
 
         // Wagen mit Endschaltern
 
@@ -69,8 +69,8 @@ public partial class TabZeichnen
         libWpf.Text("B2", 10, 2, 28, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.BildSetVisibilityEinAus("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 12, 2, 28, 2, new Thickness(0, 0, 0, 0), WpfObjects.B2);
 
-        libWpf.ButtonContentRounded(2, 4, 30, 2, 20, 5, new Thickness(0, 0, 0, 0), Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.WagenNachLinks);
-        libWpf.ButtonContentRounded(12, 4, 30, 2, 20, 5, new Thickness(0, 0, 0, 0), Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.WagenNachRechts);
+        libWpf.RipButtonContentRounded(2, 4, 30, 2, 20, 5, new Thickness(0, 0, 0, 0), Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.WagenNachLinks);
+        libWpf.RipButtonContentRounded(12, 4, 30, 2, 20, 5, new Thickness(0, 0, 0, 0), Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.WagenNachRechts);
 
         ///////////////////////////////////////////////////////////
         //
@@ -86,20 +86,20 @@ public partial class TabZeichnen
 
         libWpf.Text("P1", 24, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P2", 29, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.KreisStrokeMarginSetFilling(27, 3, 2, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
-        libWpf.KreisStrokeMarginSetFilling(32, 3, 2, 3, kreisRandFarbe, kreisRand, WpfObjects.P2);
+        libWpf.RipKreisStrokeMarginSetFilling(27, 3, 2, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.RipKreisStrokeMarginSetFilling(32, 3, 2, 3, kreisRandFarbe, kreisRand, WpfObjects.P2);
 
 
         libWpf.Text("S0", 24, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S1", 29, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonContentRounded(27, 3, 6, 3, 20, 15, buttonRand, Brushes.Red, vmLap2018.BtnTaster, WpfObjects.S0);
-        libWpf.ButtonContentRounded(32, 3, 6, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.BtnTaster, WpfObjects.S1);
+        libWpf.RipButtonContentRounded(27, 3, 6, 3, 20, 15, buttonRand, Brushes.Red, vmLap2018.BtnTaster, WpfObjects.S0);
+        libWpf.RipButtonContentRounded(32, 3, 6, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.BtnTaster, WpfObjects.S1);
 
 
         libWpf.Text("S2", 24, 3, 10, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S3", 29, 3, 10, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonZweiBilder(27, 3, 10, 3, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmLap2018.BtnSchalter, WpfObjects.S2);
-        libWpf.ButtonContentRounded(32, 3, 10, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.BtnTaster, WpfObjects.S3);
+        libWpf.RipButtonZweiBilder(27, 3, 10, 3, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmLap2018.BtnSchalter, WpfObjects.S2);
+        libWpf.RipButtonContentRounded(32, 3, 10, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.BtnTaster, WpfObjects.S3);
 
 
 

@@ -14,7 +14,7 @@ public partial class LibWpf
     private static (Image image, BitmapImage bitmapImage) ImageErzeugen(string source, Thickness margin)
     {
         var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LibWpf.Bilder." + source);
-        if (stream == null) throw new Exception("Bild nicht gefunden:" + source);
+        if (stream == null) throw new Exception("Image nicht gefunden:" + source);
 
         var bitmapImage = new BitmapImage();
         var image = new Image();
@@ -32,32 +32,25 @@ public partial class LibWpf
 
         return (image, bitmapImage);
     }
-    public void Bild(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin)
+    public void Image(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin)
     {
         var (image, _) = ImageErzeugen(source, margin);
-
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-
-
-    public void ImageSetVisibilityEin(string sourceEin, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string wpfObject)
+    public void ImageSetVisibility(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string setVisibility)
     {
-        var (imageEin, _) = ImageErzeugen(sourceEin, margin);
-        imageEin.BindingSetVisibilityEin(wpfObject);
+        var (imageEin, _) = ImageErzeugen(source, margin);
+        imageEin.BindingImageSetVisibility(setVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageEin);
     }
-    public void ImageSetVisibilityAus(string sourceAus, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string wpfObject)
-    {
-        var (imageAus, _) = ImageErzeugen(sourceAus, margin);
-        imageAus.BindingSetVisibilityAus(wpfObject);
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageAus);
-    }
+ 
+
 
 
     public void RipBildSetVisibilityEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var (image, _) = ImageErzeugen(source, margin);
-        image.RipSetVisibilityEinBinding(wpfId);
+        image.RipButtonSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
@@ -71,7 +64,7 @@ public partial class LibWpf
     public void BildSetVisibilityEinAus(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var (imageOn, _) = ImageErzeugen(sourceOn, margin);
-        imageOn.RipSetVisibilityEinBinding(wpfId);
+        imageOn.RipButtonSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOn);
 
@@ -83,7 +76,7 @@ public partial class LibWpf
     public void BildSetMarginVisibilityEin(string source, int xPos, int xSpan, int yPos, int ySpan, object wpfId)
     {
         var (image, _) = ImageErzeugen(source, new Thickness(0, 0, 0, 0));
-        image.RipSetVisibilityEinBinding(wpfId);
+        image.RipButtonSetVisibilityEinBinding(wpfId);
 
         BindingOperations.SetBinding(image, FrameworkElement.MarginProperty, new Binding($"Margin[{(int)wpfId}]"));
 

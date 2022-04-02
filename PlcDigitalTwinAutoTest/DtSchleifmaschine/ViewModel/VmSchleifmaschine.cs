@@ -78,13 +78,13 @@ public partial class VmSchleifmaschine : BasePlcDtAt.BaseViewModel.VmBase
         RipSichtbarkeitUmschalten(_modelSchleifmaschine.B1, (int)WpfObjects.B1);
         RipSichtbarkeitUmschalten(_modelSchleifmaschine.S3, (int)WpfObjects.S3);
 
-        FarbeUmschalten(_modelSchleifmaschine.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
-        FarbeUmschalten(_modelSchleifmaschine.F2, (int)WpfObjects.F2, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelSchleifmaschine.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelSchleifmaschine.F2, (int)WpfObjects.F2, Brushes.LawnGreen, Brushes.Red);
 
-        FarbeUmschalten(_modelSchleifmaschine.P1, (int)WpfObjects.P1, Brushes.White, Brushes.LightGray);
-        FarbeUmschalten(_modelSchleifmaschine.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.LightGray);
-        FarbeUmschalten(_modelSchleifmaschine.P3, (int)WpfObjects.P3, Brushes.Red, Brushes.LightGray);
-        FarbeUmschalten(_modelSchleifmaschine.S3, (int)WpfObjects.S3, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelSchleifmaschine.P1, (int)WpfObjects.P1, Brushes.White, Brushes.LightGray);
+        RipFarbeUmschalten(_modelSchleifmaschine.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.LightGray);
+        RipFarbeUmschalten(_modelSchleifmaschine.P3, (int)WpfObjects.P3, Brushes.Red, Brushes.LightGray);
+        RipFarbeUmschalten(_modelSchleifmaschine.S3, (int)WpfObjects.S3, Brushes.LawnGreen, Brushes.Red);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {

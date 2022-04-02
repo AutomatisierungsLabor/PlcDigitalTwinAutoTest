@@ -100,16 +100,16 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         if (_modelLap2018.RutscheVoll) Text[(int)WpfObjects.RutscheVoll] = "Materialmangel"; else Text[(int)WpfObjects.RutscheVoll] = "Rutsche voll";
 
 
-        FarbeUmschalten(_modelLap2018!.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
-        FarbeUmschalten(_modelLap2018!.F2, (int)WpfObjects.F2, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelLap2018!.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelLap2018!.F2, (int)WpfObjects.F2, Brushes.LawnGreen, Brushes.Red);
 
-        FarbeUmschalten(_modelLap2018!.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2018!.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.Gray);
+        RipFarbeUmschalten(_modelLap2018!.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018!.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.Gray);
 
-        FarbeUmschalten(_modelLap2018!.S2, (int)WpfObjects.S2, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelLap2018!.S2, (int)WpfObjects.S2, Brushes.LawnGreen, Brushes.Red);
 
-        FarbeUmschalten(_modelLap2018!.RutscheVoll, (int)WpfObjects.RutscheVoll, Brushes.Firebrick, Brushes.LightGray);
+        RipFarbeUmschalten(_modelLap2018!.RutscheVoll, (int)WpfObjects.RutscheVoll, Brushes.Firebrick, Brushes.LightGray);
 
         RipSichtbarkeitUmschalten(_modelLap2018!.B1, (int)WpfObjects.B1);
         RipSichtbarkeitUmschalten(_modelLap2018!.B2, (int)WpfObjects.B2);
@@ -119,8 +119,8 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         RipSichtbarkeitUmschalten(true, (int)WpfObjects.MaterialOben);
         RipSichtbarkeitUmschalten(true, (int)WpfObjects.MaterialUnten);
 
-        FarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01, (int)WpfObjects.MaterialOben, Brushes.LightGray, Brushes.Firebrick);
-        FarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, (int)WpfObjects.MaterialUnten, Brushes.LightGray, Brushes.Firebrick);
+        RipFarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01, (int)WpfObjects.MaterialOben, Brushes.LightGray, Brushes.Firebrick);
+        RipFarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, (int)WpfObjects.MaterialUnten, Brushes.LightGray, Brushes.Firebrick);
 
         Margin[(int)WpfObjects.PositionWagen] = new Thickness(_modelLap2018.Wagen.GetPosition().X, 0, BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
         Margin[(int)WpfObjects.PostionWagenInhalt] = new Thickness(_modelLap2018.Wagen.GetPosition().X, _modelLap2018.Wagen.GetFuellstand(), BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);

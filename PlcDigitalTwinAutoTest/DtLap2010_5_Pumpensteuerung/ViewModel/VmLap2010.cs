@@ -81,14 +81,14 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        FarbeUmschalten(_modelLap2010!.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
-        FarbeUmschalten(_modelLap2010!.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.LightGray);
-        FarbeUmschalten(_modelLap2010!.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.LightGray);
+        RipFarbeUmschalten(_modelLap2010!.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelLap2010!.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.LightGray);
+        RipFarbeUmschalten(_modelLap2010!.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.LightGray);
 
-        FarbeUmschalten(_modelLap2010!.Q1, (int)WpfObjects.ZuleitungWaagrecht, Brushes.Blue, Brushes.LightBlue);
-        FarbeUmschalten(_modelLap2010!.Q1, (int)WpfObjects.ZuleitungSenkrecht, Brushes.Blue, Brushes.LightBlue);
-        FarbeUmschalten(_modelLap2010!.Pegel > 0.01, (int)WpfObjects.AbleitungOben, Brushes.Blue, Brushes.LightBlue);
-        FarbeUmschalten(_modelLap2010!.Pegel > 0.01 && _modelLap2010!.Y1, (int)WpfObjects.AbleitungUnten, Brushes.Blue, Brushes.LightBlue);
+        RipFarbeUmschalten(_modelLap2010!.Q1, (int)WpfObjects.ZuleitungWaagrecht, Brushes.Blue, Brushes.LightBlue);
+        RipFarbeUmschalten(_modelLap2010!.Q1, (int)WpfObjects.ZuleitungSenkrecht, Brushes.Blue, Brushes.LightBlue);
+        RipFarbeUmschalten(_modelLap2010!.Pegel > 0.01, (int)WpfObjects.AbleitungOben, Brushes.Blue, Brushes.LightBlue);
+        RipFarbeUmschalten(_modelLap2010!.Pegel > 0.01 && _modelLap2010!.Y1, (int)WpfObjects.AbleitungUnten, Brushes.Blue, Brushes.LightBlue);
 
         RipSichtbarkeitUmschalten(_modelLap2010!.B1, (int)WpfObjects.B1);
         RipSichtbarkeitUmschalten(_modelLap2010!.B2, (int)WpfObjects.B2);

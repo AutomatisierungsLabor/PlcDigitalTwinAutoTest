@@ -75,9 +75,9 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         RipSichtbarkeitUmschalten(_modelLap2010.B3, 3);
         RipSichtbarkeitUmschalten(_modelLap2010.Q1 && _modelLap2010.Q2, 20);
 
-        FarbeUmschalten(_modelLap2010.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2010.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2010.Q2, (int)WpfObjects.Q2, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2010.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2010.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2010.Q2, (int)WpfObjects.Q2, Brushes.LawnGreen, Brushes.White);
     }
     protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
     {

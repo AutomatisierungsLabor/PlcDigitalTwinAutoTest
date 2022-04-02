@@ -75,10 +75,10 @@ public partial class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
         RipSichtbarkeitUmschalten(_modelLinearachse.B2, (int)WpfObjects.B2);
         RipSichtbarkeitUmschalten(_modelLinearachse.S10, (int)WpfObjects.S10);
 
-        FarbeUmschalten(_modelLinearachse.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLinearachse.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLinearachse.P3, (int)WpfObjects.P3, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLinearachse.P4, (int)WpfObjects.P4, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLinearachse.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLinearachse.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLinearachse.P3, (int)WpfObjects.P3, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLinearachse.P4, (int)WpfObjects.P4, Brushes.LawnGreen, Brushes.White);
 
         var links = _modelLinearachse.PositionSchlitten;
         var rechts = 525 - _modelLinearachse.PositionSchlitten;

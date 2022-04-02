@@ -78,9 +78,9 @@ public partial class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
 
         RipSichtbarkeitUmschalten(_modelGetriebemotor.S91, (int)WpfObjects.S91);
 
-        FarbeUmschalten(_modelGetriebemotor.P1, (int)WpfObjects.P1, Brushes.White, Brushes.LightGray);
-        FarbeUmschalten(_modelGetriebemotor.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.LightGray);
-        FarbeUmschalten(_modelGetriebemotor.P3, (int)WpfObjects.P3, Brushes.Red, Brushes.LightGray);
+        RipFarbeUmschalten(_modelGetriebemotor.P1, (int)WpfObjects.P1, Brushes.White, Brushes.LightGray);
+        RipFarbeUmschalten(_modelGetriebemotor.P2, (int)WpfObjects.P2, Brushes.LawnGreen, Brushes.LightGray);
+        RipFarbeUmschalten(_modelGetriebemotor.P3, (int)WpfObjects.P3, Brushes.Red, Brushes.LightGray);
 
         Winkel[(int)WpfObjects.WinkelGetriebemotor] = _modelGetriebemotor.WinkelGetriebemotor;
     }

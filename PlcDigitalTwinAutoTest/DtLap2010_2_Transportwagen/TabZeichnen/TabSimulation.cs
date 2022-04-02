@@ -32,14 +32,14 @@ public partial class TabZeichnen
         libWpf.Text("P1", 24, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.ButtonContentRounded(27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S1);
-        libWpf.ButtonContentRounded(32, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnSchalter, WpfObjects.S2);
-        libWpf.ButtonContentRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S3);
+        libWpf.RipButtonContentRounded(27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S1);
+        libWpf.RipButtonContentRounded(32, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnSchalter, WpfObjects.S2);
+        libWpf.RipButtonContentRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S3);
 
-        libWpf.KreisStrokeMarginSetFilling(27, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.RipKreisStrokeMarginSetFilling(27, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
         libWpf.Text("Störung", 27, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
         
-        libWpf.ButtonBackgroundContentRounded(27, 3, 12, 3, 14, 15, buttonRand, vmLap2010.BtnSchalter, WpfObjects.F1);
+        libWpf.RipButtonBackgroundContentRounded(27, 3, 12, 3, 14, 15, buttonRand, vmLap2010.BtnSchalter, WpfObjects.F1);
 
         ///////////////////////////////////////////////////////////
         //
@@ -52,8 +52,8 @@ public partial class TabZeichnen
         libWpf.Polygon(14, 5, 1, 5, Brushes.DarkOrange, Brushes.Black, 2, new[] { new double[] { 20, 10 }, new double[] { 120, 10 }, new double[] { 120, 120 }, new double[] { 100, 160 }, new double[] { 40, 160 }, new double[] { 20, 120 } });
 
         libWpf.RechteckFillStrokeSetMargin(1, 20, 8, 4, Brushes.Gray, Brushes.Black, 3, WpfObjects.PositionWagenkasten);
-        libWpf.KreisFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, WpfObjects.PositionRadLinks);
-        libWpf.KreisFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, WpfObjects.PositionRadRechts);
+        libWpf.RipKreisFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, WpfObjects.PositionRadLinks);
+        libWpf.RipKreisFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, WpfObjects.PositionRadRechts);
 
         libWpf.RechteckFill(1,20,13,1,Brushes.Gray);
 
@@ -77,7 +77,7 @@ public partial class TabZeichnen
 
 
         libWpf.TextSetContendSetVisibility(9, 4, 19, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.Kurzschluss);
-        libWpf.KreisStrokeMarginSetFilling(9, 4, 18, 4, Brushes.Red, new Thickness(0, 0, 0, 0), WpfObjects.Kurzschluss);
+        libWpf.RipKreisStrokeMarginSetFilling(9, 4, 18, 4, Brushes.Red, new Thickness(0, 0, 0, 0), WpfObjects.Kurzschluss);
 
 
         // libWpf.PlcError();

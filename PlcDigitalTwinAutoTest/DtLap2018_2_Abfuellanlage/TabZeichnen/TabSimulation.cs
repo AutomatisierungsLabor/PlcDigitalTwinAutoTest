@@ -37,16 +37,16 @@ public partial class TabZeichnen
         libWpf.Text("P2", 29, 3, 16, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.ButtonContentRounded(27, 3, 2, 3, 20, 15, buttonRand, Brushes.Red, vmLap2018.BtnTaster, WpfObjects.S1);
-        libWpf.ButtonContentRounded(32, 3, 2, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.BtnTaster, WpfObjects.S2);
-        libWpf.ButtonContentRounded(27, 3, 6, 3, 16, 15, buttonRand, Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.S3);
-        libWpf.ButtonContentRounded(32, 3, 6, 3, 16, 15, buttonRand, Brushes.MediumPurple, vmLap2018.BtnTaster, WpfObjects.S4);
+        libWpf.RipButtonContentRounded(27, 3, 2, 3, 20, 15, buttonRand, Brushes.Red, vmLap2018.BtnTaster, WpfObjects.S1);
+        libWpf.RipButtonContentRounded(32, 3, 2, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.BtnTaster, WpfObjects.S2);
+        libWpf.RipButtonContentRounded(27, 3, 6, 3, 16, 15, buttonRand, Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.S3);
+        libWpf.RipButtonContentRounded(32, 3, 6, 3, 16, 15, buttonRand, Brushes.MediumPurple, vmLap2018.BtnTaster, WpfObjects.S4);
 
-        libWpf.ButtonContentRounded(27, 3, 10, 3, 14, 15, buttonRand, Brushes.Red, vmLap2018.BtnSchalter, WpfObjects.F1);
+        libWpf.RipButtonContentRounded(27, 3, 10, 3, 14, 15, buttonRand, Brushes.Red, vmLap2018.BtnSchalter, WpfObjects.F1);
 
 
-        libWpf.KreisStrokeMarginSetFilling(27, 3, 16, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
-        libWpf.KreisStrokeMarginSetFilling(32, 3, 16, 3, kreisRandFarbe, kreisRand, WpfObjects.P2);
+        libWpf.RipKreisStrokeMarginSetFilling(27, 3, 16, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.RipKreisStrokeMarginSetFilling(32, 3, 16, 3, kreisRandFarbe, kreisRand, WpfObjects.P2);
 
         libWpf.Text("Betrieb", 27, 3, 16, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("Störung", 32, 3, 16, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -59,8 +59,8 @@ public partial class TabZeichnen
         //
         ///////////////////////////////////////////////////////////
 
-        libWpf.ButtonContentRounded(1, 3, 1, 3, 20, 15, buttonRand, Brushes.LightSkyBlue, vmLap2018.BtnTaster, WpfObjects.AllesReset);
-        libWpf.ButtonContentRounded(19, 3, 1, 3, 16, 15, buttonRand, Brushes.LightSkyBlue, vmLap2018.BtnTaster, WpfObjects.TankNachfuellen);
+        libWpf.RipButtonContentRounded(1, 3, 1, 3, 20, 15, buttonRand, Brushes.LightSkyBlue, vmLap2018.BtnTaster, WpfObjects.AllesReset);
+        libWpf.RipButtonContentRounded(19, 3, 1, 3, 16, 15, buttonRand, Brushes.LightSkyBlue, vmLap2018.BtnTaster, WpfObjects.TankNachfuellen);
 
         libWpf.RechteckFillMargin(4, 1, 1, 16, Brushes.Gray, new Thickness(10, 0, 6, 0));
         libWpf.RechteckFillMargin(5, 1, 1, 16, Brushes.Gray, new Thickness(17, 0, 0, 0));
@@ -78,9 +78,9 @@ public partial class TabZeichnen
 
         libWpf.RechteckFillMargin(4, 14, 20, 1, Brushes.Gray, new Thickness(15, 0, 15, 20));
         libWpf.RechteckFillMargin(4, 14, 22, 1, Brushes.Gray, new Thickness(15, 20, 15, 0));
-        libWpf.KreisFillStrokeMargin(3, 3, 20, 3, Brushes.Gray, Brushes.Gray, 0, new Thickness(0, 0, 0, 0));
-        libWpf.KreisFillStrokeMargin(16, 3, 20, 3, Brushes.Gray, Brushes.Gray, 0, new Thickness(0, 0, 0, 0));
-        libWpf.KreisStrokeMarginSetFilling(3, 3, 20, 3, Brushes.Gray, new Thickness(5, 5, 5, 5), WpfObjects.Q1);
+        libWpf.RipKreisFillStrokeMargin(3, 3, 20, 3, Brushes.Gray, Brushes.Gray, 0, new Thickness(0, 0, 0, 0));
+        libWpf.RipKreisFillStrokeMargin(16, 3, 20, 3, Brushes.Gray, Brushes.Gray, 0, new Thickness(0, 0, 0, 0));
+        libWpf.RipKreisStrokeMarginSetFilling(3, 3, 20, 3, Brushes.Gray, new Thickness(5, 5, 5, 5), WpfObjects.Q1);
         libWpf.Text("Q1", 3, 3, 20, 3, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.Text("B1", 11, 2, 24, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);

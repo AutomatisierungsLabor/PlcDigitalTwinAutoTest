@@ -5,8 +5,34 @@ using System.Windows.Shapes;
 namespace LibWpf;
 
 public partial class LibWpf
-{  
-    public void KreisFillStrokeMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, Thickness margin)
+{
+
+
+
+
+
+
+
+    public void EllipseMarginStrokeSetFilling(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, double strokeThicknes, Thickness margin, string wpfId)
+    {
+        var ellipse = new Ellipse
+        {
+            Stroke = rand,
+            StrokeThickness = strokeThicknes,
+            Margin = margin,
+            Fill = new SolidColorBrush(Colors.Red)
+        };
+        ellipse.BindingSetFilling(wpfId);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
+    }
+
+
+
+
+
+
+
+    public void RipKreisFillStrokeMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, Thickness margin)
     {
         var ellipse = new Ellipse
         {
@@ -18,7 +44,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
-    public void KreisStrokeMarginSetFilling(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, object wpfId)
+    public void RipKreisStrokeMarginSetFilling(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, Thickness margin, object wpfId)
     {
         var ellipse = new Ellipse
         {
@@ -27,11 +53,11 @@ public partial class LibWpf
             Fill = new SolidColorBrush(Colors.Red)
         };
 
-        if (wpfId != null) ellipse.SetFillingBinding(wpfId);
+        if (wpfId != null) ellipse.RipSetFillingBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
-    public void KreisFillStrokeSetMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, object wpfId)
+    public void RipKreisFillStrokeSetMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, object wpfId)
     {
         var ellipse = new Ellipse
         {
@@ -39,7 +65,7 @@ public partial class LibWpf
             Stroke = stroke,
             StrokeThickness = strokeThicknes
         };
-        ellipse.SetMarginBinding(wpfId);
+        ellipse.RipSetMarginBinding(wpfId);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
 }

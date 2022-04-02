@@ -82,30 +82,30 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         //Druck = _hydraulikaggregat.Druck;
 
-        FarbeUmschalten(_modelLap2018.B3, (int)WpfObjects.B3, Brushes.LawnGreen, Brushes.Red);
-        FarbeUmschalten(_modelLap2018.B4, (int)WpfObjects.B4, Brushes.LawnGreen, Brushes.Red);
-        FarbeUmschalten(_modelLap2018.B5, (int)WpfObjects.B5, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelLap2018.B3, (int)WpfObjects.B3, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelLap2018.B4, (int)WpfObjects.B4, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelLap2018.B5, (int)WpfObjects.B5, Brushes.LawnGreen, Brushes.Red);
 
-        FarbeUmschalten(_modelLap2018.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
+        RipFarbeUmschalten(_modelLap2018.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
 
-        FarbeUmschalten(_modelLap2018.K1, (int)WpfObjects.K1, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2018.K2, (int)WpfObjects.K2, Brushes.Red, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.K1, (int)WpfObjects.K1, Brushes.Red, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.K2, (int)WpfObjects.K2, Brushes.Red, Brushes.White);
 
-        FarbeUmschalten(_modelLap2018.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2018.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2018.P3, (int)WpfObjects.P3, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2018.P4, (int)WpfObjects.P4, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2018.P5, (int)WpfObjects.P5, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2018.P6, (int)WpfObjects.P6, Brushes.Red, Brushes.White);
-        FarbeUmschalten(_modelLap2018.P7, (int)WpfObjects.P7, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2018.P8, (int)WpfObjects.P8, Brushes.Red, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.P3, (int)WpfObjects.P3, Brushes.Red, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.P4, (int)WpfObjects.P4, Brushes.Red, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.P5, (int)WpfObjects.P5, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.P6, (int)WpfObjects.P6, Brushes.Red, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.P7, (int)WpfObjects.P7, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.P8, (int)WpfObjects.P8, Brushes.Red, Brushes.White);
 
-        FarbeUmschalten(_modelLap2018.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2018.Q2, (int)WpfObjects.Q2, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2018.Q3, (int)WpfObjects.Q3, Brushes.LawnGreen, Brushes.White);
-        FarbeUmschalten(_modelLap2018.Q4, (int)WpfObjects.Q4, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.Q2, (int)WpfObjects.Q2, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.Q3, (int)WpfObjects.Q3, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.Q4, (int)WpfObjects.Q4, Brushes.LawnGreen, Brushes.White);
 
-        FarbeUmschalten(_modelLap2018.S4, (int)WpfObjects.S4, Brushes.LawnGreen, Brushes.White);
+        RipFarbeUmschalten(_modelLap2018.S4, (int)WpfObjects.S4, Brushes.LawnGreen, Brushes.White);
 
         RipSichtbarkeitUmschalten(_modelLap2018.B1, (int)WpfObjects.B1);
         RipSichtbarkeitUmschalten(_modelLap2018.B2, (int)WpfObjects.B2);

@@ -40,7 +40,7 @@ public partial class LibWpf
         BindingOperations.SetBinding(rt, RotateTransform.AngleProperty, b);
         rectangle.RenderTransform = rt;
 
-        rectangle.SetTransformOriginBinding(wpfId);
+        rectangle.RipSetTransformOriginBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
@@ -64,7 +64,7 @@ public partial class LibWpf
             Stroke = stroke,
             StrokeThickness = strokeThicknes
         };
-        rectangle.SetMarginBinding(wpfId);
+        rectangle.RipSetMarginBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
@@ -94,7 +94,7 @@ public partial class LibWpf
             Margin = margin
         };
 
-        rectangle.SetFillingBinding(wpfId);
+        rectangle.RipSetFillingBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
@@ -104,8 +104,8 @@ public partial class LibWpf
         {
             Stroke = rand
         };
-        rectangle.SetFillingBinding(wpfId);
-        rectangle.RipSetVisibilityEinBinding(wpfId);
+        rectangle.RipSetFillingBinding(wpfId);
+        rectangle.RipButtonSetVisibilityEinBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
@@ -118,7 +118,7 @@ public partial class LibWpf
             Fill = new SolidColorBrush(Colors.Red)
         };
 
-        rectangle.SetFillingBinding(wpfId);
+        rectangle.RipSetFillingBinding(wpfId);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
