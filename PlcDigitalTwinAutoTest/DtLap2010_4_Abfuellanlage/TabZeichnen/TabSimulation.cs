@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RechteckFill(20, 10, 2, 10, Brushes.LightGray);
+        libWpf.RipRechteckFill(20, 10, 2, 10, Brushes.LightGray);
 
         libWpf.Text("S1", 20, 2, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 25, 2, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -41,8 +41,8 @@ public partial class TabZeichnen
         //
         ///////////////////////////////////////////////////////////
 
-        libWpf.RechteckFillMargin(2, 2, 3, 12, Brushes.DarkGray, new Thickness(10, 0, 10, 0));
-        libWpf.RechteckFillMargin(4, 2, 3, 12, Brushes.DarkGray, new Thickness(10, 0, 10, 0));
+        libWpf.RipRechteckFillMargin(2, 2, 3, 12, Brushes.DarkGray, new Thickness(10, 0, 10, 0));
+        libWpf.RipRechteckFillMargin(4, 2, 3, 12, Brushes.DarkGray, new Thickness(10, 0, 10, 0));
 
         var ventilRand = new Thickness(0, 0, 0, 0);
         libWpf.Text("K1", 4, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
@@ -51,10 +51,10 @@ public partial class TabZeichnen
         libWpf.RipBildSetVisibilityAus("VentilElektrischAus.jpg", 4, 2, 12, 2, ventilRand, WpfObjects.K1);
 
 
-        libWpf.RechteckFill(10, 6, 2, 6, Brushes.Coral);
-        libWpf.RechteckFillStrokeSetMargin(10, 6, 2, 6, Brushes.BurlyWood, Brushes.BurlyWood, 0, WpfObjects.Fuellstand);
+        libWpf.RipRechteckFill(10, 6, 2, 6, Brushes.Coral);
+        libWpf.RipRechteckFillStrokeSetMargin(10, 6, 2, 6, Brushes.BurlyWood, Brushes.BurlyWood, 0, WpfObjects.Fuellstand);
 
-        libWpf.RechteckSetFill(12,2,8,2, Brushes.BurlyWood,new Thickness(0,0,0,0), WpfObjects.Zuleitung);
+        libWpf.RipRechteckSetFill(12,2,8,2, Brushes.BurlyWood,new Thickness(0,0,0,0), WpfObjects.Zuleitung);
 
 
         libWpf.Text("K2", 8, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);

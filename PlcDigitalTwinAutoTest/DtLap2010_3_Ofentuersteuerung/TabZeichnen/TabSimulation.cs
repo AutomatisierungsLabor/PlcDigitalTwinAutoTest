@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RechteckFill(20, 10, 2, 10, Brushes.LightGray);
+        libWpf.RipRechteckFill(20, 10, 2, 10, Brushes.LightGray);
 
         libWpf.Text("S1", 19, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 19, 3, 5, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -51,7 +51,7 @@ public partial class TabZeichnen
         libWpf.BildSetDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnradWinkel);
         libWpf.BildSetMargin("Zahnstange.png", 2, 20, 8, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnstangePosition);
 
-        libWpf.RechteckFillStrokeSetMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, WpfObjects.OfentuerePosition);
+        libWpf.RipRechteckFillStrokeSetMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, WpfObjects.OfentuerePosition);
 
         libWpf.RipButtonContentRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.B2);
 
@@ -70,8 +70,8 @@ public partial class TabZeichnen
         libWpf.RipBildSetVisibilityEin("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
 
 
-        libWpf.RechteckSetFill(2, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
-        libWpf.RechteckSetFill(4, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
+        libWpf.RipRechteckSetFill(2, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
+        libWpf.RipRechteckSetFill(4, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
         libWpf.Text("Q1 (LL)", 2, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("Q2 (RL)", 4, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
 

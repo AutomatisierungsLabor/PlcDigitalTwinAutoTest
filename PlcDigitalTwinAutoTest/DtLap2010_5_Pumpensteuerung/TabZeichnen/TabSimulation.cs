@@ -22,14 +22,14 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RechteckFill(19, 12, 1, 30, Brushes.LightGray);
+        libWpf.RipRechteckFill(19, 12, 1, 30, Brushes.LightGray);
 
         var buttonRand = new Thickness(0, 0, 0, 0);
         libWpf.RipButtonContentRounded(20, 3, 2, 2, 14, 0, buttonRand, Brushes.LawnGreen, vmLap2010.BtnTaster, WpfObjects.SchalterHand);
         libWpf.RipButtonContentRounded(23, 3, 2, 2, 14, 0, buttonRand, Brushes.Gray, vmLap2010.BtnTaster, WpfObjects.SchalterAus);
         libWpf.RipButtonContentRounded(26, 3, 2, 2, 14, 0, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.SchalterAutomatik);
 
-        libWpf.RechteckFill(20, 9, 5, 9, Brushes.Gray);
+        libWpf.RipRechteckFill(20, 9, 5, 9, Brushes.Gray);
         libWpf.RipKreisFillStrokeMargin(23, 3, 8, 3, Brushes.DarkGray, Brushes.DarkGray, 0, new Thickness(0, 0, 0, 0));
 
         libWpf.Text("0", 20, 9, 5, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black);
@@ -60,12 +60,12 @@ public partial class TabZeichnen
 
         libWpf.RipButtonBackgroundContentRounded(5, 3, 1, 2, 14, 5, buttonRand, vmLap2010.BtnSchalter, WpfObjects.F1);
 
-        libWpf.RechteckFillMargin(1, 4, 4, 2, Brushes.Blue, new Thickness(0, 20, 0, 20));
-        libWpf.RechteckMarginSetFill(5, 4, 4, 2, new Thickness(0, 20, 10, 20), WpfObjects.ZuleitungWaagrecht);
-        libWpf.RechteckMarginSetFill(8, 2, 4, 10, new Thickness(20, 20, 20, 0), WpfObjects.ZuleitungSenkrecht);
+        libWpf.RipRechteckFillMargin(1, 4, 4, 2, Brushes.Blue, new Thickness(0, 20, 0, 20));
+        libWpf.RipRechteckMarginSetFill(5, 4, 4, 2, new Thickness(0, 20, 10, 20), WpfObjects.ZuleitungWaagrecht);
+        libWpf.RipRechteckMarginSetFill(8, 2, 4, 10, new Thickness(20, 20, 20, 0), WpfObjects.ZuleitungSenkrecht);
 
-        libWpf.RechteckFillMargin(6, 6, 6, 10, Brushes.LightBlue, new Thickness(0, 0, 0, 0));
-        libWpf.RechteckFillStrokeSetMargin(6, 6, 6, 10, Brushes.Blue, Brushes.Blue, 0, WpfObjects.Pegel);
+        libWpf.RipRechteckFillMargin(6, 6, 6, 10, Brushes.LightBlue, new Thickness(0, 0, 0, 0));
+        libWpf.RipRechteckFillStrokeSetMargin(6, 6, 6, 10, Brushes.Blue, Brushes.Blue, 0, WpfObjects.Pegel);
 
         var pumpeRand = new Thickness(0, 0, 0, 0);
         libWpf.Text("Q1", 2, 2, 3, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
@@ -73,8 +73,8 @@ public partial class TabZeichnen
         libWpf.RipBildSetVisibilityEin("PumpeWaagrechtEin.jpg", 4, 2, 4, 2, pumpeRand, WpfObjects.Q1);
 
 
-        libWpf.RechteckMarginSetFill(8, 2, 16, 3, new Thickness(20, 0, 20, 0), WpfObjects.AbleitungOben);
-        libWpf.RechteckMarginSetFill(8, 2, 19, 3, new Thickness(20, 0, 20, 0), WpfObjects.AbleitungUnten);
+        libWpf.RipRechteckMarginSetFill(8, 2, 16, 3, new Thickness(20, 0, 20, 0), WpfObjects.AbleitungOben);
+        libWpf.RipRechteckMarginSetFill(8, 2, 19, 3, new Thickness(20, 0, 20, 0), WpfObjects.AbleitungUnten);
 
         libWpf.Text("Y1", 5, 2, 18, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.RipButtonZweiBilder(7, 3, 18, 2, "VentilElektrischEin.jpg", "VentilElektrischAus.jpg", new Thickness(7, 0, 7, 0), vmLap2010.BtnSchalter, WpfObjects.Y1);

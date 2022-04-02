@@ -20,7 +20,7 @@ public class PlcZeichnen
 
         libWpf.GridZeichnen(25, 30, 28, 30, false);
 
-        libWpf.RechteckFill(1, 22, 8, 12, Brushes.LightGray);
+        libWpf.RipRechteckFill(1, 22, 8, 12, Brushes.LightGray);
 
         ///////////////////////////////////////////////////////////////////
         //  obere Hälfte zeichnen
@@ -35,7 +35,7 @@ public class PlcZeichnen
         {
             libWpf.TextVerticalSetTextSetVisibility(3 + i, 1, 1, 6, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, new Thickness(0, 0, 0, 0), 180, Brushes.Black, i + (int)WpfObjects.DiBeschreibung00);
             libWpf.TextSetContendSetVisibility(2 + i, 3, 6, 2, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, Brushes.Black, i + (int)WpfObjects.Di00);
-            libWpf.RechteckSetFill(3 + i, 1, 8, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Di00);
+            libWpf.RipRechteckSetFill(3 + i, 1, 8, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Di00);
             libWpf.Text($".{i}", 3 + i, 2, 9, 2, HorizontalAlignment.Left, VerticalAlignment.Top, schriftKlein, Brushes.White);
         }
         // Rechte 8 Eingänge
@@ -47,7 +47,7 @@ public class PlcZeichnen
         {
             libWpf.TextVerticalSetTextSetVisibility(13 + i, 1, 1, 6, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, new Thickness(0, 0, 0, 0), 180, Brushes.Black, i + (int)WpfObjects.DiBeschreibung10);
             libWpf.TextSetContendSetVisibility(12 + i, 3, 8, 2, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, Brushes.Black, i + (int)WpfObjects.Di10);
-            libWpf.RechteckSetFill(13 + i, 1, 8, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Di10);
+            libWpf.RipRechteckSetFill(13 + i, 1, 8, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Di10);
             libWpf.Text($".{i}", 13 + i, 2, 9, 2, HorizontalAlignment.Left, VerticalAlignment.Top, schriftKlein, Brushes.White);
         }
 
@@ -70,7 +70,7 @@ public class PlcZeichnen
         {
             libWpf.TextVerticalSetTextSetVisibility(3 + i, 1, 21, 6, HorizontalAlignment.Center, VerticalAlignment.Top, schriftKlein, new Thickness(0, 0, 0, 0), 180, Brushes.Black, i + (int)WpfObjects.DaBeschreibung00);
             libWpf.TextSetContendSetVisibility(2 + i, 3, 20, 2, HorizontalAlignment.Center, VerticalAlignment.Top, schriftKlein, Brushes.Black, i + (int)WpfObjects.Da00);
-            libWpf.RechteckSetFill(3 + i, 1, 19, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Da00);
+            libWpf.RipRechteckSetFill(3 + i, 1, 19, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Da00);
             libWpf.Text($".{i}", 3 + i, 2, 18, 2, HorizontalAlignment.Left, VerticalAlignment.Top, schriftKlein, Brushes.White);
         }
         // Rechte 8 Ausgänge
@@ -82,7 +82,7 @@ public class PlcZeichnen
         {
             libWpf.TextVerticalSetTextSetVisibility(13 + i, 1, 21, 6, HorizontalAlignment.Center, VerticalAlignment.Top, schriftKlein, new Thickness(0, 0, 0, 0), 180, Brushes.Black, i + (int)WpfObjects.DaBeschreibung10);
             libWpf.TextSetContendSetVisibility(12 + i, 3, 20, 2, HorizontalAlignment.Center, VerticalAlignment.Top, schriftKlein, Brushes.Black, i + (int)WpfObjects.Da10);
-            libWpf.RechteckSetFill(13 + i, 1, 19, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Da10);
+            libWpf.RipRechteckSetFill(13 + i, 1, 19, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Da10);
             libWpf.Text($".{i}", 13 + i, 2, 18, 2, HorizontalAlignment.Left, VerticalAlignment.Top, schriftKlein, Brushes.White);
         }
     }

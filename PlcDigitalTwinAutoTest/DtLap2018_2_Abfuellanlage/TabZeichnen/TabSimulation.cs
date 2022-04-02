@@ -24,7 +24,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RechteckFill(25, 11, 1, 19, Brushes.LightGray);
+        libWpf.RipRechteckFill(25, 11, 1, 19, Brushes.LightGray);
 
         libWpf.Text("S1", 24, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 29, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -62,22 +62,22 @@ public partial class TabZeichnen
         libWpf.RipButtonContentRounded(1, 3, 1, 3, 20, 15, buttonRand, Brushes.LightSkyBlue, vmLap2018.BtnTaster, WpfObjects.AllesReset);
         libWpf.RipButtonContentRounded(19, 3, 1, 3, 16, 15, buttonRand, Brushes.LightSkyBlue, vmLap2018.BtnTaster, WpfObjects.TankNachfuellen);
 
-        libWpf.RechteckFillMargin(4, 1, 1, 16, Brushes.Gray, new Thickness(10, 0, 6, 0));
-        libWpf.RechteckFillMargin(5, 1, 1, 16, Brushes.Gray, new Thickness(17, 0, 0, 0));
+        libWpf.RipRechteckFillMargin(4, 1, 1, 16, Brushes.Gray, new Thickness(10, 0, 6, 0));
+        libWpf.RipRechteckFillMargin(5, 1, 1, 16, Brushes.Gray, new Thickness(17, 0, 0, 0));
 
         libWpf.BildSetVisibilityEinAus("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 7, 2, 15, 2, new Thickness(0, 0, 0, 0), WpfObjects.K2);
         libWpf.Text("K2", 6, 2, 15, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.RechteckFill(10, 8, 1, 10, Brushes.LightBlue);
-        libWpf.RechteckFillStrokeSetMargin(10, 8, 1, 10, Brushes.Blue, Brushes.Blue, 0, WpfObjects.Pegel);
+        libWpf.RipRechteckFill(10, 8, 1, 10, Brushes.LightBlue);
+        libWpf.RipRechteckFillStrokeSetMargin(10, 8, 1, 10, Brushes.Blue, Brushes.Blue, 0, WpfObjects.Pegel);
 
         libWpf.Text("K1", 11, 2, 13, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.BildSetVisibilityEinAus("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 12, 3, 13, 2, new Thickness(0, 0, 8, 0), WpfObjects.K1);
-        libWpf.RechteckMarginSetFill(13, 2, 11, 2, new Thickness(25, 0, 25, 0), WpfObjects.Zuleitung);
-        libWpf.RechteckMarginSetFill(13, 2, 15, 5, new Thickness(25, 0, 25, 0), WpfObjects.Ableitung);
+        libWpf.RipRechteckMarginSetFill(13, 2, 11, 2, new Thickness(25, 0, 25, 0), WpfObjects.Zuleitung);
+        libWpf.RipRechteckMarginSetFill(13, 2, 15, 5, new Thickness(25, 0, 25, 0), WpfObjects.Ableitung);
 
-        libWpf.RechteckFillMargin(4, 14, 20, 1, Brushes.Gray, new Thickness(15, 0, 15, 20));
-        libWpf.RechteckFillMargin(4, 14, 22, 1, Brushes.Gray, new Thickness(15, 20, 15, 0));
+        libWpf.RipRechteckFillMargin(4, 14, 20, 1, Brushes.Gray, new Thickness(15, 0, 15, 20));
+        libWpf.RipRechteckFillMargin(4, 14, 22, 1, Brushes.Gray, new Thickness(15, 20, 15, 0));
         libWpf.RipKreisFillStrokeMargin(3, 3, 20, 3, Brushes.Gray, Brushes.Gray, 0, new Thickness(0, 0, 0, 0));
         libWpf.RipKreisFillStrokeMargin(16, 3, 20, 3, Brushes.Gray, Brushes.Gray, 0, new Thickness(0, 0, 0, 0));
         libWpf.RipKreisStrokeMarginSetFilling(3, 3, 20, 3, Brushes.Gray, new Thickness(5, 5, 5, 5), WpfObjects.Q1);

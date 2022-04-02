@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RechteckFill(20, 11, 1, 9, Brushes.LightGray);
+        libWpf.RipRechteckFill(20, 11, 1, 9, Brushes.LightGray);
 
         libWpf.Text("S1", 19, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 24, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -43,9 +43,9 @@ public partial class TabZeichnen
         //
         ///////////////////////////////////////////////////////////
 
-        libWpf.RechteckFillStrokeRundung(2, 20, 1, 15, 25, 15, Brushes.LightBlue, Brushes.Black, 2, new Rect(0, 0, 210, 300));
-        libWpf.RechteckFillStrokeMargin(4, 3, 11, 3, Brushes.LightBlue, Brushes.Black, 2, new Thickness(10, 0, 10, 0));
-        libWpf.RechteckFillMargin(4, 3, 10, 2, Brushes.LightBlue, new Thickness(12, 0, 12, 0));
+        libWpf.RipRechteckFillStrokeRundung(2, 20, 1, 15, 25, 15, Brushes.LightBlue, Brushes.Black, 2, new Rect(0, 0, 210, 300));
+        libWpf.RipRechteckFillStrokeMargin(4, 3, 11, 3, Brushes.LightBlue, Brushes.Black, 2, new Thickness(10, 0, 10, 0));
+        libWpf.RipRechteckFillMargin(4, 3, 10, 2, Brushes.LightBlue, new Thickness(12, 0, 12, 0));
 
         libWpf.Polygon(0, 7, 15, 6, Brushes.LightBlue, Brushes.Black, 2, new[] { new double[] { 130, 20 }, new double[] { 200, 20 }, new double[] { 200, 150 }, new double[] { 20, 150 }, new double[] { 20, 90 }, new double[] { 130, 90 } });
 
@@ -61,9 +61,9 @@ public partial class TabZeichnen
 
 
 
-        libWpf.RechteckSetFill(10, 4, 15, 1, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
-        libWpf.RechteckSetFill(10, 2, 16, 1, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
-        libWpf.RechteckSetFill(12, 2, 16, 1, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q3);
+        libWpf.RipRechteckSetFill(10, 4, 15, 1, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
+        libWpf.RipRechteckSetFill(10, 2, 16, 1, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
+        libWpf.RipRechteckSetFill(12, 2, 16, 1, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q3);
         libWpf.Text("Q1 (Netz)", 10, 4, 15, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 15, Brushes.Black);
         libWpf.Text("Q2 ( Y )", 10, 2, 16, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 15, Brushes.Black);
         libWpf.Text("Q3 ( △ )", 12, 2, 16, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 15, Brushes.Black);

@@ -35,19 +35,19 @@ public partial class TabZeichnen
 
         // Materialsilo mit Ventil, ...
 
-        libWpf.RechteckFill(15, 8, 5, 8, Brushes.LightGray);
-        libWpf.RechteckFillStrokeSetMargin(15, 8, 5, 8, Brushes.Firebrick, Brushes.Firebrick, 0, WpfObjects.MaterialSilo);
+        libWpf.RipRechteckFill(15, 8, 5, 8, Brushes.LightGray);
+        libWpf.RipRechteckFillStrokeSetMargin(15, 8, 5, 8, Brushes.Firebrick, Brushes.Firebrick, 0, WpfObjects.MaterialSilo);
         libWpf.Text("Materialsilo", 15, 8, 5, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.TextSetContendSetVisibility(15, 8, 10, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.MaterialSiloFuellstand);
 
         libWpf.Text("Y1", 16, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.BildSetVisibilityEinAus("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 17, 3, 14, 2, new Thickness(0, 0, 5, 0), WpfObjects.Y1);
-        libWpf.RechteckMarginSetFill(15, 8, 13, 1, new Thickness(110, 0, 110, 0), WpfObjects.MaterialOben);
-        libWpf.RechteckMarginSetFill(15, 8, 16, 2, new Thickness(110, 0, 110, 0), WpfObjects.MaterialUnten);
+        libWpf.RipRechteckMarginSetFill(15, 8, 13, 1, new Thickness(110, 0, 110, 0), WpfObjects.MaterialOben);
+        libWpf.RipRechteckMarginSetFill(15, 8, 16, 2, new Thickness(110, 0, 110, 0), WpfObjects.MaterialUnten);
 
         // Förderband
-        libWpf.RechteckFillMargin(10, 10, 18, 1, Brushes.Gray, new Thickness(0, 0, 0, 20));
-        libWpf.RechteckFillMargin(10, 10, 19, 1, Brushes.Gray, new Thickness(0, 20, 0, 0));
+        libWpf.RipRechteckFillMargin(10, 10, 18, 1, Brushes.Gray, new Thickness(0, 0, 0, 20));
+        libWpf.RipRechteckFillMargin(10, 10, 19, 1, Brushes.Gray, new Thickness(0, 20, 0, 0));
         libWpf.RipKreisFillStrokeMargin(9, 2, 18, 2, Brushes.Gray, Brushes.Gray, 0, new Thickness(0, 0, 0, 0));
         libWpf.RipKreisStrokeMarginSetFilling(19, 2, 18, 2, Brushes.Gray, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
         libWpf.Text("Q1", 19, 2, 18, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
@@ -61,7 +61,7 @@ public partial class TabZeichnen
                 new double[] {275,140}, new double[] {260,140}, new double[] {260,110}, new double[] {20,110}, new double[] {20,140}, new double[] {5,140} },
             WpfObjects.PositionWagen);
 
-        libWpf.RechteckFillStrokeSetMargin(1, 20, 21, 10, Brushes.Firebrick, Brushes.Firebrick, 0, WpfObjects.PostionWagenInhalt);
+        libWpf.RipRechteckFillStrokeSetMargin(1, 20, 21, 10, Brushes.Firebrick, Brushes.Firebrick, 0, WpfObjects.PostionWagenInhalt);
 
         libWpf.Text("B1", 17, 2, 28, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.BildSetVisibilityEinAus("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 19, 2, 28, 2, new Thickness(0, 0, 0, 0), WpfObjects.B1);
@@ -82,7 +82,7 @@ public partial class TabZeichnen
         var kreisRand = new Thickness(2, 2, 2, 2);
         var kreisRandFarbe = new SolidColorBrush(Colors.Black);
 
-        libWpf.RechteckFill(25, 11, 1, 12, Brushes.LightGray);
+        libWpf.RipRechteckFill(25, 11, 1, 12, Brushes.LightGray);
 
         libWpf.Text("P1", 24, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P2", 29, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);

@@ -15,11 +15,11 @@ public partial class TabZeichnen
 
 
         libWpf.RipKreisFillStrokeMargin(2, 8, 1, 8, Brushes.SlateGray, Brushes.SlateGray, 0, new Thickness(2, 2, 2, 2));
-        libWpf.RechteckFillMarginSetWinkel(5, 2, 1, 2, Brushes.Yellow, new Thickness(25, 0, 25, 20), WpfObjects.WinkelSchleifmaschine);
+        libWpf.RipRechteckFillMarginSetWinkel(5, 2, 1, 2, Brushes.Yellow, new Thickness(25, 0, 25, 20), WpfObjects.WinkelSchleifmaschine);
 
         libWpf.TextSetContendSetVisibility(2, 8, 9, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black, WpfObjects.SchleifmaschineDrehzahl);
 
-        libWpf.RechteckSetFillSetVisibility(2, 20, 12, 2, Brushes.Red, WpfObjects.B1);
+        libWpf.RipRechteckSetFillSetVisibility(2, 20, 12, 2, Brushes.Red, WpfObjects.B1);
         libWpf.TextSetContendSetVisibility(2, 20, 12, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.B1);
 
 
@@ -28,7 +28,7 @@ public partial class TabZeichnen
 
         var buttonRand = new Thickness(2, 5, 2, 5);
 
-        libWpf.RechteckFill(2, 5, 15, 8, Brushes.LightGray);
+        libWpf.RipRechteckFill(2, 5, 15, 8, Brushes.LightGray);
 
         libWpf.Text("-S1", 2, 2, 15, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.RipButtonContentRounded(4, 3, 15, 3, 50, 15, buttonRand, Brushes.LawnGreen, vmSchleifmaschine.BtnTaster, WpfObjects.S1);
@@ -50,7 +50,7 @@ public partial class TabZeichnen
         var kreisRand = new Thickness(2, 2, 2, 2);
         var kreisRandFarbe = new SolidColorBrush(Colors.Black);
 
-        libWpf.RechteckFill(30, 5, 1, 6, Brushes.LightGray);
+        libWpf.RipRechteckFill(30, 5, 1, 6, Brushes.LightGray);
 
         libWpf.Text("-F1", 30, 2, 1, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.RipButtonContentRounded(32, 3, 1, 3, 50, 5, buttonRand, Brushes.LawnGreen, vmSchleifmaschine.BtnSchalter, WpfObjects.F1);
@@ -59,7 +59,7 @@ public partial class TabZeichnen
         libWpf.RipButtonContentRounded(32, 3, 4, 3, 50, 5, buttonRand, Brushes.LawnGreen, vmSchleifmaschine.BtnSchalter, WpfObjects.F2);
 
 
-        libWpf.RechteckFill(30, 5, 8, 11, Brushes.LightGray);
+        libWpf.RipRechteckFill(30, 5, 8, 11, Brushes.LightGray);
 
         libWpf.Text("-P1", 30, 2, 8, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.RipKreisStrokeMarginSetFilling(32, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
@@ -76,7 +76,7 @@ public partial class TabZeichnen
 
 
 
-        libWpf.RechteckFill(30, 5, 21, 2, Brushes.LightGray);
+        libWpf.RipRechteckFill(30, 5, 21, 2, Brushes.LightGray);
 
         libWpf.Text("-S4", 30, 2, 21, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.RipButtonContentRounded(32, 3, 21, 2, 20, 5, buttonRand, Brushes.Red, vmSchleifmaschine.BtnTaster, WpfObjects.S4);

@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RechteckFill(25, 11, 1, 15, Brushes.LightGray);
+        libWpf.RipRechteckFill(25, 11, 1, 15, Brushes.LightGray);
 
         libWpf.Text("S1", 24, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 29, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -48,14 +48,14 @@ public partial class TabZeichnen
         ///////////////////////////////////////////////////////////
 
 
-        libWpf.RechteckSetFillSetVisibility(8, 2, 2, 4, Brushes.Firebrick, WpfObjects.Fuellen);
+        libWpf.RipRechteckSetFillSetVisibility(8, 2, 2, 4, Brushes.Firebrick, WpfObjects.Fuellen);
         libWpf.Polygon(14, 5, 1, 5, Brushes.DarkOrange, Brushes.Black, 2, new[] { new double[] { 20, 10 }, new double[] { 120, 10 }, new double[] { 120, 120 }, new double[] { 100, 160 }, new double[] { 40, 160 }, new double[] { 20, 120 } });
 
-        libWpf.RechteckFillStrokeSetMargin(1, 20, 8, 4, Brushes.Gray, Brushes.Black, 3, WpfObjects.PositionWagenkasten);
+        libWpf.RipRechteckFillStrokeSetMargin(1, 20, 8, 4, Brushes.Gray, Brushes.Black, 3, WpfObjects.PositionWagenkasten);
         libWpf.RipKreisFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, WpfObjects.PositionRadLinks);
         libWpf.RipKreisFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, WpfObjects.PositionRadRechts);
 
-        libWpf.RechteckFill(1,20,13,1,Brushes.Gray);
+        libWpf.RipRechteckFill(1,20,13,1,Brushes.Gray);
 
 
 
@@ -70,8 +70,8 @@ public partial class TabZeichnen
         libWpf.RipBildSetVisibilityEin("InitiatorenBetaetigt.jpg", 18, 2, 15, 2, kontakteRand, WpfObjects.B2);
 
 
-        libWpf.RechteckSetFill(9, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
-        libWpf.RechteckSetFill(11, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
+        libWpf.RipRechteckSetFill(9, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
+        libWpf.RipRechteckSetFill(11, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
         libWpf.Text("Q1 (LL)", 9, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("Q2 (RL)", 11, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
 

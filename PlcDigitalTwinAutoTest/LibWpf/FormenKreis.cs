@@ -7,17 +7,28 @@ namespace LibWpf;
 public partial class LibWpf
 {
 
-
-
-
-
-
-
-    public void EllipseMarginStrokeSetFilling(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush rand, double strokeThicknes, Thickness margin, string wpfId)
+    public void EllipseFillMarginStroke(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, Thickness margin, SolidColorBrush stroke, double strokeThicknes)
     {
         var ellipse = new Ellipse
         {
-            Stroke = rand,
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
+    }
+
+
+
+
+
+    public void EllipseMarginStrokeSetFilling(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, SolidColorBrush stroke, double strokeThicknes, string wpfId)
+    {
+        var ellipse = new Ellipse
+        {
+            Stroke = stroke,
             StrokeThickness = strokeThicknes,
             Margin = margin,
             Fill = new SolidColorBrush(Colors.Red)

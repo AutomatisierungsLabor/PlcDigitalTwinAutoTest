@@ -7,7 +7,7 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void ButtonBackgroundMarginRoundedSetContend(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, string cmdParameter,string setClickMode, string setContent)
+    public void ButtonBackgroundMarginRoundedSetContend(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, Thickness margin, ICommand cmd, string cmdParameter,string setClickMode, string setContent)
     {
         var button = new Button
         {
