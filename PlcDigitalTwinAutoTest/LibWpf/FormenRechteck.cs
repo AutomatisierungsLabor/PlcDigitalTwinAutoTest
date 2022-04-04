@@ -77,7 +77,15 @@ public partial class LibWpf
     }
 
 
-
+    public void RectangleMarginSetFill(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingFilling)
+    {
+        var rectangle = new Rectangle
+        {
+            Margin = margin
+        };
+        rectangle.BindingSetFilling(bindingFilling);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
 
 
 

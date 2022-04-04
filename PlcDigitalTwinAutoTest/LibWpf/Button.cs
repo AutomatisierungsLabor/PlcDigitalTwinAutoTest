@@ -7,6 +7,27 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
+    public void ButtonRounded( int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, object cmdParameter, string setClickMode)
+    {
+        var button = new Button
+        {
+            FontSize = fontSize,
+            Margin = margin,
+            Background = background,
+            Command = cmd,
+            CommandParameter = cmdParameter
+        };
+
+        button.Loaded += (_, _) =>
+        {
+            if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
+        };
+
+        button.BindingButtonSetClickMode(setClickMode);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
+    }
+
     public void ButtonContentRounded(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, object cmdParameter, string setClickMode)
     {
         var button = new Button
@@ -51,6 +72,25 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
 
+    public void ButtonRoundedSetBackground(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, ICommand cmd, string cmdParameter, string setClickMode, string setBackground)
+    {
+        var button = new Button
+        {
+            FontSize = fontSize,
+            Command = cmd,
+            CommandParameter = cmdParameter
+        };
+
+        button.Loaded += (_, _) =>
+        {
+            if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
+        };
+
+        button.BindingButtonSetClickMode(setClickMode);
+        button.BindingButtonSetBackground(setBackground);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
+    }
     public void ButtonContentRoundedSetBackground(string content,  int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, ICommand cmd, string cmdParameter, string setClickMode, string setBackground)
     {
         var button = new Button

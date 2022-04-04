@@ -30,8 +30,8 @@ public partial class TabZeichnen
         libWpf.Text("P1", 19, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P2", 24, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonContentRounded("Aus", 22, 3, 2, 3, 20, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
-        libWpf.ButtonContentRounded("Ein", 27, 3, 2, 3, 20, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
+        libWpf.ButtonBackgroundContentMarginRounded("Aus", 22, 3, 2, 3, 20, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
+        libWpf.ButtonBackgroundContentMarginRounded("Ein", 27, 3, 2, 3, 20, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
 
         libWpf.EllipseMarginStrokeSetFilling(22, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
         libWpf.EllipseMarginStrokeSetFilling(27, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP2));

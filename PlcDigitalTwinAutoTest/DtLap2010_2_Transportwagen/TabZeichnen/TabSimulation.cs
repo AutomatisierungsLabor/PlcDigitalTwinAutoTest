@@ -32,9 +32,9 @@ public partial class TabZeichnen
         libWpf.Text("P1", 24, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.ButtonContentRounded("Start", 27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
-        libWpf.ButtonContentRounded("Not Halt", 32, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonSchalterCommand, "S2", nameof(vmLap2010.ClickModeS2));
-        libWpf.ButtonContentRounded("Reset", 27, 3, 5, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "S3", nameof(vmLap2010.ClickModeS3));
+        libWpf.ButtonBackgroundContentMarginRounded("Start", 27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
+        libWpf.ButtonBackgroundContentMarginRounded("Not Halt", 32, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonSchalterCommand, "S2", nameof(vmLap2010.ClickModeS2));
+        libWpf.ButtonBackgroundContentMarginRounded("Reset", 27, 3, 5, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "S3", nameof(vmLap2010.ClickModeS3));
 
         libWpf.EllipseMarginStrokeSetFilling(27, 3, 8, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
         libWpf.Text("Störung", 27, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
