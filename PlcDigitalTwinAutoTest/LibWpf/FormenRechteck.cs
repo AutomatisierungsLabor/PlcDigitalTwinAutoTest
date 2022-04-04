@@ -15,6 +15,18 @@ public partial class LibWpf
         };
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
+
+    public void RectangleFillMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, Thickness margin)
+    {
+        var rectangle = new Rectangle
+        {
+            Fill = fill,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
+
     public void RectangleSetFill(int xPos, int xSpan, int yPos, int ySpan, object bindingFilling)
     {
         var rectangle = new Rectangle();
@@ -38,6 +50,16 @@ public partial class LibWpf
             Fill = fill
         };
         rectangle.BindingSetVisibility(bindingVisibility);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
+    public void RectangleFillSetMargin(int xPos, int xSpan, int yPos, int ySpan, Brush fill, object bindingMargin)
+    {
+        var rectangle = new Rectangle
+        {
+            Fill = fill
+        };
+        rectangle.BindingSetMargin(bindingMargin);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }

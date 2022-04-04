@@ -62,7 +62,7 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
 
     internal void Nachfuellen() => Pegel = 1;
 
-    internal void AllesReset()
+    internal void Reset()
     {
         Pegel = 0.9;
         _aktuelleDose = 0;
