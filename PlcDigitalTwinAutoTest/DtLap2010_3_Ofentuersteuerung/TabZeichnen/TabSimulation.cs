@@ -32,11 +32,11 @@ public partial class TabZeichnen
         libWpf.Text("P1", 19, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.RipButtonContentRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
-        libWpf.RipButtonContentRounded(22, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
-        libWpf.RipButtonContentRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S3);
+        libWpf.ButtonContentRounded("Halt", 22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
+        libWpf.ButtonContentRounded("Öffnen", 22, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
+        libWpf.ButtonContentRounded("Schliessen", 27, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S3", nameof(vmLap2010.ClickModeS3));
 
-        libWpf.RipKreisStrokeMarginSetFilling(22, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.EllipseMarginStrokeSetFilling(22, 3, 8, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
         libWpf.Text("Schliessen", 22, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
 
 
@@ -48,32 +48,35 @@ public partial class TabZeichnen
 
         libWpf.VideoAutoPlay("Flammen.mp4", 7, 3, 5, 3);
 
-        libWpf.BildSetDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnradWinkel);
-        libWpf.BildSetMargin("Zahnstange.png", 2, 20, 8, 3, new Thickness(0, 0, 0, 0), WpfObjects.ZahnstangePosition);
+        libWpf.ImageSetDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ZahnradWinkel));
+        libWpf.ImageSetMargin("Zahnstange.png", 2, 20, 8, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ZahnstangePosition));
 
-        libWpf.RipRechteckFillStrokeSetMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, WpfObjects.OfentuerePosition);
+        libWpf.RectangleFillStrokeSetMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, nameof(vmLap2010.OfentuerePosition));
 
-        libWpf.RipButtonContentRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.B2);
+        libWpf.ButtonContentRounded("Lichtschranke", 22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "B2", nameof(vmLap2010.ClickModeB2));
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 8, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RipBildSetVisibilityAus("InitiatorenSchliesser.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
-        libWpf.RipBildSetVisibilityEin("InitiatorenBetaetigt.jpg", 11, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
+        libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
 
         libWpf.Text("B2", 12, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RipBildSetVisibilityAus("InitiatorenSchliesser.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
-        libWpf.RipBildSetVisibilityEin("InitiatorenBetaetigt.jpg", 15, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB2));
+        libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB2));
 
         libWpf.Text("B3", 16, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RipBildSetVisibilityAus("InitiatorenSchliesser.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
-        libWpf.RipBildSetVisibilityEin("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, WpfObjects.B3);
+        libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB3));
+        libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB3));
 
 
-        libWpf.RipRechteckSetFill(2, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
-        libWpf.RipRechteckSetFill(4, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
+        libWpf.RectangleStrokeSetFill(2, 2, 15, 2, Brushes.Black, 2, nameof(vmLap2010.BrushQ1));
+        libWpf.RectangleStrokeSetFill(4, 2, 15, 2, Brushes.Black, 2, nameof(vmLap2010.BrushQ2));
         libWpf.Text("Q1 (LL)", 2, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("Q2 (RL)", 4, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
+
+        libWpf.TextContendSetVisibility("Kurzschluß", 9, 4, 19, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmLap2010.VisibilityKurzschluss));
+        libWpf.EllipseFillSetVisibility(9, 4, 18, 4, Brushes.Red, nameof(vmLap2010.VisibilityKurzschluss));
 
         // libWpf.PlcError();
     }

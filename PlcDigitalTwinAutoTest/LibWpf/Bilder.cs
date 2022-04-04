@@ -43,7 +43,29 @@ public partial class LibWpf
         imageEin.BindingImageSetVisibility(setVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageEin);
     }
- 
+
+
+    public void ImageSetDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingWinkel)
+    {
+        _ = bindingWinkel; // TODO noch fertigstellen!
+
+        var (image, _) = ImageErzeugen(source, margin);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
+    public void ImageSetMargin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingMargin)
+    {
+        _ = bindingMargin; // TODO noch fertigstellen!
+
+        var (image, _) = ImageErzeugen(source, margin);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
+    }
+
+
+
+
+
 
 
 
@@ -82,22 +104,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildSetDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
-    {
-        _ = wpfId; // TODO noch fertigstellen!
-
-        var (image, _) = ImageErzeugen(source, margin);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
-    }
-    public void BildSetMargin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
-    {
-        _ = wpfId; // TODO noch fertigstellen!
-
-        var (image, _) = ImageErzeugen(source, margin);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
-    }
+ 
     public void BildAnimiert(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, RoutedEventHandler eventHandler)
     {
         var (image, bitmapImage) = ImageErzeugen(source, margin);
