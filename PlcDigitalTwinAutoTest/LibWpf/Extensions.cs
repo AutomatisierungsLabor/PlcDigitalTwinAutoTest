@@ -7,16 +7,24 @@ namespace LibWpf;
 
 public static class Extensions
 {
+
+    public static void BindingButtonSetContent(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"{wpfId}");
+    public static void BindingButtonSetClickMode(this Button element, object wpfId) => element.SetBinding(ButtonBase.ClickModeProperty, $"{wpfId}");
+    public static void BindingButtonSetVisibility(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfId}");
+    public static void BindingButtonSetBackground(this FrameworkElement element, object wpfId) => element.SetBinding(Control.BackgroundProperty, $"{wpfId}");
+
+
     public static void BindingSetFilling(this Shape element, object wpfId) => element.SetBinding(Shape.FillProperty, $"{wpfId}");
 
 
     public static void BindingImageSetVisibility(this FrameworkElement element, object wpfObject) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfObject}");
    
-    public static void BindingButtonSetContent(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"{wpfId}");
 
-    public static void BindingButtonSetClickMode(this Button element, object wpfId) => element.SetBinding(ButtonBase.ClickModeProperty, $"{wpfId}");
-    public static void BindingButtonSetVisibility(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfId}");
-    public static void BindingButtonSetBackground(this FrameworkElement element, object wpfId) => element.SetBinding(Control.BackgroundProperty, $"{wpfId}");
+
+    public static void BindingSetMargin(this Shape element, object wpfId) => element.SetBinding(FrameworkElement.MarginProperty, $"{wpfId}");
+
+
+    public static void BindingSetVisibility(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfId}");
 
 
     public static void RipSetBtnContentBinding(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");

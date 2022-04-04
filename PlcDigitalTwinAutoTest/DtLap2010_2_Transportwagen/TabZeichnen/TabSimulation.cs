@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RipRechteckFill(25, 11, 1, 15, Brushes.LightGray);
+        libWpf.RectangleFill(25, 11, 1, 15, Brushes.LightGray);
 
         libWpf.Text("S1", 24, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 29, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -32,14 +32,14 @@ public partial class TabZeichnen
         libWpf.Text("P1", 24, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.RipButtonContentRounded(27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S1);
-        libWpf.RipButtonContentRounded(32, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnSchalter, WpfObjects.S2);
-        libWpf.RipButtonContentRounded(27, 3, 5, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S3);
+        libWpf.ButtonContentRounded("Start", 27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
+        libWpf.ButtonContentRounded("Not Halt", 32, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonSchalterCommand, "S2", nameof(vmLap2010.ClickModeS2));
+        libWpf.ButtonContentRounded("Reset", 27, 3, 5, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "S3", nameof(vmLap2010.ClickModeS3));
 
-        libWpf.RipKreisStrokeMarginSetFilling(27, 3, 8, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.EllipseMarginStrokeSetFilling(27, 3, 8, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
         libWpf.Text("Störung", 27, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
-        
-        libWpf.RipButtonBackgroundContentRounded(27, 3, 12, 3, 14, 15, buttonRand, vmLap2010.BtnSchalter, WpfObjects.F1);
+
+        libWpf.ButtonContentRoundedSetBackground("Störung", 27, 3, 12, 3, 14, 15, vmLap2010.ButtonSchalterCommand, "F1", nameof(vmLap2010.ClickModeF1), nameof(vmLap2010.BrushF1));
 
         ///////////////////////////////////////////////////////////
         //
@@ -48,36 +48,35 @@ public partial class TabZeichnen
         ///////////////////////////////////////////////////////////
 
 
-        libWpf.RipRechteckSetFillSetVisibility(8, 2, 2, 4, Brushes.Firebrick, WpfObjects.Fuellen);
+        libWpf.RectangleFillSetVisibility(8, 2, 2, 4, Brushes.Firebrick, nameof(vmLap2010.VisibilityFuellen));
         libWpf.Polygon(14, 5, 1, 5, Brushes.DarkOrange, Brushes.Black, 2, new[] { new double[] { 20, 10 }, new double[] { 120, 10 }, new double[] { 120, 120 }, new double[] { 100, 160 }, new double[] { 40, 160 }, new double[] { 20, 120 } });
 
-        libWpf.RipRechteckFillStrokeSetMargin(1, 20, 8, 4, Brushes.Gray, Brushes.Black, 3, WpfObjects.PositionWagenkasten);
-        libWpf.RipKreisFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, WpfObjects.PositionRadLinks);
-        libWpf.RipKreisFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, WpfObjects.PositionRadRechts);
+        libWpf.RectangleFillStrokeSetMargin(1, 20, 8, 4, Brushes.Gray, Brushes.Black, 3,  nameof(vmLap2010.PositionWagenkasten));
+        libWpf.EllipseFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, nameof(vmLap2010.PositionRadLinks));
+        libWpf.EllipseFillStrokeSetMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, nameof(vmLap2010.PositionRadRechts));
 
-        libWpf.RipRechteckFill(1,20,13,1,Brushes.Gray);
-
-
+        libWpf.RectangleFill(1, 20, 13, 1, Brushes.Gray);
+        
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 1, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RipBildSetVisibilityAus("InitiatorenSchliesser.jpg", 3, 2, 15, 2, kontakteRand, WpfObjects.B1);
-        libWpf.RipBildSetVisibilityEin("InitiatorenBetaetigt.jpg", 3, 2, 15, 2, kontakteRand, WpfObjects.B1);
+        libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 3, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
+        libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 3, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
 
         libWpf.Text("B2", 16, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RipBildSetVisibilityAus("InitiatorenSchliesser.jpg", 18, 2, 15, 2, kontakteRand, WpfObjects.B2);
-        libWpf.RipBildSetVisibilityEin("InitiatorenBetaetigt.jpg", 18, 2, 15, 2, kontakteRand, WpfObjects.B2);
+        libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 18, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB2));
+        libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 18, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB2));
 
 
-        libWpf.RipRechteckSetFill(9, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q1);
-        libWpf.RipRechteckSetFill(11, 2, 15, 2, Brushes.Black, new Thickness(0, 0, 0, 0), WpfObjects.Q2);
+        libWpf.RectangleStrokeSetFill(9, 2, 15, 2, Brushes.Black, 2, nameof(vmLap2010.BrushQ1));
+        libWpf.RectangleStrokeSetFill(11, 2, 15, 2, Brushes.Black, 2, nameof(vmLap2010.BrushQ2));
         libWpf.Text("Q1 (LL)", 9, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("Q2 (RL)", 11, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
 
 
-        libWpf.TextSetContendSetVisibility(9, 4, 19, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.Kurzschluss);
-        libWpf.RipKreisStrokeMarginSetFilling(9, 4, 18, 4, Brushes.Red, new Thickness(0, 0, 0, 0), WpfObjects.Kurzschluss);
+        libWpf.TextContendSetVisibility("Kurzschluß",9, 4, 19, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmLap2010.VisibilityKurzschluss));
+        libWpf.EllipseFillSetVisibility(9, 4, 18, 4, Brushes.Red,  nameof(vmLap2010.VisibilityKurzschluss));
 
 
         // libWpf.PlcError();

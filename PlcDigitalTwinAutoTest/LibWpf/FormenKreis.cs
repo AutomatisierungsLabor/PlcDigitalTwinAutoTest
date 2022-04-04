@@ -46,7 +46,17 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
 
-
+    public void EllipseFillStrokeSetMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThicknes, object bindingMargin)
+    {
+        var ellipse = new Ellipse
+        {
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes
+        };
+        ellipse.BindingSetMargin(bindingMargin);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
+    }
 
 
 

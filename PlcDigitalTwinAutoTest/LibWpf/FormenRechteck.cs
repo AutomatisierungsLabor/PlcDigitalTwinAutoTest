@@ -15,8 +15,6 @@ public partial class LibWpf
         };
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-
-
     public void RectangleSetFill(int xPos, int xSpan, int yPos, int ySpan, object bindingFilling)
     {
         var rectangle = new Rectangle();
@@ -33,19 +31,31 @@ public partial class LibWpf
         rectangle.BindingSetFilling(bindingFilling);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-
-
-
-    public void RectangleFillSetVisibility(int xPos, int xSpan, int yPos, int ySpan, Brush fill, object wpfId)
+    public void RectangleFillSetVisibility(int xPos, int xSpan, int yPos, int ySpan, Brush fill, object bindingVisibility)
     {
         var rectangle = new Rectangle
         {
             Fill = fill
         };
-        rectangle.RipButtonSetVisibilityEinBinding(wpfId);
+        rectangle.BindingSetVisibility(bindingVisibility);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
+    public void RectangleFillStrokeSetMargin(int xPos, int xSpan, int yPos, int ySpan, Brush fill, SolidColorBrush stroke, double strokeThicknes, object bindingMargin)
+    {
+        var rectangle = new Rectangle
+        {
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes
+        };
+        rectangle.BindingSetMargin(bindingMargin);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
+
+
+
 
 
 
