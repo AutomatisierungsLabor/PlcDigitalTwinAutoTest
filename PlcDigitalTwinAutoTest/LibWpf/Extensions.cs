@@ -16,6 +16,7 @@ public static class Extensions
 
     public static void BindingButtonSetClickMode(this Button element, object wpfId) => element.SetBinding(ButtonBase.ClickModeProperty, $"{wpfId}");
     public static void BindingButtonSetVisibility(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfId}");
+    public static void BindingButtonSetBackground(this FrameworkElement element, object wpfId) => element.SetBinding(Control.BackgroundProperty, $"{wpfId}");
 
 
     public static void RipSetBtnContentBinding(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");

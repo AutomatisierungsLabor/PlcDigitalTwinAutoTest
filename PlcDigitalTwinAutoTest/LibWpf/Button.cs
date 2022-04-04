@@ -7,7 +7,29 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void ButtonBackgroundMarginRoundedSetContend(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, Thickness margin, ICommand cmd, string cmdParameter,string setClickMode, string setContent)
+    public void ButtonContentRounded(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, object cmdParameter, string setClickMode)
+    {
+        var button = new Button
+        {
+            Content = content,
+            FontSize = fontSize,
+            Margin = margin,
+            Background = background,
+            Command = cmd,
+            CommandParameter = cmdParameter
+        };
+
+        button.Loaded += (_, _) =>
+        {
+            if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
+        };
+
+        button.BindingButtonSetClickMode(setClickMode);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
+    }
+
+    public void ButtonBackgroundMarginRoundedSetContend(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, Thickness margin, ICommand cmd, string cmdParameter, string setClickMode, string setContent)
     {
         var button = new Button
         {
@@ -29,6 +51,26 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
 
+    public void ButtonContentRoundedSetBackground(string content,  int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, ICommand cmd, string cmdParameter, string setClickMode, string setBackground)
+    {
+        var button = new Button
+        {
+            Content = content,
+            FontSize = fontSize,
+            Command = cmd,
+            CommandParameter = cmdParameter
+        };
+
+        button.Loaded += (_, _) =>
+        {
+            if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
+        };
+        
+        button.BindingButtonSetClickMode(setClickMode);
+        button.BindingButtonSetBackground(setBackground);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
+    }
 
     public void ButtonMarginSetVisibilityZweiBilder(int xPos, int xSpan, int yPos, int ySpan, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter, string setVisibilityEin, string setVisibilityAus)
     {

@@ -19,6 +19,21 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
+    public void TextContendSetVisibility(string content, int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush foreground, object visibility)
+    {
+        var label = new Label
+        {
+            Content = content,
+            FontSize = fontSize,
+            Foreground = foreground,
+            HorizontalAlignment = horizontal,
+            VerticalAlignment = vertical
+        };
+        
+        label.BindingImageSetVisibility(visibility);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
+    }
     public void TextSetContendSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, object wpfId)
     {
         var label = new Label

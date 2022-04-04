@@ -22,9 +22,18 @@ public partial class LibWpf
 
 
 
+    public void EllipseFillSetVisibility(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, string visibility)
+    {
+        var ellipse = new Ellipse
+        {
+            Fill = fill
+        };
 
+        ellipse.BindingImageSetVisibility(visibility);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
+    }
 
-    public void EllipseMarginStrokeSetFilling(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, SolidColorBrush stroke, double strokeThicknes, string wpfId)
+    public void EllipseMarginStrokeSetFilling(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, SolidColorBrush stroke, double strokeThicknes, string bindingFilling)
     {
         var ellipse = new Ellipse
         {
@@ -33,7 +42,7 @@ public partial class LibWpf
             Margin = margin,
             Fill = new SolidColorBrush(Colors.Red)
         };
-        ellipse.BindingSetFilling(wpfId);
+        ellipse.BindingSetFilling(bindingFilling);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
 
