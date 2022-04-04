@@ -30,8 +30,8 @@ public partial class TabZeichnen
         libWpf.Text("P1", 19, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P2", 24, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonBackgroundContentMarginRounded("Aus", 22, 3, 2, 3, 20, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
-        libWpf.ButtonBackgroundContentMarginRounded("Ein", 27, 3, 2, 3, 20, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
+        libWpf.ButtonBackgroundContentMarginRounded("Aus", 22, 3, 2, 3, 20, 15, Brushes.Red, buttonRand, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
+        libWpf.ButtonBackgroundContentMarginRounded("Ein", 27, 3, 2, 3, 20, 15, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
 
         libWpf.EllipseMarginStrokeSetFilling(22, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
         libWpf.EllipseMarginStrokeSetFilling(27, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP2));
@@ -59,7 +59,7 @@ public partial class TabZeichnen
         libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
         libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
 
-        
+
         libWpf.RectangleStrokeSetFill(10, 4, 15, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ1));
         libWpf.RectangleStrokeSetFill(10, 2, 16, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ2));
         libWpf.RectangleStrokeSetFill(12, 2, 16, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ3));

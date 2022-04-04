@@ -32,9 +32,9 @@ public partial class TabZeichnen
         libWpf.Text("P1", 19, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
 
-        libWpf.ButtonBackgroundContentMarginRounded("Halt", 22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
-        libWpf.ButtonBackgroundContentMarginRounded("Öffnen", 22, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
-        libWpf.ButtonBackgroundContentMarginRounded("Schliessen", 27, 3, 5, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand, "S3", nameof(vmLap2010.ClickModeS3));
+        libWpf.ButtonBackgroundContentMarginRounded("Halt", 22, 3, 2, 3, 14, 15, Brushes.Red, buttonRand, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
+        libWpf.ButtonBackgroundContentMarginRounded("Öffnen", 22, 3, 5, 3, 14, 15, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
+        libWpf.ButtonBackgroundContentMarginRounded("Schliessen", 27, 3, 5, 3, 14, 15, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "S3", nameof(vmLap2010.ClickModeS3));
 
         libWpf.EllipseMarginStrokeSetFilling(22, 3, 8, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
         libWpf.Text("Schliessen", 22, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
@@ -53,7 +53,7 @@ public partial class TabZeichnen
 
         libWpf.RectangleFillStrokeSetMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, nameof(vmLap2010.OfentuerePosition));
 
-        libWpf.ButtonBackgroundContentMarginRounded("Lichtschranke", 22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand, "B2", nameof(vmLap2010.ClickModeB2));
+        libWpf.ButtonBackgroundContentMarginRounded("Lichtschranke", 22, 3, 2, 3, 14, 15, Brushes.Red, buttonRand, vmLap2010.ButtonTasterCommand, "B2", nameof(vmLap2010.ClickModeB2));
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 

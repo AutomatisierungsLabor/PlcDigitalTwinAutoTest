@@ -7,12 +7,13 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void ButtonRounded( int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, object cmdParameter, string setClickMode)
+
+    public void ButtonBackgroundContentRounded(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, ICommand cmd, object cmdParameter, string setClickMode)
     {
         var button = new Button
         {
+            Content = content,
             FontSize = fontSize,
-            Margin = margin,
             Background = background,
             Command = cmd,
             CommandParameter = cmdParameter
@@ -28,7 +29,8 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
 
-    public void ButtonContentRounded(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, object cmdParameter, string setClickMode)
+
+    public void ButtonBackgroundContentMarginRounded(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, Thickness margin, ICommand cmd, object cmdParameter, string setClickMode)
     {
         var button = new Button
         {
@@ -91,7 +93,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-    public void ButtonContentRoundedSetBackground(string content,  int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, ICommand cmd, string cmdParameter, string setClickMode, string setBackground)
+    public void ButtonContentRoundedSetBackground(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, ICommand cmd, string cmdParameter, string setClickMode, string setBackground)
     {
         var button = new Button
         {
@@ -105,7 +107,7 @@ public partial class LibWpf
         {
             if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
         };
-        
+
         button.BindingButtonSetClickMode(setClickMode);
         button.BindingButtonSetBackground(setBackground);
 

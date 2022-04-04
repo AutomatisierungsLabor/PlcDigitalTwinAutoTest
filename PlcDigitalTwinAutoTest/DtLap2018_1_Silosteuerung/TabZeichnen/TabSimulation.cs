@@ -35,7 +35,7 @@ public partial class TabZeichnen
 
         // Materialsilo mit Ventil, ...
 
-        libWpf.RipRechteckFill(15, 8, 5, 8, Brushes.LightGray);
+        libWpf.RectangleFill(15, 8, 5, 8, Brushes.LightGray);
         libWpf.RipRechteckFillStrokeSetMargin(15, 8, 5, 8, Brushes.Firebrick, Brushes.Firebrick, 0, WpfObjects.MaterialSilo);
         libWpf.Text("Materialsilo", 15, 8, 5, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.TextSetContendSetVisibility(15, 8, 10, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.MaterialSiloFuellstand);
@@ -69,8 +69,8 @@ public partial class TabZeichnen
         libWpf.Text("B2", 10, 2, 28, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.BildSetVisibilityEinAus("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 12, 2, 28, 2, new Thickness(0, 0, 0, 0), WpfObjects.B2);
 
-        libWpf.RipButtonContentRounded(2, 4, 30, 2, 20, 5, new Thickness(0, 0, 0, 0), Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.WagenNachLinks);
-        libWpf.RipButtonContentRounded(12, 4, 30, 2, 20, 5, new Thickness(0, 0, 0, 0), Brushes.LawnGreen, vmLap2018.BtnTaster, WpfObjects.WagenNachRechts);
+        libWpf.ButtonBackgroundContentRounded("Nach links", 2, 4, 30, 2, 20, 5, Brushes.LawnGreen, vmLap2018.ButtonTasterCommand, "WagenNachLinks", nameof(vmLap2018.ClickModeWagenNachLinks));
+        libWpf.ButtonBackgroundContentRounded("Nach rechts", 12, 4, 30, 2, 20, 5, Brushes.LawnGreen, vmLap2018.BtnTaster, "WagenNachRechts", nameof(vmLap2018.ClickModeWagenNachRechts));
 
         ///////////////////////////////////////////////////////////
         //
@@ -92,14 +92,14 @@ public partial class TabZeichnen
 
         libWpf.Text("S0", 24, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S1", 29, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RipButtonContentRounded(27, 3, 6, 3, 20, 15, buttonRand, Brushes.Red, vmLap2018.BtnTaster, WpfObjects.S0);
-        libWpf.RipButtonContentRounded(32, 3, 6, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.BtnTaster, WpfObjects.S1);
+        libWpf.ButtonBackgroundContentMarginRounded("Aus", 27, 3, 6, 3, 20, 15, buttonRand, Brushes.Red, vmLap2018.ButtonTasterCommand, "S0", nameof(vmLap2018.ClickModeS0));
+        libWpf.ButtonBackgroundContentMarginRounded("Ein", 32, 3, 6, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.ButtonTasterCommand, "S1", nameof(vmLap2018.ClickModeS1));
 
 
         libWpf.Text("S2", 24, 3, 10, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S3", 29, 3, 10, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RipButtonZweiBilder(27, 3, 10, 3, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmLap2018.BtnSchalter, WpfObjects.S2);
-        libWpf.RipButtonContentRounded(32, 3, 10, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.BtnTaster, WpfObjects.S3);
+        libWpf.RipButtonZweiBilder(27, 3, 10, 3, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmLap2018.ButtonTasterCommand, "S2", nameof(vmLap2018.ClickModeS2));
+        libWpf.ButtonBackgroundContentMarginRounded("Reset,"32, 3, 10, 3, 20, 15, buttonRand, Brushes.Green, vmLap2018.ButtonTasterCommand, "S3", nameof(vmLap2018.ClickModeS3));
 
 
 

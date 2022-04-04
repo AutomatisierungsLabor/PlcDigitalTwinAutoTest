@@ -29,10 +29,10 @@ public partial class TabZeichnen
         libWpf.Text("S2", 25, 2, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P1", 20, 2, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonBackgroundContentMarginRounded("Aus", 22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.ButtonTasterCommand,"S1", nameof(vmLap2010.ClickModeS1));
-        libWpf.ButtonBackgroundContentMarginRounded("Ein", 27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.ButtonTasterCommand,"S2", nameof(vmLap2010.ClickModeS2));
+        libWpf.ButtonBackgroundContentMarginRounded("Aus", 22, 3, 2, 3, 14, 15, Brushes.Red, buttonRand, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
+        libWpf.ButtonBackgroundContentMarginRounded("Ein", 27, 3, 2, 3, 14, 15, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
 
-        libWpf.EllipseMarginStrokeSetFilling(22, 3, 6, 3,kreisRand, kreisRandFarbe,2,  nameof(vmLap2010.BrushP1));
+        libWpf.EllipseMarginStrokeSetFilling(22, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
         libWpf.Text("Füllstand", 22, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
         ///////////////////////////////////////////////////////////
@@ -54,8 +54,8 @@ public partial class TabZeichnen
         libWpf.RectangleFill(10, 6, 2, 6, Brushes.Coral);
         libWpf.RectangleFillSetMargin(10, 6, 2, 6, Brushes.BurlyWood, nameof(vmLap2010.Fuellstand));
 
-        libWpf.RectangleSetFill(12, 2, 8, 2,  nameof(vmLap2010.BrushZuleitung));
-        
+        libWpf.RectangleSetFill(12, 2, 8, 2, nameof(vmLap2010.BrushZuleitung));
+
         libWpf.Text("K2", 8, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.ImageSetVisibility("VentilElektrischEin.jpg", 10, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityEinK2));

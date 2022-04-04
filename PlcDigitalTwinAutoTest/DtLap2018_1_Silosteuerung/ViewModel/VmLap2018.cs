@@ -100,60 +100,36 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         if (_modelLap2018.RutscheVoll) Text[(int)WpfObjects.RutscheVoll] = "Materialmangel"; else Text[(int)WpfObjects.RutscheVoll] = "Rutsche voll";
 
 
-        RipFarbeUmschalten(_modelLap2018!.F1, (int)WpfObjects.F1, Brushes.LawnGreen, Brushes.Red);
-        RipFarbeUmschalten(_modelLap2018!.F2, (int)WpfObjects.F2, Brushes.LawnGreen, Brushes.Red);
+        BrushF1 = SetBrush(_modelLap2018.F1, Brushes.LawnGreen, Brushes.Red);
+        BrushF2 = SetBrush(_modelLap2018.F2, Brushes.LawnGreen, Brushes.Red);
+        BrushP1 = SetBrush(_modelLap2018.P1, Brushes.LawnGreen, Brushes.White);
+        BrushP2 = SetBrush(_modelLap2018.P2, Brushes.Red, Brushes.White);
+        BrushQ1 = SetBrush(_modelLap2018.Q1, Brushes.LawnGreen, Brushes.Gray);
+        BrushS2 = SetBrush(_modelLap2018.S2, Brushes.LawnGreen, Brushes.Red);
 
-        RipFarbeUmschalten(_modelLap2018!.P1, (int)WpfObjects.P1, Brushes.LawnGreen, Brushes.White);
-        RipFarbeUmschalten(_modelLap2018!.P2, (int)WpfObjects.P2, Brushes.Red, Brushes.White);
-        RipFarbeUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1, Brushes.LawnGreen, Brushes.Gray);
+        BrushRutscheVoll = SetBrush(_modelLap2018.RutscheVoll, Brushes.Firebrick, Brushes.LightGray);
+        BrushMaterialOben = SetBrush(_modelLap2018!.Silo.GetFuellstand() > 0.01, Brushes.LightGray, Brushes.Firebrick);
+        BrushMaterialUnten = SetBrush(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, Brushes.LightGray, Brushes.Firebrick);
 
-        RipFarbeUmschalten(_modelLap2018!.S2, (int)WpfObjects.S2, Brushes.LawnGreen, Brushes.Red);
+        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2018.B1);
+        (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLap2018.B2);
+        (VisibilityEinQ1, VisibilityAusQ1) = SetVisibility(_modelLap2018.Q1);
+        (VisibilityEinQ2, VisibilityAusQ2) = SetVisibility(_modelLap2018.Q2);
+        (VisibilityEinY1, VisibilityAusY1) = SetVisibility(_modelLap2018.Y1);
+        (VisibilityEinMaterialOben, VisibilityAusMaterialOben) = SetVisibility(true);
+        (VisibilityEinMaterialUnten, VisibilityAusMaterialUnten) = SetVisibility(true);
+        
+        MarginPositionWagen = new Thickness(_modelLap2018.Wagen.GetPosition().X, 0, BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
+        MarginPostionWagenInhalt = new Thickness(_modelLap2018.Wagen.GetPosition().X, _modelLap2018.Wagen.GetFuellstand(), BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
 
-        RipFarbeUmschalten(_modelLap2018!.RutscheVoll, (int)WpfObjects.RutscheVoll, Brushes.Firebrick, Brushes.LightGray);
-
-        RipSichtbarkeitUmschalten(_modelLap2018!.B1, (int)WpfObjects.B1);
-        RipSichtbarkeitUmschalten(_modelLap2018!.B2, (int)WpfObjects.B2);
-        RipSichtbarkeitUmschalten(_modelLap2018!.Q1, (int)WpfObjects.Q1);
-        RipSichtbarkeitUmschalten(_modelLap2018!.Q2, (int)WpfObjects.Q2);
-        RipSichtbarkeitUmschalten(_modelLap2018!.Y1, (int)WpfObjects.Y1);
-        RipSichtbarkeitUmschalten(true, (int)WpfObjects.MaterialOben);
-        RipSichtbarkeitUmschalten(true, (int)WpfObjects.MaterialUnten);
-
-        RipFarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01, (int)WpfObjects.MaterialOben, Brushes.LightGray, Brushes.Firebrick);
-        RipFarbeUmschalten(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, (int)WpfObjects.MaterialUnten, Brushes.LightGray, Brushes.Firebrick);
-
-        Margin[(int)WpfObjects.PositionWagen] = new Thickness(_modelLap2018.Wagen.GetPosition().X, 0, BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
-        Margin[(int)WpfObjects.PostionWagenInhalt] = new Thickness(_modelLap2018.Wagen.GetPosition().X, _modelLap2018.Wagen.GetFuellstand(), BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
-
-        Text[(int)WpfObjects.MaterialSiloFuellstand] = (100 * _modelLap2018.Silo.GetFuellstand()).ToString("F0") + "%";
+        StringMaterialSiloFuellstand = (100 * _modelLap2018.Silo.GetFuellstand()).ToString("F0") + "%";
 
         // ReSharper disable once ConditionIsAlwaysTrueOrFalse
         if (!_imageGeladen) return;
         if (_modelLap2018.Q2) ImageAnimationController.Play(); else ImageAnimationController.Pause();
     }
-    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt)
-    {
-        switch (tasterId)
-        {
-            case WpfObjects.S0: _modelLap2018!.S0 = !gedrueckt; break;
-            case WpfObjects.S1: _modelLap2018!.S1 = gedrueckt; break;
-            case WpfObjects.S3: _modelLap2018!.S3 = gedrueckt; break;
-            case WpfObjects.WagenNachLinks: _modelLap2018!.WagenNachLinks(); break;
-            case WpfObjects.WagenNachRechts: _modelLap2018!.WagenNachRechts(); break;
-            default: throw new ArgumentOutOfRangeException(nameof(tasterId));
-        }
-    }
-    protected override void ViewModelAufrufSchalter(Enum schalterId)
-    {
-        switch (schalterId)
-        {
-            case WpfObjects.F1: _modelLap2018!.F1 = !_modelLap2018.F1; break;
-            case WpfObjects.F2: _modelLap2018!.F2 = !_modelLap2018.F2; break;
-            case WpfObjects.S2: _modelLap2018!.S2 = !_modelLap2018.S2; break;
-            case WpfObjects.RutscheVoll: _modelLap2018!.RutscheVoll = !_modelLap2018.RutscheVoll; break;
-            default: throw new ArgumentOutOfRangeException(nameof(schalterId));
-        }
-    }
+    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt) { }
+    protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
