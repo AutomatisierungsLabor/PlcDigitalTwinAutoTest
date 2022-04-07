@@ -29,6 +29,9 @@ public static class Extensions
 
     public static void BindingSetContent(this ContentControl element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"{wpfId}");
 
+    public static void BindingpSetTransformOrigin(this Shape element, object wpfId) => element.SetBinding(UIElement.RenderTransformOriginProperty, $"{wpfId}");
+
+
 
 
 

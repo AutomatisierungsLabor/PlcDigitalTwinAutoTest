@@ -88,6 +88,24 @@ public partial class LibWpf
     }
 
 
+    public void RectangleFillMarginSetWinkel(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, Thickness margin, string bindingWinkel,string bindingTransformOrigin)
+    {
+        var rectangle = new Rectangle
+        {
+            Margin = margin,
+            Fill = fill,
+            RenderTransformOrigin = new Point(0.5, 0.5)
+        };
+
+        var b = new Binding(bindingWinkel);
+        var rt = new RotateTransform();
+        BindingOperations.SetBinding(rt, RotateTransform.AngleProperty, b);
+        rectangle.RenderTransform = rt;
+
+        rectangle.BindingpSetTransformOrigin(bindingTransformOrigin);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
 
 
 
