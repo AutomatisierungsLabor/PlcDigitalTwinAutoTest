@@ -18,11 +18,9 @@ public partial class LibWpf
             StrokeThickness = strokeThickness,
             Points = polyPoints
         };
-
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, polygon);
     }
-
-    public void PolygonSetMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThickness, double[][] punkte, object wpfId)
+    public void PolygonSetMargin(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThickness, double[][] punkte, string bindingMargin)
     {
         var polyPoints = new PointCollection();
         foreach (var punkt in punkte) polyPoints.Add(new System.Windows.Point(punkt[0], punkt[1]));
@@ -34,13 +32,10 @@ public partial class LibWpf
             StrokeThickness = strokeThickness,
             Points = polyPoints
         };
-
-        polygon.RipSetMarginBinding(wpfId);
-
-
+        polygon.BindingSetMargin(bindingMargin);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, polygon);
     }
-    public void PolygonSetWinkel(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThickness, double[][] punkte, object bindingWinkel)
+    public void PolygonSetWinkel(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, SolidColorBrush stroke, double strokeThickness, double[][] punkte, string bindingWinkel)
     {
         var polyPoints = new PointCollection();
         foreach (var punkt in punkte) polyPoints.Add(new System.Windows.Point(punkt[0], punkt[1]));

@@ -65,14 +65,14 @@ public partial class TabZeichnen
         libWpf.RipRechteckFillMargin(4, 1, 1, 16, Brushes.Gray, new Thickness(10, 0, 6, 0));
         libWpf.RipRechteckFillMargin(5, 1, 1, 16, Brushes.Gray, new Thickness(17, 0, 0, 0));
 
-        libWpf.BildSetVisibilityEinAus("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 7, 2, 15, 2, new Thickness(0, 0, 0, 0), WpfObjects.K2);
+        libWpf.RipBildSetVisibilityEinAus("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 7, 2, 15, 2, new Thickness(0, 0, 0, 0), WpfObjects.K2);
         libWpf.Text("K2", 6, 2, 15, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.RipRechteckFill(10, 8, 1, 10, Brushes.LightBlue);
         libWpf.RipRechteckFillStrokeSetMargin(10, 8, 1, 10, Brushes.Blue, Brushes.Blue, 0, WpfObjects.Pegel);
 
         libWpf.Text("K1", 11, 2, 13, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSetVisibilityEinAus("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 12, 3, 13, 2, new Thickness(0, 0, 8, 0), WpfObjects.K1);
+        libWpf.RipBildSetVisibilityEinAus("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 12, 3, 13, 2, new Thickness(0, 0, 8, 0), WpfObjects.K1);
         libWpf.RipRechteckMarginSetFill(13, 2, 11, 2, new Thickness(25, 0, 25, 0), WpfObjects.Zuleitung);
         libWpf.RipRechteckMarginSetFill(13, 2, 15, 5, new Thickness(25, 0, 25, 0), WpfObjects.Ableitung);
 
@@ -84,7 +84,7 @@ public partial class TabZeichnen
         libWpf.Text("Q1", 3, 3, 20, 3, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.Text("B1", 11, 2, 24, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.BildSetVisibilityEinAus("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 13, 2, 24, 2, new Thickness(0, 0, 0, 0), WpfObjects.B1);
+        libWpf.RipBildSetVisibilityEinAus("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 13, 2, 24, 2, new Thickness(0, 0, 0, 0), WpfObjects.B1);
 
 
         libWpf.BildSetMarginVisibilityEin("Franziskaner.jpg", 1, 20, 1, 20, WpfObjects.Flasche1);

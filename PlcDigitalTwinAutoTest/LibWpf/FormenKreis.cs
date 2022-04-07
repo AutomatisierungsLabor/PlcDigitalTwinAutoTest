@@ -27,14 +27,14 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
-    public void EllipseFillSetVisibility(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, string visibility)
+    public void EllipseFillSetVisibility(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, string bindingVisibility)
     {
         var ellipse = new Ellipse
         {
             Fill = fill
         };
 
-        ellipse.BindingImageSetVisibility(visibility);
+        ellipse.BindingImageSetVisibility(bindingVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
     public void EllipseMarginStrokeSetFilling(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, SolidColorBrush stroke, double strokeThicknes, string bindingFilling)

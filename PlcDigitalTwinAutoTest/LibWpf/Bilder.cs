@@ -43,9 +43,20 @@ public partial class LibWpf
         imageEin.BindingImageSetVisibility(setVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageEin);
     }
+    public void ImageMarginZweiBilderSetVisibility(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string setVisibilityEin, string setVisibilityAus)
+    {
+        var (imageOn, _) = ImageErzeugen(sourceOn, margin);
+        imageOn.BindingButtonSetVisibility(setVisibilityEin);
 
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOn);
 
-    public void ImageSetDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingWinkel)
+        var (imageOff, _) = ImageErzeugen(sourceOff, margin);
+        imageOff.BindingButtonSetVisibility(setVisibilityAus);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
+    }
+
+    public void ImageMarginSetDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingWinkel)
     {
         _ = bindingWinkel; // TODO noch fertigstellen!
 
@@ -83,7 +94,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void BildSetVisibilityEinAus(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
+    public void RipBildSetVisibilityEinAus(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
     {
         var (imageOn, _) = ImageErzeugen(sourceOn, margin);
         imageOn.RipButtonSetVisibilityEinBinding(wpfId);

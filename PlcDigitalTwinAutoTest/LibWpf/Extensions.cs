@@ -27,6 +27,11 @@ public static class Extensions
     public static void BindingSetVisibility(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfId}");
 
 
+    public static void BindingSetContent(this ContentControl element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"{wpfId}");
+
+
+
+
     public static void RipSetBtnContentBinding(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");
     public static void RipSetBtnBackgroundBinding(this Button element, object wpfId) => element.SetBinding(Control.BackgroundProperty, $"Farbe[{(int)wpfId}]");
     public static void RipSetContentBinding(this ContentControl element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");

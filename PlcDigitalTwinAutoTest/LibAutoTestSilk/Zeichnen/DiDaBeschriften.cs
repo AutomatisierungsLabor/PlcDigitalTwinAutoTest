@@ -19,9 +19,9 @@ public class DiDaBeschriften
         {
             var xAbstand = 10 + 12 * (i + i / 4);
 
-            libWpf.TextVerticalSetTextSetVisibility(2, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, new Thickness(240 - xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Di01);
-            libWpf.TextVerticalSetTextSetVisibility(3, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, new Thickness(240 - xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Da01);
-            libWpf.TextVerticalSetTextSetVisibility(4, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, new Thickness(240 - xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Da01);
+            libWpf.RipTextVerticalSetTextSetVisibility(2, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, new Thickness(240 - xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Di01);
+            libWpf.RipTextVerticalSetTextSetVisibility(3, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, new Thickness(240 - xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Da01);
+            libWpf.RipTextVerticalSetTextSetVisibility(4, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, new Thickness(240 - xAbstand, 0, 0, 5), 100, Brushes.Black, i + (int)VmAutoTesterSilk.WpfIndex.Da01);
         }
     }
 }

@@ -59,25 +59,25 @@ public partial class TabZeichnen
         libWpf.PolygonSetWinkel(23, 2, 14, 4, Brushes.Yellow, Brushes.Black, 2, formZeiger, WpfObjects.Zeiger5);
 
         // Linien nach rechts oben
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 3 * AbstandRaster, HoeheRaute / 2, 3 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.RechtsOben), LinieY(LaengeLinie1, RichtungLinie.RechtsOben), 5, Brushes.Orange, WpfObjects.LinieRechtsOben1);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.RechtsOben), LinieY(LaengeLinie2, RichtungLinie.RechtsOben), 5, Brushes.OrangeRed, WpfObjects.LinieRechtsOben2);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.RechtsOben), LinieY(LaengeLinie3, RichtungLinie.RechtsOben), 5, Brushes.Red, WpfObjects.LinieRechtsOben3);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.RechtsOben), LinieY(LaengeLinie4, RichtungLinie.RechtsOben), 5, Brushes.OrangeRed, WpfObjects.LinieRechtsOben4);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 3 * AbstandRaster, HoeheRaute / 2, 3 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.RechtsOben), LinieY(LaengeLinie1, RichtungLinie.RechtsOben), 5, Brushes.Orange, WpfObjects.LinieRechtsOben1);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.RechtsOben), LinieY(LaengeLinie2, RichtungLinie.RechtsOben), 5, Brushes.OrangeRed, WpfObjects.LinieRechtsOben2);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.RechtsOben), LinieY(LaengeLinie3, RichtungLinie.RechtsOben), 5, Brushes.Red, WpfObjects.LinieRechtsOben3);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.RechtsOben), LinieY(LaengeLinie4, RichtungLinie.RechtsOben), 5, Brushes.OrangeRed, WpfObjects.LinieRechtsOben4);
         
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 3 * AbstandRaster, HoeheRaute / 2, 3 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.RechtsUnten), LinieY(LaengeLinie1, RichtungLinie.RechtsUnten), 5, Brushes.Orange, WpfObjects.LinieRechtsUnten1);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.RechtsUnten), LinieY(LaengeLinie2, RichtungLinie.RechtsUnten), 5, Brushes.OrangeRed, WpfObjects.LinieRechtsUnten2);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.RechtsUnten), LinieY(LaengeLinie3, RichtungLinie.RechtsUnten), 5, Brushes.Red, WpfObjects.LinieRechtsUnten3);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.RechtsUnten), LinieY(LaengeLinie4, RichtungLinie.RechtsUnten), 5, Brushes.OrangeRed, WpfObjects.LinieRechtsUnten4);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 3 * AbstandRaster, HoeheRaute / 2, 3 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.RechtsUnten), LinieY(LaengeLinie1, RichtungLinie.RechtsUnten), 5, Brushes.Orange, WpfObjects.LinieRechtsUnten1);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.RechtsUnten), LinieY(LaengeLinie2, RichtungLinie.RechtsUnten), 5, Brushes.OrangeRed, WpfObjects.LinieRechtsUnten2);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.RechtsUnten), LinieY(LaengeLinie3, RichtungLinie.RechtsUnten), 5, Brushes.Red, WpfObjects.LinieRechtsUnten3);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.RechtsUnten), LinieY(LaengeLinie4, RichtungLinie.RechtsUnten), 5, Brushes.OrangeRed, WpfObjects.LinieRechtsUnten4);
 
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.LinksOben), LinieY(LaengeLinie4, RichtungLinie.LinksOben), 5, Brushes.OrangeRed, WpfObjects.LinieLinksOben1);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.LinksOben), LinieY(LaengeLinie3, RichtungLinie.LinksOben), 5, Brushes.Red, WpfObjects.LinieLinksOben2);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.LinksOben), LinieY(LaengeLinie2, RichtungLinie.LinksOben), 5, Brushes.OrangeRed, WpfObjects.LinieLinksOben3);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 23 * AbstandRaster, HoeheRaute / 2, 23 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.LinksOben), LinieY(LaengeLinie1, RichtungLinie.LinksOben), 5, Brushes.Orange, WpfObjects.LinieLinksOben4);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.LinksOben), LinieY(LaengeLinie4, RichtungLinie.LinksOben), 5, Brushes.OrangeRed, WpfObjects.LinieLinksOben1);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.LinksOben), LinieY(LaengeLinie3, RichtungLinie.LinksOben), 5, Brushes.Red, WpfObjects.LinieLinksOben2);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.LinksOben), LinieY(LaengeLinie2, RichtungLinie.LinksOben), 5, Brushes.OrangeRed, WpfObjects.LinieLinksOben3);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 23 * AbstandRaster, HoeheRaute / 2, 23 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.LinksOben), LinieY(LaengeLinie1, RichtungLinie.LinksOben), 5, Brushes.Orange, WpfObjects.LinieLinksOben4);
 
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.LinksUnten), LinieY(LaengeLinie4, RichtungLinie.LinksUnten), 5, Brushes.OrangeRed, WpfObjects.LinieLinksUnten1);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.LinksUnten), LinieY(LaengeLinie3, RichtungLinie.LinksUnten), 5, Brushes.Red, WpfObjects.LinieLinksUnten2);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.LinksUnten), LinieY(LaengeLinie2, RichtungLinie.LinksUnten), 5, Brushes.OrangeRed, WpfObjects.LinieLinksUnten3);
-        libWpf.LinieSetVisibility(1, 30, 1, 30, 23 * AbstandRaster, HoeheRaute / 2, 23 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.LinksUnten), LinieY(LaengeLinie1, RichtungLinie.LinksUnten), 5, Brushes.Orange, WpfObjects.LinieLinksUnten4);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.LinksUnten), LinieY(LaengeLinie4, RichtungLinie.LinksUnten), 5, Brushes.OrangeRed, WpfObjects.LinieLinksUnten1);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.LinksUnten), LinieY(LaengeLinie3, RichtungLinie.LinksUnten), 5, Brushes.Red, WpfObjects.LinieLinksUnten2);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.LinksUnten), LinieY(LaengeLinie2, RichtungLinie.LinksUnten), 5, Brushes.OrangeRed, WpfObjects.LinieLinksUnten3);
+        libWpf.RipLinieSetVisibility(1, 30, 1, 30, 23 * AbstandRaster, HoeheRaute / 2, 23 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.LinksUnten), LinieY(LaengeLinie1, RichtungLinie.LinksUnten), 5, Brushes.Orange, WpfObjects.LinieLinksUnten4);
 
         BuchstabeZeichnen(13, 3.5, libWpf, vmNadeltelegraph, WpfObjects.BuchstabeA);
         BuchstabeZeichnen(10.4, 6.5, libWpf, vmNadeltelegraph, WpfObjects.BuchstabeB);
@@ -100,7 +100,7 @@ public partial class TabZeichnen
         BuchstabeZeichnen(15.4, 23.9, libWpf, vmNadeltelegraph, WpfObjects.BuchstabeW);
         BuchstabeZeichnen(13, 26.5, libWpf, vmNadeltelegraph, WpfObjects.BuchstabeY);
         
-        libWpf.TextSetContendSetVisibility(20, 15, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.BlueViolet, WpfObjects.AsciiCode);
+        libWpf.RipTextSetContendSetVisibility(20, 15, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.BlueViolet, WpfObjects.AsciiCode);
 
         //  libWpf.PlcError();
     }

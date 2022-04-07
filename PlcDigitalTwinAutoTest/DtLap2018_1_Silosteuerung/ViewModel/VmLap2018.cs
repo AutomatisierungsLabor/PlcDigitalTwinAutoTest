@@ -9,38 +9,7 @@ using LibDatenstruktur;
 using WpfAnimatedGif;
 
 namespace DtLap2018_1_Silosteuerung.ViewModel;
-public enum WpfObjects
-{
-    // ReSharper disable once UnusedMember.Global
-    ReserveFuerBasisViewModel = 20, // enum WpfBase
 
-
-    P1 = 21,
-    P2 = 22,
-    Q1 = 23,
-    Q2 = 24,
-    Y1 = 25,
-
-    B1 = 30,
-    B2 = 31,
-    F1 = 32,
-    F2 = 33,
-    S0 = 34,
-    S1 = 35,
-    S2 = 36,
-    S3 = 37,
-
-    WagenNachLinks = 40,
-    WagenNachRechts = 41,
-    RutscheVoll = 42,
-
-    MaterialUnten = 45,
-    MaterialOben = 46,
-    MaterialSilo = 47,
-    MaterialSiloFuellstand = 48,
-    PositionWagen = 50,
-    PostionWagenInhalt = 51
-}
 
 public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 {
@@ -66,21 +35,6 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
         SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfObjects.MaterialSiloFuellstand] = Visibility.Visible;
-
-        Text[(int)WpfObjects.F1] = "F1";
-        Text[(int)WpfObjects.F2] = "F2";
-
-        Text[(int)WpfObjects.S0] = "Aus";
-        Text[(int)WpfObjects.S1] = "Ein";
-        Text[(int)WpfObjects.S2] = "S2";
-        Text[(int)WpfObjects.S3] = "Reset";
-
-        Text[(int)WpfObjects.WagenNachRechts] = "Nach Rechts";
-        Text[(int)WpfObjects.WagenNachLinks] = "Nach Links";
-
-        Farbe[(int)WpfObjects.MaterialOben] = Brushes.Firebrick;
-        Farbe[(int)WpfObjects.MaterialUnten] = Brushes.Firebrick;
     }
     protected override void ViewModelAufrufThread()
     {
@@ -97,7 +51,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
             }
         }
 
-        if (_modelLap2018.RutscheVoll) Text[(int)WpfObjects.RutscheVoll] = "Materialmangel"; else Text[(int)WpfObjects.RutscheVoll] = "Rutsche voll";
+        StringRutscheVoll = _modelLap2018.RutscheVoll ? "Materialmangel" : "Rutsche voll";
 
 
         BrushF1 = SetBrush(_modelLap2018.F1, Brushes.LawnGreen, Brushes.Red);

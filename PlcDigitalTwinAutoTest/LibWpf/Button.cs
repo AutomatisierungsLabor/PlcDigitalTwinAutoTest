@@ -28,8 +28,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-
-
     public void ButtonBackgroundContentMarginRounded(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, Thickness margin, ICommand cmd, object cmdParameter, string setClickMode)
     {
         var button = new Button
@@ -51,6 +49,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
+
 
     public void ButtonBackgroundMarginRoundedSetContend(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, Thickness margin, ICommand cmd, string cmdParameter, string setClickMode, string setContent)
     {
@@ -113,8 +112,30 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
+    public void ButtonContentMarginRoundedSetBackground(string content, int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, ICommand cmd, string cmdParameter, string setClickMode, string setBackground)
+    {
+        var button = new Button
+        {
+            Content = content,
+            FontSize = fontSize,
+            Margin = margin,
+            Command = cmd,
+            CommandParameter = cmdParameter
+        };
 
-    public void ButtonMarginSetVisibilityZweiBilder(int xPos, int xSpan, int yPos, int ySpan, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter, string setVisibilityEin, string setVisibilityAus)
+        button.Loaded += (_, _) =>
+        {
+            if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
+        };
+
+        button.BindingButtonSetClickMode(setClickMode);
+        button.BindingButtonSetBackground(setBackground);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
+    }
+
+
+    public void ButtonMarginSetVisibilityZweiBilder(int xPos, int xSpan, int yPos, int ySpan, string sourceOn, string sourceOff, Thickness margin, ICommand cmd, object cmdParameter, string setClickMode, string setVisibilityEin, string setVisibilityAus)
     {
         var (imageOn, _) = ImageErzeugen(sourceOn, margin);
         var buttonOn = new Button
@@ -124,6 +145,7 @@ public partial class LibWpf
             Command = cmd,
             CommandParameter = cmdParameter
         };
+        buttonOn.BindingButtonSetClickMode(setClickMode);
         buttonOn.BindingButtonSetVisibility(setVisibilityEin);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, buttonOn);
 
@@ -135,6 +157,7 @@ public partial class LibWpf
             Command = cmd,
             CommandParameter = cmdParameter
         };
+        buttonOff.BindingButtonSetClickMode(setClickMode);
         buttonOff.BindingButtonSetVisibility(setVisibilityAus);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, buttonOff);
     }

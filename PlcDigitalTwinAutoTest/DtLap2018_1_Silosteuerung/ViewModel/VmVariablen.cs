@@ -12,6 +12,7 @@ public partial class VmLap2018
     [ObservableProperty] private Brush _brushP1;
     [ObservableProperty] private Brush _brushP2;
     [ObservableProperty] private Brush _brushQ1;
+    [ObservableProperty] private Brush _brushQ2;
     [ObservableProperty] private Brush _brushS2;
     [ObservableProperty] private Brush _brushRutscheVoll;
     [ObservableProperty] private Brush _brushMaterialUnten;
@@ -33,6 +34,7 @@ public partial class VmLap2018
     [ObservableProperty] private Visibility _visibilityEinB2;
     [ObservableProperty] private Visibility _visibilityEinQ1;
     [ObservableProperty] private Visibility _visibilityEinQ2;
+    [ObservableProperty] private Visibility _visibilityEinS1;
     [ObservableProperty] private Visibility _visibilityEinY1;
     [ObservableProperty] private Visibility _visibilityEinMaterialOben;
     [ObservableProperty] private Visibility _visibilityEinMaterialUnten;
@@ -41,14 +43,17 @@ public partial class VmLap2018
     [ObservableProperty] private Visibility _visibilityAusB2;
     [ObservableProperty] private Visibility _visibilityAusQ1;
     [ObservableProperty] private Visibility _visibilityAusQ2;
+    [ObservableProperty] private Visibility _visibilityAusS1;
     [ObservableProperty] private Visibility _visibilityAusY1;
     [ObservableProperty] private Visibility _visibilityAusMaterialOben;
     [ObservableProperty] private Visibility _visibilityAusMaterialUnten;
 
 
     [ObservableProperty] private string _stringMaterialSiloFuellstand;
+    [ObservableProperty] private string _stringRutscheVoll;
 
     [ObservableProperty] private Thickness _marginPositionWagen;
     [ObservableProperty] private Thickness _marginPostionWagenInhalt;
+    [ObservableProperty] private Thickness _marginSilo;
 
 }

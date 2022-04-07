@@ -48,7 +48,7 @@ public partial class TabZeichnen
 
         libWpf.VideoAutoPlay("Flammen.mp4", 7, 3, 5, 3);
 
-        libWpf.ImageSetDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ZahnradWinkel));
+        libWpf.ImageMarginSetDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ZahnradWinkel));
         libWpf.ImageSetMargin("Zahnstange.png", 2, 20, 8, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ZahnstangePosition));
 
         libWpf.RectangleFillStrokeSetMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, nameof(vmLap2010.OfentuerePosition));

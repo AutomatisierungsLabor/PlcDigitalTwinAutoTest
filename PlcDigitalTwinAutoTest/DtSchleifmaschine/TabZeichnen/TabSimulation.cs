@@ -17,10 +17,10 @@ public partial class TabZeichnen
         libWpf.RipKreisFillStrokeMargin(2, 8, 1, 8, Brushes.SlateGray, Brushes.SlateGray, 0, new Thickness(2, 2, 2, 2));
         libWpf.RipRechteckFillMarginSetWinkel(5, 2, 1, 2, Brushes.Yellow, new Thickness(25, 0, 25, 20), WpfObjects.WinkelSchleifmaschine);
 
-        libWpf.TextSetContendSetVisibility(2, 8, 9, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black, WpfObjects.SchleifmaschineDrehzahl);
+        libWpf.RipTextSetContendSetVisibility(2, 8, 9, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black, WpfObjects.SchleifmaschineDrehzahl);
 
         libWpf.RipRechteckSetFillSetVisibility(2, 20, 12, 2, Brushes.Red, WpfObjects.B1);
-        libWpf.TextSetContendSetVisibility(2, 20, 12, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.B1);
+        libWpf.RipTextSetContendSetVisibility(2, 20, 12, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, WpfObjects.B1);
 
 
         libWpf.PointerGauge(12, 10, 1, 10, "Drehzahl", 0, 3000, 80, 225, "AktuelleDrehzahl");

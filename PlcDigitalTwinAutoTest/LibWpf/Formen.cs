@@ -21,7 +21,11 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, linie);
     }
-    public void LinieSetVisibility(int xPos, int xSpan, int yPos, int ySpan, double x1, double y1, double x2, double y2, double breite, Brush farbe, object wpfId)
+
+
+
+
+    public void RipLinieSetVisibility(int xPos, int xSpan, int yPos, int ySpan, double x1, double y1, double x2, double y2, double breite, Brush farbe, object wpfId)
     {
         var linie = new Line
         {
