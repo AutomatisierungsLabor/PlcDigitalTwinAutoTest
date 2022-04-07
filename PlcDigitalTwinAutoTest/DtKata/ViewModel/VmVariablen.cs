@@ -21,6 +21,10 @@ public partial class VmKata
     [ObservableProperty] private ClickMode _clickModeS2;
     [ObservableProperty] private ClickMode _clickModeS3;
     [ObservableProperty] private ClickMode _clickModeS4;
+    [ObservableProperty] private ClickMode _clickModeS5;
+    [ObservableProperty] private ClickMode _clickModeS6;
+    [ObservableProperty] private ClickMode _clickModeS7;
+    [ObservableProperty] private ClickMode _clickModeS8;
 
     [ObservableProperty] private string _stringS1;
     [ObservableProperty] private string _stringS2;

@@ -21,6 +21,7 @@ public partial class VmGetriebemotor
     [ObservableProperty] private ClickMode _clickModeS6;
     [ObservableProperty] private ClickMode _clickModeS7;
     [ObservableProperty] private ClickMode _clickModeS8;
+    [ObservableProperty] private ClickMode _clickModeS9;
 
     [ObservableProperty] private string _stringS1;
     [ObservableProperty] private string _stringS2;

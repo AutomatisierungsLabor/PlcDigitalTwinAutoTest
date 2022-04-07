@@ -76,7 +76,7 @@ public partial class TabZeichnen
         libWpf.EllipseMarginStrokeSetFilling(17, 3, 20, 3, kreisRand, kreisRandFarbe, 2, nameof(vmGetriebemotor.BrushP3));
 
 
-        libWpf.ButtonMarginSetVisibilityZweiBilder(20, 4, 4, 4, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmGetriebemotor.ButtonSchalterCommand, "S91", nameof(vmGetriebemotor.VisibilityEinS91), nameof(vmGetriebemotor.VisibilityAusS91));
+        libWpf.ButtonMarginSetVisibilityZweiBilder(20, 4, 4, 4, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmGetriebemotor.ButtonSchalterCommand, "S91", nameof(vmGetriebemotor.ClickModeS9),nameof(vmGetriebemotor.VisibilityEinS91), nameof(vmGetriebemotor.VisibilityAusS91));
         libWpf.Text("-S9.1", 18, 2, 4, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("-S9.2", 18, 2, 5, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 

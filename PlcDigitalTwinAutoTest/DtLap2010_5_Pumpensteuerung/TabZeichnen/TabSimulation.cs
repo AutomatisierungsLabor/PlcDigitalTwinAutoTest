@@ -74,7 +74,7 @@ public partial class TabZeichnen
         libWpf.RectangleMarginSetFill(8, 2, 19, 3, new Thickness(20, 0, 20, 0), nameof(vmLap2010.BrushAbleitungUnten));
 
         libWpf.Text("Y1", 5, 2, 18, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonMarginSetVisibilityZweiBilder(7, 3, 18, 2, "VentilElektrischEin.jpg", "VentilElektrischAus.jpg", new Thickness(7, 0, 7, 0), vmLap2010.ButtonSchalterCommand, "Y1", nameof(vmLap2010.VisibilityEinY1), nameof(vmLap2010.VisibilityAusY1));
+        libWpf.ButtonMarginSetVisibilityZweiBilder(7, 3, 18, 2, "VentilElektrischEin.jpg", "VentilElektrischAus.jpg", new Thickness(7, 0, 7, 0), vmLap2010.ButtonSchalterCommand, "Y1", nameof(vmLap2010.ClickModeY1), nameof(vmLap2010.VisibilityEinY1), nameof(vmLap2010.VisibilityAusY1));
 
 
         var kontakteRand = new Thickness(20, 5, 0, 5);

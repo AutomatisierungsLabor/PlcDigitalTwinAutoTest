@@ -18,14 +18,9 @@ public partial class LibWpf
             X2 = x2,
             Y2 = y2
         };
-
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, linie);
     }
-
-
-
-
-    public void RipLinieSetVisibility(int xPos, int xSpan, int yPos, int ySpan, double x1, double y1, double x2, double y2, double breite, Brush farbe, object wpfId)
+    public void LinieSetVisibility(int xPos, int xSpan, int yPos, int ySpan, double x1, double y1, double x2, double y2, double breite, Brush farbe, string bindingVisibility)
     {
         var linie = new Line
         {
@@ -36,8 +31,7 @@ public partial class LibWpf
             X2 = x2,
             Y2 = y2
         };
-        linie.RipButtonSetVisibilityEinBinding(wpfId);
-
+        linie.BindingSetVisibility(bindingVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, linie);
     }
     public void Border(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Thickness rand)
@@ -47,7 +41,6 @@ public partial class LibWpf
             BorderBrush = farbe,
             BorderThickness = rand
         };
-
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, border);
     }
     public StackPanel StackPanel(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, Brush farbe)

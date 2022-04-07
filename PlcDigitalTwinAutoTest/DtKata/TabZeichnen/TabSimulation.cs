@@ -20,10 +20,10 @@ public partial class TabZeichnen
         libWpf.ButtonBackgroundMarginRoundedSetContend(1, 3, 5, 2, 20, 15, Brushes.Red, buttonRand, vmKata.ButtonTasterCommand, "S3", nameof(vmKata.ClickModeS3), nameof(vmKata.StringS3));
         libWpf.ButtonBackgroundMarginRoundedSetContend(1, 3, 7, 2, 20, 15, Brushes.Red, buttonRand, vmKata.ButtonTasterCommand, "S4", nameof(vmKata.ClickModeS4), nameof(vmKata.StringS4));
 
-        libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 10, 2, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S5", nameof(vmKata.VisibilityEinS5), nameof(vmKata.VisibilityAusS5));
-        libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 12, 2, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S6", nameof(vmKata.VisibilityEinS6), nameof(vmKata.VisibilityAusS6));
-        libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 14, 2, "KippschalterOn.jpg", "KippschalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S7", nameof(vmKata.VisibilityEinS7), nameof(vmKata.VisibilityAusS7));
-        libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 16, 2, "KippschalterOn.jpg", "KippschalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S8", nameof(vmKata.VisibilityEinS8), nameof(vmKata.VisibilityAusS8));
+        libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 10, 2, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S5", nameof(vmKata.ClickModeS5), nameof(vmKata.VisibilityEinS5), nameof(vmKata.VisibilityAusS5));
+        libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 12, 2, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S6", nameof(vmKata.ClickModeS6), nameof(vmKata.VisibilityEinS6), nameof(vmKata.VisibilityAusS6));
+        libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 14, 2, "KippschalterOn.jpg", "KippschalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S7", nameof(vmKata.ClickModeS7), nameof(vmKata.VisibilityEinS7), nameof(vmKata.VisibilityAusS7));
+        libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 16, 2, "KippschalterOn.jpg", "KippschalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S8", nameof(vmKata.ClickModeS8), nameof(vmKata.VisibilityEinS8), nameof(vmKata.VisibilityAusS8));
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
