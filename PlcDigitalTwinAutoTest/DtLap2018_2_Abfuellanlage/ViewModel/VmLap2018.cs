@@ -1,9 +1,7 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Contracts;
 using DtLap2018_2_Abfuellanlage.Model;
 using LibDatenstruktur;
 
@@ -25,15 +23,15 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityTabSimulation = Visibility.Visible;
         VisibilityTabSoftwareTest = Visibility.Visible;
 
-        SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
+        VisibilityBtnPlcAnzeigen = Visibility.Visible;
+        VisibilityBtnPlottAnzeigen = Visibility.Visible;
+        VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
+        VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
     protected override void ViewModelAufrufThread()
     {
         if (_modelLap2018 == null) return;
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
+        StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         (VisibilityFlasche1, MarginFlasche1) = FlaschePositionieren(_modelLap2018.AlleFlaschen[0]);
         (VisibilityFlasche2, MarginFlasche2) = FlaschePositionieren(_modelLap2018.AlleFlaschen[1]);
@@ -97,9 +95,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityMohren5, _) = SetVisibility(alleMohrenKisten[5]);
         (VisibilityMohren6, _) = SetVisibility(alleMohrenKisten[6]);
     }
-    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt) { }
-    protected override void ViewModelAufrufSchalter(Enum schalterId) { }
-    public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
+     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
     public override void SimulationZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");

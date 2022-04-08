@@ -1,7 +1,5 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Windows;
-using Contracts;
 using DtLap2010_3_Ofentuersteuerung.Model;
 using LibDatenstruktur;
 using System.Windows.Controls;
@@ -24,14 +22,14 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityTabSimulation = Visibility.Visible;
         VisibilityTabSoftwareTest = Visibility.Visible;
 
-        SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
+        VisibilityBtnPlcAnzeigen = Visibility.Visible;
+        VisibilityBtnPlottAnzeigen = Visibility.Visible;
+        VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
+        VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
     protected override void ViewModelAufrufThread()
     {
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
+        StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         OfentuerePosition = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionOfentuere;
         ZahnstangePosition = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionZahnstange;
@@ -46,8 +44,6 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         BrushQ1 = SetBrush(_modelLap2010.Q1, Brushes.LawnGreen, Brushes.White);
         BrushQ2 = SetBrush(_modelLap2010.Q2, Brushes.LawnGreen, Brushes.White);
     }
-    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt) { }
-    protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");

@@ -70,7 +70,7 @@ public partial class TabZeichnen
         libWpf.ImageMarginZweiBilderSetVisibility("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 12, 2, 28, 2, new Thickness(0, 0, 0, 0), nameof(vmLap2018.VisibilityEinB2), nameof(vmLap2018.VisibilityEinB2));
 
         libWpf.ButtonBackgroundContentRounded("Nach links", 2, 4, 30, 2, 20, 5, Brushes.LawnGreen, vmLap2018.ButtonTasterCommand, "WagenNachLinks", nameof(vmLap2018.ClickModeWagenNachLinks));
-        libWpf.ButtonBackgroundContentRounded("Nach rechts", 12, 4, 30, 2, 20, 5, Brushes.LawnGreen, vmLap2018.BtnTaster, "WagenNachRechts", nameof(vmLap2018.ClickModeWagenNachRechts));
+        libWpf.ButtonBackgroundContentRounded("Nach rechts", 12, 4, 30, 2, 20, 5, Brushes.LawnGreen, vmLap2018.ButtonTasterCommand, "WagenNachRechts", nameof(vmLap2018.ClickModeWagenNachRechts));
 
         ///////////////////////////////////////////////////////////
         //

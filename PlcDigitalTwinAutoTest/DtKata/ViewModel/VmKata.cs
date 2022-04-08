@@ -1,7 +1,5 @@
-﻿using Contracts;
-using DtKata.Model;
+﻿using DtKata.Model;
 using LibDatenstruktur;
-using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,20 +22,15 @@ public partial class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityTabSimulation = Visibility.Visible;
         VisibilityTabSoftwareTest = Visibility.Visible;
 
-        SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
-
-        StringS1 = "S1";
-        StringS2 = "S2";
-        StringS3 = "S3";
-        StringS4 = "S4";
+        VisibilityBtnPlcAnzeigen = Visibility.Visible;
+        VisibilityBtnPlottAnzeigen = Visibility.Visible;
+        VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
+        VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
     protected override void ViewModelAufrufThread()
     {
         if (_modelKata == null) return;
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
+        StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         (VisibilityEinS1, VisibilityAusS1) = SetVisibility(_modelKata.S1);
         (VisibilityEinS2, VisibilityAusS2) = SetVisibility(_modelKata.S2);
@@ -57,8 +50,6 @@ public partial class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         BrushP7 = SetBrush(_modelKata.P7, Brushes.Red, Brushes.White);
         BrushP8 = SetBrush(_modelKata.P8, Brushes.Red, Brushes.White);
     }
-    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt) { }
-    protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");

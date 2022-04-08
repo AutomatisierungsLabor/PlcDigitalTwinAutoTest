@@ -1,9 +1,7 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Contracts;
 using DtLap2018_1_Silosteuerung.Model;
 using LibDatenstruktur;
 using WpfAnimatedGif;
@@ -31,14 +29,14 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityTabSimulation = Visibility.Visible;
         VisibilityTabSoftwareTest = Visibility.Visible;
 
-        SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
+        VisibilityBtnPlcAnzeigen = Visibility.Visible;
+        VisibilityBtnPlottAnzeigen = Visibility.Visible;
+        VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
+        VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
     protected override void ViewModelAufrufThread()
     {
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
+        StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         //   FuellstandSilo(_modelLap2018.Silo.GetFuellstand());
 
@@ -82,8 +80,6 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         if (!_imageGeladen) return;
         if (_modelLap2018.Q2) ImageAnimationController.Play(); else ImageAnimationController.Pause();
     }
-    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt) { }
-    protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");

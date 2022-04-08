@@ -2,7 +2,6 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using WpfAnimatedGif;
@@ -61,7 +60,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
     }
-
     public void ImageMarginSetDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingWinkel)
     {
         _ = bindingWinkel; // TODO noch fertigstellen!
@@ -78,7 +76,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-
     public void ImageSetMarginSetVisibility(string source, int xPos, int xSpan, int yPos, int ySpan, string bindingMargin, string bindingVisability)
     {
         var (image, _) = ImageErzeugen(source, new Thickness(0, 0, 0, 0));
@@ -87,51 +84,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-
-
-
-
-
-
-
-
-
-    public void RipBildSetVisibilityEin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
-    {
-        var (image, _) = ImageErzeugen(source, margin);
-        image.RipButtonSetVisibilityEinBinding(wpfId);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
-    }
-    public void RipBildSetVisibilityAus(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
-    {
-        var (image, _) = ImageErzeugen(source, margin);
-        image.RipSetVisibilityAusBinding(wpfId);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
-    }
-    public void RipBildSetVisibilityEinAus(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object wpfId)
-    {
-        var (imageOn, _) = ImageErzeugen(sourceOn, margin);
-        imageOn.RipButtonSetVisibilityEinBinding(wpfId);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOn);
-
-        var (imageOff, _) = ImageErzeugen(sourceOff, margin);
-        imageOff.RipSetVisibilityAusBinding(wpfId);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
-    }
-    public void BildSetMarginVisibilityEin(string source, int xPos, int xSpan, int yPos, int ySpan, object wpfId)
-    {
-        var (image, _) = ImageErzeugen(source, new Thickness(0, 0, 0, 0));
-        image.RipButtonSetVisibilityEinBinding(wpfId);
-
-        BindingOperations.SetBinding(image, FrameworkElement.MarginProperty, new Binding($"Margin[{(int)wpfId}]"));
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
-    }
- 
     public void BildAnimiert(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, RoutedEventHandler eventHandler)
     {
         var (image, bitmapImage) = ImageErzeugen(source, margin);

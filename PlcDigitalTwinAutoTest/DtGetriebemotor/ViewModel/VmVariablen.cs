@@ -13,6 +13,8 @@ public partial class VmGetriebemotor
     [ObservableProperty] private Brush _brushP2;
     [ObservableProperty] private Brush _brushP3;
 
+    [ObservableProperty] private double _winkelGetriebemotor;
+
     [ObservableProperty] private ClickMode _clickModeS1;
     [ObservableProperty] private ClickMode _clickModeS2;
     [ObservableProperty] private ClickMode _clickModeS3;
@@ -22,16 +24,6 @@ public partial class VmGetriebemotor
     [ObservableProperty] private ClickMode _clickModeS7;
     [ObservableProperty] private ClickMode _clickModeS8;
     [ObservableProperty] private ClickMode _clickModeS9;
-
-    [ObservableProperty] private string _stringS1;
-    [ObservableProperty] private string _stringS2;
-    [ObservableProperty] private string _stringS3;
-    [ObservableProperty] private string _stringS4;
-    [ObservableProperty] private string _stringS5;
-    [ObservableProperty] private string _stringS6;
-    [ObservableProperty] private string _stringS7;
-    [ObservableProperty] private string _stringS8;
-
 
     [ObservableProperty] private Visibility _visibilityEinB1;
     [ObservableProperty] private Visibility _visibilityEinB2;

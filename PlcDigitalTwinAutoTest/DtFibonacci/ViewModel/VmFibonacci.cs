@@ -1,8 +1,6 @@
-﻿using Contracts;
-using DtFibonacci.Model;
+﻿using DtFibonacci.Model;
 using LibDatenstruktur;
 using ScottPlot;
-using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,13 +28,11 @@ public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityTabSimulation = Visibility.Visible;
         VisibilityTabSoftwareTest = Visibility.Visible;
 
-        SichtbarEin[(int)WpfBase.BtnPlcAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnPlottAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnLinkHomepageAnzeigen] = Visibility.Visible;
-        SichtbarEin[(int)WpfBase.BtnAlwarmVerwaltungAnzeigen] = Visibility.Visible;
-
-        StringS1 = "Start";
-
+        VisibilityBtnPlcAnzeigen = Visibility.Visible;
+        VisibilityBtnPlottAnzeigen = Visibility.Visible;
+        VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
+        VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
+        
         _modelFibonacci = model as ModelFibonacci;
     }
 
@@ -44,14 +40,12 @@ public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
     {
         if (_modelFibonacci == null) return;
 
-        FensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
+        StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         BrushP1 = SetBrush(_modelFibonacci.P1, Brushes.LawnGreen, Brushes.White);
 
         ScottPlotAktualisieren();
     }
-    protected override void ViewModelAufrufTaster(Enum tasterId, bool gedrueckt) { }
-    protected override void ViewModelAufrufSchalter(Enum schalterId) { }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");

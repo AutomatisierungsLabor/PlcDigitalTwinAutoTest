@@ -23,8 +23,6 @@ public partial class VmLap2010
 
     [ObservableProperty] private double _aktuellerDruck;
 
-    [ObservableProperty] private string _stringF1;
-
     [ObservableProperty] private Visibility _visibilityEinB1;
     [ObservableProperty] private Visibility _visibilityEinB2;
 

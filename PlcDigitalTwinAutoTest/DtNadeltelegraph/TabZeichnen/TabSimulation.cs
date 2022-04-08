@@ -147,7 +147,7 @@ public partial class TabZeichnen
             gesamteBreite - linkerRand - width,
             gesamteHoehe - obererRand - height
         );
-        
-        libWpf.ButtonBackgroundContentMarginRounded(stringBuchstabe, 0, 30, 0, 30, 20, 10, Brushes.LightGray, thickness, vmNadeltelegraph.BtnSchalter, stringBuchstabe, bindingClickmode);
+
+        // TODO    libWpf.ButtonBackgroundContentMarginRounded(stringBuchstabe, 0, 30, 0, 30, 20, 10, Brushes.LightGray, thickness, vmNadeltelegraph.BtnSchalter, stringBuchstabe, bindingClickmode);
     }
 }

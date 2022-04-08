@@ -15,7 +15,7 @@ public partial class TabZeichnen
 
 
         libWpf.EllipseFillMarginStroke(7, 8, 2, 8, Brushes.SlateGray, new Thickness(2, 2, 2, 2), Brushes.SlateGray, 0);
-        libWpf.RectangleFillMarginSetWinkel(10, 2, 3, 2, Brushes.Yellow, new Thickness(25, 0, 25, 20), nameof(vmGetriebemotor.Winkel), nameof(vmGetriebemotor.PointTransformOrigin));
+        libWpf.RectangleFillMarginSetWinkel(10, 2, 3, 2, Brushes.Yellow, new Thickness(25, 0, 25, 20), nameof(vmGetriebemotor.WinkelGetriebemotor), nameof(vmGetriebemotor.PointTransformOrigin));
 
 
         var kontakteRand = new Thickness(2, 5, 2, 5);
@@ -32,32 +32,32 @@ public partial class TabZeichnen
 
         libWpf.RectangleFill(1, 5, 11, 8, Brushes.LightGray);
         libWpf.Text("-S1", 1, 2, 11, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonBackgroundMarginRoundedSetContend(3, 3, 11, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S1", nameof(vmGetriebemotor.ClickModeS1), nameof(vmGetriebemotor.StringS1));
+        libWpf.ButtonBackgroundContentMarginRounded("①", 3, 3, 11, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S1", nameof(vmGetriebemotor.ClickModeS1));
 
         libWpf.Text("-S2", 1, 2, 16, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonBackgroundMarginRoundedSetContend(3, 3, 16, 3, 50, 15, Brushes.Red, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S2", nameof(vmGetriebemotor.ClickModeS2), nameof(vmGetriebemotor.StringS2));
+        libWpf.ButtonBackgroundContentMarginRounded("⓪", 3, 3, 16, 3, 50, 15, Brushes.Red, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S2", nameof(vmGetriebemotor.ClickModeS2));
 
 
         libWpf.RectangleFill(8, 5, 11, 8, Brushes.LightGray);
         libWpf.Text("-S3", 8, 2, 11, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonBackgroundMarginRoundedSetContend(10, 3, 11, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S3", nameof(vmGetriebemotor.ClickModeS3), nameof(vmGetriebemotor.StringS3));
+        libWpf.ButtonBackgroundContentMarginRounded("I", 10, 3, 11, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S3", nameof(vmGetriebemotor.ClickModeS3));
 
         libWpf.Text("-S4", 8, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonBackgroundMarginRoundedSetContend(10, 3, 14, 2, 30, 5, Brushes.Red, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S4", nameof(vmGetriebemotor.ClickModeS4), nameof(vmGetriebemotor.StringS4));
+        libWpf.ButtonBackgroundContentMarginRounded("STOP", 10, 3, 14, 2, 30, 5, Brushes.Red, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S4", nameof(vmGetriebemotor.ClickModeS4));
 
         libWpf.Text("-S5", 8, 2, 16, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonBackgroundMarginRoundedSetContend(10, 3, 16, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S5", nameof(vmGetriebemotor.ClickModeS5), nameof(vmGetriebemotor.StringS5));
+        libWpf.ButtonBackgroundContentMarginRounded("II", 10, 3, 16, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S5", nameof(vmGetriebemotor.ClickModeS5));
 
 
         libWpf.RectangleFill(15, 5, 11, 8, Brushes.LightGray);
         libWpf.Text("-S6", 15, 2, 11, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonBackgroundMarginRoundedSetContend(17, 3, 11, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S6", nameof(vmGetriebemotor.ClickModeS6), nameof(vmGetriebemotor.StringS6));
+        libWpf.ButtonBackgroundContentMarginRounded("←", 17, 3, 11, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S6", nameof(vmGetriebemotor.ClickModeS6));
 
         libWpf.Text("-S7", 15, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonBackgroundMarginRoundedSetContend(17, 3, 14, 2, 30, 5, Brushes.Red, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S7", nameof(vmGetriebemotor.ClickModeS7), nameof(vmGetriebemotor.StringS7));
+        libWpf.ButtonBackgroundContentMarginRounded("STOP", 17, 3, 14, 2, 30, 5, Brushes.Red, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S7", nameof(vmGetriebemotor.ClickModeS7));
 
         libWpf.Text("-S8", 15, 2, 16, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonBackgroundMarginRoundedSetContend(17, 3, 16, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S8", nameof(vmGetriebemotor.ClickModeS8), nameof(vmGetriebemotor.StringS8));
+        libWpf.ButtonBackgroundContentMarginRounded("→", 17, 3, 16, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmGetriebemotor.ButtonTasterCommand, "S8", nameof(vmGetriebemotor.ClickModeS8));
 
         var kreisRand = new Thickness(2, 2, 2, 2);
         var kreisRandFarbe = new SolidColorBrush(Colors.Black);

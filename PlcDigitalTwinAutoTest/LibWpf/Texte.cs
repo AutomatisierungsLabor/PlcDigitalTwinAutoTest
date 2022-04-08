@@ -48,6 +48,22 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
+    public void TextSetContendSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, string bindingContent,string bindingVisibility)
+    {
+        var label = new Label
+        {
+            FontSize = fontSize,
+            Foreground = farbe,
+            HorizontalAlignment = horizontal,
+            VerticalAlignment = vertical
+        };
+
+        label.BindingSetContent(bindingContent);
+        label.BindingSetVisibility(bindingVisibility);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
+    }
+
     public void RipTextSetContendSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, object wpfId)
     {
         var label = new Label
@@ -58,8 +74,8 @@ public partial class LibWpf
             VerticalAlignment = vertical
         };
 
-        label.RipSetContentBinding(wpfId);
-        label.RipButtonSetVisibilityEinBinding(wpfId);
+       // label.BindingSetContent(bindingContent);
+      //  label.BindingSetVisibility(bindingVisibility);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }

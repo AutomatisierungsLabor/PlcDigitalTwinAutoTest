@@ -15,10 +15,10 @@ public partial class TabZeichnen
 
         var buttonRand = new Thickness(2, 5, 2, 5);
 
-        libWpf.ButtonBackgroundMarginRoundedSetContend(1, 3, 1, 2, 20, 15, Brushes.LawnGreen, buttonRand, vmKata.ButtonTasterCommand, "S1", nameof(vmKata.ClickModeS1), nameof(vmKata.StringS1));
-        libWpf.ButtonBackgroundMarginRoundedSetContend(1, 3, 3, 2, 20, 15, Brushes.LawnGreen, buttonRand, vmKata.ButtonTasterCommand, "S2", nameof(vmKata.ClickModeS2), nameof(vmKata.StringS2));
-        libWpf.ButtonBackgroundMarginRoundedSetContend(1, 3, 5, 2, 20, 15, Brushes.Red, buttonRand, vmKata.ButtonTasterCommand, "S3", nameof(vmKata.ClickModeS3), nameof(vmKata.StringS3));
-        libWpf.ButtonBackgroundMarginRoundedSetContend(1, 3, 7, 2, 20, 15, Brushes.Red, buttonRand, vmKata.ButtonTasterCommand, "S4", nameof(vmKata.ClickModeS4), nameof(vmKata.StringS4));
+        libWpf.ButtonBackgroundContentMarginRounded("S1", 1, 3, 1, 2, 20, 15, Brushes.LawnGreen, buttonRand, vmKata.ButtonTasterCommand, "S1", nameof(vmKata.ClickModeS1));
+        libWpf.ButtonBackgroundContentMarginRounded("S2", 1, 3, 3, 2, 20, 15, Brushes.LawnGreen, buttonRand, vmKata.ButtonTasterCommand, "S2", nameof(vmKata.ClickModeS2));
+        libWpf.ButtonBackgroundContentMarginRounded("S3", 1, 3, 5, 2, 20, 15, Brushes.Red, buttonRand, vmKata.ButtonTasterCommand, "S3", nameof(vmKata.ClickModeS3));
+        libWpf.ButtonBackgroundContentMarginRounded("S4", 1, 3, 7, 2, 20, 15, Brushes.Red, buttonRand, vmKata.ButtonTasterCommand, "S4", nameof(vmKata.ClickModeS4));
 
         libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 10, 2, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S5", nameof(vmKata.ClickModeS5), nameof(vmKata.VisibilityEinS5), nameof(vmKata.VisibilityAusS5));
         libWpf.ButtonMarginSetVisibilityZweiBilder(1, 3, 12, 2, "SchiebeSchalterOn.jpg", "SchiebeSchalterOff.jpg", buttonRand, vmKata.ButtonSchalterCommand, "S6", nameof(vmKata.ClickModeS6), nameof(vmKata.VisibilityEinS6), nameof(vmKata.VisibilityAusS6));
