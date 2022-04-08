@@ -43,7 +43,7 @@ public partial class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
         StringS7 = "STOP";
         StringS8 = "→";
 
-        TransformOrigin[(int)WpfObjects.WinkelGetriebemotor] = new Point(5, 5);
+        PointTransformOrigin = new Point(5, 5);
 
         _modelGetriebemotor = model as ModelGetriebemotor;
     }

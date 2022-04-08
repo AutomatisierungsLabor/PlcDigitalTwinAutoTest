@@ -66,8 +66,8 @@ public partial class TabZeichnen
 
         var pumpeRand = new Thickness(0, 0, 0, 0);
         libWpf.Text("Q1", 2, 2, 3, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageSetVisibility("PumpeWaagrechtAus.jpg", 4, 2, 4, 2, pumpeRand, nameof(vmLap2010.VisibilityAusQ1));
-        libWpf.ImageSetVisibility("PumpeWaagrechtEin.jpg", 4, 2, 4, 2, pumpeRand, nameof(vmLap2010.VisibilityEinQ1));
+        libWpf.ImageMarginSetVisibility("PumpeWaagrechtAus.jpg", 4, 2, 4, 2, pumpeRand, nameof(vmLap2010.VisibilityAusQ1));
+        libWpf.ImageMarginSetVisibility("PumpeWaagrechtEin.jpg", 4, 2, 4, 2, pumpeRand, nameof(vmLap2010.VisibilityEinQ1));
 
 
         libWpf.RectangleMarginSetFill(8, 2, 16, 3, new Thickness(20, 0, 20, 0), nameof(vmLap2010.BrushAbleitungOben));
@@ -80,13 +80,13 @@ public partial class TabZeichnen
         var kontakteRand = new Thickness(20, 5, 0, 5);
 
         libWpf.Text("B1", 12, 2, 7, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageSetVisibility("Schwimmerschalter.jpg", 13, 2, 7, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
-        libWpf.ImageSetVisibility("SchwimmerschalterBetaetigt.jpg", 13, 2, 7, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
+        libWpf.ImageMarginSetVisibility("Schwimmerschalter.jpg", 13, 2, 7, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
+        libWpf.ImageMarginSetVisibility("SchwimmerschalterBetaetigt.jpg", 13, 2, 7, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
 
 
         libWpf.Text("B2", 12, 2, 14, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageSetVisibility("Schwimmerschalter.jpg", 13, 2, 14, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB2));
-        libWpf.ImageSetVisibility("SchwimmerschalterBetaetigt.jpg", 13, 2, 14, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB2));
+        libWpf.ImageMarginSetVisibility("Schwimmerschalter.jpg", 13, 2, 14, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB2));
+        libWpf.ImageMarginSetVisibility("SchwimmerschalterBetaetigt.jpg", 13, 2, 14, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB2));
 
 
 

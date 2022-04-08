@@ -40,4 +40,6 @@ public partial class VmGetriebemotor
     [ObservableProperty] private Visibility _visibilityAusB1;
     [ObservableProperty] private Visibility _visibilityAusB2;
     [ObservableProperty] private Visibility _visibilityAusS91;
+
+    [ObservableProperty] private Point _pointTransformOrigin;
 }

@@ -27,29 +27,29 @@ public partial class TabZeichnen
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 5, 2, 1, 2, kontakteRand, nameof(vmKata.VisibilityEinS1));
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 5, 2, 1, 2, kontakteRand, nameof(vmKata.VisibilityAusS1));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 1, 2, kontakteRand, nameof(vmKata.VisibilityEinS1));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 1, 2, kontakteRand, nameof(vmKata.VisibilityAusS1));
 
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 5, 2, 3, 2, kontakteRand, nameof(vmKata.VisibilityEinS2));
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 5, 2, 3, 2, kontakteRand, nameof(vmKata.VisibilityAusS2));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 3, 2, kontakteRand, nameof(vmKata.VisibilityEinS2));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 3, 2, kontakteRand, nameof(vmKata.VisibilityAusS2));
 
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 5, 2, 5, 2, kontakteRand, nameof(vmKata.VisibilityEinS3));
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 5, 2, 5, 2, kontakteRand, nameof(vmKata.VisibilityAusS3));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 5, 2, kontakteRand, nameof(vmKata.VisibilityEinS3));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 5, 2, kontakteRand, nameof(vmKata.VisibilityAusS3));
 
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 5, 2, 7, 2, kontakteRand, nameof(vmKata.VisibilityEinS4));
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 5, 2, 7, 2, kontakteRand, nameof(vmKata.VisibilityAusS4));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 7, 2, kontakteRand, nameof(vmKata.VisibilityEinS4));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 7, 2, kontakteRand, nameof(vmKata.VisibilityAusS4));
 
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 5, 2, 10, 2, kontakteRand, nameof(vmKata.VisibilityEinS5));
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 5, 2, 10, 2, kontakteRand, nameof(vmKata.VisibilityAusS5));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 10, 2, kontakteRand, nameof(vmKata.VisibilityEinS5));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 10, 2, kontakteRand, nameof(vmKata.VisibilityAusS5));
 
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 5, 2, 12, 2, kontakteRand, nameof(vmKata.VisibilityEinS6));
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 5, 2, 12, 2, kontakteRand, nameof(vmKata.VisibilityAusS6));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 12, 2, kontakteRand, nameof(vmKata.VisibilityEinS6));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 12, 2, kontakteRand, nameof(vmKata.VisibilityAusS6));
 
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 5, 2, 14, 2, kontakteRand, nameof(vmKata.VisibilityEinS7));
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 5, 2, 14, 2, kontakteRand, nameof(vmKata.VisibilityAusS7));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 14, 2, kontakteRand, nameof(vmKata.VisibilityEinS7));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 14, 2, kontakteRand, nameof(vmKata.VisibilityAusS7));
 
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 5, 2, 16, 2, kontakteRand, nameof(vmKata.VisibilityEinS8));
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 5, 2, 16, 2, kontakteRand, nameof(vmKata.VisibilityAusS8));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 16, 2, kontakteRand, nameof(vmKata.VisibilityEinS8));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 16, 2, kontakteRand, nameof(vmKata.VisibilityAusS8));
 
         var marginKreis = new Thickness(2, 2, 2, 2);
         var farbeKreisRand = new SolidColorBrush(Colors.Black);

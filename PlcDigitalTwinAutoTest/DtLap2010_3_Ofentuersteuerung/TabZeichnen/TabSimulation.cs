@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RipRechteckFill(20, 10, 2, 10, Brushes.LightGray);
+        libWpf.RectangleFill(20, 10, 2, 10, Brushes.LightGray);
 
         libWpf.Text("S1", 19, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 19, 3, 5, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -58,16 +58,16 @@ public partial class TabZeichnen
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 8, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
-        libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
+        libWpf.ImageMarginSetVisibility("InitiatorenSchliesser.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
+        libWpf.ImageMarginSetVisibility("InitiatorenBetaetigt.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
 
         libWpf.Text("B2", 12, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB2));
-        libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB2));
+        libWpf.ImageMarginSetVisibility("InitiatorenSchliesser.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB2));
+        libWpf.ImageMarginSetVisibility("InitiatorenBetaetigt.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB2));
 
         libWpf.Text("B3", 16, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB3));
-        libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB3));
+        libWpf.ImageMarginSetVisibility("InitiatorenSchliesser.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB3));
+        libWpf.ImageMarginSetVisibility("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB3));
 
 
         libWpf.RectangleStrokeSetFill(2, 2, 15, 2, Brushes.Black, 2, nameof(vmLap2010.BrushQ1));

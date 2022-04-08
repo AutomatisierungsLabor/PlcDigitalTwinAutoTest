@@ -27,6 +27,8 @@ public static class Extensions
     public static void BindingSetVisibility(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"{wpfId}");
 
 
+    public static void BindingImageSetMargin(this FrameworkElement element, object wpfId) => element.SetBinding(FrameworkElement.MarginProperty, $"{wpfId}");
+
     public static void BindingSetContent(this ContentControl element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"{wpfId}");
 
     public static void BindingpSetTransformOrigin(this Shape element, object wpfId) => element.SetBinding(UIElement.RenderTransformOriginProperty, $"{wpfId}");

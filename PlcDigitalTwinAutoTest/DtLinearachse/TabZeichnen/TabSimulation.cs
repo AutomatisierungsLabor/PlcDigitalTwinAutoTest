@@ -23,12 +23,12 @@ public partial class TabZeichnen
 
         var kontakteRand = new Thickness(2, 5, 2, 5);
         libWpf.Text("-B1", 3, 2, 8, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 4, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB1));
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 4, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityEinB1));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 4, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB1));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 4, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityEinB1));
 
         libWpf.Text("-B2", 23, 2, 8, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 23, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB2));
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 23, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB2));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 23, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB2));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 23, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB2));
 
 
 

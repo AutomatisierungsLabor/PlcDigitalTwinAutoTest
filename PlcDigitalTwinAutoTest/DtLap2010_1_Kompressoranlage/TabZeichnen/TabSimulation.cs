@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RipRechteckFill(20, 11, 1, 9, Brushes.LightGray);
+        libWpf.RectangleFill(20, 11, 1, 9, Brushes.LightGray);
 
         libWpf.Text("S1", 19, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 24, 3, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -43,21 +43,21 @@ public partial class TabZeichnen
         //
         ///////////////////////////////////////////////////////////
 
-        libWpf.RipRechteckFillStrokeRundung(2, 20, 1, 15, 25, 15, Brushes.LightBlue, Brushes.Black, 2, new Rect(0, 0, 210, 300));
-        libWpf.RipRechteckFillStrokeMargin(4, 3, 11, 3, Brushes.LightBlue, Brushes.Black, 2, new Thickness(10, 0, 10, 0));
-        libWpf.RipRechteckFillMargin(4, 3, 10, 2, Brushes.LightBlue, new Thickness(12, 0, 12, 0));
+        libWpf.RectangleFillRundungStroke(2, 20, 1, 15, 25, 15, Brushes.LightBlue, new Rect(0, 0, 210, 300), Brushes.Black, 2);
+        libWpf.RectangleFillMarginStroke(4, 3, 11, 3, Brushes.LightBlue, new Thickness(10, 0, 10, 0), Brushes.Black, 2);
+        libWpf.RectangleFillMargin(4, 3, 10, 2, Brushes.LightBlue, new Thickness(12, 0, 12, 0));
 
         libWpf.Polygon(0, 7, 15, 6, Brushes.LightBlue, Brushes.Black, 2, new[] { new double[] { 130, 20 }, new double[] { 200, 20 }, new double[] { 200, 150 }, new double[] { 20, 150 }, new double[] { 20, 90 }, new double[] { 130, 90 } });
 
-        libWpf.RipKreisFillStrokeMargin(3, 5, 12, 5, Brushes.Blue, Brushes.Black, 2, new Thickness(10, 10, 10, 10));
+        libWpf.EllipseFillMarginStroke(3, 5, 12, 5, Brushes.Blue, new Thickness(10, 10, 10, 10), Brushes.Black, 2);
         libWpf.Polygon(3, 5, 13, 5, Brushes.Blue, Brushes.Black, 2, new[] { new double[] { 70, 2 }, new double[] { 90, 30 }, new double[] { 50, 30 } });
 
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 9, 2, 5, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageSetVisibility("InitiatorenSchliesser.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
-        libWpf.ImageSetVisibility("InitiatorenBetaetigt.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
+        libWpf.ImageMarginSetVisibility("InitiatorenSchliesser.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
+        libWpf.ImageMarginSetVisibility("InitiatorenBetaetigt.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
 
 
         libWpf.RectangleStrokeSetFill(10, 4, 15, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ1));

@@ -14,19 +14,18 @@ public partial class TabZeichnen
         libWpf.GridZeichnen(50, 30, 40, 30, true);
 
 
-
         libWpf.EllipseFillMarginStroke(7, 8, 2, 8, Brushes.SlateGray, new Thickness(2, 2, 2, 2), Brushes.SlateGray, 0);
-        libWpf.RipRechteckFillMarginSetWinkel(10, 2, 3, 2, Brushes.Yellow, new Thickness(25, 0, 25, 20), WpfObjects.WinkelGetriebemotor);
+        libWpf.RectangleFillMarginSetWinkel(10, 2, 3, 2, Brushes.Yellow, new Thickness(25, 0, 25, 20), nameof(vmGetriebemotor.Winkel), nameof(vmGetriebemotor.PointTransformOrigin));
 
 
         var kontakteRand = new Thickness(2, 5, 2, 5);
 
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 10, 2, 0, 2, kontakteRand, nameof(vmGetriebemotor.VisibilityAusB1));
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 10, 2, 0, 2, kontakteRand, nameof(vmGetriebemotor.VisibilityEinB1));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 10, 2, 0, 2, kontakteRand, nameof(vmGetriebemotor.VisibilityAusB1));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 10, 2, 0, 2, kontakteRand, nameof(vmGetriebemotor.VisibilityEinB1));
         libWpf.Text("-B1", 9, 2, 0, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ImageSetVisibility("TasterSchliesser.jpg", 15, 2, 2, 2, kontakteRand, nameof(vmGetriebemotor.VisibilityAusB2));
-        libWpf.ImageSetVisibility("TasterBetaetigt.jpg", 15, 2, 2, 2, kontakteRand, nameof(vmGetriebemotor.VisibilityEinB2));
+        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 15, 2, 2, 2, kontakteRand, nameof(vmGetriebemotor.VisibilityAusB2));
+        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 15, 2, 2, 2, kontakteRand, nameof(vmGetriebemotor.VisibilityEinB2));
         libWpf.Text("-B2", 14, 2, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
@@ -76,7 +75,7 @@ public partial class TabZeichnen
         libWpf.EllipseMarginStrokeSetFilling(17, 3, 20, 3, kreisRand, kreisRandFarbe, 2, nameof(vmGetriebemotor.BrushP3));
 
 
-        libWpf.ButtonMarginSetVisibilityZweiBilder(20, 4, 4, 4, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmGetriebemotor.ButtonSchalterCommand, "S91", nameof(vmGetriebemotor.ClickModeS9),nameof(vmGetriebemotor.VisibilityEinS91), nameof(vmGetriebemotor.VisibilityAusS91));
+        libWpf.ButtonMarginSetVisibilityZweiBilder(20, 4, 4, 4, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmGetriebemotor.ButtonSchalterCommand, "S91", nameof(vmGetriebemotor.ClickModeS9), nameof(vmGetriebemotor.VisibilityEinS91), nameof(vmGetriebemotor.VisibilityAusS91));
         libWpf.Text("-S9.1", 18, 2, 4, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("-S9.2", 18, 2, 5, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 

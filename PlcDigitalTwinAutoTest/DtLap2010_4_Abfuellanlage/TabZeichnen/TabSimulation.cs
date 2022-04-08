@@ -23,7 +23,7 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RipRechteckFill(20, 10, 2, 10, Brushes.LightGray);
+        libWpf.RectangleFill(20, 10, 2, 10, Brushes.LightGray);
 
         libWpf.Text("S1", 20, 2, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 25, 2, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -47,8 +47,8 @@ public partial class TabZeichnen
         var ventilRand = new Thickness(0, 0, 0, 0);
         libWpf.Text("K1", 4, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ImageSetVisibility("VentilElektrischEin.jpg", 4, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityEinK1));
-        libWpf.ImageSetVisibility("VentilElektrischAus.jpg", 4, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityAusK1));
+        libWpf.ImageMarginSetVisibility("VentilElektrischEin.jpg", 4, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityEinK1));
+        libWpf.ImageMarginSetVisibility("VentilElektrischAus.jpg", 4, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityAusK1));
 
 
         libWpf.RectangleFill(10, 6, 2, 6, Brushes.Coral);
@@ -58,8 +58,8 @@ public partial class TabZeichnen
 
         libWpf.Text("K2", 8, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ImageSetVisibility("VentilElektrischEin.jpg", 10, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityEinK2));
-        libWpf.ImageSetVisibility("VentilElektrischAus.jpg", 10, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityAusK2));
+        libWpf.ImageMarginSetVisibility("VentilElektrischEin.jpg", 10, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityEinK2));
+        libWpf.ImageMarginSetVisibility("VentilElektrischAus.jpg", 10, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityAusK2));
 
 
         // libWpf.PlcError();

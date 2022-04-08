@@ -107,6 +107,39 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
 
+    public void RectangleFillMarginStroke(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, Thickness margin, SolidColorBrush stroke, double strokeThicknes)
+    {
+        var rectangle = new Rectangle
+        {
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
+
+    public void RectangleFillRundungStroke(int xPos, int xSpan, int yPos, int ySpan, double radiusX, double radiusY, SolidColorBrush fill, Rect rect, SolidColorBrush stroke, double strokeThicknes)
+    {
+        var rectangleGeometry = new RectangleGeometry
+        {
+            Rect = rect,
+            RadiusX = radiusX,
+            RadiusY = radiusY
+        };
+
+        var path = new Path
+        {
+            Fill = fill,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes,
+            Data = rectangleGeometry
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, path);
+    }
+
 
 
 
