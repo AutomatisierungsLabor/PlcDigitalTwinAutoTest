@@ -33,7 +33,7 @@ public static class Extensions
 
     public static void BindingpSetTransformOrigin(this Shape element, object wpfId) => element.SetBinding(UIElement.RenderTransformOriginProperty, $"{wpfId}");
 
-
+    public static void BindingTextBlockSetText(this TextBlock element, object wpfId) => element.SetBinding(TextBlock.TextProperty, $"{wpfId}");
 
 
 

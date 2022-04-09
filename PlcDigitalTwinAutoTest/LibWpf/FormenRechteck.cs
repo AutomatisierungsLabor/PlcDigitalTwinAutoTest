@@ -82,6 +82,17 @@ public partial class LibWpf
         rectangle.BindingSetFilling(bindingFilling);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
+    public void RectangleMarginStrokeSetFill(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, SolidColorBrush stroke, double strokeThicknes, object bindingFilling)
+    {
+        var rectangle = new Rectangle
+        {
+            Margin = margin,
+            Stroke = stroke,
+            StrokeThickness = strokeThicknes
+        };
+        rectangle.BindingSetFilling(bindingFilling);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
+    }
     public void RectangleFillMarginSetWinkel(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, Thickness margin, string bindingWinkel, string bindingTransformOrigin)
     {
         var rectangle = new Rectangle

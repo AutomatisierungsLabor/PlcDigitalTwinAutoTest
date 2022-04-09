@@ -1,5 +1,4 @@
-﻿using LibDisplayPlc.ViewModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -20,7 +19,7 @@ public class PlcZeichnen
 
         libWpf.GridZeichnen(25, 30, 28, 30, false);
 
-        libWpf.RipRechteckFill(1, 22, 8, 12, Brushes.LightGray);
+        libWpf.RectangleFill(1, 22, 8, 12, Brushes.LightGray);
 
         ///////////////////////////////////////////////////////////////////
         //  obere Hälfte zeichnen
@@ -33,9 +32,9 @@ public class PlcZeichnen
 
         for (var i = 0; i < 8; i++)
         {
-            libWpf.RipTextVerticalSetTextSetVisibility(3 + i, 1, 1, 6, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, new Thickness(0, 0, 0, 0), 180, Brushes.Black, i + (int)WpfObjects.DiBeschreibung00);
-            libWpf.RipTextSetContendSetVisibility(2 + i, 3, 6, 2, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, Brushes.Black, i + (int)WpfObjects.Di00);
-            libWpf.RipRechteckSetFill(3 + i, 1, 8, 1, Brushes.Black, new Thickness(1, 1, 1, 1), i + (int)WpfObjects.Di00);
+            libWpf.TextVerticalWidthSetTextSetVisibility(3 + i, 1, 1, 6, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein,  180, Brushes.Black, $"StringKommentarDi0{i}", $"VisibilityDi0{i}");
+            libWpf.TextSetContendSetVisibility(2 + i, 3, 6, 2, HorizontalAlignment.Center, VerticalAlignment.Bottom, schriftKlein, Brushes.Black, $"StringBezeichnungDi0{i}", $"VisibilityDi0{i}");
+            libWpf.RectangleMarginStrokeSetFill(3 + i, 1, 8, 1, new Thickness(1, 1, 1, 1),Brushes.Black, 2, $"BrushDi0{i}");
             libWpf.Text($".{i}", 3 + i, 2, 9, 2, HorizontalAlignment.Left, VerticalAlignment.Top, schriftKlein, Brushes.White);
         }
         // Rechte 8 Eingänge

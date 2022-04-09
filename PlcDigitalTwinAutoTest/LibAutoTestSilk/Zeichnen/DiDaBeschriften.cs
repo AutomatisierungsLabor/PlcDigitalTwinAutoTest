@@ -11,9 +11,9 @@ public class DiDaBeschriften
     {
         var libWpf = new LibWpf.LibWpf(grid);
 
-        libWpf.RipRechteckFill(2, 1, 1, 1, Brushes.Chartreuse);
-        libWpf.RipRechteckFill(3, 1, 1, 1, Brushes.Silver);
-        libWpf.RipRechteckFill(4, 1, 1, 1, Brushes.OrangeRed);
+        libWpf.RectangleFill(2, 1, 1, 1, Brushes.Chartreuse);
+        libWpf.RectangleFill(3, 1, 1, 1, Brushes.Silver);
+        libWpf.RectangleFill(4, 1, 1, 1, Brushes.OrangeRed);
 
         for (var i = 0; i < 16; i++)
         {
