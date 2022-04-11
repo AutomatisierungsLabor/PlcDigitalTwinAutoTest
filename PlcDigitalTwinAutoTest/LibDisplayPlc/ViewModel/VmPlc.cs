@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using LibConfigPlc;
 using LibDatenstruktur;
-using System.Collections.ObjectModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
@@ -16,10 +15,7 @@ public partial class VmPlc : ObservableObject
     private readonly ConfigPlc _configPlc;
     private readonly Datenstruktur _datenstruktur;
     private readonly CancellationTokenSource _cancellationTokenSource;
-
-    private ObservableCollection<DaEinstellungen> _daZeilenAlt = new();
-    private ObservableCollection<DiEinstellungen> _diZeilenAlt = new();
-
+    
     public VmPlc(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
@@ -36,8 +32,8 @@ public partial class VmPlc : ObservableObject
     {
         while (!_cancellationTokenSource.IsCancellationRequested)
         {
-            DaZeilenBeschriften(_configPlc.Da.Zeilen, DaCollection);
-            DiZeilenBeschriften(_configPlc.Di.Zeilen, DiCollection);
+            DaZeilenBeschriften(DaCollection);
+            DiZeilenBeschriften(DiCollection);
 
             for (var i = 0; i < 8; i++)
             {
@@ -53,7 +49,7 @@ public partial class VmPlc : ObservableObject
             Thread.Sleep(10);
         }
     }
-    private void DaZeilenBeschriften(ObservableCollection<DaEinstellungen> daZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunkte)
+    private void DaZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDatenpunkte)
     {
         if (vmDatenpunkte == null) return;
 
@@ -71,7 +67,7 @@ public partial class VmPlc : ObservableObject
             vmDatenpunkte[index].DpVisibility = Visibility.Visible;
         }
     }
-    private void DiZeilenBeschriften(ObservableCollection<DiEinstellungen> diZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunkte)
+    private void DiZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDatenpunkte)
     {
         if (vmDatenpunkte == null) return;
 
