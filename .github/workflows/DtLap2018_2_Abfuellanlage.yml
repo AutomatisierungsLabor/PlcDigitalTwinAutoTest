@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 env:
-      PROJECT_PATH: PlcDigitalTwinAutoTest/Lap2018_2_Abfuellanlage/Lap2018_2_Abfuellanlage.csproj
+      PROJECT_PATH: PlcDigitalTwinAutoTest/DtLap2018_2_Abfuellanlage/DtLap2018_2_Abfuellanlage.csproj
       
 jobs:
   deploy:

@@ -2,7 +2,7 @@ name: Library LibHydraulik.Test
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 env:
    TEST_PATH: PlcDigitalTwinAutoTest/LibHydraulik.Test/LibHydraulik.Test.csproj

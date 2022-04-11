@@ -2,7 +2,7 @@ name: Library LibPlcTools.Test
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 env:
    TEST_PATH: PlcDigitalTwinAutoTest/LibPlcTools.Test/LibPlcTools.Test.csproj

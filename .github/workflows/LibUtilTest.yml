@@ -2,7 +2,7 @@ name: Library LibUtil.Test
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 env:
    TEST_PATH: PlcDigitalTwinAutoTest/LibUtil.Test/LibUtil.Test.csproj
