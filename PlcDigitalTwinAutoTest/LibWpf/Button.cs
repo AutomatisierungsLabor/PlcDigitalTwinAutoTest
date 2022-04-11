@@ -200,30 +200,4 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-
-
-
-
-    public void RipButtonContentRounded(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Thickness margin, Brush background, ICommand cmd, object cmdParameter)
-    {
-        var button = new Button
-        {
-            FontSize = fontSize,
-            Margin = margin,
-            Background = background,
-            Command = cmd,
-            CommandParameter = cmdParameter
-        };
-
-        button.Loaded += (_, _) =>
-        {
-            if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
-        };
-
-        button.RipSetBtnContentBinding(cmdParameter);
-        button.RipSetBtnClickModeBinding(cmdParameter);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
-    }
-
 }

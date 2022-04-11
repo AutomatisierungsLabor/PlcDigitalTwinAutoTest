@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
@@ -17,7 +18,7 @@ public partial class VmAutoTesterSilk
         {
             var pfad = Path.Combine(ordnerAktuellesProjekt.ToString(), "test.ssc");
             Log.Debug("TestSource: " + pfad);
-            Text[(int)WpfIndex.SoureCode] = File.ReadAllText(pfad);
+            StringSourceCode = File.ReadAllText(pfad);
         }
         catch (Exception e)
         {
@@ -25,39 +26,39 @@ public partial class VmAutoTesterSilk
             throw;
         }
 
-        TabBeschriftungDa(configPlc.Da.Zeilen);
-        TabBeschrifungDi(configPlc.Di.Zeilen);
+        TabBeschriftungDa(configPlc.Da.Zeilen, DaCollection);
+        TabBeschrifungDi(configPlc.Di.Zeilen, DiCollection);
+
+        AlleDpAktualisieren();
     }
-    private void TabBeschriftungDa(ObservableCollection<DaEinstellungen> daZeilen)
+    private void TabBeschriftungDa(ObservableCollection<DaEinstellungen> daZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes)
     {
         if (_daZeilenAlt == daZeilen) return;
         _daZeilenAlt = daZeilen;
 
-        for (var i = (int)WpfIndex.Da01; i <= (int)WpfIndex.Da17; i++) SichtbarEin[i] = Visibility.Hidden;
+        for (var i = 0; i < 20; i++) vmDatenpunktes[i].DpVisibility = Visibility.Hidden;
 
         foreach (var zeile in daZeilen)
         {
-            var bitPos = (int)WpfIndex.Da01 + 8 * zeile.StartByte + zeile.StartBit;
-            if (bitPos > (int)WpfIndex.Da17) throw new ArgumentOutOfRangeException(bitPos.ToString());
+            var bitPos = 10 * zeile.StartByte + zeile.StartBit;
 
-            SichtbarEin[bitPos] = Visibility.Visible;
-            Text[bitPos] = zeile.Bezeichnung;
+            vmDatenpunktes[bitPos].DpVisibility = Visibility.Visible;
+            vmDatenpunktes[bitPos].DpBezeichnung = zeile.Bezeichnung;
         }
     }
-    private void TabBeschrifungDi(ObservableCollection<DiEinstellungen> diZeilen)
+    private void TabBeschrifungDi(ObservableCollection<DiEinstellungen> diZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes)
     {
         if (_diZeilenAlt == diZeilen) return;
         _diZeilenAlt = diZeilen;
 
-        for (var i = (int)WpfIndex.Di01; i <= (int)WpfIndex.Di17; i++) SichtbarEin[i] = Visibility.Hidden;
+        for (var i = 0; i < 20; i++) vmDatenpunktes[i].DpVisibility = Visibility.Hidden;
 
         foreach (var zeile in diZeilen)
         {
-            var bitPos = (int)WpfIndex.Di01 + 8 * zeile.StartByte + zeile.StartBit;
-            if (bitPos > (int)WpfIndex.Di17) throw new ArgumentOutOfRangeException(bitPos.ToString());
+            var bitPos = 10 * zeile.StartByte + zeile.StartBit;
 
-            SichtbarEin[bitPos] = Visibility.Visible;
-            Text[bitPos] = zeile.Bezeichnung;
+            vmDatenpunktes[bitPos].DpVisibility = Visibility.Visible;
+            vmDatenpunktes[bitPos].DpBezeichnung = zeile.Bezeichnung;
         }
     }
 }

@@ -142,34 +142,4 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, path);
     }
-
-
-
-
-
-
-
-    public void RipRechteckFill(int xPos, int xSpan, int yPos, int ySpan, Brush fill)
-    {
-        var rectangle = new Rectangle
-        {
-            Fill = fill
-        };
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
-    }
-    public void RipRechteckSetFill(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush stroke, Thickness margin, object wpfId)
-    {
-        var rectangle = new Rectangle
-        {
-            Stroke = stroke,
-            Margin = margin,
-            Fill = new SolidColorBrush(Colors.Red)
-        };
-
-        rectangle.RipSetFillingBinding(wpfId);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
-    }
-
 }

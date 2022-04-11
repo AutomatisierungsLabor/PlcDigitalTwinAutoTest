@@ -84,24 +84,7 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, text);
     }
 
-
-
-    public void RipTextSetContendSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, object wpfId)
-    {
-        var label = new Label
-        {
-            FontSize = fontSize,
-            Foreground = farbe,
-            HorizontalAlignment = horizontal,
-            VerticalAlignment = vertical
-        };
-
-       // label.BindingSetContent(bindingText);
-      //  label.BindingSetVisibility(bindingVisibility);
-
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
-    }
-    public void RipTextVerticalSetTextSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Thickness rand, int width, Brush farbe, object wpfId)
+    public void TextVerticalMarginWidthSetTextSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize,Thickness margin,  int width, Brush farbe, string bindingText, string bindingVisability)
     {
         var text = new TextBlock
         {
@@ -109,17 +92,16 @@ public partial class LibWpf
             FontWeight = FontWeights.Bold,
             Foreground = farbe,
             Width = width,
-            Margin = rand,
+            Margin = margin,
             HorizontalAlignment = horizontal,
             VerticalAlignment = vertical,
             RenderTransformOrigin = new Point(0.5, 0.5),
             LayoutTransform = new RotateTransform { Angle = 270 }
         };
 
-        text.RipSetTextBlockBinding(wpfId);
-        text.RipButtonSetVisibilityEinBinding(wpfId);
+        text.BindingTextBlockSetText(bindingText);
+        text.BindingSetVisibility(bindingVisability);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, text);
     }
-
 }

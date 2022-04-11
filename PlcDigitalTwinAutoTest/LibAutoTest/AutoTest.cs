@@ -17,8 +17,7 @@ namespace LibAutoTest;
 public class AutoTest
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-
+    
 
     public ObservableCollection<DirectoryInfo> AlleTestOrdner { get; set; } = new();
     public DirectoryInfo AktuellesProjekt { get; set; }
@@ -32,7 +31,7 @@ public class AutoTest
     public AutoTest(Datenstruktur datenstruktur, PlcDaemon plcDaemon, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests, CancellationTokenSource cancellationTokenSource)
     {
         AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat, ResetSelectedProject, cancellationTokenSource);
-        VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk, datenstruktur, plcDaemon, cancellationTokenSource);
+        VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk);
         tabItem.DataContext = VmAutoTest;
 
         try
