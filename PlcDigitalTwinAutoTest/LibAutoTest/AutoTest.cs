@@ -1,7 +1,6 @@
 using LibAutoTestSilk;
 using LibConfigPlc;
 using LibDatenstruktur;
-using LibPlcKommunikation;
 using LibPlcTestautomat;
 using System;
 using System.Collections.ObjectModel;
@@ -28,7 +27,7 @@ public class AutoTest
 
     private Action<string> _cbPlcConfig;
 
-    public AutoTest(Datenstruktur datenstruktur, PlcDaemon plcDaemon, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests, CancellationTokenSource cancellationTokenSource)
+    public AutoTest(Datenstruktur datenstruktur, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests, CancellationTokenSource cancellationTokenSource)
     {
         AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat, ResetSelectedProject, cancellationTokenSource);
         VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk);
@@ -54,14 +53,14 @@ public class AutoTest
         var libWpfAutoTest = new LibWpf.LibWpf(tabItem);
 
         libWpfAutoTest.SetBackground(Brushes.Yellow);
-        libWpfAutoTest.GridZeichnen(56, 30, 30, 30, false);
+        libWpfAutoTest.GridZeichnen(56, 30, 30, 30, true);
 
-        libWpfAutoTest.ButtonBackgroundMarginRoundedSetEnableSetContend(1, 3, 1, 2, 20, 15, Brushes.LawnGreen, new Thickness(2, 5, 2, 5), VmAutoTest.ButtonTasterCommand, "TasterStart", nameof(VmAutoTest.ClickModeStart), nameof(VmAutoTest.EnableTasterStart), nameof(VmAutoTest.StringTasterStart));
+        libWpfAutoTest.ButtonBackgroundMarginRoundedSetEnableSetContend(1, 4, 1, 2, 20, 15, Brushes.LawnGreen, new Thickness(2, 5, 2, 5), VmAutoTest.ButtonTasterCommand, "TasterStart", nameof(VmAutoTest.ClickModeStart), nameof(VmAutoTest.EnableTasterStart), nameof(VmAutoTest.StringTasterStart));
 
         libWpfAutoTest.Text("Einzelschritt", 5, 5, 1, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        //  libWpfAutoTest.CheckBox(9, 1, 1, 2, new Thickness(2, 2, 2, 2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.CheckBoxEinzelSchritt);
+        libWpfAutoTest.CheckBox(9, 1, 1, 2, new Thickness(2, 2, 2, 2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.ButtonTasterCommand,"CheckboxEinzelschritt");
 
-        libWpfAutoTest.ButtonBackgroundContentMarginRoundedSetVisability("Einzelschritt", 11, 3, 1, 2, 20, 15, Brushes.LawnGreen, new Thickness(2, 2, 2, 2), VmAutoTest.ButtonTasterCommand, "TasterEinzelSchritt", nameof(VmAutoTest.ClickModeEinzelSchritt), nameof(VmAutoTest.VisibilityTasterEinzelschritt));
+        libWpfAutoTest.ButtonBackgroundContentMarginRoundedSetVisability("Einzelschritt", 11, 5, 1, 2, 20, 15, Brushes.LawnGreen, new Thickness(2, 2, 2, 2), VmAutoTest.ButtonTasterCommand, "TasterEinzelSchritt", nameof(VmAutoTest.ClickModeEinzelSchritt), nameof(VmAutoTest.VisibilityTasterEinzelschritt));
 
 
         StackPanel = libWpfAutoTest.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);

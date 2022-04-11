@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
-using BasePlcDtAt.BaseViewModel;
 using DtNadeltelegraph.ViewModel;
 
 namespace DtNadeltelegraph.TabZeichnen;
@@ -79,26 +79,26 @@ public partial class TabZeichnen
         libWpf.LinieSetVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.LinksUnten), LinieY(LaengeLinie2, RichtungLinie.LinksUnten), 5, Brushes.OrangeRed, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten3));
         libWpf.LinieSetVisibility(1, 30, 1, 30, 23 * AbstandRaster, HoeheRaute / 2, 23 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.LinksUnten), LinieY(LaengeLinie1, RichtungLinie.LinksUnten), 5, Brushes.Orange, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten4));
 
-        BuchstabeZeichnen(13, 3.5, libWpf, vmNadeltelegraph, "A", nameof(vmNadeltelegraph.ClickModeBuchstabeA));
-        BuchstabeZeichnen(10.4, 6.5, libWpf, vmNadeltelegraph, "B", nameof(vmNadeltelegraph.ClickModeBuchstabeB));
-        BuchstabeZeichnen(15.4, 6.5, libWpf, vmNadeltelegraph, "D", nameof(vmNadeltelegraph.ClickModeBuchstabeD));
-        BuchstabeZeichnen(8, 9.3, libWpf, vmNadeltelegraph, "E", nameof(vmNadeltelegraph.ClickModeBuchstabeE));
-        BuchstabeZeichnen(13, 9.3, libWpf, vmNadeltelegraph, "F", nameof(vmNadeltelegraph.ClickModeBuchstabeF));
-        BuchstabeZeichnen(17.9, 9.3, libWpf, vmNadeltelegraph, "G", nameof(vmNadeltelegraph.ClickModeBuchstabeG));
-        BuchstabeZeichnen(5.5, 12.1, libWpf, vmNadeltelegraph, "H", nameof(vmNadeltelegraph.ClickModeBuchstabeH));
-        BuchstabeZeichnen(10.4, 12.1, libWpf, vmNadeltelegraph, "I", nameof(vmNadeltelegraph.ClickModeBuchstabeI));
-        BuchstabeZeichnen(15.4, 12.1, libWpf, vmNadeltelegraph, "K", nameof(vmNadeltelegraph.ClickModeBuchstabeK));
-        BuchstabeZeichnen(20.5, 12.1, libWpf, vmNadeltelegraph, "L", nameof(vmNadeltelegraph.ClickModeBuchstabeL));
-        BuchstabeZeichnen(5.5, 18, libWpf, vmNadeltelegraph, "M", nameof(vmNadeltelegraph.ClickModeBuchstabeM));
-        BuchstabeZeichnen(10.4, 18, libWpf, vmNadeltelegraph, "N", nameof(vmNadeltelegraph.ClickModeBuchstabeN));
-        BuchstabeZeichnen(15.4, 18, libWpf, vmNadeltelegraph, "O", nameof(vmNadeltelegraph.ClickModeBuchstabeO));
-        BuchstabeZeichnen(20.5, 18, libWpf, vmNadeltelegraph, "P", nameof(vmNadeltelegraph.ClickModeBuchstabeP));
-        BuchstabeZeichnen(8, 21, libWpf, vmNadeltelegraph, "R", nameof(vmNadeltelegraph.ClickModeBuchstabeR));
-        BuchstabeZeichnen(13, 21, libWpf, vmNadeltelegraph, "S", nameof(vmNadeltelegraph.ClickModeBuchstabeS));
-        BuchstabeZeichnen(17.9, 21, libWpf, vmNadeltelegraph, "T", nameof(vmNadeltelegraph.ClickModeBuchstabeT));
-        BuchstabeZeichnen(10.4, 23.9, libWpf, vmNadeltelegraph, "V", nameof(vmNadeltelegraph.ClickModeBuchstabeV));
-        BuchstabeZeichnen(15.4, 23.9, libWpf, vmNadeltelegraph, "W", nameof(vmNadeltelegraph.ClickModeBuchstabeW));
-        BuchstabeZeichnen(13, 26.5, libWpf, vmNadeltelegraph, "Y", nameof(vmNadeltelegraph.ClickModeBuchstabeY));
+        BuchstabeZeichnen(13, 3.5, libWpf, vmNadeltelegraph.ButtonTasterCommand, "A");
+        BuchstabeZeichnen(10.4, 6.5, libWpf, vmNadeltelegraph.ButtonTasterCommand, "B");
+        BuchstabeZeichnen(15.4, 6.5, libWpf, vmNadeltelegraph.ButtonTasterCommand, "D");
+        BuchstabeZeichnen(8, 9.3, libWpf, vmNadeltelegraph.ButtonTasterCommand, "E");
+        BuchstabeZeichnen(13, 9.3, libWpf, vmNadeltelegraph.ButtonTasterCommand, "F");
+        BuchstabeZeichnen(17.9, 9.3, libWpf, vmNadeltelegraph.ButtonTasterCommand, "G");
+        BuchstabeZeichnen(5.5, 12.1, libWpf, vmNadeltelegraph.ButtonTasterCommand, "H");
+        BuchstabeZeichnen(10.4, 12.1, libWpf, vmNadeltelegraph.ButtonTasterCommand, "I");
+        BuchstabeZeichnen(15.4, 12.1, libWpf, vmNadeltelegraph.ButtonTasterCommand, "K");
+        BuchstabeZeichnen(20.5, 12.1, libWpf, vmNadeltelegraph.ButtonTasterCommand, "L");
+        BuchstabeZeichnen(5.5, 18, libWpf, vmNadeltelegraph.ButtonTasterCommand, "M");
+        BuchstabeZeichnen(10.4, 18, libWpf, vmNadeltelegraph.ButtonTasterCommand, "N");
+        BuchstabeZeichnen(15.4, 18, libWpf, vmNadeltelegraph.ButtonTasterCommand, "O");
+        BuchstabeZeichnen(20.5, 18, libWpf, vmNadeltelegraph.ButtonTasterCommand, "P");
+        BuchstabeZeichnen(8, 21, libWpf, vmNadeltelegraph.ButtonTasterCommand, "R");
+        BuchstabeZeichnen(13, 21, libWpf, vmNadeltelegraph.ButtonTasterCommand, "S");
+        BuchstabeZeichnen(17.9, 21, libWpf, vmNadeltelegraph.ButtonTasterCommand, "T");
+        BuchstabeZeichnen(10.4, 23.9, libWpf, vmNadeltelegraph.ButtonTasterCommand, "V");
+        BuchstabeZeichnen(15.4, 23.9, libWpf, vmNadeltelegraph.ButtonTasterCommand, "W");
+        BuchstabeZeichnen(13, 26.5, libWpf, vmNadeltelegraph.ButtonTasterCommand, "Y");
 
         libWpf.TextSetContent(20, 15, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.BlueViolet, nameof(vmNadeltelegraph.AsciiCode));
 
@@ -132,7 +132,7 @@ public partial class TabZeichnen
             _ => throw new ArgumentOutOfRangeException(nameof(richtung), richtung, null)
         };
     }
-    private static void BuchstabeZeichnen(double x, double y, LibWpf.LibWpf libWpf, VmBase vmNadeltelegraph, string stringBuchstabe, string bindingClickmode)
+    private static void BuchstabeZeichnen(double x, double y, LibWpf.LibWpf libWpf, ICommand vmCommand, string stringBuchstabe)
     {
         const double gesamteBreite = 30 * AbstandRaster;
         const double gesamteHoehe = 30 * AbstandRaster;
@@ -148,6 +148,6 @@ public partial class TabZeichnen
             gesamteHoehe - obererRand - height
         );
 
-        // TODO    libWpf.ButtonBackgroundContentMarginRounded(stringBuchstabe, 0, 30, 0, 30, 20, 10, Brushes.LightGray, thickness, vmNadeltelegraph.BtnSchalter, stringBuchstabe, bindingClickmode);
+        libWpf.ButtonBackgroundContentMarginRounded(stringBuchstabe, 0, 30, 0, 30, 20, 10, Brushes.LightGray, thickness, vmCommand, stringBuchstabe, $"ClickModeBuchstabe{stringBuchstabe}");
     }
 }

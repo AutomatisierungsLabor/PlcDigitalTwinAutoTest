@@ -25,15 +25,15 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-    public void RectangleSetFill(int xPos, int xSpan, int yPos, int ySpan, object bindingFilling)
+    public void RectangleSetFill(int xPos, int xSpan, int yPos, int ySpan, string bindingFilling)
     {
         var rectangle = new Rectangle();
         rectangle.BindingSetFilling(bindingFilling);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-    public void RectangleStrokeSetFill(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush stroke, double strokeThicknes, object bindingFilling)
+    public void RectangleStrokeSetFill(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush stroke, double strokeThicknes, string bindingFilling)
     {
-        var rectangle = new Rectangle()
+        var rectangle = new Rectangle
         {
             Stroke = stroke,
             StrokeThickness = strokeThicknes
@@ -41,7 +41,7 @@ public partial class LibWpf
         rectangle.BindingSetFilling(bindingFilling);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-    public void RectangleFillSetVisibility(int xPos, int xSpan, int yPos, int ySpan, Brush fill, object bindingVisibility)
+    public void RectangleFillSetVisibility(int xPos, int xSpan, int yPos, int ySpan, Brush fill, string bindingVisibility)
     {
         var rectangle = new Rectangle
         {
@@ -51,7 +51,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-    public void RectangleFillSetMargin(int xPos, int xSpan, int yPos, int ySpan, Brush fill, object bindingMargin)
+    public void RectangleFillSetMargin(int xPos, int xSpan, int yPos, int ySpan, Brush fill, string bindingMargin)
     {
         var rectangle = new Rectangle
         {
@@ -61,7 +61,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-    public void RectangleFillStrokeSetMargin(int xPos, int xSpan, int yPos, int ySpan, Brush fill, SolidColorBrush stroke, double strokeThicknes, object bindingMargin)
+    public void RectangleFillStrokeSetMargin(int xPos, int xSpan, int yPos, int ySpan, Brush fill, SolidColorBrush stroke, double strokeThicknes, string bindingMargin)
     {
         var rectangle = new Rectangle
         {
@@ -73,7 +73,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-    public void RectangleMarginSetFill(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingFilling)
+    public void RectangleMarginSetFill(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string bindingFilling)
     {
         var rectangle = new Rectangle
         {
@@ -82,7 +82,7 @@ public partial class LibWpf
         rectangle.BindingSetFilling(bindingFilling);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, rectangle);
     }
-    public void RectangleMarginStrokeSetFill(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, SolidColorBrush stroke, double strokeThicknes, object bindingFilling)
+    public void RectangleMarginStrokeSetFill(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, SolidColorBrush stroke, double strokeThicknes, string bindingFilling)
     {
         var rectangle = new Rectangle
         {

@@ -11,11 +11,11 @@ public partial class VmAutoTest
         switch (taster)
         {
             case "TasterStart": _autoTest.AutoTesterSilk.AutoTestStarten(); break;
-            case "CheckBoxEinzelSchritt":
-                // todo ToggleSichtbarkeit(WpfObjects.TasterEinzelSchritt);
-                _autoTesterSilk.Silk.SetBetriebsart(VisibilityTasterEinzelschritt == Visibility.Visible); break;
+            case "CheckboxEinzelschritt":
+                CheckboxTasterEinzelschritt = !CheckboxTasterEinzelschritt;
+                VisibilityTasterEinzelschritt = CheckboxTasterEinzelschritt ? Visibility.Visible : Visibility.Hidden;
+                _autoTesterSilk.Silk.SetBetriebsart(CheckboxTasterEinzelschritt); break;
             case "TasterEinzelSchritt": _autoTesterSilk.Silk.EinzelnerSchrittAusfuehren(); break;
-
         }
     }
 }

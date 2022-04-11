@@ -1,54 +1,44 @@
-﻿using System;
+﻿using System.Windows.Controls;
 using Microsoft.Toolkit.Mvvm.Input;
 
 namespace DtNadeltelegraph.ViewModel;
 
 public partial class VmNadeltelegraph
 {
+    public byte TasterAsciiCode;
+
     [ICommand]
     private void ButtonTaster(string taster)
     {
-        //  if (gedrueckt)
-        // {
-        _modelNadeltelegraph.Zeichen = taster switch
-        {
-            "A" => (byte)'A',
-            "B" => (byte)'B',
-            "D" => (byte)'D',
-            "E" => (byte)'E',
-            "F" => (byte)'F',
-            "G" => (byte)'G',
-            "H" => (byte)'H',
-            "I" => (byte)'I',
-            "K" => (byte)'K',
-            "L" => (byte)'L',
-            "M" => (byte)'M',
-            "N" => (byte)'N',
-            "O" => (byte)'O',
-            "P" => (byte)'P',
-            "R" => (byte)'R',
-            "S" => (byte)'S',
-            "T" => (byte)'T',
-            "V" => (byte)'V',
-            "W" => (byte)'W',
-            "Y" => (byte)'Y',
-            _ => throw new ArgumentOutOfRangeException(nameof(taster), taster, null)
-        };
-        //  }
-        //  else
-        //  {
-        //_modelNadeltelegraph.Zeichen = 0x20;
-        //  }
+        TasterAsciiCode = 0;
+
+        ClickModeBuchstabeA = TasterGedrueckt(taster, 'A', ClickModeBuchstabeA);
+        ClickModeBuchstabeB = TasterGedrueckt(taster, 'B', ClickModeBuchstabeB);
+        ClickModeBuchstabeD = TasterGedrueckt(taster, 'D', ClickModeBuchstabeD);
+        ClickModeBuchstabeE = TasterGedrueckt(taster, 'E', ClickModeBuchstabeE);
+        ClickModeBuchstabeF = TasterGedrueckt(taster, 'F', ClickModeBuchstabeF);
+        ClickModeBuchstabeG = TasterGedrueckt(taster, 'G', ClickModeBuchstabeG);
+        ClickModeBuchstabeH = TasterGedrueckt(taster, 'H', ClickModeBuchstabeH);
+        ClickModeBuchstabeI = TasterGedrueckt(taster, 'I', ClickModeBuchstabeI);
+        ClickModeBuchstabeK = TasterGedrueckt(taster, 'K', ClickModeBuchstabeK);
+        ClickModeBuchstabeL = TasterGedrueckt(taster, 'L', ClickModeBuchstabeL);
+        ClickModeBuchstabeM = TasterGedrueckt(taster, 'M', ClickModeBuchstabeM);
+        ClickModeBuchstabeN = TasterGedrueckt(taster, 'N', ClickModeBuchstabeN);
+        ClickModeBuchstabeO = TasterGedrueckt(taster, 'O', ClickModeBuchstabeO);
+        ClickModeBuchstabeP = TasterGedrueckt(taster, 'P', ClickModeBuchstabeP);
+        ClickModeBuchstabeR = TasterGedrueckt(taster, 'R', ClickModeBuchstabeR);
+        ClickModeBuchstabeS = TasterGedrueckt(taster, 'S', ClickModeBuchstabeS);
+        ClickModeBuchstabeT = TasterGedrueckt(taster, 'T', ClickModeBuchstabeT);
+        ClickModeBuchstabeV = TasterGedrueckt(taster, 'V', ClickModeBuchstabeV);
+        ClickModeBuchstabeW = TasterGedrueckt(taster, 'W', ClickModeBuchstabeW);
+        ClickModeBuchstabeY = TasterGedrueckt(taster, 'Y', ClickModeBuchstabeY);
+
+        _modelNadeltelegraph.Zeichen = TasterAsciiCode == 0 ? (byte)0x20 : TasterAsciiCode;
     }
-
-
-    [ICommand]
-    private void ButtonSchalter(string schalter)
+    private ClickMode TasterGedrueckt(string taster, char buchstabe, ClickMode clickMode)
     {
-        switch (schalter)
-        {
-            case "A": _modelNadeltelegraph.P0 = true; break;
-            case "B": _modelNadeltelegraph.P0 = false; break;
-        }
+        if (!taster.Contains(buchstabe.ToString())) return clickMode == ClickMode.Press ? ClickMode.Release : ClickMode.Press;
+        if (clickMode == ClickMode.Press && TasterAsciiCode == 0) TasterAsciiCode = (byte)buchstabe;
+        return clickMode == ClickMode.Press ? ClickMode.Release : ClickMode.Press;
     }
 }

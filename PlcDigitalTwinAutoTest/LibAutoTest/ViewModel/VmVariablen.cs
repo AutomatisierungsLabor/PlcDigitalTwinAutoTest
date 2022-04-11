@@ -7,6 +7,7 @@ namespace LibAutoTest.ViewModel;
 public partial class VmAutoTest
 {
     [ObservableProperty] private bool _enableTasterStart;
+    [ObservableProperty] private bool _checkboxTasterEinzelschritt;
 
     [ObservableProperty] private ClickMode _clickModeStart;
     [ObservableProperty] private ClickMode _clickModeEinzelSchritt;
