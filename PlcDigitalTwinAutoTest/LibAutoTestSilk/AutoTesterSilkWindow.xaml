@@ -43,7 +43,7 @@
                         <RowDefinition Height="10" />
                     </Grid.RowDefinitions>
                     <ScrollViewer Grid.Column="1" Grid.Row="1"                                  >
-                        <TextBlock Text="{Binding  Text[32]}"/>
+                        <TextBlock Text="{Binding  StringSourceCode}"/>
                     </ScrollViewer>
                 </Grid>
             </TabItem>

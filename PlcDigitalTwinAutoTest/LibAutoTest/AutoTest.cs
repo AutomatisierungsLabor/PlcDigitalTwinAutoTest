@@ -1,7 +1,6 @@
 using LibAutoTestSilk;
 using LibConfigPlc;
 using LibDatenstruktur;
-using LibPlcKommunikation;
 using LibPlcTestautomat;
 using System;
 using System.Collections.ObjectModel;
@@ -17,6 +16,7 @@ namespace LibAutoTest;
 public class AutoTest
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
+    
 
     public ObservableCollection<DirectoryInfo> AlleTestOrdner { get; set; } = new();
     public DirectoryInfo AktuellesProjekt { get; set; }
@@ -27,10 +27,10 @@ public class AutoTest
 
     private Action<string> _cbPlcConfig;
 
-    public AutoTest(Datenstruktur datenstruktur, PlcDaemon plcDaemon, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests, CancellationTokenSource cancellationTokenSource)
+    public AutoTest(Datenstruktur datenstruktur, ConfigPlc configPlc, ContentControl tabItem, TestAutomat testAutomat, string configtests, CancellationTokenSource cancellationTokenSource)
     {
-        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat, ResetSelectedProject , cancellationTokenSource);
-        VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk, datenstruktur, plcDaemon, cancellationTokenSource);
+        AutoTesterSilk = new AutoTesterSilk(datenstruktur, configPlc, testAutomat, ResetSelectedProject, cancellationTokenSource);
+        VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk);
         tabItem.DataContext = VmAutoTest;
 
         try
@@ -53,15 +53,14 @@ public class AutoTest
         var libWpfAutoTest = new LibWpf.LibWpf(tabItem);
 
         libWpfAutoTest.SetBackground(Brushes.Yellow);
-        libWpfAutoTest.GridZeichnen(56, 30, 30, 30, false);
+        libWpfAutoTest.GridZeichnen(56, 30, 30, 30, true);
 
-        var buttonRand = new Thickness(2, 5, 2, 5);
-        libWpfAutoTest.ButtonContentRounded(1, 3, 1, 2, 20, 15, buttonRand, Brushes.LawnGreen, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterStart);
+        libWpfAutoTest.ButtonBackgroundMarginRoundedSetEnableSetContend(1, 4, 1, 2, 20, 15, Brushes.LawnGreen, new Thickness(2, 5, 2, 5), VmAutoTest.ButtonTasterCommand, "TasterStart", nameof(VmAutoTest.ClickModeStart), nameof(VmAutoTest.EnableTasterStart), nameof(VmAutoTest.StringTasterStart));
 
         libWpfAutoTest.Text("Einzelschritt", 5, 5, 1, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpfAutoTest.CheckBox(9, 1, 1, 2, new Thickness(2, 2, 2, 2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.CheckBoxEinzelSchritt);
+        libWpfAutoTest.CheckBox(9, 1, 1, 2, new Thickness(2, 2, 2, 2), HorizontalAlignment.Left, VerticalAlignment.Center, VmAutoTest.ButtonTasterCommand,"CheckboxEinzelschritt");
 
-        libWpfAutoTest.ButtonContentRounded(11, 3, 1, 2, 20, 15, new Thickness(2, 2, 2, 2), Brushes.LawnGreen, VmAutoTest.BtnTaster, ViewModel.VmAutoTest.WpfObjects.TasterEinzelSchritt);
+        libWpfAutoTest.ButtonBackgroundContentMarginRoundedSetVisability("Einzelschritt", 11, 5, 1, 2, 20, 15, Brushes.LawnGreen, new Thickness(2, 2, 2, 2), VmAutoTest.ButtonTasterCommand, "TasterEinzelSchritt", nameof(VmAutoTest.ClickModeEinzelSchritt), nameof(VmAutoTest.VisibilityTasterEinzelschritt));
 
 
         StackPanel = libWpfAutoTest.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);
@@ -77,7 +76,7 @@ public class AutoTest
         AktuellesProjekt = rb.Tag as DirectoryInfo;
         if (AktuellesProjekt == null) return;
 
-        VmAutoTest.ButtonIsEnabled[(int)ViewModel.VmAutoTest.WpfObjects.TasterStart] = true;
+        VmAutoTest.EnableTasterStart = true;
 
         _cbPlcConfig(AktuellesProjekt.ToString());
 
@@ -105,7 +104,7 @@ public class AutoTest
     }
     public void ResetSelectedProject()
     {
-        VmAutoTest.ButtonIsEnabled[(int)ViewModel.VmAutoTest.WpfObjects.TasterStart] = false;
+        VmAutoTest.EnableTasterStart = false;
 
         foreach (var child in StackPanel.Children)
         {

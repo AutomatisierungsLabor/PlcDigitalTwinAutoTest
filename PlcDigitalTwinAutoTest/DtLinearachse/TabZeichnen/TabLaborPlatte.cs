@@ -13,7 +13,7 @@ public partial class TabZeichnen
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
 
         libWpf.GridZeichnen(50, 30, 30, 30, false);
-        libWpf.Bild("PlatteLinearachse.jpg", 1, 25, 1, 22, new Thickness(0, 0, 0, 0));
+        libWpf.Image("PlatteLinearachse.jpg", 1, 25, 1, 22, new Thickness(0, 0, 0, 0));
 
         libWpf.PlcError();
     }

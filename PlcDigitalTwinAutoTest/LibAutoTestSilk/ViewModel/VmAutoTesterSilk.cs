@@ -1,36 +1,23 @@
-﻿using Contracts;
+using Contracts;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Windows;
-using System.Windows.Media;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace LibAutoTestSilk.ViewModel;
 
-public partial class VmAutoTesterSilk
+public partial class VmAutoTesterSilk : ObservableObject
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-
+    
     private readonly CancellationToken _cancellationTokenSource;
-    public enum WpfIndex
-    {
-        Di01 = 0,
-        Di17 = 15,
-        Da01 = 16,
-        Da17 = 31,
-        SoureCode = 32
-    }
+
     public VmAutoTesterSilk(CancellationToken cancellationTokenSource)
     {
         _cancellationTokenSource = cancellationTokenSource;
         DataGridZeilen = new ObservableCollection<DataGridZeile>();
 
-        for (var i = 0; i < 100; i++)
-        {
-            SichtbarEin.Add(Visibility.Hidden);
-            Farbe.Add(Brushes.White);
-            Text.Add("");
-        }
+        AlleDpFuellen();
     }
     public void UpdateDataGrid(DataGridZeile zeile)
     {

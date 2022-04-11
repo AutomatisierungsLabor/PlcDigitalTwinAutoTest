@@ -17,7 +17,7 @@ public partial class DisplayPlc
         Width = 800;
         Height = 900;
 
-        var viewModel = new ViewModel.ViewModel(datenstruktur, configPlc, cancellationTokenSource);
+        var viewModel = new ViewModel.VmPlc(datenstruktur, configPlc, cancellationTokenSource);
 
         var plcZeichnen = new PlcZeichnen.PlcZeichnen(grid);
         plcZeichnen.Zeichnen();

@@ -7,14 +7,19 @@ namespace LibWpf;
 
 public static class Extensions
 {
-    public static void SetBtnContentBinding(this Button element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");
-    public static void SetBtnBackgroundBinding(this Button element, object wpfId) => element.SetBinding(Control.BackgroundProperty, $"Farbe[{(int)wpfId}]");
-    public static void SetContentBinding(this ContentControl element, object wpfId) => element.SetBinding(ContentControl.ContentProperty, $"Text[{(int)wpfId}]");
-    public static void SetBtnClickModeBinding(this Button element, object wpfId) => element.SetBinding(ButtonBase.ClickModeProperty, $"ClkMode[{(int)wpfId}]");
-    public static void SetVisibilityEinBinding(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"SichtbarEin[{(int)wpfId}]");
-    public static void SetVisibilityAusBinding(this FrameworkElement element, object wpfId) => element.SetBinding(UIElement.VisibilityProperty, $"SichtbarAus[{(int)wpfId}]");
-    public static void SetTextBlockBinding(this TextBlock element, object wpfId) => element.SetBinding(TextBlock.TextProperty, $"Text[{(int)wpfId}]");
-    public static void SetFillingBinding(this Shape element, object wpfId) => element.SetBinding(Shape.FillProperty, $"Farbe[{(int)wpfId}]");
-    public static void SetMarginBinding(this Shape element, object wpfId) => element.SetBinding(FrameworkElement.MarginProperty, $"Margin[{(int)wpfId}]");
-    public static void SetTransformOriginBinding(this Shape element, object wpfId) => element.SetBinding(UIElement.RenderTransformOriginProperty, $"TransformOrigin[{(int)wpfId}]");
+    public static void BindingButtonSetContent(this Button element, string stringBindingElement) => element.SetBinding(ContentControl.ContentProperty, $"{stringBindingElement}");
+    public static void BindingButtonSetClickMode(this Button element, string stringBindingElement) => element.SetBinding(ButtonBase.ClickModeProperty, $"{stringBindingElement}");
+    public static void BindingButtonSetVisibility(this FrameworkElement element, string stringBindingElement) => element.SetBinding(UIElement.VisibilityProperty, $"{stringBindingElement}");
+    public static void BindingButtonSetBackground(this FrameworkElement element, string stringBindingElement) => element.SetBinding(Control.BackgroundProperty, $"{stringBindingElement}");
+
+    public static void BindingImageSetVisibility(this FrameworkElement element, string stringBindingElement) => element.SetBinding(UIElement.VisibilityProperty, $"{stringBindingElement}");
+    public static void BindingImageSetMargin(this FrameworkElement element, string stringBindingElement) => element.SetBinding(FrameworkElement.MarginProperty, $"{stringBindingElement}");
+
+    public static void BindingTextBlockSetText(this TextBlock element, string stringBindingElement) => element.SetBinding(TextBlock.TextProperty, $"{stringBindingElement}");
+
+    public static void BindingSetContent(this ContentControl element, string stringBindingElement) => element.SetBinding(ContentControl.ContentProperty, $"{stringBindingElement}");
+    public static void BindingSetFilling(this Shape element, string stringBindingElement) => element.SetBinding(Shape.FillProperty, $"{stringBindingElement}");
+    public static void BindingSetMargin(this Shape element, string stringBindingElement) => element.SetBinding(FrameworkElement.MarginProperty, $"{stringBindingElement}");
+    public static void BindingSetVisibility(this FrameworkElement element, string stringBindingElement) => element.SetBinding(UIElement.VisibilityProperty, $"{stringBindingElement}");
+    public static void BindingpSetTransformOrigin(this Shape element, string stringBindingElement) => element.SetBinding(UIElement.RenderTransformOriginProperty, $"{stringBindingElement}");
 }

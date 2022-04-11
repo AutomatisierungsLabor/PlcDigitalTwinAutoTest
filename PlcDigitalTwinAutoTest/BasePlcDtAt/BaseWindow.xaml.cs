@@ -42,7 +42,7 @@ public partial class BaseWindow
 
         TestAutomat = new TestAutomat(Datenstruktur, _baseCancellationToken);
 
-        AutoTest = new AutoTest(Datenstruktur, _vmBase.PlcDaemon, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests, _baseCancellationToken);
+        AutoTest = new AutoTest(Datenstruktur, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests, _baseCancellationToken);
         AutoTest.SetCallback(ConfigPlc.SetPath);
 
         BaseTabControl.SelectedIndex = startUpTabIndex;

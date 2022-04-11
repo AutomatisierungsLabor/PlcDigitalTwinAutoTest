@@ -23,16 +23,16 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RechteckFill(20, 10, 2, 10, Brushes.LightGray);
+        libWpf.RectangleFill(20, 10, 2, 10, Brushes.LightGray);
 
         libWpf.Text("S1", 20, 2, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("S2", 25, 2, 2, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("P1", 20, 2, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ButtonContentRounded(22, 3, 2, 3, 14, 15, buttonRand, Brushes.Red, vmLap2010.BtnTaster, WpfObjects.S1);
-        libWpf.ButtonContentRounded(27, 3, 2, 3, 14, 15, buttonRand, Brushes.Green, vmLap2010.BtnTaster, WpfObjects.S2);
+        libWpf.ButtonBackgroundContentMarginRounded("Aus", 22, 3, 2, 3, 14, 15, Brushes.Red, buttonRand, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
+        libWpf.ButtonBackgroundContentMarginRounded("Ein", 27, 3, 2, 3, 14, 15, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
 
-        libWpf.KreisStrokeMarginSetFilling(22, 3, 6, 3, kreisRandFarbe, kreisRand, WpfObjects.P1);
+        libWpf.EllipseMarginStrokeSetFilling(22, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
         libWpf.Text("Füllstand", 22, 3, 6, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
         ///////////////////////////////////////////////////////////
@@ -41,26 +41,25 @@ public partial class TabZeichnen
         //
         ///////////////////////////////////////////////////////////
 
-        libWpf.RechteckFillMargin(2, 2, 3, 12, Brushes.DarkGray, new Thickness(10, 0, 10, 0));
-        libWpf.RechteckFillMargin(4, 2, 3, 12, Brushes.DarkGray, new Thickness(10, 0, 10, 0));
+        libWpf.RectangleFillMargin(2, 2, 3, 12, Brushes.DarkGray, new Thickness(10, 0, 10, 0));
+        libWpf.RectangleFillMargin(4, 2, 3, 12, Brushes.DarkGray, new Thickness(10, 0, 10, 0));
 
         var ventilRand = new Thickness(0, 0, 0, 0);
         libWpf.Text("K1", 4, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.BildSetVisibilityEin("VentilElektrischEin.jpg", 4, 2, 12, 2, ventilRand, WpfObjects.K1);
-        libWpf.BildSetVisibilityAus("VentilElektrischAus.jpg", 4, 2, 12, 2, ventilRand, WpfObjects.K1);
+        libWpf.ImageMarginSetVisibility("VentilElektrischEin.jpg", 4, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityEinK1));
+        libWpf.ImageMarginSetVisibility("VentilElektrischAus.jpg", 4, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityAusK1));
 
 
-        libWpf.RechteckFill(10, 6, 2, 6, Brushes.Coral);
-        libWpf.RechteckFillStrokeSetMargin(10, 6, 2, 6, Brushes.BurlyWood, Brushes.BurlyWood, 0, WpfObjects.Fuellstand);
+        libWpf.RectangleFill(10, 6, 2, 6, Brushes.Coral);
+        libWpf.RectangleFillSetMargin(10, 6, 2, 6, Brushes.BurlyWood, nameof(vmLap2010.Fuellstand));
 
-        libWpf.RechteckSetFill(12,2,8,2, Brushes.BurlyWood,new Thickness(0,0,0,0), WpfObjects.Zuleitung);
-
+        libWpf.RectangleSetFill(12, 2, 8, 2, nameof(vmLap2010.BrushZuleitung));
 
         libWpf.Text("K2", 8, 2, 12, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.BildSetVisibilityEin("VentilElektrischEin.jpg", 10, 2, 12, 2, ventilRand, WpfObjects.K2);
-        libWpf.BildSetVisibilityAus("VentilElektrischAus.jpg", 10, 2, 12, 2, ventilRand, WpfObjects.K2);
+        libWpf.ImageMarginSetVisibility("VentilElektrischEin.jpg", 10, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityEinK2));
+        libWpf.ImageMarginSetVisibility("VentilElektrischAus.jpg", 10, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityAusK2));
 
 
         // libWpf.PlcError();
