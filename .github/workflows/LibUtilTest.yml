@@ -1,11 +1,11 @@
-name: ConfigPlc Test
+name: Library LibUtil.Test
 
 on:
   push:
     branches: [ master ]
 
 env:
-   TEST_PATH: PlcDigitalTwinAutoTest/LibConfigPlc.Test/LibConfigPlc.Test.csproj
+   TEST_PATH: PlcDigitalTwinAutoTest/LibUtil.Test/LibUtil.Test.csproj
     
 jobs:
   build:
@@ -22,4 +22,3 @@ jobs:
     - name: Test
       run: dotnet test  ${{ env.TEST_PATH }} --verbosity normal
       
-  

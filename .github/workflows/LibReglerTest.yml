@@ -1,0 +1,24 @@
+name: Library LibRegler.Test
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+   TEST_PATH: PlcDigitalTwinAutoTest/LibRegler.Test/LibRegler.Test.csproj
+    
+jobs:
+  build:
+    runs-on: windows-latest 
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.x
+    
+    - name: Test
+      run: dotnet test  ${{ env.TEST_PATH }} --verbosity normal
+      
