@@ -12,7 +12,6 @@ public class ConfigPlc
         Log.Debug("ConfigPlc einlesen: " + pfad);
         SetPathRelativ(pfad);
     }
-
     public enum EaTypen
     {
         // ReSharper disable UnusedMember.Global
@@ -28,11 +27,11 @@ public class ConfigPlc
         SiemensAnalogwertSchieberegler
         // ReSharper restore UnusedMember.Global
     }
-    
     public Di Di { get; set; } = new(new ObservableCollection<DiEinstellungen>());
     public Da Da { get; set; } = new(new ObservableCollection<DaEinstellungen>());
     public Ai Ai { get; set; } = new(new ObservableCollection<AiEinstellungen>());
     public Aa Aa { get; set; } = new(new ObservableCollection<AaEinstellungen>());
+#pragma warning disable CA1822 // Mark members as static
     public T SetPath<T, TEinstellungen>(string pfad, EaConfig<TEinstellungen> ioConfig) where T : EaConfig<TEinstellungen>
     {
         ioConfig.ConfigOk = false;
@@ -53,7 +52,7 @@ public class ConfigPlc
         }
         return ioConfig as T;
     }
-
+#pragma warning restore CA1822 // Mark members as static
     public void SetPathRelativ(string pfad) => SetPath(new string(Path.Combine(Environment.CurrentDirectory, pfad)));
     public void SetPath(string pfad)
     {

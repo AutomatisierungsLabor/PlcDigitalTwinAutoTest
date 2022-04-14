@@ -17,5 +17,7 @@ public class PlcKeine : IPlc
         PlcError = false,
         PlcErrorMessage = "Keine Fehlermeldung"
     };
+#pragma warning disable CA1822 // Mark members as static
     public void PlcTask() { }
+#pragma warning restore CA1822 // Mark members as static
 }

@@ -5,7 +5,9 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
-    public void FuncSleep(FunctionEventArgs args) => Thread.Sleep((int) new ZeitDauer(args.Parameters[0].ToString()).DauerMs);
+#pragma warning disable CA1822 // Mark members as static
+    public void FuncSleep(FunctionEventArgs args) => Thread.Sleep((int)new ZeitDauer(args.Parameters[0].ToString()).DauerMs);
+#pragma warning restore CA1822 // Mark members as static
     public void FuncRestartStopwatch() => _stopwatch.Restart();
     public long GetElapsedMilliseconds() => _stopwatch.ElapsedMilliseconds;
 }

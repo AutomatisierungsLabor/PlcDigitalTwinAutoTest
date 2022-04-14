@@ -6,9 +6,8 @@ namespace LibDisplayPlc.ViewModel;
 
 public partial class VmPlc
 {
-    public Brush SetBrush(bool val, Brush farbeTrue, Brush farbeFalse) => val ? farbeTrue : farbeFalse;
-
-
+    public static Brush SetBrush(bool val, Brush farbeTrue, Brush farbeFalse) => val ? farbeTrue : farbeFalse;
+    
     [ObservableProperty] private Brush _brushDa00;
     [ObservableProperty] private Brush _brushDa01;
     [ObservableProperty] private Brush _brushDa02;

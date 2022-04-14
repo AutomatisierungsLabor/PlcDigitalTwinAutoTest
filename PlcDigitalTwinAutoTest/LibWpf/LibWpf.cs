@@ -13,7 +13,7 @@ public partial class LibWpf
         Grid = new Grid();
         tabItem.Content = Grid;
     }
-    public void AddToGrid(int xPos, int xSpan, int yPos, int ySpan, Grid grid, UIElement label)
+    public static void AddToGrid(int xPos, int xSpan, int yPos, int ySpan, Grid grid, UIElement label)
     {
         SetColumn(label, xPos);
         SetColumnSpan(label, xSpan);

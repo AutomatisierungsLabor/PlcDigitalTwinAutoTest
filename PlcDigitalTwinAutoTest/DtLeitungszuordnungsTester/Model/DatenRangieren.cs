@@ -5,7 +5,6 @@ namespace DtLeitungszuordnungsTester.Model;
 public class DatenRangieren
 
 {
-
     public DatenRangieren(ModelLeitungszuordnungsTester model, Datenstruktur datenstruktur)
     {
         _ = model;

@@ -37,8 +37,7 @@ public partial class VmNadeltelegraph
     }
     private ClickMode TasterGedrueckt(string taster, char buchstabe, ClickMode clickMode)
     {
-        if (!taster.Contains(buchstabe.ToString())) return clickMode == ClickMode.Press ? ClickMode.Release : ClickMode.Press;
-        if (clickMode == ClickMode.Press && TasterAsciiCode == 0) TasterAsciiCode = (byte)buchstabe;
+        if (taster.Contains(buchstabe.ToString()) && clickMode == ClickMode.Press && TasterAsciiCode == 0) TasterAsciiCode = (byte)buchstabe;
         return clickMode == ClickMode.Press ? ClickMode.Release : ClickMode.Press;
     }
 }

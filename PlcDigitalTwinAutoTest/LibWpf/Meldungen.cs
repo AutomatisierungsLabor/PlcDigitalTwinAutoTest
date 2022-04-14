@@ -2,6 +2,7 @@
 
 public partial class LibWpf
 {
+#pragma warning disable CA1822 // Mark members as static
     public void PlcError()
     {
         /*
@@ -12,4 +13,5 @@ public partial class LibWpf
         TextSetContendSetVisibility(2, 20, 4, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, Contracts.WpfBase.ErrorVersionPlc);
   */
     }
+#pragma warning restore CA1822 // Mark members as static
 }

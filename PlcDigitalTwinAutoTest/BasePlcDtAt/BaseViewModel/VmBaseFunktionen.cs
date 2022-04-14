@@ -8,10 +8,10 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class VmBase
 {
-    protected (Visibility Ein, Visibility Aus) SetVisibility(bool val) => val ? (Visibility.Visible, Visibility.Hidden) : (Visibility.Hidden, Visibility.Visible);
-    protected Brush SetBrush(bool val, Brush farbeTrue, Brush farbeFalse) => val ? farbeTrue : farbeFalse;
-    public (bool ergebnis, ClickMode clickModeTaster) ButtonClickMode(ClickMode clickMode) => clickMode == ClickMode.Press ? (true, ClickMode.Release) : (false, ClickMode.Press);
-    public (bool ergebnis, ClickMode clickModeTaster) ButtonClickModeInvertiert(ClickMode clickMode) => clickMode == ClickMode.Press ? (false, ClickMode.Release) : (true, ClickMode.Press);
+    protected static (Visibility Ein, Visibility Aus) SetVisibility(bool val) => val ? (Visibility.Visible, Visibility.Hidden) : (Visibility.Hidden, Visibility.Visible);
+    protected static Brush SetBrush(bool val, Brush farbeTrue, Brush farbeFalse) => val ? farbeTrue : farbeFalse;
+    public static (bool ergebnis, ClickMode clickModeTaster) ButtonClickMode(ClickMode clickMode) => clickMode == ClickMode.Press ? (true, ClickMode.Release) : (false, ClickMode.Press);
+    public static (bool ergebnis, ClickMode clickModeTaster) ButtonClickModeInvertiert(ClickMode clickMode) => clickMode == ClickMode.Press ? (false, ClickMode.Release) : (true, ClickMode.Press);
     private void ViewModelTask(CancellationTokenSource cancellationTokenSource)
     {
         while (!cancellationTokenSource.IsCancellationRequested)
