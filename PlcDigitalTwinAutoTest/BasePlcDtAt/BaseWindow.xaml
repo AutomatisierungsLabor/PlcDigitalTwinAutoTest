@@ -18,6 +18,8 @@
             <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="60"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
@@ -52,6 +54,11 @@
         <Button Click="AlarmVerwaltungClick" Grid.Column="8" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Top" Width="60" Height="40" ToolTip="Hier könnte ihre Werbung stehen!" Visibility="{Binding VisibilityBtnAlarmVerwaltungAnzeigen}">
             <Button.Background>
                 <ImageBrush ImageSource="Bilder/iconAlarm.jpg"  />
+            </Button.Background>
+        </Button>
+        <Button Click="InfoClick" Grid.Column="8" Grid.Row="0" Grid.RowSpan="3" VerticalAlignment="Top" Width="60" Height="40" ToolTip="Informationen anzeigen" Visibility="{Binding VisibilityBtnInfoAnzeigen}">
+            <Button.Background>
+                <ImageBrush ImageSource="Bilder/IconInfo.jpg"  />
             </Button.Background>
         </Button>
     </Grid>

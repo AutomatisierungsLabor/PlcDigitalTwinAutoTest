@@ -15,9 +15,9 @@ public abstract partial class VmBase : ObservableObject
     protected abstract void ViewModelAufrufThread();
 
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
-    // public abstract void HomepageButtonClick(object sender, RoutedEventArgs e);
-    // public abstract void AlarmVerwaltungButtonClick(object sender, RoutedEventArgs e);
-
+    //public abstract void HomepageButtonClick(object sender, RoutedEventArgs e);
+    //public abstract void AlarmVerwaltungButtonClick(object sender, RoutedEventArgs e);
+    
 
 
     public BaseModel.BaseModel Model { get; set; }

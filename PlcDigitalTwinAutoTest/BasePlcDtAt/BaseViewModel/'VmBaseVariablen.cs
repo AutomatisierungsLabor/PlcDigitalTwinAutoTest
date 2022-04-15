@@ -19,7 +19,7 @@ public abstract partial class VmBase
     [ObservableProperty] private Visibility _visibilityBtnPlottAnzeigen;
     [ObservableProperty] private Visibility _visibilityBtnLinkHomepageAnzeigen;
     [ObservableProperty] private Visibility _visibilityBtnAlarmVerwaltungAnzeigen;
-
+    [ObservableProperty] private Visibility _visibilityBtnInfoAnzeigen;
 
     [ObservableProperty] private Visibility _visibilityErrorAnzeige;
     [ObservableProperty] private Visibility _visibilityErrorMeldung;

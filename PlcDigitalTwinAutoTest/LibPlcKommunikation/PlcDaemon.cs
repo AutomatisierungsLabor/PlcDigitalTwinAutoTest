@@ -17,7 +17,6 @@ public class PlcDaemon
 
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-
     public PlcState PlcState { get; set; }
 
     private readonly byte[] _pcToPlc;
@@ -31,6 +30,7 @@ public class PlcDaemon
     private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
     private PlcDaemonStatus _plcDaemonStatus;
     private readonly CancellationTokenSource _cancellationTokenSource;
+    private Action<int, int, int> _cbSetPlcInfo;
 
 
     public PlcDaemon(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
@@ -125,6 +125,8 @@ public class PlcDaemon
             if (_datenstruktur.SimulationAktiv()) _datenstruktur.BefehlePlc[0] = 1;
             else _datenstruktur.BefehlePlc[0] = 0;
 
+            _cbSetPlcInfo?.Invoke(1, 2, 3);
+
             Thread.Sleep(10);
         }
         // ReSharper disable once FunctionNeverReturns
@@ -176,4 +178,5 @@ public class PlcDaemon
         var enc = new ASCIIEncoding();
         _datenstruktur.VersionsStringPlc = enc.GetString(versionsStringPlc, 0, textLaenge);
     }
+    public void SetInfoCallback(Action<int, int, int> setPlcValues) => _cbSetPlcInfo = setPlcValues;
 }

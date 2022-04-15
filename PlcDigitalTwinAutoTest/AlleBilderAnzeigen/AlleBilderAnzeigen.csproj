@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Snap7.ico</ApplicationIcon>
+    <ApplicationIcon>iconPlcDt.ico</ApplicationIcon>
     <PackageProjectUrl>https://github.com/AutomatisierungsLabor/PlcDigitalTwinAutoTest</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AutomatisierungsLabor/PlcDigitalTwinAutoTest</RepositoryUrl>
     <AssemblyVersion>3.0.0.0</AssemblyVersion>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Snap7.ico" />
+    <Content Include="iconPlcDt.ico" />
   </ItemGroup>
   
   <ItemGroup>
