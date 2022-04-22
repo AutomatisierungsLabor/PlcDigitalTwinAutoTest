@@ -7,7 +7,10 @@ public partial class VmInfo
 {
     [ObservableProperty] private ClickMode _clickModeTasterReset;
 
-    [ObservableProperty] private string _stringKommunikationPlcMin;
-    [ObservableProperty] private string _stringKommunikationPlcMax;
-    [ObservableProperty] private string _stringKommunikationPlcAvg;
+    [ObservableProperty] private string _stringPlcStatus;
+    [ObservableProperty] private string _stringPlcZykluszeitAct;
+    [ObservableProperty] private string _stringPlcZykluszeitMin;
+    [ObservableProperty] private string _stringPlcZykluszeitMax;
+
+
 }

@@ -30,7 +30,7 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
-        <TabControl Name="BaseTabControl" Grid.Column="1" Grid.ColumnSpan="9" Grid.Row="1" Grid.RowSpan="2" SelectionChanged="BetriebsartProjektChanged">
+        <TabControl Name="BaseTabControl" Grid.Column="1" Grid.ColumnSpan="11" Grid.Row="1" Grid.RowSpan="2" SelectionChanged="BetriebsartProjektChanged">
             <TabItem x:Name="TabBeschreibung" Header="Beschreibung"               Visibility="{Binding VisibilityTabBeschreibung}"/>
             <TabItem x:Name="TabLaborPlatte"  Header="Laborplatte"                Visibility="{Binding VisibilityTabLaborplatte}"/>
             <TabItem x:Name="TabSimulation"   Header="Simulation"                 Visibility="{Binding VisibilityTabSimulation}"/>

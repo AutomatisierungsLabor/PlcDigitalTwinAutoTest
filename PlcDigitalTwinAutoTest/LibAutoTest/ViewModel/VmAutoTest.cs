@@ -16,6 +16,8 @@ public partial class VmAutoTest : ObservableObject
 
         VisibilityTabAutoTest = Visibility.Visible;
         VisibilityTasterStart = Visibility.Visible;
+        
+
         StringTasterStart = "Test Starten";
 
         VisibilityTasterEinzelschritt = Visibility.Hidden;

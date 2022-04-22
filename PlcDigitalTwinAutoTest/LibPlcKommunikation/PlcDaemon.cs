@@ -1,4 +1,5 @@
-﻿using LibDatenstruktur;
+﻿using System.Diagnostics;
+using LibDatenstruktur;
 using Newtonsoft.Json;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -7,7 +8,7 @@ namespace LibPlcKommunikation;
 
 public class PlcDaemon
 {
-    private enum PlcDaemonStatus
+    public enum PlcDaemonStatus
     {
         SpsPingStarten = 0,
         SpsPingErgebnis = 1,
@@ -30,8 +31,9 @@ public class PlcDaemon
     private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
     private PlcDaemonStatus _plcDaemonStatus;
     private readonly CancellationTokenSource _cancellationTokenSource;
-    private Action<int, int, int> _cbSetPlcInfo;
-
+    private Action<PlcDaemonStatus, long, long, long> _cbSetPlcInfo;
+    private long _zyklusZeitMin;
+    private long _zyklusZeitMax;
 
     public PlcDaemon(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
@@ -73,6 +75,9 @@ public class PlcDaemon
     }
     private void PlcDaemonTask()
     {
+        ResetPlcInfo();
+        var stopwatch = new Stopwatch();
+
         var pingBeckhoff = new Ping();
         pingBeckhoff.PingCompleted += (_, args) => _plcDaemonStatus = args.Reply is { Status: IPStatus.Success } ? PlcDaemonStatus.SpsBeckhoff : PlcDaemonStatus.SpsPingStarten;
 
@@ -125,8 +130,12 @@ public class PlcDaemon
             if (_datenstruktur.SimulationAktiv()) _datenstruktur.BefehlePlc[0] = 1;
             else _datenstruktur.BefehlePlc[0] = 0;
 
-            _cbSetPlcInfo?.Invoke(1, 2, 3);
+            if (stopwatch.ElapsedMilliseconds < _zyklusZeitMin) _zyklusZeitMin = stopwatch.ElapsedMilliseconds;
+            if (stopwatch.ElapsedMilliseconds > _zyklusZeitMax) _zyklusZeitMax = stopwatch.ElapsedMilliseconds;
 
+            _cbSetPlcInfo?.Invoke(_plcDaemonStatus, stopwatch.ElapsedMilliseconds, _zyklusZeitMin, _zyklusZeitMax);
+
+            stopwatch.Restart();
             Thread.Sleep(10);
         }
         // ReSharper disable once FunctionNeverReturns
@@ -178,5 +187,10 @@ public class PlcDaemon
         var enc = new ASCIIEncoding();
         _datenstruktur.VersionsStringPlc = enc.GetString(versionsStringPlc, 0, textLaenge);
     }
-    public void SetInfoCallback(Action<int, int, int> setPlcValues) => _cbSetPlcInfo = setPlcValues;
+    public void SetInfoCallback(Action<PlcDaemonStatus, long, long, long> setPlcValues) => _cbSetPlcInfo = setPlcValues;
+    public void ResetPlcInfo()
+    {
+        _zyklusZeitMax = 0;
+        _zyklusZeitMin = long.MaxValue;
+    }
 }

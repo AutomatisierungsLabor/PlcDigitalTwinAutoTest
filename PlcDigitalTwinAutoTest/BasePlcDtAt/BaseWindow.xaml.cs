@@ -39,6 +39,7 @@ public partial class BaseWindow
         DataContext = _vmBase;
 
         _vmBase.PlcDaemon.SetInfoCallback(DisplayInfo.SetKommunikationPlcValues);
+        DisplayInfo.SetResetInfoCallback(_vmBase.PlcDaemon.ResetPlcInfo);
 
         ConfigPlc = new ConfigPlc(PfadConfigPlc);
 
