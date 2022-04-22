@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Snap7.ico</ApplicationIcon>
+    <ApplicationIcon>iconPlcDt.ico</ApplicationIcon>
     <PackageProjectUrl>https://github.com/AutomatisierungsLabor/PlcDigitalTwinAutoTest</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AutomatisierungsLabor/PlcDigitalTwinAutoTest</RepositoryUrl>
     <AssemblyVersion>3.0.0.0</AssemblyVersion>
@@ -16,12 +16,17 @@
   <ItemGroup>
     <None Remove="Bilder\IconAlarm.jpg" />
     <None Remove="Bilder\IconHomepage.jpg" />
+    <None Remove="Bilder\iconInfo.jpg" />
     <None Remove="Bilder\IconPlotter.jpg" />
     <None Remove="Bilder\S7_1200.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Snap7.ico" />
+    <Content Include="iconPlcDt.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Bilder\IconInfo.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +38,7 @@
     <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
     <ProjectReference Include="..\LibDisplayPlc\LibDisplayPlc.csproj" />
+    <ProjectReference Include="..\LibInfo\LibInfo.csproj" />
     <ProjectReference Include="..\LibPlcKommunikation\LibPlcKommunikation.csproj" />
     <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
     <ProjectReference Include="..\LibPlcTools\LibPlcTools.csproj" />

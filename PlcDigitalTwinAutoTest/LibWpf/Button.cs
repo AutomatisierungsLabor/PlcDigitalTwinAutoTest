@@ -176,7 +176,6 @@ public partial class LibWpf
         button.BindingButtonSetVisibility(bindingVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-
     public void ButtonBackgroundMarginRoundedSetEnableSetContend(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, Thickness margin, ICommand cmd, string cmdParameter, string setClickMode,string setEnable, string setContent)
     {
         var button = new Button

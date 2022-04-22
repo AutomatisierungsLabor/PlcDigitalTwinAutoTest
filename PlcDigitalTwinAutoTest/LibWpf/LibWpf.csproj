@@ -73,7 +73,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Bilder\Dose1.jpg"/>
+    <EmbeddedResource Include="Bilder\Dose1.jpg" />
     <EmbeddedResource Include="Bilder\Dose2.jpg" />
     <EmbeddedResource Include="Bilder\Dose3.jpg" />
     <EmbeddedResource Include="Bilder\Dose4.jpg" />
@@ -85,7 +85,7 @@
     <EmbeddedResource Include="Bilder\Fohrenburger4.jpg" />
     <EmbeddedResource Include="Bilder\Fohrenburger5.jpg" />
     <EmbeddedResource Include="Bilder\Fohrenburger6.jpg" />
-    <EmbeddedResource Include="Bilder\Franziskaner.jpg"/>
+    <EmbeddedResource Include="Bilder\Franziskaner.jpg" />
     <EmbeddedResource Include="Bilder\GetriebemotorMitGabellichtschranke.jpg" />
     <EmbeddedResource Include="Bilder\InitiatorenBetaetigt.jpg" />
     <EmbeddedResource Include="Bilder\InitiatorenSchliesser.jpg" />

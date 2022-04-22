@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using LibInfo;
 
 namespace BasePlcDtAt;
 
@@ -19,6 +20,7 @@ public partial class BaseWindow
     public DisplayPlc DisplayPlc { get; set; }
     public AutoTest AutoTest { get; set; }
     public TestAutomat TestAutomat { get; set; }
+    public  DisplayInfo DisplayInfo { get; set; }
 
     private readonly VmBase _vmBase;
     private readonly CancellationTokenSource _baseCancellationToken;
@@ -31,8 +33,13 @@ public partial class BaseWindow
         Datenstruktur = datenstruktur;
         _baseCancellationToken = baseCancellationToken;
 
+        DisplayInfo = new DisplayInfo();
+
         InitializeComponent();
         DataContext = _vmBase;
+
+        _vmBase.PlcDaemon.SetInfoCallback(DisplayInfo.SetKommunikationPlcValues);
+        DisplayInfo.SetResetInfoCallback(_vmBase.PlcDaemon.ResetPlcInfo);
 
         ConfigPlc = new ConfigPlc(PfadConfigPlc);
 
@@ -102,9 +109,10 @@ public partial class BaseWindow
             }
         }
     }
-
-    private void AlarmVerwaltungClick(object sender, RoutedEventArgs e)
+    private void AlarmVerwaltungClick(object sender, RoutedEventArgs e) { }
+    private void InfoClick(object sender, RoutedEventArgs e)
     {
-        //_vmBase.AlarmVerwaltungButtonClick(sender, e);
+        if (DisplayInfo.FensterAktiv) DisplayInfo.FensterAusblenden();
+        else DisplayInfo.FensterAnzeigen();
     }
 }

@@ -15,6 +15,7 @@ public partial class VmAutoTest
     [ObservableProperty] private Visibility _visibilityTabAutoTest;
     [ObservableProperty] private Visibility _visibilityTasterStart;
     [ObservableProperty] private Visibility _visibilityTasterEinzelschritt;
+    [ObservableProperty] private Visibility _visibilityTabSoftwareTest; // todo? warum kummt des döt vor
 
-   [ObservableProperty] private string _stringTasterStart;
+    [ObservableProperty] private string _stringTasterStart;
 }
