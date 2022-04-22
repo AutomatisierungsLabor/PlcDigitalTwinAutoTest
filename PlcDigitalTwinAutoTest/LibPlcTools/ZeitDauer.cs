@@ -38,21 +38,21 @@ public class ZeitDauer
 
             if (posH > -1)
             {
-                var stunden = iecZeit.Substring(anfangZahl, posH - anfangZahl);
+                var stunden = iecZeit[anfangZahl..posH];
                 DauerMs += long.Parse(stunden) * dauer1H;
                 anfangZahl = posH + 1;
             }
 
             if (posM > -1 && posM != posMs)
             {
-                var minuten = iecZeit.Substring(anfangZahl, posM - anfangZahl);
+                var minuten = iecZeit[anfangZahl..posM];
                 DauerMs += long.Parse(minuten) * dauer1M;
                 anfangZahl = posM + 1;
             }
 
             if (posS > -1 && posS != posMs + 1)
             {
-                var sekunden = iecZeit.Substring(anfangZahl, posS - anfangZahl);
+                var sekunden = iecZeit[anfangZahl..posS];
                 DauerMs += long.Parse(sekunden) * dauer1S;
                 anfangZahl = posS + 1;
             }
@@ -60,7 +60,7 @@ public class ZeitDauer
             // ReSharper disable once InvertIf
             if (posMs > -1)
             {
-                var milliSekunden = iecZeit.Substring(anfangZahl, posMs - anfangZahl);
+                var milliSekunden = iecZeit[anfangZahl..posMs];
                 DauerMs += long.Parse(milliSekunden);
             }
         }

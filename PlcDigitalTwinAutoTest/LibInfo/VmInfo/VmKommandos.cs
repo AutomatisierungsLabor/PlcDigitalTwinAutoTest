@@ -5,5 +5,5 @@ namespace LibInfo.VmInfo;
 public partial class VmInfo
 {
     [ICommand]
-    private void ButtonTaster(string cmd) => DisplayInfo.CbResetPlcInfo();
+    private void ButtonTaster(string cmd) => _displayInfo.CbResetPlcInfo();
 }

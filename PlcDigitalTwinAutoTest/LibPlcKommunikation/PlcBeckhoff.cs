@@ -16,7 +16,6 @@ public class PlcBeckhoff : IPlc
     private readonly AdsClient _adsClient;
     private readonly IpAdressenBeckhoff _ipAdressenBeckhoff;
     private readonly byte[] _pcToPlc;
-    // ReSharper disable once NotAccessedField.Local
     private byte[] _plcToPc;
     private BeckhoffStatus _beckhoffStatus;
     private uint _handlePcToPlc;
@@ -29,6 +28,8 @@ public class PlcBeckhoff : IPlc
         _ipAdressenBeckhoff = ipAdressenBeckhoff;
         _pcToPlc = pcToPlc;
         _plcToPc = plcToPc;
+
+        for (var i = 0; i < _plcToPc.Length; i++) _plcToPc[i] = 0;
 
         _adsClient = new AdsClient();
         _beckhoffStatus = BeckhoffStatus.Initialisieren;
