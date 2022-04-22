@@ -55,41 +55,41 @@ main()
     
 
     SetDigitaleEingaenge 0
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4, "T#5s", "Motor Aus?"
     
 
     SetDigitaleEingaenge S2
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4, "T#5s", "Motor Ausgeschaltet?"
     
 
 
     SetDigitaleEingaenge(S1 + S2)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P4, Maske_P4, "T#5s", "Motor Ein?"
     
 
 
     SetDigitaleEingaenge S2
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P4, Maske_P4, "T#5s", "Motor immer noch Ein?"
     
 
 
     SetDigitaleEingaenge 0
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4, "T#5s", "Motor Aus?"
     
 
 
     SetDigitaleEingaenge S1
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4, "T#5s", "Motor Aus?"    
 }

@@ -45,7 +45,7 @@ main()
     
 
     SetDigitaleEingaenge (B1 + F1 + S2 + S3)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten 0, Maske_P1_Q1_Q2, "T#5s", "Störungen quittieren - Betriebsbereit?"
     IncrementDataGridId
 
@@ -75,63 +75,63 @@ main()
     IncrementDataGridId
 
     SetDigitaleEingaenge (F1 + S2 + S3)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten 0, Maske_P1_Q1_Q2, "T#5s", "Störungen quittieren"
     IncrementDataGridId
 
     SetDigitaleEingaenge (F1 + S1 + S2)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten Q2, Maske_P1_Q1_Q2, "T#5s", "Wagen fährt nach rechts"
     IncrementDataGridId
 
     SetDigitaleEingaenge (F1 + S1)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten P1, Maske_P1_Q1_Q2, "T#5s", "Störung Not-Halt und Wagen wird nicht gestartet"
     IncrementDataGridId
 
     SetDigitaleEingaenge (F1 + S2 + S3)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten Q1, Maske_P1_Q1_Q2, "T#5s", "Störungen quittieren und Wagen fährt nach links in Grundstellung"
     IncrementDataGridId
 
     SetDigitaleEingaenge (B1 + F1 + S2)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten 0, Maske_P1_Q1_Q2, "T#5s", "Wagen wieder in Grundstellung"
     IncrementDataGridId
 
     SetDigitaleEingaenge (S2 + S1)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten P1, Maske_P1_Q1_Q2, "T#5s", "Störung Thermorelais und Wagen wird nicht gestartet"
     IncrementDataGridId
 
     SetDigitaleEingaenge (F1 + S2 + S3)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten Q1, Maske_P1_Q1_Q2, "T#5s", "Störungen quittieren und Wagen fährt nach links in Grundstellung"
     IncrementDataGridId
 
     SetDigitaleEingaenge (B1 + F1 + S2)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten 0, Maske_P1_Q1_Q2, "T#5s", "Wagen wieder in Grundstellung"
     IncrementDataGridId
 
     SetDigitaleEingaenge S1
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten P1, Maske_P1_Q1_Q2, "T#5s", "Störung Thermorelais und Not-Halt und Wagen wird nicht gestartet"
     IncrementDataGridId
 
 
     SetDigitaleEingaenge(F1 + S1 + S2)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterBlinktTesten P1, Maske_P1_Q1_Q2, "T#1s500ms", 0.50, 2, 1, "T#10s", "Störung (1Hz) und Wagen wird nicht gestartet"
     IncrementDataGridId
 
     SetDigitaleEingaenge (F1 + S2 + S3)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten Q1, Maske_P1_Q1_Q2, "T#5s", "Störungen quittieren und Wagen Wagen fährt nach links in Grundstellung"
     IncrementDataGridId
 
     SetDigitaleEingaenge (B1 + F1 + S2)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten 0, Maske_P1_Q1_Q2, "T#5s", "Wagen wieder in Grundstellung"
     IncrementDataGridId
 

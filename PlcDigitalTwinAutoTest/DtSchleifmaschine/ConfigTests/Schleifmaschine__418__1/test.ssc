@@ -51,36 +51,36 @@ main()
     IncrementDataGridId
 
     SetDigitaleEingaenge 0
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten AllesAus, Maske_P1_P2_P3, "T#5s", "Motor Aus?"
     IncrementDataGridId
 
     SetDigitaleEingaenge S1
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten AllesAus, Maske_P1_P2_P3, "T#5s", "Motor Ausgeschaltet?"
     IncrementDataGridId
 
 
     SetDigitaleEingaenge (S1 + S2)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor Ein?"
     IncrementDataGridId
 
 
     SetDigitaleEingaenge S1
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor immer noch Ein?"
     IncrementDataGridId
 
 
     SetDigitaleEingaenge 0
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten AllesAus, Maske_P1_P2_P3, "T#5s", "Motor Aus?"
     IncrementDataGridId
 
 
     SetDigitaleEingaenge S1
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten AllesAus, Maske_P1_P2_P3, "T#5s", "Motor Aus?"
     IncrementDataGridId
 

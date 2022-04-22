@@ -39,6 +39,6 @@ main()
     SetDigitaleEingaenge(S5)
     BitmusterTesten P1, Maske_P1, "T#5s", "Leuchtmelder ausgeschaltet?"
 
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
 }

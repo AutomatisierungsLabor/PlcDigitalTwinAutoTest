@@ -20,9 +20,9 @@ public class TestZeitfunktionen
             new[] { new Variable(dauer) },
             new Variable());
 
-        testAutomat.FuncRestartStopwatch();
-        Assert.InRange(testAutomat.GetElapsedMilliseconds(), 0, 5);
+        testAutomat.StopwatchRestart();
+        Assert.InRange(testAutomat.StopwatchGetElapsedMilliseconds(), 0, 10);
         testAutomat.FuncSleep(args);
-        Assert.InRange(testAutomat.GetElapsedMilliseconds(), min, max);
+        Assert.InRange(testAutomat.StopwatchGetElapsedMilliseconds(), min, max);
     }
 }

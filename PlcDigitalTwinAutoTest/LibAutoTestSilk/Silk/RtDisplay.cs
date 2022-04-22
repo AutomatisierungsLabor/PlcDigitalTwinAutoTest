@@ -54,7 +54,7 @@ public partial class Silk
             default:
                 _vmAutoTesterSilk.UpdateDataGrid(new DataGridZeile(
                     _vmAutoTesterSilk.ZeilenNummerDataGrid,
-                    $"{_testAutomat.GetElapsedMilliseconds()}ms",
+                    $"{_testAutomat.StopwatchGetElapsedMilliseconds()}ms",
                     testErgebnis,
                      dInput.GetBinBit(_testAutomat.GetAnzahlBitEingaenge()),
                      dOutputSoll.GetBinBit(_testAutomat.GetAnzahlBitAusgaenge()),

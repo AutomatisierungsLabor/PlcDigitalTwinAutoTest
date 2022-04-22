@@ -52,32 +52,32 @@ main()
     KommentarAnzeigen "Normalbetrieb testen"
 
     SetDigitaleEingaenge 0
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2, "T#5s", "Motor Aus?"
 
     SetDigitaleEingaenge S1
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2, "T#5s", "Motor Ausgeschaltet?"
 
     SetDigitaleEingaenge (S1 + S2)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2, "T#5s", "Motor Ein?"
 
     SetDigitaleEingaenge S1
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2, "T#5s", "Motor immer noch Ein?"
 
     SetDigitaleEingaenge 0
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2, "T#5s", "Motor Aus?"
 
     SetDigitaleEingaenge S1
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2, "T#5s", "Motor Aus?"
 }

@@ -57,37 +57,37 @@ main()
     
     
     SetDigitaleEingaenge(S2 + S8 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Quittieren -> Betriebsbereit?"
     
 
     SetDigitaleEingaenge(S2 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Betriebsbereit?"
     
 
     SetDigitaleEingaenge(S1 + S2 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P4, Maske_P2_P3_P4, "T#5s", "Motor Ein?"
     
 
     SetDigitaleEingaenge(S2 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P4, Maske_P2_P3_P4, "T#5s", "Motor noch Ein?"
     
 
     SetDigitaleEingaenge(S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Betriebsbereit?"
     
 
     SetDigitaleEingaenge(S2 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Immer noch Betriebsbereit?"
     
@@ -96,31 +96,31 @@ main()
     
 
     SetDigitaleEingaenge(S2 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4, "T#5s", "Störung Thermorelais und Motor Aus?"
     
 
     SetDigitaleEingaenge(S1 + S2 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4, "T#5s", "Störung Thermorelais und Motor bleibt Aus?"
     
 
     SetDigitaleEingaenge(S2 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterBlinktTesten P3, Maske_P2_P3_P4, "T#1s500ms", 0.50, 2, 1.1, "T#10s", "Störung (0,8Hz)"
     
 
     SetDigitaleEingaenge(S1 + S2 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterBlinktTesten P3, Maske_P2_P3_P4, "T#1s500ms", 0.50, 2, 1.1, "T#10s", "Störung (0,8Hz) und Motor bleibt aus"
     
 
     SetDigitaleEingaenge(S2 + S8 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Quittieren -> Betriebsbereit?"
     
@@ -129,31 +129,31 @@ main()
     
 
     SetDigitaleEingaenge(S2 + S9)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4, "T#5s", "Störung Not-Halt und Motor Aus?"
     
 
     SetDigitaleEingaenge(S1 + S2 + S9)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4, "T#5s", "Störung Not-Halt und Motor bleibt Aus?"
     
 
     SetDigitaleEingaenge(S2 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterBlinktTesten P3, Maske_P2_P3_P4, "T#1s500ms", 0.50, 2, 1.1, "T#10s", "Störung (0,8Hz)"
     
 
     SetDigitaleEingaenge(S1 + S2 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterBlinktTesten P3, Maske_P2_P3_P4, "T#1s500ms", 0.50, 2, 1.1, "T#10s", "Störung (0,8Hz) und Motor bleibt aus"
     
 
     SetDigitaleEingaenge(S2 + S8 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3_P4, "T#5s", "Quittieren -> Betriebsbereit?"
 }

@@ -53,7 +53,7 @@ main()
     
 
     SetDigitaleEingaenge 0
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
     
@@ -71,7 +71,7 @@ main()
     TestAblauf setArray, testArray
 
     SetDigitaleEingaenge 0
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
 }

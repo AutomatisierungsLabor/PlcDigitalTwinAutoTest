@@ -52,68 +52,68 @@ main()
     KommentarAnzeigen "Normalbetrieb testen"
 
     SetDigitaleEingaenge (S1 + S4 + S92)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Betriebsbereit?"
 
     SetDigitaleEingaenge (S1 + S2 + S4 + S92)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor Ein?"
 
     SetDigitaleEingaenge (S1 + S4 + S92)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor noch Ein?"
 
     SetDigitaleEingaenge (S4 + S92)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Betriebsbereit?"
 
     SetDigitaleEingaenge (S1 + S4 + S92)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Immer noch Betriebsbereit?"
 
     KommentarAnzeigen "Störung Thermorelais und Not-Halt testen"
 
     SetDigitaleEingaenge AllesAus
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P1_P2_P3, "T#5s", "Störung und Motor Aus?"
 
     SetDigitaleEingaenge (S4 + S92)
-    ResetStopwatch
+    StopwatchRestart
 
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Betriebsbereit?"
 
     SetDigitaleEingaenge (S1 + S2 + S4 + S92)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor wieder Ein?"
 
     KommentarAnzeigen "Störung Thermorelais testen"
 
     SetDigitaleEingaenge (S1 + S2 + S92)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P1_P2_P3, "T#5s", "Störung Thermorelais und Motor Aus?"
 
     SetDigitaleEingaenge (S1 + S2 + S4 + S92)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor wieder Ein?"
 
     KommentarAnzeigen "Störung Not-Halt testen"
 
     SetDigitaleEingaenge (S1 + S2 + S4)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P1_P2_P3, "T#5s", "Störung Not-Halt und Motor Aus?"
 
     SetDigitaleEingaenge (S4 + S92)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P1, Maske_P1_P2_P3, "T#5s", "Betriebsbereit?"
 }

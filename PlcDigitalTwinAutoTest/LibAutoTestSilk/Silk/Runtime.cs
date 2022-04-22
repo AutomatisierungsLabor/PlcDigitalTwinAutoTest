@@ -19,8 +19,8 @@ public partial class Silk
 
         runtime.Execute();
     }
-    public void Runtime_Begin(object sender, BeginEventArgs e) => _testAutomat.InfoAnzeigen($"{_testAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.TestStart, " ");
-    private void Runtime_End(object sender, EndEventArgs e) => _testAutomat.InfoAnzeigen($"{_testAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.TestEnde, " ");
+    public void Runtime_Begin(object sender, BeginEventArgs e) => _testAutomat.InfoAnzeigen($"{_testAutomat.StopwatchGetElapsedMilliseconds()}ms", TestAnzeige.TestStart, " ");
+    private void Runtime_End(object sender, EndEventArgs e) => _testAutomat.InfoAnzeigen($"{_testAutomat.StopwatchGetElapsedMilliseconds()}ms", TestAnzeige.TestEnde, " ");
     private static void CompilerRegisterFunctions(Compiler compiler)
     {
         // ReSharper disable RedundantArgumentDefaultValue
@@ -35,7 +35,7 @@ public partial class Silk
         compiler.RegisterFunction("PlcHotStart", 0, 0);
         compiler.RegisterFunction("Print", 0, Function.NoParameterLimit);
         compiler.RegisterFunction("println", 0, Function.NoParameterLimit);
-        compiler.RegisterFunction("ResetStopwatch", 0, 0);
+        compiler.RegisterFunction("StopwatchRestart", 0, 0);
         compiler.RegisterFunction("SetAnalogerEingang", 3, 3);
         compiler.RegisterFunction("SetDataGridBitAnzahl", 2, 2);
         compiler.RegisterFunction("SetDiagrammZeitbereich", 1, 1);
@@ -57,7 +57,7 @@ public partial class Silk
             case "PlcColdStart": _testAutomat.FuncPlcColdStart(); break;
             case "PlcGetStatus": _testAutomat.FuncPlcGetStatus(); break;
             case "PlcHotStart": _testAutomat.FuncPlcHotStart(); break;
-            case "ResetStopwatch": _testAutomat.FuncRestartStopwatch(); break;
+            case "StopwatchRestart": _testAutomat.StopwatchRestart(); break;
             case "SetAnalogerEingang": _testAutomat.FuncSetAnalogerEingang(args); break;
             case "SetDataGridBitAnzahl": _testAutomat.FuncSetDataGridBitAnzahl(); break; // Anzeige mit 16 bit 
             case "SetDiagrammZeitbereich": _testAutomat.FuncSetDiagrammZeitbereich(args); break;

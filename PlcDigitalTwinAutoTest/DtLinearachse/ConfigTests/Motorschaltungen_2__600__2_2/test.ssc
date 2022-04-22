@@ -62,12 +62,12 @@ main()
     
 
     SetDigitaleEingaenge (S8 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3_P4_Q1_Q2, "T#5s", "Linearachse Aus ? (Mögliche Störung quittieren)"
     
 
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
 
     setArray = {
@@ -83,7 +83,7 @@ main()
     TestAblauf setArray, testArray
 
     SetDigitaleEingaenge (S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
     
@@ -98,7 +98,7 @@ main()
     
 
     SetDigitaleEingaenge (S1 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten (P4 + Q1), Maske_P2_P3_P4_Q1_Q2, "T#5s", "Linearachse Rechtslauf?"
     
@@ -106,27 +106,27 @@ main()
     Sleep("T#200ms")
 
     SetDigitaleEingaenge (S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4_Q1_Q2, "T#5s", "Störung Thermorelais"
     
 
     SetDigitaleEingaenge(S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterBlinktTesten P3, Maske_P2_P3_P4_Q1_Q2, "T#1s500ms", 0.50, 2, 1.1, "T#10s", "Störung (1,1Hz) und Linearachse steht"
     
 
     // Zuerst nur den Q testen 
     SetDigitaleEingaenge (S8 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten Q2, Q2, "T#5s", "Quittieren -> Linearachse fährt nach links"
     
 
     // jetzt das Blinken kontrollieren
     SetDigitaleEingaenge (S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterBlinktTesten P2, P2, "T#800ms", 0.50, 1, 1.1, "T#10s", "Störung blinkt; Linearachse fährt nach links"
     
@@ -136,7 +136,7 @@ main()
     
 
     SetDigitaleEingaenge (S1 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten (P4 + Q1), Maske_P2_P3_P4_Q1_Q2, "T#5s", "Linearachse Rechtslauf?"
     
@@ -144,27 +144,27 @@ main()
     Sleep("T#200ms")
 
     SetDigitaleEingaenge (S9)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3_P4_Q1_Q2, "T#5s", "Störung Not-Halt"
     
 
     SetDigitaleEingaenge(S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterBlinktTesten P3, Maske_P2_P3_P4_Q1_Q2, "T#1s500ms", 0.50, 2, 1.1, "T#10s", "Störung (1,1Hz) und Linearachse steht"
     
 
     // Zuerst nur den Q testen 
     SetDigitaleEingaenge (S8 + S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterTesten Q2, Q2, "T#5s", "Quittieren -> Linearachse fährt nach links"
     
 
     // jetzt das Blinken kontrollieren
     SetDigitaleEingaenge (S9 + S10)
-    ResetStopwatch
+    StopwatchRestart
     Sleep("T#100ms")
     BitmusterBlinktTesten P2, P2, "T#800ms", 0.50, 1, 1.1, "T#10s", "Störung blinkt; Linearachse fährt nach links"
 }

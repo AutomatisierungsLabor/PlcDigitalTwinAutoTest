@@ -50,12 +50,12 @@ main()
     IncrementDataGridId
 
     SetDigitaleEingaenge (B1 + B2 + F1)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten P2, Maske_P1_P2_Q1_Q2_Q3, "T#5s", "Störungen zurücksetzen?"
     IncrementDataGridId
 
     SetDigitaleEingaenge (B1 + B2 + F1 + S1)
-    ResetStopwatch
+    StopwatchRestart
     BitmusterTesten P2, Maske_P1_P2_Q1_Q2_Q3, "T#5s", "Betriebsbereit?"
     IncrementDataGridId
 

@@ -32,7 +32,7 @@ public partial class TestAutomat
         var daSoll = new Uint(digOutSoll.ToString());
 
         _cbUpdateDataGrid?.Invoke(new DataGridZeile(_zeilenNummerDataGrid,
-            $"{GetElapsedMilliseconds()}ms",
+            $"{StopwatchGetElapsedMilliseconds()}ms",
             testErgebnis,
             diIst.GetBinBit(GetAnzahlBitEingaenge()),
             daSoll.GetBinBit(GetAnzahlBitAusgaenge()),

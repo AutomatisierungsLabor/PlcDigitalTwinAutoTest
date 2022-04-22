@@ -52,20 +52,20 @@ public class AutoTesterSilk
         Silk.ReferenzenUebergeben(_vmAutoTesterSilk, _datenstruktur, _testAutomat);
 
         _testAutomat.InfoAnzeigen("", TestAnzeige.CompilerStart, "");
-        _testAutomat.FuncRestartStopwatch();
+        _testAutomat.StopwatchRestart();
 
         (compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(_projektOrdner.ToString(), "test.ssc", ""));
 
         if (compilerlaufErfolgreich)
         {
-            _testAutomat.InfoAnzeigen($"{_testAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.CompilerErfolgreich, "");
-            _testAutomat.FuncRestartStopwatch();
+            _testAutomat.InfoAnzeigen($"{_testAutomat.StopwatchGetElapsedMilliseconds()}ms", TestAnzeige.CompilerErfolgreich, "");
+            _testAutomat.StopwatchRestart();
 
             System.Threading.Tasks.Task.Run(SilkTask, _cancellationTokenSource.Token);
         }
         else
         {
-            foreach (var error in compiler.Errors) _testAutomat.InfoAnzeigen($"{_testAutomat.GetElapsedMilliseconds()}ms", TestAnzeige.CompilerError, error.ToString());
+            foreach (var error in compiler.Errors) _testAutomat.InfoAnzeigen($"{_testAutomat.StopwatchGetElapsedMilliseconds()}ms", TestAnzeige.CompilerError, error.ToString());
         }
     }
     private void SilkTask() => Silk.RunProgram(_compiledProgram, _cancellationTokenSource.Token);
