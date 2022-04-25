@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using LibConfigPlc;
 using LibDatenstruktur;
 using System.Threading;
@@ -35,13 +34,25 @@ public partial class VmPlc : ObservableObject
         {
             DaZeilenBeschriften(DaCollection);
             DiZeilenBeschriften(DiCollection);
+            if (_configPlc != null)
+            {
+                if (_configPlc.Aa.AnzZeilen > 0) StringWertAa00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[0].Type, _configPlc.Aa.Zeilen[0].StartByte);
+                if (_configPlc.Aa.AnzZeilen > 1) StringWertAa01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[1].Type, _configPlc.Aa.Zeilen[1].StartByte);
+                if (_configPlc.Aa.AnzZeilen > 2) StringWertAa02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[2].Type, _configPlc.Aa.Zeilen[2].StartByte);
+                if (_configPlc.Aa.AnzZeilen > 3) StringWertAa03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[3].Type, _configPlc.Aa.Zeilen[3].StartByte);
 
-            StringWertAi00 = "16#" + Convert.ToString((long)_datenstruktur.Ai[0], 16).PadLeft(2, '0').ToUpper();
+                if (_configPlc.Ai.AnzZeilen > 0) StringWertAi00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[0].Type, _configPlc.Ai.Zeilen[0].StartByte);
+                if (_configPlc.Ai.AnzZeilen > 1) StringWertAi01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[1].Type, _configPlc.Ai.Zeilen[1].StartByte);
+                if (_configPlc.Ai.AnzZeilen > 2) StringWertAi02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[2].Type, _configPlc.Ai.Zeilen[2].StartByte);
+                if (_configPlc.Ai.AnzZeilen > 3) StringWertAi03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[3].Type, _configPlc.Ai.Zeilen[3].StartByte);
+            }
 
-            StringWertDa0 = "16#" + Convert.ToString((long)_datenstruktur.Da[0], 16).PadLeft(2, '0').ToUpper();
-            StringWertDa1 = "16#" + Convert.ToString((long)_datenstruktur.Da[1], 16).PadLeft(2, '0').ToUpper();
-            StringWertDi0 = "16#" + Convert.ToString((long)_datenstruktur.Di[0], 16).PadLeft(2, '0').ToUpper();
-            StringWertDi1 = "16#" + Convert.ToString((long)_datenstruktur.Di[1], 16).PadLeft(2, '0').ToUpper();
+
+            StringWertDa0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, ConfigPlc.EaTypen.Byte, 0);
+            StringWertDa1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, ConfigPlc.EaTypen.Byte, 1);
+
+            StringWertDi0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, ConfigPlc.EaTypen.Byte, 0);
+            StringWertDi1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, ConfigPlc.EaTypen.Byte, 1);
 
             for (var i = 0; i < 8; i++)
             {
