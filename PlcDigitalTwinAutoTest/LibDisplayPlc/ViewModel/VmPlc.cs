@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using LibConfigPlc;
 using LibDatenstruktur;
 using System.Threading;
@@ -15,7 +16,7 @@ public partial class VmPlc : ObservableObject
     private readonly ConfigPlc _configPlc;
     private readonly Datenstruktur _datenstruktur;
     private readonly CancellationTokenSource _cancellationTokenSource;
-    
+
     public VmPlc(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
@@ -35,6 +36,11 @@ public partial class VmPlc : ObservableObject
             DaZeilenBeschriften(DaCollection);
             DiZeilenBeschriften(DiCollection);
 
+            StringWertDa0 = "16#" + Convert.ToString((long)_datenstruktur.Da[0], 16).PadLeft(2, '0').ToUpper();
+            StringWertDa1 = "16#" + Convert.ToString((long)_datenstruktur.Da[1], 16).PadLeft(2, '0').ToUpper();
+            StringWertDi0 = "16#" + Convert.ToString((long)_datenstruktur.Di[0], 16).PadLeft(2, '0').ToUpper();
+            StringWertDi1 = "16#" + Convert.ToString((long)_datenstruktur.Di[1], 16).PadLeft(2, '0').ToUpper();
+
             for (var i = 0; i < 8; i++)
             {
                 DiCollection[i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, i), Brushes.Yellow, Brushes.DarkGray);
@@ -49,40 +55,44 @@ public partial class VmPlc : ObservableObject
             Thread.Sleep(10);
         }
     }
-    private void DaZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDatenpunkte)
+    private void DaZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDaDatenpunkte)
     {
-        if (vmDatenpunkte == null) return;
+        if (vmDaDatenpunkte == null) return;
 
         for (var i = 0; i < 20; i++)
         {
-            if (vmDatenpunkte[i] != null) vmDatenpunkte[i].DpVisibility = Visibility.Collapsed;
+            if (vmDaDatenpunkte[i] != null) vmDaDatenpunkte[i].DpVisibility = Visibility.Collapsed;
         }
+
+        if (_configPlc.Da.AnzZeilen == 0) return;
 
         foreach (var zeile in _configPlc.Da.Zeilen)
         {
             var index = zeile.StartBit + 10 * zeile.StartByte;
 
-            vmDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
-            vmDatenpunkte[index].DpKommentar = zeile.Kommentar;
-            vmDatenpunkte[index].DpVisibility = Visibility.Visible;
+            vmDaDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
+            vmDaDatenpunkte[index].DpKommentar = zeile.Kommentar;
+            vmDaDatenpunkte[index].DpVisibility = Visibility.Visible;
         }
     }
-    private void DiZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDatenpunkte)
+    private void DiZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDiDatenpunkte)
     {
-        if (vmDatenpunkte == null) return;
+        if (vmDiDatenpunkte == null) return;
 
         for (var i = 0; i < 20; i++)
         {
-            if (vmDatenpunkte[i] != null) vmDatenpunkte[i].DpVisibility = Visibility.Collapsed;
+            if (vmDiDatenpunkte[i] != null) vmDiDatenpunkte[i].DpVisibility = Visibility.Collapsed;
         }
+
+        if (_configPlc.Di.AnzZeilen == 0) return;
 
         foreach (var zeile in _configPlc.Di.Zeilen)
         {
             var index = zeile.StartBit + 10 * zeile.StartByte;
 
-            vmDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
-            vmDatenpunkte[index].DpKommentar = zeile.Kommentar;
-            vmDatenpunkte[index].DpVisibility = Visibility.Visible;
+            vmDiDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
+            vmDiDatenpunkte[index].DpKommentar = zeile.Kommentar;
+            vmDiDatenpunkte[index].DpVisibility = Visibility.Visible;
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿{
   "Zeilen": [
     {
-      "Byte": 0,
-      "Bit": 5,
+      "StartByte": 0,
+      "StartBit": 5,
       "Bezeichnung": "P4",
       "Kommentar": "Meldeleuchte (grün)"
     }

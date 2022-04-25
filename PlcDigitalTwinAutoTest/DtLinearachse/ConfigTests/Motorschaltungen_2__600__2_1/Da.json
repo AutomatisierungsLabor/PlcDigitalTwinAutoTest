@@ -1,20 +1,20 @@
 ﻿{
   "Zeilen": [
     {
-      "Byte": 0,
-      "Bit": 0,
+      "StartByte": 0,
+      "StartBit": 0,
       "Bezeichnung": "Q1",
       "Kommentar": "Linearachse Rechtslauf"
     },
     {
-      "Byte": 0,
-      "Bit": 1,
+      "StartByte": 0,
+      "StartBit": 1,
       "Bezeichnung": "Q2",
       "Kommentar": "Linearachse Linkslauf "
     },
     {
-      "Byte": 0,
-      "Bit": 5,
+      "StartByte": 0,
+      "StartBit": 5,
       "Bezeichnung": "P4",
       "Kommentar": "Meldeleuchte (grün)"
     }

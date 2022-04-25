@@ -18,4 +18,14 @@ public class Bitmuster
         var bitMuster = (byte)(1 << (i % 8));
         return (datenArray[ibyte] & bitMuster) == bitMuster;
     }
+    public static bool BitInByteArrayTesten(IReadOnlyList<byte> datenArray, int bytePosition, int bitPosition)
+    {
+        var bitMuster = (byte)(1 << bitPosition);
+        return (datenArray[bytePosition] & bitMuster) == bitMuster;
+    }
+    public static void SetBitmusterInArray(ref byte[] datenArray, int bytePosition, int bitPosition)
+    {
+        var bitMuster = (byte)(1 << bitPosition);
+        datenArray[bytePosition] |= bitMuster;
+    }
 }

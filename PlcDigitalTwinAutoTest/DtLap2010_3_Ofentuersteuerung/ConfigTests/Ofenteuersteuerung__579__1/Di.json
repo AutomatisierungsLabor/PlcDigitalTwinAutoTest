@@ -1,43 +1,43 @@
 ﻿{
   "Zeilen": [
     {
-      "Byte": 0,
-      "Bit": 0,
+      "StartByte": 0,
+      "StartBit": 0,
       "Type": "Bit",
       "Bezeichnung": "B1",
       "Kommentar": "Endschalter Offen"
     },
     {
-      "Byte": 0,
-      "Bit": 1,
+      "StartByte": 0,
+      "StartBit": 1,
       "Type": "Bit",
       "Bezeichnung": "B2",
       "Kommentar": "Endschalter Geschlossen"
     },
     {
-      "Byte": 0,
-      "Bit": 2,
+      "StartByte": 0,
+      "StartBit": 2,
       "Type": "Bit",
       "Bezeichnung": "B3",
       "Kommentar": "Lichtschranke"
     },
     {
-      "Byte": 0,
-      "Bit": 3,
+      "StartByte": 0,
+      "StartBit": 3,
       "Type": "Bit",
       "Bezeichnung": "S1",
       "Kommentar": "Taster Halt"
     },
     {
-      "Byte": 0,
-      "Bit": 4,
+      "StartByte": 0,
+      "StartBit": 4,
       "Type": "Bit",
       "Bezeichnung": "S2",
       "Kommentar": "Taster Öffnen"
     },
     {
-      "Byte": 0,
-      "Bit": 5,
+      "StartByte": 0,
+      "StartBit": 5,
       "Type": "Bit",
       "Bezeichnung": "S3",
       "Kommentar": "Taster Schliessen"

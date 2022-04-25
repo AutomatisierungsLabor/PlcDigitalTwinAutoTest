@@ -1,64 +1,74 @@
 ﻿{
   "Zeilen": [
     {
-      "Byte": 0,
-      "Bit": 0,
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
       "Bezeichnung": "P1R",
-      "Kommentar": "Zeiger 1 - Rechts "
+      "Kommentar": "Zeiger 1 rechts"
     },
     {
-      "Byte": 0,
-      "Bit": 1,
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
       "Bezeichnung": "P1L",
-      "Kommentar": "Zeiger 1 - Links "
+      "Kommentar": "Zeiger 1 links"
     },
     {
-      "Byte": 0,
-      "Bit": 2,
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
       "Bezeichnung": "P2R",
-      "Kommentar": "Zeiger 2 - Rechts "
+      "Kommentar": "Zeiger 2 rechts"
     },
     {
-      "Byte": 0,
-      "Bit": 3,
+      "StartByte": 0,
+      "StartBit": 3,
+      "Type": "Bit",
       "Bezeichnung": "P2L",
-      "Kommentar": "Zeiger 2 - Links "
+      "Kommentar": "Zeiger 2 links"
     },
     {
-      "Byte": 0,
-      "Bit": 4,
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
       "Bezeichnung": "P3R",
-      "Kommentar": "Zeiger 3 - Rechts "
+      "Kommentar": "Zeiger 3 rechts"
     },
     {
-      "Byte": 0,
-      "Bit": 5,
+      "StartByte": 0,
+      "StartBit": 5,
+      "Type": "Bit",
       "Bezeichnung": "P3L",
-      "Kommentar": "Zeiger 3 - Links "
+      "Kommentar": "Zeiger 3 links"
     },
     {
-      "Byte": 0,
-      "Bit": 6,
+      "StartByte": 0,
+      "StartBit": 6,
+      "Type": "Bit",
       "Bezeichnung": "P4R",
-      "Kommentar": "Zeiger 4 - Rechts "
+      "Kommentar": "Zeiger 4 rechts"
     },
     {
-      "Byte": 0,
-      "Bit": 7,
+      "StartByte": 0,
+      "StartBit": 7,
+      "Type": "Bit",
       "Bezeichnung": "P4L",
-      "Kommentar": "Zeiger 4 - Links "
+      "Kommentar": "Zeiger 4 links"
     },
     {
-      "Byte": 1,
-      "Bit": 0,
+      "StartByte": 1,
+      "StartBit": 0,
+      "Type": "Bit",
       "Bezeichnung": "P5R",
-      "Kommentar": "Zeiger 5 - Rechts "
+      "Kommentar": "Zeiger 5 rechts"
     },
     {
-      "Byte": 1,
-      "Bit": 1,
+      "StartByte": 1,
+      "StartBit": 1,
+      "Type": "Bit",
       "Bezeichnung": "P5L",
-      "Kommentar": "Zeiger 5 - Links "
+      "Kommentar": "Zeiger 5 links"
     }
   ]
 }
