@@ -100,15 +100,6 @@ public partial class VmPlc
     [ObservableProperty] private Brush _brushDi16;
     [ObservableProperty] private Brush _brushDi17;
 
-    [ObservableProperty] private Visibility _visibilityAi00;
-    [ObservableProperty] private Visibility _visibilityAi01;
-    [ObservableProperty] private Visibility _visibilityAi02;
-    [ObservableProperty] private Visibility _visibilityAi03;
-    [ObservableProperty] private Visibility _visibilityAi04;
-    [ObservableProperty] private Visibility _visibilityAi05;
-    [ObservableProperty] private Visibility _visibilityAi06;
-    [ObservableProperty] private Visibility _visibilityAi07;
-
 
     [ObservableProperty] private Visibility _visibilityDi00;
     [ObservableProperty] private Visibility _visibilityDi01;

@@ -31,7 +31,7 @@ public partial class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
         if (_modelNadeltelegraph == null) return;
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        AsciiCode = $"ASCII Code: {_modelNadeltelegraph.Zeichen} (16#{_modelNadeltelegraph.Zeichen:X2})";
+        StringAsciiCode = $"ASCII Code: {_modelNadeltelegraph.AsciiCode} (16#{_modelNadeltelegraph.AsciiCode:X2})";
 
         _modelNadeltelegraph.AlleZeiger[0].SetPosition(_modelNadeltelegraph.P1R, _modelNadeltelegraph.P1L);
         _modelNadeltelegraph.AlleZeiger[1].SetPosition(_modelNadeltelegraph.P2R, _modelNadeltelegraph.P2L);

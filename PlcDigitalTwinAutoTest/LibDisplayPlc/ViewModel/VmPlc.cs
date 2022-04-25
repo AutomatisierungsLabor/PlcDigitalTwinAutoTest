@@ -36,6 +36,8 @@ public partial class VmPlc : ObservableObject
             DaZeilenBeschriften(DaCollection);
             DiZeilenBeschriften(DiCollection);
 
+            StringWertAi00 = "16#" + Convert.ToString((long)_datenstruktur.Ai[0], 16).PadLeft(2, '0').ToUpper();
+
             StringWertDa0 = "16#" + Convert.ToString((long)_datenstruktur.Da[0], 16).PadLeft(2, '0').ToUpper();
             StringWertDa1 = "16#" + Convert.ToString((long)_datenstruktur.Da[1], 16).PadLeft(2, '0').ToUpper();
             StringWertDi0 = "16#" + Convert.ToString((long)_datenstruktur.Di[0], 16).PadLeft(2, '0').ToUpper();

@@ -100,7 +100,7 @@ public partial class TabZeichnen
         BuchstabeZeichnen(15.4, 23.9, libWpf, vmNadeltelegraph.ButtonTasterCommand, "W");
         BuchstabeZeichnen(13, 26.5, libWpf, vmNadeltelegraph.ButtonTasterCommand, "Y");
 
-        libWpf.TextSetContent(20, 15, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.BlueViolet, nameof(vmNadeltelegraph.AsciiCode));
+        libWpf.TextSetContent(20, 15, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.BlueViolet, nameof(vmNadeltelegraph.StringAsciiCode));
 
         //  libWpf.PlcError();
     }

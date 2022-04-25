@@ -37,7 +37,7 @@ public partial class VmNadeltelegraph
     [ObservableProperty] private double _winkelZeiger4;
     [ObservableProperty] private double _winkelZeiger5;
 
-    [ObservableProperty] private string _asciiCode;
+    [ObservableProperty] private string _stringAsciiCode;
 
     [ObservableProperty] private Visibility _visibilityLinieRechtsOben1;
     [ObservableProperty] private Visibility _visibilityLinieRechtsOben2;

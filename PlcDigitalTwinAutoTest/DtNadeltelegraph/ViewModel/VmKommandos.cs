@@ -33,7 +33,7 @@ public partial class VmNadeltelegraph
         ClickModeBuchstabeW = TasterGedrueckt(taster, 'W', ClickModeBuchstabeW);
         ClickModeBuchstabeY = TasterGedrueckt(taster, 'Y', ClickModeBuchstabeY);
 
-        _modelNadeltelegraph.Zeichen = TasterAsciiCode == 0 ? (byte)0x20 : TasterAsciiCode;
+        _modelNadeltelegraph.AsciiCode = TasterAsciiCode == 0 ? (byte)0x20 : TasterAsciiCode;
     }
     private ClickMode TasterGedrueckt(string taster, char buchstabe, ClickMode clickMode)
     {
