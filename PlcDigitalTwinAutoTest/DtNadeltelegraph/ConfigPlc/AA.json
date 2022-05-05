@@ -1,12 +1,4 @@
 ﻿{
   "Zeilen": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "AnzahlBit": 32,
-      "Type": "Bit",
-      "Bezeichnung": "AA0",
-      "Kommentar": "Dummy analog Ausgang 0"
-    }
   ]
 }

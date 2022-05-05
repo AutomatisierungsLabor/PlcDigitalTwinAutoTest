@@ -1,14 +1,14 @@
 ﻿{
   "Zeilen": [
     {
-      "Byte": 0,
-      "Bit": 2,
+      "StartByte": 0,
+      "StartBit": 2,
       "Bezeichnung": "S2",
       "Kommentar": "Taster Aus ( ⓪ )"
     },
     {
-      "Byte": 0,
-      "Bit": 3,
+      "StartByte": 0,
+      "StartBit": 3,
       "Bezeichnung": "S1",
       "Kommentar": "Taster Ein ( ① )"
     }

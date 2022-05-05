@@ -14,13 +14,14 @@ public partial class DisplayPlc
         var grid = new Grid();
         Content = grid;
 
-        Width = 800;
         Height = 900;
+
+        if (configPlc.Aa.AnzZeilen > 0 || configPlc.Ai.AnzZeilen > 0) Width = 1000; else Width = 650;
 
         var viewModel = new ViewModel.VmPlc(datenstruktur, configPlc, cancellationTokenSource);
 
         var plcZeichnen = new PlcZeichnen.PlcZeichnen(grid);
-        plcZeichnen.Zeichnen();
+        plcZeichnen.Zeichnen(configPlc);
 
         DataContext = viewModel;
 
@@ -39,7 +40,6 @@ public partial class DisplayPlc
     {
         Show();
         Title = "PLC";
-        MaxWidth = 700;
         FensterAktiv = true;
     }
 }

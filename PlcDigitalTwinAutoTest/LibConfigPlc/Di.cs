@@ -21,6 +21,16 @@ public class Di : EaConfig<DiEinstellungen>
                 Log.Debug("DI: Ungültige Option für Byte/Bit; Byte: " + zeile.StartByte + "Bit: " + zeile.StartBit);
                 ConfigOk = false;
             }
+            if (zeile.Bezeichnung.Length == 0)
+            {
+                Log.Debug($"DI: Bezeichnung fehlt! -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit} Kommentar: {zeile.Kommentar} Bezeichnung: {zeile.Bezeichnung}");
+                ConfigOk = false;
+            }
+            if (zeile.Kommentar.Length == 0)
+            {
+                Log.Debug($"DI: Kommentar fehlt! -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit} Kommentar: {zeile.Kommentar} Bezeichnung: {zeile.Bezeichnung}");
+                ConfigOk = false;
+            }
 
             // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (zeile.Type)
@@ -46,8 +56,11 @@ public class Di : EaConfig<DiEinstellungen>
                     if (zeile.StartBit > 0) LogConfigError(zeile);
                     if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
-                case ConfigPlc.EaTypen.NichtBelegt: break;
-                default: LogConfigError(zeile); break;
+                case ConfigPlc.EaTypen.NichtBelegt:
+                default:
+                    Log.Debug($"DI: Falsche Type: -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit} Kommentar: {zeile.Kommentar} Bezeichnung: {zeile.Bezeichnung}");
+                    ConfigOk = false;
+                    break;
             }
         }
 
@@ -56,7 +69,7 @@ public class Di : EaConfig<DiEinstellungen>
 
     private void LogConfigError(DiEinstellungen zeile)
     {
-        Log.Debug($"DI: Kollision -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit}");
+        Log.Debug($"DI: Kollision -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit} Kommentar: {zeile.Kommentar} Bezeichnung: {zeile.Bezeichnung}");
         ConfigOk = false;
     }
 }

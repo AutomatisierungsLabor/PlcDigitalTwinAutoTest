@@ -18,6 +18,7 @@ public class DatenRangieren
         if (_datenstruktur.SimulationAktiv())
         {
             _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _schleifmaschine.B1, _schleifmaschine.F1, _schleifmaschine.F2, _schleifmaschine.S0, _schleifmaschine.S1, _schleifmaschine.S2, _schleifmaschine.S3, _schleifmaschine.S4);
+            _datenstruktur.SetInt(DatenBereich.Ai, 0, LibPlcTools.Simatic.Analog_2_Int16(_schleifmaschine.DrehzahlSchleifmaschine, 3000));  // 0...3000U/min entspricht 0..100% 
         }
         else
         {

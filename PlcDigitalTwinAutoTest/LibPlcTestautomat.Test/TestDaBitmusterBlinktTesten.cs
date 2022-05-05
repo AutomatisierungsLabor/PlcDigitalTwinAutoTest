@@ -14,11 +14,11 @@ public class TestDaBitmusterBlinktTesten
 
     [Theory]
     [InlineData(1, 1, "T#20ms", 0.5, 2, 0.2, "T#300ms", "kein TestKommentar", 10, 20, 1, TestAnzeige.Erfolgreich)]
-    [InlineData(1, 1, "T#40ms", 0.5, 2, 0.1, "T#300ms", "kein TestKommentar", 20, 40, 1, TestAnzeige.Erfolgreich)]
-    [InlineData(1, 1, "T#40ms", 0.25, 2, 0.1, "T#300ms", "kein TestKommentar", 10, 40, 1, TestAnzeige.Erfolgreich)]
-    [InlineData(1, 1, "T#40ms", 0.75, 2, 0.1, "T#300ms", "kein TestKommentar", 30, 40, 1, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 1, "T#40ms", 0.5, 2, 0.2, "T#300ms", "kein TestKommentar", 20, 40, 1, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 1, "T#40ms", 0.25, 2, 0.2, "T#300ms", "kein TestKommentar", 10, 40, 1, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 1, "T#40ms", 0.75, 2, 0.2, "T#300ms", "kein TestKommentar", 30, 40, 1, TestAnzeige.Erfolgreich)]
 
-    [InlineData(1, 2, "T#100ms", 0.5, 2, 0.1, "T#400ms", "kein TestKommentar", 25, 50, 1, TestAnzeige.Timeout)]   // Bitmuster != Bitmaske
+    [InlineData(1, 2, "T#100ms", 0.5, 2, 0.2, "T#400ms", "kein TestKommentar", 25, 50, 1, TestAnzeige.Timeout)]   // Bitmuster != Bitmaske
 
     public void TestsDaBitmusterBlinktTimeout(int bitMuster, int bitMaske, string periodendauer, float tastverhaeltnis, int anzahlPerioden, float toleranz, string timeout, string kommentar, int tEin, int tPeriodendauer, byte blinkerBitMuster, TestAnzeige testAnzeige)
     {

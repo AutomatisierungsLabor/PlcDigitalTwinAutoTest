@@ -44,4 +44,22 @@ public class TestBitmuster
     {
         Assert.Equal(expexted, Bitmuster.BitInByteArrayTesten(datenArray, i));
     }
+
+    [Theory]
+    [InlineData(new byte[] { 0x00, 0xff }, 0, 0, false)]
+    [InlineData(new byte[] { 0x00, 0xff }, 1, 7, true)]
+    public void TestsBytesUndBitInByteArray(IReadOnlyList<byte> datenArray, int bytePosition, int bitPosition, bool expexted)
+    {
+        Assert.Equal(expexted, Bitmuster.BitInByteArrayTesten(datenArray, bytePosition, bitPosition));
+    }
+
+    [Theory]
+    [InlineData(new byte[] { 0x00, 0x00 }, 0, 0)]
+    [InlineData(new byte[] { 0x00, 0x00 }, 1, 1)]
+    public void TestsBytesBitArray(ref byte[] datenArray, int bytePosition, int bitPosition)
+    {
+        Assert.False(Bitmuster.BitInByteArrayTesten(datenArray, bytePosition, bitPosition));
+        Bitmuster.SetBitmusterInArray(ref datenArray, bytePosition, bitPosition);
+        Assert.True(Bitmuster.BitInByteArrayTesten(datenArray, bytePosition, bitPosition));
+    }
 }

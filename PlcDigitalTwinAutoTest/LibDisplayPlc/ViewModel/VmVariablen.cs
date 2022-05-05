@@ -7,7 +7,7 @@ namespace LibDisplayPlc.ViewModel;
 public partial class VmPlc
 {
     public static Brush SetBrush(bool val, Brush farbeTrue, Brush farbeFalse) => val ? farbeTrue : farbeFalse;
-    
+
     [ObservableProperty] private Brush _brushDa00;
     [ObservableProperty] private Brush _brushDa01;
     [ObservableProperty] private Brush _brushDa02;
@@ -24,6 +24,9 @@ public partial class VmPlc
     [ObservableProperty] private Brush _brushDa15;
     [ObservableProperty] private Brush _brushDa16;
     [ObservableProperty] private Brush _brushDa17;
+
+  
+
 
     [ObservableProperty] private Visibility _visibilityDa00;
     [ObservableProperty] private Visibility _visibilityDa01;
@@ -76,15 +79,19 @@ public partial class VmPlc
     [ObservableProperty] private string _stringKommentarDa16;
     [ObservableProperty] private string _stringKommentarDa17;
 
+    [ObservableProperty] private string _stringWertDa0;
+    [ObservableProperty] private string _stringWertDa1;
+
+
     [ObservableProperty] private Brush _brushDi00;
     [ObservableProperty] private Brush _brushDi01;
     [ObservableProperty] private Brush _brushDi02;
     [ObservableProperty] private Brush _brushDi03;
     [ObservableProperty] private Brush _brushDi04;
     [ObservableProperty] private Brush _brushDi05;
-    [ObservableProperty] private Brush _brushDi06;  
-    [ObservableProperty] private Brush _brushDi07;  
-    [ObservableProperty] private Brush _brushDi10;  
+    [ObservableProperty] private Brush _brushDi06;
+    [ObservableProperty] private Brush _brushDi07;
+    [ObservableProperty] private Brush _brushDi10;
     [ObservableProperty] private Brush _brushDi11;
     [ObservableProperty] private Brush _brushDi12;
     [ObservableProperty] private Brush _brushDi13;
@@ -92,6 +99,7 @@ public partial class VmPlc
     [ObservableProperty] private Brush _brushDi15;
     [ObservableProperty] private Brush _brushDi16;
     [ObservableProperty] private Brush _brushDi17;
+
 
     [ObservableProperty] private Visibility _visibilityDi00;
     [ObservableProperty] private Visibility _visibilityDi01;
@@ -109,6 +117,43 @@ public partial class VmPlc
     [ObservableProperty] private Visibility _visibilityDi15;
     [ObservableProperty] private Visibility _visibilityDi16;
     [ObservableProperty] private Visibility _visibilityDi17;
+
+    [ObservableProperty] private string _stringWertAi00;
+    [ObservableProperty] private string _stringWertAi01;
+    [ObservableProperty] private string _stringWertAi02;
+    [ObservableProperty] private string _stringWertAi03;
+    [ObservableProperty] private string _stringWertAi04;
+    [ObservableProperty] private string _stringWertAi05;
+    [ObservableProperty] private string _stringWertAi06;
+    [ObservableProperty] private string _stringWertAi07;
+    
+    [ObservableProperty] private string _stringBezeichnungAi00;
+    [ObservableProperty] private string _stringBezeichnungAi01;
+    [ObservableProperty] private string _stringBezeichnungAi02;
+    [ObservableProperty] private string _stringBezeichnungAi03;
+    [ObservableProperty] private string _stringBezeichnungAi04;
+    [ObservableProperty] private string _stringBezeichnungAi05;
+    [ObservableProperty] private string _stringBezeichnungAi06;
+    [ObservableProperty] private string _stringBezeichnungAi07;
+
+
+    [ObservableProperty] private string _stringWertAa00;
+    [ObservableProperty] private string _stringWertAa01;
+    [ObservableProperty] private string _stringWertAa02;
+    [ObservableProperty] private string _stringWertAa03;
+    [ObservableProperty] private string _stringWertAa04;
+    [ObservableProperty] private string _stringWertAa05;
+    [ObservableProperty] private string _stringWertAa06;
+    [ObservableProperty] private string _stringWertAa07;
+
+    [ObservableProperty] private string _stringBezeichnungAa00;
+    [ObservableProperty] private string _stringBezeichnungAa01;
+    [ObservableProperty] private string _stringBezeichnungAa02;
+    [ObservableProperty] private string _stringBezeichnungAa03;
+    [ObservableProperty] private string _stringBezeichnungAa04;
+    [ObservableProperty] private string _stringBezeichnungAa05;
+    [ObservableProperty] private string _stringBezeichnungAa06;
+    [ObservableProperty] private string _stringBezeichnungAa07;
 
     [ObservableProperty] private string _stringBezeichnungDi00;
     [ObservableProperty] private string _stringBezeichnungDi01;
@@ -143,4 +188,7 @@ public partial class VmPlc
     [ObservableProperty] private string _stringKommentarDi15;
     [ObservableProperty] private string _stringKommentarDi16;
     [ObservableProperty] private string _stringKommentarDi17;
+
+    [ObservableProperty] private string _stringWertDi0;
+    [ObservableProperty] private string _stringWertDi1;
 }

@@ -1,8 +1,8 @@
 ﻿{
   "Zeilen": [
     {
-      "Byte": 0,
-      "Bit": 0,
+      "StartByte": 0,
+      "StartBit": 0,
       "Bezeichnung": "S1",
       "Kommentar": "Start"
     }

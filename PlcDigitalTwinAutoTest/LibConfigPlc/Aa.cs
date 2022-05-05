@@ -14,6 +14,17 @@ public class Aa : EaConfig<AaEinstellungen>
 
         foreach (var zeile in Zeilen)
         {
+            if (zeile.Bezeichnung.Length == 0)
+            {
+                Log.Debug($"AA: Bezeichnung fehlt! -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit} Kommentar: {zeile.Kommentar} Bezeichnung: {zeile.Bezeichnung}");
+                ConfigOk = false;
+            }
+            if (zeile.Kommentar.Length == 0)
+            {
+                Log.Debug($"AA: Kommentar fehlt! -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit} Kommentar: {zeile.Kommentar} Bezeichnung: {zeile.Bezeichnung}");
+                ConfigOk = false;
+            }
+
             // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (zeile.Type)
             {
@@ -36,8 +47,11 @@ public class Aa : EaConfig<AaEinstellungen>
                     if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 2, 0xFF)) LogConfigError(zeile);
                     if (LibPlcTools.Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 3, 0xFF)) LogConfigError(zeile);
                     break;
-                case ConfigPlc.EaTypen.NichtBelegt: break;
-                default: LogConfigError(zeile); break;
+                case ConfigPlc.EaTypen.NichtBelegt:
+                default:
+                    Log.Debug($"AA: Falsche Type: -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit} Kommentar: {zeile.Kommentar} Bezeichnung: {zeile.Bezeichnung}");
+                    ConfigOk = false;
+                    break;
             }
         }
 
@@ -45,7 +59,7 @@ public class Aa : EaConfig<AaEinstellungen>
     }
     private void LogConfigError(AaEinstellungen zeile)
     {
-        Log.Debug($"AA: Kollision -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit}");
+        Log.Debug($"AA: Kollision -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit} Kommentar: {zeile.Kommentar} Bezeichnung: {zeile.Bezeichnung}");
         ConfigOk = false;
     }
 }

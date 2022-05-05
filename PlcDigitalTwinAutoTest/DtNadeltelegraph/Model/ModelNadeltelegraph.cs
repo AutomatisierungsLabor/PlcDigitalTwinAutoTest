@@ -5,7 +5,7 @@ namespace DtNadeltelegraph.Model;
 
 public class ModelNadeltelegraph : BasePlcDtAt.BaseModel.BaseModel
 {
-    public byte Zeichen { get; set; }
+    public byte AsciiCode { get; set; }
     public bool P0 { get; set; }
     public bool P1L { get; set; }
     public bool P1R { get; set; }
@@ -26,7 +26,7 @@ public class ModelNadeltelegraph : BasePlcDtAt.BaseModel.BaseModel
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
-        Zeichen = 32;
+        AsciiCode = 32;
         for (var i = 0; i < 10; i++) AlleZeiger.Add(new Zeiger());
     }
     protected override void ModelThread() => _datenRangieren?.Rangieren();

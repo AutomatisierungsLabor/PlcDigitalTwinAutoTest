@@ -15,7 +15,7 @@ public partial class VmPlc : ObservableObject
     private readonly ConfigPlc _configPlc;
     private readonly Datenstruktur _datenstruktur;
     private readonly CancellationTokenSource _cancellationTokenSource;
-    
+
     public VmPlc(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
@@ -34,6 +34,25 @@ public partial class VmPlc : ObservableObject
         {
             DaZeilenBeschriften(DaCollection);
             DiZeilenBeschriften(DiCollection);
+            if (_configPlc != null)
+            {
+                if (_configPlc.Aa.AnzZeilen > 0) StringWertAa00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[0].Type, _configPlc.Aa.Zeilen[0].StartByte);
+                if (_configPlc.Aa.AnzZeilen > 1) StringWertAa01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[1].Type, _configPlc.Aa.Zeilen[1].StartByte);
+                if (_configPlc.Aa.AnzZeilen > 2) StringWertAa02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[2].Type, _configPlc.Aa.Zeilen[2].StartByte);
+                if (_configPlc.Aa.AnzZeilen > 3) StringWertAa03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[3].Type, _configPlc.Aa.Zeilen[3].StartByte);
+
+                if (_configPlc.Ai.AnzZeilen > 0) StringWertAi00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[0].Type, _configPlc.Ai.Zeilen[0].StartByte);
+                if (_configPlc.Ai.AnzZeilen > 1) StringWertAi01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[1].Type, _configPlc.Ai.Zeilen[1].StartByte);
+                if (_configPlc.Ai.AnzZeilen > 2) StringWertAi02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[2].Type, _configPlc.Ai.Zeilen[2].StartByte);
+                if (_configPlc.Ai.AnzZeilen > 3) StringWertAi03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[3].Type, _configPlc.Ai.Zeilen[3].StartByte);
+            }
+
+
+            StringWertDa0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, ConfigPlc.EaTypen.Byte, 0);
+            StringWertDa1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, ConfigPlc.EaTypen.Byte, 1);
+
+            StringWertDi0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, ConfigPlc.EaTypen.Byte, 0);
+            StringWertDi1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, ConfigPlc.EaTypen.Byte, 1);
 
             for (var i = 0; i < 8; i++)
             {
@@ -49,40 +68,44 @@ public partial class VmPlc : ObservableObject
             Thread.Sleep(10);
         }
     }
-    private void DaZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDatenpunkte)
+    private void DaZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDaDatenpunkte)
     {
-        if (vmDatenpunkte == null) return;
+        if (vmDaDatenpunkte == null) return;
 
         for (var i = 0; i < 20; i++)
         {
-            if (vmDatenpunkte[i] != null) vmDatenpunkte[i].DpVisibility = Visibility.Collapsed;
+            if (vmDaDatenpunkte[i] != null) vmDaDatenpunkte[i].DpVisibility = Visibility.Collapsed;
         }
+
+        if (_configPlc.Da.AnzZeilen == 0) return;
 
         foreach (var zeile in _configPlc.Da.Zeilen)
         {
             var index = zeile.StartBit + 10 * zeile.StartByte;
 
-            vmDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
-            vmDatenpunkte[index].DpKommentar = zeile.Kommentar;
-            vmDatenpunkte[index].DpVisibility = Visibility.Visible;
+            vmDaDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
+            vmDaDatenpunkte[index].DpKommentar = zeile.Kommentar;
+            vmDaDatenpunkte[index].DpVisibility = Visibility.Visible;
         }
     }
-    private void DiZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDatenpunkte)
+    private void DiZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDiDatenpunkte)
     {
-        if (vmDatenpunkte == null) return;
+        if (vmDiDatenpunkte == null) return;
 
         for (var i = 0; i < 20; i++)
         {
-            if (vmDatenpunkte[i] != null) vmDatenpunkte[i].DpVisibility = Visibility.Collapsed;
+            if (vmDiDatenpunkte[i] != null) vmDiDatenpunkte[i].DpVisibility = Visibility.Collapsed;
         }
+
+        if (_configPlc.Di.AnzZeilen == 0) return;
 
         foreach (var zeile in _configPlc.Di.Zeilen)
         {
             var index = zeile.StartBit + 10 * zeile.StartByte;
 
-            vmDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
-            vmDatenpunkte[index].DpKommentar = zeile.Kommentar;
-            vmDatenpunkte[index].DpVisibility = Visibility.Visible;
+            vmDiDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
+            vmDiDatenpunkte[index].DpKommentar = zeile.Kommentar;
+            vmDiDatenpunkte[index].DpVisibility = Visibility.Visible;
         }
     }
 }
