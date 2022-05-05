@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
+    <ProjectReference Include="..\LibConfigDt\LibConfigDt.csproj" />
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
     <ProjectReference Include="..\LibPlcTools\LibPlcTools.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />

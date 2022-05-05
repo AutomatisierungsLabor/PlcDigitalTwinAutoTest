@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Windows;
-using LibConfigPlc;
+using LibConfigDt;
 
 namespace LibAutoTestSilk.ViewModel;
 
 public partial class VmAutoTesterSilk
 {
-    private ObservableCollection<DaEinstellungen> _daZeilenAlt = new();
-    private ObservableCollection<DiEinstellungen> _diZeilenAlt = new();
+    //  private ObservableCollection<DaEinstellungen> _daZeilenAlt = new();
+    //  private ObservableCollection<DiEinstellungen> _diZeilenAlt = new();
 
-    internal void DataGridBeschriften(DirectoryInfo ordnerAktuellesProjekt, ConfigPlc configPlc)
+    internal void DataGridBeschriften(DirectoryInfo ordnerAktuellesProjekt, ConfigDt configDt)
     {
         try
         {
@@ -26,11 +23,13 @@ public partial class VmAutoTesterSilk
             throw;
         }
 
-        TabBeschriftungDa(configPlc.Da.Zeilen, DaCollection);
-        TabBeschrifungDi(configPlc.Di.Zeilen, DiCollection);
+        //   TabBeschriftungDa(configPlc.Da.Zeilen, DaCollection);
+        //   TabBeschrifungDi(configPlc.Di.Zeilen, DiCollection);
 
+        // TODO!
         AlleDpAktualisieren();
     }
+    /*
     private void TabBeschriftungDa(ObservableCollection<DaEinstellungen> daZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes)
     {
         if (_daZeilenAlt == daZeilen) return;
@@ -61,4 +60,5 @@ public partial class VmAutoTesterSilk
             vmDatenpunktes[bitPos].DpBezeichnung = zeile.Bezeichnung;
         }
     }
+    */
 }

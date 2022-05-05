@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using LibConfigPlc;
+using LibConfigDt;
 using LibDatenstruktur;
 using System.Threading;
 using System.Windows;
@@ -12,16 +12,16 @@ public partial class VmPlc : ObservableObject
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-    private readonly ConfigPlc _configPlc;
+    private readonly ConfigDt _configDt;
     private readonly Datenstruktur _datenstruktur;
     private readonly CancellationTokenSource _cancellationTokenSource;
 
-    public VmPlc(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
+    public VmPlc(Datenstruktur datenstruktur, ConfigDt configDt, CancellationTokenSource cancellationTokenSource)
     {
         Log.Debug("Konstruktor - startet");
 
         _datenstruktur = datenstruktur;
-        _configPlc = configPlc;
+        _configDt = configDt;
         _cancellationTokenSource = cancellationTokenSource;
 
         AlleDpFuellen();
@@ -34,25 +34,25 @@ public partial class VmPlc : ObservableObject
         {
             DaZeilenBeschriften(DaCollection);
             DiZeilenBeschriften(DiCollection);
-            if (_configPlc != null)
+            if (_configDt != null)
             {
-                if (_configPlc.Aa.AnzZeilen > 0) StringWertAa00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[0].Type, _configPlc.Aa.Zeilen[0].StartByte);
-                if (_configPlc.Aa.AnzZeilen > 1) StringWertAa01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[1].Type, _configPlc.Aa.Zeilen[1].StartByte);
-                if (_configPlc.Aa.AnzZeilen > 2) StringWertAa02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[2].Type, _configPlc.Aa.Zeilen[2].StartByte);
-                if (_configPlc.Aa.AnzZeilen > 3) StringWertAa03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configPlc.Aa.Zeilen[3].Type, _configPlc.Aa.Zeilen[3].StartByte);
+                if (_configDt.GetAnzahlAa() > 0) StringWertAa00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge[0].Type, _configDt.DtConfig.AnalogeEingaenge[0].StartByte);
+                if (_configDt.GetAnzahlAa() > 1) StringWertAa01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge[1].Type, _configDt.DtConfig.AnalogeAusgaenge[1].StartByte);
+                if (_configDt.GetAnzahlAa() > 2) StringWertAa02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge[2].Type, _configDt.DtConfig.AnalogeAusgaenge[2].StartByte);
+                if (_configDt.GetAnzahlAa() > 3) StringWertAa03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge[3].Type, _configDt.DtConfig.AnalogeAusgaenge[3].StartByte);
 
-                if (_configPlc.Ai.AnzZeilen > 0) StringWertAi00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[0].Type, _configPlc.Ai.Zeilen[0].StartByte);
-                if (_configPlc.Ai.AnzZeilen > 1) StringWertAi01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[1].Type, _configPlc.Ai.Zeilen[1].StartByte);
-                if (_configPlc.Ai.AnzZeilen > 2) StringWertAi02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[2].Type, _configPlc.Ai.Zeilen[2].StartByte);
-                if (_configPlc.Ai.AnzZeilen > 3) StringWertAi03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configPlc.Ai.Zeilen[3].Type, _configPlc.Ai.Zeilen[3].StartByte);
+                if (_configDt.GetAnzahlAi() > 0) StringWertAi00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge[0].Type, _configDt.DtConfig.AnalogeEingaenge[0].StartByte);
+                if (_configDt.GetAnzahlAi() > 1) StringWertAi01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge[1].Type, _configDt.DtConfig.AnalogeEingaenge[1].StartByte);
+                if (_configDt.GetAnzahlAi() > 2) StringWertAi02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge[2].Type, _configDt.DtConfig.AnalogeEingaenge[2].StartByte);
+                if (_configDt.GetAnzahlAi() > 3) StringWertAi03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge[3].Type, _configDt.DtConfig.AnalogeEingaenge[3].StartByte);
             }
 
 
-            StringWertDa0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, ConfigPlc.EaTypen.Byte, 0);
-            StringWertDa1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, ConfigPlc.EaTypen.Byte, 1);
+            StringWertDa0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, EaTypen.Byte, 0);
+            StringWertDa1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, EaTypen.Byte, 1);
 
-            StringWertDi0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, ConfigPlc.EaTypen.Byte, 0);
-            StringWertDi1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, ConfigPlc.EaTypen.Byte, 1);
+            StringWertDi0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, EaTypen.Byte, 0);
+            StringWertDi1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, EaTypen.Byte, 1);
 
             for (var i = 0; i < 8; i++)
             {
@@ -77,14 +77,14 @@ public partial class VmPlc : ObservableObject
             if (vmDaDatenpunkte[i] != null) vmDaDatenpunkte[i].DpVisibility = Visibility.Collapsed;
         }
 
-        if (_configPlc.Da.AnzZeilen == 0) return;
+        if (_configDt.GetAnzahlDa()== 0) return;
 
-        foreach (var zeile in _configPlc.Da.Zeilen)
+        foreach (var digitaleAusgaenge in _configDt.DtConfig.DigitaleAusgaenge)
         {
-            var index = zeile.StartBit + 10 * zeile.StartByte;
+            var index = digitaleAusgaenge.StartBit + 10 * digitaleAusgaenge.StartByte;
 
-            vmDaDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
-            vmDaDatenpunkte[index].DpKommentar = zeile.Kommentar;
+            vmDaDatenpunkte[index].DpBezeichnung = digitaleAusgaenge.Bezeichnung;
+            vmDaDatenpunkte[index].DpKommentar = digitaleAusgaenge.Kommentar;
             vmDaDatenpunkte[index].DpVisibility = Visibility.Visible;
         }
     }
@@ -97,14 +97,14 @@ public partial class VmPlc : ObservableObject
             if (vmDiDatenpunkte[i] != null) vmDiDatenpunkte[i].DpVisibility = Visibility.Collapsed;
         }
 
-        if (_configPlc.Di.AnzZeilen == 0) return;
+        if (_configDt.GetAnzahlDi() == 0) return;
 
-        foreach (var zeile in _configPlc.Di.Zeilen)
+        foreach (var digitaleEingaenge in _configDt.DtConfig.DigitaleEingaenge)
         {
-            var index = zeile.StartBit + 10 * zeile.StartByte;
+            var index = digitaleEingaenge.StartBit + 10 * digitaleEingaenge.StartByte;
 
-            vmDiDatenpunkte[index].DpBezeichnung = zeile.Bezeichnung;
-            vmDiDatenpunkte[index].DpKommentar = zeile.Kommentar;
+            vmDiDatenpunkte[index].DpBezeichnung = digitaleEingaenge.Bezeichnung;
+            vmDiDatenpunkte[index].DpKommentar = digitaleEingaenge.Kommentar;
             vmDiDatenpunkte[index].DpVisibility = Visibility.Visible;
         }
     }

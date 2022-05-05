@@ -24,16 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ConfigPlc\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\DA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\DI.json">
+    <None Update="ConfigDt\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Blinker__594__1\AA.json">
@@ -46,6 +37,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Blinker__594__1\DI.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ConfigTests\Blinker__594__1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Blinker__594__1\EaBelegung.json">
