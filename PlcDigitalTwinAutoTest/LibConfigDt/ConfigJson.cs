@@ -21,7 +21,6 @@ public enum EaTypen
     SiemensAnalogwertSchieberegler
     // ReSharper restore UnusedMember.Global
 }
-
 public class DtConfig
 {
     public AaConfig[] AnalogeAusgaenge { get; set; }
@@ -38,7 +37,6 @@ public class AaConfig
     public string Bezeichnung { get; set; }
     public string Kommentar { get; set; }
 }
-
 public class AiConfig
 {
     public int StartByte { get; set; }
@@ -55,7 +53,6 @@ public class DaConfig
     public string Bezeichnung { get; set; }
     public string Kommentar { get; set; }
 }
-
 public class DiConfig
 {
     public int StartByte { get; set; }
@@ -64,7 +61,6 @@ public class DiConfig
     public string Bezeichnung { get; set; }
     public string Kommentar { get; set; }
 }
-
 public class Textbausteine
 {
     public int BausteinId { get; set; }
@@ -73,4 +69,3 @@ public class Textbausteine
     public string Kommentar { get; set; }
     public TextbausteineAnzeigen WasAnzeigen { get; set; }
 }
-

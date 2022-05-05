@@ -21,8 +21,18 @@ public class ConfigDt
         var pfadName = Path.Combine(_path, "DigitalTwin.json");
         JsonEinlesen(pfadName);
     }
-
-    public void JsonEinlesen(string pathName) => DtConfig = JsonConvert.DeserializeObject<DtConfig>(File.ReadAllText(pathName));
+    public void JsonEinlesen(string pathName)
+    {
+        try
+        {
+            DtConfig = JsonConvert.DeserializeObject<DtConfig>(File.ReadAllText(pathName));
+        }
+        catch (Exception e)
+        {
+            Log.Debug(e);
+            throw;
+        }
+    }
     public int GetAnzahlAa() => DtConfig.AnalogeAusgaenge.Length;
     public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.Length;
     public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.Length;

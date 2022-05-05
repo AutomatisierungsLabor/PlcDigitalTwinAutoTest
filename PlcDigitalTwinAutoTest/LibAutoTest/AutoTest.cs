@@ -26,7 +26,7 @@ public class AutoTest
     public WebBrowser WebBrowser { get; set; }
     public ViewModel.VmAutoTest VmAutoTest { get; set; }
     public AutoTesterSilk AutoTesterSilk { get; set; }
-    public LibTextbausteine.GetTextbausteine GetTextbausteine { get; set; }
+    public GetTextbausteine GetTextbausteine { get; set; }
 
     private Action<string> _cbPlcConfig;
     private readonly ConfigDt _configDt;
@@ -48,7 +48,7 @@ public class AutoTest
         VmAutoTest = new ViewModel.VmAutoTest(this, AutoTesterSilk);
         tabItem.DataContext = VmAutoTest;
 
-        GetTextbausteine = new LibTextbausteine.GetTextbausteine();
+        GetTextbausteine = new GetTextbausteine();
         GetTextbausteine.SetServerUrl("https://linderonline.at/fk/GetLehrstoffTextbausteine.php");
 
         try
@@ -106,7 +106,6 @@ public class AutoTest
 
         AutoTesterSilk.SetProjekt(AktuellesProjekt);
     }
-
     private async Task BeschreibungAnzeigen(ConfigDt configDt)
     {
         var html = new StringBuilder();
@@ -139,7 +138,6 @@ public class AutoTest
 
         WebBrowser.NavigateToString(html.ToString());
     }
-
     private async Task<LehrstoffTextbaustein> TextbasteineLaden(int id)
     {
         var baustein = new LehrstoffTextbaustein();
@@ -153,7 +151,6 @@ public class AutoTest
 
         return baustein;
     }
-
     public void ResetSelectedProject()
     {
         VmAutoTest.EnableTasterStart = false;
