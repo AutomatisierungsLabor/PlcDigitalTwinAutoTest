@@ -1,5 +1,5 @@
 {
-    "AnalogeAusgaenge": [],
+  "AnalogeAusgaenge": [],
   "AnalogeEingaenge": [
     {
       "StartByte": 0,
@@ -82,29 +82,6 @@
       "Kommentar": "Zeiger 5 links"
     }
   ],
-    "DigitaleEingaenge": [
-    ],
-    "Textbausteine": [
-        {
-            "BausteinId": "5",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - Head",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "10",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Hier könnte Ihre Werbung stehen!",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "8",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - </body>",
-            "WasAnzeigen": "NurInhalt"
-        }
-    ]
+  "DigitaleEingaenge": [],
+  "Textbausteine": []
 }

@@ -1,8 +1,8 @@
 ﻿using Contracts;
-using LibPlcTools;
-using System.Diagnostics;
 using LibHighResTimer;
+using LibPlcTools;
 using SoftCircuits.Silk;
+using System.Diagnostics;
 
 namespace LibPlcTestautomat;
 
@@ -48,7 +48,7 @@ public partial class TestAutomat
     private double _tastVerhaeltnisMax;
     private double _tastVerhaeltnisMin;
     private int _guterMesswert;
-    
+
     public void FuncBitmusterBlinktTesten(FunctionEventArgs args)
     {
         var stopwatch = new Stopwatch();
@@ -73,7 +73,7 @@ public partial class TestAutomat
         _tastVerhaeltnisMax = _tastVerhaeltnis * (1 + _toleranz);
         _tastVerhaeltnisMin = _tastVerhaeltnis * (1 - _toleranz);
 
-        
+
         var highResTimer = new HighResTimer
         {
             Interval = 1000,
@@ -81,7 +81,7 @@ public partial class TestAutomat
         };
         highResTimer.MicroTimerElapsed += EineMilliSekundeAbgelaufen;
 
-        
+
         while (stopwatch.ElapsedMilliseconds < _timeOut.DauerMs)
         {
             if (_anzFlanken > 200)

@@ -1,9 +1,9 @@
-﻿using System.Threading;
+﻿using DtLap2018_1_Silosteuerung.Model;
+using LibDatenstruktur;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtLap2018_1_Silosteuerung.Model;
-using LibDatenstruktur;
 using WpfAnimatedGif;
 
 namespace DtLap2018_1_Silosteuerung.ViewModel;
@@ -70,7 +70,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityEinY1, VisibilityAusY1) = SetVisibility(_modelLap2018.Y1);
         (VisibilityEinMaterialOben, VisibilityAusMaterialOben) = SetVisibility(true);
         (VisibilityEinMaterialUnten, VisibilityAusMaterialUnten) = SetVisibility(true);
-        
+
         MarginPositionWagen = new Thickness(_modelLap2018.Wagen.GetPosition().X, 0, BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
         MarginPostionWagenInhalt = new Thickness(_modelLap2018.Wagen.GetPosition().X, _modelLap2018.Wagen.GetFuellstand(), BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
 

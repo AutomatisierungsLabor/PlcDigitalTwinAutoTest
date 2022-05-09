@@ -21,7 +21,7 @@ public class ModelKata : BasePlcDtAt.BaseModel.BaseModel
     public bool P6 { get; set; }
     public bool P7 { get; set; }
     public bool P8 { get; set; }
-    
+
     private readonly DatenRangieren _datenRangieren;
 
     public ModelKata(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)

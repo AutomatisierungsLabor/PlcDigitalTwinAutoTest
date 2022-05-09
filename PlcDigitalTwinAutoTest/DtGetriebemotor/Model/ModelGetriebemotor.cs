@@ -28,7 +28,7 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
 
     private const double GeschwindigkeitGetriebemotorLangsam = 1;
     private const double GeschwindigkeitGetriebemotorSchnell = 2 * GeschwindigkeitGetriebemotorLangsam;
-    
+
     private readonly DatenRangieren _datenRangieren;
 
     public ModelGetriebemotor(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)

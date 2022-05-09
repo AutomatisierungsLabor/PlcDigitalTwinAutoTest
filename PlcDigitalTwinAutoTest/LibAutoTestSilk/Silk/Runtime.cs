@@ -1,6 +1,6 @@
-﻿using System.Threading;
-using Contracts;
+﻿using Contracts;
 using SoftCircuits.Silk;
+using System.Threading;
 
 namespace LibAutoTestSilk.Silk;
 

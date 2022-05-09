@@ -1,6 +1,6 @@
 {
-    "AnalogeAusgaenge": [],
-    "AnalogeEingaenge": [],
+  "AnalogeAusgaenge": [],
+  "AnalogeEingaenge": [],
   "DigitaleAusgaenge": [
     {
       "StartByte": 0,
@@ -137,7 +137,6 @@
       "Bezeichnung": "B5",
       "Kommentar": "Druckschalter Ölfilter (Öffner)"
     },
-
     {
       "StartByte": 0,
       "StartBit": 5,
@@ -174,27 +173,5 @@
       "Kommentar": "Taster Zyklinder"
     }
   ],
-    "Textbausteine": [
-        {
-            "BausteinId": "5",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - Head",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "10",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Hier könnte Ihre Werbung stehen!",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "8",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - </body>",
-            "WasAnzeigen": "NurInhalt"
-        }
-    ]
+  "Textbausteine": []
 }

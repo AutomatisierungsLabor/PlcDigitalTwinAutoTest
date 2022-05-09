@@ -98,21 +98,27 @@
   ],
   "Textbausteine": [
     {
-      "BausteinId": "5",
+       "BausteinId": "5",
+                    "PrefixH1":"",
+                    "PrefixH2":"",
       "VorbereitungId": "0",
       "Test": "-",
       "Kommentar": "Html - Head",
       "WasAnzeigen": "NurInhalt"
     },
     {
-      "BausteinId": "10",
+       "BausteinId": "10",
+                    "PrefixH1":"",
+                    "PrefixH2":"",
       "VorbereitungId": "0",
       "Test": "-",
       "Kommentar": "Hier könnte Ihre Werbung stehen!",
       "WasAnzeigen": "NurInhalt"
     },
     {
-      "BausteinId": "8",
+       "BausteinId": "8",
+                    "PrefixH1":"",
+                    "PrefixH2":"",
       "VorbereitungId": "0",
       "Test": "-",
       "Kommentar": "Html - </body>",

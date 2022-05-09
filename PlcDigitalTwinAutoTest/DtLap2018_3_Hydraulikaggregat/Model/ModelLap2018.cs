@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
+using System.Diagnostics;
 
 namespace DtLap2018_3_Hydraulikaggregat.Model;
 
@@ -81,7 +81,7 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
         if (Druck > DruckMin) Pegel *= PegelVerlust;
         B1 = Pegel > PegelMin;
 
-       
+
 
 
 

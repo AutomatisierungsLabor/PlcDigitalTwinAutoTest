@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using LibConfigDt;
+﻿using LibConfigDt;
 using LibDatenstruktur;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Collections.Generic;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace LibDisplayPlc.ViewModel;
 
@@ -77,7 +77,7 @@ public partial class VmPlc : ObservableObject
             if (vmDaDatenpunkte[i] != null) vmDaDatenpunkte[i].DpVisibility = Visibility.Collapsed;
         }
 
-        if (_configDt.GetAnzahlDa()== 0) return;
+        if (_configDt.GetAnzahlDa() == 0) return;
 
         foreach (var digitaleAusgaenge in _configDt.DtConfig.DigitaleAusgaenge)
         {

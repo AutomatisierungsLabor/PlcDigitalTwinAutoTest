@@ -46,7 +46,7 @@ public partial class LibWpf
             Stroke = stroke,
             StrokeThickness = strokeThickness,
             Points = polyPoints,
-            RenderTransformOrigin = new System.Windows.Point(0.5, 0.5 )
+            RenderTransformOrigin = new System.Windows.Point(0.5, 0.5)
         };
 
         var b = new Binding($"{bindingWinkel}");

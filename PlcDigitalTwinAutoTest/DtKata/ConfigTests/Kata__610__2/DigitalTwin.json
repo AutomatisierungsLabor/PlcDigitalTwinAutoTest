@@ -1,41 +1,43 @@
 {
     "AnalogeAusgaenge": [],
     "AnalogeEingaenge": [],
-  "DigitaleAusgaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "Type": "Bit",
-      "Bezeichnung": "P1",
-      "Kommentar": "Meldeleuchte grün"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "P2",
-      "Kommentar": "Meldeleuchte grün"
-    }
-  ],
-  "DigitaleEingaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "Type": "Bit",
-      "Bezeichnung": "S1",
-      "Kommentar": "Taster"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "S2",
-      "Kommentar": "Taster"
-    }
-  ],
+    "DigitaleAusgaenge": [
+        {
+            "StartByte": 0,
+            "StartBit": 0,
+            "Type": "Bit",
+            "Bezeichnung": "P1",
+            "Kommentar": "Meldeleuchte grün"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 1,
+            "Type": "Bit",
+            "Bezeichnung": "P2",
+            "Kommentar": "Meldeleuchte grün"
+        }
+    ],
+    "DigitaleEingaenge": [
+        {
+            "StartByte": 0,
+            "StartBit": 0,
+            "Type": "Bit",
+            "Bezeichnung": "S1",
+            "Kommentar": "Taster"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 1,
+            "Type": "Bit",
+            "Bezeichnung": "S2",
+            "Kommentar": "Taster"
+        }
+    ],
     "Textbausteine": [
         {
             "BausteinId": "5",
+            "PrefixH1": "",
+            "PrefixH2": "",
             "VorbereitungId": "0",
             "Test": "-",
             "Kommentar": "Html - Head",
@@ -43,6 +45,8 @@
         },
         {
             "BausteinId": "10",
+            "PrefixH1": "",
+            "PrefixH2": "",
             "VorbereitungId": "0",
             "Test": "-",
             "Kommentar": "Hier könnte Ihre Werbung stehen!",
@@ -50,6 +54,8 @@
         },
         {
             "BausteinId": "8",
+            "PrefixH1": "",
+            "PrefixH2": "",
             "VorbereitungId": "0",
             "Test": "-",
             "Kommentar": "Html - </body>",

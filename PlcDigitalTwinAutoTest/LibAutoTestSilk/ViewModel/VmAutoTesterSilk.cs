@@ -1,15 +1,15 @@
 using Contracts;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Windows;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace LibAutoTestSilk.ViewModel;
 
 public partial class VmAutoTesterSilk : ObservableObject
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-    
+
     private readonly CancellationToken _cancellationTokenSource;
 
     public VmAutoTesterSilk(CancellationToken cancellationTokenSource)

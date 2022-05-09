@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using Microsoft.Toolkit.Mvvm.Input;
+﻿using Microsoft.Toolkit.Mvvm.Input;
+using System.Windows;
 
 namespace LibAutoTest.ViewModel;
 

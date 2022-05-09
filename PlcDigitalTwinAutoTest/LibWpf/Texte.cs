@@ -29,7 +29,7 @@ public partial class LibWpf
             HorizontalAlignment = horizontal,
             VerticalAlignment = vertical
         };
-        
+
         label.BindingImageSetVisibility(visibility);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
@@ -47,7 +47,7 @@ public partial class LibWpf
         label.BindingSetContent(bindingContent);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
-    public void TextSetContendSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, string bindingContent,string bindingVisibility)
+    public void TextSetContendSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, string bindingContent, string bindingVisibility)
     {
         var label = new Label
         {
@@ -81,7 +81,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, text);
     }
-    public void TextVerticalMarginWidthSetTextSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize,Thickness margin,  int width, Brush farbe, string bindingText, string bindingVisability)
+    public void TextVerticalMarginWidthSetTextSetVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Thickness margin, int width, Brush farbe, string bindingText, string bindingVisability)
     {
         var text = new TextBlock
         {

@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Windows;
 using System.Windows.Media;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace LibDisplayPlc.ViewModel;
 
@@ -25,7 +25,7 @@ public partial class VmPlc
     [ObservableProperty] private Brush _brushDa16;
     [ObservableProperty] private Brush _brushDa17;
 
-  
+
 
 
     [ObservableProperty] private Visibility _visibilityDa00;
@@ -126,7 +126,7 @@ public partial class VmPlc
     [ObservableProperty] private string _stringWertAi05;
     [ObservableProperty] private string _stringWertAi06;
     [ObservableProperty] private string _stringWertAi07;
-    
+
     [ObservableProperty] private string _stringBezeichnungAi00;
     [ObservableProperty] private string _stringBezeichnungAi01;
     [ObservableProperty] private string _stringBezeichnungAi02;

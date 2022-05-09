@@ -1,123 +1,129 @@
 {
-  "AnalogeAusgaenge": [],
-  "AnalogeEingaenge": [
-    {
-      "StartByte": 0,
-      "AnzahlBit": 16,
-      "Type": "Word",
-      "Bezeichnung": "Pegel",
-      "Kommentar": "Pegel 0-100"
-    },
-    {
-      "StartByte": 2,
-      "AnzahlBit": 16,
-      "Type": "SiemensAnalogwertProzent",
-      "Bezeichnung": "Pegel",
-      "Kommentar": "Pegel"
-    }
-  ],
-  "DigitaleAusgaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "Type": "Bit",
-      "Bezeichnung": "K1",
-      "Kommentar": "Ventil Füllen"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "K2",
-      "Kommentar": "Vereinzeln"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Type": "Bit",
-      "Bezeichnung": "P1",
-      "Kommentar": "Meldeleuchte Betrieb"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Type": "Bit",
-      "Bezeichnung": "P2",
-      "Kommentar": "Meldeleuchte Störung"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 4,
-      "Type": "Bit",
-      "Bezeichnung": "Q1",
-      "Kommentar": "Motor Förderband"
-    }
-  ],
-  "DigitaleEingaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "Type": "Bit",
-      "Bezeichnung": "B1",
-      "Kommentar": "Position Flasche"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "F1",
-      "Kommentar": "Thermorelais"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Type": "Bit",
-      "Bezeichnung": "S1",
-      "Kommentar": "Taster Start"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Type": "Bit",
-      "Bezeichnung": "S2",
-      "Kommentar": "Taster Stop"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 4,
-      "Type": "Bit",
-      "Bezeichnung": "S3",
-      "Kommentar": "Taster Vereinzeln"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 5,
-      "Type": "Bit",
-      "Bezeichnung": "S4",
-      "Kommentar": "Taster Quittieren"
-    }
-  ],
-  "Textbausteine": [
-    {
-      "BausteinId": "5",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - Head",
-      "WasAnzeigen": "NurInhalt"
-    },
-    {
-      "BausteinId": "10",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Hier könnte Ihre Werbung stehen!",
-      "WasAnzeigen": "NurInhalt"
-    },
-    {
-      "BausteinId": "8",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - </body>",
-      "WasAnzeigen": "NurInhalt"
-    }
-  ]
+    "AnalogeAusgaenge": [],
+    "AnalogeEingaenge": [
+        {
+            "StartByte": 0,
+            "AnzahlBit": 16,
+            "Type": "Word",
+            "Bezeichnung": "Pegel",
+            "Kommentar": "Pegel 0-100"
+        },
+        {
+            "StartByte": 2,
+            "AnzahlBit": 16,
+            "Type": "SiemensAnalogwertProzent",
+            "Bezeichnung": "Pegel",
+            "Kommentar": "Pegel"
+        }
+    ],
+    "DigitaleAusgaenge": [
+        {
+            "StartByte": 0,
+            "StartBit": 0,
+            "Type": "Bit",
+            "Bezeichnung": "K1",
+            "Kommentar": "Ventil Füllen"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 1,
+            "Type": "Bit",
+            "Bezeichnung": "K2",
+            "Kommentar": "Vereinzeln"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 2,
+            "Type": "Bit",
+            "Bezeichnung": "P1",
+            "Kommentar": "Meldeleuchte Betrieb"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 3,
+            "Type": "Bit",
+            "Bezeichnung": "P2",
+            "Kommentar": "Meldeleuchte Störung"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 4,
+            "Type": "Bit",
+            "Bezeichnung": "Q1",
+            "Kommentar": "Motor Förderband"
+        }
+    ],
+    "DigitaleEingaenge": [
+        {
+            "StartByte": 0,
+            "StartBit": 0,
+            "Type": "Bit",
+            "Bezeichnung": "B1",
+            "Kommentar": "Position Flasche"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 1,
+            "Type": "Bit",
+            "Bezeichnung": "F1",
+            "Kommentar": "Thermorelais"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 2,
+            "Type": "Bit",
+            "Bezeichnung": "S1",
+            "Kommentar": "Taster Start"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 3,
+            "Type": "Bit",
+            "Bezeichnung": "S2",
+            "Kommentar": "Taster Stop"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 4,
+            "Type": "Bit",
+            "Bezeichnung": "S3",
+            "Kommentar": "Taster Vereinzeln"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 5,
+            "Type": "Bit",
+            "Bezeichnung": "S4",
+            "Kommentar": "Taster Quittieren"
+        }
+    ],
+    "Textbausteine": [
+        {
+            "BausteinId": "5",
+            "PrefixH1": "",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Html - Head",
+            "WasAnzeigen": "NurInhalt"
+        },
+        {
+            "BausteinId": "10",
+            "PrefixH1": "",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Hier könnte Ihre Werbung stehen!",
+            "WasAnzeigen": "NurInhalt"
+        },
+        {
+            "BausteinId": "8",
+            "PrefixH1": "",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Html - </body>",
+            "WasAnzeigen": "NurInhalt"
+        }
+    ]
 }

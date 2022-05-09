@@ -6,7 +6,7 @@ namespace LibConfigDt.Test;
 public class TestKonstruktor
 {
     [Theory]
-    [InlineData("Konstruktor", "DtLeer.json", 0,0,0,0)]
+    [InlineData("Konstruktor", "DtLeer.json", 0, 0, 0, 0)]
 
     public void TestKonstruktorOk(string pfad, string name, short aa, short ai, short da, short di)
     {
@@ -19,6 +19,6 @@ public class TestKonstruktor
         Assert.Equal(config.GetAnzahlAi(), ai);
         Assert.Equal(config.GetAnzahlDa(), da);
         Assert.Equal(config.GetAnzahlDi(), di);
-       
+
     }
 }

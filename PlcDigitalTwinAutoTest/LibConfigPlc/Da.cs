@@ -6,13 +6,13 @@ namespace LibConfigPlc;
 public class Da : EaConfig<DaEinstellungen>
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-  
+
     public Da(ObservableCollection<DaEinstellungen> zeilen) : base(zeilen) { }
     protected override void ConfigTesten(byte[] speicherAbbild)
     {
         ConfigOk = true;
         AnzByte = 0;
-        
+
         foreach (var zeile in Zeilen)
         {
             if (zeile.StartByte > 127 || zeile.StartBit > 7)
@@ -56,7 +56,7 @@ public class Da : EaConfig<DaEinstellungen>
                     if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) LogConfigError(zeile);
                     break;
                 case ConfigPlc.EaTypen.NichtBelegt:
-                default: 
+                default:
                     Log.Debug($"DA: Falsche Type: -> {zeile.Type}; Byte: {zeile.StartByte} Bit: {zeile.StartBit} Kommentar: {zeile.Kommentar} Bezeichnung: {zeile.Bezeichnung}");
                     ConfigOk = false;
                     break;

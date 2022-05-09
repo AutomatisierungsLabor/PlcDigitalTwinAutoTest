@@ -1,73 +1,79 @@
 {
-  "AnalogeAusgaenge": [],
-  "AnalogeEingaenge": [],
-  "DigitaleAusgaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Bezeichnung": "P2",
-      "Kommentar": "Meldeleuchte (weiß)"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 4,
-      "Bezeichnung": "P3",
-      "Kommentar": "Meldeleuchte (rot)"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 5,
-      "Bezeichnung": "P4",
-      "Kommentar": "Meldeleuchte (grün)"
-    }
-  ],
-  "DigitaleEingaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Bezeichnung": "S2",
-      "Kommentar": "Taster Aus ( ⓪ )"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Bezeichnung": "S1",
-      "Kommentar": "Taster Ein ( ① )"
-    },
-    {
-      "StartByte": 1,
-      "StartBit": 2,
-      "Bezeichnung": "S9",
-      "Kommentar": "Thermorelais (STOP)"
-    },
-    {
-      "StartByte": 1,
-      "StartBit": 3,
-      "Bezeichnung": "S10",
-      "Kommentar": "Not-Halt"
-    }
-  ],
-  "Textbausteine": [
-    {
-      "BausteinId": "5",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - Head",
-      "WasAnzeigen": "NurInhalt"
-    },
-    {
-      "BausteinId": "10",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Hier könnte Ihre Werbung stehen!",
-      "WasAnzeigen": "NurInhalt"
-    },
-    {
-      "BausteinId": "8",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - </body>",
-      "WasAnzeigen": "NurInhalt"
-    }
-  ]
+    "AnalogeAusgaenge": [],
+    "AnalogeEingaenge": [],
+    "DigitaleAusgaenge": [
+        {
+            "StartByte": 0,
+            "StartBit": 3,
+            "Bezeichnung": "P2",
+            "Kommentar": "Meldeleuchte (weiß)"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 4,
+            "Bezeichnung": "P3",
+            "Kommentar": "Meldeleuchte (rot)"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 5,
+            "Bezeichnung": "P4",
+            "Kommentar": "Meldeleuchte (grün)"
+        }
+    ],
+    "DigitaleEingaenge": [
+        {
+            "StartByte": 0,
+            "StartBit": 2,
+            "Bezeichnung": "S2",
+            "Kommentar": "Taster Aus ( ⓪ )"
+        },
+        {
+            "StartByte": 0,
+            "StartBit": 3,
+            "Bezeichnung": "S1",
+            "Kommentar": "Taster Ein ( ① )"
+        },
+        {
+            "StartByte": 1,
+            "StartBit": 2,
+            "Bezeichnung": "S9",
+            "Kommentar": "Thermorelais (STOP)"
+        },
+        {
+            "StartByte": 1,
+            "StartBit": 3,
+            "Bezeichnung": "S10",
+            "Kommentar": "Not-Halt"
+        }
+    ],
+    "Textbausteine": [
+        {
+            "BausteinId": "5",
+            "PrefixH1": "",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Html - Head",
+            "WasAnzeigen": "NurInhalt"
+        },
+        {
+            "BausteinId": "10",
+            "PrefixH1": "",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Hier könnte Ihre Werbung stehen!",
+            "WasAnzeigen": "NurInhalt"
+        },
+        {
+            "BausteinId": "8",
+            "PrefixH1": "",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Html - </body>",
+            "WasAnzeigen": "NurInhalt"
+        }
+    ]
 }

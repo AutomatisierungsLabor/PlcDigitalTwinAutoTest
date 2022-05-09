@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace DtSchleifmaschine;
 
-public partial class App 
+public partial class App
 {
     private readonly CancellationTokenSource _cancellationTokenSource = new();
 

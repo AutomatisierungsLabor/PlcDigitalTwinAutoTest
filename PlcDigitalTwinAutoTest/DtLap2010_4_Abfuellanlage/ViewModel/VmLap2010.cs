@@ -1,9 +1,9 @@
-﻿using System.Threading;
+﻿using DtLap2010_4_Abfuellanlage.Model;
+using LibDatenstruktur;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtLap2010_4_Abfuellanlage.Model;
-using LibDatenstruktur;
 
 namespace DtLap2010_4_Abfuellanlage.ViewModel;
 
@@ -43,7 +43,7 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityEinK2, VisibilityAusK2) = SetVisibility(_modelLap2010.K2);
         (VisibilityAbleitung, _) = SetVisibility(_modelLap2010.K2 && _modelLap2010.Pegel > 0.01);
 
-       Fuellstand = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2010.Pegel), 0, 0);
+        Fuellstand = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2010.Pegel), 0, 0);
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

@@ -37,7 +37,7 @@ public partial class LibWpf
             Text("[*]", 0, 1, anzY, 1, HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.Blue);
 
             Linie(0, anzX, 0, anzY, 0, (anzY + 1) * hoeheY, anzX * breiteX, (anzY + 1) * hoeheY, 1, Brushes.Crimson);
-            Text((anzY + 1).ToString(), 0, 1, (anzY + 1), 1, HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.Blue);
+            Text((anzY + 1).ToString(), 0, 1, anzY + 1, 1, HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.Blue);
         }
 
         for (var i = 0; i < anzX; i++)
@@ -51,7 +51,7 @@ public partial class LibWpf
         Text("(*)", anzX, 1, 0, 1, HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.DarkGreen);
 
         Linie(0, anzX, 0, anzY, (anzX + 1) * breiteX, 0, (anzX + 1) * breiteX, anzY * hoeheY, 1, Brushes.BlueViolet);
-        Text((anzX + 1).ToString(), (anzX + 1), 1, 0, 1, HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.DarkGreen);
+        Text((anzX + 1).ToString(), anzX + 1, 1, 0, 1, HorizontalAlignment.Left, VerticalAlignment.Top, 7, Brushes.DarkGreen);
     }
     public void SetBackground(SolidColorBrush brush) => Grid.Background = brush;
 }

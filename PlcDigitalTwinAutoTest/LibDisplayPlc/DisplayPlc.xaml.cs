@@ -15,7 +15,7 @@ public partial class DisplayPlc
 
         Height = 900;
 
-        if (configDt.GetAnzahlAa()> 0 || configDt.GetAnzahlAi()> 0) Width = 1000; else Width = 650;
+        if (configDt.GetAnzahlAa() > 0 || configDt.GetAnzahlAi() > 0) Width = 1000; else Width = 650;
 
         var viewModel = new ViewModel.VmPlc(datenstruktur, configDt, cancellationTokenSource);
 

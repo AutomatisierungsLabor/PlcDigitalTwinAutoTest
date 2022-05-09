@@ -1,9 +1,9 @@
-﻿using System.Threading;
+﻿using DtLap2018_3_Hydraulikaggregat.Model;
+using LibDatenstruktur;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtLap2018_3_Hydraulikaggregat.Model;
-using LibDatenstruktur;
 
 namespace DtLap2018_3_Hydraulikaggregat.ViewModel;
 

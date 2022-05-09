@@ -1,7 +1,7 @@
-﻿using System.Threading;
+﻿using LibDatenstruktur;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using LibDatenstruktur;
 
 namespace DtLeitungszuordnungsTester.ViewModel;
 
@@ -11,7 +11,7 @@ public partial class VmLeitungszuordnungsTester : BasePlcDtAt.BaseViewModel.VmBa
 
     public VmLeitungszuordnungsTester(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
-       // _modelLeitungszuordnungsTester = model as ModelLeitungszuordnungsTester;
+        // _modelLeitungszuordnungsTester = model as ModelLeitungszuordnungsTester;
         _datenstruktur = datenstruktur;
 
         VisibilityTabBeschreibung = Visibility.Collapsed;

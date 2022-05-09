@@ -34,5 +34,5 @@ public partial class TestAutomat
     public short GetAnzahlBitAusgaenge() => _anzahlBitAusgaenge;
     public short GetAnzahlBitEingaenge() => _anzahlBitEingaenge;
     public void SetReferenzen(short zeilenNummerDataGrid) => _zeilenNummerDataGrid = zeilenNummerDataGrid;
-    public void ResetZeilenNummer() => _zeilenNummerDataGrid=0;
+    public void ResetZeilenNummer() => _zeilenNummerDataGrid = 0;
 }

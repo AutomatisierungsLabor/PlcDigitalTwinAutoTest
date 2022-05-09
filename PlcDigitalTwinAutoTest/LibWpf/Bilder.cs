@@ -36,9 +36,9 @@ public partial class LibWpf
         var (image, _) = ImageErzeugen(source, margin);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void ImageSetVisibility(string source, int xPos, int xSpan, int yPos, int ySpan,  string setVisibility)
+    public void ImageSetVisibility(string source, int xPos, int xSpan, int yPos, int ySpan, string setVisibility)
     {
-        var (imageEin, _) = ImageErzeugen(source, new Thickness(0,0,0,0));
+        var (imageEin, _) = ImageErzeugen(source, new Thickness(0, 0, 0, 0));
         imageEin.BindingImageSetVisibility(setVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageEin);
     }

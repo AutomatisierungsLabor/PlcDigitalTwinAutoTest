@@ -25,13 +25,13 @@ public enum EaTypen
 }
 public class DtConfig
 {
-    public EAConfig[] AnalogeAusgaenge { get; set; }
-    public EAConfig[] AnalogeEingaenge { get; set; }
-    public EAConfig[] DigitaleAusgaenge { get; set; }
-    public EAConfig[] DigitaleEingaenge { get; set; }
+    public EaConfig[] AnalogeAusgaenge { get; set; }
+    public EaConfig[] AnalogeEingaenge { get; set; }
+    public EaConfig[] DigitaleAusgaenge { get; set; }
+    public EaConfig[] DigitaleEingaenge { get; set; }
     public Textbausteine[] Textbausteine { get; set; }
 }
-public class EAConfig
+public class EaConfig
 {
     public int StartByte { get; set; }
     public int StartBit { get; set; }

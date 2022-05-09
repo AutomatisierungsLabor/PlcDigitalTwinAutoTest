@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace DtLap2018_2_Abfuellanlage.ViewModel;
 
@@ -41,7 +41,7 @@ public partial class VmLap2018
     [ObservableProperty] private Visibility _visibilityAusB1;
     [ObservableProperty] private Visibility _visibilityAusK1;
     [ObservableProperty] private Visibility _visibilityAusK2;
-    
+
     [ObservableProperty] private Visibility _visibilityFlasche1;
     [ObservableProperty] private Visibility _visibilityFlasche2;
     [ObservableProperty] private Visibility _visibilityFlasche3;

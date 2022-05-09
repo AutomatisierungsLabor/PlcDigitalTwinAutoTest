@@ -1,7 +1,7 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
-using Contracts;
+﻿using Contracts;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace LibAutoTestSilk.ViewModel;
 

@@ -1,5 +1,5 @@
-﻿using System.Windows.Controls;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Windows.Controls;
 
 namespace LibInfo.VmInfo;
 

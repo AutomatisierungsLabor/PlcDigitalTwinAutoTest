@@ -1,15 +1,15 @@
-﻿using System;
+﻿using LibConfigDt;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
-using LibConfigDt;
 
 namespace LibAutoTestSilk.ViewModel;
 
 public partial class VmAutoTesterSilk
 {
-    private readonly EAConfig[] _daZeilenAlt = new EAConfig[32];
-    private readonly EAConfig[] _diZeilenAlt = new EAConfig[32];
+    private readonly EaConfig[] _daZeilenAlt = new EaConfig[32];
+    private readonly EaConfig[] _diZeilenAlt = new EaConfig[32];
 
     internal void DataGridBeschriften(DirectoryInfo ordnerAktuellesProjekt, ConfigDt configDt)
     {
@@ -29,8 +29,8 @@ public partial class VmAutoTesterSilk
         TabBeschriftungDa(configDt.DtConfig.DigitaleEingaenge, DiCollection, _diZeilenAlt);
 
         AlleDpAktualisieren();
-    } 
-    private static void TabBeschriftungDa(EAConfig[] eaZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes, EAConfig[] daZeilenAlt)
+    }
+    private static void TabBeschriftungDa(EaConfig[] eaZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes, EaConfig[] daZeilenAlt)
     {
         if (daZeilenAlt == eaZeilen) return;
         // ReSharper disable once RedundantAssignment

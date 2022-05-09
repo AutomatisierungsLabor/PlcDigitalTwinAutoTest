@@ -1,10 +1,10 @@
 ﻿using LibDatenstruktur;
 using LibPlcKommunikation;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace BasePlcDtAt.BaseViewModel;
 
@@ -17,7 +17,7 @@ public abstract partial class VmBase : ObservableObject
     public abstract void PlotterButtonClick(object sender, RoutedEventArgs e);
     //public abstract void HomepageButtonClick(object sender, RoutedEventArgs e);
     //public abstract void AlarmVerwaltungButtonClick(object sender, RoutedEventArgs e);
-    
+
 
 
     public BaseModel.BaseModel Model { get; set; }
@@ -41,7 +41,7 @@ public abstract partial class VmBase : ObservableObject
         StringSpsVersionEntfernt = "fehlt";
         StringSpsStatus = "x";
         BrushSpsColor = Brushes.LightBlue;
-        
+
         System.Threading.Tasks.Task.Run(() => ViewModelTask(cancellationTokenSource));
     }
     public abstract void BeschreibungZeichnen(TabItem tabItem);

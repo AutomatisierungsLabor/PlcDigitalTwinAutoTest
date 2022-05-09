@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace DtLap2018_3_Hydraulikaggregat.ViewModel;
 
@@ -51,7 +51,7 @@ public partial class VmLap2018
     [ObservableProperty] private Visibility _visibilityZylinderAbgedeckt;
     [ObservableProperty] private Visibility _visibilityOelfilterAbgedeckt;
 
- 
+
 
 
 }

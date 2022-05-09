@@ -1,8 +1,8 @@
-﻿using System.Threading;
-using BasePlcDtAt;
+﻿using BasePlcDtAt;
 using DtLap2018_1_Silosteuerung.Model;
 using DtLap2018_1_Silosteuerung.ViewModel;
 using LibDatenstruktur;
+using System.Threading;
 
 namespace DtLap2018_1_Silosteuerung;
 
@@ -18,9 +18,9 @@ public partial class App
         var modelLap2018 = new ModelLap2018(datenstruktur, _cancellationTokenSource);
         var vmLap2018 = new VmLap2018(modelLap2018, datenstruktur, _cancellationTokenSource);
         var baseWindow = new BaseWindow(vmLap2018, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
-            {
-                Height = 1100
-            };
+        {
+            Height = 1100
+        };
 
         baseWindow.Show();
     }
