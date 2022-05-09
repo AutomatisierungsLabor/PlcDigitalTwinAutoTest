@@ -10,7 +10,7 @@ public class InfoZeichnen
     {
         var libWpf = new LibWpf.LibWpf(grid);
 
-        libWpf.GridZeichnen(20, 30, 12, 30, true);
+        libWpf.GridZeichnen(20, 30, 12, 30, false, false, true);
         libWpf.ButtonBackgroundContentMarginRounded("Reset", 15, 2, 1, 2, 20, 5, Brushes.LawnGreen, new Thickness(0, 0, 0, 0), vmInfo.ButtonTasterCommand, "-", nameof(vmInfo.ClickModeTasterReset));
 
         libWpf.Text("Kommunikation mit der PLC:", 1, 10, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);

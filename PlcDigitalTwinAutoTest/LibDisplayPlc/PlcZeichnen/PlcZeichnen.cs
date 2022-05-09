@@ -21,12 +21,12 @@ public partial class PlcZeichnen
 
         if (configDt.GetAnzahlAa() > 0 || configDt.GetAnzahlAi() > 0)
         {
-            libWpf.GridZeichnen(30, 30, 28, 30, true);
+            libWpf.GridZeichnen(30, 30, 28, 30, false, false, true);
             libWpf.RectangleFill(1, 30, 8, 12, Brushes.LightGray);
         }
         else
         {
-            libWpf.GridZeichnen(21, 30, 28, 30, true);
+            libWpf.GridZeichnen(21, 30, 28, 30, false, false, true);
             libWpf.RectangleFill(1, 19, 8, 12, Brushes.LightGray);
         }
 

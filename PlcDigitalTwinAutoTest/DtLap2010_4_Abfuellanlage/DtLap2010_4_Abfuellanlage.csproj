@@ -25,28 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ConfigPlc\AA.json">
+    <None Update="ConfigDt\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigPlc\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\DA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\DI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Abfuellanlage__580__1\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Abfuellanlage__580__1\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Abfuellanlage__580__1\Da.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Abfuellanlage__580__1\Di.json">
+    <None Update="ConfigTests\Abfuellanlage__580__1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Abfuellanlage__580__1\EaBelegung.json">

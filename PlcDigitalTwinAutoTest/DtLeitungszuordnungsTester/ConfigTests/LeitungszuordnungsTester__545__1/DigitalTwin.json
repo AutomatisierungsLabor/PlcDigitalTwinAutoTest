@@ -1,8 +1,24 @@
 {
     "AnalogeAusgaenge": [],
     "AnalogeEingaenge": [],
-    "DigitaleAusgaenge": [],
-    "DigitaleEingaenge": [],
+  "DigitaleAusgaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "P1",
+      "Kommentar": "Meldeleuchte grün"
+    }
+  ],
+  "DigitaleEingaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar": "Taster"
+    }
+  ],
     "Textbausteine": [
         {
             "BausteinId": "5",

@@ -1,29 +1,43 @@
 {
-    "AnalogeAusgaenge": [],
-    "AnalogeEingaenge": [],
-    "DigitaleAusgaenge": [],
-    "DigitaleEingaenge": [],
-    "Textbausteine": [
-        {
-            "BausteinId": "5",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - Head",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "10",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Hier könnte Ihre Werbung stehen!",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "8",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - </body>",
-            "WasAnzeigen": "NurInhalt"
-        }
-    ]
+  "AnalogeAusgaenge": [],
+  "AnalogeEingaenge": [],
+  "DigitaleAusgaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Bezeichnung": "P1",
+      "Kommentar": "Meldeleuchte"
+    }
+  ],
+  "DigitaleEingaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Bezeichnung": "S1",
+      "Kommentar": "Start"
+    }
+  ],
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "10",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Hier könnte Ihre Werbung stehen!",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "8",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - </body>",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ]
 }

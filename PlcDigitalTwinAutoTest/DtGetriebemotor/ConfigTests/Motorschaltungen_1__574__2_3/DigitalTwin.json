@@ -42,12 +42,6 @@
     },
     {
       "StartByte": 1,
-      "StartBit": 0,
-      "Bezeichnung": "S8",
-      "Kommentar": "Quittieren ( - )"
-    },
-    {
-      "StartByte": 1,
       "StartBit": 3,
       "Bezeichnung": "S10",
       "Kommentar": "Not-Halt"

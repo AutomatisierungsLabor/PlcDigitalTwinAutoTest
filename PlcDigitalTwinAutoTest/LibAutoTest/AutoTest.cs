@@ -31,7 +31,7 @@ public class AutoTest
     private Action<string> _cbPlcConfig;
     private readonly ConfigDt _configDt;
 
- 
+
     private class LehrstoffTextbaustein
     {
         public int Id { get; set; }
@@ -71,7 +71,7 @@ public class AutoTest
         var libWpfAutoTest = new LibWpf.LibWpf(tabItem);
 
         libWpfAutoTest.SetBackground(Brushes.Yellow);
-        libWpfAutoTest.GridZeichnen(56, 30, 30, 30, true);
+        libWpfAutoTest.GridZeichnen(30, 30, 30, 30, true, true, true);
 
         libWpfAutoTest.ButtonBackgroundMarginRoundedSetEnableSetContend(1, 4, 1, 2, 20, 15, Brushes.LawnGreen, new Thickness(2, 5, 2, 5), VmAutoTest.ButtonTasterCommand, "TasterStart", nameof(VmAutoTest.ClickModeStart), nameof(VmAutoTest.EnableTasterStart), nameof(VmAutoTest.StringTasterStart));
 
@@ -82,7 +82,7 @@ public class AutoTest
 
 
         StackPanel = libWpfAutoTest.StackPanel(1, 9, 3, 20, new Thickness(5, 5, 5, 5), Brushes.LawnGreen);
-        WebBrowser = libWpfAutoTest.WebBrowser(10, 28, 3, 20, new Thickness(5, 5, 5, 5));
+        WebBrowser = libWpfAutoTest.WebBrowser(10, 21, 3, 20, new Thickness(5, 5, 5, 5));
 
         foreach (var ordner in AlleTestOrdner) StackPanel.Children.Add(libWpfAutoTest.RadioButton("TestProjekte", ordner.Name, ordner, 14, TestChecked));
 
@@ -119,15 +119,26 @@ public class AutoTest
                 case TextbausteineAnzeigen.NurInhalt:
                     html.Append(b.Inhalt);
                     break;
+
+                case TextbausteineAnzeigen.H1Inhalt:
+                    html.Append("<H1>" + textbausteine.PrefixH1 + b.UeberschriftH1 + "</H1>");
+                    html.Append(b.Inhalt);
+                    break;
+
                 case TextbausteineAnzeigen.H1H2Inhalt:
-                    html.Append("<H1>" + b.UeberschriftH1 + "</H1>");
-                    html.Append("<H2>" + b.UnterUeberschriftH2 + "</H2>");
+                    html.Append("<H1>" + textbausteine.PrefixH1 + b.UeberschriftH1 + "</H1>");
+                    html.Append("<H2>" + textbausteine.PrefixH2 + b.UnterUeberschriftH2 + "</H2>");
+                    html.Append(b.Inhalt);
+                    break;
+
+                case TextbausteineAnzeigen.H2Inhalt:
+                    html.Append("<H2>" + textbausteine.PrefixH2 + b.UnterUeberschriftH2 + "</H2>");
                     html.Append(b.Inhalt);
                     break;
 
                 case TextbausteineAnzeigen.H1H2TestInhalt:
-                    html.Append("<H1>" + b.UeberschriftH1 + "</H1>");
-                    html.Append("<H2>" + b.UnterUeberschriftH2 + "</H2>");
+                    html.Append("<H1>" + textbausteine.PrefixH1 + b.UeberschriftH1 + "</H1>");
+                    html.Append("<H2>" + textbausteine.PrefixH2 + b.UnterUeberschriftH2 + "</H2>");
                     html.Append("<H2> #" + textbausteine.Test + "</H2>");
                     html.Append(b.Inhalt);
                     break;
@@ -142,7 +153,7 @@ public class AutoTest
     {
         var baustein = new LehrstoffTextbaustein();
         await GetTextbausteine.ReadTextbaustein(id.ToString());
-       
+
         baustein.Id = id;
         baustein.Bezeichnung = GetTextbausteine.GetBezeichnung();
         baustein.UeberschriftH1 = GetTextbausteine.GetUeberschriftH1();

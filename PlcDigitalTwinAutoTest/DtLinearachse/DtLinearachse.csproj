@@ -24,31 +24,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ConfigPlc\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\DA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\DI.json">
+    <None Update="ConfigDt\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\ConfigTests.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_1\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_1\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_1\Da.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_1\Di.json">
+    <None Update="ConfigTests\Motorschaltungen_1__601__2_1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_1__601__2_1\index.html">
@@ -63,16 +45,7 @@
     <None Update="ConfigTests\Motorschaltungen_1__601__2_1\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_2\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_2\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_2\Da.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_2\Di.json">
+    <None Update="ConfigTests\Motorschaltungen_1__601__2_2\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_1__601__2_2\index.html">
@@ -87,16 +60,7 @@
     <None Update="ConfigTests\Motorschaltungen_1__601__2_2\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_3\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_3\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_3\Da.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_3\Di.json">
+    <None Update="ConfigTests\Motorschaltungen_1__601__2_3\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_1__601__2_3\index.html">
@@ -111,16 +75,7 @@
     <None Update="ConfigTests\Motorschaltungen_1__601__2_3\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_4\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_4\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_4\Da.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_4\Di.json">
+    <None Update="ConfigTests\Motorschaltungen_1__601__2_4\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_1__601__2_4\index.html">
@@ -135,16 +90,7 @@
     <None Update="ConfigTests\Motorschaltungen_1__601__2_4\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__2_1\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__2_1\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__2_1\Da.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__2_1\Di.json">
+    <None Update="ConfigTests\Motorschaltungen_2__600__2_1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_2__600__2_1\index.html">
@@ -159,16 +105,7 @@
     <None Update="ConfigTests\Motorschaltungen_2__600__2_1\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__2_2\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__2_2\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__2_2\Da.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__2_2\Di.json">
+    <None Update="ConfigTests\Motorschaltungen_2__600__2_2\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_2__600__2_2\index.html">
@@ -183,16 +120,7 @@
     <None Update="ConfigTests\Motorschaltungen_2__600__2_2\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__3_1\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__3_1\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__3_1\Da.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__3_1\Di.json">
+    <None Update="ConfigTests\Motorschaltungen_2__600__3_1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_2__600__3_1\index.html">
@@ -207,16 +135,7 @@
     <None Update="ConfigTests\Motorschaltungen_2__600__3_1\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__3_2\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__3_2\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__3_2\Da.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_2__600__3_2\Di.json">
+    <None Update="ConfigTests\Motorschaltungen_2__600__3_2\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_2__600__3_2\index.html">

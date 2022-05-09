@@ -1,29 +1,61 @@
 {
-    "AnalogeAusgaenge": [],
-    "AnalogeEingaenge": [],
-    "DigitaleAusgaenge": [],
-    "DigitaleEingaenge": [],
-    "Textbausteine": [
-        {
-            "BausteinId": "5",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - Head",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "10",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Hier könnte Ihre Werbung stehen!",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "8",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - </body>",
-            "WasAnzeigen": "NurInhalt"
-        }
-    ]
+  "AnalogeAusgaenge": [],
+  "AnalogeEingaenge": [],
+  "DigitaleAusgaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Bezeichnung": "Q1",
+      "Kommentar": "Linearachse Rechtslauf"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Bezeichnung": "Q2",
+      "Kommentar": "Linearachse Linkslauf"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 5,
+      "Bezeichnung": "P4",
+      "Kommentar": "Meldeleuchte (grün)"
+    }
+  ],
+  "DigitaleEingaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Bezeichnung": "S2",
+      "Kommentar": "Taster ( ⓪ ) → Öffner"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Bezeichnung": "S1",
+      "Kommentar": "Taster Ein ( ① )"
+    }
+  ],
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "10",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Hier könnte Ihre Werbung stehen!",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "8",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - </body>",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ]
 }

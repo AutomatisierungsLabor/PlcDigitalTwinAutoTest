@@ -57,9 +57,6 @@
     <None Update="ConfigTests\Blinker__594__1\test.st">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\ConfigTests.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

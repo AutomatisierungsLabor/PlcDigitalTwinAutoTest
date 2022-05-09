@@ -1,8 +1,73 @@
 {
     "AnalogeAusgaenge": [],
     "AnalogeEingaenge": [],
-    "DigitaleAusgaenge": [],
-    "DigitaleEingaenge": [],
+  "DigitaleAusgaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "P1",
+      "Kommentar": "Meldeleuchte Störung (rot)"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "Q1",
+      "Kommentar": "Motor Linkslauf"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "Q2",
+      "Kommentar": "Motor Rechtslauf"
+    }
+  ],
+  "DigitaleEingaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "B1",
+      "Kommentar": "Endschalter Links"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "B2",
+      "Kommentar": "Endschalter Rechts"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "F1",
+      "Kommentar": "Thermorelais"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar": "Taster Start"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "S2",
+      "Kommentar": "Not Halt"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 5,
+      "Type": "Bit",
+      "Bezeichnung": "S3",
+      "Kommentar": "Taster Reset"
+    }
+  ],
     "Textbausteine": [
         {
             "BausteinId": "5",

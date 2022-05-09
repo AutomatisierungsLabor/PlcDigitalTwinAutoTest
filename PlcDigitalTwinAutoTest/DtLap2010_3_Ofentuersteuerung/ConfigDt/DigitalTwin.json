@@ -1,52 +1,73 @@
 {
     "AnalogeAusgaenge": [],
     "AnalogeEingaenge": [],
-    "DigitaleAusgaenge": [
-        {
-            "StartByte": 0,
-            "StartBit": 0,
-            "Type": "Bit",
-            "Bezeichnung": "P1",
-            "Kommentar": "Meldeleuchte"
-        }
-    ],
-    "DigitaleEingaenge": [
-        {
-            "StartByte": 0,
-            "StartBit": 0,
-            "Type": "Bit",
-            "Bezeichnung": "S1",
-            "Kommentar": "Frequenz -"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 1,
-            "Type": "Bit",
-            "Bezeichnung": "S2",
-            "Kommentar": "Frequenz +"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 2,
-            "Type": "Bit",
-            "Bezeichnung": "S3",
-            "Kommentar": "Tastverhältnis -"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 3,
-            "Type": "Bit",
-            "Bezeichnung": "S4",
-            "Kommentar": "Tastverhältnis +"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 4,
-            "Type": "Bit",
-            "Bezeichnung": "S5",
-            "Kommentar": "Taster Reset"
-        }
-    ],
+  "DigitaleAusgaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "P1",
+      "Kommentar": "Meldeleuchte Schliessen"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "Q1",
+      "Kommentar": "Motor LL (Öffnen)"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "Q2",
+      "Kommentar": "Motor RL (Schliessen)"
+    }
+  ],
+  "DigitaleEingaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "B1",
+      "Kommentar": "Endschalter Offen"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "B2",
+      "Kommentar": "Endschalter Geschlossen"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "B3",
+      "Kommentar": "Lichtschranke"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar": "Taster Halt"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "S2",
+      "Kommentar": "Taster Öffnen"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 5,
+      "Type": "Bit",
+      "Bezeichnung": "S3",
+      "Kommentar": "Taster Schliessen"
+    }
+  ],
     "Textbausteine": [
         {
             "BausteinId": "5",
@@ -56,11 +77,11 @@
             "WasAnzeigen": "NurInhalt"
         },
         {
-            "BausteinId": "9",
-            "VorbereitungId": "600",
-            "Test": "4.2",
-            "Kommentar": "Logo8 - Linearachse - Hardware",
-            "WasAnzeigen": "H1H2Inhalt"
+            "BausteinId": "10",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Hier könnte Ihre Werbung stehen!",
+            "WasAnzeigen": "NurInhalt"
         },
         {
             "BausteinId": "8",

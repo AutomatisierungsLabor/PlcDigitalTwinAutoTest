@@ -1,8 +1,64 @@
 {
     "AnalogeAusgaenge": [],
     "AnalogeEingaenge": [],
-    "DigitaleAusgaenge": [],
-    "DigitaleEingaenge": [],
+  "DigitaleAusgaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Bezeichnung": "Q1",
+      "Kommentar": "Linearachse Rechtslauf"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Bezeichnung": "Q2",
+      "Kommentar": "Linearachse Linkslauf "
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Bezeichnung": "P2",
+      "Kommentar": "Meldeleuchte (weiß)"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Bezeichnung": "P3",
+      "Kommentar": "Meldeleuchte (rot)"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 5,
+      "Bezeichnung": "P4",
+      "Kommentar": "Meldeleuchte (grün)"
+    }
+  ],
+  "DigitaleEingaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Bezeichnung": "S1",
+      "Kommentar": "Taster Ein ( ① )"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 0,
+      "Bezeichnung": "S8",
+      "Kommentar": "Quittieren ( – )"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 2,
+      "Bezeichnung": "S9",
+      "Kommentar": "Thermorelais (STOP)"
+    },
+    {
+      "StartByte": 1,
+      "StartBit": 3,
+      "Bezeichnung": "S10",
+      "Kommentar": "Not-Halt (Öffner)"
+    }
+  ],
     "Textbausteine": [
         {
             "BausteinId": "5",

@@ -1,52 +1,80 @@
 {
     "AnalogeAusgaenge": [],
     "AnalogeEingaenge": [],
-    "DigitaleAusgaenge": [
-        {
-            "StartByte": 0,
-            "StartBit": 0,
-            "Type": "Bit",
-            "Bezeichnung": "P1",
-            "Kommentar": "Meldeleuchte"
-        }
-    ],
-    "DigitaleEingaenge": [
-        {
-            "StartByte": 0,
-            "StartBit": 0,
-            "Type": "Bit",
-            "Bezeichnung": "S1",
-            "Kommentar": "Frequenz -"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 1,
-            "Type": "Bit",
-            "Bezeichnung": "S2",
-            "Kommentar": "Frequenz +"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 2,
-            "Type": "Bit",
-            "Bezeichnung": "S3",
-            "Kommentar": "Tastverhältnis -"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 3,
-            "Type": "Bit",
-            "Bezeichnung": "S4",
-            "Kommentar": "Tastverhältnis +"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 4,
-            "Type": "Bit",
-            "Bezeichnung": "S5",
-            "Kommentar": "Taster Reset"
-        }
-    ],
+  "DigitaleAusgaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "P1",
+      "Kommentar": "Meldeleuchte Störung"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "P2",
+      "Kommentar": "Meldeleuchte Betriebsbereit"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "Q1",
+      "Kommentar": "Motor Netzschütz"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "Q2",
+      "Kommentar": "Motor Sternschütz"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "Q3",
+      "Kommentar": "Motor Dreieckschütz"
+    }
+  ],
+  "DigitaleEingaenge": [
+    {
+      "StartByte": 0,
+      "StartBit": 0,
+      "Type": "Bit",
+      "Bezeichnung": "B1",
+      "Kommentar": "Druckschalter"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 1,
+      "Type": "Bit",
+      "Bezeichnung": "B2",
+      "Kommentar": "Temperaturfühler Kompressor"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 2,
+      "Type": "Bit",
+      "Bezeichnung": "F1",
+      "Kommentar": "Störung Motorschutzschalter"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 3,
+      "Type": "Bit",
+      "Bezeichnung": "S1",
+      "Kommentar": "Taster Aus"
+    },
+    {
+      "StartByte": 0,
+      "StartBit": 4,
+      "Type": "Bit",
+      "Bezeichnung": "S2",
+      "Kommentar": "Taster Ein"
+    }
+  ],
     "Textbausteine": [
         {
             "BausteinId": "5",
@@ -56,11 +84,11 @@
             "WasAnzeigen": "NurInhalt"
         },
         {
-            "BausteinId": "9",
-            "VorbereitungId": "600",
-            "Test": "4.2",
-            "Kommentar": "Logo8 - Linearachse - Hardware",
-            "WasAnzeigen": "H1H2Inhalt"
+            "BausteinId": "10",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Hier könnte Ihre Werbung stehen!",
+            "WasAnzeigen": "NurInhalt"
         },
         {
             "BausteinId": "8",
