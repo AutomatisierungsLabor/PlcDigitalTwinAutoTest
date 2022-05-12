@@ -33,9 +33,6 @@
     <None Update="ConfigTests\Kompressoranlage__577__1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Kompressoranlage__577__1\EaBelegung.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="ConfigTests\Kompressoranlage__577__1\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

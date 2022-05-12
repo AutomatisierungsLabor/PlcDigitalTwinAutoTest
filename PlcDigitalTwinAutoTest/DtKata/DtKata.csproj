@@ -40,9 +40,6 @@
     <None Update="ConfigTests\Kata__610__1\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Kata__610__1\EaBelegung.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="ConfigTests\Kata__610__1\test.st">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -52,10 +49,7 @@
     <None Update="ConfigTests\Kata__610__2\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Kata__610__2\EaBelegung.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Kata__610__2\index.html">
+     <None Update="ConfigTests\Kata__610__2\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Kata__610__2\test.ssc">
@@ -65,9 +59,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Kata__610__3\DigitalTwin.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Kata__610__3\EaBelegung.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Kata__610__3\index.html">
@@ -80,9 +71,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Kata__610__4\DigitalTwin.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Kata__610__4\EaBelegung.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Kata__610__4\index.html">

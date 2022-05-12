@@ -13,7 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LibTextbausteine" Version="1.0.0" />
     <PackageReference Include="log4net" Version="2.0.14" />
     <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
   </ItemGroup>
@@ -22,6 +21,12 @@
     <ProjectReference Include="..\LibAutoTestSilk\LibAutoTestSilk.csproj" />
     <ProjectReference Include="..\LibConfigDt\LibConfigDt.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="json.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

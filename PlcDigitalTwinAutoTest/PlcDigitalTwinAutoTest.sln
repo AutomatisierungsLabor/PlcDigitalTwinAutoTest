@@ -91,6 +91,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibConfigDt", "LibConfigDt\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibConfigDt.Test", "LibConfigDt.Test\LibConfigDt.Test.csproj", "{19F43597-41BD-4AEF-B9F3-DD9ECD6B295E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtTiefgarage", "DtTiefgarage\DtTiefgarage.csproj", "{BEB955EB-12A9-44B2-85AD-9B0D1C99421D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -273,6 +275,10 @@ Global
 		{19F43597-41BD-4AEF-B9F3-DD9ECD6B295E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F43597-41BD-4AEF-B9F3-DD9ECD6B295E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19F43597-41BD-4AEF-B9F3-DD9ECD6B295E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB955EB-12A9-44B2-85AD-9B0D1C99421D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB955EB-12A9-44B2-85AD-9B0D1C99421D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB955EB-12A9-44B2-85AD-9B0D1C99421D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB955EB-12A9-44B2-85AD-9B0D1C99421D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

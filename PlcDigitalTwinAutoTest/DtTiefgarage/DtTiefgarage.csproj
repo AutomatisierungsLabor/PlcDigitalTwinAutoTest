@@ -17,15 +17,9 @@
   <ItemGroup>
     <Content Include="iconPlcDt.ico" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BasePlcDtAt\BasePlcDtAt.csproj" />
-    <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
-    <ProjectReference Include="..\LibUtil\LibUtil.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
   </ItemGroup>
 
@@ -33,19 +27,16 @@
     <None Update="ConfigDt\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\ConfigTests.css">
+    <None Update="ConfigTests\Tiefgarage__566__1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Silosteuerung__568__1\DigitalTwin.json">
+    <None Update="ConfigTests\Tiefgarage__566__1\test.scl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Silosteuerung__568__1\index.html">
+    <None Update="ConfigTests\Tiefgarage__566__1\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Silosteuerung__568__1\test.ssc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Silosteuerung__568__1\test.st">
+    <None Update="ConfigTests\Tiefgarage__566__1\test.st">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

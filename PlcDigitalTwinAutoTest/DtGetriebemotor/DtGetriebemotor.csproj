@@ -33,9 +33,6 @@
     <None Update="ConfigTests\Motorschaltungen_1__574__2_1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_1__574__2_1\EaBelegung.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="ConfigTests\Motorschaltungen_1__574__2_1\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -48,10 +45,7 @@
     <None Update="ConfigTests\Motorschaltungen_1__574__2_2\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_1__574__2_2\EaBelegung.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__574__2_2\index.html">
+     <None Update="ConfigTests\Motorschaltungen_1__574__2_2\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_1__574__2_2\test.ssc">
@@ -61,9 +55,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_1__574__2_3\DigitalTwin.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__574__2_3\EaBelegung.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_1__574__2_3\index.html">
@@ -76,9 +67,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_1__574__2_4\DigitalTwin.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Motorschaltungen_1__574__2_4\EaBelegung.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Motorschaltungen_1__574__2_4\index.html">

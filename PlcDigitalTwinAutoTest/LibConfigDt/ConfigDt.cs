@@ -26,6 +26,7 @@ public class ConfigDt
         try
         {
             DtConfig = JsonConvert.DeserializeObject<DtConfig>(File.ReadAllText(pathName));
+            JsonAufFehlerTesten();
         }
         catch (Exception e)
         {
@@ -44,4 +45,15 @@ public class ConfigDt
         var pfadName = Path.Combine(_path, "DigitalTwin.json");
         JsonEinlesen(pfadName);
     }
+    private void JsonAufFehlerTesten()
+    {
+        if (DtConfig.Textbausteine.Length == 0) return;
+
+        foreach (var textbausteine in DtConfig.Textbausteine)
+        {
+            if (textbausteine.PrefixH1 == null) Log.Debug($"PrefixH1 ist leer");
+            if (textbausteine.PrefixH2 == null) Log.Debug($"PrefixH2 ist leer");
+        }
+    }
+
 }

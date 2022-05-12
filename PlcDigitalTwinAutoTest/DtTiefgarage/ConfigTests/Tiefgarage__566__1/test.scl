@@ -1,0 +1,57 @@
+﻿FUNCTION_BLOCK "Tiefgarage"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR 
+      Schritt : Int;
+   END_VAR
+
+
+BEGIN
+	CASE #Schritt OF
+	    0:  // Warten
+	        IF NOT "SensorLinks" THEN #Schritt := 1;    END_IF; // von links nach rechts
+	        IF NOT "SensorRechts" THEN #Schritt := 100; END_IF; // von rechts nach links
+	        
+	    1: // Links ist unterbrochen
+	        IF "SensorLinks" THEN #Schritt := 2; END_IF;                                // Fußgänger geht in die Mitte
+	        IF NOT "SensorLinks" AND  NOT "SensorRechts" THEN #Schritt := 10; END_IF;   // Auto nach rechts unterbricht beide Lichtschranken
+	        
+	    2: // Mensch ist in der Mitte und geht nach rechts
+	        IF NOT "SensorRechts" THEN #Schritt := 3; END_IF;   // rechte Lichtschranke wird unterbrochen
+	        
+	    3: // Mensch unterbricht rechte Lichtschranke
+	        IF "SensorRechts" THEN
+	            "Menschen" += 1;    // Mensch ist in der Tiefgarage
+	            #Schritt := 0;
+	        END_IF;
+	        
+	    10: // Auto fährt nach rechts unterbricht beide Lichtschranken
+	        IF "SensorLinks" AND "SensorRechts" THEN
+	            "Autos" += 1;   // Auto ist in der Tiefgarage
+	            #Schritt := 0;
+	        END_IF;
+	        
+	    100: // Rechts ist unterbrochen
+	        IF "SensorRechts" THEN #Schritt := 101; END_IF;                             // Mensch geht von rechts in die Mitte
+	        IF NOT "SensorLinks" AND NOT "SensorRechts" THEN #Schritt := 110; END_IF;   // Auto nach links unterbricht beide Lichtschranken
+	        
+	    101: // Mensch ist in der Mitte und geht nach links
+	        IF NOT "SensorLinks" THEN #Schritt := 102; END_IF; // Mensch unterbricht die Lichtschranke nach links
+	        
+	    102: // Mensch unterbricht linke Lichtschranke
+	        IF "SensorLinks" THEN
+	            "Menschen" -= 1;    // Mensch nach links ist wieder im Freien
+	            #Schritt := 0;
+	        END_IF;
+	        
+	    110: // Auto fährt nach links unterbricht beide Lichtschranken
+	        IF "SensorLinks" AND "SensorRechts" THEN
+	            "Autos" -= 1;       // Auto nach links ist wieder im Freien
+	            #Schritt := 0;
+	        END_IF;
+	        
+	    ELSE  // Statement section ELSE
+	        #Schritt := 0;
+	END_CASE;
+END_FUNCTION_BLOCK
+
