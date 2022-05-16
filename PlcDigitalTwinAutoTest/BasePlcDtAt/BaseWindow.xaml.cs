@@ -33,7 +33,7 @@ public partial class BaseWindow
         Datenstruktur = datenstruktur;
         _baseCancellationToken = baseCancellationToken;
 
-        DisplayInfo = new DisplayInfo();
+        DisplayInfo = new DisplayInfo(Datenstruktur);
 
         InitializeComponent();
         DataContext = _vmBase;

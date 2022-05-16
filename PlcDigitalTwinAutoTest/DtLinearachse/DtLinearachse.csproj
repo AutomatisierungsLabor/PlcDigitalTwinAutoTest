@@ -33,9 +33,6 @@
     <None Update="ConfigTests\Motorschaltungen_1__601__2_1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Motorschaltungen_1__601__2_1\index.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="ConfigTests\Motorschaltungen_1__601__2_1\test.st">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

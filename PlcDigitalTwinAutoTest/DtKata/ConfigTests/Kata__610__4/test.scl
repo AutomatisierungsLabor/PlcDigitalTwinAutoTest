@@ -1,4 +1,4 @@
-﻿FUNCTION_BLOCK "DeleteMe"
+﻿FUNCTION_BLOCK "Kata 610/4 Blinker"
 { S7_Optimized_Access := 'TRUE' }
 VERSION : 0.1
    VAR 
