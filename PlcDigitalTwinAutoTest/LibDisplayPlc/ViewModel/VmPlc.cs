@@ -36,15 +36,15 @@ public partial class VmPlc : ObservableObject
             DiZeilenBeschriften(DiCollection);
             if (_configDt != null)
             {
-                if (_configDt.GetAnzahlAa() > 0) StringWertAa00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfigs[0].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfigs[0].StartByte);
-                if (_configDt.GetAnzahlAa() > 1) StringWertAa01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfigs[1].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfigs[1].StartByte);
-                if (_configDt.GetAnzahlAa() > 2) StringWertAa02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfigs[2].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfigs[2].StartByte);
-                if (_configDt.GetAnzahlAa() > 3) StringWertAa03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfigs[3].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfigs[3].StartByte);
+                if (_configDt.GetAnzahlAa() > 0) StringWertAa00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[0].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfig[0].StartByte);
+                if (_configDt.GetAnzahlAa() > 1) StringWertAa01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[1].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[1].StartByte);
+                if (_configDt.GetAnzahlAa() > 2) StringWertAa02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[2].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[2].StartByte);
+                if (_configDt.GetAnzahlAa() > 3) StringWertAa03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[3].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[3].StartByte);
 
-                if (_configDt.GetAnzahlAi() > 0) StringWertAi00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge.EaConfigs[0].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfigs[0].StartByte);
-                if (_configDt.GetAnzahlAi() > 1) StringWertAi01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge.EaConfigs[1].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfigs[1].StartByte);
-                if (_configDt.GetAnzahlAi() > 2) StringWertAi02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge.EaConfigs[2].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfigs[2].StartByte);
-                if (_configDt.GetAnzahlAi() > 3) StringWertAi03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge.EaConfigs[3].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfigs[3].StartByte);
+                if (_configDt.GetAnzahlAi() > 0) StringWertAi00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge.EaConfig[0].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfig[0].StartByte);
+                if (_configDt.GetAnzahlAi() > 1) StringWertAi01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge.EaConfig[1].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfig[1].StartByte);
+                if (_configDt.GetAnzahlAi() > 2) StringWertAi02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge.EaConfig[2].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfig[2].StartByte);
+                if (_configDt.GetAnzahlAi() > 3) StringWertAi03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Ai, _configDt.DtConfig.AnalogeEingaenge.EaConfig[3].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfig[3].StartByte);
             }
 
 
@@ -79,7 +79,7 @@ public partial class VmPlc : ObservableObject
 
         if (_configDt.GetAnzahlDa() == 0) return;
 
-        foreach (var digitaleAusgaenge in _configDt.DtConfig.DigitaleAusgaenge.EaConfigs)
+        foreach (var digitaleAusgaenge in _configDt.DtConfig.DigitaleAusgaenge.EaConfig)
         {
             var index = digitaleAusgaenge.StartBit + 10 * digitaleAusgaenge.StartByte;
 
@@ -99,7 +99,7 @@ public partial class VmPlc : ObservableObject
 
         if (_configDt.GetAnzahlDi() == 0) return;
 
-        foreach (var digitaleEingaenge in _configDt.DtConfig.DigitaleEingaenge.EaConfigs)
+        foreach (var digitaleEingaenge in _configDt.DtConfig.DigitaleEingaenge.EaConfig)
         {
             var index = digitaleEingaenge.StartBit + 10 * digitaleEingaenge.StartByte;
 

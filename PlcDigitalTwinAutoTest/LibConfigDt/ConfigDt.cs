@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LibDatenstruktur;
+using Newtonsoft.Json;
 
 namespace LibConfigDt;
 
@@ -20,6 +21,9 @@ public partial class ConfigDt
         var pfadName = Path.Combine(_path, "DigitalTwin.json");
         JsonEinlesen(pfadName);
     }
+
+
+
     public void JsonEinlesen(string pathName)
     {
         if (File.Exists(pathName))
@@ -27,7 +31,6 @@ public partial class ConfigDt
             try
             {
                 DtConfig = JsonConvert.DeserializeObject<DtConfig>(File.ReadAllText(pathName));
-                var a = JsonConvert.DeserializeObject<Rootobject>(File.ReadAllText(pathName));
                 JsonAufFehlerTesten();
             }
             catch (Exception e)
@@ -41,11 +44,27 @@ public partial class ConfigDt
             Log.Debug("json Datei fehlt:" + pathName);
         }
     }
-    public int GetAnzahlAa() => DtConfig.AnalogeAusgaenge.EaConfigs == null ? 0 : DtConfig.AnalogeAusgaenge.EaConfigs.Length;
-    public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.EaConfigs == null ? 0 : DtConfig.AnalogeEingaenge.EaConfigs.Length;
-    public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.EaConfigs == null ? 0 : DtConfig.DigitaleAusgaenge.EaConfigs.Length;
-    public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.EaConfigs == null ? 0 : DtConfig.DigitaleEingaenge.EaConfigs.Length;
+    public int GetAnzahlAa() => DtConfig.AnalogeAusgaenge.EaConfig == null ? 0 : DtConfig.AnalogeAusgaenge.EaConfig.Length;
+    public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.EaConfig == null ? 0 : DtConfig.AnalogeEingaenge.EaConfig.Length;
+    public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.EaConfig == null ? 0 : DtConfig.DigitaleAusgaenge.EaConfig.Length;
+    public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.EaConfig == null ? 0 : DtConfig.DigitaleEingaenge.EaConfig.Length;
     public int GetAnzahlTextbausteine() => DtConfig.Textbausteine == null ? 0 : DtConfig.Textbausteine.Length;
+
+    public EaTypen GetEaType(DatenBereich datenBereich, int pos)
+    {
+        var dtEaConfig = datenBereich switch
+        {
+            DatenBereich.Aa => DtConfig.AnalogeAusgaenge,
+            DatenBereich.Ai => DtConfig.AnalogeEingaenge,
+            DatenBereich.Da => DtConfig.DigitaleAusgaenge,
+            DatenBereich.Di => DtConfig.DigitaleEingaenge,
+            _ => null
+        };
+        if (dtEaConfig == null) return EaTypen.TestErrorAusgeben;
+        if (dtEaConfig.EaConfig == null) return EaTypen.TestErrorAusgeben;
+        if (dtEaConfig.EaConfig.Length < pos) return EaTypen.TestErrorAusgeben;
+        return dtEaConfig.EaConfig[pos].Type;
+    }
     public void SetPathRelativ(string pfad) => SetPath(new string(Path.Combine(Environment.CurrentDirectory, pfad)));
     public void SetPath(string path)
     {

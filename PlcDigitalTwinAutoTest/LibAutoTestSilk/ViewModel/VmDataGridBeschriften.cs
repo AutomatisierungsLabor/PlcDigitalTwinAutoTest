@@ -25,8 +25,8 @@ public partial class VmAutoTesterSilk
             throw;
         }
 
-        TabBeschriftungDa(configDt.DtConfig.DigitaleAusgaenge.EaConfigs, DaCollection, _daZeilenAlt);
-        TabBeschriftungDa(configDt.DtConfig.DigitaleEingaenge.EaConfigs, DiCollection, _diZeilenAlt);
+        TabBeschriftungDa(configDt.DtConfig.DigitaleAusgaenge.EaConfig, DaCollection, _daZeilenAlt);
+        TabBeschriftungDa(configDt.DtConfig.DigitaleEingaenge.EaConfig, DiCollection, _diZeilenAlt);
 
         AlleDpAktualisieren();
     }
