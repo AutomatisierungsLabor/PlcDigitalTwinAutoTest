@@ -1,90 +1,98 @@
 {
-  "AnalogeAusgaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "AnzahlBit": 32,
-      "Type": "DWord",
-      "Bezeichnung": "AA0",
-      "Kommentar": "Dummy analog Ausgang 0"
-    }
-  ],
-  "AnalogeEingaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "AnzahlBit": 16,
-      "Type": "Word",
-      "Bezeichnung": "AI0",
-      "Kommentar": "Dummy analog Eingang 0"
-    }
-  ],
-  "DigitaleAusgaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "Type": "Bit",
-      "Bezeichnung": "P1",
-      "Kommentar": "Meldeleuchte Störung"
+    "AnalogeAusgaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 0,
+                "AnzahlBit": 32,
+                "Type": "DWord",
+                "Bezeichnung": "AA0",
+                "Kommentar": "Dummy analog Ausgang 0"
+            }
+        ]
     },
-    {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "Q1",
-      "Kommentar": "Motor LL"
+    "AnalogeEingaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 0,
+                "AnzahlBit": 16,
+                "Type": "Word",
+                "Bezeichnung": "AI0",
+                "Kommentar": "Dummy analog Eingang 0"
+            }
+        ]
     },
-    {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Type": "Bit",
-      "Bezeichnung": "Q2",
-      "Kommentar": "Motor RL"
-    }
-  ],
-  "DigitaleEingaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "Type": "Bit",
-      "Bezeichnung": "B1",
-      "Kommentar": "Endschalter links"
+    "DigitaleAusgaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 0,
+                "Type": "Bit",
+                "Bezeichnung": "P1",
+                "Kommentar": "Meldeleuchte Störung"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 1,
+                "Type": "Bit",
+                "Bezeichnung": "Q1",
+                "Kommentar": "Motor LL"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 2,
+                "Type": "Bit",
+                "Bezeichnung": "Q2",
+                "Kommentar": "Motor RL"
+            }
+        ]
     },
-    {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "B2",
-      "Kommentar": "Endschalter rechts"
+    "DigitaleEingaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 0,
+                "Type": "Bit",
+                "Bezeichnung": "B1",
+                "Kommentar": "Endschalter links"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 1,
+                "Type": "Bit",
+                "Bezeichnung": "B2",
+                "Kommentar": "Endschalter rechts"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 2,
+                "Type": "Bit",
+                "Bezeichnung": "F1",
+                "Kommentar": "Thermorelais"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 3,
+                "Type": "Bit",
+                "Bezeichnung": "S1",
+                "Kommentar": "Taster Start"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 4,
+                "Type": "Bit",
+                "Bezeichnung": "S2",
+                "Kommentar": "Nothalt"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 5,
+                "Type": "Bit",
+                "Bezeichnung": "S3",
+                "Kommentar": "Taster Reset"
+            }
+        ]
     },
-    {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Type": "Bit",
-      "Bezeichnung": "F1",
-      "Kommentar": "Thermorelais"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Type": "Bit",
-      "Bezeichnung": "S1",
-      "Kommentar": "Taster Start"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 4,
-      "Type": "Bit",
-      "Bezeichnung": "S2",
-      "Kommentar": "Nothalt"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 5,
-      "Type": "Bit",
-      "Bezeichnung": "S3",
-      "Kommentar": "Taster Reset"
-    }
-  ],
-  "Textbausteine": []
+    "Textbausteine": []
 }

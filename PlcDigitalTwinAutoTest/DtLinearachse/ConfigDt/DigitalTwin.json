@@ -1,142 +1,150 @@
 {
-  "AnalogeAusgaenge": [],
-  "AnalogeEingaenge": [],
-  "DigitaleAusgaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "Type": "Bit",
-      "Bezeichnung": "Q1",
-      "Kommentar": "Linearachse Rechtslauf "
+    "AnalogeAusgaenge": {
+        "EaConfig": []
     },
-    {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "Q2",
-      "Kommentar": "Linearachse Linkslauf "
+    "AnalogeEingaenge": {
+        "EaConfig": []
     },
-    {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Type": "Bit",
-      "Bezeichnung": "P1",
-      "Kommentar": "Meldeleuchte im Taster S1/S2 (weiß) "
+    "DigitaleAusgaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 0,
+                "Type": "Bit",
+                "Bezeichnung": "Q1",
+                "Kommentar": "Linearachse Rechtslauf "
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 1,
+                "Type": "Bit",
+                "Bezeichnung": "Q2",
+                "Kommentar": "Linearachse Linkslauf "
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 2,
+                "Type": "Bit",
+                "Bezeichnung": "P1",
+                "Kommentar": "Meldeleuchte im Taster S1/S2 (weiß) "
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 3,
+                "Type": "Bit",
+                "Bezeichnung": "P2",
+                "Kommentar": "Meldeleuchte weiß"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 4,
+                "Type": "Bit",
+                "Bezeichnung": "P3",
+                "Kommentar": "Meldeleuchte rot"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 5,
+                "Type": "Bit",
+                "Bezeichnung": "P4",
+                "Kommentar": "Meldeleuchte grün"
+            }
+        ]
     },
-    {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Type": "Bit",
-      "Bezeichnung": "P2",
-      "Kommentar": "Meldeleuchte weiß"
+    "DigitaleEingaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 0,
+                "Type": "Bit",
+                "Bezeichnung": "B1",
+                "Kommentar": "Linearachse Endlage links → Öffner"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 1,
+                "Type": "Bit",
+                "Bezeichnung": "B2",
+                "Kommentar": "Linearachse Endlage rechts → Öffner"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 2,
+                "Type": "Bit",
+                "Bezeichnung": "S2",
+                "Kommentar": "Taster ( ⓪ ) → Öffner"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 3,
+                "Type": "Bit",
+                "Bezeichnung": "S1",
+                "Kommentar": "Taster ( ① ) → Schliesser "
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 4,
+                "Type": "Bit",
+                "Bezeichnung": "S4",
+                "Kommentar": "Taster ( Ⅱ ) → Schliesser"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 5,
+                "Type": "Bit",
+                "Bezeichnung": "S3",
+                "Kommentar": "Taster ( ① ) → Schliesser "
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 6,
+                "Type": "Bit",
+                "Bezeichnung": "S6",
+                "Kommentar": "Taster ( ↓ ) → Schliesser"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 7,
+                "Type": "Bit",
+                "Bezeichnung": "S5",
+                "Kommentar": "Taster ( ↑ ) → Schliesser"
+            },
+            {
+                "StartByte": 1,
+                "StartBit": 0,
+                "Type": "Bit",
+                "Bezeichnung": "S8",
+                "Kommentar": "Taster ( － ) → Schliesser"
+            },
+            {
+                "StartByte": 1,
+                "StartBit": 1,
+                "Type": "Bit",
+                "Bezeichnung": "S7",
+                "Kommentar": "Taster ( + ) → Schliesser"
+            },
+            {
+                "StartByte": 1,
+                "StartBit": 2,
+                "Type": "Bit",
+                "Bezeichnung": "S9",
+                "Kommentar": "Taster ( STOP ) → Öffner"
+            },
+            {
+                "StartByte": 1,
+                "StartBit": 3,
+                "Type": "Bit",
+                "Bezeichnung": "S10",
+                "Kommentar": " Not-Halt → Öffner"
+            },
+            {
+                "StartByte": 1,
+                "StartBit": 4,
+                "Type": "Bit",
+                "Bezeichnung": "S11",
+                "Kommentar": "Not-Halt → Schliesser"
+            }
+        ]
     },
-    {
-      "StartByte": 0,
-      "StartBit": 4,
-      "Type": "Bit",
-      "Bezeichnung": "P3",
-      "Kommentar": "Meldeleuchte rot"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 5,
-      "Type": "Bit",
-      "Bezeichnung": "P4",
-      "Kommentar": "Meldeleuchte grün"
-    }
-  ],
-  "DigitaleEingaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 0,
-      "Type": "Bit",
-      "Bezeichnung": "B1",
-      "Kommentar": "Linearachse Endlage links → Öffner"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "B2",
-      "Kommentar": "Linearachse Endlage rechts → Öffner"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Type": "Bit",
-      "Bezeichnung": "S2",
-      "Kommentar": "Taster ( ⓪ ) → Öffner"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Type": "Bit",
-      "Bezeichnung": "S1",
-      "Kommentar": "Taster ( ① ) → Schliesser "
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 4,
-      "Type": "Bit",
-      "Bezeichnung": "S4",
-      "Kommentar": "Taster ( Ⅱ ) → Schliesser"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 5,
-      "Type": "Bit",
-      "Bezeichnung": "S3",
-      "Kommentar": "Taster ( ① ) → Schliesser "
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 6,
-      "Type": "Bit",
-      "Bezeichnung": "S6",
-      "Kommentar": "Taster ( ↓ ) → Schliesser"
-    },
-    {
-      "StartByte": 0,
-      "StartBit": 7,
-      "Type": "Bit",
-      "Bezeichnung": "S5",
-      "Kommentar": "Taster ( ↑ ) → Schliesser"
-    },
-    {
-      "StartByte": 1,
-      "StartBit": 0,
-      "Type": "Bit",
-      "Bezeichnung": "S8",
-      "Kommentar": "Taster ( － ) → Schliesser"
-    },
-    {
-      "StartByte": 1,
-      "StartBit": 1,
-      "Type": "Bit",
-      "Bezeichnung": "S7",
-      "Kommentar": "Taster ( + ) → Schliesser"
-    },
-    {
-      "StartByte": 1,
-      "StartBit": 2,
-      "Type": "Bit",
-      "Bezeichnung": "S9",
-      "Kommentar": "Taster ( STOP ) → Öffner"
-    },
-    {
-      "StartByte": 1,
-      "StartBit": 3,
-      "Type": "Bit",
-      "Bezeichnung": "S10",
-      "Kommentar": " Not-Halt → Öffner"
-    },
-    {
-      "StartByte": 1,
-      "StartBit": 4,
-      "Type": "Bit",
-      "Bezeichnung": "S11",
-      "Kommentar": "Not-Halt → Schliesser"
-    }
-  ],
-  "Textbausteine": []
+    "Textbausteine": []
 }

@@ -6,19 +6,18 @@ namespace LibConfigDt.Test;
 public class TestKonstruktor
 {
     [Theory]
-    [InlineData("Konstruktor", "DtLeer.json", 0, 0, 0, 0)]
+    [InlineData("Konstruktor", 0, 0, 0, 0, 0)]
+    [InlineData("JeEinEintrag", 1, 1, 1, 1, 1)]
 
-    public void TestKonstruktorOk(string pfad, string name, short aa, short ai, short da, short di)
+    public void TestKonstruktorOk(string pfad, short aa, short ai, short da, short di, short texte)
     {
-        var pfadName = Path.Combine(pfad, name);
-
-        var config = new ConfigDt("Konstruktor");
-        config.JsonEinlesen(pfadName);
+        var config = new ConfigDt(pfad);
 
         Assert.Equal(config.GetAnzahlAa(), aa);
         Assert.Equal(config.GetAnzahlAi(), ai);
         Assert.Equal(config.GetAnzahlDa(), da);
         Assert.Equal(config.GetAnzahlDi(), di);
-
+        Assert.Equal(config.GetAnzahlTextbausteine(), texte);
     }
+
 }

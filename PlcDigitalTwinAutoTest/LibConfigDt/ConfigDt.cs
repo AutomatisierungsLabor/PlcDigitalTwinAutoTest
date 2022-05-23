@@ -15,7 +15,6 @@ public partial class ConfigDt
 
         _path = path;
 
-
         DtConfig = new DtConfig();
 
         var pfadName = Path.Combine(_path, "DigitalTwin.json");
@@ -23,21 +22,30 @@ public partial class ConfigDt
     }
     public void JsonEinlesen(string pathName)
     {
-        try
+        if (File.Exists(pathName))
         {
-            DtConfig = JsonConvert.DeserializeObject<DtConfig>(File.ReadAllText(pathName));
-            JsonAufFehlerTesten();
+            try
+            {
+                DtConfig = JsonConvert.DeserializeObject<DtConfig>(File.ReadAllText(pathName));
+                var a = JsonConvert.DeserializeObject<Rootobject>(File.ReadAllText(pathName));
+                JsonAufFehlerTesten();
+            }
+            catch (Exception e)
+            {
+                Log.Debug(e);
+                throw;
+            }
         }
-        catch (Exception e)
+        else
         {
-            Log.Debug(e);
-            throw;
+            Log.Debug("json Datei fehlt:" + pathName);
         }
     }
-    public int GetAnzahlAa() => DtConfig.AnalogeAusgaenge.EaConfigs.Length;
-    public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.EaConfigs.Length;
-    public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.EaConfigs.Length;
-    public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.EaConfigs.Length;
+    public int GetAnzahlAa() => DtConfig.AnalogeAusgaenge.EaConfigs == null ? 0 : DtConfig.AnalogeAusgaenge.EaConfigs.Length;
+    public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.EaConfigs == null ? 0 : DtConfig.AnalogeEingaenge.EaConfigs.Length;
+    public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.EaConfigs == null ? 0 : DtConfig.DigitaleAusgaenge.EaConfigs.Length;
+    public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.EaConfigs == null ? 0 : DtConfig.DigitaleEingaenge.EaConfigs.Length;
+    public int GetAnzahlTextbausteine() => DtConfig.Textbausteine == null ? 0 : DtConfig.Textbausteine.Length;
     public void SetPathRelativ(string pfad) => SetPath(new string(Path.Combine(Environment.CurrentDirectory, pfad)));
     public void SetPath(string path)
     {

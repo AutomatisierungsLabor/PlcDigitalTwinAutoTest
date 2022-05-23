@@ -14,25 +14,52 @@ public partial class ConfigDt
     }
     private void AaTesten()
     {
-        if (DtConfig.AnalogeAusgaenge.EaConfigs.Length == 0) return;
-        (DtConfig.AnalogeAusgaenge.ConfigOk, DtConfig.AnalogeAusgaenge.AnzByte) = EaConfigTesten("Aa", DtConfig.AnalogeAusgaenge.EaConfigs);
+        if (DtConfig.AnalogeAusgaenge.EaConfigs == null)
+        {
+            DtConfig.AnalogeAusgaenge.ConfigOk = true;
+            DtConfig.AnalogeAusgaenge.AnzByte = 0;
+        }
+        else
+        {
+            (DtConfig.AnalogeAusgaenge.ConfigOk, DtConfig.AnalogeAusgaenge.AnzByte) = EaConfigTesten("Aa", DtConfig.AnalogeAusgaenge.EaConfigs);
+        }
     }
     private void AiTesten()
     {
-        if (DtConfig.AnalogeEingaenge.EaConfigs.Length == 0) return;
-        (DtConfig.AnalogeAusgaenge.ConfigOk, DtConfig.AnalogeAusgaenge.AnzByte) = EaConfigTesten("Ai", DtConfig.AnalogeEingaenge.EaConfigs);
+        if (DtConfig.AnalogeEingaenge.EaConfigs == null)
+        {
+            DtConfig.AnalogeEingaenge.ConfigOk = true;
+            DtConfig.AnalogeEingaenge.AnzByte = 0;
+        }
+        else
+        {
+            (DtConfig.AnalogeEingaenge.ConfigOk, DtConfig.AnalogeEingaenge.AnzByte) = EaConfigTesten("Ai", DtConfig.AnalogeEingaenge.EaConfigs);
+        }
     }
     private void DaTesten()
     {
-        if (DtConfig.DigitaleAusgaenge.EaConfigs.Length == 0) return;
-        (DtConfig.AnalogeAusgaenge.ConfigOk, DtConfig.AnalogeAusgaenge.AnzByte) = EaConfigTesten("Da", DtConfig.DigitaleAusgaenge.EaConfigs);
+        if (DtConfig.DigitaleAusgaenge.EaConfigs == null)
+        {
+            DtConfig.DigitaleAusgaenge.ConfigOk = true;
+            DtConfig.DigitaleAusgaenge.AnzByte = 0;
+        }
+        else
+        {
+            (DtConfig.DigitaleAusgaenge.ConfigOk, DtConfig.DigitaleAusgaenge.AnzByte) = EaConfigTesten("Da", DtConfig.DigitaleAusgaenge.EaConfigs);
+        }
     }
     private void DiTesten()
     {
-        if (DtConfig.DigitaleEingaenge.EaConfigs.Length == 0) return;
-        (DtConfig.AnalogeAusgaenge.ConfigOk, DtConfig.AnalogeAusgaenge.AnzByte) = EaConfigTesten("Di", DtConfig.DigitaleEingaenge.EaConfigs);
+        if (DtConfig.DigitaleEingaenge.EaConfigs == null)
+        {
+            DtConfig.DigitaleEingaenge.ConfigOk = true;
+            DtConfig.DigitaleEingaenge.AnzByte = 0;
+        }
+        else
+        {
+            (DtConfig.DigitaleEingaenge.ConfigOk, DtConfig.DigitaleEingaenge.AnzByte) = EaConfigTesten("Di", DtConfig.DigitaleEingaenge.EaConfigs);
+        }
     }
-
     private static (bool ConfigOk, int AnzByte) EaConfigTesten(string bez, IEnumerable<EaConfig> eaConfigs)
     {
         var speicherAbbild = new byte[256];

@@ -12,7 +12,7 @@ public partial class PlcZeichnen
 
         if (configDt.GetAnzahlAa() == 0) return;
 
-        foreach (var analogeAusgaenge in configDt.DtConfig.AnalogeAusgaenge)
+        foreach (var analogeAusgaenge in configDt.DtConfig.AnalogeAusgaenge.EaConfigs)
         {
             libWpf.Text($"AA[{analogeAusgaenge.StartByte}]:", offsetX, 5, offsetY + posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, SchriftKlein, Brushes.Blue);
             libWpf.TextSetContent(offsetX + 2, 5, offsetY + posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, SchriftKlein, Brushes.MediumVioletRed, $"StringWertAa0{analogeAusgaenge.StartByte}");
@@ -27,7 +27,7 @@ public partial class PlcZeichnen
 
         if (configDt.GetAnzahlAi() == 0) return;
 
-        foreach (var analogeEingaenge in configDt.DtConfig.AnalogeEingaenge)
+        foreach (var analogeEingaenge in configDt.DtConfig.AnalogeEingaenge.EaConfigs)
         {
             libWpf.Text($"AI[{analogeEingaenge.StartByte}]:", offsetX, 5, offsetY + posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, SchriftKlein, Brushes.Blue);
             libWpf.TextSetContent(offsetX + 2, 5, offsetY + posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, SchriftKlein, Brushes.MediumVioletRed, $"StringWertAi0{analogeEingaenge.StartByte}");

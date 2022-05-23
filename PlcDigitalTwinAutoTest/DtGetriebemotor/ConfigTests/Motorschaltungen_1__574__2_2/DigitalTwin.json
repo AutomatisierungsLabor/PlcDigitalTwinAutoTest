@@ -1,46 +1,54 @@
 {
-    "AnalogeAusgaenge": [],
-    "AnalogeEingaenge": [],
-    "DigitaleAusgaenge": [
-        {
-            "StartByte": 0,
-            "StartBit": 4,
-            "Bezeichnung": "P3",
-            "Kommentar": "Meldeleuchte (rot)"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 5,
-            "Bezeichnung": "P4",
-            "Kommentar": "Meldeleuchte (grün)"
-        }
-    ],
-    "DigitaleEingaenge": [
-        {
-            "StartByte": 1,
-            "StartBit": 2,
-            "Bezeichnung": "F1",
-            "Kommentar": "Thermorelais (STOP)"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 2,
-            "Bezeichnung": "S2",
-            "Kommentar": "Taster Aus ( ⓪ )"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 3,
-            "Bezeichnung": "S1",
-            "Kommentar": "Taster Ein ( ① )"
-        },
-        {
-            "StartByte": 1,
-            "StartBit": 3,
-            "Bezeichnung": "S10",
-            "Kommentar": "Not-Halt"
-        }
-    ],
+    "AnalogeAusgaenge": {
+        "EaConfig": []
+    },
+    "AnalogeEingaenge": {
+        "EaConfig": []
+    },
+    "DigitaleAusgaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 4,
+                "Bezeichnung": "P3",
+                "Kommentar": "Meldeleuchte (rot)"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 5,
+                "Bezeichnung": "P4",
+                "Kommentar": "Meldeleuchte (grün)"
+            }
+        ]
+    },
+    "DigitaleEingaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 1,
+                "StartBit": 2,
+                "Bezeichnung": "F1",
+                "Kommentar": "Thermorelais (STOP)"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 2,
+                "Bezeichnung": "S2",
+                "Kommentar": "Taster Aus ( ⓪ )"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 3,
+                "Bezeichnung": "S1",
+                "Kommentar": "Taster Ein ( ① )"
+            },
+            {
+                "StartByte": 1,
+                "StartBit": 3,
+                "Bezeichnung": "S10",
+                "Kommentar": "Not-Halt"
+            }
+        ]
+    },
     "Textbausteine": [
         {
             "BausteinId": "5",

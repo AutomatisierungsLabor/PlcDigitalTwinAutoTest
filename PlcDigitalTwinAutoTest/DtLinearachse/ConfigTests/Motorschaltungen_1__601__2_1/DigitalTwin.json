@@ -1,64 +1,72 @@
 {
-  "AnalogeAusgaenge": [],
-  "AnalogeEingaenge": [],
-  "DigitaleAusgaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 5,
-      "Bezeichnung": "P4",
-      "Kommentar": "Meldeleuchte (grün)"
-    }
-  ],
-  "DigitaleEingaenge": [
-    {
-      "StartByte": 0,
-      "StartBit": 2,
-      "Bezeichnung": "S2",
-      "Kommentar": "Taster Aus ( ⓪ )"
+    "AnalogeAusgaenge": {
+        "EaConfig": []
     },
-    {
-      "StartByte": 0,
-      "StartBit": 3,
-      "Bezeichnung": "S1",
-      "Kommentar": "Taster Ein ( ① )"
-    }
-  ],
-  "Textbausteine": [
-    {
-      "BausteinId": "5",
-      "PrefixH1": "",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - Head",
-      "WasAnzeigen": "NurInhalt"
+    "AnalogeEingaenge": {
+        "EaConfig": []
     },
-    {
-      "BausteinId": "20",
-      "PrefixH1": "1. ",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Hardware",
-      "WasAnzeigen": "H1Inhalt"
+    "DigitaleAusgaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 5,
+                "Bezeichnung": "P4",
+                "Kommentar": "Meldeleuchte (grün)"
+            }
+        ]
     },
-    {
-      "BausteinId": "21",
-      "PrefixH1": "2. ",
-      "PrefixH2": "2.1 ",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Variante 1",
-      "WasAnzeigen": "H1H2Inhalt"
+    "DigitaleEingaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 2,
+                "Bezeichnung": "S2",
+                "Kommentar": "Taster Aus ( ⓪ )"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 3,
+                "Bezeichnung": "S1",
+                "Kommentar": "Taster Ein ( ① )"
+            }
+        ]
     },
-    {
-      "BausteinId": "8",
-      "PrefixH1": "",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - </body>",
-      "WasAnzeigen": "NurInhalt"
-    }
-  ]
+    "Textbausteine": [
+        {
+            "BausteinId": "5",
+            "PrefixH1": "",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Html - Head",
+            "WasAnzeigen": "NurInhalt"
+        },
+        {
+            "BausteinId": "20",
+            "PrefixH1": "1. ",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Hardware",
+            "WasAnzeigen": "H1Inhalt"
+        },
+        {
+            "BausteinId": "21",
+            "PrefixH1": "2. ",
+            "PrefixH2": "2.1 ",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Variante 1",
+            "WasAnzeigen": "H1H2Inhalt"
+        },
+        {
+            "BausteinId": "8",
+            "PrefixH1": "",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Html - </body>",
+            "WasAnzeigen": "NurInhalt"
+        }
+    ]
 }

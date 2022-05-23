@@ -1,34 +1,42 @@
 {
-    "AnalogeAusgaenge": [],
-    "AnalogeEingaenge": [],
-    "DigitaleAusgaenge": [
-        {
-            "StartByte": 0,
-            "StartBit": 0,
-            "Bezeichnung": "Q1",
-            "Kommentar": "Linearachse Rechtslauf"
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 1,
-            "Bezeichnung": "Q2",
-            "Kommentar": "Linearachse Linkslauf "
-        },
-        {
-            "StartByte": 0,
-            "StartBit": 5,
-            "Bezeichnung": "P4",
-            "Kommentar": "Meldeleuchte (grün)"
-        }
-    ],
-    "DigitaleEingaenge": [
-        {
-            "StartByte": 0,
-            "StartBit": 3,
-            "Bezeichnung": "S1",
-            "Kommentar": "Taster Ein ( ① )"
-        }
-    ],
+    "AnalogeAusgaenge": {
+        "EaConfig": []
+    },
+    "AnalogeEingaenge": {
+        "EaConfig": []
+    },
+    "DigitaleAusgaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 0,
+                "Bezeichnung": "Q1",
+                "Kommentar": "Linearachse Rechtslauf"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 1,
+                "Bezeichnung": "Q2",
+                "Kommentar": "Linearachse Linkslauf "
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 5,
+                "Bezeichnung": "P4",
+                "Kommentar": "Meldeleuchte (grün)"
+            }
+        ]
+    },
+    "DigitaleEingaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 3,
+                "Bezeichnung": "S1",
+                "Kommentar": "Taster Ein ( ① )"
+            }
+        ]
+    },
     "Textbausteine": [
         {
             "BausteinId": "5",

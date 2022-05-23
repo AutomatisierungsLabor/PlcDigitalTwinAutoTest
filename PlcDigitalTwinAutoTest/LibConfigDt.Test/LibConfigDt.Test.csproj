@@ -24,7 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Konstruktor\DtLeer.json">
+    <None Update="JeEinEintrag\DigitalTwin.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Konstruktor\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
