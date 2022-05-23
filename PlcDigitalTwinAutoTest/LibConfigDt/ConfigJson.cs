@@ -10,7 +10,6 @@ public enum TextbausteineAnzeigen
 }
 public enum EaTypen
 {
-    // ReSharper disable UnusedMember.Global
     NichtBelegt,
     Bit,
     Byte,
@@ -21,15 +20,20 @@ public enum EaTypen
     SiemensAnalogwertProzent,
     SiemensAnalogwertPromille,
     SiemensAnalogwertSchieberegler
-    // ReSharper restore UnusedMember.Global
 }
 public class DtConfig
 {
-    public EaConfig[] AnalogeAusgaenge { get; set; }
-    public EaConfig[] AnalogeEingaenge { get; set; }
-    public EaConfig[] DigitaleAusgaenge { get; set; }
-    public EaConfig[] DigitaleEingaenge { get; set; }
+    public DtEaConfig AnalogeAusgaenge { get; set; }
+    public DtEaConfig AnalogeEingaenge { get; set; }
+    public DtEaConfig DigitaleAusgaenge { get; set; }
+    public DtEaConfig DigitaleEingaenge { get; set; }
     public Textbausteine[] Textbausteine { get; set; }
+}
+public class DtEaConfig
+{
+    public bool ConfigOk { get; set; }
+    public int AnzByte { get; set; }
+    public EaConfig[] EaConfigs { get; set; }
 }
 public class EaConfig
 {
@@ -44,6 +48,7 @@ public class Textbausteine
     public int BausteinId { get; set; }
     public string PrefixH1 { get; set; }
     public string PrefixH2 { get; set; }
+    // ReSharper disable once UnusedMember.Global
     public int VorbereitungId { get; set; }
     public string Test { get; set; }
     public string Kommentar { get; set; }

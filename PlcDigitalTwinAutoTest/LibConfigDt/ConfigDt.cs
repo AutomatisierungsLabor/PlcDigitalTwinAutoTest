@@ -2,7 +2,7 @@
 
 namespace LibConfigDt;
 
-public class ConfigDt
+public partial class ConfigDt
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
@@ -34,10 +34,10 @@ public class ConfigDt
             throw;
         }
     }
-    public int GetAnzahlAa() => DtConfig.AnalogeAusgaenge.Length;
-    public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.Length;
-    public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.Length;
-    public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.Length;
+    public int GetAnzahlAa() => DtConfig.AnalogeAusgaenge.EaConfigs.Length;
+    public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.EaConfigs.Length;
+    public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.EaConfigs.Length;
+    public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.EaConfigs.Length;
     public void SetPathRelativ(string pfad) => SetPath(new string(Path.Combine(Environment.CurrentDirectory, pfad)));
     public void SetPath(string path)
     {
@@ -45,15 +45,4 @@ public class ConfigDt
         var pfadName = Path.Combine(_path, "DigitalTwin.json");
         JsonEinlesen(pfadName);
     }
-    private void JsonAufFehlerTesten()
-    {
-        if (DtConfig.Textbausteine.Length == 0) return;
-
-        foreach (var textbausteine in DtConfig.Textbausteine)
-        {
-            if (textbausteine.PrefixH1 == null) Log.Debug($"PrefixH1 ist leer");
-            if (textbausteine.PrefixH2 == null) Log.Debug($"PrefixH2 ist leer");
-        }
-    }
-
 }
