@@ -10,12 +10,14 @@
             {
                 "StartByte": 0,
                 "StartBit": 4,
+                "Type": "Bit",
                 "Bezeichnung": "P3",
                 "Kommentar": "Meldeleuchte (rot)"
             },
             {
                 "StartByte": 0,
                 "StartBit": 5,
+                "Type": "Bit",
                 "Bezeichnung": "P4",
                 "Kommentar": "Meldeleuchte (grün)"
             }
@@ -26,18 +28,21 @@
             {
                 "StartByte": 1,
                 "StartBit": 2,
+                "Type": "Bit",
                 "Bezeichnung": "F1",
                 "Kommentar": "Thermorelais (STOP)"
             },
             {
                 "StartByte": 0,
                 "StartBit": 2,
+                "Type": "Bit",
                 "Bezeichnung": "S2",
                 "Kommentar": "Taster Aus ( ⓪ )"
             },
             {
                 "StartByte": 0,
                 "StartBit": 3,
+                "Type": "Bit",
                 "Bezeichnung": "S1",
                 "Kommentar": "Taster Ein ( ① )"
             },

@@ -33,7 +33,7 @@
                 "StartBit": 3,
                 "Type": "Bit",
                 "Bezeichnung": "-",
-                "Kommentar": "Reserve - nicht belegt "
+                "Kommentar": "-"
             },
             {
                 "StartByte": 0,
@@ -128,7 +128,7 @@
                 "StartBit": 1,
                 "Type": "Bit",
                 "Bezeichnung": "S9.2",
-                "Kommentar": " Not-Halt → Öffner"
+                "Kommentar": "Not-Halt → Öffner"
             },
             {
                 "StartByte": 1,

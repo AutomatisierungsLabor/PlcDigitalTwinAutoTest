@@ -5,6 +5,10 @@ namespace LibDisplayPlc.PlcZeichnen;
 
 public partial class PlcZeichnen
 {
+    /*
+     *  PlcDaZeichnen(libWpf, "Da0", "a", "StringWertDa0", 2, 16);
+     *  PlcDaZeichnen(libWpf, "Da1", "b", "StringWertDa1", 11, 16);
+     */
     private static void PlcDaZeichnen(LibWpf.LibWpf wpf, string prefix, string ab, string da, int offsetX, int offsetY)
     {
         wpf.Text("DA", offsetX, 2, offsetY, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGross, Brushes.White);
@@ -20,6 +24,10 @@ public partial class PlcZeichnen
             wpf.Text($".{i}", offsetX + i, 2, offsetY + 2, 2, HorizontalAlignment.Left, VerticalAlignment.Top, SchriftKlein, Brushes.White);
         }
     }
+    /*
+     *  PlcDiZeichnen(libWpf, "Di0", "a", "StringWertDi0", 2, 2);
+     *  PlcDiZeichnen(libWpf, "Di1", "b", "StringWertDi1", 11, 2);
+     */
     private static void PlcDiZeichnen(LibWpf.LibWpf wpf, string prefix, string ab, string di, int offsetX, int offsetY)
     {
         wpf.Text("DI", offsetX, 2, offsetY + 8, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGross, Brushes.White);

@@ -10,6 +10,7 @@
             {
                 "StartByte": 0,
                 "StartBit": 5,
+                "Type": "Bit",
                 "Bezeichnung": "P4",
                 "Kommentar": "Meldeleuchte (grün)"
             }
@@ -20,12 +21,14 @@
             {
                 "StartByte": 0,
                 "StartBit": 2,
+                "Type": "Bit",
                 "Bezeichnung": "S2",
                 "Kommentar": "Taster Aus ( ⓪ )"
             },
             {
                 "StartByte": 0,
                 "StartBit": 3,
+                "Type": "Bit",
                 "Bezeichnung": "S1",
                 "Kommentar": "Taster Ein ( ① )"
             }
