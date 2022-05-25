@@ -67,47 +67,52 @@ public partial class ConfigDt
 
         foreach (var zeile in eaConfigs)
         {
-            if (zeile.StartByte > 127 || zeile.StartBit > 7) configProblem |= LogConfigError($"{bez} Ungültige Option für Byte/Bit: ", zeile);
-            if (zeile.Bezeichnung.Length == 0) configProblem |= LogConfigError($"{bez} Bezeichnung fehlt: ", zeile);
-            if (zeile.Kommentar.Length == 0) configProblem |= LogConfigError($"{bez} Kommentar fehlt: ", zeile);
+            zeile.EaConfigError = EaConfigError.None;
+            if (zeile.StartByte > 127) configProblem |= LogConfigError($"{bez} Ungültige Option für Byteposition: ", zeile, EaConfigError.UngueltigesStartByte);
+            if (zeile.StartBit > 7) configProblem |= LogConfigError($"{bez} Ungültige Option für Bitposition: ", zeile, EaConfigError.UngueltigesStartBit);
+            if (zeile.Bezeichnung.Length == 0) configProblem |= LogConfigError($"{bez} Bezeichnung fehlt: ", zeile, EaConfigError.BezeichnungFehlt);
+            if (zeile.Kommentar.Length == 0) configProblem |= LogConfigError($"{bez} Kommentar fehlt: ", zeile, EaConfigError.KommentarFehlt);
+
+            if (zeile.EaConfigError != EaConfigError.None) continue;    // Es wird nur ein einziger Fehler erkannt!
 
             switch (zeile.Type)
             {
                 case EaTypen.Bit:
                     var bitMuster = Bitmuster.BitmusterErzeugen(zeile.StartBit);
-                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, bitMuster)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, bitMuster)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile, EaConfigError.BitKollision);
                     break;
 
                 case EaTypen.Ascii:
                 case EaTypen.BitmusterByte:
                 case EaTypen.Byte:
-                    if (zeile.StartBit > 0) configProblem |= LogConfigError($"{bez} Startbit != 0: ", zeile);
-                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile);
+                    if (zeile.StartBit > 0) configProblem |= LogConfigError($"{bez} Startbit != 0: ", zeile, EaConfigError.UngueltigesStartBit);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile, EaConfigError.ByteKollision);
                     break;
 
                 case EaTypen.Word:
                 case EaTypen.SiemensAnalogwertPromille:
                 case EaTypen.SiemensAnalogwertProzent:
                 case EaTypen.SiemensAnalogwertSchieberegler:
-                    if (zeile.StartBit > 0) configProblem |= LogConfigError($"{bez} Startbit != 0: ", zeile);
-                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) configProblem |= LogConfigError(bez, zeile);
-                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile);
+                    if (zeile.StartBit > 0) configProblem |= LogConfigError($"{bez} Startbit != 0: ", zeile, EaConfigError.UngueltigesStartBit);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) configProblem |= LogConfigError(bez, zeile, EaConfigError.ByteKollision);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile, EaConfigError.ByteKollision);
                     break;
 
 
                 case EaTypen.DWord:
-                    if (zeile.StartBit > 0) configProblem |= LogConfigError($"{bez} Startbit != 0: ", zeile);
-                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) configProblem |= LogConfigError(bez, zeile);
-                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile);
-                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 2, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile);
-                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 3, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile);
+                    if (zeile.StartBit > 0) configProblem |= LogConfigError($"{bez} Startbit != 0: ", zeile, EaConfigError.UngueltigesStartBit);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte, 0xFF)) configProblem |= LogConfigError(bez, zeile, EaConfigError.ByteKollision);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 1, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile, EaConfigError.ByteKollision);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 2, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile, EaConfigError.ByteKollision);
+                    if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, zeile.StartByte + 3, 0xFF)) configProblem |= LogConfigError($"{bez} Kollission: ", zeile, EaConfigError.ByteKollision);
                     break;
 
                 case EaTypen.NichtBelegt:
-                    configProblem |= LogConfigError(bez, zeile);
+                    configProblem |= LogConfigError(bez, zeile, EaConfigError.NichtBelegt);
                     break;
+                case EaTypen.TestErrorAusgeben:
                 default:
-                    configProblem |= LogConfigError(bez, zeile);
+                    configProblem |= LogConfigError(bez, zeile, EaConfigError.UnbekannterFehler);
                     break;
             }
         }
@@ -125,8 +130,9 @@ public partial class ConfigDt
             if (textbausteine.PrefixH2 == null) Log.Debug("PrefixH2 ist leer");
         }
     }
-    private static byte LogConfigError(string bez, EaConfig eaConfig)
+    private static byte LogConfigError(string bez, EaConfig eaConfig, EaConfigError error)
     {
+        eaConfig.EaConfigError = error;
         Log.Debug($"{bez} {eaConfig.Type}; Byte: {eaConfig.StartByte} Bit: {eaConfig.StartBit} Kommentar: {eaConfig.Kommentar} Bezeichnung: {eaConfig.Bezeichnung}");
         return 1;
     }

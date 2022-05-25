@@ -1,4 +1,3 @@
-using System.IO;
 using Xunit;
 
 namespace LibConfigDt.Test;
@@ -6,8 +5,11 @@ namespace LibConfigDt.Test;
 public class TestKonstruktor
 {
     [Theory]
-    [InlineData("Konstruktor", 0, 0, 0, 0, 0)]
+    [InlineData("AlleTypen", 3, 3, 6, 6, 1)]
+    [InlineData("Doppelbelegungen", 3, 3, 6, 6, 1)]
     [InlineData("JeEinEintrag", 1, 1, 1, 1, 1)]
+    [InlineData("Konstruktor", 0, 0, 0, 0, 0)]
+
 
     public void TestKonstruktorOk(string pfad, short aa, short ai, short da, short di, short texte)
     {
@@ -19,5 +21,4 @@ public class TestKonstruktor
         Assert.Equal(config.GetAnzahlDi(), di);
         Assert.Equal(config.GetAnzahlTextbausteine(), texte);
     }
-
 }

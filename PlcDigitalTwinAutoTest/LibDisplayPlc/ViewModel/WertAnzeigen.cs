@@ -1,5 +1,4 @@
-﻿using LibConfigDt;
-using LibPlcTools;
+﻿using LibPlcTools;
 using System;
 
 namespace LibDisplayPlc.ViewModel;
@@ -8,7 +7,6 @@ public class WertAnzeigen
 {
     public static string AnalogwertAnzeigen(byte[] datenstruktur, EaTypen eaTypen, int startByte)
     {
-
         switch (eaTypen)
         {
             case EaTypen.NichtBelegt: break;
@@ -30,6 +28,7 @@ public class WertAnzeigen
 
             case EaTypen.SiemensAnalogwertPromille: break;
             case EaTypen.SiemensAnalogwertSchieberegler: break;
+            case EaTypen.TestErrorAusgeben:
             default: throw new ArgumentOutOfRangeException(nameof(eaTypen), eaTypen, null);
         }
 

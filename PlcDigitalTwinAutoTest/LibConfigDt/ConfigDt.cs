@@ -21,9 +21,6 @@ public partial class ConfigDt
         var pfadName = Path.Combine(_path, "DigitalTwin.json");
         JsonEinlesen(pfadName);
     }
-
-
-
     public void JsonEinlesen(string pathName)
     {
         if (File.Exists(pathName))
@@ -39,17 +36,13 @@ public partial class ConfigDt
                 throw;
             }
         }
-        else
-        {
-            Log.Debug("json Datei fehlt:" + pathName);
-        }
+        else Log.Debug("json Datei fehlt:" + pathName);
     }
-    public int GetAnzahlAa() => DtConfig.AnalogeAusgaenge.EaConfig == null ? 0 : DtConfig.AnalogeAusgaenge.EaConfig.Length;
-    public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.EaConfig == null ? 0 : DtConfig.AnalogeEingaenge.EaConfig.Length;
-    public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.EaConfig == null ? 0 : DtConfig.DigitaleAusgaenge.EaConfig.Length;
-    public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.EaConfig == null ? 0 : DtConfig.DigitaleEingaenge.EaConfig.Length;
-    public int GetAnzahlTextbausteine() => DtConfig.Textbausteine == null ? 0 : DtConfig.Textbausteine.Length;
-
+    public int GetAnzahlAa() => DtConfig.AnalogeAusgaenge.EaConfig?.Length ?? 0;
+    public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.EaConfig?.Length ?? 0;
+    public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.EaConfig?.Length ?? 0;
+    public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.EaConfig?.Length ?? 0;
+    public int GetAnzahlTextbausteine() => DtConfig.Textbausteine?.Length ?? 0;
     public EaTypen GetEaType(DatenBereich datenBereich, int pos)
     {
         var dtEaConfig = datenBereich switch
@@ -60,10 +53,8 @@ public partial class ConfigDt
             DatenBereich.Di => DtConfig.DigitaleEingaenge,
             _ => null
         };
-        if (dtEaConfig == null) return EaTypen.TestErrorAusgeben;
-        if (dtEaConfig.EaConfig == null) return EaTypen.TestErrorAusgeben;
-        if (dtEaConfig.EaConfig.Length < pos) return EaTypen.TestErrorAusgeben;
-        return dtEaConfig.EaConfig[pos].Type;
+        if (dtEaConfig?.EaConfig == null) return EaTypen.TestErrorAusgeben;
+        return dtEaConfig.EaConfig.Length < pos ? EaTypen.TestErrorAusgeben : dtEaConfig.EaConfig[pos].Type;
     }
     public void SetPathRelativ(string pfad) => SetPath(new string(Path.Combine(Environment.CurrentDirectory, pfad)));
     public void SetPath(string path)
@@ -71,5 +62,18 @@ public partial class ConfigDt
         _path = path;
         var pfadName = Path.Combine(_path, "DigitalTwin.json");
         JsonEinlesen(pfadName);
+    }
+    public EaConfigError GetEaConfigError(DatenBereich datenBereich, int pos)
+    {
+        var dtEaConfig = datenBereich switch
+        {
+            DatenBereich.Aa => DtConfig.AnalogeAusgaenge,
+            DatenBereich.Ai => DtConfig.AnalogeEingaenge,
+            DatenBereich.Da => DtConfig.DigitaleAusgaenge,
+            DatenBereich.Di => DtConfig.DigitaleEingaenge,
+            _ => null
+        };
+        if (dtEaConfig?.EaConfig == null) return EaConfigError.UnbekannterFehler;
+        return dtEaConfig.EaConfig.Length < pos ? EaConfigError.UnbekannterFehler : dtEaConfig.EaConfig[pos].EaConfigError;
     }
 }

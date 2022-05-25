@@ -10,7 +10,6 @@ public class DtConfig
 }
 public class DtEaConfig
 {
-
     public EaConfig[] EaConfig { get; set; }
     public bool ConfigOk { get; set; }
     public int AnzByte { get; set; }
@@ -22,6 +21,7 @@ public class EaConfig
     public EaTypen Type { get; set; }
     public string Bezeichnung { get; set; }
     public string Kommentar { get; set; }
+    public EaConfigError EaConfigError { get; set; }
 }
 public class Textbausteine
 {

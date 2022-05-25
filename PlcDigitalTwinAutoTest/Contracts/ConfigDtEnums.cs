@@ -20,3 +20,15 @@ public enum EaTypen
     SiemensAnalogwertSchieberegler,
     TestErrorAusgeben
 }
+public enum EaConfigError
+{
+    None,
+    UngueltigesStartByte,
+    UngueltigesStartBit,
+    BezeichnungFehlt,
+    KommentarFehlt,
+    BitKollision,
+    ByteKollision,
+    NichtBelegt,
+    UnbekannterFehler
+}
