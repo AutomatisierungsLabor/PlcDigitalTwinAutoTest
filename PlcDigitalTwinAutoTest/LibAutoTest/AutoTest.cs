@@ -10,6 +10,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 using LibAutoTest.Model;
 
 namespace LibAutoTest;

@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using Contracts;
+using Xunit;
 
 namespace LibConfigDt.Test;
 

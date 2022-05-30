@@ -1,5 +1,6 @@
 ﻿using LibPlcTools;
 using System;
+using Contracts;
 
 namespace LibDisplayPlc.ViewModel;
 

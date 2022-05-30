@@ -44,9 +44,6 @@ public class AutoTesterSilk
     }
     public void AutoTestStarten()
     {
-        Compiler compiler;
-        bool compilerlaufErfolgreich;
-
         AutoTestFensterOeffnen();
 
         Silk.ReferenzenUebergeben(_vmAutoTesterSilk, _datenstruktur, _testAutomat);
@@ -54,7 +51,7 @@ public class AutoTesterSilk
         _testAutomat.InfoAnzeigen("", TestAnzeige.CompilerStart, "");
         _testAutomat.StopwatchRestart();
 
-        (compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(_projektOrdner.ToString(), "test.ssc", ""));
+        (var compilerlaufErfolgreich, var compiler, _compiledProgram) = Silk.Compile(Path.Combine(_projektOrdner.ToString(), "test.ssc", ""));
 
         if (compilerlaufErfolgreich)
         {

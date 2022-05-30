@@ -1,4 +1,5 @@
-﻿using LibPlcTools;
+﻿using Contracts;
+using LibPlcTools;
 
 namespace LibConfigDt;
 

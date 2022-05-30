@@ -12,14 +12,56 @@
         "StartBit": 0,
         "Type": "Bit",
         "Bezeichnung": "P1",
-        "Kommentar": "Meldeleuchte grün links"
+        "Kommentar": "Meldeleuchte grün"
       },
       {
         "StartByte": 0,
         "StartBit": 1,
         "Type": "Bit",
         "Bezeichnung": "P2",
-        "Kommentar": "Meldeleuchte grün rechts"
+        "Kommentar": "Meldeleuchte grün"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "P3",
+        "Kommentar": "Meldeleuchte grün"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "P4",
+        "Kommentar": "Meldeleuchte grün"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "P5",
+        "Kommentar": "Meldeleuchte grün"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "P6",
+        "Kommentar": "Meldeleuchte grün"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "P7",
+        "Kommentar": "Meldeleuchte grün"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "P8",
+        "Kommentar": "Meldeleuchte grün"
       }
     ]
   },
@@ -30,14 +72,7 @@
         "StartBit": 0,
         "Type": "Bit",
         "Bezeichnung": "S1",
-        "Kommentar": "Taster Links"
-      },
-      {
-        "StartByte": 0,
-        "StartBit": 1,
-        "Type": "Bit",
-        "Bezeichnung": "S2",
-        "Kommentar": "Taster Rechts"
+        "Kommentar": "Taster"
       }
     ]
   },
@@ -61,12 +96,12 @@
       "WasAnzeigen": "H1Inhalt"
     },
     {
-      "BausteinId": "33",
+      "BausteinId": "36",
       "PrefixH1": "",
       "PrefixH2": "",
       "VorbereitungId": "0",
       "Test": "-",
-      "Kommentar": "Kata - Auto Blinker V1",
+      "Kommentar": "Kata - Zähler V1",
       "WasAnzeigen": "H1H2Inhalt"
     },
     {

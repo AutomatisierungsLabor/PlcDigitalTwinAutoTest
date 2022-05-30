@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
+using Contracts;
 
 namespace LibDisplayPlc.ViewModel;
 

@@ -1,4 +1,6 @@
-﻿public enum TextbausteineAnzeigen
+﻿namespace Contracts;
+
+public enum TextbausteineAnzeigen
 {
     NurInhalt = 0,
     H1Inhalt = 1,

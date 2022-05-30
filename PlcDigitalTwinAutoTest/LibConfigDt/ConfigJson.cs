@@ -1,4 +1,6 @@
-﻿namespace LibConfigDt;
+﻿using Contracts;
+
+namespace LibConfigDt;
 
 public class DtConfig
 {
