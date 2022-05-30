@@ -1,123 +1,159 @@
 {
-    "AnalogeAusgaenge": {
-        "EaConfig": []
-    },
-    "AnalogeEingaenge": {
-        "EaConfig": []
-    },
-    "DigitaleAusgaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "Bezeichnung": "P1",
-                "Kommentar": "Meldeleuchte Anlage Ein"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 1,
-                "Bezeichnung": "P2",
-                "Kommentar": "Meldeleuchte Sammelstörung"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 2,
-                "Bezeichnung": "Q1",
-                "Kommentar": "Motor Förderband "
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 3,
-                "Bezeichnung": "Q2",
-                "Kommentar": "Freigabe Frequenzumrichter"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 4,
-                "Bezeichnung": "Y1",
-                "Kommentar": "Magnetventil"
-            }
-        ]
-    },
-    "DigitaleEingaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "Bezeichnung": "B1",
-                "Kommentar": "Wagen vorhanden"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 1,
-                "Bezeichnung": "B2",
-                "Kommentar": "Wagen voll"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 2,
-                "Bezeichnung": "F1",
-                "Kommentar": "Motorschutzschalter Förderband"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 3,
-                "Bezeichnung": "F2",
-                "Kommentar": "Motorschutzschalter Schneckenförderer"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 4,
-                "Bezeichnung": "S0",
-                "Kommentar": "Taster Anlage Aus"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 5,
-                "Bezeichnung": "S1",
-                "Kommentar": "Taster Anlage Ein"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 6,
-                "Bezeichnung": "S2",
-                "Kommentar": "Not Halt"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 7,
-                "Bezeichnung": "S3",
-                "Kommentar": "Störungen quittieren"
-            }
-        ]
-    },
-    "Textbausteine": [
-        {
-            "BausteinId": "5",
-            "PrefixH1": "",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - Head",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "10",
-            "PrefixH1": "",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Hier könnte Ihre Werbung stehen!",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "8",
-            "PrefixH1": "",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - </body>",
-            "WasAnzeigen": "NurInhalt"
-        }
+  "AnalogeAusgaenge": {
+    "EaConfig": []
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": []
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Bezeichnung": "P1",
+        "Kommentar": "Meldeleuchte Anlage Ein"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Bezeichnung": "P2",
+        "Kommentar": "Meldeleuchte Sammelstörung"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Bezeichnung": "Q1",
+        "Kommentar": "Motor Förderband "
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Bezeichnung": "Q2",
+        "Kommentar": "Freigabe Frequenzumrichter"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 4,
+        "Bezeichnung": "Y1",
+        "Kommentar": "Magnetventil"
+      }
     ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Bezeichnung": "B1",
+        "Kommentar": "Wagen vorhanden"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Bezeichnung": "B2",
+        "Kommentar": "Wagen voll"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Bezeichnung": "F1",
+        "Kommentar": "Motorschutzschalter Förderband"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Bezeichnung": "F2",
+        "Kommentar": "Motorschutzschalter Schneckenförderer"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 4,
+        "Bezeichnung": "S0",
+        "Kommentar": "Taster Anlage Aus"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Bezeichnung": "S1",
+        "Kommentar": "Taster Anlage Ein"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 6,
+        "Bezeichnung": "S2",
+        "Kommentar": "Not Halt"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 7,
+        "Bezeichnung": "S3",
+        "Kommentar": "Störungen quittieren"
+      }
+    ]
+  },
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "48",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "LAP2018/1 Silosteuerung - Hardware",
+      "WasAnzeigen": "H1Inhalt"
+    },
+    {
+      "BausteinId": "49",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "LAP2018/1 Silosteuerung - Aufgabenstellung - Störungen",
+      "WasAnzeigen": "H1H2Inhalt"
+    },
+    {
+      "BausteinId": "50",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "LAP2018/1 Silosteuerung - Aufgabenstellung - Betriebsbereitschaft",
+      "WasAnzeigen": "H2Inhalt"
+    },
+    {
+      "BausteinId": "51",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "LAP2018/1 Silosteuerung - Aufgabenstellung - Silo automatisch nachfüllen",
+      "WasAnzeigen": "H2Inhalt"
+    },
+    {
+      "BausteinId": "52",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "LAP2018/1 Silosteuerung - Aufgabenstellung - Wagen befüllen",
+      "WasAnzeigen": "H2Inhalt"
+    },
+    {
+      "BausteinId": "8",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - </body>",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ]
 }
