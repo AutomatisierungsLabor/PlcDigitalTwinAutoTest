@@ -5,42 +5,31 @@ namespace LibDisplayPlc.PlcZeichnen;
 
 public partial class PlcZeichnen
 {
-    /*
-     *  PlcDaZeichnen(libWpf, "Da0", "a", "StringWertDa0", 2, 16);
-     *  PlcDaZeichnen(libWpf, "Da1", "b", "StringWertDa1", 11, 16);
-     */
-    private static void PlcDaZeichnen(LibWpf.LibWpf wpf, string prefix, string ab, string da, int offsetX, int offsetY)
+    private static void PlcRahmenZeichnen(LibWpf.LibWpf wpf, string grossDiDa, string ab, string wertDiDa, int offsetX, int offsetY1, int offsetY2, Thickness rand)
     {
-        wpf.Text("DA", offsetX, 2, offsetY, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGross, Brushes.White);
-        wpf.Text(ab, offsetX + 1, 2, offsetY, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGross, Brushes.White);
-        wpf.TextSetContent(offsetX + 4, 4, offsetY, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGross, Brushes.Violet, da);
-        wpf.Border(offsetX, 8, offsetY, 4, Brushes.White, new Thickness(3, 3, 3, 0));
-
+        wpf.Text(grossDiDa, offsetX, 2, offsetY1, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGross, Brushes.White);
+        wpf.Text(ab, offsetX + 1, 2, offsetY1, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftKlein, Brushes.White);
+        wpf.TextSetContent(offsetX + 4, 4, offsetY1, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGross, Brushes.Violet, wertDiDa);
+        wpf.Border(offsetX, 8, offsetY2, 4, Brushes.White, rand);
+    }
+    private static void PlcLedZeichnen(LibWpf.LibWpf wpf, string prefix, int offsetX, int offsetY1, int offsetY2)
+    {
         for (var i = 0; i < 8; i++)
         {
-            wpf.TextVerticalWidthSetTextSetVisibility(offsetX + i, 1, offsetY + 5, 6, HorizontalAlignment.Center, VerticalAlignment.Top, SchriftKlein, 180, Brushes.Black, $"StringKommentar{prefix}{i}", $"VisibilityDi0{i}");
-            wpf.TextSetContendSetVisibility(offsetX - 1 + i, 3, offsetY + 4, 2, HorizontalAlignment.Center, VerticalAlignment.Top, SchriftKlein, Brushes.Black, $"StringBezeichnung{prefix}{i}", $"Visibility{prefix}{i}");
-            wpf.RectangleMarginStrokeSetFill(offsetX + i, 1, offsetY + 3, 1, new Thickness(1, 1, 1, 1), Brushes.Black, 2, $"Brush{prefix}{i}");
-            wpf.Text($".{i}", offsetX + i, 2, offsetY + 2, 2, HorizontalAlignment.Left, VerticalAlignment.Top, SchriftKlein, Brushes.White);
+            wpf.RectangleMarginStrokeSetFill(offsetX + i, 1, offsetY1, 1, new Thickness(1, 1, 1, 1), Brushes.Black, 2, $"Brush{prefix}{i}");
+            wpf.Text($".{i}", offsetX + i, 2, offsetY2, 2, HorizontalAlignment.Left, VerticalAlignment.Top, SchriftKlein, Brushes.White);
         }
     }
-    /*
-     *  PlcDiZeichnen(libWpf, "Di0", "a", "StringWertDi0", 2, 2);
-     *  PlcDiZeichnen(libWpf, "Di1", "b", "StringWertDi1", 11, 2);
-     */
-    private static void PlcDiZeichnen(LibWpf.LibWpf wpf, string prefix, string ab, string di, int offsetX, int offsetY)
-    {
-        wpf.Text("DI", offsetX, 2, offsetY + 8, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGross, Brushes.White);
-        wpf.Text(ab, offsetX + 1, 2, offsetY + 8, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftKlein, Brushes.White);
-        wpf.TextSetContent(offsetX + 4, 4, offsetY + 8, 2, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGross, Brushes.Violet, di);
-        wpf.Border(offsetX, 8, offsetY + 6, 4, Brushes.White, new Thickness(3, 0, 3, 3));
 
+    private static void PlcBeschriftungKommentarZeichnen(LibWpf.LibWpf wpf, string prefix, VerticalAlignment alignment,
+        int offsetX, int offsetYKommentar, int offsetYBezeichnung)
+    {
         for (var i = 0; i < 8; i++)
         {
-            wpf.TextVerticalWidthSetTextSetVisibility(offsetX + i, 1, offsetY - 1, 6, HorizontalAlignment.Center, VerticalAlignment.Bottom, SchriftKlein, 180, Brushes.Black, $"StringKommentar{prefix}{i}", $"VisibilityDi0{i}");
-            wpf.TextSetContendSetVisibility(offsetX - 1 + i, 3, offsetY + 4, 2, HorizontalAlignment.Center, VerticalAlignment.Bottom, SchriftKlein, Brushes.Black, $"StringBezeichnung{prefix}{i}", $"Visibility{prefix}{i}");
-            wpf.RectangleMarginStrokeSetFill(offsetX + i, 1, offsetY + 6, 1, new Thickness(1, 1, 1, 1), Brushes.Black, 2, $"Brush{prefix}{i}");
-            wpf.Text($".{i}", offsetX + i, 2, offsetY + 7, 2, HorizontalAlignment.Left, VerticalAlignment.Top, SchriftKlein, Brushes.White);
+            wpf.TextVerticalWidthSetTextSetVisibility(offsetX + i, 1, offsetYKommentar, 6, HorizontalAlignment.Center,
+                alignment, SchriftKlein, 180, Brushes.Black, $"StringKommentar{prefix}{i}", $"Visibility{prefix}{i}");
+            wpf.TextSetContendSetVisibility(offsetX - 1 + i, 3, offsetYBezeichnung, 2, HorizontalAlignment.Center,
+                alignment, SchriftKlein, Brushes.Black, $"StringBezeichnung{prefix}{i}", $"Visibility{prefix}{i}");
         }
     }
 }

@@ -11,8 +11,8 @@
                 "StartByte": 0,
                 "StartBit": 5,
                 "Type": "Bit",
-                "Bezeichnung": "P4",
-                "Kommentar": "Meldeleuchte (grün)"
+                "Bezeichnung": "P2",
+                "Kommentar": "Meldeleuchte grün"
             }
         ]
     },
@@ -20,17 +20,17 @@
         "EaConfig": [
             {
                 "StartByte": 0,
-                "StartBit": 2,
+                "StartBit": 0,
                 "Type": "Bit",
-                "Bezeichnung": "S2",
-                "Kommentar": "Taster Aus ( ⓪ )"
+                "Bezeichnung": "S1",
+                "Kommentar": "Taster ( ① ) → Schliesser"
             },
             {
                 "StartByte": 0,
-                "StartBit": 3,
+                "StartBit": 1,
                 "Type": "Bit",
-                "Bezeichnung": "S1",
-                "Kommentar": "Taster Ein ( ① )"
+                "Bezeichnung": "S2",
+                "Kommentar": "Taster ( ⓪ ) → Öffner"
             }
         ]
     },

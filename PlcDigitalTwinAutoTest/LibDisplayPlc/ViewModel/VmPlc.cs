@@ -24,7 +24,7 @@ public partial class VmPlc : ObservableObject
         _configDt = configDt;
         _cancellationTokenSource = cancellationTokenSource;
 
-        AlleDpFuellen();
+        AlleDpInitialisieren();
 
         System.Threading.Tasks.Task.Run(ViewModelTask);
     }
@@ -32,8 +32,9 @@ public partial class VmPlc : ObservableObject
     {
         while (!_cancellationTokenSource.IsCancellationRequested)
         {
-            DaZeilenBeschriften(DaCollection);
-            DiZeilenBeschriften(DiCollection);
+            DigitaleEaBeschriftungEinlesen(DaCollection, _configDt.DtConfig.DigitaleAusgaenge);
+            DigitaleEaBeschriftungEinlesen(DiCollection, _configDt.DtConfig.DigitaleEingaenge);
+
             if (_configDt != null)
             {
                 if (_configDt.GetAnzahlAa() > 0) StringWertAa00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[0].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfig[0].StartByte);
@@ -54,6 +55,8 @@ public partial class VmPlc : ObservableObject
             StringWertDi0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, EaTypen.Byte, 0);
             StringWertDi1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, EaTypen.Byte, 1);
 
+
+
             for (var i = 0; i < 8; i++)
             {
                 DiCollection[i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, i), Brushes.Yellow, Brushes.DarkGray);
@@ -63,49 +66,32 @@ public partial class VmPlc : ObservableObject
                 DaCollection[10 + i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, 8 + i), Brushes.LawnGreen, Brushes.DarkGray);
             }
 
+
             AlleDpAktualisieren();
 
             Thread.Sleep(10);
         }
     }
-    private void DaZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDaDatenpunkte)
+    private static void DigitaleEaBeschriftungEinlesen(IReadOnlyList<VmDatenpunkte> vmDatenpunkte, DtEaConfig dtConfigEa)
     {
-        if (vmDaDatenpunkte == null) return;
+        if (vmDatenpunkte == null) return;
 
         for (var i = 0; i < 20; i++)
         {
-            if (vmDaDatenpunkte[i] != null) vmDaDatenpunkte[i].DpVisibility = Visibility.Collapsed;
+            vmDatenpunkte[i].DpVisibility = Visibility.Hidden;
+            vmDatenpunkte[i].DpKommentar = "";
+            vmDatenpunkte[i].DpBezeichnung = "";
         }
 
-        if (_configDt.GetAnzahlDa() == 0) return;
+        if (dtConfigEa.EaConfig == null || dtConfigEa.EaConfig.Length == 0) return;
 
-        foreach (var digitaleAusgaenge in _configDt.DtConfig.DigitaleAusgaenge.EaConfig)
+        foreach (var digitaleEa in dtConfigEa.EaConfig)
         {
-            var index = digitaleAusgaenge.StartBit + 10 * digitaleAusgaenge.StartByte;
+            var index = digitaleEa.StartBit + 10 * digitaleEa.StartByte;
 
-            vmDaDatenpunkte[index].DpBezeichnung = digitaleAusgaenge.Bezeichnung;
-            vmDaDatenpunkte[index].DpKommentar = digitaleAusgaenge.Kommentar;
-            vmDaDatenpunkte[index].DpVisibility = Visibility.Visible;
-        }
-    }
-    private void DiZeilenBeschriften(IReadOnlyList<VmDatenpunkte> vmDiDatenpunkte)
-    {
-        if (vmDiDatenpunkte == null) return;
-
-        for (var i = 0; i < 20; i++)
-        {
-            if (vmDiDatenpunkte[i] != null) vmDiDatenpunkte[i].DpVisibility = Visibility.Collapsed;
-        }
-
-        if (_configDt.GetAnzahlDi() == 0) return;
-
-        foreach (var digitaleEingaenge in _configDt.DtConfig.DigitaleEingaenge.EaConfig)
-        {
-            var index = digitaleEingaenge.StartBit + 10 * digitaleEingaenge.StartByte;
-
-            vmDiDatenpunkte[index].DpBezeichnung = digitaleEingaenge.Bezeichnung;
-            vmDiDatenpunkte[index].DpKommentar = digitaleEingaenge.Kommentar;
-            vmDiDatenpunkte[index].DpVisibility = Visibility.Visible;
+            vmDatenpunkte[index].DpBezeichnung = digitaleEa.Bezeichnung;
+            vmDatenpunkte[index].DpKommentar = digitaleEa.Kommentar;
+            vmDatenpunkte[index].DpVisibility = Visibility.Visible;
         }
     }
 }

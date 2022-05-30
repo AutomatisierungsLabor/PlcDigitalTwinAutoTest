@@ -8,7 +8,7 @@ public partial class VmPlc
     public VmDatenpunkte[] DaCollection { get; set; } = new VmDatenpunkte[20];
     public VmDatenpunkte[] DiCollection { get; set; } = new VmDatenpunkte[20];
 
-    private void AlleDpFuellen()
+    private void AlleDpInitialisieren()
     {
         for (var i = 0; i < 20; i++)
         {

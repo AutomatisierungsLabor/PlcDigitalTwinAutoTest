@@ -30,15 +30,30 @@ public partial class PlcZeichnen
             libWpf.RectangleFill(1, 19, 8, 12, Brushes.LightGray);
         }
 
+        PlcRahmenZeichnen(libWpf, "DI", "a", "StringWertDi0", 2, 10, 8, new Thickness(3, 0, 3, 3));
+        PlcRahmenZeichnen(libWpf, "DI", "b", "StringWertDi1", 11, 10, 8, new Thickness(3, 0, 3, 3));
 
         PlcAiZeichnen(libWpf, configDt, 20, 8);
-        PlcDiZeichnen(libWpf, "Di0", "a", "StringWertDi0", 2, 2);
-        PlcDiZeichnen(libWpf, "Di1", "b", "StringWertDi1", 11, 2);
+
+        PlcLedZeichnen(libWpf, "Di0", 2, 8, 9);
+        PlcLedZeichnen(libWpf, "Di1", 11, 8, 9);
+
+        PlcBeschriftungKommentarZeichnen(libWpf, "Di0",  VerticalAlignment.Bottom, 2, 1, 6);
+        PlcBeschriftungKommentarZeichnen(libWpf, "Di1", VerticalAlignment.Bottom, 11, 1, 6);
+
 
         libWpf.Text("S7-1214 DC/DC/DC", 2, 18, 12, 4, HorizontalAlignment.Center, VerticalAlignment.Center, SchriftGanzGross, Brushes.White);
 
+
+        PlcRahmenZeichnen(libWpf, "DA", "a", "StringWertDa0", 2, 16, 16, new Thickness(3, 3, 3, 0));
+        PlcRahmenZeichnen(libWpf, "DA", "b", "StringWertDa1", 11, 16, 16, new Thickness(3, 3, 3, 0));
+
         PlcAaZeichnen(libWpf, configDt, 20, 16);
-        PlcDaZeichnen(libWpf, "Da0", "a", "StringWertDa0", 2, 16);
-        PlcDaZeichnen(libWpf, "Da1", "b", "StringWertDa1", 11, 16);
+
+        PlcLedZeichnen(libWpf, "Da0", 2, 19, 18);
+        PlcLedZeichnen(libWpf, "Da1", 11, 19, 18);
+
+        PlcBeschriftungKommentarZeichnen(libWpf, "Da0", VerticalAlignment.Top, 2, 21,20);
+        PlcBeschriftungKommentarZeichnen(libWpf, "Da1", VerticalAlignment.Top, 11, 21, 20);
     }
 }

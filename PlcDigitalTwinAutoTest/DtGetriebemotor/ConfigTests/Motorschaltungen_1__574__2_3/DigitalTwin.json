@@ -9,56 +9,56 @@
         "EaConfig": [
             {
                 "StartByte": 0,
-                "StartBit": 3,
-                "Type": "Bit",
-                "Bezeichnung": "P2",
-                "Kommentar": "Meldeleuchte (weiß)"
-            },
-            {
-                "StartByte": 0,
                 "StartBit": 4,
                 "Type": "Bit",
-                "Bezeichnung": "P3",
-                "Kommentar": "Meldeleuchte (rot)"
+                "Bezeichnung": "P1",
+                "Kommentar": "Meldeleuchte weiß"
             },
             {
                 "StartByte": 0,
                 "StartBit": 5,
                 "Type": "Bit",
-                "Bezeichnung": "P4",
-                "Kommentar": "Meldeleuchte (grün)"
+                "Bezeichnung": "P2",
+                "Kommentar": "Meldeleuchte grün"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 6,
+                "Type": "Bit",
+                "Bezeichnung": "P3",
+                "Kommentar": "Meldeleuchte rot"
             }
         ]
     },
     "DigitaleEingaenge": {
         "EaConfig": [
             {
-                "StartByte": 1,
-                "StartBit": 2,
-                "Type": "Bit",
-                "Bezeichnung": "F1",
-                "Kommentar": "Thermorelais (STOP)"
-            },
-            {
                 "StartByte": 0,
-                "StartBit": 2,
-                "Type": "Bit",
-                "Bezeichnung": "S2",
-                "Kommentar": "Taster Aus ( ⓪ )"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 3,
+                "StartBit": 0,
                 "Type": "Bit",
                 "Bezeichnung": "S1",
-                "Kommentar": "Taster Ein ( ① )"
+                "Kommentar": "Taster ( ① ) → Schliesser"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 1,
+                "Type": "Bit",
+                "Bezeichnung": "S2",
+                "Kommentar": "Taster ( ⓪ ) → Öffner"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 2,
+                "Type": "Bit",
+                "Bezeichnung": "S4",
+                "Kommentar": "Taster ( STOP ) → Öffner"
             },
             {
                 "StartByte": 1,
-                "StartBit": 3,
+                "StartBit": 1,
                 "Type": "Bit",
-                "Bezeichnung": "S10",
-                "Kommentar": "Not-Halt"
+                "Bezeichnung": "S9.2",
+                "Kommentar": "Not-Halt → Öffner"
             }
         ]
     },

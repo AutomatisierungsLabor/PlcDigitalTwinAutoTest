@@ -82,18 +82,18 @@
                 "Kommentar": "Taster ( STOP ) → Öffner"
             },
             {
-                "StartByte": 0,
-                "StartBit": 3,
-                "Type": "Bit",
-                "Bezeichnung": "S3",
-                "Kommentar": "Taster ( Ⅰ ) → Schliesser"
+              "StartByte": 0,
+              "StartBit": 3,
+              "Type": "Bit",
+              "Bezeichnung": "S3",
+              "Kommentar": "Taster ( I ) → Schliesser"
             },
             {
                 "StartByte": 0,
                 "StartBit": 4,
                 "Type": "Bit",
                 "Bezeichnung": "S5",
-                "Kommentar": "Taster ( Ⅱ ) → Schliesser"
+                "Kommentar": "Taster ( II ) → Schliesser"
             },
             {
                 "StartByte": 0,
