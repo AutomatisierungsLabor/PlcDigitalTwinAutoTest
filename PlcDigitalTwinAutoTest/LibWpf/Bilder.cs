@@ -60,10 +60,9 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
     }
-    public void ImageMarginZweiBilderRotateSetVisibility(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, int Winkel, Thickness margin, string setVisibilityEin, string setVisibilityAus)
+    public void ImageMarginZweiBilderRotateSetVisibility(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, int winkel, Thickness margin, string setVisibilityEin, string setVisibilityAus)
     {
-        
-        RotateTransform rotateTransform=new RotateTransform(Winkel);
+        var rotateTransform=new RotateTransform(winkel);
 
         var (imageOn, _) = ImageErzeugen(sourceOn, margin);
         imageOn.BindingButtonSetVisibility(setVisibilityEin);
