@@ -60,6 +60,23 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
     }
+    public void ImageMarginZweiBilderRotateSetVisibility(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, int Winkel, Thickness margin, string setVisibilityEin, string setVisibilityAus)
+    {
+        
+        RotateTransform rotateTransform=new RotateTransform(Winkel);
+
+        var (imageOn, _) = ImageErzeugen(sourceOn, margin);
+        imageOn.BindingButtonSetVisibility(setVisibilityEin);
+        imageOn.RenderTransform=rotateTransform;
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOn);
+
+        var (imageOff, _) = ImageErzeugen(sourceOff, margin);
+        imageOff.BindingButtonSetVisibility(setVisibilityAus);
+        imageOff.RenderTransform = rotateTransform;
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
+    }
     public void ImageMarginSetDrehen(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingWinkel)
     {
         _ = bindingWinkel; // TODO noch fertigstellen!

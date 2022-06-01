@@ -89,6 +89,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibConfigDt.Test", "LibConf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtTiefgarage", "DtTiefgarage\DtTiefgarage.csproj", "{BEB955EB-12A9-44B2-85AD-9B0D1C99421D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtLap2018_4_Niveauregelung", "DtLap2018_4_Niveauregelung\DtLap2018_4_Niveauregelung.csproj", "{7D70F630-9537-469D-9AF0-92CDA4ABAA97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -267,6 +269,10 @@ Global
 		{BEB955EB-12A9-44B2-85AD-9B0D1C99421D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEB955EB-12A9-44B2-85AD-9B0D1C99421D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEB955EB-12A9-44B2-85AD-9B0D1C99421D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D70F630-9537-469D-9AF0-92CDA4ABAA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D70F630-9537-469D-9AF0-92CDA4ABAA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D70F630-9537-469D-9AF0-92CDA4ABAA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D70F630-9537-469D-9AF0-92CDA4ABAA97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
