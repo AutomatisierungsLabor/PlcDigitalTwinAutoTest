@@ -47,9 +47,9 @@ public partial class VmLap2018
 
 
 
-    [ObservableProperty] private Visibility _visibilityOelkuehlerAbgedeckt;
-    [ObservableProperty] private Visibility _visibilityZylinderAbgedeckt;
-    [ObservableProperty] private Visibility _visibilityOelfilterAbgedeckt;
+    [ObservableProperty] private Visibility _visibilityErweiterungOelkuehler;
+    [ObservableProperty] private Visibility _visibilityErweiterungZylinder;
+    [ObservableProperty] private Visibility _visibilityErweiterungOelfilter;
 
 
 

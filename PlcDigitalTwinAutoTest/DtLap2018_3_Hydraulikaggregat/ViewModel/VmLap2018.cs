@@ -78,20 +78,20 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     }
     internal void ErweiterungOelkuehler()
     {
-        if (VisibilityOelkuehlerAbgedeckt == Visibility.Visible) return;
+        if (VisibilityErweiterungOelkuehler == Visibility.Visible) return;
 
         _modelLap2018.P7 = false;
     }
     internal void ErweiterungZylinder()
     {
-        if (VisibilityZylinderAbgedeckt == Visibility.Visible) return;
+        if (VisibilityErweiterungZylinder == Visibility.Visible) return;
 
         _modelLap2018.K1 = false;
         _modelLap2018.K2 = false;
     }
     internal void ErweiterungOelfilter()
     {
-        if (VisibilityOelfilterAbgedeckt == Visibility.Visible) return;
+        if (VisibilityErweiterungOelfilter == Visibility.Visible) return;
 
         _modelLap2018.P8 = false;
     }
@@ -99,7 +99,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
     internal void CheckErweiterungOelkuehler()
     {
-        // (VisibilityOelkuehlerAbgedeckt,_)=SetVisibility(_mainWindow.ChkOelkuehler.IsChecked != null && (bool)_mainWindow.ChkOelkuehler.IsChecked);
+        // (VisibilityErweiterungOelkuehler,_)=SetVisibility(_mainWindow.ChkOelkuehler.IsChecked != null && (bool)_mainWindow.ChkOelkuehler.IsChecked);
     }
     internal void CheckErweiterungZylinder()
     {

@@ -81,11 +81,6 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
         if (Druck > DruckMin) Pegel *= PegelVerlust;
         B1 = Pegel > PegelMin;
 
-
-
-
-
         _datenRangieren?.Rangieren();
     }
-
 }

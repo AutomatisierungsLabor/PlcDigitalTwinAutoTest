@@ -19,7 +19,8 @@ public partial class App
         var vmLap2018 = new VmLap2018(modelLap2018, datenstruktur, _cancellationTokenSource);
         var baseWindow = new BaseWindow(vmLap2018, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
         {
-            Height = 1100
+            Height = 1200,
+            Width = 1500
         };
 
         baseWindow.Show();

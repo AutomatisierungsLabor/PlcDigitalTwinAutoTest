@@ -19,6 +19,20 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
+    public void TextMargin(string text, int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, Thickness margin)
+    {
+        var label = new Label
+        {
+            Content = text,
+            FontSize = fontSize,
+            Foreground = farbe,
+            HorizontalAlignment = horizontal,
+            VerticalAlignment = vertical,
+            Margin = margin
+        };
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
+    }
     public void TextContendSetVisibility(string content, int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush foreground, string visibility)
     {
         var label = new Label
