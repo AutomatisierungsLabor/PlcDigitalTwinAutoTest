@@ -12,7 +12,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     private readonly ModelLap2018 _modelLap2018;
     private readonly Datenstruktur _datenstruktur;
 
-    private const double HoeheFuellBalken = 315;
+    private const double HoeheFuellBalken = 12 * 30;
 
     public VmLap2018(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
@@ -33,6 +33,8 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     {
         if (_modelLap2018 == null) return;
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
+        
+        StringFuellstand = $"Füllstand: {_modelLap2018.Pegel * 100:F1}%";
 
         BrushF1 = SetBrush(!_modelLap2018.F1, Brushes.Red, Brushes.LawnGreen);
         BrushF2 = SetBrush(!_modelLap2018.F2, Brushes.Red, Brushes.LawnGreen);
@@ -55,7 +57,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityEinQ2, VisibilityAusQ2) = SetVisibility(_modelLap2018.Q2);
         (VisibilityEinY1, VisibilityAusY1) = SetVisibility(_modelLap2018.Y1);
 
-        ThicknessFuellstand = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2018.Pegel), 0,0);
+        ThicknessFuellstand = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2018.Pegel), 0, 0);
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

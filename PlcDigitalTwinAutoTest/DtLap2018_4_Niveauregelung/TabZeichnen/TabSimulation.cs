@@ -72,24 +72,24 @@ public partial class TabZeichnen
 
 
         libWpf.RectangleFill(6, 8, 7, 12, Brushes.LightBlue);
-        libWpf.RectangleSetFill(6, 8, 7, 12, nameof(vmLap2018.ThicknessFuellstand));
+        libWpf.RectangleFillSetMargin(6, 8, 7, 12, Brushes.Blue, nameof(vmLap2018.ThicknessFuellstand));
+
+        libWpf.TextSetContent(6, 8, 12, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 25, Brushes.GreenYellow, nameof(vmLap2018.StringFuellstand));
 
         libWpf.RectangleMarginSetFill(9, 2, 19, 2, new Thickness(15, 0, 15, 0), nameof(vmLap2018.BrushZuleitungRechtsWaagrecht));
-        libWpf.RectangleMarginSetFill(9, 2, 21, 4, new Thickness(15, 0, 15, 0), nameof(vmLap2018.BrushZuleitungRechtsSenkrecht));
-        libWpf.Text("Y1", 7, 2, 20, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonMarginSetVisibilityZweiBilder(8, 3, 20, 2, "VentilElektrischEin.jpg", "VentilElektrischAus.jpg", new Thickness(0, 0, 5, 0), vmLap2018.ButtonSchalterCommand, "Y1", nameof(vmLap2018.ClickModeY1), nameof(vmLap2018.VisibilityEinY1), nameof(vmLap2018.VisibilityAusY1));
+        libWpf.RectangleMarginSetFill(9, 2, 22, 3, new Thickness(15, 0, 15, 0), nameof(vmLap2018.BrushZuleitungRechtsSenkrecht));
+        libWpf.Text("Y1", 7, 2, 21, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.ButtonMarginSetVisibilityZweiBilder(8, 3, 21, 2, "VentilElektrischEin.jpg", "VentilElektrischAus.jpg", new Thickness(0, 0, 5, 0), vmLap2018.ButtonSchalterCommand, "Y1", nameof(vmLap2018.ClickModeY1), nameof(vmLap2018.VisibilityEinY1), nameof(vmLap2018.VisibilityAusY1));
 
 
-
-        libWpf.ImageMarginZweiBilderSetVisibility("Schwimmerschalter.jpg", "SchwimmerschalterBetaetigt.jpg", 15, 3, 7, 2, new Thickness(0, 0, 25, 0), nameof(vmLap2018.VisibilityEinB1), nameof(vmLap2018.VisibilityAusB1));
-        libWpf.Text("B1", 14, 2, 7, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.ImageMarginZweiBilderSetVisibility("Schwimmerschalter.jpg", "SchwimmerschalterBetaetigt.jpg", 15, 3, 7, 2, new Thickness(0, 0, 25, 0), nameof(vmLap2018.VisibilityEinB3), nameof(vmLap2018.VisibilityAusB3));
+        libWpf.Text("B3", 14, 2, 7, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.ImageMarginZweiBilderSetVisibility("Schwimmerschalter.jpg", "SchwimmerschalterBetaetigt.jpg", 15, 3, 14, 2, new Thickness(0, 0, 25, 0), nameof(vmLap2018.VisibilityEinB2), nameof(vmLap2018.VisibilityAusB2));
         libWpf.Text("B2", 14, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.ImageMarginZweiBilderSetVisibility("Schwimmerschalter.jpg", "SchwimmerschalterBetaetigt.jpg", 15, 3, 17, 2, new Thickness(0, 0, 25, 0), nameof(vmLap2018.VisibilityEinB3), nameof(vmLap2018.VisibilityAusB3));
-        libWpf.Text("B3", 14, 2, 17, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-
+        libWpf.ImageMarginZweiBilderSetVisibility("Schwimmerschalter.jpg", "SchwimmerschalterBetaetigt.jpg", 15, 3, 17, 2, new Thickness(0, 0, 25, 0), nameof(vmLap2018.VisibilityEinB1), nameof(vmLap2018.VisibilityAusB1));
+        libWpf.Text("B1", 14, 2, 17, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
 
         libWpf.PlcError();

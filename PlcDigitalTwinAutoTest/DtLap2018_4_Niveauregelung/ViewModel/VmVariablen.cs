@@ -40,6 +40,8 @@ public partial class VmLap2018
     [ObservableProperty] private Visibility _visibilityAusQ1;
     [ObservableProperty] private Visibility _visibilityAusQ2;
     [ObservableProperty] private Visibility _visibilityAusY1;
+    
+    [ObservableProperty] private string _stringFuellstand;
 
     [ObservableProperty] private Thickness _thicknessFuellstand;
 }
