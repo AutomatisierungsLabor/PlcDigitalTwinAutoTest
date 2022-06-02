@@ -1,6 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Windows.Controls;
 using System.Windows.Media;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace DtFibonacci.ViewModel;
 

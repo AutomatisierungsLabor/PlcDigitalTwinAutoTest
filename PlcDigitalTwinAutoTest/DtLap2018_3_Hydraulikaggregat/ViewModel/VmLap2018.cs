@@ -1,9 +1,9 @@
-﻿using System.Threading;
+﻿using DtLap2018_3_Hydraulikaggregat.Model;
+using LibDatenstruktur;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtLap2018_3_Hydraulikaggregat.Model;
-using LibDatenstruktur;
 
 namespace DtLap2018_3_Hydraulikaggregat.ViewModel;
 
@@ -12,6 +12,8 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     private readonly ModelLap2018 _modelLap2018;
     private readonly Datenstruktur _datenstruktur;
 
+    private const double FuellBalkenHoehe = 580;    // oben und unten je 10 Pixel für den Radius
+    private const double FuellBalkenOben = 10;
     public VmLap2018(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _modelLap2018 = model as ModelLap2018;
@@ -33,7 +35,8 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         if (_modelLap2018 == null) return;
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        //Druck = _hydraulikaggregat.Druck;
+        StringFuellstand = $"{_modelLap2018.Pegel * 100:F1}%";
+        DoubleAktuellerDruck = _modelLap2018.Druck;
 
         BrushB3 = SetBrush(_modelLap2018.B3, Brushes.LawnGreen, Brushes.Red);
         BrushB4 = SetBrush(_modelLap2018.B4, Brushes.LawnGreen, Brushes.Red);
@@ -59,6 +62,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         BrushQ4 = SetBrush(_modelLap2018.Q4, Brushes.LawnGreen, Brushes.White);
 
         BrushS4 = SetBrush(_modelLap2018.S4, Brushes.LawnGreen, Brushes.White);
+        
 
         (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2018.B1);
         (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLap2018.B2);
@@ -66,7 +70,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         (VisibilityEinKurzschluss, _) = SetVisibility(_modelLap2018.Q2 && _modelLap2018.Q3);
 
-        // Margin_1(_modelLap2018.Pegel);
+        ThicknessFuellstand = new Thickness(21, FuellBalkenOben + FuellBalkenHoehe * (1 - _modelLap2018.Pegel), 41, 10);
 
         ErweiterungOelkuehler();
         ErweiterungZylinder();
@@ -78,20 +82,20 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     }
     internal void ErweiterungOelkuehler()
     {
-        if (VisibilityOelkuehlerAbgedeckt == Visibility.Visible) return;
+        if (VisibilityErweiterungOelkuehler == Visibility.Visible) return;
 
         _modelLap2018.P7 = false;
     }
     internal void ErweiterungZylinder()
     {
-        if (VisibilityZylinderAbgedeckt == Visibility.Visible) return;
+        if (VisibilityErweiterungZylinder == Visibility.Visible) return;
 
         _modelLap2018.K1 = false;
         _modelLap2018.K2 = false;
     }
     internal void ErweiterungOelfilter()
     {
-        if (VisibilityOelfilterAbgedeckt == Visibility.Visible) return;
+        if (VisibilityErweiterungOelfilter == Visibility.Visible) return;
 
         _modelLap2018.P8 = false;
     }
@@ -99,7 +103,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
     internal void CheckErweiterungOelkuehler()
     {
-        // (VisibilityOelkuehlerAbgedeckt,_)=SetVisibility(_mainWindow.ChkOelkuehler.IsChecked != null && (bool)_mainWindow.ChkOelkuehler.IsChecked);
+        // (VisibilityErweiterungOelkuehler,_)=SetVisibility(_mainWindow.ChkOelkuehler.IsChecked != null && (bool)_mainWindow.ChkOelkuehler.IsChecked);
     }
     internal void CheckErweiterungZylinder()
     {

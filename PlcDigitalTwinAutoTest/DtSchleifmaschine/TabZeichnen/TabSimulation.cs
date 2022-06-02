@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using DtSchleifmaschine.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtSchleifmaschine.ViewModel;
 
 namespace DtSchleifmaschine.TabZeichnen;
 
@@ -11,7 +11,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 30, 40, 30, false);
+        libWpf.GridZeichnen(50, 30, 40, 30, false, false, false);
 
 
         libWpf.EllipseFillMarginStroke(2, 8, 1, 8, Brushes.SlateGray, new Thickness(2, 2, 2, 2), Brushes.SlateGray, 0);

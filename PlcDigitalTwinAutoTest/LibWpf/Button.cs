@@ -176,7 +176,7 @@ public partial class LibWpf
         button.BindingButtonSetVisibility(bindingVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-    public void ButtonBackgroundMarginRoundedSetEnableSetContend(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, Thickness margin, ICommand cmd, string cmdParameter, string setClickMode,string setEnable, string setContent)
+    public void ButtonBackgroundMarginRoundedSetEnableSetContend(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, Brush background, Thickness margin, ICommand cmd, string cmdParameter, string setClickMode, string setEnable, string setContent)
     {
         var button = new Button
         {
@@ -192,7 +192,7 @@ public partial class LibWpf
             if (button.Template.FindName("border", button) is Border border) border.CornerRadius = new CornerRadius(radius);
         };
 
-      //  BindingOperations.SetBinding(button, )
+        //  BindingOperations.SetBinding(button, )
 
         button.BindingButtonSetContent(setContent);
         button.BindingButtonSetClickMode(setClickMode);

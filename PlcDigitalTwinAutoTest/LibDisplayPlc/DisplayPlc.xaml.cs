@@ -1,5 +1,4 @@
-﻿using LibConfigPlc;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
 using System.Threading;
 using System.Windows.Controls;
 
@@ -9,19 +8,19 @@ public partial class DisplayPlc
 {
     public bool FensterAktiv { get; set; }
 
-    public DisplayPlc(Datenstruktur datenstruktur, ConfigPlc configPlc, CancellationTokenSource cancellationTokenSource)
+    public DisplayPlc(Datenstruktur datenstruktur, LibConfigDt.ConfigDt configDt, CancellationTokenSource cancellationTokenSource)
     {
         var grid = new Grid();
         Content = grid;
 
         Height = 900;
 
-        if (configPlc.Aa.AnzZeilen > 0 || configPlc.Ai.AnzZeilen > 0) Width = 1000; else Width = 650;
+        if (configDt.GetAnzahlAa() > 0 || configDt.GetAnzahlAi() > 0) Width = 1000; else Width = 650;
 
-        var viewModel = new ViewModel.VmPlc(datenstruktur, configPlc, cancellationTokenSource);
+        var viewModel = new ViewModel.VmPlc(datenstruktur, configDt, cancellationTokenSource);
 
         var plcZeichnen = new PlcZeichnen.PlcZeichnen(grid);
-        plcZeichnen.Zeichnen(configPlc);
+        plcZeichnen.Zeichnen(configDt);
 
         DataContext = viewModel;
 

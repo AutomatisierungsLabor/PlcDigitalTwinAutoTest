@@ -1,5 +1,5 @@
-﻿using System.Threading;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
+using System.Threading;
 using Xunit;
 
 namespace LibPlcTestautomat.Test;

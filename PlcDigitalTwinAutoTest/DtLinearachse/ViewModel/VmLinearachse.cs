@@ -37,7 +37,7 @@ public partial class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLinearachse.B1);
         (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLinearachse.B2);
         (VisibilityEinS10, VisibilityAusS10) = SetVisibility(_modelLinearachse.S10);
-        
+
         BrushP1 = SetBrush(_modelLinearachse.P1, Brushes.LawnGreen, Brushes.White);
         BrushP2 = SetBrush(_modelLinearachse.P2, Brushes.LawnGreen, Brushes.White);
         BrushP3 = SetBrush(_modelLinearachse.P3, Brushes.LawnGreen, Brushes.White);

@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
+    <ProjectReference Include="..\LibConfigDt\LibConfigDt.csproj" />
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
     <ProjectReference Include="..\LibPlcTestautomat\LibPlcTestautomat.csproj" />
     <ProjectReference Include="..\LibPlcTools\LibPlcTools.csproj" />

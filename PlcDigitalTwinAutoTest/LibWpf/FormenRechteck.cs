@@ -131,14 +131,14 @@ public partial class LibWpf
             RadiusX = radiusX,
             RadiusY = radiusY
         };
-
         var path = new Path
         {
-            Fill = fill,
             Stroke = stroke,
             StrokeThickness = strokeThicknes,
             Data = rectangleGeometry
         };
+
+        if (fill != null) path.Fill = fill;
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, path);
     }

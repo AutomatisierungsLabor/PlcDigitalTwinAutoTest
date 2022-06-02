@@ -1,8 +1,8 @@
-﻿using System.Threading;
-using BasePlcDtAt;
+﻿using BasePlcDtAt;
 using DtLap2018_3_Hydraulikaggregat.Model;
 using DtLap2018_3_Hydraulikaggregat.ViewModel;
 using LibDatenstruktur;
+using System.Threading;
 
 namespace DtLap2018_3_Hydraulikaggregat;
 
@@ -19,7 +19,8 @@ public partial class App
         var vmLap2018 = new VmLap2018(modelLap2018, datenstruktur, _cancellationTokenSource);
         var baseWindow = new BaseWindow(vmLap2018, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
         {
-            Height = 1100
+            Height = 1130,
+            Width = 1450
         };
 
         baseWindow.Show();

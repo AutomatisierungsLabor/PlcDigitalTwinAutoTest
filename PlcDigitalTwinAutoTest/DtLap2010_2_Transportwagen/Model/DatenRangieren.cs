@@ -24,6 +24,6 @@ public class DatenRangieren
             (_modelLap2010.B1, _modelLap2010.B2, _modelLap2010.F1, _modelLap2010.S1, _modelLap2010.S2, _modelLap2010.S3, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
         }
 
-        (_modelLap2010.P1, _modelLap2010.Q1, _modelLap2010.Q2, _,_, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
+        (_modelLap2010.P1, _modelLap2010.Q1, _modelLap2010.Q2, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }
 }

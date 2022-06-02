@@ -32,7 +32,7 @@ public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityBtnPlottAnzeigen = Visibility.Visible;
         VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
         VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
-        
+
         _modelFibonacci = model as ModelFibonacci;
     }
 

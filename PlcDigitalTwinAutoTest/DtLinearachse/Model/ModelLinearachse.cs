@@ -33,7 +33,7 @@ public class ModelLinearachse : BasePlcDtAt.BaseModel.BaseModel
     private const double SchlittenEndschalterBreite = 10;
     private const double SchlittenLinkerRand = SchlittenEndschalterBreite;
     private const double SchlittenRechterRand = SchlittenBreite - SchlittenEndschalterBreite;
-    
+
     private readonly DatenRangieren _datenRangieren;
 
     public ModelLinearachse(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)

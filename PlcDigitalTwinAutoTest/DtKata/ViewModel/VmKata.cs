@@ -40,7 +40,7 @@ public partial class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityEinS6, VisibilityAusS6) = SetVisibility(_modelKata.S6);
         (VisibilityEinS7, VisibilityAusS7) = SetVisibility(_modelKata.S7);
         (VisibilityEinS8, VisibilityAusS8) = SetVisibility(_modelKata.S8);
-        
+
         BrushP1 = SetBrush(_modelKata.P1, Brushes.LawnGreen, Brushes.White);
         BrushP2 = SetBrush(_modelKata.P2, Brushes.LawnGreen, Brushes.White);
         BrushP3 = SetBrush(_modelKata.P3, Brushes.LawnGreen, Brushes.White);

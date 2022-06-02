@@ -30,34 +30,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ConfigPlc\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\DA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigPlc\DI.json">
+    <None Update="ConfigDt\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\ConfigTests.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Silosteuerung__568__1\AA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Silosteuerung__568__1\AI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Silosteuerung__568__1\DA.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Silosteuerung__568__1\DI.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Silosteuerung__568__1\EaBelegung.json">
+    <None Update="ConfigTests\Silosteuerung__568__1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ConfigTests\Silosteuerung__568__1\index.html">

@@ -1,10 +1,10 @@
-using System;
 using Contracts;
 using LibAutoTestSilk.ViewModel;
-using LibConfigPlc;
+using LibConfigDt;
 using LibDatenstruktur;
 using LibPlcTestautomat;
 using SoftCircuits.Silk;
+using System;
 using System.IO;
 using System.Threading;
 
@@ -17,16 +17,16 @@ public class AutoTesterSilk
     private readonly AutoTesterWindow _autoTesterWindow;
     private readonly VmAutoTesterSilk _vmAutoTesterSilk;
     private readonly Datenstruktur _datenstruktur;
-    private readonly ConfigPlc _configPlc;
+    private readonly ConfigDt _configDt;
     private readonly TestAutomat _testAutomat;
     private DirectoryInfo _projektOrdner;
     private CompiledProgram _compiledProgram;
     private readonly CancellationTokenSource _cancellationTokenSource;
 
-    public AutoTesterSilk(Datenstruktur datenstruktur, ConfigPlc configPlc, TestAutomat testAutomat, Action closeWindow, CancellationTokenSource cancellationTokenSource)
+    public AutoTesterSilk(Datenstruktur datenstruktur, ConfigDt configPlc, TestAutomat testAutomat, Action closeWindow, CancellationTokenSource cancellationTokenSource)
     {
         _datenstruktur = datenstruktur;
-        _configPlc = configPlc;
+        _configDt = configPlc;
         _testAutomat = testAutomat;
         _cancellationTokenSource = cancellationTokenSource;
 
@@ -40,13 +40,10 @@ public class AutoTesterSilk
     public void SetProjekt(DirectoryInfo ordnerAktuellesProjekt)
     {
         _projektOrdner = ordnerAktuellesProjekt;
-        _vmAutoTesterSilk.DataGridBeschriften(ordnerAktuellesProjekt, _configPlc);
+        _vmAutoTesterSilk.DataGridBeschriften(ordnerAktuellesProjekt, _configDt);
     }
     public void AutoTestStarten()
     {
-        Compiler compiler;
-        bool compilerlaufErfolgreich;
-
         AutoTestFensterOeffnen();
 
         Silk.ReferenzenUebergeben(_vmAutoTesterSilk, _datenstruktur, _testAutomat);
@@ -54,7 +51,7 @@ public class AutoTesterSilk
         _testAutomat.InfoAnzeigen("", TestAnzeige.CompilerStart, "");
         _testAutomat.StopwatchRestart();
 
-        (compilerlaufErfolgreich, compiler, _compiledProgram) = Silk.Compile(Path.Combine(_projektOrdner.ToString(), "test.ssc", ""));
+        (var compilerlaufErfolgreich, var compiler, _compiledProgram) = Silk.Compile(Path.Combine(_projektOrdner.ToString(), "test.ssc", ""));
 
         if (compilerlaufErfolgreich)
         {

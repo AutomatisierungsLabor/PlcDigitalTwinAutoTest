@@ -15,7 +15,7 @@ public class ViewModel
     public ViewModel(Grid grid)
     {
         _libWpf = new LibWpf.LibWpf(grid);
-        _libWpf.GridZeichnen(AnzX, BreiteX, AnzY, BreiteY, true);
+        _libWpf.GridZeichnen(AnzX, BreiteX, AnzY, BreiteY,false,false, true);
     }
     public void AlleBilderAnzeigen(List<string> alleBilder)
     {

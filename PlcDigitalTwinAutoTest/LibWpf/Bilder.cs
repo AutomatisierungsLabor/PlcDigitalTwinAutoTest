@@ -36,9 +36,9 @@ public partial class LibWpf
         var (image, _) = ImageErzeugen(source, margin);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void ImageSetVisibility(string source, int xPos, int xSpan, int yPos, int ySpan,  string setVisibility)
+    public void ImageSetVisibility(string source, int xPos, int xSpan, int yPos, int ySpan, string setVisibility)
     {
-        var (imageEin, _) = ImageErzeugen(source, new Thickness(0,0,0,0));
+        var (imageEin, _) = ImageErzeugen(source, new Thickness(0, 0, 0, 0));
         imageEin.BindingImageSetVisibility(setVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageEin);
     }
@@ -57,6 +57,22 @@ public partial class LibWpf
 
         var (imageOff, _) = ImageErzeugen(sourceOff, margin);
         imageOff.BindingButtonSetVisibility(setVisibilityAus);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
+    }
+    public void ImageMarginZweiBilderRotateSetVisibility(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, int winkel, Thickness margin, string setVisibilityEin, string setVisibilityAus)
+    {
+        var rotateTransform=new RotateTransform(winkel);
+
+        var (imageOn, _) = ImageErzeugen(sourceOn, margin);
+        imageOn.BindingButtonSetVisibility(setVisibilityEin);
+        imageOn.RenderTransform=rotateTransform;
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOn);
+
+        var (imageOff, _) = ImageErzeugen(sourceOff, margin);
+        imageOff.BindingButtonSetVisibility(setVisibilityAus);
+        imageOff.RenderTransform = rotateTransform;
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
     }

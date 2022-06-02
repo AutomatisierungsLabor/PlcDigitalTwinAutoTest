@@ -1,18 +1,17 @@
-﻿using System;
+﻿using LibConfigDt;
+using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
-using LibConfigPlc;
 
 namespace LibAutoTestSilk.ViewModel;
 
 public partial class VmAutoTesterSilk
 {
-    private ObservableCollection<DaEinstellungen> _daZeilenAlt = new();
-    private ObservableCollection<DiEinstellungen> _diZeilenAlt = new();
+    private readonly EaConfig[] _daZeilenAlt = new EaConfig[32];
+    private readonly EaConfig[] _diZeilenAlt = new EaConfig[32];
 
-    internal void DataGridBeschriften(DirectoryInfo ordnerAktuellesProjekt, ConfigPlc configPlc)
+    internal void DataGridBeschriften(DirectoryInfo ordnerAktuellesProjekt, ConfigDt configDt)
     {
         try
         {
@@ -26,34 +25,20 @@ public partial class VmAutoTesterSilk
             throw;
         }
 
-        TabBeschriftungDa(configPlc.Da.Zeilen, DaCollection);
-        TabBeschrifungDi(configPlc.Di.Zeilen, DiCollection);
+        TabBeschriftungDa(configDt.DtConfig.DigitaleAusgaenge.EaConfig, DaCollection, _daZeilenAlt);
+        TabBeschriftungDa(configDt.DtConfig.DigitaleEingaenge.EaConfig, DiCollection, _diZeilenAlt);
 
         AlleDpAktualisieren();
     }
-    private void TabBeschriftungDa(ObservableCollection<DaEinstellungen> daZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes)
+    private static void TabBeschriftungDa(EaConfig[] eaZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes, EaConfig[] daZeilenAlt)
     {
-        if (_daZeilenAlt == daZeilen) return;
-        _daZeilenAlt = daZeilen;
+        if (daZeilenAlt == eaZeilen) return;
+        // ReSharper disable once RedundantAssignment
+        daZeilenAlt = eaZeilen;
 
         for (var i = 0; i < 20; i++) vmDatenpunktes[i].DpVisibility = Visibility.Hidden;
 
-        foreach (var zeile in daZeilen)
-        {
-            var bitPos = 10 * zeile.StartByte + zeile.StartBit;
-
-            vmDatenpunktes[bitPos].DpVisibility = Visibility.Visible;
-            vmDatenpunktes[bitPos].DpBezeichnung = zeile.Bezeichnung;
-        }
-    }
-    private void TabBeschrifungDi(ObservableCollection<DiEinstellungen> diZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes)
-    {
-        if (_diZeilenAlt == diZeilen) return;
-        _diZeilenAlt = diZeilen;
-
-        for (var i = 0; i < 20; i++) vmDatenpunktes[i].DpVisibility = Visibility.Hidden;
-
-        foreach (var zeile in diZeilen)
+        foreach (var zeile in eaZeilen)
         {
             var bitPos = 10 * zeile.StartByte + zeile.StartBit;
 

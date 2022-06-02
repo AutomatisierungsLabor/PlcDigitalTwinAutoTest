@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace DtLap2018_3_Hydraulikaggregat.ViewModel;
 
@@ -26,6 +26,7 @@ public partial class VmLap2018
     [ObservableProperty] private Brush _brushQ3;
     [ObservableProperty] private Brush _brushQ4;
     [ObservableProperty] private Brush _brushS4;
+    [ObservableProperty] private Brush _brushUeberdruck;
 
     [ObservableProperty] private ClickMode _clickModeB3;
     [ObservableProperty] private ClickMode _clickModeB4;
@@ -35,6 +36,10 @@ public partial class VmLap2018
     [ObservableProperty] private ClickMode _clickModeS2;
     [ObservableProperty] private ClickMode _clickModeS3;
     [ObservableProperty] private ClickMode _clickModeS4;
+    [ObservableProperty] private ClickMode _clickModeUeberdruck;
+    [ObservableProperty] private ClickMode _clickModeNachfuellen;
+
+    [ObservableProperty] private double _doubleAktuellerDruck;
 
     [ObservableProperty] private Visibility _visibilityEinB1;
     [ObservableProperty] private Visibility _visibilityEinB2;
@@ -45,13 +50,11 @@ public partial class VmLap2018
     [ObservableProperty] private Visibility _visibilityAusB2;
     [ObservableProperty] private Visibility _visibilityAusB3;
 
+    [ObservableProperty] private Visibility _visibilityErweiterungOelkuehler;
+    [ObservableProperty] private Visibility _visibilityErweiterungZylinder;
+    [ObservableProperty] private Visibility _visibilityErweiterungOelfilter;
 
+    [ObservableProperty] private string _stringFuellstand;
 
-    [ObservableProperty] private Visibility _visibilityOelkuehlerAbgedeckt;
-    [ObservableProperty] private Visibility _visibilityZylinderAbgedeckt;
-    [ObservableProperty] private Visibility _visibilityOelfilterAbgedeckt;
-
- 
-
-
+    [ObservableProperty] private Thickness _thicknessFuellstand;
 }

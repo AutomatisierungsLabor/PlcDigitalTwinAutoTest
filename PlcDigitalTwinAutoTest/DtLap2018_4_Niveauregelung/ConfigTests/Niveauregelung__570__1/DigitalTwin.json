@@ -1,0 +1,146 @@
+{
+  "AnalogeAusgaenge": {
+    "EaConfig": []
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": []
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "P1",
+        "Kommentar": "Meldeleuchte Betrieb"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "P2",
+        "Kommentar": "Meldeleuchte Störung"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "P3",
+        "Kommentar": "Meldeleuchte Füllstand"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "Q1",
+        "Kommentar": "Motor Pumpe"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "Q2",
+        "Kommentar": "Motor Pumpe"
+      }
+    ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "B1",
+        "Kommentar": "Schwimmerschalter unten"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "B2",
+        "Kommentar": "Schwimmerschalter mitte"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "B3",
+        "Kommentar": "Schwimmerschalter oben"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "F1",
+        "Kommentar": "Thermorelais"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "F2",
+        "Kommentar": "Thermorelais"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "S1",
+        "Kommentar": "Taster Start"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "S2",
+        "Kommentar": "Taster Stop"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "S3",
+        "Kommentar": "Taster Reset"
+      }
+
+    ]
+  },
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "30",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Kata - Hardware",
+      "WasAnzeigen": "H1Inhalt"
+    },
+    {
+      "BausteinId": "31",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Kata - RS FlipFlop V1",
+      "WasAnzeigen": "H1H2Inhalt"
+    },
+    {
+      "BausteinId": "8",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - </body>",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ]
+}

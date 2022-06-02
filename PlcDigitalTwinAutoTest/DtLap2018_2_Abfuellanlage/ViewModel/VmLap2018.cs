@@ -1,9 +1,9 @@
-﻿using System.Threading;
+﻿using DtLap2018_2_Abfuellanlage.Model;
+using LibDatenstruktur;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtLap2018_2_Abfuellanlage.Model;
-using LibDatenstruktur;
 
 namespace DtLap2018_2_Abfuellanlage.ViewModel;
 
@@ -39,7 +39,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityFlasche4, MarginFlasche4) = FlaschePositionieren(_modelLap2018.AlleFlaschen[3]);
         (VisibilityFlasche5, MarginFlasche5) = FlaschePositionieren(_modelLap2018.AlleFlaschen[4]);
         (VisibilityFlasche6, MarginFlasche6) = FlaschePositionieren(_modelLap2018.AlleFlaschen[5]);
-        
+
         (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2018.B1);
         (VisibilityEinK1, VisibilityAusK1) = SetVisibility(_modelLap2018.K1);
         (VisibilityEinK2, VisibilityAusK2) = SetVisibility(_modelLap2018.K2);
@@ -54,7 +54,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         BrushAbleitung = SetBrush(_modelLap2018.K1 && _modelLap2018.Pegel > 0.01, Brushes.Blue, Brushes.LightGray);
 
         MarginPegel = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2018.Pegel), 0, 0);
-        StringFuellstandProzent= (100 * _modelLap2018.Pegel).ToString("F0") + "%";
+        StringFuellstandProzent = (100 * _modelLap2018.Pegel).ToString("F0") + "%";
     }
 
     private (Visibility vis, Thickness margin) FlaschePositionieren(Flaschen allflaschen)
@@ -95,7 +95,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityMohren5, _) = SetVisibility(alleMohrenKisten[5]);
         (VisibilityMohren6, _) = SetVisibility(alleMohrenKisten[6]);
     }
-     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
+    public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
     public override void LaborPlatteZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabLaborPlatteZeichnen(this, tabItem, "#eeeeee");
     public override void SimulationZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabSimulationZeichnen(this, tabItem, "#eeeeee");

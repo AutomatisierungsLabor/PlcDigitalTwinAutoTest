@@ -1,8 +1,8 @@
-﻿using System.Threading;
+﻿using DtNadeltelegraph.Model;
+using LibDatenstruktur;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using DtNadeltelegraph.Model;
-using LibDatenstruktur;
 
 namespace DtNadeltelegraph.ViewModel;
 
@@ -44,7 +44,7 @@ public partial class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
         WinkelZeiger3 = _modelNadeltelegraph.AlleZeiger[2].GetWinkel();
         WinkelZeiger4 = _modelNadeltelegraph.AlleZeiger[3].GetWinkel();
         WinkelZeiger5 = _modelNadeltelegraph.AlleZeiger[4].GetWinkel();
-        
+
         VisibilityLinieLinksOben1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityUpLeft();
         VisibilityLinieRechtsOben1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityUpRight();
         VisibilityLinieLinksUnten1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityDownLeft();

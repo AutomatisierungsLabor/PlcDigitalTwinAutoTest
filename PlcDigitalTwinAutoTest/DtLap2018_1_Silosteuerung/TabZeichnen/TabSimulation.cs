@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using DtLap2018_1_Silosteuerung.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using DtLap2018_1_Silosteuerung.ViewModel;
 
 namespace DtLap2018_1_Silosteuerung.TabZeichnen;
 
@@ -11,7 +11,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 30, 40, 30, true);
+        libWpf.GridZeichnen(50, 30, 40, 30, false, false, true);
 
         ///////////////////////////////////////////////////////////
         //

@@ -1,5 +1,5 @@
-﻿using System.Collections.ObjectModel;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
+using System.Collections.ObjectModel;
 
 namespace DtNadeltelegraph.Model;
 

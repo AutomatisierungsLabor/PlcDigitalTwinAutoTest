@@ -16,7 +16,7 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
     public double Tastverhaeltnis { get; set; }
     public double EinZeit { get; set; }
     public double AusZeit { get; set; }
-    
+
     private readonly DatenRangieren _datenRangieren;
 
     private bool _p1Alt;

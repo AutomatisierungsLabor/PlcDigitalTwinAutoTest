@@ -19,8 +19,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibAutoTestSilk\LibAutoTestSilk.csproj" />
-    <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
+    <ProjectReference Include="..\LibConfigDt\LibConfigDt.csproj" />
     <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="json.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

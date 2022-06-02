@@ -9,10 +9,10 @@ public partial class TabZeichnen
     public static void TabLaborPlatteZeichnen(ViewModel.VmGetriebemotor vmGetriebemotor, TabItem tabItem, string hintergrund)
     {
         _ = vmGetriebemotor;
-       var libWpf = new LibWpf.LibWpf(tabItem);
+        var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
 
-        libWpf.GridZeichnen(50, 30, 30, 30, false);
+        libWpf.GridZeichnen(50, 30, 30, 30, false, false, false);
         libWpf.Image("GetriebemotorMitGabellichtschranke.jpg", 1, 25, 1, 22, new Thickness(0, 0, 0, 0));
 
         libWpf.PlcError();

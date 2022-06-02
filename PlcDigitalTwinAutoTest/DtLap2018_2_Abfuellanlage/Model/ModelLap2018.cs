@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using LibDatenstruktur;
+using System.Collections.Generic;
 using System.Linq;
-using LibDatenstruktur;
 
 namespace DtLap2018_2_Abfuellanlage.Model;
 
@@ -67,8 +67,7 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
         B1 = false;
         foreach (var flasche in AlleFlaschen)
         {
-            bool lichtschranke;
-            (lichtschranke, _aktuelleFlasche) = flasche.FlascheBewegen(Q1, _anzahlFlaschen, _aktuelleFlasche);
+            (var lichtschranke, _aktuelleFlasche) = flasche.FlascheBewegen(Q1, _anzahlFlaschen, _aktuelleFlasche);
             B1 |= lichtschranke;
         }
 

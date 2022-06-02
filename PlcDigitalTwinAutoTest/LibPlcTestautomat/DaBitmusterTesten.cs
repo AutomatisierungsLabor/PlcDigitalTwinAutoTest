@@ -1,7 +1,7 @@
 ﻿using Contracts;
 using LibPlcTools;
-using System.Diagnostics;
 using SoftCircuits.Silk;
+using System.Diagnostics;
 
 namespace LibPlcTestautomat;
 

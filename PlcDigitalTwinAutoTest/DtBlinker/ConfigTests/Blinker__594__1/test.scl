@@ -11,7 +11,6 @@ VERSION : 0.1
       Gesamtzeit {OriginalPartName := 'IEC_TIMER'; LibVersion := '1.0'} : TON_TIME;
    END_VAR
 
-
 BEGIN
 	IF "DigInput".S5 THEN
 	    #Frequenz := 1.0;
@@ -32,4 +31,3 @@ BEGIN
 	#"T minus alt"  := "DigInput".S3;
 	#"T plus alt" := "DigInput".S4;
 END_FUNCTION_BLOCK
-

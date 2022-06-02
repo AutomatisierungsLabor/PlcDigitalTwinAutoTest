@@ -1,7 +1,7 @@
-﻿using System.Windows;
+﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace DtLap2010_4_Abfuellanlage.ViewModel;
 

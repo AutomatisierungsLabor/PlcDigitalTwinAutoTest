@@ -1,5 +1,5 @@
-﻿using System.Windows.Controls;
-using Microsoft.Toolkit.Mvvm.Input;
+﻿using Microsoft.Toolkit.Mvvm.Input;
+using System.Windows.Controls;
 
 namespace DtNadeltelegraph.ViewModel;
 

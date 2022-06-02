@@ -35,7 +35,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LibAutoTest\LibAutoTest.csproj" />
-    <ProjectReference Include="..\LibConfigPlc\LibConfigPlc.csproj" />
+    <ProjectReference Include="..\LibConfigDt\LibConfigDt.csproj" />
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />
     <ProjectReference Include="..\LibDisplayPlc\LibDisplayPlc.csproj" />
     <ProjectReference Include="..\LibInfo\LibInfo.csproj" />

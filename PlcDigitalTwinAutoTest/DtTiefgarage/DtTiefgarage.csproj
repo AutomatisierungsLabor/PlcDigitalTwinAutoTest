@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>iconPlcDt.ico</ApplicationIcon>
+    <PackageProjectUrl>https://github.com/AutomatisierungsLabor/PlcDigitalTwinAutoTest</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AutomatisierungsLabor/PlcDigitalTwinAutoTest</RepositoryUrl>
+    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <FileVersion>3.0.0.0</FileVersion>
+    <Version>3.0.0</Version>
+    <Authors>Kurt Linder</Authors>
+    <Copyright>Copyright © 2019-2022 Kurt Linder</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="iconPlcDt.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BasePlcDtAt\BasePlcDtAt.csproj" />
+    <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ConfigDt\DigitalTwin.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ConfigTests\Tiefgarage__566__1\DigitalTwin.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ConfigTests\Tiefgarage__566__1\test.scl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ConfigTests\Tiefgarage__566__1\test.ssc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ConfigTests\Tiefgarage__566__1\test.st">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,5 +1,5 @@
-﻿using System.Windows.Data;
-using LibGaugeControl;
+﻿using LibGaugeControl;
+using System.Windows.Data;
 
 namespace LibWpf;
 
@@ -15,7 +15,7 @@ public partial class LibWpf
             ArcFirstColorEndPos = colorFirstPos,
             ArcMidleColorEndPos = colorMittdlePos
         };
-        BindingOperations.SetBinding(gaugeControl, GaugeControl.CurrentValueProperty,  new Binding(bindingValue));
+        BindingOperations.SetBinding(gaugeControl, GaugeControl.CurrentValueProperty, new Binding(bindingValue));
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, gaugeControl);
     }
 }

@@ -16,9 +16,11 @@ public partial class App
 
         var modelNadeltelegraph = new ModelNadeltelegraph(datenstruktur, _cancellationTokenSource);
         var vmNadeltelegraph = new VmNadeltelegraph(modelNadeltelegraph, datenstruktur, _cancellationTokenSource);
-        var baseWindow = new BaseWindow(vmNadeltelegraph, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
-
-        MainWindow!.Height = 1100;
+        var baseWindow = new BaseWindow(vmNadeltelegraph, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
+        {
+            Height = 1100
+        };
+        
         baseWindow.Show();
     }
 }

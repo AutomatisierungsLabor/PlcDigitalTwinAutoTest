@@ -1,0 +1,80 @@
+{
+    "AnalogeAusgaenge": {
+        "EaConfig": []
+    },
+    "AnalogeEingaenge": {
+        "EaConfig": []
+    },
+    "DigitaleAusgaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 0,
+                "Type": "Bit",
+                "Bezeichnung": "P1",
+                "Kommentar": "Meldeleuchte Pumpe Ein"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 1,
+                "Type": "Bit",
+                "Bezeichnung": "P2",
+                "Kommentar": "Meldeleuchte Störung"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 2,
+                "Type": "Bit",
+                "Bezeichnung": "Q1",
+                "Kommentar": "Motor Pumpe"
+            }
+        ]
+    },
+    "DigitaleEingaenge": {
+        "EaConfig": [
+            {
+                "StartByte": 0,
+                "StartBit": 0,
+                "Type": "Bit",
+                "Bezeichnung": "B1",
+                "Kommentar": "Schwimmerschalter oben"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 1,
+                "Type": "Bit",
+                "Bezeichnung": "B2",
+                "Kommentar": "Schwimmerschalter unten"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 2,
+                "Type": "Bit",
+                "Bezeichnung": "F1",
+                "Kommentar": "Thermorelais"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 3,
+                "Type": "Bit",
+                "Bezeichnung": "S1",
+                "Kommentar": "Wahlschalter Hand"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 4,
+                "Type": "Bit",
+                "Bezeichnung": "S2",
+                "Kommentar": "Wahlschalter Automatik"
+            },
+            {
+                "StartByte": 0,
+                "StartBit": 5,
+                "Type": "Bit",
+                "Bezeichnung": "S3",
+                "Kommentar": "Taster Störung quittieren"
+            }
+        ]
+    },
+    "Textbausteine": []
+}

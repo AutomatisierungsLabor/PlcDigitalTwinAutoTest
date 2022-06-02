@@ -1,0 +1,155 @@
+{
+    "AnalogeAusgaenge": {
+      "EaConfig": [
+        {
+          "StartByte": 0,
+          "StartBit": 0,
+          "Type": "SiemensAnalogwertPromille",
+          "Bezeichnung": "SiemensAnalogwertPromille",
+          "Kommentar": "Test SiemensAnalogwertPromille"
+        },
+        {
+          "StartByte": 2,
+          "StartBit": 0,
+          "Type": "SiemensAnalogwertProzent",
+          "Bezeichnung": "SiemensAnalogwertProzent",
+          "Kommentar": "Test SiemensAnalogwertProzent"
+        },
+        {
+          "StartByte": 4,
+          "StartBit": 0,
+          "Type": "SiemensAnalogwertSchieberegler",
+          "Bezeichnung": "SiemensAnalogwertSchieberegler",
+          "Kommentar": "Test SiemensAnalogwertSchieberegler"
+        }
+      ]
+    },
+    "AnalogeEingaenge": {
+      "EaConfig": [
+        {
+          "StartByte": 0,
+          "StartBit": 0,
+          "Type": "SiemensAnalogwertPromille",
+          "Bezeichnung": "SiemensAnalogwertPromille",
+          "Kommentar": "Test SiemensAnalogwertPromille"
+        },
+        {
+          "StartByte": 2,
+          "StartBit": 0,
+          "Type": "SiemensAnalogwertProzent",
+          "Bezeichnung": "SiemensAnalogwertProzent",
+          "Kommentar": "Test SiemensAnalogwertProzent"
+        },
+        {
+          "StartByte": 4,
+          "StartBit": 0,
+          "Type": "SiemensAnalogwertSchieberegler",
+          "Bezeichnung": "SiemensAnalogwertSchieberegler",
+          "Kommentar": "Test SiemensAnalogwertSchieberegler"
+        }
+      ]
+    },
+    "DigitaleAusgaenge": {
+      "EaConfig": [
+        {
+          "StartByte": 0,
+          "StartBit": 0,
+          "Type": "Bit",
+          "Bezeichnung": "Bit",
+          "Kommentar": "Test Bit"
+        },
+        {
+          "StartByte": 1,
+          "StartBit": 0,
+          "Type": "Ascii",
+          "Bezeichnung": "Ascii",
+          "Kommentar": "Test Ascii"
+        },
+        {
+          "StartByte": 2,
+          "StartBit": 0,
+          "Type": "BitmusterByte",
+          "Bezeichnung": "BitmusterByte",
+          "Kommentar": "Test BitmusterByte"
+        },
+        {
+          "StartByte": 3,
+          "StartBit": 0,
+          "Type": "Byte",
+          "Bezeichnung": "Byte",
+          "Kommentar": "Test Byte"
+        },
+        {
+          "StartByte": 4,
+          "StartBit": 0,
+          "Type": "Word",
+          "Bezeichnung": "Word",
+          "Kommentar": "Test Word"
+        },
+        {
+          "StartByte": 6,
+          "StartBit": 0,
+          "Type": "DWord",
+          "Bezeichnung": "DWord",
+          "Kommentar": "Test DWord"
+        }
+      ]
+    },
+    "DigitaleEingaenge": {
+      "EaConfig": [
+        {
+          "StartByte": 0,
+          "StartBit": 0,
+          "Type": "Bit",
+          "Bezeichnung": "Bit",
+          "Kommentar": "Test Bit"
+        },
+        {
+          "StartByte": 1,
+          "StartBit": 0,
+          "Type": "Ascii",
+          "Bezeichnung": "Ascii",
+          "Kommentar": "Test Ascii"
+        },
+        {
+          "StartByte": 2,
+          "StartBit": 0,
+          "Type": "BitmusterByte",
+          "Bezeichnung": "BitmusterByte",
+          "Kommentar": "Test BitmusterByte"
+        },
+        {
+          "StartByte": 3,
+          "StartBit": 0,
+          "Type": "Byte",
+          "Bezeichnung": "Byte",
+          "Kommentar": "Test Byte"
+        },
+        {
+          "StartByte": 4,
+          "StartBit": 0,
+          "Type": "Word",
+          "Bezeichnung": "Word",
+          "Kommentar": "Test Word"
+        },
+        {
+          "StartByte": 6,
+          "StartBit": 0,
+          "Type": "DWord",
+          "Bezeichnung": "DWord",
+          "Kommentar": "Test DWord"
+        }
+      ]
+    },
+    "Textbausteine": [
+        {
+            "BausteinId": "5",
+            "PrefixH1": "",
+            "PrefixH2": "",
+            "VorbereitungId": "0",
+            "Test": "-",
+            "Kommentar": "Html - Head",
+            "WasAnzeigen": "NurInhalt"
+        }
+    ]
+}

@@ -1,31 +1,31 @@
 ﻿using BasePlcDtAt.BaseViewModel;
 using LibAutoTest;
-using LibConfigPlc;
+using LibConfigDt;
 using LibDatenstruktur;
 using LibDisplayPlc;
+using LibInfo;
 using LibPlcTestautomat;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using LibInfo;
 
 namespace BasePlcDtAt;
 
 public partial class BaseWindow
 {
     public Datenstruktur Datenstruktur { get; set; }
-    public ConfigPlc ConfigPlc { get; set; }
+    public ConfigDt ConfigDt { get; set; }
     public DisplayPlc DisplayPlc { get; set; }
     public AutoTest AutoTest { get; set; }
     public TestAutomat TestAutomat { get; set; }
-    public  DisplayInfo DisplayInfo { get; set; }
+    public DisplayInfo DisplayInfo { get; set; }
 
     private readonly VmBase _vmBase;
     private readonly CancellationTokenSource _baseCancellationToken;
     private const string PfadConfigTests = "ConfigTests";
-    private const string PfadConfigPlc = "ConfigPlc";
+    private const string PfadJsonDt = "ConfigDt";
 
     public BaseWindow(VmBase vmBase, Datenstruktur datenstruktur, int startUpTabIndex, CancellationTokenSource baseCancellationToken)
     {
@@ -33,7 +33,7 @@ public partial class BaseWindow
         Datenstruktur = datenstruktur;
         _baseCancellationToken = baseCancellationToken;
 
-        DisplayInfo = new DisplayInfo();
+        DisplayInfo = new DisplayInfo(Datenstruktur);
 
         InitializeComponent();
         DataContext = _vmBase;
@@ -41,7 +41,7 @@ public partial class BaseWindow
         _vmBase.PlcDaemon.SetInfoCallback(DisplayInfo.SetKommunikationPlcValues);
         DisplayInfo.SetResetInfoCallback(_vmBase.PlcDaemon.ResetPlcInfo);
 
-        ConfigPlc = new ConfigPlc(PfadConfigPlc);
+        ConfigDt = new ConfigDt(PfadJsonDt);
 
         _vmBase.BeschreibungZeichnen(TabBeschreibung);
         _vmBase.LaborPlatteZeichnen(TabLaborPlatte);
@@ -49,11 +49,11 @@ public partial class BaseWindow
 
         TestAutomat = new TestAutomat(Datenstruktur, _baseCancellationToken);
 
-        AutoTest = new AutoTest(Datenstruktur, ConfigPlc, TabAutoTest, TestAutomat, PfadConfigTests, _baseCancellationToken);
-        AutoTest.SetCallback(ConfigPlc.SetPath);
+        AutoTest = new AutoTest(Datenstruktur, ConfigDt, TabAutoTest, TestAutomat, PfadConfigTests, _baseCancellationToken);
+        AutoTest.SetCallback(ConfigDt.SetPath);
 
         BaseTabControl.SelectedIndex = startUpTabIndex;
-        DisplayPlc = new DisplayPlc(Datenstruktur, ConfigPlc, _baseCancellationToken);
+        DisplayPlc = new DisplayPlc(Datenstruktur, ConfigDt, _baseCancellationToken);
     }
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -62,15 +62,15 @@ public partial class BaseWindow
         switch (tc.SelectedIndex)
         {
             case (int)Contracts.WpfBase.TabBeschreibung:
-                ConfigPlc.SetPathRelativ(PfadConfigPlc);
+                ConfigDt.SetPathRelativ(PfadJsonDt);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.BeschreibungAnzeigen;
                 break;
             case (int)Contracts.WpfBase.TabLaborplatte:
-                ConfigPlc.SetPathRelativ(PfadConfigPlc);
+                ConfigDt.SetPathRelativ(PfadJsonDt);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.LaborPlatte;
                 break;
             case (int)Contracts.WpfBase.TabSimulation:
-                ConfigPlc.SetPathRelativ(PfadConfigPlc);
+                ConfigDt.SetPathRelativ(PfadJsonDt);
                 Datenstruktur.BetriebsartProjekt = BetriebsartProjekt.Simulation;
                 break;
             case (int)Contracts.WpfBase.TabAutoTest:

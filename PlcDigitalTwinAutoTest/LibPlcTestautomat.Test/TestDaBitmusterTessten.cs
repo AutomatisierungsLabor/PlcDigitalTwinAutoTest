@@ -1,7 +1,7 @@
-﻿using System.Threading;
-using Contracts;
+﻿using Contracts;
 using LibDatenstruktur;
 using SoftCircuits.Silk;
+using System.Threading;
 using Xunit;
 
 namespace LibPlcTestautomat.Test;
