@@ -199,4 +199,17 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
+    public void ButtonBildSetMargin(int xPos, int xSpan, int yPos, int ySpan, string source, ICommand cmd, object cmdParameter, string setClickMode, string setMargin)
+    {
+        var (image, _) = ImageErzeugen(source, new Thickness(0, 0, 0, 0));
+        var button = new Button
+        {
+            Content = image,
+            Command = cmd,
+            CommandParameter = cmdParameter
+        };
+        button.BindingButtonSetClickMode(setClickMode);
+        button.BindingButtonSetMargin(setMargin);
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
+    }
 }

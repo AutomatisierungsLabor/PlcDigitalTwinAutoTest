@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using LibUtil;
 
 namespace DtTiefgarage.Model;
@@ -29,6 +30,12 @@ public class FahrzeugPerson
     public FahrenRichtung Bewegung { get; set; } = FahrenRichtung.ObenGeparkt;
     public Punkt AktuellePosition { get; set; } = new(0, 0);
 
+    private readonly double _breite;
+    private readonly double _imageWidth;
+    private readonly double _imageHeight;
+
+
+
     private const double XyBewegung = 1;
     private const double KurveGeschwindigkeit = 0.002;
 
@@ -57,8 +64,9 @@ public class FahrzeugPerson
     public readonly Punkt EingangOben;
     public readonly Punkt EingangUnten;
 
-    public FahrzeugPerson(Rolle rolle, int wievieltesFahrzeugPerson)
+    public FahrzeugPerson(Rolle rolle, int wievieltesFahrzeugPerson, double breite, string image)
     {
+
         double xOben;
         double yOben;
         double xUnten;
@@ -68,6 +76,12 @@ public class FahrzeugPerson
         Punkt kontrollPunktUnten2;
 
         FpRolle = rolle;
+        _breite = breite;
+
+        var libWpf = new LibWpf.LibWpf();
+        var b = libWpf.GetBild(image);
+        _imageHeight = b.Height;
+        _imageWidth = b.Width;
 
         if (FpRolle == Rolle.Fahrzeug)
         {
@@ -197,5 +211,14 @@ public class FahrzeugPerson
         }
 
         return (LichtschrankeUnterbrochen(YPositionB1), LichtschrankeUnterbrochen(YPositionB2), allesInParkPosition);
+    }
+
+    public Thickness GetPosition(double gesamtBreite, double gesamtHoehe)
+    {
+        return new Thickness(
+            AktuellePosition.X,
+            AktuellePosition.Y,
+            gesamtBreite - AktuellePosition.X - _breite,
+            gesamtHoehe - AktuellePosition.Y - _imageHeight * _breite / _imageWidth);
     }
 }

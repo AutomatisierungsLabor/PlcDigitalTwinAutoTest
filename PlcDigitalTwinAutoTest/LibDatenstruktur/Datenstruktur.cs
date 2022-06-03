@@ -106,6 +106,19 @@ public class Datenstruktur
 
         return (lsb, b1, b2, b3, b4, b5, b6, b7);
     }
+
+    public byte GetByte(DatenBereich datenBereich, short offset)
+    {
+        var wert = datenBereich switch
+        {
+            DatenBereich.Di => Di[offset],
+            DatenBereich.Da => Da[offset],
+            DatenBereich.Ai => Ai[offset],
+            DatenBereich.Aa => Aa[offset],
+            _ => throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null)
+        };
+        return wert;
+    }
     public bool SimulationAktiv()
     {
         return BetriebsartProjekt switch

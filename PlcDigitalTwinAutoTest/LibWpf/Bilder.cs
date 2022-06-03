@@ -10,6 +10,11 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
+    public BitmapImage GetBild(string source)
+    {
+        var (_, bitmapImage) = ImageErzeugen(source, new Thickness(0, 0, 0, 0));
+        return bitmapImage;
+    }
     private static (Image image, BitmapImage bitmapImage) ImageErzeugen(string source, Thickness margin)
     {
         var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LibWpf.Bilder." + source);
@@ -62,11 +67,11 @@ public partial class LibWpf
     }
     public void ImageMarginZweiBilderRotateSetVisibility(string sourceOn, string sourceOff, int xPos, int xSpan, int yPos, int ySpan, int winkel, Thickness margin, string setVisibilityEin, string setVisibilityAus)
     {
-        var rotateTransform=new RotateTransform(winkel);
+        var rotateTransform = new RotateTransform(winkel);
 
         var (imageOn, _) = ImageErzeugen(sourceOn, margin);
         imageOn.BindingButtonSetVisibility(setVisibilityEin);
-        imageOn.RenderTransform=rotateTransform;
+        imageOn.RenderTransform = rotateTransform;
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOn);
 
