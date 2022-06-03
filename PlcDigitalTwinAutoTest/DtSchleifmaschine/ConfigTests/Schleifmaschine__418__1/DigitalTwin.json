@@ -115,13 +115,86 @@
       "WasAnzeigen": "NurInhalt"
     },
     {
-      "BausteinId": "10",
+      "BausteinId": "67",
       "PrefixH1": "",
       "PrefixH2": "",
       "VorbereitungId": "0",
       "Test": "-",
-      "Kommentar": "Hier könnte Ihre Werbung stehen!",
-      "WasAnzeigen": "NurInhalt"
+      "Kommentar": "Schleifmaschine - Hardware",
+      "WasAnzeigen": "H1Inhalt"
+    },
+    {
+      "BausteinId": "68",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Schleifmaschine - Beschreibung",
+      "WasAnzeigen": "H1Inhalt"
+    },
+    {
+      "BausteinId": "69",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Schleifmaschine - Beschreibung - Not Halt",
+      "WasAnzeigen": "H2Inhalt"
+    },
+    {
+      "BausteinId": "70",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Schleifmaschine - Beschreibung - Langsame Drehzahl",
+      "WasAnzeigen": "H2Inhalt"
+    },
+    {
+      "BausteinId": "71",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Schleifmaschine - Beschreibung - Hohe Drehzahl",
+      "WasAnzeigen": "H2Inhalt"
+    },
+    {
+      "BausteinId": "72",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Schleifmaschine - Beschreibung - Langsame und Hohe Drehzahl",
+      "WasAnzeigen": "H2Inhalt"
+    },
+
+    {
+      "BausteinId": "73",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Schleifmaschine - Zuerst schnelle und kurz danach langsame Drehzahl vorwählen",
+      "WasAnzeigen": "H2Inhalt"
+    },
+    {
+      "BausteinId": "74",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Schleifmaschine - Zuerst schnelle und kurz danach langsame Drehzahl vorwählen",
+      "WasAnzeigen": "H2Inhalt"
+    },
+    {
+      "BausteinId": "75",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Schleifmaschine - Testanleitung",
+      "WasAnzeigen": "H1Inhalt"
     },
     {
       "BausteinId": "8",

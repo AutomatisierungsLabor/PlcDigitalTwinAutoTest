@@ -1,141 +1,141 @@
 {
-    "AnalogeAusgaenge": {
-        "EaConfig": []
-    },
-    "AnalogeEingaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "AnzahlBit": 8,
-                "Type": "Ascii",
-                "Bezeichnung": "ASCII",
-                "Kommentar": "ASCII Code der Taste"
-            }
-        ]
-    },
-    "DigitaleAusgaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "Type": "Bit",
-                "Bezeichnung": "P1R",
-                "Kommentar": "Zeiger 1 rechts"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 1,
-                "Type": "Bit",
-                "Bezeichnung": "P1L",
-                "Kommentar": "Zeiger 1 links"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 2,
-                "Type": "Bit",
-                "Bezeichnung": "P2R",
-                "Kommentar": "Zeiger 2 rechts"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 3,
-                "Type": "Bit",
-                "Bezeichnung": "P2L",
-                "Kommentar": "Zeiger 2 links"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 4,
-                "Type": "Bit",
-                "Bezeichnung": "P3R",
-                "Kommentar": "Zeiger 3 rechts"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 5,
-                "Type": "Bit",
-                "Bezeichnung": "P3L",
-                "Kommentar": "Zeiger 3 links"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 6,
-                "Type": "Bit",
-                "Bezeichnung": "P4R",
-                "Kommentar": "Zeiger 4 rechts"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 7,
-                "Type": "Bit",
-                "Bezeichnung": "P4L",
-                "Kommentar": "Zeiger 4 links"
-            },
-            {
-                "StartByte": 1,
-                "StartBit": 0,
-                "Type": "Bit",
-                "Bezeichnung": "P5R",
-                "Kommentar": "Zeiger 5 rechts"
-            },
-            {
-                "StartByte": 1,
-                "StartBit": 1,
-                "Type": "Bit",
-                "Bezeichnung": "P5L",
-                "Kommentar": "Zeiger 5 links"
-            }
-        ]
-    },
-    "DigitaleEingaenge": {
-        "EaConfig": []
-    },
-    "Textbausteine": [
-        {
-            "BausteinId": "5",
-            "PrefixH1": "",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - Head",
-            "WasAnzeigen": "NurInhalt"
-        },
-        {
-            "BausteinId": "17",
-            "PrefixH1": "1. ",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Hardware",
-            "WasAnzeigen": "H1Inhalt"
-        },
-        {
-            "BausteinId": "18",
-            "PrefixH1": "2. ",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Beschreibung",
-            "WasAnzeigen": "H1Inhalt"
-        },
-        {
-            "BausteinId": "19",
-            "PrefixH1": "3. ",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Aufgabenstellung",
-            "WasAnzeigen": "H1Inhalt"
-        },
-        {
-            "BausteinId": "8",
-            "PrefixH1": "",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - </body>",
-            "WasAnzeigen": "NurInhalt"
-        }
+  "AnalogeAusgaenge": {
+    "EaConfig": []
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "AnzahlBit": 8,
+        "Type": "Ascii",
+        "Bezeichnung": "ASCII",
+        "Kommentar": "ASCII Code der Taste"
+      }
     ]
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "P1R",
+        "Kommentar": "Zeiger 1 rechts"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "P1L",
+        "Kommentar": "Zeiger 1 links"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "P2R",
+        "Kommentar": "Zeiger 2 rechts"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "P2L",
+        "Kommentar": "Zeiger 2 links"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "P3R",
+        "Kommentar": "Zeiger 3 rechts"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "P3L",
+        "Kommentar": "Zeiger 3 links"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "P4R",
+        "Kommentar": "Zeiger 4 rechts"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "P4L",
+        "Kommentar": "Zeiger 4 links"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "P5R",
+        "Kommentar": "Zeiger 5 rechts"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "P5L",
+        "Kommentar": "Zeiger 5 links"
+      }
+    ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": []
+  },
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "17",
+      "PrefixH1": "1. ",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Hardware",
+      "WasAnzeigen": "H1Inhalt"
+    },
+    {
+      "BausteinId": "18",
+      "PrefixH1": "2. ",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Beschreibung",
+      "WasAnzeigen": "H1Inhalt"
+    },
+    {
+      "BausteinId": "19",
+      "PrefixH1": "3. ",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Aufgabenstellung",
+      "WasAnzeigen": "H1Inhalt"
+    },
+    {
+      "BausteinId": "8",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - </body>",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ]
 }
