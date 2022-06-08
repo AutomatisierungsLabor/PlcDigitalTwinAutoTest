@@ -13,7 +13,7 @@ public partial class TabZeichnen
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
 
-        libWpf.GridZeichnen(50, 30, 30, 30, false, false, true);
+        libWpf.GridZeichnen(50, 30, false, false, true);
         libWpf.Text("Beschreibung", 2, 20, 25, 3, HorizontalAlignment.Left, VerticalAlignment.Top, 30, Brushes.Black);
 
         libWpf.PlcError();

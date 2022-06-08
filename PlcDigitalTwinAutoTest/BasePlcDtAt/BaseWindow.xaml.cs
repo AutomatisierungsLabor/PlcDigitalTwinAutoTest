@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using LibAlarmverwaltung;
 
 namespace BasePlcDtAt;
 
@@ -21,6 +22,7 @@ public partial class BaseWindow
     public AutoTest AutoTest { get; set; }
     public TestAutomat TestAutomat { get; set; }
     public DisplayInfo DisplayInfo { get; set; }
+    public Alarmverwaltung Alarmverwaltung { get; set; }
 
     private readonly VmBase _vmBase;
     private readonly CancellationTokenSource _baseCancellationToken;
@@ -54,6 +56,7 @@ public partial class BaseWindow
 
         BaseTabControl.SelectedIndex = startUpTabIndex;
         DisplayPlc = new DisplayPlc(Datenstruktur, ConfigDt, _baseCancellationToken);
+        Alarmverwaltung = new Alarmverwaltung();
     }
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -109,7 +112,12 @@ public partial class BaseWindow
             }
         }
     }
-    private void AlarmVerwaltungClick(object sender, RoutedEventArgs e) { }
+
+    private void AlarmVerwaltungClick(object sender, RoutedEventArgs e)
+    {
+        if (Alarmverwaltung.FensterAktiv) Alarmverwaltung.FensterAusblenden();
+        else Alarmverwaltung.FensterAnzeigen();
+    }
     private void InfoClick(object sender, RoutedEventArgs e)
     {
         if (DisplayInfo.FensterAktiv) DisplayInfo.FensterAusblenden();

@@ -10,7 +10,7 @@ public class InfoZeichnen
     {
         var libWpf = new LibWpf.LibWpf(grid);
 
-        libWpf.GridZeichnen(20, 30, 12, 30, false, false, true);
+        libWpf.GridZeichnen(20, 12, false, false, true);
         libWpf.ButtonBackgroundContentMarginRounded("Reset", 15, 2, 1, 2, 20, 5, Brushes.LawnGreen, new Thickness(0, 0, 0, 0), vmInfo.ButtonTasterCommand, "-", nameof(vmInfo.ClickModeTasterReset));
 
         libWpf.Text("Lokale Projektbezeichnung:", 1, 10, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);

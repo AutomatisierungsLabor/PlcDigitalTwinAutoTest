@@ -48,6 +48,7 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
+
     public void ButtonRoundedSetBackground(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, ICommand cmd, string cmdParameter, string setClickMode, string setBackground)
     {
         var button = new Button

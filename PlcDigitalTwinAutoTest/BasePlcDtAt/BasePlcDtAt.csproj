@@ -34,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LibAlarmverwaltung\LibAlarmverwaltung.csproj" />
     <ProjectReference Include="..\LibAutoTest\LibAutoTest.csproj" />
     <ProjectReference Include="..\LibConfigDt\LibConfigDt.csproj" />
     <ProjectReference Include="..\LibDatenstruktur\LibDatenstruktur.csproj" />

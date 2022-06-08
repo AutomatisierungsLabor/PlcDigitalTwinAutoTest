@@ -12,6 +12,8 @@ public partial class VmSchleifmaschine
     [ObservableProperty] private Brush _brushP1;
     [ObservableProperty] private Brush _brushP2;
     [ObservableProperty] private Brush _brushP3;
+    [ObservableProperty] private Brush _brushQ1;
+    [ObservableProperty] private Brush _brushQ2;
     [ObservableProperty] private Brush _brushS3;
 
     [ObservableProperty] private ClickMode _clickModeF1;
@@ -32,6 +34,8 @@ public partial class VmSchleifmaschine
 
     [ObservableProperty] private Visibility _visibilityAusB1;
     [ObservableProperty] private Visibility _visibilityAusS3;
+
+    [ObservableProperty] private Visibility _visibilityUebersynchron;
 
     [ObservableProperty] private Point _pointTransformOrigin;
 

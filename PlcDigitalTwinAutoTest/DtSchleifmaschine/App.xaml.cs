@@ -18,7 +18,10 @@ public partial class App
 
         var modelSchleifmaschine = new ModelSchleifmaschine(datenstruktur, _cancellationTokenSource);
         var vmSchleifmaschine = new VmSchleifmaschine(modelSchleifmaschine, datenstruktur, _cancellationTokenSource);
-        var baseWindow = new BaseWindow(vmSchleifmaschine, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmSchleifmaschine, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
+        {
+            Width = 930
+        };
 
         baseWindow.Show();
     }

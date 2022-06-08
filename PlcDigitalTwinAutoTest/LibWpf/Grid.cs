@@ -6,8 +6,11 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
-    public void GridZeichnen(int anzX, double breiteX, int anzY, double hoeheY, bool columnStern, bool rowStern, bool gridSichtbar)
+    public void GridZeichnen(int anzX, int anzY,  bool columnStern, bool rowStern, bool gridSichtbar)
     {
+     const double breiteX = 30;
+     const double hoeheY = 30;
+
         for (var i = 0; i < anzX; i++) Grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(breiteX) });
 
         if (columnStern)
