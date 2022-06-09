@@ -44,6 +44,8 @@ public partial class ConfigDt
     public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.EaConfig?.Length ?? 0;
     public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.EaConfig?.Length ?? 0;
     public int GetAnzahlTextbausteine() => DtConfig.Textbausteine?.Length ?? 0;
+    public int GetAnzahlAlarme()=>DtConfig.Alarm?.Length ?? 0;
+    public EaConfigError GetAlarmConfigError(int id) => DtConfig.Alarm[id].EaConfigError;
     public EaTypen GetEaType(DatenBereich datenBereich, int pos)
     {
         var dtEaConfig = datenBereich switch

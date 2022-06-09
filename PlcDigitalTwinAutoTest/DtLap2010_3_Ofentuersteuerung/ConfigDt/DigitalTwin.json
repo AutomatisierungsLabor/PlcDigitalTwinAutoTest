@@ -1,80 +1,81 @@
 {
-    "AnalogeAusgaenge": {
-        "EaConfig": []
-    },
-    "AnalogeEingaenge": {
-        "EaConfig": []
-    },
-    "DigitaleAusgaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "Type": "Bit",
-                "Bezeichnung": "P1",
-                "Kommentar": "Meldeleuchte Schliessen"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 1,
-                "Type": "Bit",
-                "Bezeichnung": "Q1",
-                "Kommentar": "Motor LL (Öffnen)"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 2,
-                "Type": "Bit",
-                "Bezeichnung": "Q2",
-                "Kommentar": "Motor RL (Schliessen)"
-            }
-        ]
-    },
-    "DigitaleEingaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "Type": "Bit",
-                "Bezeichnung": "B1",
-                "Kommentar": "Endschalter Offen"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 1,
-                "Type": "Bit",
-                "Bezeichnung": "B2",
-                "Kommentar": "Endschalter Geschlossen"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 2,
-                "Type": "Bit",
-                "Bezeichnung": "B3",
-                "Kommentar": "Lichtschranke"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 3,
-                "Type": "Bit",
-                "Bezeichnung": "S1",
-                "Kommentar": "Taster Halt"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 4,
-                "Type": "Bit",
-                "Bezeichnung": "S2",
-                "Kommentar": "Taster Öffnen"
-            },
-            {
-                "StartByte": 0,
-                "StartBit": 5,
-                "Type": "Bit",
-                "Bezeichnung": "S3",
-                "Kommentar": "Taster Schliessen"
-            }
-        ]
-    },
-    "Textbausteine": []
+  "AnalogeAusgaenge": {
+    "EaConfig": []
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": []
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "P1",
+        "Kommentar": "Meldeleuchte Schliessen"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "Q1",
+        "Kommentar": "Motor LL (Öffnen)"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "Q2",
+        "Kommentar": "Motor RL (Schliessen)"
+      }
+    ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "B1",
+        "Kommentar": "Endschalter Offen"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "B2",
+        "Kommentar": "Endschalter Geschlossen"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "B3",
+        "Kommentar": "Lichtschranke"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "S1",
+        "Kommentar": "Taster Halt"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "S2",
+        "Kommentar": "Taster Öffnen"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "S3",
+        "Kommentar": "Taster Schliessen"
+      }
+    ]
+  },
+  "Textbausteine": [],
+  "Alarm": []
 }

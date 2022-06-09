@@ -1,57 +1,68 @@
 {
-    "AnalogeAusgaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "Type": "Bit",
-                "Bezeichnung": "AA1",
-                "Kommentar": "Test AA1"
-            }
-        ]
-    },
-    "AnalogeEingaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "Type": "Bit",
-                "Bezeichnung": "AI1",
-                "Kommentar": "Test AI1"
-            }
-        ]
-    },
-    "DigitaleAusgaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "Type": "Bit",
-                "Bezeichnung": "DA1",
-                "Kommentar": "Test DA1"
-            }
-        ]
-    },
-    "DigitaleEingaenge": {
-        "EaConfig": [
-            {
-                "StartByte": 0,
-                "StartBit": 0,
-                "Type": "Bit",
-                "Bezeichnung": "DI1",
-                "Kommentar": "Test DI1"
-            }
-        ]
-    },
-    "Textbausteine": [
-        {
-            "BausteinId": "5",
-            "PrefixH1": "",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - Head",
-            "WasAnzeigen": "NurInhalt"
-        }
+  "AnalogeAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "AA1",
+        "Kommentar": "Test AA1"
+      }
     ]
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "AI1",
+        "Kommentar": "Test AI1"
+      }
+    ]
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "DA1",
+        "Kommentar": "Test DA1"
+      }
+    ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "DI1",
+        "Kommentar": "Test DI1"
+      }
+    ]
+  },
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ],
+  "Alarm": [
+    {
+      "Id": "0",
+      "Bezeichnung": "Thermorelais",
+      "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
+      "ByteAlarm": "1",
+      "BitAlarm": "0",
+      "ByteQuittiert": "1",
+      "BitQuittiert": "1"
+    }
+  ]
 }
