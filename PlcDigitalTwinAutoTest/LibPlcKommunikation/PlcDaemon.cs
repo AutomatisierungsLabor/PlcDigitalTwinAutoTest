@@ -92,8 +92,8 @@ public class PlcDaemon
             switch (_plcDaemonStatus)
             {
                 case PlcDaemonStatus.SpsPingStarten:
-                    pingBeckhoff.SendAsync(_ipAdressenBeckhoff.IpAdresse, 1000, null);
-                    pingSiemens.SendAsync(_ipAdressenSiemens.Adress, 1000, null);
+                    pingBeckhoff.Send(_ipAdressenBeckhoff.IpAdresse, 1000, null);
+                    pingSiemens.Send(_ipAdressenSiemens.Adress, 1000, null);
 
                     _datenstruktur.VersionsStringPlc = PlcState.PlcBezeichnung;
                     _plcDaemonStatus = PlcDaemonStatus.SpsPingErgebnis;
