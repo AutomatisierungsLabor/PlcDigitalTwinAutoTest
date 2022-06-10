@@ -1,10 +1,14 @@
-﻿using System.Windows.Media;
+﻿using System.Windows.Controls;
+using System.Windows.Media;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace LibAlarmverwaltung.ViewModel;
 
 public partial class VmAlarmverwaltung
 {
+
+    [ObservableProperty] private ClickMode _clickModeTasterReset;
+
     [ObservableProperty] private Brush _brushAlarm00;
     [ObservableProperty] private Brush _brushAlarm01;
     [ObservableProperty] private Brush _brushAlarm02;

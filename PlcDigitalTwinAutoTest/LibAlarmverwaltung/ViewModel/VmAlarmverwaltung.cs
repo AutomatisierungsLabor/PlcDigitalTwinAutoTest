@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Drawing;
-using System.Globalization;
 using System.Threading;
-using System.Windows;
+using System.Windows.Media;
 using LibConfigDt;
 using LibDatenstruktur;
-using System.Windows.Media;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using Brush = System.Windows.Media.Brush;
 
 namespace LibAlarmverwaltung.ViewModel;
 
@@ -16,26 +12,25 @@ public partial class VmAlarmverwaltung : ObservableObject
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
 
-
     private readonly ConfigDt _configDt;
     private readonly Datenstruktur _datenstruktur;
     private readonly CancellationTokenSource _cancellationTokenSource;
+    private readonly Alarmverwaltung _alarmverwaltung;
 
-    public VmAlarmverwaltung(Datenstruktur datenstruktur, ConfigDt configDt, CancellationTokenSource cancellationTokenSource)
+    public VmAlarmverwaltung(Datenstruktur datenstruktur, ConfigDt configDt, CancellationTokenSource cancellationTokenSource, Alarmverwaltung alarmverwaltung)
     {
         Log.Debug("Konstruktor - startet");
 
         _datenstruktur = datenstruktur;
         _configDt = configDt;
         _cancellationTokenSource = cancellationTokenSource;
-
+        _alarmverwaltung = alarmverwaltung;
 
         System.Threading.Tasks.Task.Run(ViewModelTask);
     }
 
     private void ViewModelTask()
     {
-
         while (!_cancellationTokenSource.IsCancellationRequested)
         {
             switch (_configDt.DtConfig.Alarm)
@@ -59,7 +54,6 @@ public partial class VmAlarmverwaltung : ObservableObject
                             case 7: (BrushAlarm07, StringBezeichnung07, StringKommentar07, StringKommt07, StringGeht07) = GetBezeichnungKommentar(_configDt.DtConfig.Alarm[7]); break;
                             case 8: (BrushAlarm08, StringBezeichnung08, StringKommentar08, StringKommt08, StringGeht08) = GetBezeichnungKommentar(_configDt.DtConfig.Alarm[8]); break;
                             case 9: (BrushAlarm09, StringBezeichnung09, StringKommentar09, StringKommt09, StringGeht09) = GetBezeichnungKommentar(_configDt.DtConfig.Alarm[9]); break;
-
                         }
                     }
                     break;
@@ -68,13 +62,14 @@ public partial class VmAlarmverwaltung : ObservableObject
             Thread.Sleep(10);
         }
     }
-
-    private (Brush brush, string bezeichnung, string kommentar, string kommt, string geht) GetBezeichnungKommentar(Alarm alarm)
+    private static (Brush brush, string bezeichnung, string kommentar, string kommt, string geht) GetBezeichnungKommentar(Alarm alarm)
     {
-        DateTime localDate = DateTime.Now;
-        string te =localDate.ToString("d.M.yyyy - H:mm:ss.fff");
+        alarm.AlarmKommt = DateTime.Now;
+        alarm.AlarmGeht = DateTime.Now;
 
+        var kommt = alarm.AlarmKommt.ToString("d.M.yyyy - H:mm:ss.fff");
+        var geht = alarm.AlarmGeht.ToString("d.M.yyyy - H:mm:ss.fff");
 
-        return (System.Windows.Media.Brushes.Blue, alarm.Bezeichnung, alarm.Kommentar, te, te);
+        return (alarm.FarbeAlarm, alarm.Bezeichnung, alarm.Kommentar, kommt, geht);
     }
 }

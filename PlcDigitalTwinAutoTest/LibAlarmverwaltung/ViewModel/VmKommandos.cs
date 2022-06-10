@@ -5,14 +5,5 @@ namespace LibAlarmverwaltung.ViewModel;
 public partial class VmAlarmverwaltung
 {
     [ICommand]
-    private void ButtonTaster(string taster)
-    {
-       //
-    }
-
-    [ICommand]
-    private void ButtonSchalter(string schalter)
-    {
-       //
-    }
+    private void ButtonTaster(string cmd) => _alarmverwaltung.AlarmListe.Clear();
 }

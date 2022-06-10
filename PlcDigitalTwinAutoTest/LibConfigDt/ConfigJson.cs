@@ -1,4 +1,5 @@
-﻿using Contracts;
+﻿using System.Windows.Media;
+using Contracts;
 
 namespace LibConfigDt;
 
@@ -46,4 +47,7 @@ public class Alarm
     public int BitAlarm { get; set; }
     public int BitQuittiert { get; set; }
     public EaConfigError EaConfigError { get; set; }
+    public Brush FarbeAlarm { get; set; }
+    public DateTime AlarmKommt { get; set; }
+    public DateTime AlarmGeht { get; set; }
 }

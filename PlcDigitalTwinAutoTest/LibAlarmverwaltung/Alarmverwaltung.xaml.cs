@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.ObjectModel;
+using System.Threading;
 using System.Windows.Controls;
 using LibAlarmverwaltung.Model;
 using LibAlarmverwaltung.ViewModel;
@@ -15,7 +16,7 @@ public partial class Alarmverwaltung
 
     public AlarmZeichnen.AlarmZeichnen AlarmZeichnen { get; set; }
     public ModelAlarmverwaltung ModelAlarmverwaltung { get; set; }
-  
+    public ObservableCollection<AlarmListe> AlarmListe { get; set; }
 
     public bool FensterAktiv { get; set; }
 
@@ -34,11 +35,14 @@ public partial class Alarmverwaltung
         var grid = new Grid();
         Content = grid;
 
-        AlarmZeichnen = new AlarmZeichnen.AlarmZeichnen(_configDt, grid, this);
-        ModelAlarmverwaltung = new ModelAlarmverwaltung();
-        var viewModel = new VmAlarmverwaltung(_datenstruktur, _configDt, _cancellationTokenSource);
+        AlarmListe = new ObservableCollection<AlarmListe>();
 
+        var viewModel = new VmAlarmverwaltung(_datenstruktur, _configDt, _cancellationTokenSource, this);
         DataContext = viewModel;
+
+        AlarmZeichnen = new AlarmZeichnen.AlarmZeichnen(_configDt, grid, viewModel,this );
+        ModelAlarmverwaltung = new ModelAlarmverwaltung(datenstruktur, _configDt, _cancellationTokenSource,this);
+        
 
         Closing += (_, e) =>
         {

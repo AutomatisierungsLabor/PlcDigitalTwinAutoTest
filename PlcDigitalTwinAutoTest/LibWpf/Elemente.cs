@@ -7,6 +7,22 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
+    public DataGrid DataGrid(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, System.Collections.IEnumerable liste)
+    {
+        var dataGrid = new DataGrid
+        {
+            Margin = margin,
+            ItemsSource = liste
+        };
+
+        Grid.SetColumn(dataGrid, xPos);
+        Grid.SetColumnSpan(dataGrid, xSpan);
+        Grid.SetRow(dataGrid, yPos);
+        Grid.SetRowSpan(dataGrid, ySpan);
+        Grid.Children.Add(dataGrid);
+
+        return dataGrid;
+    }
     public WebBrowser WebBrowser(int xPos, int xSpan, int yPos, int ySpan, Thickness margin)
     {
         var werBrowser = new WebBrowser
