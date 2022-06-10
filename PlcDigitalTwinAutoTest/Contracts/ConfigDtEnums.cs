@@ -32,5 +32,6 @@ public enum EaConfigError
     BitKollision,
     ByteKollision,
     NichtBelegt,
+    FalscheId,
     UnbekannterFehler
 }

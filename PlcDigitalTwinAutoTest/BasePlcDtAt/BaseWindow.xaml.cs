@@ -44,6 +44,7 @@ public partial class BaseWindow
         DisplayInfo.SetResetInfoCallback(_vmBase.PlcDaemon.ResetPlcInfo);
 
         ConfigDt = new ConfigDt(PfadJsonDt);
+        ConfigDt.SetCallbackNeuerTest(NeuerTestAusgewaehlt);
 
         _vmBase.BeschreibungZeichnen(TabBeschreibung);
         _vmBase.LaborPlatteZeichnen(TabLaborPlatte);
@@ -54,9 +55,11 @@ public partial class BaseWindow
         AutoTest = new AutoTest(Datenstruktur, ConfigDt, TabAutoTest, TestAutomat, PfadConfigTests, _baseCancellationToken);
         AutoTest.SetCallback(ConfigDt.SetPath);
 
-        BaseTabControl.SelectedIndex = startUpTabIndex;
         DisplayPlc = new DisplayPlc(Datenstruktur, ConfigDt, _baseCancellationToken);
-        Alarmverwaltung = new Alarmverwaltung();
+
+        Alarmverwaltung = new Alarmverwaltung(Datenstruktur, ConfigDt, _baseCancellationToken);
+
+        BaseTabControl.SelectedIndex = startUpTabIndex;
     }
     private void BetriebsartProjektChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -122,5 +125,10 @@ public partial class BaseWindow
     {
         if (DisplayInfo.FensterAktiv) DisplayInfo.FensterAusblenden();
         else DisplayInfo.FensterAnzeigen();
+    }
+
+    private void NeuerTestAusgewaehlt()
+    {
+        Alarmverwaltung.ConfigNeuLaden();
     }
 }

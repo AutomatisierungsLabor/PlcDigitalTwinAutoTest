@@ -61,7 +61,6 @@
       "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
       "ByteAlarm": "1",
       "BitAlarm": "0",
-      "ByteQuittiert": "1",
       "BitQuittiert": "1"
     }
   ]

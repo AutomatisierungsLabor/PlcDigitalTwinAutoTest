@@ -11,6 +11,8 @@ public partial class ConfigDt
     public DtConfig DtConfig { get; set; }
     private string _path;
 
+    private Action _cbNeuerTest;
+
     public ConfigDt(string path)
     {
         Log.Debug("Konstruktor");
@@ -65,6 +67,8 @@ public partial class ConfigDt
         _path = path;
         var pfadName = Path.Combine(_path, "DigitalTwin.json");
         JsonEinlesen(pfadName);
+
+        _cbNeuerTest?.Invoke();
     }
     public EaConfigError GetEaConfigError(DatenBereich datenBereich, int pos)
     {
@@ -79,4 +83,6 @@ public partial class ConfigDt
         if (dtEaConfig?.EaConfig == null) return EaConfigError.UnbekannterFehler;
         return dtEaConfig.EaConfig.Length < pos ? EaConfigError.UnbekannterFehler : dtEaConfig.EaConfig[pos].EaConfigError;
     }
+
+    public void SetCallbackNeuerTest(Action callback) => _cbNeuerTest = callback;
 }

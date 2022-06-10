@@ -44,7 +44,6 @@ public class Alarm
     public string Kommentar { get; set; }
     public int ByteAlarm { get; set; }
     public int BitAlarm { get; set; }
-    public int ByteQuittiert { get; set; }
     public int BitQuittiert { get; set; }
     public EaConfigError EaConfigError { get; set; }
 }

@@ -30,6 +30,7 @@ public partial class DisplayInfo
     public void FensterAnzeigen()
     {
         FensterAktiv = true;
+        WindowSetSize(600,400);
         Show();
     }
     public void SetKommunikationPlcValues(LibPlcKommunikation.PlcDaemon.PlcDaemonStatus status, long kommunikationPlcAct, long kommunikationPlcMin, long kommunikationPlcMax)
@@ -48,4 +49,9 @@ public partial class DisplayInfo
         VmInfo.StringDi1 = $"[1]={_datenstruktur.Di[1]:X2}";
     }
     public void SetResetInfoCallback(Action resetPlcInfo) => CbResetPlcInfo = resetPlcInfo;
+    public void WindowSetSize(double w, double h)
+    {
+        Width = w;
+        Height = h;
+    }
 }

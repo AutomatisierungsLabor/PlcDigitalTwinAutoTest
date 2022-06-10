@@ -8,7 +8,7 @@ public partial class LibWpf
 {
     public Grid Grid;
 
-    public LibWpf(){}
+    public LibWpf() { }
     public LibWpf(Grid grid) => Grid = grid;
     public LibWpf(ContentControl tabItem)
     {
@@ -22,5 +22,11 @@ public partial class LibWpf
         SetRow(label, yPos);
         SetRowSpan(label, ySpan);
         grid.Children.Add(label);
+    }
+    public void Clear()
+    {
+        Grid.Children.Clear();
+        Grid.RowDefinitions.Clear();
+        Grid.ColumnDefinitions.Clear();
     }
 }

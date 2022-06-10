@@ -159,7 +159,6 @@
       "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
       "ByteAlarm": "1",
       "BitAlarm": "0",
-      "ByteQuittiert": "1",
       "BitQuittiert": "0"
     },
     {
@@ -168,7 +167,6 @@
       "Kommentar": "Not-Halt wurde betätigt: bitte zurückstellen",
       "ByteAlarm": "1",
       "BitAlarm": "3",
-      "ByteQuittiert": "1",
       "BitQuittiert": "3"
     }
   ]

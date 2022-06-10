@@ -17,26 +17,29 @@ public partial class ConfigDt
 
     private void AlarmeTesten()
     {
+        if (DtConfig.Alarm == null) return;
         if (DtConfig.Alarm.Length == 0) return;
 
         var speicherAbbild = new byte[256];
 
+        for (var i = 0; i < DtConfig.Alarm.Length; i++)
+        {
+            if (i != DtConfig.Alarm[i].Id) AlarmFehlermeldung(DtConfig.Alarm[i], EaConfigError.FalscheId);
+        }
+
         foreach (var alarm in DtConfig.Alarm)
         {
-            alarm.EaConfigError = EaConfigError.None;
             if (string.IsNullOrEmpty(alarm.Bezeichnung)) AlarmFehlermeldung(alarm, EaConfigError.BezeichnungFehlt);
             if (string.IsNullOrEmpty(alarm.Kommentar)) AlarmFehlermeldung(alarm, EaConfigError.KommentarFehlt);
-            if (alarm.ByteAlarm != alarm.ByteQuittiert) AlarmFehlermeldung(alarm, EaConfigError.ByteKollision);
             if (alarm.BitAlarm == alarm.BitQuittiert) AlarmFehlermeldung(alarm, EaConfigError.BitKollision);
 
             if (alarm.ByteAlarm > 127) AlarmFehlermeldung(alarm, EaConfigError.UngueltigesStartByte);
             if (alarm.BitAlarm > 7) AlarmFehlermeldung(alarm, EaConfigError.UngueltigesStartBit);
 
-            if (alarm.ByteQuittiert > 127) AlarmFehlermeldung(alarm, EaConfigError.UngueltigesStartByte);
             if (alarm.BitAlarm > 7) AlarmFehlermeldung(alarm, EaConfigError.UngueltigesStartBit);
 
             if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, alarm.ByteAlarm, Bitmuster.BitmusterErzeugen(alarm.BitAlarm))) AlarmFehlermeldung(alarm, EaConfigError.BitKollision);
-            if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, alarm.ByteQuittiert, Bitmuster.BitmusterErzeugen(alarm.BitQuittiert))) AlarmFehlermeldung(alarm, EaConfigError.BitKollision);
+            if (Bytes.BitMusterAufKollissionTesten(speicherAbbild, alarm.ByteAlarm, Bitmuster.BitmusterErzeugen(alarm.BitQuittiert))) AlarmFehlermeldung(alarm, EaConfigError.BitKollision);
         }
     }
 

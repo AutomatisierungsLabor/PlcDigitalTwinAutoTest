@@ -19,7 +19,6 @@
             "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
             "ByteAlarm": "0",
             "BitAlarm": "0",
-            "ByteQuittiert": "0",
             "BitQuittiert": "1"
         },
         {
@@ -28,7 +27,6 @@
             "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
             "ByteAlarm": "1",
             "BitAlarm": "0",
-            "ByteQuittiert": "1",
             "BitQuittiert": "1"
         },
         {
@@ -37,16 +35,14 @@
             "Kommentar": "",
             "ByteAlarm": "2",
             "BitAlarm": "0",
-            "ByteQuittiert": "2",
             "BitQuittiert": "1"
         },
         {
-            "Id": "3",
+            "Id": "4",
             "Bezeichnung": "Thermorelais",
-            "Kommentar": "ByteKollision Alarm/Quittiert",
+            "Kommentar": "falsche ID",
             "ByteAlarm": "2",
             "BitAlarm": "0",
-            "ByteQuittiert": "3",
             "BitQuittiert": "1"
         },
         {
@@ -55,7 +51,6 @@
             "Kommentar": "BitKollision Alarm/Quittiert",
             "ByteAlarm": "4",
             "BitAlarm": "0",
-            "ByteQuittiert": "4",
             "BitQuittiert": "0"
         },
         {
@@ -64,7 +59,6 @@
             "Kommentar": "Idente Belegung wie bei Id=2 BitKollision Alarm/Quittiert",
             "ByteAlarm": "2",
             "BitAlarm": "0",
-            "ByteQuittiert": "2",
             "BitQuittiert": "1"
         }
     ]
