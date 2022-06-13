@@ -2,10 +2,7 @@ name: Library LibPlcTestautomat.Test
 
 on:
   push:
-    branches: [ main ]
-
-  workflow_dispatch:
-    
+    branches: [ main ]    
 
 env:
    TEST_PATH: PlcDigitalTwinAutoTest/LibPlcTestautomat.Test/LibPlcTestautomat.Test.csproj

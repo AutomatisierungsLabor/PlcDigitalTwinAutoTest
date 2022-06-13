@@ -8,13 +8,12 @@ namespace LibPlcTestautomat.Test;
 
 public class TestDaBitmusterTesten
 {
-
     [Theory]
-    [InlineData(0, 0, "T#100ms", "kein Kommentart", 0, 0, TestAnzeige.Erfolgreich)]
-    [InlineData(1, 3, "T#100ms", "kein Kommentart", 0, 0, TestAnzeige.Timeout)]
-    [InlineData(1, 3, "T#100ms", "kein Kommentart", 1, 0, TestAnzeige.Erfolgreich)]
-    [InlineData(3, 3, "T#100ms", "kein Kommentart", 3, 0, TestAnzeige.Erfolgreich)]
-    [InlineData(1, 2, "T#100ms", "kein Kommentart", 3, 0, TestAnzeige.Timeout)]
+    [InlineData(0, 0, "T#100ms", "DaBitmusterTimeout 1", 0, 0, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 3, "T#100ms", "DaBitmusterTimeout 2", 0, 0, TestAnzeige.Timeout)]
+    [InlineData(1, 3, "T#100ms", "DaBitmusterTimeout 3", 1, 0, TestAnzeige.Erfolgreich)]
+    [InlineData(3, 3, "T#100ms", "DaBitmusterTimeout 4", 3, 0, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 2, "T#100ms", "DaBitmusterTimeout 5", 3, 0, TestAnzeige.Timeout)]
 
     public void TestsDaBitmusterTimeout(int bitMuster, int bitMaske, string zeitDauer, string kommentar, byte da0, byte da1, TestAnzeige testAnzeige)
     {

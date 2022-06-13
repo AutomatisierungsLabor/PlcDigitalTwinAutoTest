@@ -7,7 +7,6 @@ namespace LibPlcTestautomat.Test;
 
 public class TestGetDa
 {
-
     [Theory]
     [InlineData(0, 0, 0)]
     [InlineData(1, 0, 1)]
