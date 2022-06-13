@@ -48,6 +48,8 @@ public class AutoTest
             foreach (var ordner in directory.GetDirectories())
             {
                 if ((ordner.Attributes & FileAttributes.Directory) == 0 || ordner.Name == ".git") continue;
+                if (ordner.GetFileSystemInfos().Length == 0) continue;
+
                 AlleTestOrdner.Add(ordner);
             }
         }

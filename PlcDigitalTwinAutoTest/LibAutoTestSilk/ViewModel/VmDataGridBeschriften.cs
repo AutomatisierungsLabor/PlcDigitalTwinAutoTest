@@ -16,8 +16,16 @@ public partial class VmAutoTesterSilk
         try
         {
             var pfad = Path.Combine(ordnerAktuellesProjekt.ToString(), "test.ssc");
-            Log.Debug("TestSource: " + pfad);
-            StringSourceCode = File.ReadAllText(pfad);
+            if (File.Exists(pfad))
+            {
+                Log.Debug("TestSource: " + pfad);
+                StringSourceCode = File.ReadAllText(pfad);
+            }
+            else
+            {
+                Log.Debug("Es fehlt der TestSource: " + pfad);
+            }
+
         }
         catch (Exception e)
         {

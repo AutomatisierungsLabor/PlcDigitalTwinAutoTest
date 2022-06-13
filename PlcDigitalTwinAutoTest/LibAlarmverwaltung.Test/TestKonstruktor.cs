@@ -1,7 +1,7 @@
 using LibConfigDt;
 using Xunit;
 
-namespace LibAutoTest.Test;
+namespace LibAlarmverwaltung.Test;
 
 public class TestKonstruktor
 {
