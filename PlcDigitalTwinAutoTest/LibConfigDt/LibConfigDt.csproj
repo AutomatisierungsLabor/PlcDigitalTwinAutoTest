@@ -6,18 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <COMReference Include="PresentationMgrLib">
-      <WrapperTool>tlbimp</WrapperTool>
-      <VersionMinor>0</VersionMinor>
-      <VersionMajor>28</VersionMajor>
-      <Guid>047255b2-0d70-44b3-b76b-18785d2b7ff6</Guid>
-      <Lcid>0</Lcid>
-      <Isolated>false</Isolated>
-      <EmbedInteropTypes>true</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.14" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
