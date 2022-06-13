@@ -13,7 +13,7 @@ public class TestDaBitmusterBlinktTesten
     private DataGridZeile _zeile = new(0, "", TestAnzeige.CompilerErfolgreich, "", "", "", "");
 
     [Theory]
-    [InlineData(1, 1, "T#20ms", 0.5, 3, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 1", 10, 20, 1, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 1, "T#20ms", 0.5, 3, 0.5, "T#500ms", "DaBitmusterBlinktTimeout 1", 10, 20, 1, TestAnzeige.Erfolgreich)]
   //  [InlineData(2, 2, "T#40ms", 0.5, 3, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 2", 20, 40, 2, TestAnzeige.Erfolgreich)]
   //  [InlineData(3, 3, "T#40ms", 0.25, 3, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 3", 10, 40, 3, TestAnzeige.Erfolgreich)]
   //  [InlineData(4, 4, "T#40ms", 0.75, 3, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 4", 30, 40, 15, TestAnzeige.Erfolgreich)]

@@ -1,0 +1,41 @@
+{
+    "AnalogeAusgaenge": {
+        "EaConfig": []
+    },
+    "AnalogeEingaenge": {
+        "EaConfig": []
+    },
+    "DigitaleAusgaenge": {
+        "EaConfig": []
+    },
+    "DigitaleEingaenge": {
+        "EaConfig": []
+    },
+    "Textbausteine": [],
+    "Alarm": [
+        {
+            "Id": "0",
+            "Bezeichnung": "Alarm 1",
+            "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
+            "ByteAlarm": "0",
+            "BitAlarm": "0",
+            "BitQuittiert": "1"
+        },
+        {
+            "Id": "1",
+            "Bezeichnung": "",
+            "Kommentar": "Alarm 2",
+            "ByteAlarm": "1",
+            "BitAlarm": "0",
+            "BitQuittiert": "1"
+        },
+        {
+            "Id": "2",
+            "Bezeichnung": "Alarm 3",
+            "Kommentar": "",
+            "ByteAlarm": "2",
+            "BitAlarm": "0",
+            "BitQuittiert": "1"
+        }
+    ]
+}

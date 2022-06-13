@@ -1,0 +1,24 @@
+name: Library LibAutoTest.Test
+
+on:
+  push:
+    branches: [ main ]    
+
+env:
+   TEST_PATH: PlcDigitalTwinAutoTest/LibAutoTest.Test/LibAutoTest.Test.csproj
+    
+jobs:
+  build:
+    runs-on: windows-latest 
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.x
+    
+    - name: Test
+      run: dotnet test  ${{ env.TEST_PATH }} --verbosity normal
+      

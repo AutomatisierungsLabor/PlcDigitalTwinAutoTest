@@ -91,9 +91,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtTiefgarage", "DtTiefgarag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtLap2018_4_Niveauregelung", "DtLap2018_4_Niveauregelung\DtLap2018_4_Niveauregelung.csproj", "{7D70F630-9537-469D-9AF0-92CDA4ABAA97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtDuengerMischanlage", "DtDuengerMischanlage\DtDuengerMischanlage.csproj", "{6BE11EAA-02A1-4F64-8039-D0D004EB634B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtDuengerMischanlage", "DtDuengerMischanlage\DtDuengerMischanlage.csproj", "{6BE11EAA-02A1-4F64-8039-D0D004EB634B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibAlarmverwaltung", "LibAlarmverwaltung\LibAlarmverwaltung.csproj", "{33E40018-FE8E-43F0-B6C0-0A4CF4DE2C4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibAlarmverwaltung", "LibAlarmverwaltung\LibAlarmverwaltung.csproj", "{33E40018-FE8E-43F0-B6C0-0A4CF4DE2C4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibAutoTest.Test", "LibAutoTest.Test\LibAutoTest.Test.csproj", "{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -285,6 +287,10 @@ Global
 		{33E40018-FE8E-43F0-B6C0-0A4CF4DE2C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33E40018-FE8E-43F0-B6C0-0A4CF4DE2C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33E40018-FE8E-43F0-B6C0-0A4CF4DE2C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
