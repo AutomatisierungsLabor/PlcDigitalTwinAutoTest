@@ -125,5 +125,23 @@
       }
     ]
   },
-  "Textbausteine": []
+  "Textbausteine": [],
+  "Alarm": [
+    {
+      "Id": "0",
+      "Bezeichnung": "Thermorelais",
+      "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
+      "ByteAlarm": "0",
+      "BitAlarm": "0",
+      "BitQuittiert": "1"
+    },
+    {
+      "Id": "1",
+      "Bezeichnung": "Not-Halt",
+      "Kommentar": "Not-Halt wurde betätigt: bitte zurückstellen",
+      "ByteAlarm": "0",
+      "BitAlarm": "4",
+      "BitQuittiert": "5"
+    }
+  ]
 }

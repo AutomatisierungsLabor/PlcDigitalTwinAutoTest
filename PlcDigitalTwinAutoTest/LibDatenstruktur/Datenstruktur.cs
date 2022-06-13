@@ -83,7 +83,13 @@ public class Datenstruktur
             default: throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null);
         }
     }
+    public (bool alarm, bool quittiert) GetAlarmBitmuster(short bytePos, short bitPos)
+    {
+        var alarm = LibPlcTools.Bitmuster.BitmusterInByteTesten(Da[bytePos], bitPos);
+        var quittiert = LibPlcTools.Bitmuster.BitmusterInByteTesten(Da[bytePos], 1 + bitPos);
 
+        return (alarm, quittiert);
+    }
     public (bool lsb, bool b1, bool b2, bool b3, bool b4, bool b5, bool b6, bool b7) GetBitmuster(DatenBereich datenBereich, short offset)
     {
         var wert = datenBereich switch
@@ -105,6 +111,19 @@ public class Datenstruktur
         var b7 = LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 7);
 
         return (lsb, b1, b2, b3, b4, b5, b6, b7);
+    }
+
+    public byte GetByte(DatenBereich datenBereich, short offset)
+    {
+        var wert = datenBereich switch
+        {
+            DatenBereich.Di => Di[offset],
+            DatenBereich.Da => Da[offset],
+            DatenBereich.Ai => Ai[offset],
+            DatenBereich.Aa => Aa[offset],
+            _ => throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null)
+        };
+        return wert;
     }
     public bool SimulationAktiv()
     {

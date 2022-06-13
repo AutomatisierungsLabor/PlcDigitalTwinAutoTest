@@ -51,6 +51,11 @@ public partial class VmSchleifmaschine : BasePlcDtAt.BaseViewModel.VmBase
         BrushP2 = SetBrush(_modelSchleifmaschine.P2, Brushes.LawnGreen, Brushes.LightGray);
         BrushP3 = SetBrush(_modelSchleifmaschine.P3, Brushes.Red, Brushes.LightGray);
         BrushS3 = SetBrush(_modelSchleifmaschine.S3, Brushes.LawnGreen, Brushes.Red);
+
+        BrushQ1 = SetBrush(_modelSchleifmaschine.Q1, Brushes.LawnGreen, Brushes.LightGray);
+        BrushQ2 = SetBrush(_modelSchleifmaschine.Q2, Brushes.LawnGreen, Brushes.LightGray);
+
+        (VisibilityUebersynchron, _) = SetVisibility(_modelSchleifmaschine.B1);
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

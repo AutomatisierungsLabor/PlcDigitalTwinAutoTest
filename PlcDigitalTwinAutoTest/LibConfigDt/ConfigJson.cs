@@ -9,6 +9,7 @@ public class DtConfig
     public DtEaConfig DigitaleAusgaenge { get; set; }
     public DtEaConfig DigitaleEingaenge { get; set; }
     public Textbausteine[] Textbausteine { get; set; }
+    public Alarm[] Alarm { get; set; }
 }
 public class DtEaConfig
 {
@@ -35,4 +36,21 @@ public class Textbausteine
     public string Test { get; set; }
     public string Kommentar { get; set; }
     public TextbausteineAnzeigen WasAnzeigen { get; set; }
+}
+public class Alarm
+{
+    public int Id { get; set; }
+    public string Bezeichnung { get; set; }
+    public string Kommentar { get; set; }
+    public short ByteAlarm { get; set; }
+    public short BitAlarm { get; set; }
+    public short BitQuittiert { get; set; }
+    public EaConfigError EaConfigError { get; set; }
+    public DateTime AlarmKommt { get; set; }
+    public DateTime AlarmGeht { get; set; }
+    public bool BitmusterAlarmAlt { get; set; }
+    public bool BitmusterAlarm { get; set; }
+    public bool BitmusterQuittiert { get; set; }
+    public bool BitmusterQuittiertAlt { get; set; }
+    public StatusAlarm Status { get; set; } = StatusAlarm.AlarmKeiner;
 }

@@ -36,7 +36,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(35, AbstandRaster, 32, AbstandRaster, false, false, true);
+        libWpf.GridZeichnen(35, 32, false, false, true);
 
         libWpf.Polygon(0, 30, 0, 35, Brushes.Gray, Brushes.Black, 5, new[] {
             new[] { LinkerRandRaute, ObererRandRaute + HoeheRaute / 2},

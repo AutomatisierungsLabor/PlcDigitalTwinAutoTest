@@ -4,6 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Alle Bilder Anzeigen" Height="1100" Width="1600">
+        Title="Alle Bilder Anzeigen" Height="2800" Width="1600">
     <Grid x:Name="Grid"/>
 </Window>

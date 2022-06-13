@@ -1,155 +1,173 @@
 {
-    "AnalogeAusgaenge": {
-      "EaConfig": [
-        {
-          "StartByte": 0,
-          "StartBit": 0,
-          "Type": "SiemensAnalogwertPromille",
-          "Bezeichnung": "SiemensAnalogwertPromille",
-          "Kommentar": "Test SiemensAnalogwertPromille"
-        },
-        {
-          "StartByte": 1,
-          "StartBit": 0,
-          "Type": "SiemensAnalogwertProzent",
-          "Bezeichnung": "SiemensAnalogwertProzent",
-          "Kommentar": "Test SiemensAnalogwertProzent"
-        },
-        {
-          "StartByte": 3,
-          "StartBit": 0,
-          "Type": "SiemensAnalogwertSchieberegler",
-          "Bezeichnung": "",
-          "Kommentar": "Test SiemensAnalogwertSchieberegler"
-        }
-      ]
-    },
-    "AnalogeEingaenge": {
-      "EaConfig": [
-        {
-          "StartByte": 0,
-          "StartBit": 0,
-          "Type": "SiemensAnalogwertPromille",
-          "Bezeichnung": "SiemensAnalogwertPromille",
-          "Kommentar": "Test SiemensAnalogwertPromille"
-        },
-        {
-          "StartByte": 0,
-          "StartBit": 0,
-          "Type": "SiemensAnalogwertProzent",
-          "Bezeichnung": "SiemensAnalogwertProzent",
-          "Kommentar": "Test SiemensAnalogwertProzent"
-        },
-        {
-          "StartByte": 2,
-          "StartBit": 0,
-          "Type": "SiemensAnalogwertSchieberegler",
-          "Bezeichnung": "SiemensAnalogwertSchieberegler",
-          "Kommentar": ""
-        }
-      ]
-    },
-    "DigitaleAusgaenge": {
-      "EaConfig": [
-        {
-          "StartByte": 0,
-          "StartBit": 0,
-          "Type": "Bit",
-          "Bezeichnung": "Bit",
-          "Kommentar": "Test Bit"
-        },
-        {
-          "StartByte": 1,
-          "StartBit": 0,
-          "Type": "Ascii",
-          "Bezeichnung": "Ascii",
-          "Kommentar": "Test Ascii"
-        },
-        {
-          "StartByte": 1,
-          "StartBit": 0,
-          "Type": "BitmusterByte",
-          "Bezeichnung": "BitmusterByte",
-          "Kommentar": "Test BitmusterByte"
-        },
-        {
-          "StartByte": 1,
-          "StartBit": 0,
-          "Type": "Byte",
-          "Bezeichnung": "Byte",
-          "Kommentar": "Test Byte"
-        },
-        {
-          "StartByte": 2,
-          "StartBit": 0,
-          "Type": "Word",
-          "Bezeichnung": "Word",
-          "Kommentar": "Test Word"
-        },
-        {
-          "StartByte": 3,
-          "StartBit": 0,
-          "Type": "DWord",
-          "Bezeichnung": "DWord",
-          "Kommentar": "Test DWord"
-        }
-      ]
-    },
-    "DigitaleEingaenge": {
-      "EaConfig": [
-        {
-          "StartByte": 0,
-          "StartBit": 0,
-          "Type": "Bit",
-          "Bezeichnung": "Bit",
-          "Kommentar": "Test Bit"
-        },
-        {
-          "StartByte":0,
-          "StartBit": 0,
-          "Type": "Ascii",
-          "Bezeichnung": "Ascii",
-          "Kommentar": "Test Ascii"
-        },
-        {
-          "StartByte": 0,
-          "StartBit": 0,
-          "Type": "BitmusterByte",
-          "Bezeichnung": "BitmusterByte",
-          "Kommentar": "Test BitmusterByte"
-        },
-        {
-          "StartByte": 1,
-          "StartBit": 0,
-          "Type": "Byte",
-          "Bezeichnung": "Byte",
-          "Kommentar": "Test Byte"
-        },
-        {
-          "StartByte": 10,
-          "StartBit": 10,
-          "Type": "Word",
-          "Bezeichnung": "Word",
-          "Kommentar": "Test Word"
-        },
-        {
-          "StartByte": 150,
-          "StartBit": 5,
-          "Type": "DWord",
-          "Bezeichnung": "DWord",
-          "Kommentar": "Test DWord"
-        }
-      ]
-    },
-    "Textbausteine": [
-        {
-            "BausteinId": "5",
-            "PrefixH1": "",
-            "PrefixH2": "",
-            "VorbereitungId": "0",
-            "Test": "-",
-            "Kommentar": "Html - Head",
-            "WasAnzeigen": "NurInhalt"
-        }
+  "AnalogeAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "SiemensAnalogwertPromille",
+        "Bezeichnung": "SiemensAnalogwertPromille",
+        "Kommentar": "Test SiemensAnalogwertPromille"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "SiemensAnalogwertProzent",
+        "Bezeichnung": "SiemensAnalogwertProzent",
+        "Kommentar": "Test SiemensAnalogwertProzent"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 0,
+        "Type": "SiemensAnalogwertSchieberegler",
+        "Bezeichnung": "",
+        "Kommentar": "Test SiemensAnalogwertSchieberegler"
+      }
     ]
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "SiemensAnalogwertPromille",
+        "Bezeichnung": "SiemensAnalogwertPromille",
+        "Kommentar": "Test SiemensAnalogwertPromille"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "SiemensAnalogwertProzent",
+        "Bezeichnung": "SiemensAnalogwertProzent",
+        "Kommentar": "Test SiemensAnalogwertProzent"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 0,
+        "Type": "SiemensAnalogwertSchieberegler",
+        "Bezeichnung": "SiemensAnalogwertSchieberegler",
+        "Kommentar": ""
+      }
+    ]
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "Bit",
+        "Kommentar": "Test Bit"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "Ascii",
+        "Bezeichnung": "Ascii",
+        "Kommentar": "Test Ascii"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "BitmusterByte",
+        "Bezeichnung": "BitmusterByte",
+        "Kommentar": "Test BitmusterByte"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "Byte",
+        "Bezeichnung": "Byte",
+        "Kommentar": "Test Byte"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 0,
+        "Type": "Word",
+        "Bezeichnung": "Word",
+        "Kommentar": "Test Word"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 0,
+        "Type": "DWord",
+        "Bezeichnung": "DWord",
+        "Kommentar": "Test DWord"
+      }
+    ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "Bit",
+        "Kommentar": "Test Bit"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Ascii",
+        "Bezeichnung": "Ascii",
+        "Kommentar": "Test Ascii"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "BitmusterByte",
+        "Bezeichnung": "BitmusterByte",
+        "Kommentar": "Test BitmusterByte"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "Byte",
+        "Bezeichnung": "Byte",
+        "Kommentar": "Test Byte"
+      },
+      {
+        "StartByte": 10,
+        "StartBit": 10,
+        "Type": "Word",
+        "Bezeichnung": "Word",
+        "Kommentar": "Test Word"
+      },
+      {
+        "StartByte": 150,
+        "StartBit": 5,
+        "Type": "DWord",
+        "Bezeichnung": "DWord",
+        "Kommentar": "Test DWord"
+      }
+    ]
+  },
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ],
+  "Alarm": [
+    {
+      "Id": "0",
+      "Bezeichnung": "Thermorelais",
+      "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
+      "ByteAlarm": "1",
+      "BitAlarm": "0",
+      "BitQuittiert": "0"
+    },
+    {
+      "Id": "0",
+      "Bezeichnung": "Not-Halt",
+      "Kommentar": "Not-Halt wurde betätigt: bitte zurückstellen",
+      "ByteAlarm": "1",
+      "BitAlarm": "3",
+      "BitQuittiert": "3"
+    }
+  ]
 }

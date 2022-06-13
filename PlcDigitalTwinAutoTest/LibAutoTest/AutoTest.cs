@@ -60,7 +60,7 @@ public class AutoTest
         var libWpfAutoTest = new LibWpf.LibWpf(tabItem);
 
         libWpfAutoTest.SetBackground(Brushes.Yellow);
-        libWpfAutoTest.GridZeichnen(30, 30, 30, 30, true, true, true);
+        libWpfAutoTest.GridZeichnen(30, 30, true, true, true);
 
         libWpfAutoTest.ButtonBackgroundMarginRoundedSetEnableSetContend(1, 4, 1, 2, 20, 15, Brushes.LawnGreen, new Thickness(2, 5, 2, 5), VmAutoTest.ButtonTasterCommand, "TasterStart", nameof(VmAutoTest.ClickModeStart), nameof(VmAutoTest.EnableTasterStart), nameof(VmAutoTest.StringTasterStart));
 

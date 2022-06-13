@@ -1,0 +1,90 @@
+{
+  "AnalogeAusgaenge": {
+    "EaConfig": []
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": []
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Bezeichnung": "P4",
+        "Kommentar": "Meldeleuchte (grün)"
+      }
+    ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Bezeichnung": "S2",
+        "Kommentar": "Taster Aus ( ⓪ )"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Bezeichnung": "S1",
+        "Kommentar": "Taster Ein ( ① )"
+      }
+    ]
+  },
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "20",
+      "PrefixH1": "1. ",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Hardware",
+      "WasAnzeigen": "H1Inhalt"
+    },
+    {
+      "BausteinId": "79",
+      "PrefixH1": "2. ",
+      "PrefixH2": "2.1 ",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Variante 5",
+      "WasAnzeigen": "H1H2Inhalt"
+    },
+    {
+      "BausteinId": "8",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - </body>",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ],
+  "Alarm": [
+    {
+      "Id": "0",
+      "Bezeichnung": "Thermorelais",
+      "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
+      "ByteAlarm": "10",
+      "BitAlarm": "0",
+      "BitQuittiert": "1"
+    },
+    {
+      "Id": "1",
+      "Bezeichnung": "Not-Halt",
+      "Kommentar": "Not-Halt wurde betätigt: bitte zurückstellen",
+      "ByteAlarm": "10",
+      "BitAlarm": "2",
+      "BitQuittiert": "3"
+    }
+  ]
+}

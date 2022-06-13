@@ -3,18 +3,25 @@
     "EaConfig": []
   },
   "AnalogeEingaenge": {
-    "EaConfig": []
-  },
-  "DigitaleAusgaenge": {
     "EaConfig": [
       {
         "StartByte": 0,
         "StartBit": 0,
-        "Type": "Bit",
-        "Bezeichnung": "P1",
-        "Kommentar": "Meldeleuchte"
+        "Type": "Byte",
+        "Bezeichnung": "Auto",
+        "Kommentar": "Anzahl Autos in der TG"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "Byte",
+        "Bezeichnung": "Personen",
+        "Kommentar": "Anzahl Personen in der TG"
       }
     ]
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": []
   },
   "DigitaleEingaenge": {
     "EaConfig": [
@@ -22,38 +29,18 @@
         "StartByte": 0,
         "StartBit": 0,
         "Type": "Bit",
-        "Bezeichnung": "S1",
-        "Kommentar": "Frequenz -"
+        "Bezeichnung": "B1",
+        "Kommentar": "Lichtschranke aussen"
       },
       {
         "StartByte": 0,
         "StartBit": 1,
         "Type": "Bit",
-        "Bezeichnung": "S2",
-        "Kommentar": "Frequenz +"
-      },
-      {
-        "StartByte": 0,
-        "StartBit": 2,
-        "Type": "Bit",
-        "Bezeichnung": "S3",
-        "Kommentar": "Tastverhältnis -"
-      },
-      {
-        "StartByte": 0,
-        "StartBit": 3,
-        "Type": "Bit",
-        "Bezeichnung": "S4",
-        "Kommentar": "Tastverhältnis +"
-      },
-      {
-        "StartByte": 0,
-        "StartBit": 4,
-        "Type": "Bit",
-        "Bezeichnung": "S5",
-        "Kommentar": "Taster Reset"
+        "Bezeichnung": "B2",
+        "Kommentar": "Lichtschranke innen"
       }
     ]
   },
-  "Textbausteine": []
+  "Textbausteine": [],
+  "Alarm": []
 }

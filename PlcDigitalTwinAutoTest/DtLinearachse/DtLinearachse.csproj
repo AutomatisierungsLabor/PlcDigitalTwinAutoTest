@@ -75,6 +75,15 @@
     <None Update="ConfigTests\Motorschaltungen_1__601__2_4\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="ConfigTests\Motorschaltungen_1__601__2_5\DigitalTwin.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ConfigTests\Motorschaltungen_1__601__2_5\test.ssc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ConfigTests\Motorschaltungen_1__601__2_5\test.st">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="ConfigTests\Motorschaltungen_2__600__2_1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

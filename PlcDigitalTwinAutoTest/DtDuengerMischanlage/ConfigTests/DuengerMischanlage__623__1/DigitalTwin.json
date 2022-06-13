@@ -1,0 +1,51 @@
+{
+  "AnalogeAusgaenge": {
+    "EaConfig": []
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": []
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "P1",
+        "Kommentar": "Meldeleuchte grün"
+      }
+    ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "S1",
+        "Kommentar": "Taster Start"
+      }
+    ]
+  },
+  "Textbausteine": [
+    {
+      "BausteinId": "5",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - Head",
+      "WasAnzeigen": "NurInhalt"
+    },
+    {
+      "BausteinId": "8",
+      "PrefixH1": "",
+      "PrefixH2": "",
+      "VorbereitungId": "0",
+      "Test": "-",
+      "Kommentar": "Html - </body>",
+      "WasAnzeigen": "NurInhalt"
+    }
+  ],
+  "Alarm": []
+}

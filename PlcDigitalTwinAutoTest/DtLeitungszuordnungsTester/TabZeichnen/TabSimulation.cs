@@ -11,7 +11,7 @@ public partial class TabZeichnen
         _ = vmLeitungszuordnungsTester;
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 30, 40, 30, false, false, false);
+        libWpf.GridZeichnen(50, 40, false, false, false);
 
         libWpf.PlcError();
     }

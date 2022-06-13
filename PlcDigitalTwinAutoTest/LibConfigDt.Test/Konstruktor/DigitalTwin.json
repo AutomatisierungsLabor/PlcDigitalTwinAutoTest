@@ -1,15 +1,16 @@
 {
-    "AnalogeAusgaenge": {
-        "EaConfig": []
-    },
-    "AnalogeEingaenge": {
-        "EaConfig": []
-    },
-    "DigitaleAusgaenge": {
-        "EaConfig": []
-    },
-    "DigitaleEingaenge": {
-        "EaConfig": []
-    },
-    "Textbausteine": []
+  "AnalogeAusgaenge": {
+    "EaConfig": []
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": []
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": []
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": []
+  },
+  "Textbausteine": [],
+  "Alarm": []
 }

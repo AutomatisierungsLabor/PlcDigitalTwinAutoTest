@@ -1,0 +1,65 @@
+{
+    "AnalogeAusgaenge": {
+        "EaConfig": []
+    },
+    "AnalogeEingaenge": {
+        "EaConfig": []
+    },
+    "DigitaleAusgaenge": {
+        "EaConfig": []
+    },
+    "DigitaleEingaenge": {
+        "EaConfig": []
+    },
+    "Textbausteine": [],
+    "Alarm": [
+        {
+            "Id": "0",
+            "Bezeichnung": "Thermorelais",
+            "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
+            "ByteAlarm": "0",
+            "BitAlarm": "0",
+            "BitQuittiert": "1"
+        },
+        {
+            "Id": "1",
+            "Bezeichnung": "",
+            "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
+            "ByteAlarm": "1",
+            "BitAlarm": "0",
+            "BitQuittiert": "1"
+        },
+        {
+            "Id": "2",
+            "Bezeichnung": "Thermorelais",
+            "Kommentar": "",
+            "ByteAlarm": "2",
+            "BitAlarm": "0",
+            "BitQuittiert": "1"
+        },
+        {
+            "Id": "4",
+            "Bezeichnung": "Thermorelais",
+            "Kommentar": "falsche ID",
+            "ByteAlarm": "2",
+            "BitAlarm": "0",
+            "BitQuittiert": "1"
+        },
+        {
+            "Id": "4",
+            "Bezeichnung": "Thermorelais",
+            "Kommentar": "BitKollision Alarm/Quittiert",
+            "ByteAlarm": "4",
+            "BitAlarm": "0",
+            "BitQuittiert": "0"
+        },
+        {
+            "Id": "5",
+            "Bezeichnung": "Thermorelais",
+            "Kommentar": "Idente Belegung wie bei Id=2 BitKollision Alarm/Quittiert",
+            "ByteAlarm": "2",
+            "BitAlarm": "0",
+            "BitQuittiert": "1"
+        }
+    ]
+}

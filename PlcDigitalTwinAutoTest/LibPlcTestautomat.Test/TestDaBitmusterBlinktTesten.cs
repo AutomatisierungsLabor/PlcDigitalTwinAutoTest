@@ -13,12 +13,11 @@ public class TestDaBitmusterBlinktTesten
     private DataGridZeile _zeile = new(0, "", TestAnzeige.CompilerErfolgreich, "", "", "", "");
 
     [Theory]
-    [InlineData(1, 1, "T#20ms", 0.5, 2, 0.2, "T#300ms", "kein TestKommentar", 10, 20, 1, TestAnzeige.Erfolgreich)]
-    [InlineData(1, 1, "T#40ms", 0.5, 2, 0.2, "T#300ms", "kein TestKommentar", 20, 40, 1, TestAnzeige.Erfolgreich)]
-    [InlineData(1, 1, "T#40ms", 0.25, 2, 0.2, "T#300ms", "kein TestKommentar", 10, 40, 1, TestAnzeige.Erfolgreich)]
-    [InlineData(1, 1, "T#40ms", 0.75, 2, 0.2, "T#300ms", "kein TestKommentar", 30, 40, 1, TestAnzeige.Erfolgreich)]
-
-    [InlineData(1, 2, "T#100ms", 0.5, 2, 0.2, "T#400ms", "kein TestKommentar", 25, 50, 1, TestAnzeige.Timeout)]   // Bitmuster != Bitmaske
+    [InlineData(1, 1, "T#20ms", 0.5, 2, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 1", 10, 20, 1, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 1, "T#40ms", 0.5, 2, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 2", 20, 40, 1, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 1, "T#40ms", 0.25, 2, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 3", 10, 40, 1, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 1, "T#40ms", 0.75, 2, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 4", 30, 40, 1, TestAnzeige.Erfolgreich)]
+    [InlineData(1, 2, "T#100ms", 0.5, 2, 0.2, "T#400ms", "DaBitmusterBlinktTimeout 5", 25, 50, 1, TestAnzeige.Timeout)]   // Bitmuster != Bitmaske
 
     public void TestsDaBitmusterBlinktTimeout(int bitMuster, int bitMaske, string periodendauer, float tastverhaeltnis, int anzahlPerioden, float toleranz, string timeout, string kommentar, int tEin, int tPeriodendauer, byte blinkerBitMuster, TestAnzeige testAnzeige)
     {
