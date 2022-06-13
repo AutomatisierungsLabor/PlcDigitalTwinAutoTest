@@ -95,7 +95,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtDuengerMischanlage", "DtD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibAlarmverwaltung", "LibAlarmverwaltung\LibAlarmverwaltung.csproj", "{33E40018-FE8E-43F0-B6C0-0A4CF4DE2C4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibAutoTest.Test", "LibAutoTest.Test\LibAutoTest.Test.csproj", "{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibAlarmverwaltung.Test", "LibAlarmverwaltung.Test\LibAlarmverwaltung.Test.csproj", "{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

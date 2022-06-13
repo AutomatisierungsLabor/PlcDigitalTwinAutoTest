@@ -8,6 +8,13 @@ namespace LibPlcTestautomat;
 
 public partial class TestAutomat
 {
+    public enum DaBitmusterBlinktDebugWerte
+    {
+        Messwert0,
+        Messwert1,
+        Messwert2,
+        Messwert3
+    }
     private enum SchritteBlinken
     {
         Starten = 0,
@@ -122,7 +129,6 @@ public partial class TestAutomat
             }
         };
 
-
         while (stopwatch.ElapsedMilliseconds < _timeOut.DauerMs)
         {
             if (_anzFlanken > 200)
@@ -145,7 +151,6 @@ public partial class TestAutomat
         highResTimer.Stop();
         DataGridUpdaten(TestAnzeige.Timeout, (uint)_bitMuster, _kommentar);
     }
-
     private void MessungAktiv()
     {
         var anzRichtigeMessungen = 0;
@@ -172,4 +177,16 @@ public partial class TestAutomat
 
         if (anzRichtigeMessungen >= _anzahlPerioden) _messungBeedet = true;
     }
+    public string GetDaBitmusterBlinktDebugWerte(DaBitmusterBlinktDebugWerte werte)
+    {
+        return werte switch
+        {
+            DaBitmusterBlinktDebugWerte.Messwert0 => MesswerteAnzeigen(0),
+            DaBitmusterBlinktDebugWerte.Messwert1 => MesswerteAnzeigen(1),
+            DaBitmusterBlinktDebugWerte.Messwert2 => MesswerteAnzeigen(2),
+            DaBitmusterBlinktDebugWerte.Messwert3 => MesswerteAnzeigen(3),
+            _ => throw new ArgumentOutOfRangeException(nameof(werte), werte, null)
+        };
+    }
+    private string MesswerteAnzeigen(int zeile) => "Impuls:" + _ergebnisse[zeile].Impuls + " Pause:" + _ergebnisse[zeile].Pause + " Tastverhältnis" + _ergebnisse[zeile].Tastverhaeltnis;
 }

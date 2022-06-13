@@ -1,11 +1,11 @@
-name: Library LibAutoTest.Test
+name: Library LibAlarmverwaltung.Test
 
 on:
   push:
     branches: [ main ]    
 
 env:
-   TEST_PATH: PlcDigitalTwinAutoTest/LibAutoTest.Test/LibAutoTest.Test.csproj
+   TEST_PATH: PlcDigitalTwinAutoTest/LibAlarmverwaltung.Test/LibAlarmverwaltung.Test.csproj
     
 jobs:
   build:
