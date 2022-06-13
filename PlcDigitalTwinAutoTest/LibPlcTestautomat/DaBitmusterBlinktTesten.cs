@@ -79,7 +79,48 @@ public partial class TestAutomat
             Interval = 1000,
             Enabled = true
         };
-        highResTimer.MicroTimerElapsed += EineMilliSekundeAbgelaufen;
+
+        highResTimer.MicroTimerElapsed += (_, _) =>
+        {
+            var digitalOutput = GetDigitalOutputWord();
+
+            switch (_schritte)
+            {
+                case SchritteBlinken.Starten:
+                    _messungAktiv = false;
+                    _anzFlanken = 0;
+                    _periodenDauerMessen.Restart();
+                    _schritte = (digitalOutput & (short)_bitMaske) > 0
+                        ? SchritteBlinken.AufNegFlankeWarten
+                        : SchritteBlinken.AufPosFlankeWarten;
+                    break;
+
+                case SchritteBlinken.AufPosFlankeWarten:
+                    if ((digitalOutput & (short)_bitMaske) == (short)_bitMuster)
+                    {
+                        if (_messungAktiv)
+                            _ergebnisse[_anzFlanken / 2].Pause = _periodenDauerMessen.ElapsedMilliseconds;
+                        _schritte = SchritteBlinken.AufNegFlankeWarten;
+                        MessungAktiv();
+                    }
+
+                    break;
+
+                case SchritteBlinken.AufNegFlankeWarten:
+                    if ((digitalOutput & (short)_bitMaske) == 0)
+                    {
+                        if (_messungAktiv)
+                            _ergebnisse[_anzFlanken / 2].Impuls = _periodenDauerMessen.ElapsedMilliseconds;
+                        _schritte = SchritteBlinken.AufPosFlankeWarten;
+                        MessungAktiv();
+                    }
+
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(_schritte.ToString());
+            }
+        };
 
 
         while (stopwatch.ElapsedMilliseconds < _timeOut.DauerMs)
@@ -104,41 +145,7 @@ public partial class TestAutomat
         highResTimer.Stop();
         DataGridUpdaten(TestAnzeige.Timeout, (uint)_bitMuster, _kommentar);
     }
-    private void EineMilliSekundeAbgelaufen(object sender, MicroTimerEventArgs timereventargs)
-    {
-        var digitalOutput = GetDigitalOutputWord();
 
-        switch (_schritte)
-        {
-            case SchritteBlinken.Starten:
-                _messungAktiv = false;
-                _anzFlanken = 0;
-                _periodenDauerMessen.Restart();
-                _schritte = (digitalOutput & (short)_bitMaske) > 0 ? SchritteBlinken.AufNegFlankeWarten : SchritteBlinken.AufPosFlankeWarten;
-                break;
-
-            case SchritteBlinken.AufPosFlankeWarten:
-                if ((digitalOutput & (short)_bitMaske) == (short)_bitMuster)
-                {
-                    if (_messungAktiv) _ergebnisse[_anzFlanken / 2].Pause = _periodenDauerMessen.ElapsedMilliseconds;
-                    _schritte = SchritteBlinken.AufNegFlankeWarten;
-                    MessungAktiv();
-                }
-                break;
-
-            case SchritteBlinken.AufNegFlankeWarten:
-                if ((digitalOutput & (short)_bitMaske) == 0)
-                {
-                    if (_messungAktiv) _ergebnisse[_anzFlanken / 2].Impuls = _periodenDauerMessen.ElapsedMilliseconds;
-                    _schritte = SchritteBlinken.AufPosFlankeWarten;
-                    MessungAktiv();
-                }
-                break;
-
-            default:
-                throw new ArgumentOutOfRangeException(_schritte.ToString());
-        }
-    }
     private void MessungAktiv()
     {
         var anzRichtigeMessungen = 0;
@@ -154,10 +161,10 @@ public partial class TestAutomat
 
         for (var i = 0; i <= perioden; i++)
         {
-            if (!(_ergebnisse[i].Periodendauer > _periodenDauerMin) ||
-                !(_ergebnisse[i].Periodendauer < _periodenDauerMax) ||
-                !(_ergebnisse[i].Tastverhaeltnis > _tastVerhaeltnisMin) ||
-                !(_ergebnisse[i].Tastverhaeltnis < _tastVerhaeltnisMax)) continue;
+            if (_ergebnisse[i].Periodendauer < _periodenDauerMin) continue;
+            if (_ergebnisse[i].Periodendauer > _periodenDauerMax) continue;
+            if (_ergebnisse[i].Tastverhaeltnis < _tastVerhaeltnisMin) continue;
+            if (_ergebnisse[i].Tastverhaeltnis > _tastVerhaeltnisMax) continue;
 
             _guterMesswert = i;
             anzRichtigeMessungen++;
