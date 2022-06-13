@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 using LibAlarmverwaltung.ViewModel;
 using LibConfigDt;
 
@@ -25,7 +26,6 @@ public class AlarmZeichnen
         _libWpf = new LibWpf.LibWpf(grid);
         _vmAlarmverwaltung = vmAlarmverwaltung;
         _alarmverwaltung = alarmverwaltung;
-
     }
     public void UpdateConfig()
     {
@@ -50,6 +50,7 @@ public class AlarmZeichnen
                 break;
         }
     }
+
     private void KeineAlarmeVorhandenZeichnen()
     {
         _alarmverwaltung.WindowSetSize(600, 200);
@@ -59,6 +60,7 @@ public class AlarmZeichnen
 
         _libWpf.Text("Es sind keine Alarme parametriert!", 2, 20, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.Black);
     }
+
     private void AlarmAnzeigeZeichnen()
     {
         var posY = 1;
@@ -68,7 +70,8 @@ public class AlarmZeichnen
         _libWpf.Clear();
         _libWpf.GridZeichnen(40, 40, false, false, false);
 
-        _libWpf.RectangleFillMarginStroke(1, 35, 1, anzAlarme + 1, Brushes.Lavender, new Thickness(0, 0, 0, 0), Brushes.Black, 2);
+        _libWpf.RectangleFillMarginStroke(1, 35, 1, anzAlarme + 1, Brushes.Lavender, new Thickness(0, 0, 0, 0),
+            Brushes.Black, 2);
         _libWpf.Text("Alarm", 2, 4, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
         _libWpf.Text("Kommt", 8, 4, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
         _libWpf.Text("Geht", 14, 4, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
@@ -97,6 +100,7 @@ public class AlarmZeichnen
 
         _hoeheAlarmAnzeige = posY;
     }
+
     private void AlarmListeZeichnen()
     {
         _libWpf.ButtonBackgroundContentMarginRounded("Reset", 32, 4, _hoeheAlarmAnzeige, 2, 16, 5, Brushes.DeepPink, new Thickness(0, 5, 0, 5), _vmAlarmverwaltung.ButtonTasterCommand, "-", nameof(VmAlarmverwaltung.ClickModeTasterReset));
@@ -106,5 +110,25 @@ public class AlarmZeichnen
         _libWpf.RectangleFillMarginStroke(1, 35, _hoeheAlarmAnzeige, 20, Brushes.Cyan, new Thickness(0, 0, 0, 0), Brushes.Black, 2);
         var dataGrid = _libWpf.DataGrid(1, 35, _hoeheAlarmAnzeige, 20, new Thickness(0, 0, 0, 0), _alarmverwaltung.AlarmListe);
 
+        dataGrid.ItemContainerGenerator.StatusChanged += (_, _) =>
+        {
+
+            var count = _alarmverwaltung.AlarmListe.Count;
+            if (count < 1) return;
+
+            for (var zeile = 0; zeile < count; zeile++)
+            {
+                var row = (DataGridRow)dataGrid.ItemContainerGenerator.ContainerFromIndex(zeile);
+                if (row == null) continue;
+
+                row!.Background = _alarmverwaltung.AlarmListe[zeile].Status switch
+                {
+                    StatusAlarm.AlarmKommt => Brushes.Red,
+                    StatusAlarm.AlarmGeht => Brushes.LawnGreen,
+                    StatusAlarm.AlarmQuittiert => Brushes.BlueViolet,
+                    _ => Brushes.White
+                };
+            }
+        };
     }
 }

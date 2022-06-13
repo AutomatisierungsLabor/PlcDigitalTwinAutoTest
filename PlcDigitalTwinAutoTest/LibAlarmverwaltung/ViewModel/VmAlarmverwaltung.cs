@@ -1,8 +1,7 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Windows.Media;
+using Contracts;
 using LibConfigDt;
-using LibDatenstruktur;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 
 namespace LibAlarmverwaltung.ViewModel;
@@ -11,24 +10,20 @@ public partial class VmAlarmverwaltung : ObservableObject
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-
     private readonly ConfigDt _configDt;
-    private readonly Datenstruktur _datenstruktur;
     private readonly CancellationTokenSource _cancellationTokenSource;
     private readonly Alarmverwaltung _alarmverwaltung;
 
-    public VmAlarmverwaltung(Datenstruktur datenstruktur, ConfigDt configDt, CancellationTokenSource cancellationTokenSource, Alarmverwaltung alarmverwaltung)
+    public VmAlarmverwaltung(ConfigDt configDt, CancellationTokenSource cancellationTokenSource, Alarmverwaltung alarmverwaltung)
     {
         Log.Debug("Konstruktor - startet");
 
-        _datenstruktur = datenstruktur;
         _configDt = configDt;
         _cancellationTokenSource = cancellationTokenSource;
         _alarmverwaltung = alarmverwaltung;
 
         System.Threading.Tasks.Task.Run(ViewModelTask);
     }
-
     private void ViewModelTask()
     {
         while (!_cancellationTokenSource.IsCancellationRequested)
@@ -64,12 +59,17 @@ public partial class VmAlarmverwaltung : ObservableObject
     }
     private static (Brush brush, string bezeichnung, string kommentar, string kommt, string geht) GetBezeichnungKommentar(Alarm alarm)
     {
-        alarm.AlarmKommt = DateTime.Now;
-        alarm.AlarmGeht = DateTime.Now;
-
         var kommt = alarm.AlarmKommt.ToString("d.M.yyyy - H:mm:ss.fff");
         var geht = alarm.AlarmGeht.ToString("d.M.yyyy - H:mm:ss.fff");
 
-        return (alarm.FarbeAlarm, alarm.Bezeichnung, alarm.Kommentar, kommt, geht);
+        switch (alarm.Status)
+        {
+            case StatusAlarm.AlarmKommt: return (Brushes.Red, alarm.Bezeichnung, alarm.Kommentar, kommt, "-");
+            case StatusAlarm.AlarmGeht: return (Brushes.LawnGreen, alarm.Bezeichnung, alarm.Kommentar, kommt, geht);
+            case StatusAlarm.AlarmQuittiert: return (Brushes.BlueViolet, alarm.Bezeichnung, alarm.Kommentar, kommt, geht);
+            case StatusAlarm.AlarmKeiner:
+            case StatusAlarm.Unbekannt:
+            default: return (Brushes.White, alarm.Bezeichnung, alarm.Kommentar, "-", "-");
+        }
     }
 }

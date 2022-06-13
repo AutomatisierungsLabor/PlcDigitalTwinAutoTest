@@ -49,7 +49,6 @@ public class TestBitmuster
 
     public void TestsBitmusterLesen(byte wert, bool eb7, bool eb6, bool eb5, bool eb4, bool eb3, bool eb2, bool eb1, bool elsb)
     {
-
         var datenstruktur = new Datenstruktur
         {
             Da =
@@ -68,5 +67,27 @@ public class TestBitmuster
         Assert.Equal(eb5, b5);
         Assert.Equal(eb6, b6);
         Assert.Equal(eb7, b7);
+    }
+
+    [Theory]
+    [InlineData(10, 0, 0, false, false)]
+    [InlineData(10, 0, 1, true, false)]
+    [InlineData(10, 0, 2, false, true)]
+    [InlineData(10, 0, 3, true, true)]
+
+    public void TestsAlarmBitmusterlesen(short bytePos, short bitPos, byte wert, bool alarmExpected, bool quittiertExpected)
+    {
+        var datenstruktur = new Datenstruktur
+        {
+            Da =
+            {
+                [bytePos] = wert
+            }
+        };
+
+        var (alarm, quittiert) = datenstruktur.GetAlarmBitmuster(bytePos, bitPos);
+
+        Assert.Equal(alarmExpected, alarm);
+        Assert.Equal(quittiertExpected, quittiert);
     }
 }
