@@ -95,7 +95,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtDuengerMischanlage", "DtD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibAlarmverwaltung", "LibAlarmverwaltung\LibAlarmverwaltung.csproj", "{33E40018-FE8E-43F0-B6C0-0A4CF4DE2C4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibAlarmverwaltung.Test", "LibAlarmverwaltung.Test\LibAlarmverwaltung.Test.csproj", "{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibAlarmverwaltung.Test", "LibAlarmverwaltung.Test\LibAlarmverwaltung.Test.csproj", "{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtBehaeltersteuerung", "DtBehaeltersteuerung\DtBehaeltersteuerung.csproj", "{4F8F093A-03FD-47C3-9859-535DDFE193A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -291,6 +293,10 @@ Global
 		{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3473BB7A-E5FD-4333-9CE7-C0D95CDF4485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F8F093A-03FD-47C3-9859-535DDFE193A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F8F093A-03FD-47C3-9859-535DDFE193A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F8F093A-03FD-47C3-9859-535DDFE193A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F8F093A-03FD-47C3-9859-535DDFE193A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

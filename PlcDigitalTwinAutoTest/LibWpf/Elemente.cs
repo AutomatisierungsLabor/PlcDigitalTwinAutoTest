@@ -25,19 +25,19 @@ public partial class LibWpf
     }
     public WebBrowser WebBrowser(int xPos, int xSpan, int yPos, int ySpan, Thickness margin)
     {
-        var werBrowser = new WebBrowser
+        var webBrowser = new WebBrowser
         {
             Name = "WebBrowser",
             Margin = margin
         };
 
-        Grid.SetColumn(werBrowser, xPos);
-        Grid.SetColumnSpan(werBrowser, xSpan);
-        Grid.SetRow(werBrowser, yPos);
-        Grid.SetRowSpan(werBrowser, ySpan);
-        Grid.Children.Add(werBrowser);
+        Grid.SetColumn(webBrowser, xPos);
+        Grid.SetColumnSpan(webBrowser, xSpan);
+        Grid.SetRow(webBrowser, yPos);
+        Grid.SetRowSpan(webBrowser, ySpan);
+        Grid.Children.Add(webBrowser);
 
-        return werBrowser;
+        return webBrowser;
     }
     public RadioButton RadioButton(string gruppenName, string testName, DirectoryInfo ordner, int fontSize, RoutedEventHandler testChecked)
     {
@@ -54,7 +54,7 @@ public partial class LibWpf
         radioButton.Checked += testChecked;
         return radioButton;
     }
-    public void CheckBox(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, HorizontalAlignment horizontal, VerticalAlignment vertical, ICommand cmd, object cmdParameter)
+    public void CheckBox( int xPos, int xSpan, int yPos, int ySpan, Thickness margin, HorizontalAlignment horizontal, VerticalAlignment vertical, ICommand cmd, object cmdParameter)
     {
         var checkbox = new CheckBox
         {
@@ -67,5 +67,29 @@ public partial class LibWpf
         };
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, checkbox);
+    }
+
+    public ComboBox ComboBox(object dataContext,int xPos, int xSpan, int yPos, int ySpan)
+    {
+        var comboBox = new ComboBox
+        {
+            DataContext = dataContext,
+            SelectedIndex = 0,
+            IsDropDownOpen = true,
+            IsReadOnly = true,
+            FontSize = 20
+        };
+
+
+
+
+
+        Grid.SetColumn(comboBox, xPos);
+        Grid.SetColumnSpan(comboBox, xSpan);
+        Grid.SetRow(comboBox, yPos);
+        Grid.SetRowSpan(comboBox, ySpan);
+        Grid.Children.Add(comboBox);
+
+        return comboBox;
     }
 }

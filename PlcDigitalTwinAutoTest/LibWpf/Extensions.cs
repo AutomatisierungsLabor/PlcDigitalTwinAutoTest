@@ -23,4 +23,6 @@ public static class Extensions
     public static void BindingSetMargin(this Shape element, string stringBindingElement) => element.SetBinding(FrameworkElement.MarginProperty, stringBindingElement);
     public static void BindingSetVisibility(this FrameworkElement element, string stringBindingElement) => element.SetBinding(UIElement.VisibilityProperty, stringBindingElement);
     public static void BindingpSetTransformOrigin(this Shape element, string stringBindingElement) => element.SetBinding(UIElement.RenderTransformOriginProperty, stringBindingElement);
+
+    public static void BindingTextSetBackground(this FrameworkElement element, string stringBindingElement) => element.SetBinding(Control.BackgroundProperty, stringBindingElement);
 }

@@ -15,10 +15,10 @@ public class TestDaBitmusterBlinktTesten
     [Theory]
     [InlineData(1, 1, "T#20ms", 0.5, 3, 0.5, "T#500ms", "DaBitmusterBlinktTimeout 1", 10, 20, 1, TestAnzeige.Erfolgreich)]
     [InlineData(2, 2, "T#40ms", 0.5, 3, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 2", 20, 40, 2, TestAnzeige.Erfolgreich)]
-    //  [InlineData(3, 3, "T#40ms", 0.25, 3, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 3", 10, 40, 3, TestAnzeige.Erfolgreich)]
-    //  [InlineData(4, 4, "T#40ms", 0.75, 3, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 4", 30, 40, 15, TestAnzeige.Erfolgreich)]
+    [InlineData(3, 3, "T#40ms", 0.25, 3, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 3", 10, 40, 3, TestAnzeige.Erfolgreich)]
+    [InlineData(4, 4, "T#40ms", 0.75, 3, 0.2, "T#300ms", "DaBitmusterBlinktTimeout 4", 30, 40, 15, TestAnzeige.Erfolgreich)]
 
-    //  [InlineData(1, 2, "T#100ms", 0.5, 3, 0.2, "T#500ms", "DaBitmusterBlinktTimeout 5", 25, 50, 1, TestAnzeige.Timeout)]   // Bitmuster != Bitmaske
+    [InlineData(1, 2, "T#100ms", 0.5, 3, 0.2, "T#500ms", "DaBitmusterBlinktTimeout 5", 25, 50, 1, TestAnzeige.Timeout)]   // Bitmuster != Bitmaske
 
     public void TestsDaBitmusterBlinktTimeout(int bitMuster, int bitMaske, string periodendauer, float tastverhaeltnis, int anzahlPerioden, float toleranz, string timeout, string kommentar, int tEin, int tPeriodendauer, byte blinkerBitMuster, TestAnzeige testAnzeige)
     {
@@ -51,11 +51,12 @@ public class TestDaBitmusterBlinktTesten
         Assert.Equal(testAnzeige, _zeile.Ergebnis);
 
         // zum Debuggen in github
+        /*
         Assert.Equal("0", testAutomat.GetDaBitmusterBlinktDebugWerte(TestAutomat.DaBitmusterBlinktDebugWerte.Messwert0));
         Assert.Equal("0", testAutomat.GetDaBitmusterBlinktDebugWerte(TestAutomat.DaBitmusterBlinktDebugWerte.Messwert1));
         Assert.Equal("0", testAutomat.GetDaBitmusterBlinktDebugWerte(TestAutomat.DaBitmusterBlinktDebugWerte.Messwert2));
         Assert.Equal("0", testAutomat.GetDaBitmusterBlinktDebugWerte(TestAutomat.DaBitmusterBlinktDebugWerte.Messwert3));
-
+        */
         highResTimer.Enabled = false;
     }
     private void DatenSpeichern(DataGridZeile zeile) => _zeile = zeile;

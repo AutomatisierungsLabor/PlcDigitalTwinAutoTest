@@ -19,11 +19,11 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
-    public void TextMargin(string text, int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, Thickness margin)
+    public void TextMargin(string content, int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, Thickness margin)
     {
         var label = new Label
         {
-            Content = text,
+            Content = content,
             FontSize = fontSize,
             Foreground = farbe,
             HorizontalAlignment = horizontal,
@@ -31,6 +31,21 @@ public partial class LibWpf
             Margin = margin
         };
 
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
+    }
+
+    public void TextContentMarginSetForeground(string content, int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, Thickness margin, string background)
+    {
+        var label = new Label
+        {
+            Content = content,
+            FontSize = fontSize,
+            Foreground = farbe,
+            HorizontalAlignment = horizontal,
+            VerticalAlignment = vertical,
+            Margin = margin
+        };
+        label.BindingTextSetBackground(background);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
     public void TextContendSetVisibility(string content, int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush foreground, string visibility)

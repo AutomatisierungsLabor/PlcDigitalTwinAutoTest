@@ -1,0 +1,119 @@
+{
+  "AnalogeAusgaenge": {
+    "EaConfig": []
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": []
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "Q1",
+        "Kommentar": "Ventil 1 oben"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "Q3",
+        "Kommentar": "Ventil 3 oben"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "Q5",
+        "Kommentar": "Ventil 5 oben"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "Q7",
+        "Kommentar": "Ventil 7 oben"
+      }
+    ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "B1",
+        "Kommentar": "Schwimmerschalter 1 oben"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "B2",
+        "Kommentar": "Schwimmerschalter 1 unten"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "B3",
+        "Kommentar": "Schwimmerschalter 2 oben"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "B4",
+        "Kommentar": "Schwimmerschalter 2 unten"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "B5",
+        "Kommentar": "Schwimmerschalter 3 oben"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "B6",
+        "Kommentar": "Schwimmerschalter 3 unten"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "B7",
+        "Kommentar": "Schwimmerschalter 4 oben"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "B8",
+        "Kommentar": "Schwimmerschalter 4 unten"
+      }
+    ]
+  },
+  "Textbausteine": [],
+  "Alarm": [
+    {
+      "Id": "0",
+      "Bezeichnung": "Thermorelais",
+      "Kommentar": "Thermorelais hat ausgelöst: bitte zurückstellen",
+      "ByteAlarm": "0",
+      "BitAlarm": "0",
+      "BitQuittiert": "1"
+    },
+    {
+      "Id": "1",
+      "Bezeichnung": "Not-Halt",
+      "Kommentar": "Not-Halt wurde betätigt: bitte zurückstellen",
+      "ByteAlarm": "0",
+      "BitAlarm": "4",
+      "BitQuittiert": "5"
+    }
+  ]
+}
