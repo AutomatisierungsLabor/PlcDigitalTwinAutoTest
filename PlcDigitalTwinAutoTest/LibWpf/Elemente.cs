@@ -69,20 +69,16 @@ public partial class LibWpf
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, checkbox);
     }
 
-    public ComboBox ComboBox(object dataContext,int xPos, int xSpan, int yPos, int ySpan)
+    public ComboBox ComboBox(int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin)
     {
         var comboBox = new ComboBox
         {
-            DataContext = dataContext,
             SelectedIndex = 0,
             IsDropDownOpen = true,
             IsReadOnly = true,
-            FontSize = 20
+            FontSize = fontSize,
+            Margin = margin
         };
-
-
-
-
 
         Grid.SetColumn(comboBox, xPos);
         Grid.SetColumnSpan(comboBox, xSpan);

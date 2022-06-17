@@ -9,6 +9,8 @@ namespace DtBehaeltersteuerung.ViewModel;
 
 public partial class VmBehaeltersteuerung : BasePlcDtAt.BaseViewModel.VmBase
 {
+    public ComboBox VmComboBox { get; set; }
+
     private readonly ModelBehaeltersteuerung _modelBehaeltersteuerung;
     private readonly Datenstruktur _datenstruktur;
 
@@ -30,7 +32,29 @@ public partial class VmBehaeltersteuerung : BasePlcDtAt.BaseViewModel.VmBase
     protected override void ViewModelAufrufThread()
     {
         if (_modelBehaeltersteuerung == null) return;
+
+        if (VmComboBox != null)
+        {
+            if (VmComboBox.Items.Count == 0)
+            {
+                Application.Current.Dispatcher.Invoke(() => { VmComboBox.Items.Add("0000"); });
+
+                foreach (var permutation in _modelBehaeltersteuerung.PermutationList)
+                {
+                    Application.Current.Dispatcher.Invoke(() => { VmComboBox.Items.Add(permutation.GetText()); });
+                }
+
+                VmComboBox.SelectionChanged += (_, e) =>
+                {
+                     _modelBehaeltersteuerung.AktivePermutation = e.AddedItems[0]?.ToString();
+                };
+            }
+        }
+
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
+
+        BoolAutomatikStarten = !_modelBehaeltersteuerung.AutomatikModusAktiv();
+        StringAutomatikStarten = _modelBehaeltersteuerung.AutomatikModusAktiv() ? "Bitte warten" : "Automatik starten";
 
         BoolDropdownEnabled = _modelBehaeltersteuerung.AutomatikModusAktiv();
 
@@ -60,13 +84,8 @@ public partial class VmBehaeltersteuerung : BasePlcDtAt.BaseViewModel.VmBase
         var ableitungUnten4 = !_modelBehaeltersteuerung.AlleMeineBehaelter[3].BehaelterLeer() && _modelBehaeltersteuerung.AlleMeineBehaelter[3].VentilUnten;
         var ableitungUnten = ableitungUnten1 || ableitungUnten2 || ableitungUnten3 || ableitungUnten4;
 
-        BrushesAbleitungUnten1 = SetBrush(ableitungUnten, Brushes.Blue, Brushes.LightBlue);
-        BrushesAbleitungUnten2 = SetBrush(ableitungUnten, Brushes.Blue, Brushes.LightBlue);
-        BrushesAbleitungUnten3 = SetBrush(ableitungUnten, Brushes.Blue, Brushes.LightBlue);
-        BrushesAbleitungUnten4 = SetBrush(ableitungUnten, Brushes.Blue, Brushes.LightBlue);
-
-        BrushesAbleitungGesamt = SetBrush(ableitungUnten, Brushes.Blue, Brushes.LightBlue);
-
+        BrushesAbleitungUnten = SetBrush(ableitungUnten, Brushes.Blue, Brushes.LightBlue);
+        
         BrushesB1 = SetBrush(_modelBehaeltersteuerung.AlleMeineBehaelter[0].SchwimmerschalterOben, Brushes.Red, Brushes.LawnGreen);
         BrushesB2 = SetBrush(_modelBehaeltersteuerung.AlleMeineBehaelter[0].SchwimmerschalterUnten, Brushes.Red, Brushes.LawnGreen);
         BrushesB3 = SetBrush(_modelBehaeltersteuerung.AlleMeineBehaelter[1].SchwimmerschalterOben, Brushes.Red, Brushes.LawnGreen);

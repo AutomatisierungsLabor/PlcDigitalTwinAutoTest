@@ -14,8 +14,6 @@ public partial class TabZeichnen
         libWpf.GridZeichnen(50, 40, false, false, true);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
-        var kreisRand = new Thickness(2, 2, 2, 2);
-        var kreisRandFarbe = new SolidColorBrush(Colors.Black);
 
         ///////////////////////////////////////////////////////////
         //
@@ -25,9 +23,11 @@ public partial class TabZeichnen
 
         libWpf.RectangleFill(27, 8, 2, 23, Brushes.LightGray);
 
-        libWpf.Text("Entleerreihenfolge", 28, 7, 4, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.ButtonBackgroundMarginRoundedSetEnableSetContend(28, 6, 4, 2, 20, 15, Brushes.Violet, buttonRand, vmBehaeltersteuerung.ButtonTasterCommand, "AutomatikStarten", nameof(vmBehaeltersteuerung.ClickModeAutomatikStarten), nameof(vmBehaeltersteuerung.BoolAutomatikStarten), nameof(vmBehaeltersteuerung.StringAutomatikStarten));
+        
+        libWpf.Text("Entleerreihenfolge", 28, 7, 6, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        var comboBox = libWpf.ComboBox(  28, 6, 6, 2);
+        vmBehaeltersteuerung.VmComboBox = libWpf.ComboBox(28, 6, 8, 2, 20, new Thickness(0,10,0,10));
 
 
 
@@ -84,8 +84,7 @@ public partial class TabZeichnen
         libWpf.RectangleMarginSetFill(18, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB6));
         libWpf.RectangleMarginSetFill(24, 2, 8, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB7));
         libWpf.RectangleMarginSetFill(24, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB8));
-
-
+        
         libWpf.Text("B1", 6, 2, 8, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("B2", 6, 2, 16, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("B3", 12, 2, 8, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
@@ -94,8 +93,6 @@ public partial class TabZeichnen
         libWpf.Text("B6", 18, 2, 16, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("B7", 24, 2, 8, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("B8", 24, 2, 16, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-
-
 
         libWpf.RectangleMarginSetFill(3, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben1));
         libWpf.RectangleMarginSetFill(9, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben2));
@@ -112,13 +109,12 @@ public partial class TabZeichnen
         libWpf.ButtonMarginSetVisibilityZweiBilder(14, 3, 20, 2, "VentilElektrischEin.jpg", "VentilElektrischAus.jpg", randVentilOben, vmBehaeltersteuerung.ButtonSchalterCommand, "Q6", nameof(vmBehaeltersteuerung.ClickModeQ6), nameof(vmBehaeltersteuerung.VisibilityEinQ6), nameof(vmBehaeltersteuerung.VisibilityAusQ6));
         libWpf.ButtonMarginSetVisibilityZweiBilder(20, 3, 20, 2, "VentilElektrischEin.jpg", "VentilElektrischAus.jpg", randVentilOben, vmBehaeltersteuerung.ButtonSchalterCommand, "Q8", nameof(vmBehaeltersteuerung.ClickModeQ8), nameof(vmBehaeltersteuerung.VisibilityEinQ8), nameof(vmBehaeltersteuerung.VisibilityAusQ8));
 
-        libWpf.RectangleMarginSetFill(3, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten1));
-        libWpf.RectangleMarginSetFill(9, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten2));
-        libWpf.RectangleMarginSetFill(15, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten3));
-        libWpf.RectangleMarginSetFill(21, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten4));
+        libWpf.RectangleMarginSetFill(3, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
+        libWpf.RectangleMarginSetFill(9, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
+        libWpf.RectangleMarginSetFill(15, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
+        libWpf.RectangleMarginSetFill(21, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
 
-
-        libWpf.RectangleMarginSetFill(3, 21, 24, 1, new Thickness(20, 10, 0, 0), nameof(vmBehaeltersteuerung.BrushesAbleitungGesamt));
+        libWpf.RectangleMarginSetFill(3, 21, 24, 1, new Thickness(20, 10, 0, 0), nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
 
         libWpf.PlcError();
     }

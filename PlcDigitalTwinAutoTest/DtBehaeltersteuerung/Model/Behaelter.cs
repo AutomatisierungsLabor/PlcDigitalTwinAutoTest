@@ -51,12 +51,6 @@ public class Behaelter
         _internerPegel = startpegel;
         VentilUnten = true;
     }
-    internal void VentilUntenUmschalten()
-    {
-        if (!_automatikModus)
-        {
-            VentilUnten = !VentilUnten;
-        }
-    }
-    public bool BehaelterLeer() => Pegel < 0.01 ? true : false;
+    public bool BehaelterLeer() => Pegel < 0.01;
+    public bool AutomatikModusAktiv() => _automatikModus;
 }

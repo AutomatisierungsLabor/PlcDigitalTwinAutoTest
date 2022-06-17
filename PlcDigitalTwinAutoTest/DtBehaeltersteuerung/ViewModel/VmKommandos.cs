@@ -7,10 +7,7 @@ public partial class VmBehaeltersteuerung
     [ICommand]
     private void ButtonTaster(string taster)
     {
-        switch (taster)
-        {
-          
-        }
+        if (taster == "AutomatikStarten") _modelBehaeltersteuerung.AutomatikStarten();
     }
 
     [ICommand]

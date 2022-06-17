@@ -1,5 +1,4 @@
-﻿using System.Drawing.Printing;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
@@ -9,6 +8,7 @@ namespace DtBehaeltersteuerung.ViewModel;
 public partial class VmBehaeltersteuerung
 {
     [ObservableProperty] private bool _boolDropdownEnabled;
+    [ObservableProperty] private bool _boolAutomatikStarten;
 
     [ObservableProperty] private Brush _brushesZuleitung1;
     [ObservableProperty] private Brush _brushesZuleitung2;
@@ -20,13 +20,8 @@ public partial class VmBehaeltersteuerung
     [ObservableProperty] private Brush _brushesAbleitungOben3;
     [ObservableProperty] private Brush _brushesAbleitungOben4;
 
-    [ObservableProperty] private Brush _brushesAbleitungUnten1;
-    [ObservableProperty] private Brush _brushesAbleitungUnten2;
-    [ObservableProperty] private Brush _brushesAbleitungUnten3;
-    [ObservableProperty] private Brush _brushesAbleitungUnten4;
-
-    [ObservableProperty] private Brush _brushesAbleitungGesamt;
-
+    [ObservableProperty] private Brush _brushesAbleitungUnten;
+    
     [ObservableProperty] private Brush _brushesB1;
     [ObservableProperty] private Brush _brushesB2;
     [ObservableProperty] private Brush _brushesB3;
@@ -36,10 +31,13 @@ public partial class VmBehaeltersteuerung
     [ObservableProperty] private Brush _brushesB7;
     [ObservableProperty] private Brush _brushesB8;
 
+    [ObservableProperty] private ClickMode _clickModeAutomatikStarten;
     [ObservableProperty] private ClickMode _clickModeQ2;
     [ObservableProperty] private ClickMode _clickModeQ4;
     [ObservableProperty] private ClickMode _clickModeQ6;
     [ObservableProperty] private ClickMode _clickModeQ8;
+
+    [ObservableProperty] private string _stringAutomatikStarten;
 
     [ObservableProperty] private Thickness _thicknessFuellstand1;
     [ObservableProperty] private Thickness _thicknessFuellstand2;

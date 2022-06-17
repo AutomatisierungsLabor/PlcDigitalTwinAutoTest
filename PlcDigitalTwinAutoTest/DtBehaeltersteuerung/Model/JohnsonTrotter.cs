@@ -16,10 +16,10 @@ public class JohnsonTrotter
 
     private readonly ObservableCollection<Permutation> _permutationen;
 
-    public JohnsonTrotter(short AnzahlStellen)
+    public JohnsonTrotter(short anzahlStellen)
     {
         _permutationen = new ObservableCollection<Permutation>();
-        GeneratePermutation(AnzahlStellen);
+        GeneratePermutation(anzahlStellen);
     }
 
     public ObservableCollection<Permutation> GetPermutations() => _permutationen;
