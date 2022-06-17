@@ -50,13 +50,6 @@ public class TestDaBitmusterBlinktTesten
         // Assert.Equal(kommentar, _zeile.Kommentar);
         Assert.Equal(testAnzeige, _zeile.Ergebnis);
 
-        // zum Debuggen in github
-        /*
-        Assert.Equal("0", testAutomat.GetDaBitmusterBlinktDebugWerte(TestAutomat.DaBitmusterBlinktDebugWerte.Messwert0));
-        Assert.Equal("0", testAutomat.GetDaBitmusterBlinktDebugWerte(TestAutomat.DaBitmusterBlinktDebugWerte.Messwert1));
-        Assert.Equal("0", testAutomat.GetDaBitmusterBlinktDebugWerte(TestAutomat.DaBitmusterBlinktDebugWerte.Messwert2));
-        Assert.Equal("0", testAutomat.GetDaBitmusterBlinktDebugWerte(TestAutomat.DaBitmusterBlinktDebugWerte.Messwert3));
-        */
         highResTimer.Enabled = false;
     }
     private void DatenSpeichern(DataGridZeile zeile) => _zeile = zeile;
