@@ -8,29 +8,23 @@ public class JohnsonTrotter
 {
     // https://www.geeksforgeeks.org/johnson-trotter-algorithm/
 
-    private const bool LeftToRight = true;
-    private const bool RightToLeft = false;
-
-
-    // Utility functions for  finding the position   of largest mobile  integer in a[].
+    public ObservableCollection<Permutation> GetPermutations() => _permutationen;
 
     private readonly ObservableCollection<Permutation> _permutationen;
+
+    private const bool LeftToRight = true;
+    private const bool RightToLeft = false;
 
     public JohnsonTrotter(short anzahlStellen)
     {
         _permutationen = new ObservableCollection<Permutation>();
         GeneratePermutation(anzahlStellen);
     }
-
-    public ObservableCollection<Permutation> GetPermutations() => _permutationen;
-
     private static int SearchArray(IReadOnlyList<int> a, int n, int mobile)
     {
         for (var i = 0; i < n; i++) if (a[i] == mobile) return i + 1;
         return 0;
     }
-
-    // To carry out step 1  of the algorithm i.e.  to find the largest  mobile integer. 
     private static int GetMobile(IReadOnlyList<int> a, IReadOnlyList<bool> dir, int n)
     {
         var mobilePrev = 0;
@@ -56,8 +50,6 @@ public class JohnsonTrotter
 
         return mobile;
     }
-
-    // Prints a single permutation 
     public int GetOnePermutation(int[] a, bool[] dir, int n)
     {
         var mobile = GetMobile(a, dir, n);
@@ -66,21 +58,8 @@ public class JohnsonTrotter
         switch (dir[a[pos - 1] - 1])
         {
             // swapping the elements  according to the direction i.e. dir[]. 
-            case RightToLeft:
-            {
-                var temp = a[pos - 1];
-                a[pos - 1] = a[pos - 2];
-                a[pos - 2] = temp;
-            }
-                break;
-
-            case LeftToRight:
-            {
-                var temp = a[pos];
-                a[pos] = a[pos - 1];
-                a[pos - 1] = temp;
-            }
-                break;
+            case RightToLeft: (a[pos - 1], a[pos - 2]) = (a[pos - 2], a[pos - 1]); break;
+            case LeftToRight: (a[pos], a[pos - 1]) = (a[pos - 1], a[pos]); break;
         }
 
         // changing the directions for elements greater  than largest mobile integer. 
@@ -108,8 +87,6 @@ public class JohnsonTrotter
 
         return 0;
     }
-
-    // To end the algorithm for efficiency it ends  at the factorial of n  because number of  permutations possible is just n!. 
     public int CalculateFactorial(int n)
     {
         var res = 1;
@@ -117,8 +94,6 @@ public class JohnsonTrotter
 
         return res;
     }
-
-    // This function mainly  calls GetOnePermutation()  one by one to print  all permutations. 
     public void GeneratePermutation(int n)
     {
         // To store current  permutation 
