@@ -213,4 +213,9 @@ public partial class LibWpf
         button.BindingButtonSetMargin(setMargin);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
+
+    public void ButtonImageDrehenMarginSetVisibility(int xPos, int xSpan, int yPos, int ySpan, string source,int winkel, string setMargin, ICommand cmd, object cmdParameter, string setClickMode)
+    {
+
+    }
 }
