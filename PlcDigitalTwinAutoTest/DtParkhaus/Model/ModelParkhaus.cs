@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using LibDatenstruktur;
 
 namespace DtParkhaus.Model;
 
 public class ModelParkhaus : BasePlcDtAt.BaseModel.BaseModel
 {
-    public byte[] BesetzteParkPlaetze { get; set; } = new byte[16];
+    public byte[] BesetzteParkPlaetze { get; set; } = new byte[4];
 
     public int FreieParkplaetze { get; set; }
     public int FreieParkplaetzeSoll { get; set; }
@@ -35,16 +34,16 @@ public class ModelParkhaus : BasePlcDtAt.BaseModel.BaseModel
         random.NextBytes(BesetzteParkPlaetze);
 
         _datenRangieren = new DatenRangieren(this, datenstruktur);
-        }
+    }
     protected override void ModelThread()
     {
 
         ParkhausSpalte1 = ParkhausSpalte2 = ParkhausSpalte3 = ParkhausSpalte4 = ParkhausSpalte5 = ParkhausSpalte6 = ParkhausSpalte7 = ParkhausSpalte8 = false;
 
-        if (ParkhausReihe1) (ParkhausSpalte1, ParkhausSpalte2, ParkhausSpalte3, ParkhausSpalte4, ParkhausSpalte5, ParkhausSpalte6, ParkhausSpalte7, ParkhausSpalte8) = AlleBitLesen(BesetzteParkPlaetze[0]);
-        if (ParkhausReihe2) (ParkhausSpalte1, ParkhausSpalte2, ParkhausSpalte3, ParkhausSpalte4, ParkhausSpalte5, ParkhausSpalte6, ParkhausSpalte7, ParkhausSpalte8) = AlleBitLesen(BesetzteParkPlaetze[1]);
-        if (ParkhausReihe3) (ParkhausSpalte1, ParkhausSpalte2, ParkhausSpalte3, ParkhausSpalte4, ParkhausSpalte5, ParkhausSpalte6, ParkhausSpalte7, ParkhausSpalte8) = AlleBitLesen(BesetzteParkPlaetze[2]);
-        if (ParkhausReihe4) (ParkhausSpalte1, ParkhausSpalte2, ParkhausSpalte3, ParkhausSpalte4, ParkhausSpalte5, ParkhausSpalte6, ParkhausSpalte7, ParkhausSpalte8) = AlleBitLesen(BesetzteParkPlaetze[3]);
+        if (ParkhausReihe1) (ParkhausSpalte1, ParkhausSpalte2, ParkhausSpalte3, ParkhausSpalte4, ParkhausSpalte5, ParkhausSpalte6, ParkhausSpalte7, ParkhausSpalte8) = LibPlcTools.Bytes.AlleBitLesen(BesetzteParkPlaetze[0]);
+        if (ParkhausReihe2) (ParkhausSpalte1, ParkhausSpalte2, ParkhausSpalte3, ParkhausSpalte4, ParkhausSpalte5, ParkhausSpalte6, ParkhausSpalte7, ParkhausSpalte8) = LibPlcTools.Bytes.AlleBitLesen(BesetzteParkPlaetze[1]);
+        if (ParkhausReihe3) (ParkhausSpalte1, ParkhausSpalte2, ParkhausSpalte3, ParkhausSpalte4, ParkhausSpalte5, ParkhausSpalte6, ParkhausSpalte7, ParkhausSpalte8) = LibPlcTools.Bytes.AlleBitLesen(BesetzteParkPlaetze[2]);
+        if (ParkhausReihe4) (ParkhausSpalte1, ParkhausSpalte2, ParkhausSpalte3, ParkhausSpalte4, ParkhausSpalte5, ParkhausSpalte6, ParkhausSpalte7, ParkhausSpalte8) = LibPlcTools.Bytes.AlleBitLesen(BesetzteParkPlaetze[3]);
 
         FreieParkplaetzeSoll = 0;
         for (var i = 0; i < 4; i++)
@@ -62,23 +61,5 @@ public class ModelParkhaus : BasePlcDtAt.BaseModel.BaseModel
             if ((wert & bitMuster) == bitMuster) ergebnis++;
         }
         return ergebnis;
-    }
-    internal static (bool b0, bool b1, bool b2, bool b3, bool b4, bool b5, bool b6, bool b7) AlleBitLesen(byte parkPlaetzte)
-    {
-        var b0 = BitMaskierenByte(parkPlaetzte, 0);
-        var b1 = BitMaskierenByte(parkPlaetzte, 1);
-        var b2 = BitMaskierenByte(parkPlaetzte, 2);
-        var b3 = BitMaskierenByte(parkPlaetzte, 3);
-        var b4 = BitMaskierenByte(parkPlaetzte, 4);
-        var b5 = BitMaskierenByte(parkPlaetzte, 5);
-        var b6 = BitMaskierenByte(parkPlaetzte, 6);
-        var b7 = BitMaskierenByte(parkPlaetzte, 7);
-
-        return (b0, b1, b2, b3, b4, b5, b6, b7);
-    }
-    internal static bool BitMaskierenByte(byte parkPlaetzte, int i)
-    {
-        var bitMuster = (byte)(1 << i % 8);
-        return (parkPlaetzte & bitMuster) == bitMuster;
     }
 }

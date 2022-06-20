@@ -48,7 +48,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-
     public void ButtonRoundedSetBackground(int xPos, int xSpan, int yPos, int ySpan, int fontSize, int radius, ICommand cmd, string cmdParameter, string setClickMode, string setBackground)
     {
         var button = new Button
@@ -213,9 +212,23 @@ public partial class LibWpf
         button.BindingButtonSetMargin(setMargin);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
-
-    public void ButtonImageDrehenMarginSetVisibility(int xPos, int xSpan, int yPos, int ySpan, string source,int winkel, string setMargin, ICommand cmd, object cmdParameter, string setClickMode)
+    public void ButtonImageMarginRotateSetVisibility(int xPos, int xSpan, int yPos, int ySpan, string source, Thickness margin, int winkel, ICommand cmd, object cmdParameter, string setClickMode, string setVisibility)
     {
 
+        var (image, _) = ImageErzeugen(source, margin);
+        var button = new Button
+        {
+            Content = image,
+            Margin = margin,
+            Command = cmd,
+            CommandParameter = cmdParameter,
+            RenderTransformOrigin = new Point(0.5, 0.5),
+            LayoutTransform = new RotateTransform { Angle = winkel }
+        };
+
+        button.BindingButtonSetClickMode(setClickMode);
+        button.BindingButtonSetVisibility(setVisibility);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, button);
     }
 }

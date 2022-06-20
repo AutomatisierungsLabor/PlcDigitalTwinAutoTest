@@ -18,7 +18,11 @@ public partial class App
 
         var modelParkhaus = new ModelParkhaus(datenstruktur, _cancellationTokenSource);
         var vmParkhaus = new VmParkhaus(modelParkhaus, datenstruktur, _cancellationTokenSource);
-        var baseWindow = new BaseWindow(vmParkhaus, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmParkhaus, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
+        {
+            Height = 1050,
+            Width = 1230
+        };
 
         baseWindow.Show();
     }

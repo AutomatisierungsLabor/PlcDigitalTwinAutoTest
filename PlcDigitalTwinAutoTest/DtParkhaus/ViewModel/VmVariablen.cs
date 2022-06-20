@@ -44,6 +44,42 @@ public partial class VmParkhaus
     [ObservableProperty] private Brush _brushB37;
 
     [ObservableProperty] private ClickMode _clickModeZufall;
+    
+    [ObservableProperty] private ClickMode _clickModePkw00; 
+    [ObservableProperty] private ClickMode _clickModePkw01;
+    [ObservableProperty] private ClickMode _clickModePkw02;
+    [ObservableProperty] private ClickMode _clickModePkw03;
+    [ObservableProperty] private ClickMode _clickModePkw04;
+    [ObservableProperty] private ClickMode _clickModePkw05;
+    [ObservableProperty] private ClickMode _clickModePkw06;
+    [ObservableProperty] private ClickMode _clickModePkw07;
+
+    [ObservableProperty] private ClickMode _clickModePkw10;
+    [ObservableProperty] private ClickMode _clickModePkw11;
+    [ObservableProperty] private ClickMode _clickModePkw12;
+    [ObservableProperty] private ClickMode _clickModePkw13;
+    [ObservableProperty] private ClickMode _clickModePkw14;
+    [ObservableProperty] private ClickMode _clickModePkw15;
+    [ObservableProperty] private ClickMode _clickModePkw16;
+    [ObservableProperty] private ClickMode _clickModePkw17;
+
+    [ObservableProperty] private ClickMode _clickModePkw20;
+    [ObservableProperty] private ClickMode _clickModePkw21;
+    [ObservableProperty] private ClickMode _clickModePkw22;
+    [ObservableProperty] private ClickMode _clickModePkw23;
+    [ObservableProperty] private ClickMode _clickModePkw24;
+    [ObservableProperty] private ClickMode _clickModePkw25;
+    [ObservableProperty] private ClickMode _clickModePkw26;
+    [ObservableProperty] private ClickMode _clickModePkw27;
+
+    [ObservableProperty] private ClickMode _clickModePkw30;
+    [ObservableProperty] private ClickMode _clickModePkw31;
+    [ObservableProperty] private ClickMode _clickModePkw32;
+    [ObservableProperty] private ClickMode _clickModePkw33;
+    [ObservableProperty] private ClickMode _clickModePkw34;
+    [ObservableProperty] private ClickMode _clickModePkw35;
+    [ObservableProperty] private ClickMode _clickModePkw36;
+    [ObservableProperty] private ClickMode _clickModePkw37;
 
     [ObservableProperty] private Visibility _visibilityPkw00;
     [ObservableProperty] private Visibility _visibilityPkw01;
