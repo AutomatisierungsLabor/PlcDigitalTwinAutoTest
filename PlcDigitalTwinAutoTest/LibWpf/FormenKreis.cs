@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -70,5 +71,28 @@ public partial class LibWpf
         };
         ellipse.BindingSetMargin(bindingMargin);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
+    }
+    public void EllipseFillRadiusSetWinkel(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, double radius, string bindingWinkel)
+    {
+        var ellipseGeometry = new EllipseGeometry
+        {
+            Center = new Point(20 *  xSpan , 20 * ySpan),
+            RadiusX = radius,
+            RadiusY = radius
+        };
+
+        var path = new Path
+        {
+            Data = ellipseGeometry,
+            Fill = fill,
+            RenderTransformOrigin = new Point(0.5, 0.5)
+        };
+
+        var b = new Binding(bindingWinkel);
+        var rt = new RotateTransform();
+        BindingOperations.SetBinding(rt, RotateTransform.AngleProperty, b);
+        path.RenderTransform = rt;
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, path);
     }
 }
