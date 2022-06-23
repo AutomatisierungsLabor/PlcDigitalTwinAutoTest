@@ -14,8 +14,10 @@ public partial class DisplayPlc
         Content = grid;
 
         Height = 900;
-
-        if (configDt.GetAnzahlAa() > 0 || configDt.GetAnzahlAi() > 0) Width = 1000; else Width = 650;
+        var breite = 650;
+        if (configDt.GetAnzahlAa() > 0 || configDt.GetAnzahlAi() > 0) breite += 350;
+        if (configDt.GetAnzahlDa() > 15 || configDt.GetAnzahlDi() > 15) breite += 350;
+        Width = breite;
 
         var viewModel = new ViewModel.VmPlc(datenstruktur, configDt, cancellationTokenSource);
 

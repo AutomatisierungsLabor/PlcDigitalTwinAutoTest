@@ -123,7 +123,7 @@ public partial class TabZeichnen
         const int zeileLinks = 1;
         const int zeilenBreite = 20;
         const int zeilenHoehe = 3;
-        var blindTextFarbe = Brushes.YellowGreen; 
+        var blindTextFarbe = Brushes.DarkGray; 
 
         // Zeile 1
         libWpf.TextMarginMonospacedSetForeground("ES", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 0, 0, 0), nameof(vmWordclock.BrushEs));

@@ -3,7 +3,29 @@
     "EaConfig": []
   },
   "AnalogeEingaenge": {
-    "EaConfig": []
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "h",
+        "Kommentar": "Stunde"
+      },
+      {
+        "StartByte": 1,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "m",
+        "Kommentar": "Minute"
+      },
+      {
+        "StartByte": 2,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "s",
+        "Kommentar": "Sekunde"
+      }
+    ]
   },
   "DigitaleAusgaenge": {
     "EaConfig": [
@@ -11,96 +33,175 @@
         "StartByte": 0,
         "StartBit": 0,
         "Type": "Bit",
-        "Bezeichnung": "P1",
-        "Kommentar": "Meldeleuchte"
-      }
-    ]
-  },
-  "DigitaleEingaenge": {
-    "EaConfig": [
-      {
-        "StartByte": 0,
-        "StartBit": 0,
-        "Type": "Bit",
-        "Bezeichnung": "S1",
-        "Kommentar": "Frequenz -"
+        "Bezeichnung": "1",
+        "Kommentar": "TextEins"
       },
       {
         "StartByte": 0,
         "StartBit": 1,
         "Type": "Bit",
-        "Bezeichnung": "S2",
-        "Kommentar": "Frequenz +"
+        "Bezeichnung": "2",
+        "Kommentar": "TextZwei"
       },
       {
         "StartByte": 0,
         "StartBit": 2,
         "Type": "Bit",
-        "Bezeichnung": "S3",
-        "Kommentar": "Tastverhältnis -"
+        "Bezeichnung": "3",
+        "Kommentar": "TextDrei"
       },
       {
         "StartByte": 0,
         "StartBit": 3,
         "Type": "Bit",
-        "Bezeichnung": "S4",
-        "Kommentar": "Tastverhältnis +"
+        "Bezeichnung": "4",
+        "Kommentar": "TextVier"
       },
       {
         "StartByte": 0,
         "StartBit": 4,
         "Type": "Bit",
-        "Bezeichnung": "S5",
-        "Kommentar": "Taster Reset"
+        "Bezeichnung": "5m",
+        "Kommentar": "TextFuenfMinute"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "5h",
+        "Kommentar": "TextFuenfStunde"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "6",
+        "Kommentar": "TextSechs"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "7",
+        "Kommentar": "TextSieben"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "8",
+        "Kommentar": "TextAcht"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "9",
+        "Kommentar": "TextNeun"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "10m",
+        "Kommentar": "TextZehnMinute"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "10h",
+        "Kommentar": "TextZehnStunde"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "11",
+        "Kommentar": "TextElf"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "12",
+        "Kommentar": "TextZwoelf"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "20",
+        "Kommentar": "TextZwanzig"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "Uhr",
+        "Kommentar": "TextUhr"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "E",
+        "Kommentar": "TextEs"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "I",
+        "Kommentar": "TextIst"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "B",
+        "Kommentar": "TextBald"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "G",
+        "Kommentar": "TextGleich"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "V",
+        "Kommentar": "TextVor"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "N",
+        "Kommentar": "TextNach"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "½",
+        "Kommentar": "TextHalb"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "¼",
+        "Kommentar": "TextViertel"
       }
     ]
   },
-  "Textbausteine": [
-    {
-      "BausteinId": "5",
-      "PrefixH1": "",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - Head",
-      "WasAnzeigen": "NurInhalt"
-    },
-    {
-      "BausteinId": "11",
-      "PrefixH1": "1. ",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Blinker Hardware",
-      "WasAnzeigen": "H1Inhalt"
-    },
-    {
-      "BausteinId": "12",
-      "PrefixH1": "2. ",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Blinker Aufgabenstellung",
-      "WasAnzeigen": "H1Inhalt"
-    },
-    {
-      "BausteinId": "13",
-      "PrefixH1": "",
-      "PrefixH2": "2.1 ",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Blinker Beispiel",
-      "WasAnzeigen": "H2Inhalt"
-    },
-    {
-      "BausteinId": "8",
-      "PrefixH1": "",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - </body>",
-      "WasAnzeigen": "NurInhalt"
-    }
-  ],
+  "DigitaleEingaenge": {
+    "EaConfig": []
+  },
+  "Textbausteine": [],
   "Alarm": []
 }

@@ -17,7 +17,9 @@ public class DatenRangieren
     {
         if (_datenstruktur.SimulationAktiv())
         {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, false);
+            _datenstruktur.SetByte(DatenBereich.Ai, 0, _wordclock.Stunde);
+            _datenstruktur.SetByte(DatenBereich.Ai, 1, _wordclock.Minute);
+            _datenstruktur.SetByte(DatenBereich.Ai, 2, _wordclock.Sekunde);
         }
 
         (_wordclock.TextEins, _wordclock.TextZwei, _wordclock.TextDrei, _wordclock.TextVier, _wordclock.TextFuenfMinute, _wordclock.TextFuenfStunde, _wordclock.TextSechs, _wordclock.TextSieben) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);

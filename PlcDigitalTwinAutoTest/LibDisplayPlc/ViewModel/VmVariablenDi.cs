@@ -1,0 +1,113 @@
+﻿using System.Windows;
+using System.Windows.Media;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+
+namespace LibDisplayPlc.ViewModel;
+
+public partial class VmPlc
+{
+    [ObservableProperty] private Brush _brushDi00;
+    [ObservableProperty] private Brush _brushDi01;
+    [ObservableProperty] private Brush _brushDi02;
+    [ObservableProperty] private Brush _brushDi03;
+    [ObservableProperty] private Brush _brushDi04;
+    [ObservableProperty] private Brush _brushDi05;
+    [ObservableProperty] private Brush _brushDi06;
+    [ObservableProperty] private Brush _brushDi07;
+    [ObservableProperty] private Brush _brushDi10;
+    [ObservableProperty] private Brush _brushDi11;
+    [ObservableProperty] private Brush _brushDi12;
+    [ObservableProperty] private Brush _brushDi13;
+    [ObservableProperty] private Brush _brushDi14;
+    [ObservableProperty] private Brush _brushDi15;
+    [ObservableProperty] private Brush _brushDi16;
+    [ObservableProperty] private Brush _brushDi17;
+    [ObservableProperty] private Brush _brushDi20;
+    [ObservableProperty] private Brush _brushDi21;
+    [ObservableProperty] private Brush _brushDi22;
+    [ObservableProperty] private Brush _brushDi23;
+    [ObservableProperty] private Brush _brushDi24;
+    [ObservableProperty] private Brush _brushDi25;
+    [ObservableProperty] private Brush _brushDi26;
+    [ObservableProperty] private Brush _brushDi27;
+
+    [ObservableProperty] private Visibility _visibilityDi00;
+    [ObservableProperty] private Visibility _visibilityDi01;
+    [ObservableProperty] private Visibility _visibilityDi02;
+    [ObservableProperty] private Visibility _visibilityDi03;
+    [ObservableProperty] private Visibility _visibilityDi04;
+    [ObservableProperty] private Visibility _visibilityDi05;
+    [ObservableProperty] private Visibility _visibilityDi06;
+    [ObservableProperty] private Visibility _visibilityDi07;
+    [ObservableProperty] private Visibility _visibilityDi10;
+    [ObservableProperty] private Visibility _visibilityDi11;
+    [ObservableProperty] private Visibility _visibilityDi12;
+    [ObservableProperty] private Visibility _visibilityDi13;
+    [ObservableProperty] private Visibility _visibilityDi14;
+    [ObservableProperty] private Visibility _visibilityDi15;
+    [ObservableProperty] private Visibility _visibilityDi16;
+    [ObservableProperty] private Visibility _visibilityDi17;
+    [ObservableProperty] private Visibility _visibilityDi20;
+    [ObservableProperty] private Visibility _visibilityDi21;
+    [ObservableProperty] private Visibility _visibilityDi22;
+    [ObservableProperty] private Visibility _visibilityDi23;
+    [ObservableProperty] private Visibility _visibilityDi24;
+    [ObservableProperty] private Visibility _visibilityDi25;
+    [ObservableProperty] private Visibility _visibilityDi26;
+    [ObservableProperty] private Visibility _visibilityDi27;
+
+
+    [ObservableProperty] private string _stringBezeichnungDi00;
+    [ObservableProperty] private string _stringBezeichnungDi01;
+    [ObservableProperty] private string _stringBezeichnungDi02;
+    [ObservableProperty] private string _stringBezeichnungDi03;
+    [ObservableProperty] private string _stringBezeichnungDi04;
+    [ObservableProperty] private string _stringBezeichnungDi05;
+    [ObservableProperty] private string _stringBezeichnungDi06;
+    [ObservableProperty] private string _stringBezeichnungDi07;
+    [ObservableProperty] private string _stringBezeichnungDi10;
+    [ObservableProperty] private string _stringBezeichnungDi11;
+    [ObservableProperty] private string _stringBezeichnungDi12;
+    [ObservableProperty] private string _stringBezeichnungDi13;
+    [ObservableProperty] private string _stringBezeichnungDi14;
+    [ObservableProperty] private string _stringBezeichnungDi15;
+    [ObservableProperty] private string _stringBezeichnungDi16;
+    [ObservableProperty] private string _stringBezeichnungDi17;
+    [ObservableProperty] private string _stringBezeichnungDi20;
+    [ObservableProperty] private string _stringBezeichnungDi21;
+    [ObservableProperty] private string _stringBezeichnungDi22;
+    [ObservableProperty] private string _stringBezeichnungDi23;
+    [ObservableProperty] private string _stringBezeichnungDi24;
+    [ObservableProperty] private string _stringBezeichnungDi25;
+    [ObservableProperty] private string _stringBezeichnungDi26;
+    [ObservableProperty] private string _stringBezeichnungDi27;
+
+    [ObservableProperty] private string _stringKommentarDi00;
+    [ObservableProperty] private string _stringKommentarDi01;
+    [ObservableProperty] private string _stringKommentarDi02;
+    [ObservableProperty] private string _stringKommentarDi03;
+    [ObservableProperty] private string _stringKommentarDi04;
+    [ObservableProperty] private string _stringKommentarDi05;
+    [ObservableProperty] private string _stringKommentarDi06;
+    [ObservableProperty] private string _stringKommentarDi07;
+    [ObservableProperty] private string _stringKommentarDi10;
+    [ObservableProperty] private string _stringKommentarDi11;
+    [ObservableProperty] private string _stringKommentarDi12;
+    [ObservableProperty] private string _stringKommentarDi13;
+    [ObservableProperty] private string _stringKommentarDi14;
+    [ObservableProperty] private string _stringKommentarDi15;
+    [ObservableProperty] private string _stringKommentarDi16;
+    [ObservableProperty] private string _stringKommentarDi17;
+    [ObservableProperty] private string _stringKommentarDi20;
+    [ObservableProperty] private string _stringKommentarDi21;
+    [ObservableProperty] private string _stringKommentarDi22;
+    [ObservableProperty] private string _stringKommentarDi23;
+    [ObservableProperty] private string _stringKommentarDi24;
+    [ObservableProperty] private string _stringKommentarDi25;
+    [ObservableProperty] private string _stringKommentarDi26;
+    [ObservableProperty] private string _stringKommentarDi27;
+
+    [ObservableProperty] private string _stringWertDi0;
+    [ObservableProperty] private string _stringWertDi1;
+    [ObservableProperty] private string _stringWertDi2;
+}

@@ -27,6 +27,11 @@ public partial class VmPlc : ObservableObject
 
         AlleDpInitialisieren();
 
+        if (configDt.GetAnzahlAa() > 3) Log.Debug("ACHTUNG: es gibt zu vielen AA!");
+        if (configDt.GetAnzahlAi() > 3) Log.Debug("ACHTUNG: es gibt zu vielen AI!");
+        if (configDt.GetAnzahlDa() > 24) Log.Debug("ACHTUNG: es gibt zu vielen DA!");
+        if (configDt.GetAnzahlDi() > 24) Log.Debug("ACHTUNG: es gibt zu vielen DI!");
+
         System.Threading.Tasks.Task.Run(ViewModelTask);
     }
     private void ViewModelTask()
@@ -52,19 +57,22 @@ public partial class VmPlc : ObservableObject
 
             StringWertDa0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, EaTypen.Byte, 0);
             StringWertDa1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, EaTypen.Byte, 1);
+            StringWertDa2 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Da, EaTypen.Byte, 2);
 
             StringWertDi0 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, EaTypen.Byte, 0);
             StringWertDi1 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, EaTypen.Byte, 1);
-
+            StringWertDi2 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Di, EaTypen.Byte, 2);
 
 
             for (var i = 0; i < 8; i++)
             {
                 DiCollection[i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, i), Brushes.Yellow, Brushes.DarkGray);
                 DiCollection[10 + i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, 8 + i), Brushes.Yellow, Brushes.DarkGray);
+                DiCollection[20 + i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, 16 + i), Brushes.Yellow, Brushes.DarkGray);
 
                 DaCollection[i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, i), Brushes.LawnGreen, Brushes.DarkGray);
                 DaCollection[10 + i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, 8 + i), Brushes.LawnGreen, Brushes.DarkGray);
+                DaCollection[20 + i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, 16 + i), Brushes.LawnGreen, Brushes.DarkGray);
             }
 
 
@@ -77,7 +85,7 @@ public partial class VmPlc : ObservableObject
     {
         if (vmDatenpunkte == null) return;
 
-        for (var i = 0; i < 20; i++)
+        for (var i = 0; i < 30; i++)
         {
             vmDatenpunkte[i].DpVisibility = Visibility.Hidden;
             vmDatenpunkte[i].DpKommentar = "";

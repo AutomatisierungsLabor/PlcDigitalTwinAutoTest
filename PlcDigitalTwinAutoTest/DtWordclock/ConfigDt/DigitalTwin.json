@@ -3,7 +3,29 @@
     "EaConfig": []
   },
   "AnalogeEingaenge": {
-    "EaConfig": []
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "h",
+        "Kommentar": "Stunde"
+      },
+      {
+        "StartByte": 1,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "m",
+        "Kommentar": "Minute"
+      },
+      {
+        "StartByte": 2,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "s",
+        "Kommentar": "Sekunde"
+      }
+    ]
   },
   "DigitaleAusgaenge": {
     "EaConfig": [

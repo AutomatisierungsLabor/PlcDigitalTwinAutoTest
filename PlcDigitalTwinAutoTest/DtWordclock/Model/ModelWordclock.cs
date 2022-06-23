@@ -6,7 +6,6 @@ namespace DtWordclock.Model;
 
 public class ModelWordclock : BasePlcDtAt.BaseModel.BaseModel
 {
-
     public bool TextEins { get; set; }          // 0.0
     public bool TextZwei { get; set; }          // 0.1
     public bool TextDrei { get; set; }          // 0.2
@@ -36,11 +35,6 @@ public class ModelWordclock : BasePlcDtAt.BaseModel.BaseModel
 
 
 
-
-    public ushort DatumJahr { get; set; }
-    public byte DatumMonat { get; set; }
-    public byte DatumTag { get; set; }
-    public byte DatumWochentag { get; set; }
     public byte Stunde { get; set; }
     public byte Minute { get; set; }
     public byte Sekunde { get; set; }
@@ -62,10 +56,6 @@ public class ModelWordclock : BasePlcDtAt.BaseModel.BaseModel
         var dateTime = DateTime.Now;
         _timeSpan = new TimeSpan(dateTime.Hour, dateTime.Minute, dateTime.Second);
 
-        DatumJahr = (ushort)dateTime.Year;
-        DatumMonat = (byte)dateTime.Month;
-        DatumTag = (byte)dateTime.Day;
-        DatumWochentag = (byte)dateTime.DayOfWeek;
         Stunde = (byte)dateTime.Hour;
         Minute = (byte)dateTime.Minute;
         Sekunde = (byte)dateTime.Second;
@@ -85,18 +75,13 @@ public class ModelWordclock : BasePlcDtAt.BaseModel.BaseModel
 
         _datenRangieren?.Rangieren();
     }
-
     internal void SetCurrentTime()
     {
         var dateTime = DateTime.Now;
         _timeSpan = new TimeSpan(dateTime.Hour, dateTime.Minute, dateTime.Second);
     }
-
     internal int GetSekunde() => Sekunde;
-
     internal int GetMinute() => Minute;
-
     internal int GetStunde() => Stunde;
-
     internal void SetGeschwindigkeit(double geschwindigkeitSlider) => _geschwindigkeitZeit = geschwindigkeitSlider;
 }
