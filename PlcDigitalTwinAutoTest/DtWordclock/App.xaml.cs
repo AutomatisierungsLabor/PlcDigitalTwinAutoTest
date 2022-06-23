@@ -20,8 +20,8 @@ public partial class App
         var vmWordclock = new VmWordclock(modelWordclock, datenstruktur, _cancellationTokenSource);
         var baseWindow = new BaseWindow(vmWordclock, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
         {
-            Height = 1130,
-            Width = 1450
+            Height = 750,
+            Width = 1300
         };
 
         baseWindow.Show();

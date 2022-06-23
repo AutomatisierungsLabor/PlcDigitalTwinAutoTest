@@ -72,11 +72,11 @@ public partial class LibWpf
         ellipse.BindingSetMargin(bindingMargin);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, ellipse);
     }
-    public void EllipseFillRadiusSetWinkel(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, double radius, string bindingWinkel)
+    public void EllipseFillRadiusSetWinkel(int xPos, int xSpan, int yPos, int ySpan, SolidColorBrush fill, double radius,double faktor, string bindingWinkel)
     {
         var ellipseGeometry = new EllipseGeometry
         {
-            Center = new Point(20 *  xSpan , 20 * ySpan),
+            Center = new Point(faktor *  xSpan , faktor * ySpan),
             RadiusX = radius,
             RadiusY = radius
         };

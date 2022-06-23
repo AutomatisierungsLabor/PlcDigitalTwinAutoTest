@@ -7,31 +7,32 @@ namespace DtWordclock.Model;
 public class ModelWordclock : BasePlcDtAt.BaseModel.BaseModel
 {
 
-    public bool TextEins { get; set; }
-    public bool TextZwei { get; set; }
-    public bool TextDrei { get; set; }
-    public bool TextVier { get; set; }
-    public bool TextFuenfMinute { get; set; }
-    public bool TextFuenfStunde { get; set; }
-    public bool TextSechs { get; set; }
-    public bool TextSieben { get; set; }
-    public bool TextAcht { get; set; }
-    public bool TextNeun { get; set; }
-    public bool TextZehnMinute { get; set; }
-    public bool TextZehnStunde { get; set; }
-    public bool TextElf { get; set; }
-    public bool TextZwoelf { get; set; }
-    public bool TextZwanzig { get; set; }
+    public bool TextEins { get; set; }          // 0.0
+    public bool TextZwei { get; set; }          // 0.1
+    public bool TextDrei { get; set; }          // 0.2
+    public bool TextVier { get; set; }          // 0.3
+    public bool TextFuenfMinute { get; set; }   // 0.4
+    public bool TextFuenfStunde { get; set; }   // 0.5
+    public bool TextSechs { get; set; }         // 0.6
+    public bool TextSieben { get; set; }        // 0.7
 
-    public bool TextEs { get; set; }
-    public bool TextIst { get; set; }
-    public bool TextBald { get; set; }
-    public bool TextGleich { get; set; }
-    public bool TextVor { get; set; }
-    public bool TextNach { get; set; }
-    public bool TextUhr { get; set; }
-    public bool TextHalb { get; set; }
-    public bool TextViertel { get; set; }
+    public bool TextAcht { get; set; }          // 1.0
+    public bool TextNeun { get; set; }          // 1.1
+    public bool TextZehnMinute { get; set; }    // 1.2
+    public bool TextZehnStunde { get; set; }    // 1.3
+    public bool TextElf { get; set; }           // 1.4
+    public bool TextZwoelf { get; set; }        // 1.5
+    public bool TextZwanzig { get; set; }       // 1.6
+    public bool TextUhr { get; set; }           // 1.7
+
+    public bool TextEs { get; set; }            // 2.0
+    public bool TextIst { get; set; }           // 2.1
+    public bool TextBald { get; set; }          // 2.2
+    public bool TextGleich { get; set; }        // 2.3
+    public bool TextVor { get; set; }           // 2.4
+    public bool TextNach { get; set; }          // 2.5
+    public bool TextHalb { get; set; }          // 2.6
+    public bool TextViertel { get; set; }       // 2.7
 
 
 

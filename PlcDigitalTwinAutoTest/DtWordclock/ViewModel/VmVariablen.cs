@@ -40,6 +40,7 @@ public partial class VmWordclock
 
     [ObservableProperty] private double _doubleGeschwindigkeit;
     [ObservableProperty] private double _doubleWinkelSekundenZeiger;
+    [ObservableProperty] private double _doubleWinkelSekundenZeigerKreisOderSo;
     [ObservableProperty] private double _doubleWinkelMinutenZeiger;
     [ObservableProperty] private double _doubleWinkelStundenZeiger;
 }
