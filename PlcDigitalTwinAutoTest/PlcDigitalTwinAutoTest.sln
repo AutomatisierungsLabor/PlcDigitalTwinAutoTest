@@ -99,7 +99,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibAlarmverwaltung.Test", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtBehaeltersteuerung", "DtBehaeltersteuerung\DtBehaeltersteuerung.csproj", "{4F8F093A-03FD-47C3-9859-535DDFE193A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtParkhaus", "DtParkhaus\DtParkhaus.csproj", "{DC348666-1F0D-4540-A641-7B6A9E78C8D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtParkhaus", "DtParkhaus\DtParkhaus.csproj", "{DC348666-1F0D-4540-A641-7B6A9E78C8D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtWordclock", "DtWordclock\DtWordclock.csproj", "{4E560D52-ABC0-4167-8CE8-A53009ABF447}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -303,6 +305,10 @@ Global
 		{DC348666-1F0D-4540-A641-7B6A9E78C8D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC348666-1F0D-4540-A641-7B6A9E78C8D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC348666-1F0D-4540-A641-7B6A9E78C8D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E560D52-ABC0-4167-8CE8-A53009ABF447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E560D52-ABC0-4167-8CE8-A53009ABF447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E560D52-ABC0-4167-8CE8-A53009ABF447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E560D52-ABC0-4167-8CE8-A53009ABF447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

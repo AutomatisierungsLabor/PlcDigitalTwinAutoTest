@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace LibWpf;
 
@@ -54,7 +55,7 @@ public partial class LibWpf
         radioButton.Checked += testChecked;
         return radioButton;
     }
-    public void CheckBox( int xPos, int xSpan, int yPos, int ySpan, Thickness margin, HorizontalAlignment horizontal, VerticalAlignment vertical, ICommand cmd, object cmdParameter)
+    public void CheckBox(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, HorizontalAlignment horizontal, VerticalAlignment vertical, ICommand cmd, object cmdParameter)
     {
         var checkbox = new CheckBox
         {
@@ -68,7 +69,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, checkbox);
     }
-
     public ComboBox ComboBox(int xPos, int xSpan, int yPos, int ySpan, int fontSize, Thickness margin)
     {
         var comboBox = new ComboBox
@@ -87,5 +87,23 @@ public partial class LibWpf
         Grid.Children.Add(comboBox);
 
         return comboBox;
+    }
+    public void SliderMargin(int xPos, int xSpan, int yPos, int ySpan, Brush background, Thickness margin, double min, double max, string setValue)
+    {
+        var slider = new Slider
+        {
+            Background = background,
+            Margin = margin,
+            Minimum = min,
+            Maximum = max
+        };
+
+        slider.BindingSliderSetValue(setValue);
+
+        Grid.SetColumn(slider, xPos);
+        Grid.SetColumnSpan(slider, xSpan);
+        Grid.SetRow(slider, yPos);
+        Grid.SetRowSpan(slider, ySpan);
+        Grid.Children.Add(slider);
     }
 }

@@ -23,6 +23,8 @@ public partial class ConfigDt
 
         var pfadName = Path.Combine(_path, "DigitalTwin.json");
         JsonEinlesen(pfadName);
+
+        ParametrierungAusgeben();
     }
     public void JsonEinlesen(string pathName)
     {
@@ -83,6 +85,15 @@ public partial class ConfigDt
         if (dtEaConfig?.EaConfig == null) return EaConfigError.UnbekannterFehler;
         return dtEaConfig.EaConfig.Length < pos ? EaConfigError.UnbekannterFehler : dtEaConfig.EaConfig[pos].EaConfigError;
     }
-
     public void SetCallbackNeuerTest(Action callback) => _cbNeuerTest = callback;
+    private void ParametrierungAusgeben()
+    {
+        Log.Debug("Parametrierung:");
+        Log.Debug($" AnalogeAusgänge: {GetAnzahlAa()}");
+        Log.Debug($" AnalogeEingänge: {GetAnzahlAi()}");
+        Log.Debug($" DigitaleAusgänge: {GetAnzahlDa()}");
+        Log.Debug($" DigitaleEingänge: {GetAnzahlDi()}");
+        Log.Debug($" Alarme: {GetAnzahlAlarme()}");
+        Log.Debug($" Textbausteine: {GetAnzahlTextbausteine()}");
+    }
 }
