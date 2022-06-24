@@ -43,7 +43,7 @@ public partial class VmPlc : ObservableObject
 
             if (_configDt != null)
             {
-                if (_configDt.GetAnzahlAa() > 0) StringWertAa00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[0].Type, _configDt.DtConfig.AnalogeEingaenge.EaConfig[0].StartByte);
+                if (_configDt.GetAnzahlAa() > 0) StringWertAa00 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[0].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[0].StartByte);
                 if (_configDt.GetAnzahlAa() > 1) StringWertAa01 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[1].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[1].StartByte);
                 if (_configDt.GetAnzahlAa() > 2) StringWertAa02 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[2].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[2].StartByte);
                 if (_configDt.GetAnzahlAa() > 3) StringWertAa03 = WertAnzeigen.AnalogwertAnzeigen(_datenstruktur.Aa, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[3].Type, _configDt.DtConfig.AnalogeAusgaenge.EaConfig[3].StartByte);

@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BasePlcDtAt\BasePlcDtAt.csproj" />
-    <ProjectReference Include="..\LibWpf\LibWpf.csproj" />
   </ItemGroup>
 
   <ItemGroup>

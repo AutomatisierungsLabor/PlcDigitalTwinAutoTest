@@ -7,9 +7,12 @@ public partial class VmAmpelVerbania
     [ICommand]
     private void ButtonTaster(string taster)
     {
-        switch (taster)
-        {
-           default:break;
-        }
+        if (taster == "S1") (_modelAmpelVarbania.S1, ClickModeS1) = ButtonClickMode(ClickModeS1);
+    }
+
+    [ICommand]
+    private void ButtonSchalter(string schalter)
+    {
+        if (schalter == "S2") _modelAmpelVarbania.S2 = !_modelAmpelVarbania.S2;
     }
 }

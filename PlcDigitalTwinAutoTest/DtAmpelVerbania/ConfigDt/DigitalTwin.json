@@ -1,6 +1,15 @@
 {
   "AnalogeAusgaenge": {
-    "EaConfig": []
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "A",
+        "Kommentar": "Anzeige"
+      }
+    ]
   },
   "AnalogeEingaenge": {
     "EaConfig": []
@@ -11,8 +20,64 @@
         "StartByte": 0,
         "StartBit": 0,
         "Type": "Bit",
-        "Bezeichnung": "P1",
-        "Kommentar": "Meldeleuchte"
+        "Bezeichnung": "P11",
+        "Kommentar": "Autoampel - rot"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "P12",
+        "Kommentar": "Autoampel - gelb"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "P13",
+        "Kommentar": "Autoampel - grün"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "P21",
+        "Kommentar": "Fußgängerampel - rot"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "P22",
+        "Kommentar": "Fußgängerampel - gelb"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "P23",
+        "Kommentar": "Fußgängerampel - grün"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "P31",
+        "Kommentar": "Fußgängerampel - Anzeige rot"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "P32",
+        "Kommentar": "Fußgängerampel - Anzeige gelb"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "P33",
+        "Kommentar": "Fußgängerampel - Anzeige grün"
       }
     ]
   },
@@ -23,35 +88,14 @@
         "StartBit": 0,
         "Type": "Bit",
         "Bezeichnung": "S1",
-        "Kommentar": "Frequenz -"
+        "Kommentar": "Start"
       },
       {
         "StartByte": 0,
         "StartBit": 1,
         "Type": "Bit",
         "Bezeichnung": "S2",
-        "Kommentar": "Frequenz +"
-      },
-      {
-        "StartByte": 0,
-        "StartBit": 2,
-        "Type": "Bit",
-        "Bezeichnung": "S3",
-        "Kommentar": "Tastverhältnis -"
-      },
-      {
-        "StartByte": 0,
-        "StartBit": 3,
-        "Type": "Bit",
-        "Bezeichnung": "S4",
-        "Kommentar": "Tastverhältnis +"
-      },
-      {
-        "StartByte": 0,
-        "StartBit": 4,
-        "Type": "Bit",
-        "Bezeichnung": "S5",
-        "Kommentar": "Taster Reset"
+        "Kommentar": "7-Segment Anzeige"
       }
     ]
   },
