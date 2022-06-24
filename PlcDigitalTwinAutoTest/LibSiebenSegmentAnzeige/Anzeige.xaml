@@ -1,0 +1,114 @@
+<UserControl x:Class="LibSiebenSegmentAnzeige.SiebenSegmentAnzeige"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="190" d:DesignWidth="130">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Rectangle x:Name="HintergrundRechteck" Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="1" Grid.RowSpan="9" Fill="Silver" />
+
+        <Polygon x:Name="SegA" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="1" Fill="Yellow">
+            <Polygon.Points>
+                <Point X="11" Y="10" />
+                <Point X="21" Y="0"  />
+                <Point X="79" Y="0"  />
+                <Point X="89" Y="10" />
+                <Point X="79" Y="20" />
+                <Point X="21" Y="20" />
+            </Polygon.Points>
+        </Polygon>
+
+        <Polygon x:Name="SegB" Grid.Column="5" Grid.Row="1" Grid.RowSpan="5"  Fill="Yellow">
+            <Polygon.Points>
+                <Point X="10" Y="11" />
+                <Point X="20" Y="21" />
+                <Point X="20" Y="79" />
+                <Point X="10" Y="89" />
+                <Point X="0"  Y="79" />
+                <Point X="0"  Y="21" />
+            </Polygon.Points>
+        </Polygon>
+
+        <Polygon x:Name="SegC" Grid.Column="5" Grid.Row="5" Grid.RowSpan="5"  Fill="Yellow">
+            <Polygon.Points>
+                <Point X="10" Y="11" />
+                <Point X="20" Y="21" />
+                <Point X="20" Y="79" />
+                <Point X="10" Y="89" />
+                <Point X="0"  Y="79" />
+                <Point X="0"  Y="21" />
+            </Polygon.Points>
+        </Polygon>
+
+        <Polygon x:Name="SegD" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="9"  Fill="Yellow">
+            <Polygon.Points>
+                <Point X="11" Y="10" />
+                <Point X="21" Y="0"  />
+                <Point X="79" Y="0"  />
+                <Point X="89" Y="10" />
+                <Point X="79" Y="20" />
+                <Point X="21" Y="20" />
+            </Polygon.Points>
+        </Polygon>
+
+        <Polygon x:Name="SegE" Grid.Column="1" Grid.Row="5" Grid.RowSpan="5"  Fill="Yellow">
+            <Polygon.Points>
+                <Point X="10" Y="11" />
+                <Point X="20" Y="21" />
+                <Point X="20" Y="79" />
+                <Point X="10" Y="89" />
+                <Point X="0"  Y="79" />
+                <Point X="0"  Y="21" />
+            </Polygon.Points>
+        </Polygon>
+
+        <Polygon x:Name="SegF" Grid.Column="1" Grid.Row="1" Grid.RowSpan="5"  Fill="Yellow">
+            <Polygon.Points>
+                <Point X="10" Y="11" />
+                <Point X="20" Y="21" />
+                <Point X="20" Y="79" />
+                <Point X="10" Y="89" />
+                <Point X="0"  Y="79" />
+                <Point X="0"  Y="21" />
+            </Polygon.Points>
+        </Polygon>
+
+        <Polygon x:Name="SegG" Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5"  Fill="Yellow">
+            <Polygon.Points>
+                <Point X="11" Y="10" />
+                <Point X="21" Y="0"  />
+                <Point X="79" Y="0"  />
+                <Point X="89" Y="10" />
+                <Point X="79" Y="20" />
+                <Point X="21" Y="20" />
+            </Polygon.Points>
+        </Polygon>
+
+        <Ellipse x:Name="SegDp"  Grid.Column="6" Grid.Row="9"  Fill="LawnGreen"/>
+    </Grid>
+</UserControl>
