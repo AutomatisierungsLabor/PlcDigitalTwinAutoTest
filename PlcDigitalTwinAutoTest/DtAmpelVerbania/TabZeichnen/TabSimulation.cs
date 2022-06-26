@@ -38,20 +38,20 @@ public partial class TabZeichnen
         libWpf.Text("Autoampel", 0, 7, 2, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.RectangleFillMarginStroke(1, 5, 6, 13, Brushes.LightGray, new Thickness(20, 20, 20, 20), Brushes.Black, 4);
-        libWpf.EllipseStrokeSetFilling(2, 3, 7, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP11));
-        libWpf.EllipseStrokeSetFilling(2, 3, 11, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP12));
-        libWpf.EllipseStrokeSetFilling(2, 3, 15, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP13));
+        libWpf.EllipseStrokeBindingFilling(2, 3, 7, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP11));
+        libWpf.EllipseStrokeBindingFilling(2, 3, 11, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP12));
+        libWpf.EllipseStrokeBindingFilling(2, 3, 15, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP13));
 
         
         libWpf.Text("Fußgängerampel", 10, 7, 2, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.RectangleMarginStrokeSetFill(11, 5, 4, 2, new Thickness(20, 0, 20, 0), Brushes.Black, 4, nameof(vmAmpelVarbania.BrushAnzeige));
-        libWpf.TextMarginSetContent(12, 3, 4, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 50, Brushes.Black, new Thickness(0, -10, 0, 0), nameof(vmAmpelVarbania.StringAnzeige));
+        libWpf.RectangleMarginStrokeBindingFill(11, 5, 4, 2, new Thickness(20, 0, 20, 0), Brushes.Black, 4, nameof(vmAmpelVarbania.BrushAnzeige));
+        libWpf.TextMarginBindingContent(12, 3, 4, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 50, Brushes.Black, new Thickness(0, -10, 0, 0), nameof(vmAmpelVarbania.StringAnzeige));
 
         libWpf.RectangleFillMarginStroke(11, 5, 6, 13, Brushes.LightGray, new Thickness(20, 20, 20, 20), Brushes.Black, 4);
-        libWpf.EllipseStrokeSetFilling(12, 3, 7, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP21));
-        libWpf.EllipseStrokeSetFilling(12, 3, 11, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP22));
-        libWpf.EllipseStrokeSetFilling(12, 3, 15, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP23));
+        libWpf.EllipseStrokeBindingFilling(12, 3, 7, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP21));
+        libWpf.EllipseStrokeBindingFilling(12, 3, 11, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP22));
+        libWpf.EllipseStrokeBindingFilling(12, 3, 15, 3, Brushes.Black, 2, nameof(vmAmpelVarbania.BrushP23));
         
         libWpf.PlcError();
     }

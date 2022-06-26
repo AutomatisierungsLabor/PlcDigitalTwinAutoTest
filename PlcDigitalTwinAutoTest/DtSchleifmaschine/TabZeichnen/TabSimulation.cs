@@ -16,15 +16,15 @@ public partial class TabZeichnen
 
 
         libWpf.EllipseFillMarginStroke(2, 8, 1, 8, Brushes.SlateGray, new Thickness(2, 2, 2, 2), Brushes.SlateGray, 0);
-        libWpf.RectangleFillMarginSetWinkel(5, 2, 1, 2, Brushes.Yellow, new Thickness(25, 0, 25, 20), nameof(vmSchleifmaschine.Winkel), nameof(vmSchleifmaschine.PointTransformOrigin));
+        libWpf.RectangleFillMarginBindingWinkel(5, 2, 1, 2, Brushes.Yellow, new Thickness(25, 0, 25, 20), nameof(vmSchleifmaschine.Winkel), nameof(vmSchleifmaschine.PointTransformOrigin));
 
-        libWpf.TextSetContent(2, 8, 9, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black, nameof(vmSchleifmaschine.StringSchleifmaschineDrehzahl));
+        libWpf.TextBindingContent(2, 8, 9, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black, nameof(vmSchleifmaschine.StringSchleifmaschineDrehzahl));
 
-        libWpf.RectangleFillSetVisibility(2, 20, 12, 2, Brushes.Red, nameof(vmSchleifmaschine.VisibilityEinB1));
-        libWpf.TextContendSetVisibility("Schleifmaschine Übersynchron!", 2, 20, 12, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmSchleifmaschine.VisibilityEinB1));
+        libWpf.RectangleFillBindingVisibility(2, 20, 12, 2, Brushes.Red, nameof(vmSchleifmaschine.VisibilityEinB1));
+        libWpf.TextContendBindingVisibility("Schleifmaschine Übersynchron!", 2, 20, 12, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmSchleifmaschine.VisibilityEinB1));
 
 
-        libWpf.PointerGauge(12, 10, 1, 10, "Drehzahl", 0, 3000, 80, 225, "AktuelleDrehzahl");
+        libWpf.PointerGaugeBindingValue(12, 10, 1, 10, "Drehzahl", 0, 3000, 80, 225, "AktuelleDrehzahl");
 
 
         var buttonRand = new Thickness(2, 5, 2, 5);
@@ -48,15 +48,15 @@ public partial class TabZeichnen
 
 
         libWpf.Text("-Q1", 8, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RectangleMarginStrokeSetFill(10, 4, 14, 2, kreisRand, Brushes.Black, 2, nameof(vmSchleifmaschine.BrushQ1));
+        libWpf.RectangleMarginStrokeBindingFill(10, 4, 14, 2, kreisRand, Brushes.Black, 2, nameof(vmSchleifmaschine.BrushQ1));
         libWpf.Text("Langsam", 10, 4, 14, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.Text("-Q2", 8, 2, 16, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RectangleMarginStrokeSetFill(10, 4, 16, 2, kreisRand, Brushes.Black, 2, nameof(vmSchleifmaschine.BrushQ2));
+        libWpf.RectangleMarginStrokeBindingFill(10, 4, 16, 2, kreisRand, Brushes.Black, 2, nameof(vmSchleifmaschine.BrushQ2));
         libWpf.Text("Schnell", 10, 4, 16, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.Text("-P3", 8, 2, 19, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.EllipseMarginStrokeSetFilling(10, 3, 19, 3, kreisRand, Brushes.Black, 2, nameof(vmSchleifmaschine.BrushP3));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 3, 19, 3, kreisRand, Brushes.Black, 2, nameof(vmSchleifmaschine.BrushP3));
 
 
         libWpf.Text("-F1", 15, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
@@ -72,8 +72,8 @@ public partial class TabZeichnen
         libWpf.ButtonBackgroundContentMarginRounded("Reset", 25, 4, 20, 2, 20, 5, Brushes.DeepPink, buttonRand, vmSchleifmaschine.ButtonTasterCommand, "S4", nameof(vmSchleifmaschine.ClickModeS4));
 
 
-        libWpf.RectangleFillSetVisibility(2, 8, 11, 2, Brushes.Yellow, nameof(vmSchleifmaschine.VisibilityUebersynchron));
-        libWpf.TextContendSetVisibility("Übersychron!", 2, 8, 11, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black, nameof(vmSchleifmaschine.VisibilityUebersynchron));
+        libWpf.RectangleFillBindingVisibility(2, 8, 11, 2, Brushes.Yellow, nameof(vmSchleifmaschine.VisibilityUebersynchron));
+        libWpf.TextContendBindingVisibility("Übersychron!", 2, 8, 11, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black, nameof(vmSchleifmaschine.VisibilityUebersynchron));
 
         // libWpf.PlcError();
     }

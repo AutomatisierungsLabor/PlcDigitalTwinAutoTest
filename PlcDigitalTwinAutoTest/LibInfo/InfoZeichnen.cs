@@ -16,8 +16,8 @@ public class InfoZeichnen
         libWpf.Text("Lokale Projektbezeichnung:", 1, 10, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("PLC Projektbezeichnung:", 1, 10, 2, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
 
-        libWpf.TextSetContent(9, 10, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringProjektbezeichnungLokal));
-        libWpf.TextSetContent(9, 10, 2, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringProjektbezeichnungPlc));
+        libWpf.TextBindingContent(9, 10, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringProjektbezeichnungLokal));
+        libWpf.TextBindingContent(9, 10, 2, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringProjektbezeichnungPlc));
 
 
         libWpf.Text("Kommunikation mit der PLC:", 1, 10, 3, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
@@ -27,18 +27,18 @@ public class InfoZeichnen
         libWpf.Text("Min:", 2, 4, 6, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("Max:", 2, 4, 7, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
 
-        libWpf.TextSetContent(5, 10, 4, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringPlcStatus));
-        libWpf.TextSetContent(5, 10, 5, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringPlcZykluszeitAct));
-        libWpf.TextSetContent(5, 10, 6, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringPlcZykluszeitMin));
-        libWpf.TextSetContent(5, 10, 7, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringPlcZykluszeitMax));
+        libWpf.TextBindingContent(5, 10, 4, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringPlcStatus));
+        libWpf.TextBindingContent(5, 10, 5, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringPlcZykluszeitAct));
+        libWpf.TextBindingContent(5, 10, 6, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringPlcZykluszeitMin));
+        libWpf.TextBindingContent(5, 10, 7, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringPlcZykluszeitMax));
 
         libWpf.Text("Di:", 2, 4, 10, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("Da:", 2, 4, 11, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
 
-        libWpf.TextSetContent(5, 10, 10, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringDi0));
-        libWpf.TextSetContent(8, 10, 10, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringDi1));
+        libWpf.TextBindingContent(5, 10, 10, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringDi0));
+        libWpf.TextBindingContent(8, 10, 10, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringDi1));
 
-        libWpf.TextSetContent(5, 10, 11, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringDa0));
-        libWpf.TextSetContent(8, 10, 11, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringDa1));
+        libWpf.TextBindingContent(5, 10, 11, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringDa0));
+        libWpf.TextBindingContent(8, 10, 11, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black, nameof(vmInfo.StringDa1));
     }
 }

@@ -20,7 +20,7 @@ public partial class LibWpf
         };
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, linie);
     }
-    public void LinieSetVisibility(int xPos, int xSpan, int yPos, int ySpan, double x1, double y1, double x2, double y2, double breite, Brush farbe, string bindingVisibility)
+    public void LinieBindingVisibility(int xPos, int xSpan, int yPos, int ySpan, double x1, double y1, double x2, double y2, double breite, Brush farbe, string bindingVisibility)
     {
         var linie = new Line
         {
@@ -31,7 +31,7 @@ public partial class LibWpf
             X2 = x2,
             Y2 = y2
         };
-        linie.BindingSetVisibility(bindingVisibility);
+        linie.FrameworkElementBindingVisibility(bindingVisibility);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, linie);
     }
     public void Border(int xPos, int xSpan, int yPos, int ySpan, Brush farbe, Thickness rand)

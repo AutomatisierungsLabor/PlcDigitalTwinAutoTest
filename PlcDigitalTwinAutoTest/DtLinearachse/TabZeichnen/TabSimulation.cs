@@ -19,16 +19,16 @@ public partial class TabZeichnen
         libWpf.RectangleFill(5, 20, 4, 1, Brushes.Black);
         libWpf.RectangleFill(25, 2, 1, 7, Brushes.Black);
 
-        libWpf.RectangleFillStrokeSetMargin(5, 20, 1, 7, Brushes.Yellow, Brushes.Black, 2, nameof(vmLinearachse.MarginPositionSchlitten));
+        libWpf.RectangleFillStrokeBindingMargin(5, 20, 1, 7, Brushes.Yellow, Brushes.Black, 2, nameof(vmLinearachse.MarginPositionSchlitten));
 
         var kontakteRand = new Thickness(2, 5, 2, 5);
         libWpf.Text("-B1", 3, 2, 8, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 4, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB1));
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 4, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityEinB1));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 4, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB1));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 4, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityEinB1));
 
         libWpf.Text("-B2", 23, 2, 8, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 23, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB2));
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 23, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB2));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 23, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB2));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 23, 2, 8, 2, kontakteRand, nameof(vmLinearachse.VisibilityAusB2));
 
 
 
@@ -40,7 +40,7 @@ public partial class TabZeichnen
         libWpf.ButtonBackgroundContentMarginRounded("①", 3, 3, 11, 3, 50, 15, Brushes.LawnGreen, buttonRand, vmLinearachse.ButtonTasterCommand, "S1", nameof(vmLinearachse.ClickModeS1));
 
         libWpf.Text("-P1", 1, 2, 14, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.RectangleMarginSetFill(3, 3, 14, 2, buttonRand, nameof(vmLinearachse.BrushP1));
+        libWpf.RectangleMarginBindingFill(3, 3, 14, 2, buttonRand, nameof(vmLinearachse.BrushP1));
 
         libWpf.Text("-S2", 1, 2, 16, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.ButtonBackgroundContentMarginRounded("⓪", 3, 3, 16, 3, 50, 15, Brushes.Red, buttonRand, vmLinearachse.ButtonTasterCommand, "S2", nameof(vmLinearachse.ClickModeS2));
@@ -83,15 +83,15 @@ public partial class TabZeichnen
 
         libWpf.RectangleFill(1, 5, 20, 3, Brushes.LightGray);
         libWpf.Text("-P2", 1, 2, 20, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.EllipseMarginStrokeSetFilling(3, 3, 20, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLinearachse.BrushP2));
+        libWpf.EllipseMarginStrokeBindingFilling(3, 3, 20, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLinearachse.BrushP2));
 
         libWpf.RectangleFill(8, 5, 20, 3, Brushes.LightGray);
         libWpf.Text("-P3", 8, 2, 20, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.EllipseMarginStrokeSetFilling(10, 3, 20, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLinearachse.BrushP3));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 3, 20, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLinearachse.BrushP3));
 
         libWpf.RectangleFill(15, 5, 20, 3, Brushes.LightGray);
         libWpf.Text("-P4", 15, 2, 20, 3, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.EllipseMarginStrokeSetFilling(17, 3, 20, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLinearachse.BrushP4));
+        libWpf.EllipseMarginStrokeBindingFilling(17, 3, 20, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLinearachse.BrushP4));
 
         libWpf.RectangleFill(22, 5, 20, 3, Brushes.LightGray);
         libWpf.ButtonMarginSetVisibilityZweiBilder(24, 3, 20, 3, "NotHalt.jpg", "NotHaltGedrueckt.jpg", buttonRand, vmLinearachse.ButtonSchalterCommand, "S10", nameof(vmLinearachse.ClickModeS10), nameof(vmLinearachse.VisibilityEinS10), nameof(vmLinearachse.VisibilityAusS10));

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Contracts;
 using Microsoft.Toolkit.Mvvm.Input;
 
 namespace DtLap2018_3_Hydraulikaggregat.ViewModel;
@@ -10,13 +11,13 @@ public partial class VmLap2018
     {
         switch (taster)
         {
-            case "S1": (_modelLap2018.S1, ClickModeS1) = ButtonClickMode(ClickModeS1); break;
-            case "S2": (_modelLap2018.S2, ClickModeS2) = ButtonClickModeInvertiert(ClickModeS2); break;
+            case "S1": (_modelLap2018.S1, ClickModeS1) = BaseFunctions.ButtonClickMode(ClickModeS1); break;
+            case "S2": (_modelLap2018.S2, ClickModeS2) = BaseFunctions.ButtonClickModeInvertiert(ClickModeS2); break;
             case "S3":
-                (_modelLap2018.S3, ClickModeS3) = ButtonClickMode(ClickModeS3);
+                (_modelLap2018.S3, ClickModeS3) = BaseFunctions.ButtonClickMode(ClickModeS3);
                 _modelLap2018.Stopwatch.Restart();
                 break;
-            case "S4": (_modelLap2018.S4, ClickModeS4) = ButtonClickMode(ClickModeS4); break;
+            case "S4": (_modelLap2018.S4, ClickModeS4) = BaseFunctions.ButtonClickMode(ClickModeS4); break;
             case "Nachfuellen": _modelLap2018.Pegel = 1; break;
         }
     }

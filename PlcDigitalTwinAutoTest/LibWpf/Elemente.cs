@@ -88,7 +88,7 @@ public partial class LibWpf
 
         return comboBox;
     }
-    public void SliderMargin(int xPos, int xSpan, int yPos, int ySpan, Brush background, Thickness margin, double min, double max, string setValue)
+    public void SliderMarginBindingValue(int xPos, int xSpan, int yPos, int ySpan, Brush background, Thickness margin, double min, double max, string bindingValue)
     {
         var slider = new Slider
         {
@@ -98,7 +98,7 @@ public partial class LibWpf
             Maximum = max
         };
 
-        slider.BindingSliderSetValue(setValue);
+        slider.SliderBindingValue(bindingValue);
 
         Grid.SetColumn(slider, xPos);
         Grid.SetColumnSpan(slider, xSpan);

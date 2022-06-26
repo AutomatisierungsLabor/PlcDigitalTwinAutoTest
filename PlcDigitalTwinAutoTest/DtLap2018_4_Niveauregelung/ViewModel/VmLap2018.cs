@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 using DtLap2018_4_Niveauregelung.Model;
 using LibDatenstruktur;
 
@@ -36,26 +37,26 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         
         StringFuellstand = $"Füllstand: {_modelLap2018.Pegel * 100:F1}%";
 
-        BrushF1 = SetBrush(!_modelLap2018.F1, Brushes.Red, Brushes.LawnGreen);
-        BrushF2 = SetBrush(!_modelLap2018.F2, Brushes.Red, Brushes.LawnGreen);
+        BrushF1 = BaseFunctions.SetBrush(!_modelLap2018.F1, Brushes.Red, Brushes.LawnGreen);
+        BrushF2 = BaseFunctions.SetBrush(!_modelLap2018.F2, Brushes.Red, Brushes.LawnGreen);
 
-        BrushP1 = SetBrush(_modelLap2018.P1, Brushes.Red, Brushes.White);
-        BrushP2 = SetBrush(_modelLap2018.P2, Brushes.LawnGreen, Brushes.White);
-        BrushP3 = SetBrush(_modelLap2018.P3, Brushes.OrangeRed, Brushes.White);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2018.P1, Brushes.Red, Brushes.White);
+        BrushP2 = BaseFunctions.SetBrush(_modelLap2018.P2, Brushes.LawnGreen, Brushes.White);
+        BrushP3 = BaseFunctions.SetBrush(_modelLap2018.P3, Brushes.OrangeRed, Brushes.White);
 
-        BrushAbleitungOben = SetBrush(_modelLap2018.Pegel > 0.01, Brushes.Blue, Brushes.LightBlue);
-        BrushAbleitungUnten = SetBrush(_modelLap2018.Y1 && _modelLap2018.Pegel > 0.01, Brushes.Blue, Brushes.LightBlue);
-        BrushZuleitungLinksWaagrecht = SetBrush(_modelLap2018.Q1, Brushes.Blue, Brushes.LightBlue);
-        BrushZuleitungLinksSenkrecht = SetBrush(_modelLap2018.Q1, Brushes.Blue, Brushes.LightBlue);
-        BrushZuleitungRechtsWaagrecht = SetBrush(_modelLap2018.Q2, Brushes.Blue, Brushes.LightBlue);
-        BrushZuleitungRechtsSenkrecht = SetBrush(_modelLap2018.Q2, Brushes.Blue, Brushes.LightBlue);
+        BrushAbleitungOben = BaseFunctions.SetBrush(_modelLap2018.Pegel > 0.01, Brushes.Blue, Brushes.LightBlue);
+        BrushAbleitungUnten = BaseFunctions.SetBrush(_modelLap2018.Y1 && _modelLap2018.Pegel > 0.01, Brushes.Blue, Brushes.LightBlue);
+        BrushZuleitungLinksWaagrecht = BaseFunctions.SetBrush(_modelLap2018.Q1, Brushes.Blue, Brushes.LightBlue);
+        BrushZuleitungLinksSenkrecht = BaseFunctions.SetBrush(_modelLap2018.Q1, Brushes.Blue, Brushes.LightBlue);
+        BrushZuleitungRechtsWaagrecht = BaseFunctions.SetBrush(_modelLap2018.Q2, Brushes.Blue, Brushes.LightBlue);
+        BrushZuleitungRechtsSenkrecht = BaseFunctions.SetBrush(_modelLap2018.Q2, Brushes.Blue, Brushes.LightBlue);
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2018.B1);
-        (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLap2018.B2);
-        (VisibilityEinB3, VisibilityAusB3) = SetVisibility(_modelLap2018.B3);
-        (VisibilityEinQ1, VisibilityAusQ1) = SetVisibility(_modelLap2018.Q1);
-        (VisibilityEinQ2, VisibilityAusQ2) = SetVisibility(_modelLap2018.Q2);
-        (VisibilityEinY1, VisibilityAusY1) = SetVisibility(_modelLap2018.Y1);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2018.B1);
+        (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLap2018.B2);
+        (VisibilityEinB3, VisibilityAusB3) = BaseFunctions.SetVisibility(_modelLap2018.B3);
+        (VisibilityEinQ1, VisibilityAusQ1) = BaseFunctions.SetVisibility(_modelLap2018.Q1);
+        (VisibilityEinQ2, VisibilityAusQ2) = BaseFunctions.SetVisibility(_modelLap2018.Q2);
+        (VisibilityEinY1, VisibilityAusY1) = BaseFunctions.SetVisibility(_modelLap2018.Y1);
 
         ThicknessFuellstand = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2018.Pegel), 0, 0);
     }

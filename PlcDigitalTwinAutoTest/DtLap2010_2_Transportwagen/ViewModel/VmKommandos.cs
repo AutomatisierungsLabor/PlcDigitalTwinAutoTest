@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Mvvm.Input;
+﻿using Contracts;
+using Microsoft.Toolkit.Mvvm.Input;
 
 namespace DtLap2010_2_Transportwagen.ViewModel;
 
@@ -9,8 +10,8 @@ public partial class VmLap2010
     {
         switch (taster)
         {
-            case "S1": (_modelLap2010.S1, ClickModeS1) = ButtonClickMode(ClickModeS1); break;
-            case "S3": (_modelLap2010.S3, ClickModeS3) = ButtonClickMode(ClickModeS3); break;
+            case "S1": (_modelLap2010.S1, ClickModeS1) = BaseFunctions.ButtonClickMode(ClickModeS1); break;
+            case "S3": (_modelLap2010.S3, ClickModeS3) = BaseFunctions.ButtonClickMode(ClickModeS3); break;
         }
     }
 

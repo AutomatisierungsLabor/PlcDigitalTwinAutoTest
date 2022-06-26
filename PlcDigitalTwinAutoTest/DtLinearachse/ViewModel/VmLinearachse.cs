@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtLinearachse.ViewModel;
 
@@ -34,14 +35,14 @@ public partial class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLinearachse.B1);
-        (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLinearachse.B2);
-        (VisibilityEinS10, VisibilityAusS10) = SetVisibility(_modelLinearachse.S10);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLinearachse.B1);
+        (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLinearachse.B2);
+        (VisibilityEinS10, VisibilityAusS10) = BaseFunctions.SetVisibility(_modelLinearachse.S10);
 
-        BrushP1 = SetBrush(_modelLinearachse.P1, Brushes.LawnGreen, Brushes.White);
-        BrushP2 = SetBrush(_modelLinearachse.P2, Brushes.LawnGreen, Brushes.White);
-        BrushP3 = SetBrush(_modelLinearachse.P3, Brushes.LawnGreen, Brushes.White);
-        BrushP4 = SetBrush(_modelLinearachse.P4, Brushes.LawnGreen, Brushes.White);
+        BrushP1 = BaseFunctions.SetBrush(_modelLinearachse.P1, Brushes.LawnGreen, Brushes.White);
+        BrushP2 = BaseFunctions.SetBrush(_modelLinearachse.P2, Brushes.LawnGreen, Brushes.White);
+        BrushP3 = BaseFunctions.SetBrush(_modelLinearachse.P3, Brushes.LawnGreen, Brushes.White);
+        BrushP4 = BaseFunctions.SetBrush(_modelLinearachse.P4, Brushes.LawnGreen, Brushes.White);
 
         var links = _modelLinearachse.PositionSchlitten;
         var rechts = 525 - _modelLinearachse.PositionSchlitten;

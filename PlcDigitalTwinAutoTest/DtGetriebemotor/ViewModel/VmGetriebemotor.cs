@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtGetriebemotor.ViewModel;
 
@@ -36,13 +37,13 @@ public partial class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
 
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        (VisibilityEinB1, VisibilityEinB1) = SetVisibility(_modelGetriebemotor.B1);
-        (VisibilityEinB2, VisibilityEinB2) = SetVisibility(_modelGetriebemotor.B2);
-        (VisibilityEinS91, VisibilityEinS91) = SetVisibility(_modelGetriebemotor.S91);
+        (VisibilityEinB1, VisibilityEinB1) = BaseFunctions.SetVisibility(_modelGetriebemotor.B1);
+        (VisibilityEinB2, VisibilityEinB2) = BaseFunctions.SetVisibility(_modelGetriebemotor.B2);
+        (VisibilityEinS91, VisibilityEinS91) = BaseFunctions.SetVisibility(_modelGetriebemotor.S91);
 
-        BrushP1 = SetBrush(_modelGetriebemotor.P1, Brushes.White, Brushes.LightGray);
-        BrushP2 = SetBrush(_modelGetriebemotor.P2, Brushes.LawnGreen, Brushes.LightGray);
-        BrushP3 = SetBrush(_modelGetriebemotor.P3, Brushes.Red, Brushes.LightGray);
+        BrushP1 = BaseFunctions.SetBrush(_modelGetriebemotor.P1, Brushes.White, Brushes.LightGray);
+        BrushP2 = BaseFunctions.SetBrush(_modelGetriebemotor.P2, Brushes.LawnGreen, Brushes.LightGray);
+        BrushP3 = BaseFunctions.SetBrush(_modelGetriebemotor.P3, Brushes.Red, Brushes.LightGray);
 
         WinkelGetriebemotor = _modelGetriebemotor.WinkelGetriebemotor;
     }

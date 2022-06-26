@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 using DtTiefgarage.Model;
 using LibDatenstruktur;
 
@@ -41,8 +42,8 @@ public partial class VmTiefgarage : BasePlcDtAt.BaseViewModel.VmBase
         StringAnzahlAutos = $"Autos in der TG: {_modelTiefgarage.AnzahlAutos}";
         StringAnzahlPersonen = $"Personen in der TG: {_modelTiefgarage.AnzahlPersonen}";
 
-        BrushB1 = SetBrush(_modelTiefgarage.B1, Brushes.Yellow, Brushes.LightGray);
-        BrushB2 = SetBrush(_modelTiefgarage.B2, Brushes.Yellow, Brushes.LightGray);
+        BrushB1 = BaseFunctions.SetBrush(_modelTiefgarage.B1, Brushes.Yellow, Brushes.LightGray);
+        BrushB2 = BaseFunctions.SetBrush(_modelTiefgarage.B2, Brushes.Yellow, Brushes.LightGray);
 
         ThicknessPkw1 = PositionBerechnen(_modelTiefgarage.AllePkwPersonen[0]);
         ThicknessPkw2 = PositionBerechnen(_modelTiefgarage.AllePkwPersonen[1]);

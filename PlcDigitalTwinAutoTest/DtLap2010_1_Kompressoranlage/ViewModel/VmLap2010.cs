@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtLap2010_1_Kompressoranlage.ViewModel;
 
@@ -31,16 +32,16 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        BrushB2 = SetBrush(_modelLap2010!.B2, Brushes.LawnGreen, Brushes.Red);
-        BrushF1 = SetBrush(_modelLap2010!.F1, Brushes.LawnGreen, Brushes.Red);
-        BrushP1 = SetBrush(_modelLap2010!.P1, Brushes.Red, Brushes.White);
-        BrushP2 = SetBrush(_modelLap2010!.P2, Brushes.LawnGreen, Brushes.White);
-        BrushQ1 = SetBrush(_modelLap2010!.Q1, Brushes.LawnGreen, Brushes.White);
-        BrushQ2 = SetBrush(_modelLap2010!.Q2, Brushes.LawnGreen, Brushes.White);
-        BrushQ3 = SetBrush(_modelLap2010!.Q3, Brushes.LawnGreen, Brushes.White);
+        BrushB2 = BaseFunctions.SetBrush(_modelLap2010!.B2, Brushes.LawnGreen, Brushes.Red);
+        BrushF1 = BaseFunctions.SetBrush(_modelLap2010!.F1, Brushes.LawnGreen, Brushes.Red);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2010!.P1, Brushes.Red, Brushes.White);
+        BrushP2 = BaseFunctions.SetBrush(_modelLap2010!.P2, Brushes.LawnGreen, Brushes.White);
+        BrushQ1 = BaseFunctions.SetBrush(_modelLap2010!.Q1, Brushes.LawnGreen, Brushes.White);
+        BrushQ2 = BaseFunctions.SetBrush(_modelLap2010!.Q2, Brushes.LawnGreen, Brushes.White);
+        BrushQ3 = BaseFunctions.SetBrush(_modelLap2010!.Q3, Brushes.LawnGreen, Brushes.White);
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2010.B1);
-        (VisibilityKurzschluss, _) = SetVisibility(_modelLap2010.Q2 && _modelLap2010.Q3);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2010.B1);
+        (VisibilityKurzschluss, _) = BaseFunctions.SetVisibility(_modelLap2010.Q2 && _modelLap2010.Q3);
 
         AktuellerDruck = _modelLap2010.Druck;
     }

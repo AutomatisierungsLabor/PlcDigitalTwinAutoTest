@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Mvvm.Input;
+﻿using Contracts;
+using Microsoft.Toolkit.Mvvm.Input;
 
 namespace DtLap2018_1_Silosteuerung.ViewModel;
 
@@ -9,9 +10,9 @@ public partial class VmLap2018
     {
         switch (taster)
         {
-            case "S0": (_modelLap2018.S0, ClickModeS0) = ButtonClickModeInvertiert(ClickModeS0); break;
-            case "S1": (_modelLap2018.S1, ClickModeS1) = ButtonClickMode(ClickModeS1); break;
-            case "S3": (_modelLap2018.S3, ClickModeS3) = ButtonClickMode(ClickModeS3); break;
+            case "S0": (_modelLap2018.S0, ClickModeS0) = BaseFunctions.ButtonClickModeInvertiert(ClickModeS0); break;
+            case "S1": (_modelLap2018.S1, ClickModeS1) = BaseFunctions.ButtonClickMode(ClickModeS1); break;
+            case "S3": (_modelLap2018.S3, ClickModeS3) = BaseFunctions.ButtonClickMode(ClickModeS3); break;
             case "WagenNachLinks": _modelLap2018.WagenNachLinks(); break;
             case "WagenNachRechts": _modelLap2018.WagenNachRechts(); break;
         }

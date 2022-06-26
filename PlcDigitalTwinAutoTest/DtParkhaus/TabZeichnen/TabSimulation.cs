@@ -26,8 +26,8 @@ public partial class TabZeichnen
 
 
         libWpf.Text("Freie Parkplätze:", 29, 10, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.TextSetContent(35, 10, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmParkhaus.StringFreieParkplaetze));
-        libWpf.TextSetContent(35, 10, 3, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmParkhaus.StringFreieParkplaetzeSoll));
+        libWpf.TextBindingContent(35, 10, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmParkhaus.StringFreieParkplaetze));
+        libWpf.TextBindingContent(35, 10, 3, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmParkhaus.StringFreieParkplaetzeSoll));
 
         libWpf.ButtonBackgroundContentMarginRounded("Zufall", 29, 6, 6, 3, 20, 15, Brushes.LawnGreen, buttonRand, vmParkhaus.ButtonTasterCommand, "Zufall", nameof(vmParkhaus.ClickModeZufall));
 
@@ -68,7 +68,7 @@ public partial class TabZeichnen
 
             for (var spalte = 0; spalte < 8; spalte++)
             {
-                libWpf.EllipseMarginStrokeSetFilling(1 + spalte * breiteBox, breiteBox, yPosSensor[reihe], 2, randSensor[reihe % 2], Brushes.Black, 2, $"BrushB{reihe}{spalte}");
+                libWpf.EllipseMarginStrokeBindingFilling(1 + spalte * breiteBox, breiteBox, yPosSensor[reihe], 2, randSensor[reihe % 2], Brushes.Black, 2, $"BrushB{reihe}{spalte}");
                 libWpf.TextMargin($"B{reihe}{spalte}", 1 + spalte * breiteBox, breiteBox, yPosBeschriftung[reihe], 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, randBeschriftung[reihe % 2]);
 
                 libWpf.ButtonImageMarginRotateSetVisibility(1 + spalte * breiteBox, breitePkw, yPosPkw[reihe], hoehePkw, pkwFarbe[spalte % 2], randPkw[reihe % 2], winkelPkw[reihe % 2], vmParkhaus.ButtonTasterCommand, $"{reihe}{spalte}", $"ClickModePkw{reihe}{spalte}", $"VisibilityPkw{reihe}{spalte}");

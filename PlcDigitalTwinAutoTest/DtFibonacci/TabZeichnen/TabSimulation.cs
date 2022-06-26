@@ -15,7 +15,7 @@ public partial class TabZeichnen
 
         var scottPlot = libWpf.ScottPlot(1, 37, 6, 17);
 
-        libWpf.EllipseMarginStrokeSetFilling(10, 4, 1, 4, new Thickness(2, 2, 2, 2), new SolidColorBrush(Colors.Black), 2, nameof(vmFibonacci.BrushP1));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 4, 1, 4, new Thickness(2, 2, 2, 2), new SolidColorBrush(Colors.Black), 2, nameof(vmFibonacci.BrushP1));
         libWpf.ButtonBackgroundContentMarginRounded("Start", 25, 4, 1, 4, 30, 15, Brushes.LawnGreen, new Thickness(2, 2, 2, 2), vmFibonacci.ButtonTasterCommand, "S1", nameof(vmFibonacci.ClickModeS1));
 
         libWpf.PlcError();

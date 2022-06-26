@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtSchleifmaschine.ViewModel;
 
@@ -41,21 +42,21 @@ public partial class VmSchleifmaschine : BasePlcDtAt.BaseViewModel.VmBase
         AktuelleDrehzahl = _modelSchleifmaschine.DrehzahlSchleifmaschine;
         StringSchleifmaschineDrehzahl = "n=" + _modelSchleifmaschine.DrehzahlSchleifmaschine;
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelSchleifmaschine.B1);
-        (VisibilityEinS3, VisibilityAusS3) = SetVisibility(_modelSchleifmaschine.S3);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelSchleifmaschine.B1);
+        (VisibilityEinS3, VisibilityAusS3) = BaseFunctions.SetVisibility(_modelSchleifmaschine.S3);
 
-        BrushF1 = SetBrush(_modelSchleifmaschine.F1, Brushes.LawnGreen, Brushes.Red);
-        BrushF2 = SetBrush(_modelSchleifmaschine.F2, Brushes.LawnGreen, Brushes.Red);
+        BrushF1 = BaseFunctions.SetBrush(_modelSchleifmaschine.F1, Brushes.LawnGreen, Brushes.Red);
+        BrushF2 = BaseFunctions.SetBrush(_modelSchleifmaschine.F2, Brushes.LawnGreen, Brushes.Red);
 
-        BrushP1 = SetBrush(_modelSchleifmaschine.P1, Brushes.White, Brushes.LightGray);
-        BrushP2 = SetBrush(_modelSchleifmaschine.P2, Brushes.LawnGreen, Brushes.LightGray);
-        BrushP3 = SetBrush(_modelSchleifmaschine.P3, Brushes.Red, Brushes.LightGray);
-        BrushS3 = SetBrush(_modelSchleifmaschine.S3, Brushes.LawnGreen, Brushes.Red);
+        BrushP1 = BaseFunctions.SetBrush(_modelSchleifmaschine.P1, Brushes.White, Brushes.LightGray);
+        BrushP2 = BaseFunctions.SetBrush(_modelSchleifmaschine.P2, Brushes.LawnGreen, Brushes.LightGray);
+        BrushP3 = BaseFunctions.SetBrush(_modelSchleifmaschine.P3, Brushes.Red, Brushes.LightGray);
+        BrushS3 = BaseFunctions.SetBrush(_modelSchleifmaschine.S3, Brushes.LawnGreen, Brushes.Red);
 
-        BrushQ1 = SetBrush(_modelSchleifmaschine.Q1, Brushes.LawnGreen, Brushes.LightGray);
-        BrushQ2 = SetBrush(_modelSchleifmaschine.Q2, Brushes.LawnGreen, Brushes.LightGray);
+        BrushQ1 = BaseFunctions.SetBrush(_modelSchleifmaschine.Q1, Brushes.LawnGreen, Brushes.LightGray);
+        BrushQ2 = BaseFunctions.SetBrush(_modelSchleifmaschine.Q2, Brushes.LawnGreen, Brushes.LightGray);
 
-        (VisibilityUebersynchron, _) = SetVisibility(_modelSchleifmaschine.B1);
+        (VisibilityUebersynchron, _) = BaseFunctions.SetVisibility(_modelSchleifmaschine.B1);
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

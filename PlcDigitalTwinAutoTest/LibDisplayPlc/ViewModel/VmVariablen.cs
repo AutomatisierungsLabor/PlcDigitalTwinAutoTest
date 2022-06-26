@@ -1,12 +1,9 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
-using System.Windows.Media;
 
 namespace LibDisplayPlc.ViewModel;
 
 public partial class VmPlc
 {
-    public static Brush SetBrush(bool val, Brush farbeTrue, Brush farbeFalse) => val ? farbeTrue : farbeFalse;
-    
     [ObservableProperty] private string _stringWertAi00;
     [ObservableProperty] private string _stringWertAi01;
     [ObservableProperty] private string _stringWertAi02;

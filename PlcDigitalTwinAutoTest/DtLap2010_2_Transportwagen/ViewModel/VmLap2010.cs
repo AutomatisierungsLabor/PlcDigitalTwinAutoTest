@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtLap2010_2_Transportwagen.ViewModel;
 
@@ -35,16 +36,16 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        BrushF1 = SetBrush(_modelLap2010!.F1, Brushes.LawnGreen, Brushes.Red);
-        BrushP1 = SetBrush(_modelLap2010!.P1, Brushes.Red, Brushes.White);
-        BrushQ1 = SetBrush(_modelLap2010!.Q1, Brushes.LawnGreen, Brushes.White);
-        BrushQ2 = SetBrush(_modelLap2010!.Q2, Brushes.LawnGreen, Brushes.White);
-        BrushS2 = SetBrush(_modelLap2010!.S2, Brushes.White, Brushes.Red);
+        BrushF1 = BaseFunctions.SetBrush(_modelLap2010!.F1, Brushes.LawnGreen, Brushes.Red);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2010!.P1, Brushes.Red, Brushes.White);
+        BrushQ1 = BaseFunctions.SetBrush(_modelLap2010!.Q1, Brushes.LawnGreen, Brushes.White);
+        BrushQ2 = BaseFunctions.SetBrush(_modelLap2010!.Q2, Brushes.LawnGreen, Brushes.White);
+        BrushS2 = BaseFunctions.SetBrush(_modelLap2010!.S2, Brushes.White, Brushes.Red);
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2010!.B1);
-        (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLap2010!.B2);
-        (VisibilityFuellen, _) = SetVisibility(_modelLap2010!.Fuellen);
-        (VisibilityKurzschluss, _) = SetVisibility(_modelLap2010!.Q1 && _modelLap2010!.Q2);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2010!.B1);
+        (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLap2010!.B2);
+        (VisibilityFuellen, _) = BaseFunctions.SetVisibility(_modelLap2010!.Fuellen);
+        (VisibilityKurzschluss, _) = BaseFunctions.SetVisibility(_modelLap2010!.Q1 && _modelLap2010!.Q2);
 
         var posWagenkastenLinks = _modelLap2010!.Position * (BreiteZeichenbereich - BreiteWagenkasten);
 

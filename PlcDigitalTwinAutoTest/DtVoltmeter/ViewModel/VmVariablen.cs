@@ -14,5 +14,7 @@ public partial class VmVoltmeter
     [ObservableProperty] private ClickMode _clickModeS4;
     [ObservableProperty] private ClickMode _clickModeS5;
 
-    [ObservableProperty] private short _shortAnzeige;
+    [ObservableProperty] private short _shortAnzeige1;
+    [ObservableProperty] private short _shortAnzeige2;
+    [ObservableProperty] private short _shortAnzeige3;
 }

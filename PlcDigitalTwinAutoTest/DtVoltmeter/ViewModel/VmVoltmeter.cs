@@ -11,7 +11,7 @@ public partial class VmVoltmeter : BasePlcDtAt.BaseViewModel.VmBase
     private readonly ModelVoltmeter _modelVoltmeter;
     private readonly Datenstruktur _datenstruktur;
 
-    private short zaehler;
+    private short _zaehler;
 
     public VmVoltmeter(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
@@ -36,11 +36,13 @@ public partial class VmVoltmeter : BasePlcDtAt.BaseViewModel.VmBase
 
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        zaehler++;
-        if (zaehler <= 100) return;
+        _zaehler++;
+        if (_zaehler <= 100) return;
 
-        zaehler = 0;
-        ShortAnzeige++;
+        _zaehler = 0;
+        ShortAnzeige1++;
+        ShortAnzeige2 = (short)(ShortAnzeige1 + 1);
+        ShortAnzeige3 = (short)(ShortAnzeige1 + 2);
 
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }

@@ -1,11 +1,11 @@
-﻿using LibConfigDt;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 using Contracts;
+using LibConfigDt;
 
 namespace LibDisplayPlc.ViewModel;
 
@@ -66,13 +66,13 @@ public partial class VmPlc : ObservableObject
 
             for (var i = 0; i < 8; i++)
             {
-                DiCollection[i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, i), Brushes.Yellow, Brushes.DarkGray);
-                DiCollection[10 + i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, 8 + i), Brushes.Yellow, Brushes.DarkGray);
-                DiCollection[20 + i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, 16 + i), Brushes.Yellow, Brushes.DarkGray);
+                DiCollection[i].DpFarbe = BaseFunctions.SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, i), Brushes.Yellow, Brushes.DarkGray);
+                DiCollection[10 + i].DpFarbe = BaseFunctions.SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, 8 + i), Brushes.Yellow, Brushes.DarkGray);
+                DiCollection[20 + i].DpFarbe = BaseFunctions.SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Di, 16 + i), Brushes.Yellow, Brushes.DarkGray);
 
-                DaCollection[i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, i), Brushes.LawnGreen, Brushes.DarkGray);
-                DaCollection[10 + i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, 8 + i), Brushes.LawnGreen, Brushes.DarkGray);
-                DaCollection[20 + i].DpFarbe = SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, 16 + i), Brushes.LawnGreen, Brushes.DarkGray);
+                DaCollection[i].DpFarbe = BaseFunctions.SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, i), Brushes.LawnGreen, Brushes.DarkGray);
+                DaCollection[10 + i].DpFarbe = BaseFunctions.SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, 8 + i), Brushes.LawnGreen, Brushes.DarkGray);
+                DaCollection[20 + i].DpFarbe = BaseFunctions.SetBrush(LibPlcTools.Bitmuster.BitInByteArrayTesten(_datenstruktur.Da, 16 + i), Brushes.LawnGreen, Brushes.DarkGray);
             }
 
 

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 using WpfAnimatedGif;
 
 namespace DtLap2018_1_Silosteuerung.ViewModel;
@@ -52,24 +53,24 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         StringRutscheVoll = _modelLap2018.RutscheVoll ? "Materialmangel" : "Rutsche voll";
 
 
-        BrushF1 = SetBrush(_modelLap2018.F1, Brushes.LawnGreen, Brushes.Red);
-        BrushF2 = SetBrush(_modelLap2018.F2, Brushes.LawnGreen, Brushes.Red);
-        BrushP1 = SetBrush(_modelLap2018.P1, Brushes.LawnGreen, Brushes.White);
-        BrushP2 = SetBrush(_modelLap2018.P2, Brushes.Red, Brushes.White);
-        BrushQ1 = SetBrush(_modelLap2018.Q1, Brushes.LawnGreen, Brushes.Gray);
-        BrushS2 = SetBrush(_modelLap2018.S2, Brushes.LawnGreen, Brushes.Red);
+        BrushF1 = BaseFunctions.SetBrush(_modelLap2018.F1, Brushes.LawnGreen, Brushes.Red);
+        BrushF2 = BaseFunctions.SetBrush(_modelLap2018.F2, Brushes.LawnGreen, Brushes.Red);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2018.P1, Brushes.LawnGreen, Brushes.White);
+        BrushP2 = BaseFunctions.SetBrush(_modelLap2018.P2, Brushes.Red, Brushes.White);
+        BrushQ1 = BaseFunctions.SetBrush(_modelLap2018.Q1, Brushes.LawnGreen, Brushes.Gray);
+        BrushS2 = BaseFunctions.SetBrush(_modelLap2018.S2, Brushes.LawnGreen, Brushes.Red);
 
-        BrushRutscheVoll = SetBrush(_modelLap2018.RutscheVoll, Brushes.Firebrick, Brushes.LightGray);
-        BrushMaterialOben = SetBrush(_modelLap2018!.Silo.GetFuellstand() > 0.01, Brushes.LightGray, Brushes.Firebrick);
-        BrushMaterialUnten = SetBrush(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, Brushes.LightGray, Brushes.Firebrick);
+        BrushRutscheVoll = BaseFunctions.SetBrush(_modelLap2018.RutscheVoll, Brushes.Firebrick, Brushes.LightGray);
+        BrushMaterialOben = BaseFunctions.SetBrush(_modelLap2018!.Silo.GetFuellstand() > 0.01, Brushes.LightGray, Brushes.Firebrick);
+        BrushMaterialUnten = BaseFunctions.SetBrush(_modelLap2018!.Silo.GetFuellstand() > 0.01 && _modelLap2018.Y1, Brushes.LightGray, Brushes.Firebrick);
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2018.B1);
-        (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLap2018.B2);
-        (VisibilityEinQ1, VisibilityAusQ1) = SetVisibility(_modelLap2018.Q1);
-        (VisibilityEinQ2, VisibilityAusQ2) = SetVisibility(_modelLap2018.Q2);
-        (VisibilityEinY1, VisibilityAusY1) = SetVisibility(_modelLap2018.Y1);
-        (VisibilityEinMaterialOben, VisibilityAusMaterialOben) = SetVisibility(true);
-        (VisibilityEinMaterialUnten, VisibilityAusMaterialUnten) = SetVisibility(true);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2018.B1);
+        (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLap2018.B2);
+        (VisibilityEinQ1, VisibilityAusQ1) = BaseFunctions.SetVisibility(_modelLap2018.Q1);
+        (VisibilityEinQ2, VisibilityAusQ2) = BaseFunctions.SetVisibility(_modelLap2018.Q2);
+        (VisibilityEinY1, VisibilityAusY1) = BaseFunctions.SetVisibility(_modelLap2018.Y1);
+        (VisibilityEinMaterialOben, VisibilityAusMaterialOben) = BaseFunctions.SetVisibility(true);
+        (VisibilityEinMaterialUnten, VisibilityAusMaterialUnten) = BaseFunctions.SetVisibility(true);
 
         MarginPositionWagen = new Thickness(_modelLap2018.Wagen.GetPosition().X, 0, BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);
         MarginPostionWagenInhalt = new Thickness(_modelLap2018.Wagen.GetPosition().X, _modelLap2018.Wagen.GetFuellstand(), BreiteFahrbereichWagen - _modelLap2018.Wagen.GetPosition().X, 0);

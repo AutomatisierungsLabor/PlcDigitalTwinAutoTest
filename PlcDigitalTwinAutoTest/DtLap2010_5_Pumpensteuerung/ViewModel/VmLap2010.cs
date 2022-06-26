@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtLap2010_5_Pumpensteuerung.ViewModel;
 
@@ -35,19 +36,19 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        BrushF1 = SetBrush(_modelLap2010.F1, Brushes.LawnGreen, Brushes.Red);
-        BrushP1 = SetBrush(_modelLap2010.P1, Brushes.LawnGreen, Brushes.LightGray);
-        BrushP2 = SetBrush(_modelLap2010.P2, Brushes.Red, Brushes.LightGray);
+        BrushF1 = BaseFunctions.SetBrush(_modelLap2010.F1, Brushes.LawnGreen, Brushes.Red);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2010.P1, Brushes.LawnGreen, Brushes.LightGray);
+        BrushP2 = BaseFunctions.SetBrush(_modelLap2010.P2, Brushes.Red, Brushes.LightGray);
 
-        BrushZuleitungWaagrecht = SetBrush(_modelLap2010.Q1, Brushes.Blue, Brushes.LightBlue);
-        BrushZuleitungSenkrecht = SetBrush(_modelLap2010.Q1, Brushes.Blue, Brushes.LightBlue);
-        BrushAbleitungOben = SetBrush(_modelLap2010.Pegel > 0.01, Brushes.Blue, Brushes.LightBlue);
-        BrushAbleitungUnten = SetBrush(_modelLap2010.Pegel > 0.01 && _modelLap2010!.Y1, Brushes.Blue, Brushes.LightBlue);
+        BrushZuleitungWaagrecht = BaseFunctions.SetBrush(_modelLap2010.Q1, Brushes.Blue, Brushes.LightBlue);
+        BrushZuleitungSenkrecht = BaseFunctions.SetBrush(_modelLap2010.Q1, Brushes.Blue, Brushes.LightBlue);
+        BrushAbleitungOben = BaseFunctions.SetBrush(_modelLap2010.Pegel > 0.01, Brushes.Blue, Brushes.LightBlue);
+        BrushAbleitungUnten = BaseFunctions.SetBrush(_modelLap2010.Pegel > 0.01 && _modelLap2010!.Y1, Brushes.Blue, Brushes.LightBlue);
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2010.B1);
-        (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLap2010.B2);
-        (VisibilityEinQ1, VisibilityAusQ1) = SetVisibility(_modelLap2010.Q1);
-        (VisibilityEinY1, VisibilityAusY1) = SetVisibility(_modelLap2010.Y1);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2010.B1);
+        (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLap2010.B2);
+        (VisibilityEinQ1, VisibilityAusQ1) = BaseFunctions.SetVisibility(_modelLap2010.Q1);
+        (VisibilityEinY1, VisibilityAusY1) = BaseFunctions.SetVisibility(_modelLap2010.Y1);
 
         MarginPegel = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2010.Pegel), 0, 0);
 

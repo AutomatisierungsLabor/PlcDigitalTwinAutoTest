@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 using DtWordclock.Model;
 using LibDatenstruktur;
 
@@ -45,31 +46,31 @@ public partial class VmWordclock : BasePlcDtAt.BaseViewModel.VmBase
         var farbeEin = Brushes.Yellow;
         var farbeAus = Brushes.DarkGray;
 
-        BrushEins = SetBrush(_modelWordclock.TextEins, farbeEin, farbeAus);
-        BrushZwei = SetBrush(_modelWordclock.TextZwei, farbeEin, farbeAus);
-        BrushDrei = SetBrush(_modelWordclock.TextDrei, farbeEin, farbeAus);
-        BrushVier = SetBrush(_modelWordclock.TextVier, farbeEin, farbeAus);
-        BrushFuenfMinute = SetBrush(_modelWordclock.TextFuenfMinute, farbeEin, farbeAus);
-        BrushFuenfStunde = SetBrush(_modelWordclock.TextFuenfStunde, farbeEin, farbeAus);
-        BrushSechs = SetBrush(_modelWordclock.TextSechs, farbeEin, farbeAus);
-        BrushSieben = SetBrush(_modelWordclock.TextSieben, farbeEin, farbeAus);
-        BrushAcht = SetBrush(_modelWordclock.TextAcht, farbeEin, farbeAus);
-        BrushNeun = SetBrush(_modelWordclock.TextNeun, farbeEin, farbeAus);
-        BrushZehnMinute = SetBrush(_modelWordclock.TextZehnMinute, farbeEin, farbeAus);
-        BrushZehnStunde = SetBrush(_modelWordclock.TextZehnStunde, farbeEin, farbeAus);
-        BrushElf = SetBrush(_modelWordclock.TextElf, farbeEin, farbeAus);
-        BrushZwoelf = SetBrush(_modelWordclock.TextZwoelf, farbeEin, farbeAus);
-        BrushZwanzig = SetBrush(_modelWordclock.TextZwanzig, farbeEin, farbeAus);
+        BrushEins = BaseFunctions.SetBrush(_modelWordclock.TextEins, farbeEin, farbeAus);
+        BrushZwei = BaseFunctions.SetBrush(_modelWordclock.TextZwei, farbeEin, farbeAus);
+        BrushDrei = BaseFunctions.SetBrush(_modelWordclock.TextDrei, farbeEin, farbeAus);
+        BrushVier = BaseFunctions.SetBrush(_modelWordclock.TextVier, farbeEin, farbeAus);
+        BrushFuenfMinute = BaseFunctions.SetBrush(_modelWordclock.TextFuenfMinute, farbeEin, farbeAus);
+        BrushFuenfStunde = BaseFunctions.SetBrush(_modelWordclock.TextFuenfStunde, farbeEin, farbeAus);
+        BrushSechs = BaseFunctions.SetBrush(_modelWordclock.TextSechs, farbeEin, farbeAus);
+        BrushSieben = BaseFunctions.SetBrush(_modelWordclock.TextSieben, farbeEin, farbeAus);
+        BrushAcht = BaseFunctions.SetBrush(_modelWordclock.TextAcht, farbeEin, farbeAus);
+        BrushNeun = BaseFunctions.SetBrush(_modelWordclock.TextNeun, farbeEin, farbeAus);
+        BrushZehnMinute = BaseFunctions.SetBrush(_modelWordclock.TextZehnMinute, farbeEin, farbeAus);
+        BrushZehnStunde = BaseFunctions.SetBrush(_modelWordclock.TextZehnStunde, farbeEin, farbeAus);
+        BrushElf = BaseFunctions.SetBrush(_modelWordclock.TextElf, farbeEin, farbeAus);
+        BrushZwoelf = BaseFunctions.SetBrush(_modelWordclock.TextZwoelf, farbeEin, farbeAus);
+        BrushZwanzig = BaseFunctions.SetBrush(_modelWordclock.TextZwanzig, farbeEin, farbeAus);
 
-        BrushEs = SetBrush(_modelWordclock.TextEs, farbeEin, farbeAus);
-        BrushIst = SetBrush(_modelWordclock.TextIst, farbeEin, farbeAus);
-        BrushBald = SetBrush(_modelWordclock.TextBald, farbeEin, farbeAus);
-        BrushGleich = SetBrush(_modelWordclock.TextGleich, farbeEin, farbeAus);
-        BrushVor = SetBrush(_modelWordclock.TextVor, farbeEin, farbeAus);
-        BrushNach = SetBrush(_modelWordclock.TextNach, farbeEin, farbeAus);
-        BrushUhr = SetBrush(_modelWordclock.TextUhr, farbeEin, farbeAus);
-        BrushHalb = SetBrush(_modelWordclock.TextHalb, farbeEin, farbeAus);
-        BrushViertel = SetBrush(_modelWordclock.TextViertel, farbeEin, farbeAus);
+        BrushEs = BaseFunctions.SetBrush(_modelWordclock.TextEs, farbeEin, farbeAus);
+        BrushIst = BaseFunctions.SetBrush(_modelWordclock.TextIst, farbeEin, farbeAus);
+        BrushBald = BaseFunctions.SetBrush(_modelWordclock.TextBald, farbeEin, farbeAus);
+        BrushGleich = BaseFunctions.SetBrush(_modelWordclock.TextGleich, farbeEin, farbeAus);
+        BrushVor = BaseFunctions.SetBrush(_modelWordclock.TextVor, farbeEin, farbeAus);
+        BrushNach = BaseFunctions.SetBrush(_modelWordclock.TextNach, farbeEin, farbeAus);
+        BrushUhr = BaseFunctions.SetBrush(_modelWordclock.TextUhr, farbeEin, farbeAus);
+        BrushHalb = BaseFunctions.SetBrush(_modelWordclock.TextHalb, farbeEin, farbeAus);
+        BrushViertel = BaseFunctions.SetBrush(_modelWordclock.TextViertel, farbeEin, farbeAus);
 
 
         _modelWordclock.SetGeschwindigkeit(DoubleGeschwindigkeit);
