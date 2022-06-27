@@ -27,16 +27,16 @@
     <None Update="ConfigDt\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker__594__1\DigitalTwin.json">
+    <None Update="ConfigTests\Blinker__624__1\DigitalTwin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker__594__1\test.scl">
+    <None Update="ConfigTests\Blinker__624__1\test.scl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker__594__1\test.ssc">
+    <None Update="ConfigTests\Blinker__624__1\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Blinker__594__1\test.st">
+    <None Update="ConfigTests\Blinker__624__1\test.st">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

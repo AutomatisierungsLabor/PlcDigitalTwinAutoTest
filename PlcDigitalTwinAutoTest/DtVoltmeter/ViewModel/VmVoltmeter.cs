@@ -11,7 +11,6 @@ public partial class VmVoltmeter : BasePlcDtAt.BaseViewModel.VmBase
     private readonly ModelVoltmeter _modelVoltmeter;
     private readonly Datenstruktur _datenstruktur;
 
-    private short _zaehler;
 
     public VmVoltmeter(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
@@ -36,14 +35,15 @@ public partial class VmVoltmeter : BasePlcDtAt.BaseViewModel.VmBase
 
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        _zaehler++;
-        if (_zaehler <= 100) return;
+        if (_modelVoltmeter.HintergrundGruen) BrushHintergrundFarbe = System.Windows.Media.Brushes.LawnGreen;
+        else
+        {
+            BrushHintergrundFarbe = _modelVoltmeter.HintergrundGelb ? System.Windows.Media.Brushes.Yellow : System.Windows.Media.Brushes.Red;
+        }
 
-        _zaehler = 0;
-        ShortAnzeige1++;
-        ShortAnzeige2 = (short)(ShortAnzeige1 + 1);
-        ShortAnzeige3 = (short)(ShortAnzeige1 + 2);
-
+        _modelVoltmeter.AnalogSignal = (int)DoubleAnalogsignal;
+        StringAnalogsignal = $"AI 0: {_modelVoltmeter.AnalogSignal}";
+        StringAnalogInVolt = $"AI 0: {_modelVoltmeter.AnalogSignal / 2746.8:F2}V";
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

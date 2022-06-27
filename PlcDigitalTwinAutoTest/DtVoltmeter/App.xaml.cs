@@ -14,7 +14,7 @@ public partial class App
     {
         var datenstruktur = new Datenstruktur();
         datenstruktur.SetVersionLokal("Voltmeter V3.0");
-        datenstruktur.SetVorbeitungId("594");
+        datenstruktur.SetVorbeitungId("624");
 
         var modelBlinker = new ModelVoltmeter(datenstruktur, _cancellationTokenSource);
         var vmBlinker = new VmVoltmeter(modelBlinker, datenstruktur, _cancellationTokenSource);

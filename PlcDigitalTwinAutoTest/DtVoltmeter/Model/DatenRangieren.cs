@@ -17,13 +17,14 @@ public class DatenRangieren
     {
         if (_datenstruktur.SimulationAktiv())
         {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, false);
-        }
-        else
-        {
-            (_, _, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
+            _datenstruktur.SetInt(DatenBereich.Ai, 0, _voltmeter.AnalogSignal);
         }
 
-        (_, _, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
+        _voltmeter.BitmusterEinerStelle = _datenstruktur.GetByte(DatenBereich.Da, 0);
+        _voltmeter.BitmusterZehnerStelle = _datenstruktur.GetByte(DatenBereich.Da, 1);
+        _voltmeter.BitmusterHunderterStelle = _datenstruktur.GetByte(DatenBereich.Da, 2);
+        _voltmeter.BitmusterTausenderStelle = _datenstruktur.GetByte(DatenBereich.Da, 3);
+        (_voltmeter.HintergrundGruen, _voltmeter.HintergrundGelb, _voltmeter.HintergrundRot, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 4);
+
     }
 }

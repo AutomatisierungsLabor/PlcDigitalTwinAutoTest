@@ -1,9 +1,27 @@
 {
   "AnalogeAusgaenge": {
-    "EaConfig": []
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "AnzahlBit": 16,
+        "Type": "Word",
+        "Bezeichnung": "AA0",
+        "Kommentar": "Analogeingang"
+      }
+    ]
   },
   "AnalogeEingaenge": {
-    "EaConfig": []
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "AnzahlBit": 16,
+        "Type": "Word",
+        "Bezeichnung": "AI0",
+        "Kommentar": "Bargraph"
+      }
+    ]
   },
   "DigitaleAusgaenge": {
     "EaConfig": [
@@ -11,49 +29,251 @@
         "StartByte": 0,
         "StartBit": 0,
         "Type": "Bit",
-        "Bezeichnung": "P1",
-        "Kommentar": "Meldeleuchte"
-      }
-    ]
-  },
-  "DigitaleEingaenge": {
-    "EaConfig": [
-      {
-        "StartByte": 0,
-        "StartBit": 0,
-        "Type": "Bit",
-        "Bezeichnung": "S1",
-        "Kommentar": "Frequenz -"
+        "Bezeichnung": "1A",
+        "Kommentar": "1: Segment a"
       },
       {
         "StartByte": 0,
         "StartBit": 1,
         "Type": "Bit",
-        "Bezeichnung": "S2",
-        "Kommentar": "Frequenz +"
+        "Bezeichnung": "1B",
+        "Kommentar": "1: Segment b"
       },
       {
         "StartByte": 0,
         "StartBit": 2,
         "Type": "Bit",
-        "Bezeichnung": "S3",
-        "Kommentar": "Tastverhältnis -"
+        "Bezeichnung": "1C",
+        "Kommentar": "1: Segment c"
       },
       {
         "StartByte": 0,
         "StartBit": 3,
         "Type": "Bit",
-        "Bezeichnung": "S4",
-        "Kommentar": "Tastverhältnis +"
+        "Bezeichnung": "1D",
+        "Kommentar": "1: Segment d"
       },
       {
         "StartByte": 0,
         "StartBit": 4,
         "Type": "Bit",
-        "Bezeichnung": "S5",
-        "Kommentar": "Taster Reset"
+        "Bezeichnung": "1E",
+        "Kommentar": "1: Segment e"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "1F",
+        "Kommentar": "1: Segment f"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "1G",
+        "Kommentar": "1: Segment g"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "1Dp",
+        "Kommentar": "1: DP"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "2A",
+        "Kommentar": "2: Segment a"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "2B",
+        "Kommentar": "2: Segment b"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "2C",
+        "Kommentar": "2: Segment c"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "2D",
+        "Kommentar": "2: Segment d"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "2E",
+        "Kommentar": "2: Segment e"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "2F",
+        "Kommentar": "2: Segment f"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "2G",
+        "Kommentar": "2: Segment g"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "2Dp",
+        "Kommentar": "2: DP"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "3A",
+        "Kommentar": "3: Segment a"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "3B",
+        "Kommentar": "3: Segment b"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "3C",
+        "Kommentar": "3: Segment c"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "3D",
+        "Kommentar": "3: Segment d"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "3E",
+        "Kommentar": "3: Segment e"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "3F",
+        "Kommentar": "3: Segment f"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "3G",
+        "Kommentar": "3: Segment g"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "3Dp",
+        "Kommentar": "3: DP"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "4A",
+        "Kommentar": "4: Segment a"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "4B",
+        "Kommentar": "4: Segment b"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "4C",
+        "Kommentar": "4: Segment c"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "4D",
+        "Kommentar": "4: Segment d"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "4E",
+        "Kommentar": "4: Segment e"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "4F",
+        "Kommentar": "4: Segment f"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "4G",
+        "Kommentar": "4: Segment g"
+      },
+      {
+        "StartByte": 3,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "4Dp",
+        "Kommentar": "4: DP"
+      },
+      {
+        "StartByte": 4,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "gn",
+        "Kommentar": "Hintergrund grün"
+      },
+      {
+        "StartByte": 4,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "ge",
+        "Kommentar": "Hintergrund gelb"
+      },
+      {
+        "StartByte": 4,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "rt",
+        "Kommentar": "Hintergrund rot"
       }
     ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": []
   },
   "Textbausteine": [],
   "Alarm": []
