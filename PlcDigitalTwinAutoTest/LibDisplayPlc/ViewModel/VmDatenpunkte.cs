@@ -5,12 +5,12 @@ namespace LibDisplayPlc.ViewModel;
 
 public partial class VmPlc
 {
-    public VmDatenpunkte[] DaCollection { get; set; } = new VmDatenpunkte[30];
-    public VmDatenpunkte[] DiCollection { get; set; } = new VmDatenpunkte[30];
+    public VmDatenpunkte[] DaCollection { get; set; } = new VmDatenpunkte[50];
+    public VmDatenpunkte[] DiCollection { get; set; } = new VmDatenpunkte[50];
 
     private void AlleDpInitialisieren()
     {
-        for (var i = 0; i < 30; i++)
+        for (var i = 0; i < 50; i++)
         {
             DaCollection[i] = new VmDatenpunkte(Brushes.Black, "", "", Visibility.Collapsed);
             DiCollection[i] = new VmDatenpunkte(Brushes.Black, "", "", Visibility.Collapsed);
@@ -42,6 +42,22 @@ public partial class VmPlc
         (BrushDa25, StringBezeichnungDa25, StringKommentarDa25, VisibilityDa25) = DaCollection[25].GetDatenpunkt();
         (BrushDa26, StringBezeichnungDa26, StringKommentarDa26, VisibilityDa26) = DaCollection[26].GetDatenpunkt();
         (BrushDa27, StringBezeichnungDa27, StringKommentarDa27, VisibilityDa27) = DaCollection[27].GetDatenpunkt();
+        (BrushDa30, StringBezeichnungDa30, StringKommentarDa30, VisibilityDa30) = DaCollection[30].GetDatenpunkt();
+        (BrushDa31, StringBezeichnungDa31, StringKommentarDa31, VisibilityDa31) = DaCollection[31].GetDatenpunkt();
+        (BrushDa32, StringBezeichnungDa32, StringKommentarDa32, VisibilityDa32) = DaCollection[32].GetDatenpunkt();
+        (BrushDa33, StringBezeichnungDa33, StringKommentarDa33, VisibilityDa33) = DaCollection[33].GetDatenpunkt();
+        (BrushDa34, StringBezeichnungDa34, StringKommentarDa34, VisibilityDa34) = DaCollection[34].GetDatenpunkt();
+        (BrushDa35, StringBezeichnungDa35, StringKommentarDa35, VisibilityDa35) = DaCollection[35].GetDatenpunkt();
+        (BrushDa36, StringBezeichnungDa36, StringKommentarDa36, VisibilityDa36) = DaCollection[36].GetDatenpunkt();
+        (BrushDa37, StringBezeichnungDa37, StringKommentarDa37, VisibilityDa37) = DaCollection[37].GetDatenpunkt();
+        (BrushDa40, StringBezeichnungDa40, StringKommentarDa40, VisibilityDa40) = DaCollection[40].GetDatenpunkt();
+        (BrushDa41, StringBezeichnungDa41, StringKommentarDa41, VisibilityDa41) = DaCollection[41].GetDatenpunkt();
+        (BrushDa42, StringBezeichnungDa42, StringKommentarDa42, VisibilityDa42) = DaCollection[42].GetDatenpunkt();
+        (BrushDa43, StringBezeichnungDa43, StringKommentarDa43, VisibilityDa43) = DaCollection[43].GetDatenpunkt();
+        (BrushDa44, StringBezeichnungDa44, StringKommentarDa44, VisibilityDa44) = DaCollection[44].GetDatenpunkt();
+        (BrushDa45, StringBezeichnungDa45, StringKommentarDa45, VisibilityDa45) = DaCollection[45].GetDatenpunkt();
+        (BrushDa46, StringBezeichnungDa46, StringKommentarDa46, VisibilityDa46) = DaCollection[46].GetDatenpunkt();
+        (BrushDa47, StringBezeichnungDa47, StringKommentarDa47, VisibilityDa47) = DaCollection[47].GetDatenpunkt();
 
         (BrushDi00, StringBezeichnungDi00, StringKommentarDi00, VisibilityDi00) = DiCollection[0].GetDatenpunkt();
         (BrushDi01, StringBezeichnungDi01, StringKommentarDi01, VisibilityDi01) = DiCollection[1].GetDatenpunkt();
@@ -59,7 +75,6 @@ public partial class VmPlc
         (BrushDi15, StringBezeichnungDi15, StringKommentarDi15, VisibilityDi15) = DiCollection[15].GetDatenpunkt();
         (BrushDi16, StringBezeichnungDi16, StringKommentarDi16, VisibilityDi16) = DiCollection[16].GetDatenpunkt();
         (BrushDi17, StringBezeichnungDi17, StringKommentarDi17, VisibilityDi17) = DiCollection[17].GetDatenpunkt();
-
         (BrushDi20, StringBezeichnungDi20, StringKommentarDi20, VisibilityDi20) = DiCollection[20].GetDatenpunkt();
         (BrushDi21, StringBezeichnungDi21, StringKommentarDi21, VisibilityDi21) = DiCollection[21].GetDatenpunkt();
         (BrushDi22, StringBezeichnungDi22, StringKommentarDi22, VisibilityDi22) = DiCollection[22].GetDatenpunkt();
@@ -68,6 +83,22 @@ public partial class VmPlc
         (BrushDi25, StringBezeichnungDi25, StringKommentarDi25, VisibilityDi25) = DiCollection[25].GetDatenpunkt();
         (BrushDi26, StringBezeichnungDi26, StringKommentarDi26, VisibilityDi26) = DiCollection[26].GetDatenpunkt();
         (BrushDi27, StringBezeichnungDi27, StringKommentarDi27, VisibilityDi27) = DiCollection[27].GetDatenpunkt();
+        (BrushDi30, StringBezeichnungDi30, StringKommentarDi30, VisibilityDi30) = DiCollection[30].GetDatenpunkt();
+        (BrushDi31, StringBezeichnungDi31, StringKommentarDi31, VisibilityDi31) = DiCollection[31].GetDatenpunkt();
+        (BrushDi32, StringBezeichnungDi32, StringKommentarDi32, VisibilityDi32) = DiCollection[32].GetDatenpunkt();
+        (BrushDi33, StringBezeichnungDi33, StringKommentarDi33, VisibilityDi33) = DiCollection[33].GetDatenpunkt();
+        (BrushDi34, StringBezeichnungDi34, StringKommentarDi34, VisibilityDi34) = DiCollection[34].GetDatenpunkt();
+        (BrushDi35, StringBezeichnungDi35, StringKommentarDi35, VisibilityDi35) = DiCollection[35].GetDatenpunkt();
+        (BrushDi36, StringBezeichnungDi36, StringKommentarDi36, VisibilityDi36) = DiCollection[36].GetDatenpunkt();
+        (BrushDi37, StringBezeichnungDi37, StringKommentarDi37, VisibilityDi37) = DiCollection[37].GetDatenpunkt();
+        (BrushDi40, StringBezeichnungDi30, StringKommentarDi40, VisibilityDi40) = DiCollection[40].GetDatenpunkt();
+        (BrushDi41, StringBezeichnungDi31, StringKommentarDi41, VisibilityDi41) = DiCollection[41].GetDatenpunkt();
+        (BrushDi42, StringBezeichnungDi32, StringKommentarDi42, VisibilityDi42) = DiCollection[42].GetDatenpunkt();
+        (BrushDi43, StringBezeichnungDi33, StringKommentarDi43, VisibilityDi43) = DiCollection[43].GetDatenpunkt();
+        (BrushDi44, StringBezeichnungDi34, StringKommentarDi44, VisibilityDi44) = DiCollection[44].GetDatenpunkt();
+        (BrushDi45, StringBezeichnungDi35, StringKommentarDi45, VisibilityDi45) = DiCollection[45].GetDatenpunkt();
+        (BrushDi46, StringBezeichnungDi36, StringKommentarDi46, VisibilityDi46) = DiCollection[46].GetDatenpunkt();
+        (BrushDi47, StringBezeichnungDi37, StringKommentarDi47, VisibilityDi47) = DiCollection[47].GetDatenpunkt();
     }
 }
 public class VmDatenpunkte

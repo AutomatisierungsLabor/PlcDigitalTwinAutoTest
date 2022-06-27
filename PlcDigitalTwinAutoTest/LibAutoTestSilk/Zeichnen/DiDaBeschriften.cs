@@ -19,17 +19,17 @@ public class DiDaBeschriften
             var x0 = 10 + 12 * (i + i / 4);
             var margin0 = new Thickness(240 - x0, 0, 0, 5);
 
-            libWpf.TextVerticalMarginWidthSetTextSetVisibility(2, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin0, 100, Brushes.Black, $"StringBezeichnungDi0{i}", $"VisibilityDi0{i}");
-            libWpf.TextVerticalMarginWidthSetTextSetVisibility(3, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin0, 100, Brushes.Black, $"StringBezeichnungDa0{i}", $"VisibilityDa0{i}");
-            libWpf.TextVerticalMarginWidthSetTextSetVisibility(4, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin0, 100, Brushes.Black, $"StringBezeichnungDa0{i}", $"VisibilityDa0{i}");
+            libWpf.TextVerticalMarginWidthBindingTextVisibility(2, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin0, 100, Brushes.Black, $"StringBezeichnungDi0{i}", $"VisibilityDi0{i}");
+            libWpf.TextVerticalMarginWidthBindingTextVisibility(3, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin0, 100, Brushes.Black, $"StringBezeichnungDa0{i}", $"VisibilityDa0{i}");
+            libWpf.TextVerticalMarginWidthBindingTextVisibility(4, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin0, 100, Brushes.Black, $"StringBezeichnungDa0{i}", $"VisibilityDa0{i}");
 
             var j = i + 8;
             var x1 = 10 + 12 * (j + j / 4);
             var margin1 = new Thickness(240 - x1, 0, 0, 5);
 
-            libWpf.TextVerticalMarginWidthSetTextSetVisibility(2, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin1, 100, Brushes.Black, $"StringBezeichnungDi1{i}", $"VisibilityDi1{i}");
-            libWpf.TextVerticalMarginWidthSetTextSetVisibility(3, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin1, 100, Brushes.Black, $"StringBezeichnungDa1{i}", $"VisibilityDa1{i}");
-            libWpf.TextVerticalMarginWidthSetTextSetVisibility(4, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin1, 100, Brushes.Black, $"StringBezeichnungDa1{i}", $"VisibilityDa1{i}");
+            libWpf.TextVerticalMarginWidthBindingTextVisibility(2, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin1, 100, Brushes.Black, $"StringBezeichnungDi1{i}", $"VisibilityDi1{i}");
+            libWpf.TextVerticalMarginWidthBindingTextVisibility(3, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin1, 100, Brushes.Black, $"StringBezeichnungDa1{i}", $"VisibilityDa1{i}");
+            libWpf.TextVerticalMarginWidthBindingTextVisibility(4, 2, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Bottom, 12, margin1, 100, Brushes.Black, $"StringBezeichnungDa1{i}", $"VisibilityDa1{i}");
         }
     }
 }

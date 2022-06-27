@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtLap2010_4_Abfuellanlage.ViewModel;
 
@@ -33,15 +34,15 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        BrushP1 = SetBrush(_modelLap2010.P1, Brushes.Red, Brushes.White);
-        BrushQ1 = SetBrush(_modelLap2010.Q1, Brushes.LawnGreen, Brushes.LightGray);
-        BrushZuleitung = SetBrush(_modelLap2010!.Pegel > 0.01, Brushes.Coral, Brushes.LightCoral);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2010.P1, Brushes.Red, Brushes.White);
+        BrushQ1 = BaseFunctions.SetBrush(_modelLap2010.Q1, Brushes.LawnGreen, Brushes.LightGray);
+        BrushZuleitung = BaseFunctions.SetBrush(_modelLap2010!.Pegel > 0.01, Brushes.Coral, Brushes.LightCoral);
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2010.B1);
-        (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLap2010.B2);
-        (VisibilityEinK1, VisibilityAusK1) = SetVisibility(_modelLap2010.K1);
-        (VisibilityEinK2, VisibilityAusK2) = SetVisibility(_modelLap2010.K2);
-        (VisibilityAbleitung, _) = SetVisibility(_modelLap2010.K2 && _modelLap2010.Pegel > 0.01);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2010.B1);
+        (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLap2010.B2);
+        (VisibilityEinK1, VisibilityAusK1) = BaseFunctions.SetVisibility(_modelLap2010.K1);
+        (VisibilityEinK2, VisibilityAusK2) = BaseFunctions.SetVisibility(_modelLap2010.K2);
+        (VisibilityAbleitung, _) = BaseFunctions.SetVisibility(_modelLap2010.K2 && _modelLap2010.Pegel > 0.01);
 
         Fuellstand = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2010.Pegel), 0, 0);
     }

@@ -27,41 +27,41 @@ public partial class TabZeichnen
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 1, 2, kontakteRand, nameof(vmKata.VisibilityEinS1));
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 1, 2, kontakteRand, nameof(vmKata.VisibilityAusS1));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 5, 2, 1, 2, kontakteRand, nameof(vmKata.VisibilityEinS1));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 5, 2, 1, 2, kontakteRand, nameof(vmKata.VisibilityAusS1));
 
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 3, 2, kontakteRand, nameof(vmKata.VisibilityEinS2));
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 3, 2, kontakteRand, nameof(vmKata.VisibilityAusS2));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 5, 2, 3, 2, kontakteRand, nameof(vmKata.VisibilityEinS2));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 5, 2, 3, 2, kontakteRand, nameof(vmKata.VisibilityAusS2));
 
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 5, 2, kontakteRand, nameof(vmKata.VisibilityEinS3));
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 5, 2, kontakteRand, nameof(vmKata.VisibilityAusS3));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 5, 2, 5, 2, kontakteRand, nameof(vmKata.VisibilityEinS3));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 5, 2, 5, 2, kontakteRand, nameof(vmKata.VisibilityAusS3));
 
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 7, 2, kontakteRand, nameof(vmKata.VisibilityEinS4));
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 7, 2, kontakteRand, nameof(vmKata.VisibilityAusS4));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 5, 2, 7, 2, kontakteRand, nameof(vmKata.VisibilityEinS4));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 5, 2, 7, 2, kontakteRand, nameof(vmKata.VisibilityAusS4));
 
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 10, 2, kontakteRand, nameof(vmKata.VisibilityEinS5));
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 10, 2, kontakteRand, nameof(vmKata.VisibilityAusS5));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 5, 2, 10, 2, kontakteRand, nameof(vmKata.VisibilityEinS5));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 5, 2, 10, 2, kontakteRand, nameof(vmKata.VisibilityAusS5));
 
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 12, 2, kontakteRand, nameof(vmKata.VisibilityEinS6));
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 12, 2, kontakteRand, nameof(vmKata.VisibilityAusS6));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 5, 2, 12, 2, kontakteRand, nameof(vmKata.VisibilityEinS6));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 5, 2, 12, 2, kontakteRand, nameof(vmKata.VisibilityAusS6));
 
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 14, 2, kontakteRand, nameof(vmKata.VisibilityEinS7));
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 14, 2, kontakteRand, nameof(vmKata.VisibilityAusS7));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 5, 2, 14, 2, kontakteRand, nameof(vmKata.VisibilityEinS7));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 5, 2, 14, 2, kontakteRand, nameof(vmKata.VisibilityAusS7));
 
-        libWpf.ImageMarginSetVisibility("TasterBetaetigt.jpg", 5, 2, 16, 2, kontakteRand, nameof(vmKata.VisibilityEinS8));
-        libWpf.ImageMarginSetVisibility("TasterSchliesser.jpg", 5, 2, 16, 2, kontakteRand, nameof(vmKata.VisibilityAusS8));
+        libWpf.ImageMarginBindingVisibility("TasterBetaetigt.jpg", 5, 2, 16, 2, kontakteRand, nameof(vmKata.VisibilityEinS8));
+        libWpf.ImageMarginBindingVisibility("TasterSchliesser.jpg", 5, 2, 16, 2, kontakteRand, nameof(vmKata.VisibilityAusS8));
 
         var marginKreis = new Thickness(2, 2, 2, 2);
         var farbeKreisRand = new SolidColorBrush(Colors.Black);
 
-        libWpf.EllipseMarginStrokeSetFilling(10, 2, 1, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP1));
-        libWpf.EllipseMarginStrokeSetFilling(10, 2, 3, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP2));
-        libWpf.EllipseMarginStrokeSetFilling(10, 2, 5, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP3));
-        libWpf.EllipseMarginStrokeSetFilling(10, 2, 7, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP4));
-        libWpf.EllipseMarginStrokeSetFilling(10, 2, 10, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP5));
-        libWpf.EllipseMarginStrokeSetFilling(10, 2, 12, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP6));
-        libWpf.EllipseMarginStrokeSetFilling(10, 2, 14, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP7));
-        libWpf.EllipseMarginStrokeSetFilling(10, 2, 16, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP8));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 2, 1, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP1));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 2, 3, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP2));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 2, 5, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP3));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 2, 7, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP4));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 2, 10, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP5));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 2, 12, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP6));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 2, 14, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP7));
+        libWpf.EllipseMarginStrokeBindingFilling(10, 2, 16, 2, marginKreis, farbeKreisRand, 2, nameof(vmKata.BrushP8));
 
         libWpf.PlcError();
     }

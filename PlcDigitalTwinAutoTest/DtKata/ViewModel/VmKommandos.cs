@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Mvvm.Input;
+﻿using Contracts;
+using Microsoft.Toolkit.Mvvm.Input;
 
 namespace DtKata.ViewModel;
 
@@ -9,10 +10,10 @@ public partial class VmKata
     {
         switch (taster)
         {
-            case "S1": (_modelKata.S1, ClickModeS1) = ButtonClickMode(ClickModeS1); break;
-            case "S2": (_modelKata.S2, ClickModeS2) = ButtonClickMode(ClickModeS2); break;
-            case "S3": (_modelKata.S3, ClickModeS3) = ButtonClickModeInvertiert(ClickModeS3); break;
-            case "S4": (_modelKata.S4, ClickModeS4) = ButtonClickModeInvertiert(ClickModeS4); break;
+            case "S1": (_modelKata.S1, ClickModeS1) = BaseFunctions.ButtonClickMode(ClickModeS1); break;
+            case "S2": (_modelKata.S2, ClickModeS2) = BaseFunctions.ButtonClickMode(ClickModeS2); break;
+            case "S3": (_modelKata.S3, ClickModeS3) = BaseFunctions.ButtonClickModeInvertiert(ClickModeS3); break;
+            case "S4": (_modelKata.S4, ClickModeS4) = BaseFunctions.ButtonClickModeInvertiert(ClickModeS4); break;
         }
     }
 

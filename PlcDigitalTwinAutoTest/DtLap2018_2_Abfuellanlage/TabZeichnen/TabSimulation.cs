@@ -45,8 +45,8 @@ public partial class TabZeichnen
         libWpf.ButtonContentMarginRoundedSetBackground("Motorschutz", 27, 3, 10, 3, 14, 15, buttonRand, vmLap2018.ButtonSchalterCommand, "F1", nameof(vmLap2018.ClickModeF1), nameof(vmLap2018.BrushF1));
 
 
-        libWpf.EllipseMarginStrokeSetFilling(27, 3, 16, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2018.BrushP1));
-        libWpf.EllipseMarginStrokeSetFilling(32, 3, 16, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2018.BrushP2));
+        libWpf.EllipseMarginStrokeBindingFilling(27, 3, 16, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2018.BrushP1));
+        libWpf.EllipseMarginStrokeBindingFilling(32, 3, 16, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2018.BrushP2));
 
         libWpf.Text("Betrieb", 27, 3, 16, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("Störung", 32, 3, 16, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
@@ -64,50 +64,50 @@ public partial class TabZeichnen
         libWpf.RectangleFillMargin(4, 1, 1, 16, Brushes.Gray, new Thickness(10, 0, 6, 0));
         libWpf.RectangleFillMargin(5, 1, 1, 16, Brushes.Gray, new Thickness(17, 0, 0, 0));
 
-        libWpf.ImageMarginZweiBilderSetVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 7, 2, 15, 2, new Thickness(0, 0, 0, 0), nameof(vmLap2018.VisibilityEinK2), nameof(vmLap2018.VisibilityAusK2));
+        libWpf.ImageMarginZweiBilderBindingVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 7, 2, 15, 2, new Thickness(0, 0, 0, 0), nameof(vmLap2018.VisibilityEinK2), nameof(vmLap2018.VisibilityAusK2));
         libWpf.Text("K2", 6, 2, 15, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.RectangleFill(10, 8, 1, 10, Brushes.LightBlue);
-        libWpf.RectangleFillStrokeSetMargin(10, 8, 1, 10, Brushes.Blue, Brushes.Blue, 0, nameof(vmLap2018.MarginPegel));
+        libWpf.RectangleFillStrokeBindingMargin(10, 8, 1, 10, Brushes.Blue, Brushes.Blue, 0, nameof(vmLap2018.MarginPegel));
 
         libWpf.Text("K1", 11, 2, 13, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageMarginZweiBilderSetVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 12, 3, 13, 2, new Thickness(0, 0, 8, 0), nameof(vmLap2018.VisibilityEinK2), nameof(vmLap2018.VisibilityAusK2));
-        libWpf.RectangleMarginSetFill(13, 2, 11, 2, new Thickness(25, 0, 25, 0), nameof(vmLap2018.BrushZuleitung));
-        libWpf.RectangleMarginSetFill(13, 2, 15, 5, new Thickness(25, 0, 25, 0), nameof(vmLap2018.BrushAbleitung));
+        libWpf.ImageMarginZweiBilderBindingVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 12, 3, 13, 2, new Thickness(0, 0, 8, 0), nameof(vmLap2018.VisibilityEinK2), nameof(vmLap2018.VisibilityAusK2));
+        libWpf.RectangleMarginBindingFill(13, 2, 11, 2, new Thickness(25, 0, 25, 0), nameof(vmLap2018.BrushZuleitung));
+        libWpf.RectangleMarginBindingFill(13, 2, 15, 5, new Thickness(25, 0, 25, 0), nameof(vmLap2018.BrushAbleitung));
 
         libWpf.RectangleFillMargin(4, 14, 20, 1, Brushes.Gray, new Thickness(15, 0, 15, 20));
         libWpf.RectangleFillMargin(4, 14, 22, 1, Brushes.Gray, new Thickness(15, 20, 15, 0));
         libWpf.EllipseFillMarginStroke(3, 3, 20, 3, Brushes.Gray, new Thickness(0, 0, 0, 0), Brushes.Gray, 0);
         libWpf.EllipseFillMarginStroke(16, 3, 20, 3, Brushes.Gray, new Thickness(0, 0, 0, 0), Brushes.Gray, 0);
-        libWpf.EllipseMarginStrokeSetFilling(3, 3, 20, 3, new Thickness(5, 5, 5, 5), Brushes.Gray, 2, nameof(vmLap2018.BrushQ1));
+        libWpf.EllipseMarginStrokeBindingFilling(3, 3, 20, 3, new Thickness(5, 5, 5, 5), Brushes.Gray, 2, nameof(vmLap2018.BrushQ1));
         libWpf.Text("Q1", 3, 3, 20, 3, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
         libWpf.Text("B1", 11, 2, 24, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageMarginZweiBilderSetVisibility("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 13, 2, 24, 2, new Thickness(0, 0, 0, 0), nameof(vmLap2018.VisibilityEinB1), nameof(vmLap2018.VisibilityAusB1));
+        libWpf.ImageMarginZweiBilderBindingVisibility("InitiatorenSchliesser.jpg", "InitiatorenBetaetigt.jpg", 13, 2, 24, 2, new Thickness(0, 0, 0, 0), nameof(vmLap2018.VisibilityEinB1), nameof(vmLap2018.VisibilityAusB1));
 
 
-        libWpf.ImageSetMarginSetVisibility("Franziskaner.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche1), nameof(vmLap2018.VisibilityFlasche1));
-        libWpf.ImageSetMarginSetVisibility("Kellerbier.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche2), nameof(vmLap2018.VisibilityFlasche2));
-        libWpf.ImageSetMarginSetVisibility("OberLänder.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche3), nameof(vmLap2018.VisibilityFlasche3));
-        libWpf.ImageSetMarginSetVisibility("Franziskaner.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche4), nameof(vmLap2018.VisibilityFlasche4));
-        libWpf.ImageSetMarginSetVisibility("Kellerbier.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche5), nameof(vmLap2018.VisibilityFlasche5));
-        libWpf.ImageSetMarginSetVisibility("OberLänder.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche6), nameof(vmLap2018.VisibilityFlasche6));
+        libWpf.ImageSetMarginBindingVisibility("Franziskaner.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche1), nameof(vmLap2018.VisibilityFlasche1));
+        libWpf.ImageSetMarginBindingVisibility("Kellerbier.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche2), nameof(vmLap2018.VisibilityFlasche2));
+        libWpf.ImageSetMarginBindingVisibility("OberLänder.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche3), nameof(vmLap2018.VisibilityFlasche3));
+        libWpf.ImageSetMarginBindingVisibility("Franziskaner.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche4), nameof(vmLap2018.VisibilityFlasche4));
+        libWpf.ImageSetMarginBindingVisibility("Kellerbier.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche5), nameof(vmLap2018.VisibilityFlasche5));
+        libWpf.ImageSetMarginBindingVisibility("OberLänder.jpg", 1, 20, 1, 20, nameof(vmLap2018.MarginFlasche6), nameof(vmLap2018.VisibilityFlasche6));
 
-        libWpf.ImageSetVisibility("Fohrenburger0.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger0));
-        libWpf.ImageSetVisibility("Fohrenburger1.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger1));
-        libWpf.ImageSetVisibility("Fohrenburger2.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger2));
-        libWpf.ImageSetVisibility("Fohrenburger3.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger3));
-        libWpf.ImageSetVisibility("Fohrenburger4.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger4));
-        libWpf.ImageSetVisibility("Fohrenburger5.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger5));
-        libWpf.ImageSetVisibility("Fohrenburger6.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger6));
+        libWpf.ImageBindingVisibility("Fohrenburger0.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger0));
+        libWpf.ImageBindingVisibility("Fohrenburger1.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger1));
+        libWpf.ImageBindingVisibility("Fohrenburger2.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger2));
+        libWpf.ImageBindingVisibility("Fohrenburger3.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger3));
+        libWpf.ImageBindingVisibility("Fohrenburger4.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger4));
+        libWpf.ImageBindingVisibility("Fohrenburger5.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger5));
+        libWpf.ImageBindingVisibility("Fohrenburger6.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityFohrenburger6));
 
-        libWpf.ImageSetVisibility("Mohren0.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren0));
-        libWpf.ImageSetVisibility("Mohren1.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren1));
-        libWpf.ImageSetVisibility("Mohren2.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren2));
-        libWpf.ImageSetVisibility("Mohren3.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren3));
-        libWpf.ImageSetVisibility("Mohren4.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren4));
-        libWpf.ImageSetVisibility("Mohren5.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren5));
-        libWpf.ImageSetVisibility("Mohren6.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren6));
+        libWpf.ImageBindingVisibility("Mohren0.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren0));
+        libWpf.ImageBindingVisibility("Mohren1.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren1));
+        libWpf.ImageBindingVisibility("Mohren2.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren2));
+        libWpf.ImageBindingVisibility("Mohren3.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren3));
+        libWpf.ImageBindingVisibility("Mohren4.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren4));
+        libWpf.ImageBindingVisibility("Mohren5.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren5));
+        libWpf.ImageBindingVisibility("Mohren6.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren6));
 
 
         // libWpf.PlcError();

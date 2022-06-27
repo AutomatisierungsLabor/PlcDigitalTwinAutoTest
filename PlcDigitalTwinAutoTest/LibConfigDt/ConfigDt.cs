@@ -1,4 +1,5 @@
-﻿using Contracts;
+﻿using System.IO;
+using Contracts;
 using LibDatenstruktur;
 using Newtonsoft.Json;
 
@@ -47,6 +48,8 @@ public partial class ConfigDt
     public int GetAnzahlAi() => DtConfig.AnalogeEingaenge.EaConfig?.Length ?? 0;
     public int GetAnzahlDa() => DtConfig.DigitaleAusgaenge.EaConfig?.Length ?? 0;
     public int GetAnzahlDi() => DtConfig.DigitaleEingaenge.EaConfig?.Length ?? 0;
+    public int GetAnzahlByteDa() => DtConfig.DigitaleAusgaenge.AnzByte;
+    public int GetAnzahlByteDi() => DtConfig.DigitaleEingaenge.AnzByte;
     public int GetAnzahlTextbausteine() => DtConfig.Textbausteine?.Length ?? 0;
     public int GetAnzahlAlarme()=>DtConfig.Alarm?.Length ?? 0;
     public EaConfigError GetAlarmConfigError(int id) => DtConfig.Alarm[id].EaConfigError;

@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Mvvm.Input;
+﻿using Contracts;
+using Microsoft.Toolkit.Mvvm.Input;
 
 namespace DtSchleifmaschine.ViewModel;
 
@@ -10,11 +11,11 @@ public partial class VmSchleifmaschine
     {
         switch (taster)
         {
-            case "S0": (_modelSchleifmaschine.S0, ClickModeS0) = ButtonClickModeInvertiert(ClickModeS0); break;
-            case "S1": (_modelSchleifmaschine.S1, ClickModeS1) = ButtonClickMode(ClickModeS1); break;
-            case "S2": (_modelSchleifmaschine.S1, ClickModeS2) = ButtonClickMode(ClickModeS2); break;
+            case "S0": (_modelSchleifmaschine.S0, ClickModeS0) = BaseFunctions.ButtonClickModeInvertiert(ClickModeS0); break;
+            case "S1": (_modelSchleifmaschine.S1, ClickModeS1) = BaseFunctions.ButtonClickMode(ClickModeS1); break;
+            case "S2": (_modelSchleifmaschine.S1, ClickModeS2) = BaseFunctions.ButtonClickMode(ClickModeS2); break;
             case "S3":
-                (_modelSchleifmaschine.S3, ClickModeS3) = ButtonClickMode(ClickModeS3);
+                (_modelSchleifmaschine.S3, ClickModeS3) = BaseFunctions.ButtonClickMode(ClickModeS3);
                 _modelSchleifmaschine.B1 = false;
                 break;
         }

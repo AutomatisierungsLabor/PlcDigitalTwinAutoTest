@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtLap2010_3_Ofentuersteuerung.ViewModel;
 
@@ -35,14 +36,14 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         ZahnstangePosition = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionZahnstange;
         ZahnradWinkel = _modelLap2010.WinkelZahnrad;
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2010.B1);
-        (VisibilityEinB2, VisibilityAusB2) = SetVisibility(_modelLap2010.B2);
-        (VisibilityEinB3, VisibilityAusB3) = SetVisibility(_modelLap2010.B3);
-        (VisibilityKurzschluss, _) = SetVisibility(_modelLap2010.Q1 && _modelLap2010.Q2);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2010.B1);
+        (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLap2010.B2);
+        (VisibilityEinB3, VisibilityAusB3) = BaseFunctions.SetVisibility(_modelLap2010.B3);
+        (VisibilityKurzschluss, _) = BaseFunctions.SetVisibility(_modelLap2010.Q1 && _modelLap2010.Q2);
 
-        BrushP1 = SetBrush(_modelLap2010.P1, Brushes.LawnGreen, Brushes.White);
-        BrushQ1 = SetBrush(_modelLap2010.Q1, Brushes.LawnGreen, Brushes.White);
-        BrushQ2 = SetBrush(_modelLap2010.Q2, Brushes.LawnGreen, Brushes.White);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2010.P1, Brushes.LawnGreen, Brushes.White);
+        BrushQ1 = BaseFunctions.SetBrush(_modelLap2010.Q1, Brushes.LawnGreen, Brushes.White);
+        BrushQ2 = BaseFunctions.SetBrush(_modelLap2010.Q2, Brushes.LawnGreen, Brushes.White);
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

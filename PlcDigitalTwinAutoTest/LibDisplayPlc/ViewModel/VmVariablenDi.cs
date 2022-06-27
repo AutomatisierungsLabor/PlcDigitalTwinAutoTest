@@ -30,6 +30,23 @@ public partial class VmPlc
     [ObservableProperty] private Brush _brushDi25;
     [ObservableProperty] private Brush _brushDi26;
     [ObservableProperty] private Brush _brushDi27;
+    [ObservableProperty] private Brush _brushDi30;
+    [ObservableProperty] private Brush _brushDi31;
+    [ObservableProperty] private Brush _brushDi32;
+    [ObservableProperty] private Brush _brushDi33;
+    [ObservableProperty] private Brush _brushDi34;
+    [ObservableProperty] private Brush _brushDi35;
+    [ObservableProperty] private Brush _brushDi36;
+    [ObservableProperty] private Brush _brushDi37;
+    [ObservableProperty] private Brush _brushDi40;
+    [ObservableProperty] private Brush _brushDi41;
+    [ObservableProperty] private Brush _brushDi42;
+    [ObservableProperty] private Brush _brushDi43;
+    [ObservableProperty] private Brush _brushDi44;
+    [ObservableProperty] private Brush _brushDi45;
+    [ObservableProperty] private Brush _brushDi46;
+    [ObservableProperty] private Brush _brushDi47;
+
 
     [ObservableProperty] private Visibility _visibilityDi00;
     [ObservableProperty] private Visibility _visibilityDi01;
@@ -55,6 +72,23 @@ public partial class VmPlc
     [ObservableProperty] private Visibility _visibilityDi25;
     [ObservableProperty] private Visibility _visibilityDi26;
     [ObservableProperty] private Visibility _visibilityDi27;
+    [ObservableProperty] private Visibility _visibilityDi30;
+    [ObservableProperty] private Visibility _visibilityDi31;
+    [ObservableProperty] private Visibility _visibilityDi32;
+    [ObservableProperty] private Visibility _visibilityDi33;
+    [ObservableProperty] private Visibility _visibilityDi34;
+    [ObservableProperty] private Visibility _visibilityDi35;
+    [ObservableProperty] private Visibility _visibilityDi36;
+    [ObservableProperty] private Visibility _visibilityDi37;
+    [ObservableProperty] private Visibility _visibilityDi40;
+    [ObservableProperty] private Visibility _visibilityDi41;
+    [ObservableProperty] private Visibility _visibilityDi42;
+    [ObservableProperty] private Visibility _visibilityDi43;
+    [ObservableProperty] private Visibility _visibilityDi44;
+    [ObservableProperty] private Visibility _visibilityDi45;
+    [ObservableProperty] private Visibility _visibilityDi46;
+    [ObservableProperty] private Visibility _visibilityDi47;
+
 
 
     [ObservableProperty] private string _stringBezeichnungDi00;
@@ -81,6 +115,22 @@ public partial class VmPlc
     [ObservableProperty] private string _stringBezeichnungDi25;
     [ObservableProperty] private string _stringBezeichnungDi26;
     [ObservableProperty] private string _stringBezeichnungDi27;
+    [ObservableProperty] private string _stringBezeichnungDi30;
+    [ObservableProperty] private string _stringBezeichnungDi31;
+    [ObservableProperty] private string _stringBezeichnungDi32;
+    [ObservableProperty] private string _stringBezeichnungDi33;
+    [ObservableProperty] private string _stringBezeichnungDi34;
+    [ObservableProperty] private string _stringBezeichnungDi35;
+    [ObservableProperty] private string _stringBezeichnungDi36;
+    [ObservableProperty] private string _stringBezeichnungDi37;
+    [ObservableProperty] private string _stringBezeichnungDi40;
+    [ObservableProperty] private string _stringBezeichnungDi41;
+    [ObservableProperty] private string _stringBezeichnungDi42;
+    [ObservableProperty] private string _stringBezeichnungDi43;
+    [ObservableProperty] private string _stringBezeichnungDi44;
+    [ObservableProperty] private string _stringBezeichnungDi45;
+    [ObservableProperty] private string _stringBezeichnungDi46;
+    [ObservableProperty] private string _stringBezeichnungDi47;
 
     [ObservableProperty] private string _stringKommentarDi00;
     [ObservableProperty] private string _stringKommentarDi01;
@@ -106,8 +156,26 @@ public partial class VmPlc
     [ObservableProperty] private string _stringKommentarDi25;
     [ObservableProperty] private string _stringKommentarDi26;
     [ObservableProperty] private string _stringKommentarDi27;
+    [ObservableProperty] private string _stringKommentarDi30;
+    [ObservableProperty] private string _stringKommentarDi31;
+    [ObservableProperty] private string _stringKommentarDi32;
+    [ObservableProperty] private string _stringKommentarDi33;
+    [ObservableProperty] private string _stringKommentarDi34;
+    [ObservableProperty] private string _stringKommentarDi35;
+    [ObservableProperty] private string _stringKommentarDi36;
+    [ObservableProperty] private string _stringKommentarDi37;
+    [ObservableProperty] private string _stringKommentarDi40;
+    [ObservableProperty] private string _stringKommentarDi41;
+    [ObservableProperty] private string _stringKommentarDi42;
+    [ObservableProperty] private string _stringKommentarDi43;
+    [ObservableProperty] private string _stringKommentarDi44;
+    [ObservableProperty] private string _stringKommentarDi45;
+    [ObservableProperty] private string _stringKommentarDi46;
+    [ObservableProperty] private string _stringKommentarDi47;
 
     [ObservableProperty] private string _stringWertDi0;
     [ObservableProperty] private string _stringWertDi1;
     [ObservableProperty] private string _stringWertDi2;
+    [ObservableProperty] private string _stringWertDi3;
+    [ObservableProperty] private string _stringWertDi4;
 }

@@ -24,7 +24,7 @@ public partial class TabZeichnen
         libWpf.RectangleFill(20, 20, 1, 20, Brushes.LightGray);
 
         libWpf.Text("Geschwindigkeit", 21, 10, 1, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.SliderMargin(21, 10, 3, 1, Brushes.DarkGray, new Thickness(0, 0, 0, 0), 1, 10000, nameof(vmWordclock.DoubleGeschwindigkeit));
+        libWpf.SliderMarginBindingValue(21, 10, 3, 1, Brushes.DarkGray, new Thickness(0, 0, 0, 0), 1, 10000, nameof(vmWordclock.DoubleGeschwindigkeit));
 
         libWpf.ButtonBackgroundContentMarginRounded("Aktuelle Zeit übernehmen", 32, 8, 2, 2, 20, 15, Brushes.Violet, new Thickness(0, 0, 0, 0), vmWordclock.ButtonTasterCommand, "AktuelleZeitUebernehmen", nameof(vmWordclock.ClickAktuelleZeitUebernehmen));
 
@@ -101,11 +101,11 @@ public partial class TabZeichnen
             new[] { halbeBreiteUhrPixel - halbeBreiteSekundenzeiger, untenSekundenzeiger }
         };
 
-        libWpf.PolygonSetWinkel(posUhrX, breiteUhr, posUhrY, hoeheUhr, Brushes.Black, Brushes.Black, 0, formStundenZeiger, nameof(vmWordclock.DoubleWinkelStundenZeiger));
-        libWpf.PolygonSetWinkel(posUhrX, breiteUhr, posUhrY, hoeheUhr, Brushes.Black, Brushes.Black, 0, formMinutenZeiger, nameof(vmWordclock.DoubleWinkelMinutenZeiger));
-        libWpf.PolygonSetWinkel(posUhrX, breiteUhr, posUhrY, hoeheUhr, Brushes.Red, Brushes.Red, 0, formSekundenZeiger, nameof(vmWordclock.DoubleWinkelSekundenZeiger));
+        libWpf.PolygonBindingWinkel(posUhrX, breiteUhr, posUhrY, hoeheUhr, Brushes.Black, Brushes.Black, 0, formStundenZeiger, nameof(vmWordclock.DoubleWinkelStundenZeiger));
+        libWpf.PolygonBindingWinkel(posUhrX, breiteUhr, posUhrY, hoeheUhr, Brushes.Black, Brushes.Black, 0, formMinutenZeiger, nameof(vmWordclock.DoubleWinkelMinutenZeiger));
+        libWpf.PolygonBindingWinkel(posUhrX, breiteUhr, posUhrY, hoeheUhr, Brushes.Red, Brushes.Red, 0, formSekundenZeiger, nameof(vmWordclock.DoubleWinkelSekundenZeiger));
 
-        libWpf.EllipseFillRadiusSetWinkel(posUhrX, breiteUhr, posUhrY, hoeheUhr, Brushes.Red, 15, 23, nameof(vmWordclock.DoubleWinkelSekundenZeigerKreisOderSo));
+        libWpf.EllipseFillRadiusBindingWinkel(posUhrX, breiteUhr, posUhrY, hoeheUhr, Brushes.Red, 15, 23, nameof(vmWordclock.DoubleWinkelSekundenZeigerKreisOderSo));
 
 
 
@@ -126,92 +126,92 @@ public partial class TabZeichnen
         var blindTextFarbe = Brushes.DarkGray; 
 
         // Zeile 1
-        libWpf.TextMarginMonospacedSetForeground("ES", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 0, 0, 0), nameof(vmWordclock.BrushEs));
+        libWpf.TextMarginMonospacedBindingForeground("ES", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 0, 0, 0), nameof(vmWordclock.BrushEs));
         libWpf.TextMarginMonospaced("L", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(2 * breiteZeichen, 0, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("IST", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(3 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushIst));
+        libWpf.TextMarginMonospacedBindingForeground("IST", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(3 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushIst));
         libWpf.TextMarginMonospaced("A", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(6 * breiteZeichen, 0, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("BALD", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(7 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushBald));
+        libWpf.TextMarginMonospacedBindingForeground("BALD", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(7 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushBald));
         libWpf.TextMarginMonospaced("N", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(11 * breiteZeichen, 0, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("GLEICH", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(12 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushGleich));
+        libWpf.TextMarginMonospacedBindingForeground("GLEICH", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(12 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushGleich));
         libWpf.TextMarginMonospaced("DES", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(18 * breiteZeichen, 0, 0, 0));
 
 
         // Zeile 2
         zeilenNummer++;
-        libWpf.TextMarginMonospacedSetForeground("VIERTEL", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 10, 0, 0), nameof(vmWordclock.BrushViertel));
+        libWpf.TextMarginMonospacedBindingForeground("VIERTEL", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 10, 0, 0), nameof(vmWordclock.BrushViertel));
         libWpf.TextMarginMonospaced("B", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(7 * breiteZeichen, 10, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("ZWANZIG", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(8 * breiteZeichen, 10, 0, 0), nameof(vmWordclock.BrushZwanzig));
+        libWpf.TextMarginMonospacedBindingForeground("ZWANZIG", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(8 * breiteZeichen, 10, 0, 0), nameof(vmWordclock.BrushZwanzig));
         libWpf.TextMarginMonospaced("ERUFSS", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(15 * breiteZeichen, 10, 0, 0));
 
         // Zeile 3
         zeilenNummer++;
-        libWpf.TextMarginMonospacedSetForeground("ZEHN", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 20, 0, 0), nameof(vmWordclock.BrushZehnMinute));
+        libWpf.TextMarginMonospacedBindingForeground("ZEHN", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 20, 0, 0), nameof(vmWordclock.BrushZehnMinute));
         libWpf.TextMarginMonospaced("C", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(4 * breiteZeichen, 20, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("FÜNF", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(5 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushFuenfMinute));
+        libWpf.TextMarginMonospacedBindingForeground("FÜNF", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(5 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushFuenfMinute));
         libWpf.TextMarginMonospaced("H", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(9 * breiteZeichen, 20, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("VOR", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(10 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushVor));
+        libWpf.TextMarginMonospacedBindingForeground("VOR", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(10 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushVor));
         libWpf.TextMarginMonospaced("U", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(13 * breiteZeichen, 20, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("NACH", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(14 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushNach));
+        libWpf.TextMarginMonospacedBindingForeground("NACH", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(14 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushNach));
         libWpf.TextMarginMonospaced("LE-", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(18 * breiteZeichen, 20, 0, 0));
 
        
         // Zeile 4
         zeilenNummer++; 
         zeilenNummer++;
-        libWpf.TextMarginMonospacedSetForeground("HALB", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 0, 0, 0), nameof(vmWordclock.BrushHalb));
+        libWpf.TextMarginMonospacedBindingForeground("HALB", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 0, 0, 0), nameof(vmWordclock.BrushHalb));
         libWpf.TextMarginMonospaced("F", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(4 * breiteZeichen, 0, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("ZWÖLF", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(5 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushZwoelf));
+        libWpf.TextMarginMonospacedBindingForeground("ZWÖLF", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(5 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushZwoelf));
         libWpf.TextMarginMonospaced("E", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(10 * breiteZeichen, 0, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("ELF", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(11 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushElf));
+        libWpf.TextMarginMonospacedBindingForeground("ELF", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(11 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushElf));
         libWpf.TextMarginMonospaced("L", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(14 * breiteZeichen, 0, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("ZEHN", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(15 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushZehnStunde));
+        libWpf.TextMarginMonospacedBindingForeground("ZEHN", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(15 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushZehnStunde));
         libWpf.TextMarginMonospaced("DK", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(19 * breiteZeichen, 0, 0, 0));
         
         // Zeile 5
         zeilenNummer++;
-        libWpf.TextMarginMonospacedSetForeground("NEUN", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 10, 0, 0), nameof(vmWordclock.BrushNeun));
+        libWpf.TextMarginMonospacedBindingForeground("NEUN", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 10, 0, 0), nameof(vmWordclock.BrushNeun));
         libWpf.TextMarginMonospaced("I", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(4 * breiteZeichen, 10, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("ACHT", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(5 * breiteZeichen, 10, 0, 0), nameof(vmWordclock.BrushAcht));
+        libWpf.TextMarginMonospacedBindingForeground("ACHT", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(5 * breiteZeichen, 10, 0, 0), nameof(vmWordclock.BrushAcht));
         libWpf.TextMarginMonospaced("R", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(9 * breiteZeichen, 10, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("SIEBEN", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(10 * breiteZeichen, 10, 0, 0), nameof(vmWordclock.BrushSieben));
+        libWpf.TextMarginMonospacedBindingForeground("SIEBEN", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(10 * breiteZeichen, 10, 0, 0), nameof(vmWordclock.BrushSieben));
         libWpf.TextMarginMonospaced("CHFÜR", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(16 * breiteZeichen, 10, 0, 0));
 
         // Zeile 6
         zeilenNummer++;
-        libWpf.TextMarginMonospacedSetForeground("SECHS", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 20, 0, 0), nameof(vmWordclock.BrushSechs));
+        libWpf.TextMarginMonospacedBindingForeground("SECHS", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 20, 0, 0), nameof(vmWordclock.BrushSechs));
         libWpf.TextMarginMonospaced("E", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(5 * breiteZeichen, 20, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("FÜNF", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(6 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushFuenfStunde));
+        libWpf.TextMarginMonospacedBindingForeground("FÜNF", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(6 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushFuenfStunde));
         libWpf.TextMarginMonospaced("L", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(10 * breiteZeichen, 20, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("VIER", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(11 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushVier));
+        libWpf.TextMarginMonospacedBindingForeground("VIER", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(11 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushVier));
         libWpf.TextMarginMonospaced("E", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(15 * breiteZeichen, 20, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("DREI", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(16 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushDrei));
+        libWpf.TextMarginMonospacedBindingForeground("DREI", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(16 * breiteZeichen, 20, 0, 0), nameof(vmWordclock.BrushDrei));
         libWpf.TextMarginMonospaced("K", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(20 * breiteZeichen, 20, 0, 0));
 
         // Zeile 7
         zeilenNummer++;
         zeilenNummer++;
-        libWpf.TextMarginMonospacedSetForeground("ZWEI", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 0, 0, 0), nameof(vmWordclock.BrushZwei));
+        libWpf.TextMarginMonospacedBindingForeground("ZWEI", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(0, 0, 0, 0), nameof(vmWordclock.BrushZwei));
         libWpf.TextMarginMonospaced("T", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(4 * breiteZeichen, 0, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("EINS", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(5 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushEins));
+        libWpf.TextMarginMonospacedBindingForeground("EINS", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(5 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushEins));
         libWpf.TextMarginMonospaced("R", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(9 * breiteZeichen, 0, 0, 0));
 
-        libWpf.TextMarginMonospacedSetForeground("UHR", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(10 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushUhr));
+        libWpf.TextMarginMonospacedBindingForeground("UHR", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, new Thickness(10 * breiteZeichen, 0, 0, 0), nameof(vmWordclock.BrushUhr));
         libWpf.TextMarginMonospaced("OTECHNIK", zeileLinks, zeilenBreite, zeilenNummer, zeilenHoehe, HorizontalAlignment.Left, VerticalAlignment.Top, schriftGroesse, blindTextFarbe, new Thickness(13 * breiteZeichen, 0, 0, 0));
         
 

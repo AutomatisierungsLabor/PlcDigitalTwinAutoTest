@@ -29,8 +29,8 @@ public partial class TabZeichnen
 
         libWpf.RectangleFill(25, 10, 9, 4, Brushes.LightGray);
 
-        libWpf.TextSetContent(26, 10, 9, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmTiefgarage.StringAnzahlAutos));
-        libWpf.TextSetContent(26, 10, 11, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmTiefgarage.StringAnzahlPersonen));
+        libWpf.TextBindingContent(26, 10, 9, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmTiefgarage.StringAnzahlAutos));
+        libWpf.TextBindingContent(26, 10, 11, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmTiefgarage.StringAnzahlPersonen));
 
 
         ///////////////////////////////////////////////////////////
@@ -60,8 +60,8 @@ public partial class TabZeichnen
 
         libWpf.Text("B1", 13, 2, 5, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("B2", 13, 2, 7, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
-        libWpf.EllipseMarginStrokeSetFilling(14, 1, 5, 1, new Thickness(2, 2, 2, 2), Brushes.Black, 2, nameof(vmTiefgarage.BrushB1));
-        libWpf.EllipseMarginStrokeSetFilling(14, 1, 7, 1, new Thickness(2, 2, 2, 2), Brushes.Black, 2, nameof(vmTiefgarage.BrushB2));
+        libWpf.EllipseMarginStrokeBindingFilling(14, 1, 5, 1, new Thickness(2, 2, 2, 2), Brushes.Black, 2, nameof(vmTiefgarage.BrushB1));
+        libWpf.EllipseMarginStrokeBindingFilling(14, 1, 7, 1, new Thickness(2, 2, 2, 2), Brushes.Black, 2, nameof(vmTiefgarage.BrushB2));
 
 
         libWpf.ButtonBildSetMargin(0, 20, 0, 25, "Pkw1.jpg", vmTiefgarage.ButtonTasterCommand, "Pkw1", nameof(vmTiefgarage.ClickModePkw1), nameof(vmTiefgarage.ThicknessPkw1));

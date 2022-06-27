@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtFibonacci.ViewModel;
 
@@ -42,7 +43,7 @@ public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
 
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        BrushP1 = SetBrush(_modelFibonacci.P1, Brushes.LawnGreen, Brushes.White);
+        BrushP1 = BaseFunctions.SetBrush(_modelFibonacci.P1, Brushes.LawnGreen, Brushes.White);
 
         ScottPlotAktualisieren();
     }

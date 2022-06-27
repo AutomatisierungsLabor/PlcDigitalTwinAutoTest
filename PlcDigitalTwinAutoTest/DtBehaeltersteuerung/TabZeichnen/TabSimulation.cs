@@ -51,17 +51,17 @@ public partial class TabZeichnen
         libWpf.TextMargin("-Q7", 18, 2, 4, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, randBeschriftung);
 
         var randVentilOben = new Thickness(0, 0, 5, 0);
-        libWpf.ImageMarginZweiBilderSetVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 2, 3, 4, 2, randVentilOben, nameof(vmBehaeltersteuerung.VisibilityEinQ1), nameof(vmBehaeltersteuerung.VisibilityAusQ1));
-        libWpf.ImageMarginZweiBilderSetVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 8, 3, 4, 2, randVentilOben, nameof(vmBehaeltersteuerung.VisibilityEinQ3), nameof(vmBehaeltersteuerung.VisibilityAusQ3));
-        libWpf.ImageMarginZweiBilderSetVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 14, 3, 4, 2, randVentilOben, nameof(vmBehaeltersteuerung.VisibilityEinQ5), nameof(vmBehaeltersteuerung.VisibilityAusQ5));
-        libWpf.ImageMarginZweiBilderSetVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 20, 3, 4, 2, randVentilOben, nameof(vmBehaeltersteuerung.VisibilityEinQ7), nameof(vmBehaeltersteuerung.VisibilityAusQ7));
+        libWpf.ImageMarginZweiBilderBindingVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 2, 3, 4, 2, randVentilOben, nameof(vmBehaeltersteuerung.VisibilityEinQ1), nameof(vmBehaeltersteuerung.VisibilityAusQ1));
+        libWpf.ImageMarginZweiBilderBindingVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 8, 3, 4, 2, randVentilOben, nameof(vmBehaeltersteuerung.VisibilityEinQ3), nameof(vmBehaeltersteuerung.VisibilityAusQ3));
+        libWpf.ImageMarginZweiBilderBindingVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 14, 3, 4, 2, randVentilOben, nameof(vmBehaeltersteuerung.VisibilityEinQ5), nameof(vmBehaeltersteuerung.VisibilityAusQ5));
+        libWpf.ImageMarginZweiBilderBindingVisibility("VentilElektrischEin.jpg", "VentilElektrischAus.jpg", 20, 3, 4, 2, randVentilOben, nameof(vmBehaeltersteuerung.VisibilityEinQ7), nameof(vmBehaeltersteuerung.VisibilityAusQ7));
 
         var randSenkrechteLeitungen = new Thickness(20, 0, 20, 0);
 
-        libWpf.RectangleMarginSetFill(3, 2, 6, 12, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesZuleitung1));
-        libWpf.RectangleMarginSetFill(9, 2, 6, 12, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesZuleitung2));
-        libWpf.RectangleMarginSetFill(15, 2, 6, 12, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesZuleitung3));
-        libWpf.RectangleMarginSetFill(21, 2, 6, 12, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesZuleitung4));
+        libWpf.RectangleMarginBindingFill(3, 2, 6, 12, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesZuleitung1));
+        libWpf.RectangleMarginBindingFill(9, 2, 6, 12, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesZuleitung2));
+        libWpf.RectangleMarginBindingFill(15, 2, 6, 12, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesZuleitung3));
+        libWpf.RectangleMarginBindingFill(21, 2, 6, 12, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesZuleitung4));
 
 
         libWpf.RectangleFill(2, 4, 8, 10, Brushes.LightBlue);
@@ -69,21 +69,21 @@ public partial class TabZeichnen
         libWpf.RectangleFill(14, 4, 8, 10, Brushes.LightBlue);
         libWpf.RectangleFill(20, 4, 8, 10, Brushes.LightBlue);
 
-        libWpf.RectangleFillSetMargin(2, 4, 8, 10, Brushes.Blue, nameof(vmBehaeltersteuerung.ThicknessFuellstand1));
-        libWpf.RectangleFillSetMargin(8, 4, 8, 10, Brushes.Blue, nameof(vmBehaeltersteuerung.ThicknessFuellstand2));
-        libWpf.RectangleFillSetMargin(14, 4, 8, 10, Brushes.Blue, nameof(vmBehaeltersteuerung.ThicknessFuellstand3));
-        libWpf.RectangleFillSetMargin(20, 4, 8, 10, Brushes.Blue, nameof(vmBehaeltersteuerung.ThicknessFuellstand4));
+        libWpf.RectangleFillBindingMargin(2, 4, 8, 10, Brushes.Blue, nameof(vmBehaeltersteuerung.ThicknessFuellstand1));
+        libWpf.RectangleFillBindingMargin(8, 4, 8, 10, Brushes.Blue, nameof(vmBehaeltersteuerung.ThicknessFuellstand2));
+        libWpf.RectangleFillBindingMargin(14, 4, 8, 10, Brushes.Blue, nameof(vmBehaeltersteuerung.ThicknessFuellstand3));
+        libWpf.RectangleFillBindingMargin(20, 4, 8, 10, Brushes.Blue, nameof(vmBehaeltersteuerung.ThicknessFuellstand4));
 
         var randSchwimmerschalter = new Thickness(2, 15, 10, 15);
 
-        libWpf.RectangleMarginSetFill(6, 2, 8, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB1));
-        libWpf.RectangleMarginSetFill(6, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB2));
-        libWpf.RectangleMarginSetFill(12, 2, 8, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB3));
-        libWpf.RectangleMarginSetFill(12, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB4));
-        libWpf.RectangleMarginSetFill(18, 2, 8, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB5));
-        libWpf.RectangleMarginSetFill(18, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB6));
-        libWpf.RectangleMarginSetFill(24, 2, 8, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB7));
-        libWpf.RectangleMarginSetFill(24, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB8));
+        libWpf.RectangleMarginBindingFill(6, 2, 8, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB1));
+        libWpf.RectangleMarginBindingFill(6, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB2));
+        libWpf.RectangleMarginBindingFill(12, 2, 8, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB3));
+        libWpf.RectangleMarginBindingFill(12, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB4));
+        libWpf.RectangleMarginBindingFill(18, 2, 8, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB5));
+        libWpf.RectangleMarginBindingFill(18, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB6));
+        libWpf.RectangleMarginBindingFill(24, 2, 8, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB7));
+        libWpf.RectangleMarginBindingFill(24, 2, 16, 2, randSchwimmerschalter, nameof(vmBehaeltersteuerung.BrushesB8));
         
         libWpf.Text("B1", 6, 2, 8, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("B2", 6, 2, 16, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
@@ -94,10 +94,10 @@ public partial class TabZeichnen
         libWpf.Text("B7", 24, 2, 8, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
         libWpf.Text("B8", 24, 2, 16, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.RectangleMarginSetFill(3, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben1));
-        libWpf.RectangleMarginSetFill(9, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben2));
-        libWpf.RectangleMarginSetFill(15, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben3));
-        libWpf.RectangleMarginSetFill(21, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben4));
+        libWpf.RectangleMarginBindingFill(3, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben1));
+        libWpf.RectangleMarginBindingFill(9, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben2));
+        libWpf.RectangleMarginBindingFill(15, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben3));
+        libWpf.RectangleMarginBindingFill(21, 2, 18, 2, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungOben4));
 
         libWpf.TextMargin("-Q2", 0, 2, 20, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, randBeschriftung);
         libWpf.TextMargin("-Q4", 6, 2, 20, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, randBeschriftung);
@@ -109,12 +109,12 @@ public partial class TabZeichnen
         libWpf.ButtonMarginSetVisibilityZweiBilder(14, 3, 20, 2, "VentilElektrischEin.jpg", "VentilElektrischAus.jpg", randVentilOben, vmBehaeltersteuerung.ButtonSchalterCommand, "Q6", nameof(vmBehaeltersteuerung.ClickModeQ6), nameof(vmBehaeltersteuerung.VisibilityEinQ6), nameof(vmBehaeltersteuerung.VisibilityAusQ6));
         libWpf.ButtonMarginSetVisibilityZweiBilder(20, 3, 20, 2, "VentilElektrischEin.jpg", "VentilElektrischAus.jpg", randVentilOben, vmBehaeltersteuerung.ButtonSchalterCommand, "Q8", nameof(vmBehaeltersteuerung.ClickModeQ8), nameof(vmBehaeltersteuerung.VisibilityEinQ8), nameof(vmBehaeltersteuerung.VisibilityAusQ8));
 
-        libWpf.RectangleMarginSetFill(3, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
-        libWpf.RectangleMarginSetFill(9, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
-        libWpf.RectangleMarginSetFill(15, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
-        libWpf.RectangleMarginSetFill(21, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
+        libWpf.RectangleMarginBindingFill(3, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
+        libWpf.RectangleMarginBindingFill(9, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
+        libWpf.RectangleMarginBindingFill(15, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
+        libWpf.RectangleMarginBindingFill(21, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
 
-        libWpf.RectangleMarginSetFill(3, 21, 24, 1, new Thickness(20, 10, 0, 0), nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
+        libWpf.RectangleMarginBindingFill(3, 21, 24, 1, new Thickness(20, 10, 0, 0), nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
 
         libWpf.PlcError();
     }

@@ -93,6 +93,7 @@
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\LibGaugeControl\LibGaugeControl.csproj" />
     <ProjectReference Include="..\LibPlcKommunikation\LibPlcKommunikation.csproj" />
+    <ProjectReference Include="..\LibSiebenSegmentAnzeige\LibSiebenSegmentAnzeige.csproj" />
   </ItemGroup>
 
   <ItemGroup>

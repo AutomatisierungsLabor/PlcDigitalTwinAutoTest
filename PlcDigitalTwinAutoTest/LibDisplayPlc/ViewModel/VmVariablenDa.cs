@@ -30,6 +30,22 @@ public partial class VmPlc
     [ObservableProperty] private Brush _brushDa25;
     [ObservableProperty] private Brush _brushDa26;
     [ObservableProperty] private Brush _brushDa27;
+    [ObservableProperty] private Brush _brushDa30;
+    [ObservableProperty] private Brush _brushDa31;
+    [ObservableProperty] private Brush _brushDa32;
+    [ObservableProperty] private Brush _brushDa33;
+    [ObservableProperty] private Brush _brushDa34;
+    [ObservableProperty] private Brush _brushDa35;
+    [ObservableProperty] private Brush _brushDa36;
+    [ObservableProperty] private Brush _brushDa37;
+    [ObservableProperty] private Brush _brushDa40;
+    [ObservableProperty] private Brush _brushDa41;
+    [ObservableProperty] private Brush _brushDa42;
+    [ObservableProperty] private Brush _brushDa43;
+    [ObservableProperty] private Brush _brushDa44;
+    [ObservableProperty] private Brush _brushDa45;
+    [ObservableProperty] private Brush _brushDa46;
+    [ObservableProperty] private Brush _brushDa47;
 
     [ObservableProperty] private Visibility _visibilityDa00;
     [ObservableProperty] private Visibility _visibilityDa01;
@@ -55,6 +71,22 @@ public partial class VmPlc
     [ObservableProperty] private Visibility _visibilityDa25;
     [ObservableProperty] private Visibility _visibilityDa26;
     [ObservableProperty] private Visibility _visibilityDa27;
+    [ObservableProperty] private Visibility _visibilityDa30;
+    [ObservableProperty] private Visibility _visibilityDa31;
+    [ObservableProperty] private Visibility _visibilityDa32;
+    [ObservableProperty] private Visibility _visibilityDa33;
+    [ObservableProperty] private Visibility _visibilityDa34;
+    [ObservableProperty] private Visibility _visibilityDa35;
+    [ObservableProperty] private Visibility _visibilityDa36;
+    [ObservableProperty] private Visibility _visibilityDa37;
+    [ObservableProperty] private Visibility _visibilityDa40;
+    [ObservableProperty] private Visibility _visibilityDa41;
+    [ObservableProperty] private Visibility _visibilityDa42;
+    [ObservableProperty] private Visibility _visibilityDa43;
+    [ObservableProperty] private Visibility _visibilityDa44;
+    [ObservableProperty] private Visibility _visibilityDa45;
+    [ObservableProperty] private Visibility _visibilityDa46;
+    [ObservableProperty] private Visibility _visibilityDa47;
 
     [ObservableProperty] private string _stringBezeichnungDa00;
     [ObservableProperty] private string _stringBezeichnungDa01;
@@ -80,6 +112,23 @@ public partial class VmPlc
     [ObservableProperty] private string _stringBezeichnungDa25;
     [ObservableProperty] private string _stringBezeichnungDa26;
     [ObservableProperty] private string _stringBezeichnungDa27;
+    [ObservableProperty] private string _stringBezeichnungDa30;
+    [ObservableProperty] private string _stringBezeichnungDa31;
+    [ObservableProperty] private string _stringBezeichnungDa32;
+    [ObservableProperty] private string _stringBezeichnungDa33;
+    [ObservableProperty] private string _stringBezeichnungDa34;
+    [ObservableProperty] private string _stringBezeichnungDa35;
+    [ObservableProperty] private string _stringBezeichnungDa36;
+    [ObservableProperty] private string _stringBezeichnungDa37;
+    [ObservableProperty] private string _stringBezeichnungDa40;
+    [ObservableProperty] private string _stringBezeichnungDa41;
+    [ObservableProperty] private string _stringBezeichnungDa42;
+    [ObservableProperty] private string _stringBezeichnungDa43;
+    [ObservableProperty] private string _stringBezeichnungDa44;
+    [ObservableProperty] private string _stringBezeichnungDa45;
+    [ObservableProperty] private string _stringBezeichnungDa46;
+    [ObservableProperty] private string _stringBezeichnungDa47;
+
 
     [ObservableProperty] private string _stringKommentarDa00;
     [ObservableProperty] private string _stringKommentarDa01;
@@ -105,8 +154,26 @@ public partial class VmPlc
     [ObservableProperty] private string _stringKommentarDa25;
     [ObservableProperty] private string _stringKommentarDa26;
     [ObservableProperty] private string _stringKommentarDa27;
+    [ObservableProperty] private string _stringKommentarDa30;
+    [ObservableProperty] private string _stringKommentarDa31;
+    [ObservableProperty] private string _stringKommentarDa32;
+    [ObservableProperty] private string _stringKommentarDa33;
+    [ObservableProperty] private string _stringKommentarDa34;
+    [ObservableProperty] private string _stringKommentarDa35;
+    [ObservableProperty] private string _stringKommentarDa36;
+    [ObservableProperty] private string _stringKommentarDa37;
+    [ObservableProperty] private string _stringKommentarDa40;
+    [ObservableProperty] private string _stringKommentarDa41;
+    [ObservableProperty] private string _stringKommentarDa42;
+    [ObservableProperty] private string _stringKommentarDa43;
+    [ObservableProperty] private string _stringKommentarDa44;
+    [ObservableProperty] private string _stringKommentarDa45;
+    [ObservableProperty] private string _stringKommentarDa46;
+    [ObservableProperty] private string _stringKommentarDa47;
 
     [ObservableProperty] private string _stringWertDa0;
     [ObservableProperty] private string _stringWertDa1; 
     [ObservableProperty] private string _stringWertDa2;
+    [ObservableProperty] private string _stringWertDa3;
+    [ObservableProperty] private string _stringWertDa4;
 }

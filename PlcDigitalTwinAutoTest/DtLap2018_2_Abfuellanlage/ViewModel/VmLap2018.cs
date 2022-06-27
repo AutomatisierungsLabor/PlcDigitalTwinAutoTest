@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtLap2018_2_Abfuellanlage.ViewModel;
 
@@ -40,18 +41,18 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityFlasche5, MarginFlasche5) = FlaschePositionieren(_modelLap2018.AlleFlaschen[4]);
         (VisibilityFlasche6, MarginFlasche6) = FlaschePositionieren(_modelLap2018.AlleFlaschen[5]);
 
-        (VisibilityEinB1, VisibilityAusB1) = SetVisibility(_modelLap2018.B1);
-        (VisibilityEinK1, VisibilityAusK1) = SetVisibility(_modelLap2018.K1);
-        (VisibilityEinK2, VisibilityAusK2) = SetVisibility(_modelLap2018.K2);
+        (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2018.B1);
+        (VisibilityEinK1, VisibilityAusK1) = BaseFunctions.SetVisibility(_modelLap2018.K1);
+        (VisibilityEinK2, VisibilityAusK2) = BaseFunctions.SetVisibility(_modelLap2018.K2);
 
         KisteAnzeigen(_modelLap2018.FlaschenInDerKiste);
 
-        BrushF1 = SetBrush(_modelLap2018.F1, Brushes.LawnGreen, Brushes.Red);
-        BrushP1 = SetBrush(_modelLap2018.P1, Brushes.LawnGreen, Brushes.LightGray);
-        BrushP2 = SetBrush(_modelLap2018.P2, Brushes.Red, Brushes.LightGray);
-        BrushQ1 = SetBrush(_modelLap2018.Q1, Brushes.LawnGreen, Brushes.LightGray);
-        BrushZuleitung = SetBrush(_modelLap2018.Pegel > 0.01, Brushes.Blue, Brushes.LightBlue);
-        BrushAbleitung = SetBrush(_modelLap2018.K1 && _modelLap2018.Pegel > 0.01, Brushes.Blue, Brushes.LightGray);
+        BrushF1 = BaseFunctions.SetBrush(_modelLap2018.F1, Brushes.LawnGreen, Brushes.Red);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2018.P1, Brushes.LawnGreen, Brushes.LightGray);
+        BrushP2 = BaseFunctions.SetBrush(_modelLap2018.P2, Brushes.Red, Brushes.LightGray);
+        BrushQ1 = BaseFunctions.SetBrush(_modelLap2018.Q1, Brushes.LawnGreen, Brushes.LightGray);
+        BrushZuleitung = BaseFunctions.SetBrush(_modelLap2018.Pegel > 0.01, Brushes.Blue, Brushes.LightBlue);
+        BrushAbleitung = BaseFunctions.SetBrush(_modelLap2018.K1 && _modelLap2018.Pegel > 0.01, Brushes.Blue, Brushes.LightGray);
 
         MarginPegel = new Thickness(0, HoeheFuellBalken * (1 - _modelLap2018.Pegel), 0, 0);
         StringFuellstandProzent = (100 * _modelLap2018.Pegel).ToString("F0") + "%";
@@ -62,7 +63,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         const double breiteZeichenfeld = 20 * 30;
         const double hoeheZeichenfeld = 20 * 30;
 
-        var (ein, _) = SetVisibility(allflaschen.Sichtbar);
+        var (ein, _) = BaseFunctions.SetVisibility(allflaschen.Sichtbar);
         var margin = new Thickness(allflaschen.Flasche.GetLinks(), allflaschen.Flasche.GetOben(), breiteZeichenfeld - allflaschen.Flasche.GetRechts(), hoeheZeichenfeld - allflaschen.Flasche.GetUnten());
         return (ein, margin);
     }
@@ -79,21 +80,21 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
         if (_modelLap2018.AktuellesBier == ModelLap2018.Bier.Fohrenburger) alleFohrenburgerKisten[anzahlFlaschen] = true; else alleMohrenKisten[anzahlFlaschen] = true;
 
-        (VisibilityFohrenburger0, _) = SetVisibility(alleFohrenburgerKisten[0]);
-        (VisibilityFohrenburger1, _) = SetVisibility(alleFohrenburgerKisten[1]);
-        (VisibilityFohrenburger2, _) = SetVisibility(alleFohrenburgerKisten[2]);
-        (VisibilityFohrenburger3, _) = SetVisibility(alleFohrenburgerKisten[3]);
-        (VisibilityFohrenburger4, _) = SetVisibility(alleFohrenburgerKisten[4]);
-        (VisibilityFohrenburger5, _) = SetVisibility(alleFohrenburgerKisten[5]);
-        (VisibilityFohrenburger6, _) = SetVisibility(alleFohrenburgerKisten[6]);
+        (VisibilityFohrenburger0, _) = BaseFunctions.SetVisibility(alleFohrenburgerKisten[0]);
+        (VisibilityFohrenburger1, _) = BaseFunctions.SetVisibility(alleFohrenburgerKisten[1]);
+        (VisibilityFohrenburger2, _) = BaseFunctions.SetVisibility(alleFohrenburgerKisten[2]);
+        (VisibilityFohrenburger3, _) = BaseFunctions.SetVisibility(alleFohrenburgerKisten[3]);
+        (VisibilityFohrenburger4, _) = BaseFunctions.SetVisibility(alleFohrenburgerKisten[4]);
+        (VisibilityFohrenburger5, _) = BaseFunctions.SetVisibility(alleFohrenburgerKisten[5]);
+        (VisibilityFohrenburger6, _) = BaseFunctions.SetVisibility(alleFohrenburgerKisten[6]);
 
-        (VisibilityMohren0, _) = SetVisibility(alleMohrenKisten[0]);
-        (VisibilityMohren1, _) = SetVisibility(alleMohrenKisten[1]);
-        (VisibilityMohren2, _) = SetVisibility(alleMohrenKisten[2]);
-        (VisibilityMohren3, _) = SetVisibility(alleMohrenKisten[3]);
-        (VisibilityMohren4, _) = SetVisibility(alleMohrenKisten[4]);
-        (VisibilityMohren5, _) = SetVisibility(alleMohrenKisten[5]);
-        (VisibilityMohren6, _) = SetVisibility(alleMohrenKisten[6]);
+        (VisibilityMohren0, _) = BaseFunctions.SetVisibility(alleMohrenKisten[0]);
+        (VisibilityMohren1, _) = BaseFunctions.SetVisibility(alleMohrenKisten[1]);
+        (VisibilityMohren2, _) = BaseFunctions.SetVisibility(alleMohrenKisten[2]);
+        (VisibilityMohren3, _) = BaseFunctions.SetVisibility(alleMohrenKisten[3]);
+        (VisibilityMohren4, _) = BaseFunctions.SetVisibility(alleMohrenKisten[4]);
+        (VisibilityMohren5, _) = BaseFunctions.SetVisibility(alleMohrenKisten[5]);
+        (VisibilityMohren6, _) = BaseFunctions.SetVisibility(alleMohrenKisten[6]);
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

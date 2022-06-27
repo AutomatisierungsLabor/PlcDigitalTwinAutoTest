@@ -33,8 +33,8 @@ public partial class TabZeichnen
         libWpf.ButtonBackgroundContentMarginRounded("Aus", 22, 3, 2, 3, 20, 15, Brushes.Red, buttonRand, vmLap2010.ButtonTasterCommand, "S1", nameof(vmLap2010.ClickModeS1));
         libWpf.ButtonBackgroundContentMarginRounded("Ein", 27, 3, 2, 3, 20, 15, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
 
-        libWpf.EllipseMarginStrokeSetFilling(22, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
-        libWpf.EllipseMarginStrokeSetFilling(27, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP2));
+        libWpf.EllipseMarginStrokeBindingFilling(22, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
+        libWpf.EllipseMarginStrokeBindingFilling(27, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP2));
 
 
         ///////////////////////////////////////////////////////////
@@ -56,13 +56,13 @@ public partial class TabZeichnen
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 9, 2, 5, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageMarginSetVisibility("InitiatorenSchliesser.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
-        libWpf.ImageMarginSetVisibility("InitiatorenBetaetigt.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
+        libWpf.ImageMarginBindingVisibility("InitiatorenSchliesser.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
+        libWpf.ImageMarginBindingVisibility("InitiatorenBetaetigt.jpg", 11, 2, 5, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
 
 
-        libWpf.RectangleStrokeSetFill(10, 4, 15, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ1));
-        libWpf.RectangleStrokeSetFill(10, 2, 16, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ2));
-        libWpf.RectangleStrokeSetFill(12, 2, 16, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ3));
+        libWpf.RectangleStrokeBindingFill(10, 4, 15, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ1));
+        libWpf.RectangleStrokeBindingFill(10, 2, 16, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ2));
+        libWpf.RectangleStrokeBindingFill(12, 2, 16, 1, Brushes.Black, 2, nameof(vmLap2010.BrushQ3));
         libWpf.Text("Q1 (Netz)", 10, 4, 15, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 15, Brushes.Black);
         libWpf.Text("Q2 ( Y )", 10, 2, 16, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 15, Brushes.Black);
         libWpf.Text("Q3 ( △ )", 12, 2, 16, 1, HorizontalAlignment.Center, VerticalAlignment.Center, 15, Brushes.Black);
@@ -70,11 +70,11 @@ public partial class TabZeichnen
 
         libWpf.ButtonContentRoundedSetBackground("F1", 10, 4, 18, 2, 14, 5, vmLap2010.ButtonSchalterCommand, "F1", nameof(vmLap2010.ClickModeF1), nameof(vmLap2010.BrushF1));
 
-        libWpf.TextContendSetVisibility("Kurzschluss!", 10, 4, 18, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmLap2010.VisibilityKurzschluss));
-        libWpf.EllipseFillSetVisibility(15, 4, 15, 4, Brushes.Red, nameof(vmLap2010.VisibilityKurzschluss));
+        libWpf.TextContendBindingVisibility("Kurzschluss!", 10, 4, 18, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmLap2010.VisibilityKurzschluss));
+        libWpf.EllipseFillBindingVisibility(15, 4, 15, 4, Brushes.Red, nameof(vmLap2010.VisibilityKurzschluss));
 
 
-        libWpf.PointerGauge(20, 10, 12, 10, "Druck", 0, 10, 165, 188, "AktuellerDruck");
+        libWpf.PointerGaugeBindingValue(20, 10, 12, 10, "Druck", 0, 10, 165, 188, "AktuellerDruck");
 
         // libWpf.PlcError();
     }

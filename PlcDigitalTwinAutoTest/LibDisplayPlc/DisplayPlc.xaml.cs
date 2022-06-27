@@ -12,16 +12,19 @@ public partial class DisplayPlc
     {
         var grid = new Grid();
         Content = grid;
+        var maxAnzByteAaAi = 0;
+        var maxAnzByteDaDi = 0;
+
+        if (configDt.GetAnzahlAa() > 0 || configDt.GetAnzahlAi() > 0) maxAnzByteAaAi = 1;
+        if (configDt.GetAnzahlByteDa() > maxAnzByteDaDi) maxAnzByteDaDi = configDt.GetAnzahlByteDa();
+        if (configDt.GetAnzahlByteDi() > maxAnzByteDaDi) maxAnzByteDaDi = configDt.GetAnzahlByteDi();
 
         Height = 900;
-        var breite = 650;
-        if (configDt.GetAnzahlAa() > 0 || configDt.GetAnzahlAi() > 0) breite += 350;
-        if (configDt.GetAnzahlDa() > 15 || configDt.GetAnzahlDi() > 15) breite += 350;
-        Width = breite;
+        Width = (maxAnzByteAaAi + maxAnzByteDaDi) * 350;
 
         var viewModel = new ViewModel.VmPlc(datenstruktur, configDt, cancellationTokenSource);
 
-        var plcZeichnen = new PlcZeichnen.PlcZeichnen(grid);
+        var plcZeichnen = new PlcZeichnen.PlcZeichnen(grid, maxAnzByteAaAi, maxAnzByteDaDi);
         plcZeichnen.Zeichnen(configDt);
 
         DataContext = viewModel;

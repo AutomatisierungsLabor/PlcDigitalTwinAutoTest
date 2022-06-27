@@ -90,11 +90,11 @@ public class AlarmZeichnen
         {
             _libWpf.Linie(1, 50, posY, 2, 0, 30, 35 * 30, 30, 2, Brushes.Black);
 
-            _libWpf.RectangleMarginStrokeSetFill(1, 1, posY, 1, new Thickness(5, 5, 5, 5), Brushes.Black, 2, $"BrushAlarm{alarm.Id:D2}");
-            _libWpf.TextSetContent(2, 8, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 15, Brushes.Black, $"StringBezeichnung{alarm.Id:D2}");
-            _libWpf.TextSetContent(8, 8, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 15, Brushes.Black, $"StringKommt{alarm.Id:D2}");
-            _libWpf.TextSetContent(14, 8, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 15, Brushes.Black, $"StringGeht{alarm.Id:D2}");
-            _libWpf.TextSetContent(20, 12, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 15, Brushes.Black, $"StringKommentar{alarm.Id:D2}");
+            _libWpf.RectangleMarginStrokeBindingFill(1, 1, posY, 1, new Thickness(5, 5, 5, 5), Brushes.Black, 2, $"BrushAlarm{alarm.Id:D2}");
+            _libWpf.TextBindingContent(2, 8, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 15, Brushes.Black, $"StringBezeichnung{alarm.Id:D2}");
+            _libWpf.TextBindingContent(8, 8, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 15, Brushes.Black, $"StringKommt{alarm.Id:D2}");
+            _libWpf.TextBindingContent(14, 8, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 15, Brushes.Black, $"StringGeht{alarm.Id:D2}");
+            _libWpf.TextBindingContent(20, 12, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 15, Brushes.Black, $"StringKommentar{alarm.Id:D2}");
             posY++;
         }
 

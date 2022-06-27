@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Contracts;
 using DtParkhaus.Model;
 using LibDatenstruktur;
 
@@ -55,14 +56,14 @@ public partial class VmParkhaus : BasePlcDtAt.BaseViewModel.VmBase
         var (b0, b1, b2, b3, b4, b5, b6, b7) = LibPlcTools.Bytes.AlleBitLesen(b);
 
         return (
-                SetBrush(b0, Brushes.Red, Brushes.LawnGreen),
-                SetBrush(b1, Brushes.Red, Brushes.LawnGreen),
-                SetBrush(b2, Brushes.Red, Brushes.LawnGreen),
-                SetBrush(b3, Brushes.Red, Brushes.LawnGreen),
-                SetBrush(b4, Brushes.Red, Brushes.LawnGreen),
-                SetBrush(b5, Brushes.Red, Brushes.LawnGreen),
-                SetBrush(b6, Brushes.Red, Brushes.LawnGreen),
-                SetBrush(b7, Brushes.Red, Brushes.LawnGreen)
+                BaseFunctions.SetBrush(b0, Brushes.Red, Brushes.LawnGreen),
+                BaseFunctions.SetBrush(b1, Brushes.Red, Brushes.LawnGreen),
+                BaseFunctions.SetBrush(b2, Brushes.Red, Brushes.LawnGreen),
+                BaseFunctions.SetBrush(b3, Brushes.Red, Brushes.LawnGreen),
+                BaseFunctions.SetBrush(b4, Brushes.Red, Brushes.LawnGreen),
+                BaseFunctions.SetBrush(b5, Brushes.Red, Brushes.LawnGreen),
+                BaseFunctions.SetBrush(b6, Brushes.Red, Brushes.LawnGreen),
+                BaseFunctions.SetBrush(b7, Brushes.Red, Brushes.LawnGreen)
         );
     }
     private static (Visibility VisibilityPkw00, Visibility VisibilityPkw01, Visibility VisibilityPkw02, Visibility VisibilityPkw03, Visibility VisibilityPkw04, Visibility VisibilityPkw05, Visibility VisibilityPkw06, Visibility VisibilityPkw07) GetAlleSichtbarkeiten(byte b)
@@ -70,14 +71,14 @@ public partial class VmParkhaus : BasePlcDtAt.BaseViewModel.VmBase
         var (b0, b1, b2, b3, b4, b5, b6, b7) = LibPlcTools.Bytes.AlleBitLesen(b);
 
         return (
-                SetVisibilityEin(b0),
-                SetVisibilityEin(b1),
-                SetVisibilityEin(b2),
-                SetVisibilityEin(b3),
-                SetVisibilityEin(b4),
-                SetVisibilityEin(b5),
-                SetVisibilityEin(b6),
-                SetVisibilityEin(b7)
+                BaseFunctions.SetVisibilityEin(b0),
+                BaseFunctions.SetVisibilityEin(b1),
+                BaseFunctions.SetVisibilityEin(b2),
+                BaseFunctions.SetVisibilityEin(b3),
+                BaseFunctions.SetVisibilityEin(b4),
+                BaseFunctions.SetVisibilityEin(b5),
+                BaseFunctions.SetVisibilityEin(b6),
+                BaseFunctions.SetVisibilityEin(b7)
         );
     }
 

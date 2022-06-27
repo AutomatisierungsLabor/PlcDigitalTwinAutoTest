@@ -36,7 +36,7 @@ public partial class TabZeichnen
         libWpf.ButtonBackgroundContentMarginRounded("Öffnen", 22, 3, 5, 3, 14, 15, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
         libWpf.ButtonBackgroundContentMarginRounded("Schliessen", 27, 3, 5, 3, 14, 15, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "S3", nameof(vmLap2010.ClickModeS3));
 
-        libWpf.EllipseMarginStrokeSetFilling(22, 3, 8, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
+        libWpf.EllipseMarginStrokeBindingFilling(22, 3, 8, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
         libWpf.Text("Schliessen", 22, 3, 8, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 16, Brushes.Black);
 
 
@@ -48,35 +48,35 @@ public partial class TabZeichnen
 
         libWpf.VideoAutoPlay("Flammen.mp4", 7, 3, 5, 3);
 
-        libWpf.ImageMarginSetDrehen("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ZahnradWinkel));
-        libWpf.ImageSetMargin("Zahnstange.png", 2, 20, 8, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ZahnstangePosition));
+        libWpf.ImageMarginBindingWinkel("Zahnrad.png", 2, 3, 10, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ZahnradWinkel));
+        libWpf.ImageBindingMargin("Zahnstange.png", 2, 20, 8, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ZahnstangePosition));
 
-        libWpf.RectangleFillStrokeSetMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, nameof(vmLap2010.OfentuerePosition));
+        libWpf.RectangleFillStrokeBindingMargin(2, 4, 5, 4, Brushes.Gray, Brushes.Black, 2, nameof(vmLap2010.OfentuerePosition));
 
         libWpf.ButtonBackgroundContentMarginRounded("Lichtschranke", 22, 3, 2, 3, 14, 15, Brushes.Red, buttonRand, vmLap2010.ButtonTasterCommand, "B2", nameof(vmLap2010.ClickModeB2));
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
 
         libWpf.Text("B1", 8, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageMarginSetVisibility("InitiatorenSchliesser.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
-        libWpf.ImageMarginSetVisibility("InitiatorenBetaetigt.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
+        libWpf.ImageMarginBindingVisibility("InitiatorenSchliesser.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB1));
+        libWpf.ImageMarginBindingVisibility("InitiatorenBetaetigt.jpg", 11, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB1));
 
         libWpf.Text("B2", 12, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageMarginSetVisibility("InitiatorenSchliesser.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB2));
-        libWpf.ImageMarginSetVisibility("InitiatorenBetaetigt.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB2));
+        libWpf.ImageMarginBindingVisibility("InitiatorenSchliesser.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB2));
+        libWpf.ImageMarginBindingVisibility("InitiatorenBetaetigt.jpg", 15, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB2));
 
         libWpf.Text("B3", 16, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ImageMarginSetVisibility("InitiatorenSchliesser.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB3));
-        libWpf.ImageMarginSetVisibility("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB3));
+        libWpf.ImageMarginBindingVisibility("InitiatorenSchliesser.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityAusB3));
+        libWpf.ImageMarginBindingVisibility("InitiatorenBetaetigt.jpg", 19, 2, 15, 2, kontakteRand, nameof(vmLap2010.VisibilityEinB3));
 
 
-        libWpf.RectangleStrokeSetFill(2, 2, 15, 2, Brushes.Black, 2, nameof(vmLap2010.BrushQ1));
-        libWpf.RectangleStrokeSetFill(4, 2, 15, 2, Brushes.Black, 2, nameof(vmLap2010.BrushQ2));
+        libWpf.RectangleStrokeBindingFill(2, 2, 15, 2, Brushes.Black, 2, nameof(vmLap2010.BrushQ1));
+        libWpf.RectangleStrokeBindingFill(4, 2, 15, 2, Brushes.Black, 2, nameof(vmLap2010.BrushQ2));
         libWpf.Text("Q1 (LL)", 2, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
         libWpf.Text("Q2 (RL)", 4, 2, 15, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 16, Brushes.Black);
 
-        libWpf.TextContendSetVisibility("Kurzschluß", 9, 4, 19, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmLap2010.VisibilityKurzschluss));
-        libWpf.EllipseFillSetVisibility(9, 4, 18, 4, Brushes.Red, nameof(vmLap2010.VisibilityKurzschluss));
+        libWpf.TextContendBindingVisibility("Kurzschluß", 9, 4, 19, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmLap2010.VisibilityKurzschluss));
+        libWpf.EllipseFillBindingVisibility(9, 4, 18, 4, Brushes.Red, nameof(vmLap2010.VisibilityKurzschluss));
 
         // libWpf.PlcError();
     }
