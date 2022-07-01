@@ -28,5 +28,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: DtKata Min
+        name: DtTiefgarage Min
         path: PublishMin

@@ -1,11 +1,11 @@
-name: DigitalTwin Parkhaus
+name: DigitalTwin BerlinUhr
 
 on:
   push:
     branches: [ main ]
 
 env:
-      PROJECT_PATH: PlcDigitalTwinAutoTest/DtParkhaus/DtParkhaus.csproj
+      PROJECT_PATH: PlcDigitalTwinAutoTest/DtBerlinUhr/DtBerlinUhr.csproj
       
 jobs:
   deploy:
@@ -28,5 +28,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: DtParkhaus Min
+        name: DtBerlinUhr Min
         path: PublishMin

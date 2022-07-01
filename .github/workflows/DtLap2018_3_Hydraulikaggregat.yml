@@ -1,11 +1,11 @@
-name: DigitalTwin Parkhaus
+name: DigitalTwin Lap2018_3_Hydraulikaggregat
 
 on:
   push:
     branches: [ main ]
 
 env:
-      PROJECT_PATH: PlcDigitalTwinAutoTest/DtParkhaus/DtParkhaus.csproj
+      PROJECT_PATH: PlcDigitalTwinAutoTest/DtLap2018_3_Hydraulikaggregat/DtLap2018_3_Hydraulikaggregat.csproj
       
 jobs:
   deploy:
@@ -23,10 +23,10 @@ jobs:
         files: 'PlcDigitalTwinAutoTest/LibPlcKommunikation/IpAdressenSiemens.json'
       env:
         Adress: "192.168.0.10"
-
-    - run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o PublishMin -v Normal
+        
+    - run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -o PublishMin
 
     - uses: actions/upload-artifact@v2
       with:
-        name: DtParkhaus Min
+        name: DtLap2018_3_Hydraulikaggregat Min
         path: PublishMin

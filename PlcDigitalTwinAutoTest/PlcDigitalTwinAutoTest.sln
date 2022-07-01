@@ -103,11 +103,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtParkhaus", "DtParkhaus\Dt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtWordclock", "DtWordclock\DtWordclock.csproj", "{4E560D52-ABC0-4167-8CE8-A53009ABF447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtAmpelVerbania", "DtAmpelVerbania\DtAmpelVerbania.csproj", "{BB518288-38E9-4F1A-A476-171E9AC7F07C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtAmpelVerbania", "DtAmpelVerbania\DtAmpelVerbania.csproj", "{BB518288-38E9-4F1A-A476-171E9AC7F07C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibSiebenSegmentAnzeige", "LibSiebenSegmentAnzeige\LibSiebenSegmentAnzeige.csproj", "{98583B67-D54E-4164-A585-946F31269063}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibSiebenSegmentAnzeige", "LibSiebenSegmentAnzeige\LibSiebenSegmentAnzeige.csproj", "{98583B67-D54E-4164-A585-946F31269063}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtVoltmeter", "DtVoltmeter\DtVoltmeter.csproj", "{EA65F549-82E1-449D-9280-2B41054BA33A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DtVoltmeter", "DtVoltmeter\DtVoltmeter.csproj", "{EA65F549-82E1-449D-9280-2B41054BA33A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DtBerlinUhr", "DtBerlinUhr\DtBerlinUhr.csproj", "{EBE6A7B6-C75A-4731-87C0-BDE2F1026070}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -327,6 +329,10 @@ Global
 		{EA65F549-82E1-449D-9280-2B41054BA33A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA65F549-82E1-449D-9280-2B41054BA33A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA65F549-82E1-449D-9280-2B41054BA33A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBE6A7B6-C75A-4731-87C0-BDE2F1026070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE6A7B6-C75A-4731-87C0-BDE2F1026070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE6A7B6-C75A-4731-87C0-BDE2F1026070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE6A7B6-C75A-4731-87C0-BDE2F1026070}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

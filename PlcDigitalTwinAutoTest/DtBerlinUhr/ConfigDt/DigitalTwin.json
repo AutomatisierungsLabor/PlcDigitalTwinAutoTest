@@ -1,0 +1,207 @@
+{
+  "AnalogeAusgaenge": {
+    "EaConfig": []
+  },
+  "AnalogeEingaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "h",
+        "Kommentar": "Stunde"
+      },
+      {
+        "StartByte": 1,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "m",
+        "Kommentar": "Minute"
+      },
+      {
+        "StartByte": 2,
+        "AnzahlBit": 8,
+        "Type": "Byte",
+        "Bezeichnung": "s",
+        "Kommentar": "Sekunde"
+      }
+    ]
+  },
+  "DigitaleAusgaenge": {
+    "EaConfig": [
+      {
+        "StartByte": 0,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "P1",
+        "Kommentar": "Sekunde"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "P2.1",
+        "Kommentar": "5Stunden1"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "P2.2",
+        "Kommentar": "5Stunden2"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "P2.3",
+        "Kommentar": "5Stunden3"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "P2.4",
+        "Kommentar": "5Stunden4"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "P3.1",
+        "Kommentar": "1Stunde1"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "P3.2",
+        "Kommentar": "1Stunde2"
+      },
+      {
+        "StartByte": 0,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "P3.3",
+        "Kommentar": "1Stunde3"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "P3.4",
+        "Kommentar": "1Stunde4"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "P4.1",
+        "Kommentar": "5Minuten1"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "P4.2",
+        "Kommentar": "5Minuten2"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "P4.3",
+        "Kommentar": "5Minuten3"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "P4.4",
+        "Kommentar": "5Minuten4"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "P4.5",
+        "Kommentar": "5Minuten5"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "P4.6",
+        "Kommentar": "5Minuten6"
+      },
+      {
+        "StartByte": 1,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "P4.7",
+        "Kommentar": "5Minuten7"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 0,
+        "Type": "Bit",
+        "Bezeichnung": "P4.8",
+        "Kommentar": "5Minuten8"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 1,
+        "Type": "Bit",
+        "Bezeichnung": "P4.9",
+        "Kommentar": "5Minuten9"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 2,
+        "Type": "Bit",
+        "Bezeichnung": "P4.10",
+        "Kommentar": "5Minuten10"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 3,
+        "Type": "Bit",
+        "Bezeichnung": "P4.11",
+        "Kommentar": "5Minuten11"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 4,
+        "Type": "Bit",
+        "Bezeichnung": "P5.1",
+        "Kommentar": "1Minute1"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 5,
+        "Type": "Bit",
+        "Bezeichnung": "P5.2",
+        "Kommentar": "1Minute2"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 6,
+        "Type": "Bit",
+        "Bezeichnung": "P5.3",
+        "Kommentar": "1Minute3"
+      },
+      {
+        "StartByte": 2,
+        "StartBit": 7,
+        "Type": "Bit",
+        "Bezeichnung": "P5.4",
+        "Kommentar": "1Minute4"
+      }
+    ]
+  },
+  "DigitaleEingaenge": {
+    "EaConfig": []
+  },
+  "Textbausteine": [],
+  "Alarm": []
+}

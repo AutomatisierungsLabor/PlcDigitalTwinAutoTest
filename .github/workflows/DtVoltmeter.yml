@@ -28,5 +28,5 @@ jobs:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: DtBlinker Min
+        name: DtVoltmeter Min
         path: PublishMin
