@@ -18,7 +18,11 @@ public partial class App
 
         var modelAmpelVarbania = new ModelAmpelVarbania(datenstruktur, _cancellationTokenSource);
         var vmAmpelVarbania = new VmAmpelVerbania(modelAmpelVarbania, datenstruktur, _cancellationTokenSource);
-        var baseWindow = new BaseWindow(vmAmpelVarbania, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmAmpelVarbania, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
+        {
+            Height = 750,
+            Width = 900
+        };
 
         baseWindow.Show();
     }

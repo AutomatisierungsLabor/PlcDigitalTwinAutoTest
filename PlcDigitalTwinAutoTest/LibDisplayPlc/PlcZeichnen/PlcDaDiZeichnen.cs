@@ -25,7 +25,7 @@ public partial class PlcZeichnen
         for (var i = 0; i < 8; i++)
         {
             wpf.TextVerticalWidthBindingTextVisibility(xPos + i, 1, yPosKommentar, 6, HorizontalAlignment.Center, alignment, SchriftKlein, 180, Brushes.Black, $"StringKommentar{prefix}{i}", $"Visibility{prefix}{i}");
-            wpf.TextBindingContendVisibility(xPos - 1 + i, 3, yPosBezeichnung, 2, HorizontalAlignment.Center, alignment, SchriftKlein, Brushes.Black, $"StringBezeichnung{prefix}{i}", $"Visibility{prefix}{i}");
+            wpf.TextBindingContentVisibility(xPos - 1 + i, 3, yPosBezeichnung, 2, HorizontalAlignment.Center, alignment, SchriftKlein, Brushes.Black, $"StringBezeichnung{prefix}{i}", $"Visibility{prefix}{i}");
         }
     }
 }

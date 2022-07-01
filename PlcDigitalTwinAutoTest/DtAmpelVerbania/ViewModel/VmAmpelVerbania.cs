@@ -48,6 +48,11 @@ public partial class VmAmpelVerbania : BasePlcDtAt.BaseViewModel.VmBase
         BrushP33 = BaseFunctions.SetBrush(_modelAmpelVarbania.P33, Brushes.LawnGreen, Brushes.LightGray);
 
         StringAnzeige = _modelAmpelVarbania.Anzeige == 0 ? "--" : _modelAmpelVarbania.Anzeige.ToString();
+
+        ShortSiebenSegmentAnzeige = _modelAmpelVarbania.AlleSegmente;
+
+        VisibilityAnzeige = _modelAmpelVarbania.S2 ? Visibility.Visible : Visibility.Collapsed;
+        VisibilitySiebenSegmentAnzeige = _modelAmpelVarbania.S2 ? Visibility.Collapsed : Visibility.Visible;
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

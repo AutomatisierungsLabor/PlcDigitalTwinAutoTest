@@ -8,7 +8,7 @@ namespace LibSiebenSegmentAnzeige;
 public partial class SiebenSegmentAnzeige
 {
     public SiebenSegmentAnzeige() => InitializeComponent();
-
+    
 
     [Description("(Display) ColorBackground"), Category("Segment Display")]
     // ReSharper disable once UnusedMember.Global
@@ -27,17 +27,28 @@ public partial class SiebenSegmentAnzeige
         set => SetValue(ColorSegmentProperty, value);
     }
     public static readonly DependencyProperty ColorSegmentProperty = DependencyProperty.Register("ColorSegment", typeof(SolidColorBrush), typeof(SiebenSegmentAnzeige), new PropertyMetadata(OnDisplayChanged));
-    
+
 
 
     [Description("(Display) ShortBitmusterSegmente"), Category("Segment Display")]
+    // ReSharper disable once UnusedMember.Global
     public short ShortBitmusterSegmente
     {
         get => (short)GetValue(ShortBitmusterSegmenteProperty);
         set => SetValue(ShortBitmusterSegmenteProperty, value);
     }
-
     public static readonly DependencyProperty ShortBitmusterSegmenteProperty = DependencyProperty.Register("ShortBitmusterSegmente", typeof(short), typeof(SiebenSegmentAnzeige), new PropertyMetadata(OnDisplayChanged));
+
+
+
+    [Description("(Display) VisbilityAnzeige"), Category("Segment Display")]
+    // ReSharper disable once UnusedMember.Global
+    public Visibility VisbilityAnzeige
+    {
+        get => (Visibility)GetValue(VisbilityAnzeigeProperty);
+        set => SetValue(VisbilityAnzeigeProperty, value);
+    }
+    public static readonly DependencyProperty VisbilityAnzeigeProperty = DependencyProperty.Register("VisbilityAnzeige", typeof(Visibility), typeof(SiebenSegmentAnzeige), new PropertyMetadata(OnDisplayChanged));
 
 
     private static void OnDisplayChanged(DependencyObject obj, DependencyPropertyChangedEventArgs arg)
@@ -71,6 +82,10 @@ public partial class SiebenSegmentAnzeige
                 if (anzeige.SegF != null) anzeige.SegF.Visibility = BaseFunctions.SetVisibilityEin(LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 5));
                 if (anzeige.SegG != null) anzeige.SegG.Visibility = BaseFunctions.SetVisibilityEin(LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 6));
                 if (anzeige.SegDp != null) anzeige.SegDp.Visibility = BaseFunctions.SetVisibilityEin(LibPlcTools.Bitmuster.BitmusterInByteTesten(wert, 7));
+                break;
+
+            case "VisbilityAnzeige":
+                anzeige.Visibility = (Visibility)arg.NewValue;
                 break;
         }
     }

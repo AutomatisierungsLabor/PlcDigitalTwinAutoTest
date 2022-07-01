@@ -64,20 +64,6 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
-    public void TextMarginBindingContent(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, Thickness margin, string bindingContent)
-    {
-        var label = new Label
-        {
-            FontSize = fontSize,
-            Foreground = farbe,
-            HorizontalAlignment = horizontal,
-            VerticalAlignment = vertical,
-            Margin = margin
-        };
-
-        label.ContentControlBindingContent(bindingContent);
-        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
-    }
     public void TextContendBindingVisibility(string content, int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush foreground, string visibility)
     {
         var label = new Label
@@ -106,7 +92,23 @@ public partial class LibWpf
         label.ContentControlBindingContent(bindingContent);
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
     }
-    public void TextBindingContendVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, string bindingContent, string bindingVisibility)
+    public void TextMarginBindingContentVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, Thickness margin, string bindingContent, string bindingVisibility)
+    {
+        var label = new Label
+        {
+            FontSize = fontSize,
+            Foreground = farbe,
+            HorizontalAlignment = horizontal,
+            VerticalAlignment = vertical,
+            Margin = margin
+        };
+
+        label.ContentControlBindingContent(bindingContent);
+        label.FrameworkElementBindingVisibility(bindingVisibility);
+
+        AddToGrid(xPos, xSpan, yPos, ySpan, Grid, label);
+    }
+    public void TextBindingContentVisibility(int xPos, int xSpan, int yPos, int ySpan, HorizontalAlignment horizontal, VerticalAlignment vertical, int fontSize, Brush farbe, string bindingContent, string bindingVisibility)
     {
         var label = new Label
         {
