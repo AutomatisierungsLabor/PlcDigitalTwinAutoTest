@@ -44,7 +44,8 @@ public partial class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
         WinkelZeiger3 = _modelNadeltelegraph.AlleZeiger[2].GetWinkel();
         WinkelZeiger4 = _modelNadeltelegraph.AlleZeiger[3].GetWinkel();
         WinkelZeiger5 = _modelNadeltelegraph.AlleZeiger[4].GetWinkel();
-
+       
+        
         VisibilityLinieLinksOben1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityUpLeft();
         VisibilityLinieRechtsOben1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityUpRight();
         VisibilityLinieLinksUnten1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityDownLeft();
@@ -64,6 +65,7 @@ public partial class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityLinieRechtsOben4 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityUpRight();
         VisibilityLinieLinksUnten4 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityDownLeft();
         VisibilityLinieRechtsUnten4 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityDownRight();
+        
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

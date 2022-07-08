@@ -41,6 +41,7 @@ public class Zeiger
         }
 
         if (!links) return;
+
         _winkel = -WinkelNadel;
 
         _visibilityUpLeft = Visibility.Visible;

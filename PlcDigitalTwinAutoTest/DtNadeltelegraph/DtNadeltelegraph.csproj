@@ -36,9 +36,6 @@
     <None Update="ConfigTests\Nadeltelegraph__575__1\test.ssc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Nadeltelegraph__575__1\test.st">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
