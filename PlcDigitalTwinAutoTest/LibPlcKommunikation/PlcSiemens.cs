@@ -2,12 +2,6 @@
 
 namespace LibPlcKommunikation;
 
-public enum SiemensDatenbausteine
-{
-    PcToPlc = 1,
-    PlcToPc = 2
-}
-
 public class PlcSiemens : IPlc
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
@@ -21,6 +15,11 @@ public class PlcSiemens : IPlc
     private readonly S7Client _s7Client;
     private SiemensStatus _siemensStatus;
 
+    private enum SiemensDb
+    {
+        PcToPlc = 1,
+        PlcToPc = 2
+    }
     private enum SiemensStatus
     {
         Verbinden = 0,
@@ -45,11 +44,13 @@ public class PlcSiemens : IPlc
     public void PlcTask()
     {
         var error = false;
-
+        
         switch (_siemensStatus)
         {
             case SiemensStatus.Verbinden:
-                var connect = _s7Client?.ConnectTo(_ipAdressenSiemens.Adress, 0, 1);
+                var connect = _s7Client?.ConnectTo(_ipAdressenSiemens.Adress, 0, 0);
+
+                if (_s7Client != null && _s7Client.PduSizeNegotiated < AnzBytePcToPlc) Log.Debug($"S7 zu kleine PDU PduSizeNegotiated: {_s7Client.PduSizeNegotiated}");
 
                 if (connect == 0)
                 {
@@ -63,8 +64,8 @@ public class PlcSiemens : IPlc
                 break;
 
             case SiemensStatus.Kommunizieren:
-                error |= FehlerAktiv(_s7Client.DBWrite((int)SiemensDatenbausteine.PcToPlc, 0, AnzBytePcToPlc, _pcToPlc));
-                error |= FehlerAktiv(_s7Client.DBRead((int)SiemensDatenbausteine.PlcToPc, 0, AnzBytePlcToPc, _plcToPc));
+                error |= FehlerAktiv(_s7Client.DBWrite((int)SiemensDb.PcToPlc, 0, AnzBytePcToPlc, _pcToPlc));
+                error |= FehlerAktiv(_s7Client.DBRead((int)SiemensDb.PlcToPc, 0, AnzBytePlcToPc, _plcToPc));
                 break;
 
             default:

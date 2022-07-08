@@ -33,6 +33,8 @@ public partial class TabZeichnen
         libWpf.ButtonBackgroundContentMarginRounded("Mehr", 31, 4, 17, 4, 25, 15, Brushes.GreenYellow, buttonRand, vmBlinker.ButtonTasterCommand, "S4", nameof(vmBlinker.ClickModeS4));
         libWpf.ButtonBackgroundContentMarginRounded("RESET", 28, 4, 1, 4, 30, 15, Brushes.Violet, buttonRand, vmBlinker.ButtonTasterCommand, "S5", nameof(vmBlinker.ClickModeS5));
 
+        libWpf.TextBindingContent(15,5,1,2,HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.Black, nameof(vmBlinker.StringFrequenz));
+        libWpf.TextBindingContent(15, 5, 3, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.Black, nameof(vmBlinker.StringTastverhaeltnis));
 
         libWpf.PlcError();
         return scottPlot;

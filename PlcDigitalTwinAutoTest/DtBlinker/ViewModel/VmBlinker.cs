@@ -45,6 +45,9 @@ public partial class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
 
         BrushP1 = BaseFunctions.SetBrush(_modelBlinker.P1, Brushes.LawnGreen, Brushes.White);
 
+        StringFrequenz = $"{_modelBlinker.Frequenz:F2}Hz";
+        StringTastverhaeltnis = $"{_modelBlinker.Tastverhaeltnis:F1}%";
+
         ScottPlotAktualisieren();
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }

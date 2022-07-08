@@ -13,4 +13,7 @@ public partial class VmBlinker
     [ObservableProperty] private ClickMode _clickModeS3;
     [ObservableProperty] private ClickMode _clickModeS4;
     [ObservableProperty] private ClickMode _clickModeS5;
+
+    [ObservableProperty] private string _stringFrequenz;
+    [ObservableProperty] private string _stringTastverhaeltnis;
 }

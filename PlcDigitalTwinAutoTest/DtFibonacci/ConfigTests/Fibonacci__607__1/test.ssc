@@ -1,26 +1,18 @@
 ///////////////////////////////////////////////////////////////
 //
-// Digital Twin Blinker
+// Digital Twin Fibonacci
 //
 ///////////////////////////////////////////////////////////////
 
 // Eingänge:
-var DI_0_0 = "2#0000_0001" // -S1	Frequenz -
-var DI_0_1 = "2#0000_0010" // -S2	Frequenz +
-var DI_0_2 = "2#0000_0100" // -S3	Tastverhältnis -
-var DI_0_3 = "2#0000_1000" // -S4	Tastverhältnis +
-var DI_0_4 = "2#0001_0000" // -S5	Taster Reset
+var DI_0_0 = "2#0000_0001" // -S1	Start
 
 // Ausgänge:
 var DQ_0_0 = "2#0000_0001" // -P1	Meldeleuchte
 
 main()
 {
-    var S1 = PlcToDec(DI_0_0) // -S1	Frequenz -
-    var S2 = PlcToDec(DI_0_1) // -S2	Frequenz +
-    var S3 = PlcToDec(DI_0_2) // -S3	Tastverhältnis -
-    var S4 = PlcToDec(DI_0_3) // -S4	Tastverhältnis +
-    var S5 = PlcToDec(DI_0_4) // -S5	Taster Reset
+    var S1 = PlcToDec(DI_0_0) // -S1	Start
 
     var AllesAus = 0
 
