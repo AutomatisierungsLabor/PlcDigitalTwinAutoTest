@@ -49,8 +49,8 @@ public class Zeiger
     }
 
     internal int GetWinkel() => _winkel;
-    internal Visibility GetVisibilityUpLeft() => _visibilityUpLeft;
-    internal Visibility GetVisibilityUpRight() => _visibilityUpRight;
-    internal Visibility GetVisibilityDownLeft() => _visibilityDownLeft;
-    internal Visibility GetVisibilityDownRight() => _visibilityDownRight;
+    internal Visibility GetVisibilityUpLeft(bool b) => b ? _visibilityUpLeft : Visibility.Hidden;
+    internal Visibility GetVisibilityUpRight(bool b) => b ? _visibilityUpRight : Visibility.Hidden;
+    internal Visibility GetVisibilityDownLeft(bool b) => b ? _visibilityDownLeft : Visibility.Hidden;
+    internal Visibility GetVisibilityDownRight(bool b) => b ? _visibilityDownRight : Visibility.Hidden;
 }

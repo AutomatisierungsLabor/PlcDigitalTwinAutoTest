@@ -44,28 +44,39 @@ public partial class VmNadeltelegraph : BasePlcDtAt.BaseViewModel.VmBase
         WinkelZeiger3 = _modelNadeltelegraph.AlleZeiger[2].GetWinkel();
         WinkelZeiger4 = _modelNadeltelegraph.AlleZeiger[3].GetWinkel();
         WinkelZeiger5 = _modelNadeltelegraph.AlleZeiger[4].GetWinkel();
-       
-        
-        VisibilityLinieLinksOben1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityUpLeft();
-        VisibilityLinieRechtsOben1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityUpRight();
-        VisibilityLinieLinksUnten1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityDownLeft();
-        VisibilityLinieRechtsUnten1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityDownRight();
 
-        VisibilityLinieLinksOben2 = _modelNadeltelegraph.AlleZeiger[1].GetVisibilityUpLeft();
-        VisibilityLinieRechtsOben2 = _modelNadeltelegraph.AlleZeiger[1].GetVisibilityUpRight();
-        VisibilityLinieLinksUnten2 = _modelNadeltelegraph.AlleZeiger[1].GetVisibilityDownLeft();
-        VisibilityLinieRechtsUnten2 = _modelNadeltelegraph.AlleZeiger[1].GetVisibilityDownRight();
+        var ersterWinkel = 0;
+        var zweiterWinkel = 0;
 
-        VisibilityLinieLinksOben3 = _modelNadeltelegraph.AlleZeiger[2].GetVisibilityUpLeft();
-        VisibilityLinieRechtsOben3 = _modelNadeltelegraph.AlleZeiger[2].GetVisibilityUpRight();
-        VisibilityLinieLinksUnten3 = _modelNadeltelegraph.AlleZeiger[2].GetVisibilityDownLeft();
-        VisibilityLinieRechtsUnten3 = _modelNadeltelegraph.AlleZeiger[2].GetVisibilityDownRight();
+        foreach (var zeiger in _modelNadeltelegraph.AlleZeiger)
+        {
+            if (zeiger.GetWinkel() == 0) continue;
 
-        VisibilityLinieLinksOben4 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityUpLeft();
-        VisibilityLinieRechtsOben4 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityUpRight();
-        VisibilityLinieLinksUnten4 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityDownLeft();
-        VisibilityLinieRechtsUnten4 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityDownRight();
-        
+            if (ersterWinkel == 0) ersterWinkel = zeiger.GetWinkel();
+            else if (zweiterWinkel == 0) zweiterWinkel = zeiger.GetWinkel();
+        }
+
+        var zeigerNachOben = ersterWinkel > 0 && zweiterWinkel < 0;
+        var zeigerNachUnten = ersterWinkel < 0 && zweiterWinkel > 0;
+
+        VisibilityLinieRechtsOben1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityUpRight(zeigerNachOben);
+        VisibilityLinieRechtsOben2 = _modelNadeltelegraph.AlleZeiger[1].GetVisibilityUpRight(zeigerNachOben);
+        VisibilityLinieRechtsOben3 = _modelNadeltelegraph.AlleZeiger[2].GetVisibilityUpRight(zeigerNachOben);
+        VisibilityLinieRechtsOben4 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityUpRight(zeigerNachOben);
+        VisibilityLinieLinksOben1 = _modelNadeltelegraph.AlleZeiger[1].GetVisibilityUpLeft(zeigerNachOben);
+        VisibilityLinieLinksOben2 = _modelNadeltelegraph.AlleZeiger[2].GetVisibilityUpLeft(zeigerNachOben);
+        VisibilityLinieLinksOben3 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityUpLeft(zeigerNachOben);
+        VisibilityLinieLinksOben4 = _modelNadeltelegraph.AlleZeiger[4].GetVisibilityUpLeft(zeigerNachOben);
+
+
+        VisibilityLinieRechtsUnten1 = _modelNadeltelegraph.AlleZeiger[0].GetVisibilityDownRight(zeigerNachUnten);
+        VisibilityLinieRechtsUnten2 = _modelNadeltelegraph.AlleZeiger[1].GetVisibilityDownRight(zeigerNachUnten);
+        VisibilityLinieRechtsUnten3 = _modelNadeltelegraph.AlleZeiger[2].GetVisibilityDownRight(zeigerNachUnten);
+        VisibilityLinieRechtsUnten4 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityDownRight(zeigerNachUnten);
+        VisibilityLinieLinksUnten1 = _modelNadeltelegraph.AlleZeiger[1].GetVisibilityDownLeft(zeigerNachUnten);
+        VisibilityLinieLinksUnten2 = _modelNadeltelegraph.AlleZeiger[2].GetVisibilityDownLeft(zeigerNachUnten);
+        VisibilityLinieLinksUnten3 = _modelNadeltelegraph.AlleZeiger[3].GetVisibilityDownLeft(zeigerNachUnten);
+        VisibilityLinieLinksUnten4 = _modelNadeltelegraph.AlleZeiger[4].GetVisibilityDownLeft(zeigerNachUnten);
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");
