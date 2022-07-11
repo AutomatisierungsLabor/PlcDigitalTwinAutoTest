@@ -19,6 +19,8 @@ public partial class DisplayPlc
         if (configDt.GetAnzahlByteDa() > maxAnzByteDaDi) maxAnzByteDaDi = configDt.GetAnzahlByteDa();
         if (configDt.GetAnzahlByteDi() > maxAnzByteDaDi) maxAnzByteDaDi = configDt.GetAnzahlByteDi();
 
+        if (maxAnzByteDaDi < 2) maxAnzByteDaDi = 2;
+
         Height = 900;
         Width = (maxAnzByteAaAi + maxAnzByteDaDi) * 350;
 
