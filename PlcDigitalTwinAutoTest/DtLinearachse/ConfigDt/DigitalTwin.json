@@ -93,7 +93,7 @@
         "StartBit": 5,
         "Type": "Bit",
         "Bezeichnung": "S3",
-        "Kommentar": "Taster ( ① ) → Schliesser "
+        "Kommentar": "Taster ( Ⅰ ) → Schliesser "
       },
       {
         "StartByte": 0,

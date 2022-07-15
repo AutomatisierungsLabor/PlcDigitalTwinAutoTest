@@ -17,7 +17,10 @@ public partial class App
 
         var modelLinearachse = new ModelLinearachse(datenstruktur, _cancellationTokenSource);
         var vmLinearachse = new VmLinearachse(modelLinearachse, datenstruktur, _cancellationTokenSource);
-        var baseWindow = new BaseWindow(vmLinearachse, datenstruktur, (int)Contracts.WpfBase.TabLaborplatte, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmLinearachse, datenstruktur, (int)Contracts.WpfBase.TabLaborplatte, _cancellationTokenSource)
+        {
+            Width = 1000
+        };
 
         baseWindow.Show();
     }

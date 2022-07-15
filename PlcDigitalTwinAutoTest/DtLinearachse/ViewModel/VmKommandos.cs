@@ -26,10 +26,9 @@ public partial class VmLinearachse
     [ICommand]
     private void ButtonSchalter(string schalter)
     {
-        switch (schalter)
-        {
-            case "S10": _modelLinearachse.S10 = !_modelLinearachse.S10; break;
-            case "S11": _modelLinearachse.S11 = !_modelLinearachse.S11; break;
-        }
+        if (schalter != "S10") return;
+
+        _modelLinearachse.S10 = !_modelLinearachse.S10;
+        _modelLinearachse.S11 = !_modelLinearachse.S10;
     }
 }
