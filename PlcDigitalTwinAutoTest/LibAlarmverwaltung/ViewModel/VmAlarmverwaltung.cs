@@ -62,14 +62,14 @@ public partial class VmAlarmverwaltung : ObservableObject
         var kommt = alarm.AlarmKommt.ToString("d.M.yyyy - H:mm:ss.fff");
         var geht = alarm.AlarmGeht.ToString("d.M.yyyy - H:mm:ss.fff");
 
-        switch (alarm.Status)
+        return alarm.Status switch
         {
-            case StatusAlarm.AlarmKommt: return (Brushes.Red, alarm.Bezeichnung, alarm.Kommentar, kommt, "-");
-            case StatusAlarm.AlarmGeht: return (Brushes.LawnGreen, alarm.Bezeichnung, alarm.Kommentar, kommt, geht);
-            case StatusAlarm.AlarmQuittiert: return (Brushes.BlueViolet, alarm.Bezeichnung, alarm.Kommentar, kommt, geht);
-            case StatusAlarm.AlarmKeiner:
-            case StatusAlarm.Unbekannt:
-            default: return (Brushes.White, alarm.Bezeichnung, alarm.Kommentar, "-", "-");
-        }
+            StatusAlarm.AlarmKommt => (Brushes.Red, alarm.Bezeichnung, alarm.Kommentar, kommt, "-"),
+            StatusAlarm.AlarmGeht => (Brushes.LawnGreen, alarm.Bezeichnung, alarm.Kommentar, kommt, geht),
+            StatusAlarm.AlarmQuittiert => (Brushes.BlueViolet, alarm.Bezeichnung, alarm.Kommentar, kommt, geht),
+            StatusAlarm.AlarmKeiner => (Brushes.White, alarm.Bezeichnung, alarm.Kommentar, "-", "-"),
+            StatusAlarm.Unbekannt => (Brushes.White, alarm.Bezeichnung, alarm.Kommentar, "-", "-"),
+            _ => (Brushes.White, alarm.Bezeichnung, alarm.Kommentar, "-", "-")
+        };
     }
 }

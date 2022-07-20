@@ -23,7 +23,7 @@ public class TestPunkt
 
     public void TestsZeigerPunktRad(double rad, double winkel, double x, double y)
     {
-        var p = new Punkt(rad, winkel, 0);
+        var p = new Punkt(rad, winkel, Punkt.ModusPunkt.MousRad);
 
         Assert.Equal(x, p.X, 3);
         Assert.Equal(y, p.Y, 3);

@@ -46,7 +46,7 @@ public partial class ConfigDt
     private static void AlarmFehlermeldung(Alarm alarm, EaConfigError eaConfigError)
     {
         if (alarm.EaConfigError == EaConfigError.None) alarm.EaConfigError = eaConfigError; // nur den ersten Fehler eintragen!
-        Log.Debug($"Alarm {alarm.Bezeichnung}: {eaConfigError.ToString()}");
+        Log.Debug($"Alarm {alarm.Bezeichnung}: {eaConfigError}");
     }
     private void AaTesten()
     {

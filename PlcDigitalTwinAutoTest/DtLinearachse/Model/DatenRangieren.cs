@@ -1,5 +1,4 @@
-﻿using System;
-using LibDatenstruktur;
+﻿using LibDatenstruktur;
 
 namespace DtLinearachse.Model;
 

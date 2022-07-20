@@ -2,8 +2,11 @@
 
 public class Punkt
 {
-    // ReSharper disable once NotAccessedField.Local
-    private readonly int _nix;
+    public enum ModusPunkt
+    {
+        ModusXy,
+        MousRad
+    }
     public double X { get; set; }
     public double Y { get; set; }
 
@@ -13,9 +16,9 @@ public class Punkt
         Y = y;
     }
 
-    public Punkt(double radius, double winkel, int nix)
+    public Punkt(double radius, double winkel, ModusPunkt modusPunkt)
     {
-        _nix = nix;
+        _ = modusPunkt; // es müssen die beiden Punkte unterschieden
         // Winkel in Grad --> für Synchronisiereinrichtung
         X = radius * Math.Cos(Winkel.DegToRad(winkel));
         Y = radius * Math.Sin(Winkel.DegToRad(winkel));

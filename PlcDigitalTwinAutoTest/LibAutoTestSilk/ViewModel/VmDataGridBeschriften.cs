@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
@@ -38,11 +39,9 @@ public partial class VmAutoTesterSilk
 
         AlleDpAktualisieren();
     }
-    private static void TabBeschriftungDa(EaConfig[] eaZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes, EaConfig[] daZeilenAlt)
+    private static void TabBeschriftungDa(EaConfig[] eaZeilen, IReadOnlyList<VmDatenpunkte> vmDatenpunktes, IEnumerable daZeilenAlt)
     {
         if (daZeilenAlt == eaZeilen) return;
-        // ReSharper disable once RedundantAssignment
-        daZeilenAlt = eaZeilen;
 
         for (var i = 0; i < 20; i++) vmDatenpunktes[i].DpVisibility = Visibility.Hidden;
 
