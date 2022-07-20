@@ -24,170 +24,128 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    IncrementDataGridId
 
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('A'), "uint16"
     BitmusterTesten P1R + P5L, Maske_Alle_Nadeln, "T#5s", "A"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('B'), "uint16"
     BitmusterTesten P1R + P4L, Maske_Alle_Nadeln, "T#5s", "B"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('D'), "uint16"
     BitmusterTesten P2R + P5L, Maske_Alle_Nadeln, "T#5s", "D"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('E'), "uint16"
     BitmusterTesten P1R + P3L, Maske_Alle_Nadeln, "T#5s", "E"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('F'), "uint16"
     BitmusterTesten P2R + P4L, Maske_Alle_Nadeln, "T#5s", "F"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('G'), "uint16"
     BitmusterTesten P3R + P5L, Maske_Alle_Nadeln, "T#5s", "G"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('H'), "uint16"
     BitmusterTesten P1R + P2L, Maske_Alle_Nadeln, "T#5s", "H"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('I'), "uint16"
     BitmusterTesten P2R + P3L, Maske_Alle_Nadeln, "T#5s", "I"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('K'), "uint16"
     BitmusterTesten P3R + P4L, Maske_Alle_Nadeln, "T#5s", "K"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('L'), "uint16"
     BitmusterTesten P4R + P5L, Maske_Alle_Nadeln, "T#5s", "L"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('M'), "uint16"
     BitmusterTesten P1L + P2R, Maske_Alle_Nadeln, "T#5s", "M"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('N'), "uint16"
     BitmusterTesten P2L + P3R, Maske_Alle_Nadeln, "T#5s", "N"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('O'), "uint16"
     BitmusterTesten P3L + P4R, Maske_Alle_Nadeln, "T#5s", "O"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('P'), "uint16"
     BitmusterTesten P4L + P5R, Maske_Alle_Nadeln, "T#5s", "P"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('R'), "uint16"
     BitmusterTesten P1L + P3R, Maske_Alle_Nadeln, "T#5s", "R"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('S'), "uint16"
     BitmusterTesten P2L + P4R, Maske_Alle_Nadeln, "T#5s", "S"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('T'), "uint16"
     BitmusterTesten P3L + P5R, Maske_Alle_Nadeln, "T#5s", "T"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('V'), "uint16"
     BitmusterTesten P1L + P4R, Maske_Alle_Nadeln, "T#5s", "V"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('W'), "uint16"
     BitmusterTesten P2L + P5R, Maske_Alle_Nadeln, "T#5s", "W"
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 
     SetAnalogerEingang 0, Asc ('Y'), "uint16"
     BitmusterTesten P1L + P5R, Maske_Alle_Nadeln, "T#5s", "Y"  
-    IncrementDataGridId
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"
     BitmusterTesten AllesAus, Maske_Alle_Nadeln, "T#5s", "Alles Aus?"
-    IncrementDataGridId
 }

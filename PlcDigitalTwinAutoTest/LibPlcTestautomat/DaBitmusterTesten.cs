@@ -24,6 +24,7 @@ public partial class TestAutomat
             if ((GetDigitalOutputWord() & (short)daBitMaske) == (short)daBitMuster)
             {
                 DataGridUpdaten(TestAnzeige.Erfolgreich, (uint)daBitMuster, kommentar);
+                IncrementZeilenNummer();
                 StopwatchRestart();
                 return;
             }
@@ -31,6 +32,7 @@ public partial class TestAutomat
             DataGridUpdaten(TestAnzeige.Aktiv, (uint)daBitMuster, kommentar);
         }
         DataGridUpdaten(TestAnzeige.Timeout, (uint)daBitMuster, kommentar);
+        IncrementZeilenNummer();
         StopwatchRestart();
     }
 }

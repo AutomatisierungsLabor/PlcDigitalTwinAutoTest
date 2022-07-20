@@ -36,4 +36,5 @@ public partial class TestAutomat
     public void SetReferenzen(short zeilenNummerDataGrid) => _zeilenNummerDataGrid = zeilenNummerDataGrid;
     public void ResetZeilenNummer() => _zeilenNummerDataGrid = 0;
     public void IncrementZeilenNummer() => _zeilenNummerDataGrid++;
+    public short GetZeilenNummer() => _zeilenNummerDataGrid;
 }
