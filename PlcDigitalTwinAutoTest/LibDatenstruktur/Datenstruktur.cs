@@ -125,17 +125,5 @@ public class Datenstruktur
         };
         return wert;
     }
-    public bool SimulationAktiv()
-    {
-        return BetriebsartProjekt switch
-        {
-            BetriebsartProjekt.Simulation => true,
-            BetriebsartProjekt.AutomatischerSoftwareTest => false,
-            BetriebsartProjekt.BeschreibungAnzeigen => false,
-            BetriebsartProjekt.LaborPlatte => false,
-            _ => false
-        };
-    }
-    public bool AutomatischerSoftwaretestAktiv() => BetriebsartProjekt == BetriebsartProjekt.AutomatischerSoftwareTest;
     public void SetVorbeitungId(string id) => VorbereitungId = id;
 }

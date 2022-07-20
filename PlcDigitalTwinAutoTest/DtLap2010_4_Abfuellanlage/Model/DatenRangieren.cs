@@ -15,15 +15,13 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (_datenstruktur.SimulationAktiv())
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (_datenstruktur.BetriebsartProjekt)
         {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelLap2010.B1, _modelLap2010.B2, _modelLap2010.S1, _modelLap2010.S2);
+            case BetriebsartProjekt.LaborPlatte:  (_modelLap2010.B1, _modelLap2010.B2, _modelLap2010.S1, _modelLap2010.S2, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0); break;
+            case BetriebsartProjekt.Simulation: _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelLap2010.B1, _modelLap2010.B2, _modelLap2010.S1, _modelLap2010.S2); break;
         }
-        else
-        {
-            (_modelLap2010.B1, _modelLap2010.B2, _modelLap2010.S1, _modelLap2010.S2, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
-        }
-
+     
         (_modelLap2010.K1, _modelLap2010.K2, _modelLap2010.Q1, _modelLap2010.P1, _modelLap2010.Q1, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }
 }

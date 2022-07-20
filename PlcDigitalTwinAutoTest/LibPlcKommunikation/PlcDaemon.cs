@@ -127,8 +127,14 @@ public class PlcDaemon
                     throw new ArgumentOutOfRangeException();
             }
 
-            if (_datenstruktur.SimulationAktiv()) _datenstruktur.BefehlePlc[0] = 1;
-            else _datenstruktur.BefehlePlc[0] = 0;
+            _datenstruktur.BefehlePlc[0] = _datenstruktur.BetriebsartProjekt switch
+            {
+                BetriebsartProjekt.BeschreibungAnzeigen => 0,
+                BetriebsartProjekt.LaborPlatte => 0,
+                BetriebsartProjekt.Simulation => 1,
+                BetriebsartProjekt.AutomatischerSoftwareTest => 1,
+                _ => _datenstruktur.BefehlePlc[0]
+            };
 
             if (stopwatch.ElapsedMilliseconds < _zyklusZeitMin) _zyklusZeitMin = stopwatch.ElapsedMilliseconds;
             if (stopwatch.ElapsedMilliseconds > _zyklusZeitMax) _zyklusZeitMax = stopwatch.ElapsedMilliseconds;

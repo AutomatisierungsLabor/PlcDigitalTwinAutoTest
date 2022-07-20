@@ -34,8 +34,5 @@ main()
     var Q2 = PlcToDec(DQ_0_2) // -Q1	Schütz Pumpe 
 
     var Maske_P1_Q1_Q2 = P1 + Q1 + Q2
-
-
-
-    KommentarAnzeigen "Test abgeschlossen", " "
+    
 }

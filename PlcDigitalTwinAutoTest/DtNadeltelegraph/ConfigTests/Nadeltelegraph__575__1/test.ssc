@@ -24,6 +24,7 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
+    KommentarAnzeigen "#575"
 
 
     SetAnalogerEingang 0,  Asc (' '), "uint16"

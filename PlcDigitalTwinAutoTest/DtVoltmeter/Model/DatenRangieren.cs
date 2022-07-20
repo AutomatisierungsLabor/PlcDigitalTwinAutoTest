@@ -15,10 +15,7 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (_datenstruktur.SimulationAktiv())
-        {
-            _datenstruktur.SetInt(DatenBereich.Ai, 0, _voltmeter.AnalogSignal);
-        }
+        if (_datenstruktur.BetriebsartProjekt == BetriebsartProjekt.Simulation) _datenstruktur.SetInt(DatenBereich.Ai, 0, _voltmeter.AnalogSignal);
 
         _voltmeter.BitmusterEinerStelle = _datenstruktur.GetByte(DatenBereich.Da, 0);
         _voltmeter.BitmusterZehnerStelle = _datenstruktur.GetByte(DatenBereich.Da, 1);

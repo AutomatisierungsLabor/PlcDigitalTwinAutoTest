@@ -32,13 +32,15 @@ main()
     SetDataGridBitAnzahl 8, 4
     VersionAnzeigen
 
-    KommentarAnzeigen "Init"
+   StopwatchRestart
+    Sleep("T#100ms")
+    KommentarAnzeigen "#594"
 
-    KommentarAnzeigen "Reset drücken"
+
+    TestabschnittAnzeigen "Reset drücken"
 
     SetDigitaleEingaenge(S5)
     BitmusterTesten P1, Maske_P1, "T#5s", "Leuchtmelder ausgeschaltet?"
 
-    StopwatchRestart
-    Sleep("T#100ms")
+ 
 }

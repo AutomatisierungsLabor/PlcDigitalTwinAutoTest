@@ -1,35 +1,36 @@
 ///////////////////////////////////////////////////////////////
 //
-// Motorschaltungen 2 - 21 (Linearachse)
+// Motorschaltungen 2 - 2.1 (Linearachse)
+// #600/2.1
 //
 ///////////////////////////////////////////////////////////////
 
 // Eingänge:
-var DI_0_0 = "2#0001" // B1   Linearachse Endlage links → Öffner
-var DI_0_1 = "2#0010" // B2   Linearachse Endlage rechts → Öffner
-var DI_0_2 = "2#0100" // S2   Taster(⓪) → Öffner
-var DI_0_3 = "2#1000" // S1   Taster(①) → Schliesser
+var DI_0_0 = "2#0000_0000_0000_0001"    // B1   Linearachse Endlage links → Öffner
+var DI_0_1 = "2#0000_0000_0000_0010"    // B2   Linearachse Endlage rechts → Öffner
+var DI_0_2 = "2#0000_0000_0000_0100"    // S2   Taster(⓪) → Öffner
+var DI_0_3 = "2#0000_0000_0000_1000"    // S1   Taster(①) → Schliesser
 
-var DI_0_4 = "2#0001_0000" // S4   Taster(Ⅱ) → Schliesser
-var DI_0_5 = "2#0010_0000" // S3   Taster(Ⅰ) → Schliesser
-var DI_0_6 = "2#0100_0000" // S6   Taster(↓) → Schliesser
-var DI_0_7 = "2#1000_0000" // S5   Taster(↑) → Schliesser
+var DI_0_4 = "2#0000_0000_0001_0000"    // S4   Taster(Ⅱ) → Schliesser
+var DI_0_5 = "2#0000_0000_0010_0000"    // S3   Taster(Ⅰ) → Schliesser
+var DI_0_6 = "2#0000_0000_0100_0000"    // S6   Taster(↓) → Schliesser
+var DI_0_7 = "2#0000_0000_1000_0000"    // S5   Taster(↑) → Schliesser
 
-var DI_1_0 = "2#0001_0000_0000" // S8   Taster(－) → Schliesser
-var DI_1_1 = "2#0010_0000_0000" // S7   Taster(+) → Schliesser
-var DI_1_2 = "2#0100_0000_0000" // S9   Taster(STOP) → Öffner
-var DI_1_3 = "2#1000_0000_0000" // S10  Not-Halt → Öffner
+var DI_1_0 = "2#0000_0001_0000_0000"    // S8   Taster(－) → Schliesser
+var DI_1_1 = "2#0000_0010_0000_0000"    // S7   Taster(+) → Schliesser
+var DI_1_2 = "2#0000_0100_0000_0000"    // S9   Taster(STOP) → Öffner
+var DI_1_3 = "2#0000_1000_0000_0000"    // S10  Not-Halt → Öffner
 
-var DI_1_4 = "2#0001_0000_0000_0000" // S11  Not-Halt → Schliesser
+var DI_1_4 = "2#0001_0000_0000_0000"    // S11  Not-Halt → Schliesser
 
 // Ausgänge:
-var DQ_0_0 = "2#0001" // Q1   Linearachse Rechtslauf
-var DQ_0_1 = "2#0010" // Q2   Linearachse Linkslauf
-var DQ_0_2 = "2#0100" // P1   Meldeleuchte im Taster S1/S2(weiß)
-var DQ_0_3 = "2#1000" // P2   Meldeleuchte weiß
+var DQ_0_0 = "2#0000_0001"  // Q1   Linearachse Rechtslauf
+var DQ_0_1 = "2#0000_0010"  // Q2   Linearachse Linkslauf
+var DQ_0_2 = "2#0000_0100"  // P1   Meldeleuchte im Taster S1/S2(weiß)
+var DQ_0_3 = "2#0000_1000"  // P2   Meldeleuchte weiß
 
-var DQ_0_4 = "2#0001_0000" // P3   Meldeleuchte rot
-var DQ_0_5 = "2#0010_0000" // P4   Meldeleuchte grün
+var DQ_0_4 = "2#0001_0000"  // P3   Meldeleuchte rot
+var DQ_0_5 = "2#0010_0000"  // P4   Meldeleuchte grün
 
 main()
 {
@@ -49,12 +50,10 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    KommentarAnzeigen "Init"
+    KommentarAnzeigen "#600/2.1"
     
 
     SetDigitaleEingaenge 0
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
     
 
@@ -71,7 +70,5 @@ main()
     TestAblauf setArray, testArray
 
     SetDigitaleEingaenge 0
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P4_Q1_Q2, "T#5s", "Linearachse Aus?"
 }

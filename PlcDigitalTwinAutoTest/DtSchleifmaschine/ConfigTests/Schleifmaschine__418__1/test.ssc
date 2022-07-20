@@ -47,43 +47,27 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    UpdateAnzeige "Init", ""
-    IncrementDataGridId
+    KommentarAnzeigen "#418"
 
     SetDigitaleEingaenge 0
-    StopwatchRestart
     BitmusterTesten AllesAus, Maske_P1_P2_P3, "T#5s", "Motor Aus?"
-    IncrementDataGridId
 
     SetDigitaleEingaenge S1
-    StopwatchRestart
     BitmusterTesten AllesAus, Maske_P1_P2_P3, "T#5s", "Motor Ausgeschaltet?"
-    IncrementDataGridId
 
 
     SetDigitaleEingaenge (S1 + S2)
-    StopwatchRestart
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor Ein?"
-    IncrementDataGridId
 
 
     SetDigitaleEingaenge S1
-    StopwatchRestart
     BitmusterTesten P2, Maske_P1_P2_P3, "T#5s", "Motor immer noch Ein?"
-    IncrementDataGridId
 
 
     SetDigitaleEingaenge 0
-    StopwatchRestart
     BitmusterTesten AllesAus, Maske_P1_P2_P3, "T#5s", "Motor Aus?"
-    IncrementDataGridId
 
 
     SetDigitaleEingaenge S1
-    StopwatchRestart
     BitmusterTesten AllesAus, Maske_P1_P2_P3, "T#5s", "Motor Aus?"
-    IncrementDataGridId
-
-
-    UpdateAnzeige "Test abgeschlossen", " "
 }

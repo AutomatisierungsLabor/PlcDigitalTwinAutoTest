@@ -16,14 +16,16 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (_datenstruktur.SimulationAktiv())
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (_datenstruktur.BetriebsartProjekt)
         {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelLap2018.B1, _modelLap2018.F1, _modelLap2018.S1, _modelLap2018.S2, _modelLap2018.S3, _modelLap2018.S4);
-            _datenstruktur.SetInt(DatenBereich.Ai, 0, Simatic.Analog_2_Int16(_modelLap2018.Pegel, 1));
-        }
-        else
-        {
-            (_modelLap2018.B1, _modelLap2018.F1, _modelLap2018.S1, _modelLap2018.S2, _modelLap2018.S3, _modelLap2018.S4, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
+            case BetriebsartProjekt.LaborPlatte:
+                (_modelLap2018.B1, _modelLap2018.F1, _modelLap2018.S1, _modelLap2018.S2, _modelLap2018.S3, _modelLap2018.S4, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
+                break;
+            case BetriebsartProjekt.Simulation:
+                _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelLap2018.B1, _modelLap2018.F1, _modelLap2018.S1, _modelLap2018.S2, _modelLap2018.S3, _modelLap2018.S4);
+                _datenstruktur.SetInt(DatenBereich.Ai, 0, Simatic.Analog_2_Int16(_modelLap2018.Pegel, 1));
+                break;
         }
 
         (_modelLap2018.K1, _modelLap2018.K2, _modelLap2018.P1, _modelLap2018.P2, _modelLap2018.Q1, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);

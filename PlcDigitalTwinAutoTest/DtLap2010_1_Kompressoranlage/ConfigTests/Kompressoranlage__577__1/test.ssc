@@ -43,28 +43,22 @@ main()
     SetDiagrammZeitbereich "T#10s"
 
     Sleep("T#100ms")
-    KommentarAnzeigen "Init"
-    IncrementDataGridId
+    KommentarAnzeigen "#577"
 
-    KommentarAnzeigen "Störungen zurücksetzen"
+    TestabschnittAnzeigen "Störungen zurücksetzen"
     IncrementDataGridId
 
     SetDigitaleEingaenge (B1 + B2 + F1)
-    StopwatchRestart
     BitmusterTesten P2, Maske_P1_P2_Q1_Q2_Q3, "T#5s", "Störungen zurücksetzen?"
-    IncrementDataGridId
 
     SetDigitaleEingaenge (B1 + B2 + F1 + S1)
-    StopwatchRestart
     BitmusterTesten P2, Maske_P1_P2_Q1_Q2_Q3, "T#5s", "Betriebsbereit?"
-    IncrementDataGridId
 
 
 
 
 
-    KommentarAnzeigen "Ohne Störung Stern-Dreieck-Anlauf testen"
-    IncrementDataGridId
+    TestabschnittAnzeigen "Ohne Störung Stern-Dreieck-Anlauf testen"
 
         setArray = {
             {B1 + B2 + F1 + S1 + S2,    "T#100ms",  "S2 drücken"},
@@ -78,8 +72,4 @@ main()
         }
 
     TestAblauf setArray, testArray
-
-
-
-    KommentarAnzeigen "Test abgeschlossen", " "
 }

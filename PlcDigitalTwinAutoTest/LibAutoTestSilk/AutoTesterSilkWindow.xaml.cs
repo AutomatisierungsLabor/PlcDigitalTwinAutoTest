@@ -38,6 +38,7 @@ public partial class AutoTesterWindow
                     TestAnzeige.ImpulsWarZuLang => Brushes.LawnGreen,
                     TestAnzeige.Init => Brushes.Aquamarine,
                     TestAnzeige.Kommentar => Brushes.White,
+                    TestAnzeige.TestabschnittAnzeigen=>Brushes.DarkCyan,
                     TestAnzeige.TestEnde => Brushes.CornflowerBlue,
                     TestAnzeige.TestStart => Brushes.CornflowerBlue,
                     TestAnzeige.Timeout => Brushes.Orange,

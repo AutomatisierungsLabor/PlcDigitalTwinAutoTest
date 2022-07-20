@@ -53,5 +53,5 @@ main()
     SetDataGridBitAnzahl 8, 4
     VersionAnzeigen
 
-    KommentarAnzeigen "Init"
+
 }

@@ -15,12 +15,12 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (_datenstruktur.SimulationAktiv())
-        {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _parkhaus.ParkhausSpalte1, _parkhaus.ParkhausSpalte2, _parkhaus.ParkhausSpalte3, _parkhaus.ParkhausSpalte4, _parkhaus.ParkhausSpalte5, _parkhaus.ParkhausSpalte6, _parkhaus.ParkhausSpalte7, _parkhaus.ParkhausSpalte8);
-        }
-      
-
-        (_parkhaus.ParkhausReihe1, _parkhaus.ParkhausReihe2,_parkhaus.ParkhausReihe3, _parkhaus.ParkhausReihe4, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
+        if (_datenstruktur.BetriebsartProjekt == BetriebsartProjekt.Simulation)
+            _datenstruktur.SetBitmuster(DatenBereich.Di, 0,
+                _parkhaus.ParkhausSpalte1, _parkhaus.ParkhausSpalte2,
+                _parkhaus.ParkhausSpalte3, _parkhaus.ParkhausSpalte4, _parkhaus.ParkhausSpalte5,
+                _parkhaus.ParkhausSpalte6, _parkhaus.ParkhausSpalte7, _parkhaus.ParkhausSpalte8);
+        
+        (_parkhaus.ParkhausReihe1, _parkhaus.ParkhausReihe2, _parkhaus.ParkhausReihe3, _parkhaus.ParkhausReihe4, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }
 }

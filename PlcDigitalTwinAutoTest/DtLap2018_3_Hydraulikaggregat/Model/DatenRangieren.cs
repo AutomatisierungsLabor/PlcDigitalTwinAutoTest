@@ -15,15 +15,17 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (_datenstruktur.SimulationAktiv())
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (_datenstruktur.BetriebsartProjekt)
         {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelLap2018.B1, _modelLap2018.B2, _modelLap2018.B3, _modelLap2018.B4, _modelLap2018.B5, _modelLap2018.F1, _modelLap2018.S1, _modelLap2018.S2);
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 1, _modelLap2018.S3, _modelLap2018.S4);
-        }
-        else
-        {
-            (_modelLap2018.B1, _modelLap2018.B2, _modelLap2018.B3, _modelLap2018.B4, _modelLap2018.B5, _modelLap2018.F1, _modelLap2018.S1, _modelLap2018.S2) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
-            (_modelLap2018.S3, _modelLap2018.S4, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 1);
+            case BetriebsartProjekt.LaborPlatte:
+                (_modelLap2018.B1, _modelLap2018.B2, _modelLap2018.B3, _modelLap2018.B4, _modelLap2018.B5, _modelLap2018.F1, _modelLap2018.S1, _modelLap2018.S2) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
+                (_modelLap2018.S3, _modelLap2018.S4, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 1);
+                break;
+            case BetriebsartProjekt.Simulation:
+                _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelLap2018.B1, _modelLap2018.B2, _modelLap2018.B3, _modelLap2018.B4, _modelLap2018.B5, _modelLap2018.F1, _modelLap2018.S1, _modelLap2018.S2);
+                _datenstruktur.SetBitmuster(DatenBereich.Di, 1, _modelLap2018.S3, _modelLap2018.S4);
+                break;
         }
 
         (_modelLap2018.K1, _modelLap2018.K2, _modelLap2018.P1, _modelLap2018.P2, _modelLap2018.P3, _modelLap2018.P4, _modelLap2018.P5, _modelLap2018.P6) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);

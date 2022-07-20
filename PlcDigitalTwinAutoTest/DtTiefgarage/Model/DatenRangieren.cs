@@ -15,9 +15,8 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (!_datenstruktur.SimulationAktiv()) return;
-
-        _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _tiefgarage.B1, _tiefgarage.B2);
+        if (_datenstruktur.BetriebsartProjekt == BetriebsartProjekt.Simulation) _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _tiefgarage.B1, _tiefgarage.B2);
+        
         _tiefgarage.AnzahlAutos = _datenstruktur.GetByte(DatenBereich.Aa, 0);
         _tiefgarage.AnzahlPersonen = _datenstruktur.GetByte(DatenBereich.Aa, 1);
     }

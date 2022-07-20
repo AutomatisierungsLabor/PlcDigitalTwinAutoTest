@@ -39,10 +39,10 @@ public partial class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
         (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLinearachse.B2);
         (VisibilityEinS10, VisibilityAusS10) = BaseFunctions.SetVisibility(_modelLinearachse.S10);
 
-        BrushP1 = BaseFunctions.SetBrush(_modelLinearachse.P1, Brushes.LawnGreen, Brushes.White);
-        BrushP2 = BaseFunctions.SetBrush(_modelLinearachse.P2, Brushes.LawnGreen, Brushes.White);
-        BrushP3 = BaseFunctions.SetBrush(_modelLinearachse.P3, Brushes.LawnGreen, Brushes.White);
-        BrushP4 = BaseFunctions.SetBrush(_modelLinearachse.P4, Brushes.LawnGreen, Brushes.White);
+        BrushP1 = BaseFunctions.SetBrush(_modelLinearachse.P1, Brushes.White, Brushes.LightGray);
+        BrushP2 = BaseFunctions.SetBrush(_modelLinearachse.P2, Brushes.White, Brushes.LightGray);
+        BrushP3 = BaseFunctions.SetBrush(_modelLinearachse.P3, Brushes.Red, Brushes.LightGray);
+        BrushP4 = BaseFunctions.SetBrush(_modelLinearachse.P4, Brushes.LawnGreen, Brushes.LightGray);
 
         var links = _modelLinearachse.PositionSchlitten;
         var rechts = 525 - _modelLinearachse.PositionSchlitten;

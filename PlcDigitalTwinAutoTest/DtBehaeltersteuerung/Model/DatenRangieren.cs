@@ -15,13 +15,15 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (_datenstruktur.SimulationAktiv())
-        {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _behaeltersteuerung.AlleMeineBehaelter[0].SchwimmerschalterOben, _behaeltersteuerung.AlleMeineBehaelter[0].SchwimmerschalterUnten,
-                _behaeltersteuerung.AlleMeineBehaelter[1].SchwimmerschalterOben, _behaeltersteuerung.AlleMeineBehaelter[1].SchwimmerschalterUnten,
-                _behaeltersteuerung.AlleMeineBehaelter[2].SchwimmerschalterOben, _behaeltersteuerung.AlleMeineBehaelter[2].SchwimmerschalterUnten,
-                _behaeltersteuerung.AlleMeineBehaelter[3].SchwimmerschalterOben, _behaeltersteuerung.AlleMeineBehaelter[3].SchwimmerschalterUnten);
-        }
+        if (_datenstruktur.BetriebsartProjekt == BetriebsartProjekt.Simulation)
+            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _behaeltersteuerung.AlleMeineBehaelter[0].SchwimmerschalterOben,
+                        _behaeltersteuerung.AlleMeineBehaelter[0].SchwimmerschalterUnten,
+                        _behaeltersteuerung.AlleMeineBehaelter[1].SchwimmerschalterOben,
+                        _behaeltersteuerung.AlleMeineBehaelter[1].SchwimmerschalterUnten,
+                        _behaeltersteuerung.AlleMeineBehaelter[2].SchwimmerschalterOben,
+                        _behaeltersteuerung.AlleMeineBehaelter[2].SchwimmerschalterUnten,
+                        _behaeltersteuerung.AlleMeineBehaelter[3].SchwimmerschalterOben,
+                        _behaeltersteuerung.AlleMeineBehaelter[3].SchwimmerschalterUnten);
 
         (_behaeltersteuerung.AlleMeineBehaelter[0].VentilOben, _behaeltersteuerung.AlleMeineBehaelter[1].VentilOben, _behaeltersteuerung.AlleMeineBehaelter[0].VentilOben, _behaeltersteuerung.AlleMeineBehaelter[1].VentilOben, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }

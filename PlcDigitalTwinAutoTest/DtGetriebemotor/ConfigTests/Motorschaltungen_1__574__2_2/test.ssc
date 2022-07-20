@@ -47,49 +47,33 @@ main()
     VersionAnzeigen
 
     Sleep("T#100ms")
-    KommentarAnzeigen "Init"
+    KommentarAnzeigen "#574/2.2"
  
-    KommentarAnzeigen "Normalbetrieb testen"
+    TestabschnittAnzeigen "Normalbetrieb testen"
 
     SetDigitaleEingaenge (S1 + S4)
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3, "T#5s", "Motor Aus?"
 
     SetDigitaleEingaenge (S1 + S2 + S4)
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3, "T#5s", "Motor Ein?"
 
     SetDigitaleEingaenge (S1 + S4)
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3, "T#5s", "Motor noch Ein?"
 
     SetDigitaleEingaenge S4
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3, "T#5s", "Motor Aus?"
 
-    KommentarAnzeigen "Störung Thermorelais testen"
+    TestabschnittAnzeigen "Störung Thermorelais testen"
 
     SetDigitaleEingaenge AllesAus
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3, "T#5s", "Störung und Motor Aus?"
 
     SetDigitaleEingaenge S4
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten AllesAus, Maske_P2_P3, "T#5s", "keine Störung und Motor Aus?"
 
     SetDigitaleEingaenge (S1 + S2 + S4)
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten P2, Maske_P2_P3, "T#5s", "Motor wieder Ein?"
     
     SetDigitaleEingaenge (S1 + S2)
-    StopwatchRestart
-    Sleep("T#100ms")
     BitmusterTesten P3, Maske_P2_P3, "T#5s", "Störung und Motor Aus?"
 }

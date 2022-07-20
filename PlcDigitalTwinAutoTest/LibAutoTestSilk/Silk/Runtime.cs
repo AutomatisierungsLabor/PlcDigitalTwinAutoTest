@@ -42,6 +42,7 @@ public partial class Silk
         compiler.RegisterFunction("SetDigitaleEingaenge", 1, 1);
         compiler.RegisterFunction("Sleep", 1, 1);
         compiler.RegisterFunction("TestAblauf", 0, 2);
+        compiler.RegisterFunction("TestabschnittAnzeigen",1,1);
         compiler.RegisterFunction("VersionAnzeigen", 0, 0);
         // ReSharper restore RedundantArgumentDefaultValue
     }
@@ -67,6 +68,7 @@ public partial class Silk
             case "SetDigitaleEingaenge": _testAutomat.FuncSetDigitaleEingaenge(args); break;
             case "Sleep": _testAutomat.FuncSleep(args); break;
             case "TestAblauf": FuncTestAblauf(args); break;
+            case "TestabschnittAnzeigen": _testAutomat.FuncTestabschnittAnzeigen(args); break;
             case "VersionAnzeigen": _testAutomat.FuncVersionAnzeigen(); break;
         }
     }

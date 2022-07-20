@@ -17,6 +17,13 @@ public partial class TestAutomat
         _zeilenNummerDataGrid++;
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Kommentar, kommentar, "", "", ""));
     }
+
+    public void FuncTestabschnittAnzeigen(FunctionEventArgs args)
+    {
+        var kommentar = args.Parameters[0].ToString();
+        _zeilenNummerDataGrid++;
+        _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.TestabschnittAnzeigen, kommentar, "", "", ""));
+    }
     public void FuncVersionAnzeigen()
     {
         _cbUpdateDataGrid(new DataGridZeile(_zeilenNummerDataGrid, "", TestAnzeige.Projektbezeichnung, $"SW PC: {_datenstruktur.VersionsStringLokal}", "", "", ""));

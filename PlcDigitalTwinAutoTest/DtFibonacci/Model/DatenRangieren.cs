@@ -15,13 +15,11 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (_datenstruktur.SimulationAktiv())
+        // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+        switch (_datenstruktur.BetriebsartProjekt)
         {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelFibonacci.S1);
-        }
-        else
-        {
-            (_modelFibonacci.S1, _, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0);
+            case BetriebsartProjekt.LaborPlatte: (_modelFibonacci.S1, _, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Di, 0); break;
+            case BetriebsartProjekt.Simulation: _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelFibonacci.S1); break;
         }
 
         (_modelFibonacci.P1, _, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);

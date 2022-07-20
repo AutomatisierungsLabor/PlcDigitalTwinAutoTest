@@ -15,10 +15,7 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (_datenstruktur.SimulationAktiv())
-        {
-            _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelMischanlage.S1);
-        }
+        if (_datenstruktur.BetriebsartProjekt == BetriebsartProjekt.Simulation) _datenstruktur.SetBitmuster(DatenBereich.Di, 0, _modelMischanlage.S1);
 
         (_modelMischanlage.P1, _, _, _, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }

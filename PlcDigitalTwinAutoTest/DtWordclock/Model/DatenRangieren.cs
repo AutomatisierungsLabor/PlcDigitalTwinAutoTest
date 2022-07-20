@@ -15,7 +15,7 @@ public class DatenRangieren
     }
     internal void Rangieren()
     {
-        if (_datenstruktur.SimulationAktiv())
+        if (_datenstruktur.BetriebsartProjekt == BetriebsartProjekt.Simulation)
         {
             _datenstruktur.SetByte(DatenBereich.Ai, 0, _wordclock.Stunde);
             _datenstruktur.SetByte(DatenBereich.Ai, 1, _wordclock.Minute);

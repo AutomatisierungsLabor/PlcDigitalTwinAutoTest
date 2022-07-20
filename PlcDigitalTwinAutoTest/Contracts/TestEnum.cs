@@ -13,6 +13,7 @@ public enum TestAnzeige
     ImpulsWarZuLang,
     Init,
     Kommentar,
+    TestabschnittAnzeigen,
     TestEnde,
     TestStart,
     Timeout,
