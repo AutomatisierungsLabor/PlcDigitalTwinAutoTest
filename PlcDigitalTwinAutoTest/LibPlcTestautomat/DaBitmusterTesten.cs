@@ -24,11 +24,13 @@ public partial class TestAutomat
             if ((GetDigitalOutputWord() & (short)daBitMaske) == (short)daBitMuster)
             {
                 DataGridUpdaten(TestAnzeige.Erfolgreich, (uint)daBitMuster, kommentar);
+                StopwatchRestart();
                 return;
             }
 
             DataGridUpdaten(TestAnzeige.Aktiv, (uint)daBitMuster, kommentar);
         }
         DataGridUpdaten(TestAnzeige.Timeout, (uint)daBitMuster, kommentar);
+        StopwatchRestart();
     }
 }

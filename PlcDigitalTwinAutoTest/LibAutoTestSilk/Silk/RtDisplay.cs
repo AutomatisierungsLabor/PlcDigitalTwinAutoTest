@@ -27,6 +27,7 @@ public partial class Silk
         }
 
         _einzelSchrittAusfuehren = false;
+       
     }
 
     private void DataGridAnzeigeUpdaten(TestAnzeige testErgebnis, uint digOutSoll, string silkKommentar)

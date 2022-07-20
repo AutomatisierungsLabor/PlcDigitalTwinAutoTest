@@ -35,4 +35,5 @@ public partial class TestAutomat
     public short GetAnzahlBitEingaenge() => _anzahlBitEingaenge;
     public void SetReferenzen(short zeilenNummerDataGrid) => _zeilenNummerDataGrid = zeilenNummerDataGrid;
     public void ResetZeilenNummer() => _zeilenNummerDataGrid = 0;
+    public void IncrementZeilenNummer() => _zeilenNummerDataGrid++;
 }

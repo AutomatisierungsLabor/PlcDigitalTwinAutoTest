@@ -130,11 +130,12 @@ public class Datenstruktur
         return BetriebsartProjekt switch
         {
             BetriebsartProjekt.Simulation => true,
-            BetriebsartProjekt.AutomatischerSoftwareTest => true,
+            BetriebsartProjekt.AutomatischerSoftwareTest => false,
             BetriebsartProjekt.BeschreibungAnzeigen => false,
             BetriebsartProjekt.LaborPlatte => false,
             _ => false
         };
     }
+    public bool AutomatischerSoftwaretestAktiv() => BetriebsartProjekt == BetriebsartProjekt.AutomatischerSoftwareTest;
     public void SetVorbeitungId(string id) => VorbereitungId = id;
 }

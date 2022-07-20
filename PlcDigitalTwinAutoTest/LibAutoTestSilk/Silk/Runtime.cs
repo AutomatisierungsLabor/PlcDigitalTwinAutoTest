@@ -51,7 +51,10 @@ public partial class Silk
         {
             case "BitmusterBlinktTesten": _testAutomat.FuncBitmusterBlinktTesten(args); break;
             case "BitmusterTesten": _testAutomat.FuncBitmusterTesten(args); break;
-            case "IncrementDataGridId": FuncIncrementDataGridId(); break; // wird für Einzelschrittmodus genutzt!
+            case "IncrementDataGridId": // wird für Einzelschrittmodus genutzt!
+                FuncIncrementDataGridId();
+                _testAutomat.IncrementZeilenNummer();
+                break;
             case "KommentarAnzeigen": _testAutomat.FuncKommentarAnzeigen(args); break;
             case "PlcToDec": _testAutomat.FuncPlcToDec(args); break;
             case "PlcColdStart": _testAutomat.FuncPlcColdStart(); break;

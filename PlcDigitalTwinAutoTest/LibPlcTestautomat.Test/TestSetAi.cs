@@ -10,6 +10,9 @@ public class TestSetAi
     [Theory]
     [InlineData(0, 0, "uint16", 0, 0, 0, 0)]
     [InlineData(0, 1, "uint16", 1, 0, 0, 0)]
+    [InlineData(1, 1, "uint16", 0, 1, 0, 0)]
+    [InlineData(2, 1, "uint16", 0, 0, 1, 0)]
+    [InlineData(3, 1, "uint16", 0, 0, 0, 1)]
     [InlineData(0, 100, "uint16", 100, 0, 0, 0)]
     [InlineData(0, 12345, "uint16", 57, 48, 0, 0)]
 
