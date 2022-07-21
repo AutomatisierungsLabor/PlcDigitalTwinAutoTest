@@ -25,6 +25,6 @@ public class DatenRangieren
                         _behaeltersteuerung.AlleMeineBehaelter[3].SchwimmerschalterOben,
                         _behaeltersteuerung.AlleMeineBehaelter[3].SchwimmerschalterUnten);
 
-        (_behaeltersteuerung.AlleMeineBehaelter[0].VentilOben, _behaeltersteuerung.AlleMeineBehaelter[1].VentilOben, _behaeltersteuerung.AlleMeineBehaelter[0].VentilOben, _behaeltersteuerung.AlleMeineBehaelter[1].VentilOben, _, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
+        (_behaeltersteuerung.AlleMeineBehaelter[0].VentilOben, _behaeltersteuerung.AlleMeineBehaelter[1].VentilOben, _behaeltersteuerung.AlleMeineBehaelter[2].VentilOben, _behaeltersteuerung.AlleMeineBehaelter[3].VentilOben, _behaeltersteuerung.P1, _, _, _) = _datenstruktur.GetBitmuster(DatenBereich.Da, 0);
     }
 }

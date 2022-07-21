@@ -11,7 +11,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 40, false, false, true);
+        libWpf.GridZeichnen(50, 40, false, false, false);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
 
@@ -21,13 +21,13 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RectangleFill(27, 8, 2, 23, Brushes.LightGray);
+        libWpf.RectangleFill(30, 8, 2, 23, Brushes.LightGray);
 
-        libWpf.ButtonBackgroundMarginRoundedSetEnableSetContend(28, 6, 4, 2, 20, 15, Brushes.Violet, buttonRand, vmBehaeltersteuerung.ButtonTasterCommand, "AutomatikStarten", nameof(vmBehaeltersteuerung.ClickModeAutomatikStarten), nameof(vmBehaeltersteuerung.BoolAutomatikStarten), nameof(vmBehaeltersteuerung.StringAutomatikStarten));
+        libWpf.ButtonBackgroundMarginRoundedSetEnableSetContend(31, 6, 4, 2, 20, 15, Brushes.Violet, buttonRand, vmBehaeltersteuerung.ButtonTasterCommand, "AutomatikStarten", nameof(vmBehaeltersteuerung.ClickModeAutomatikStarten), nameof(vmBehaeltersteuerung.BoolAutomatikStarten), nameof(vmBehaeltersteuerung.StringAutomatikStarten));
         
-        libWpf.Text("Entleerreihenfolge", 28, 7, 6, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.Text("Entleerreihenfolge", 31, 7, 6, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black);
 
-        vmBehaeltersteuerung.VmComboBox = libWpf.ComboBox(28, 6, 8, 2, 20, new Thickness(0,10,0,10));
+        vmBehaeltersteuerung.VmComboBox = libWpf.ComboBox(31, 6, 8, 2, 20, new Thickness(0,10,0,10));
 
 
 
@@ -115,6 +115,11 @@ public partial class TabZeichnen
         libWpf.RectangleMarginBindingFill(21, 2, 22, 3, randSenkrechteLeitungen, nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
 
         libWpf.RectangleMarginBindingFill(3, 21, 24, 1, new Thickness(20, 10, 0, 0), nameof(vmBehaeltersteuerung.BrushesAbleitungUnten));
+
+
+        libWpf.Text("P1", 24, 2, 4, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.EllipseStrokeBindingFilling(26,2,4,2,Brushes.Black, 2, nameof(vmBehaeltersteuerung.BrushesP1));
+
 
         libWpf.PlcError();
     }

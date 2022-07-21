@@ -6,10 +6,11 @@ namespace DtBehaeltersteuerung.Model;
 
 public class ModelBehaeltersteuerung : BasePlcDtAt.BaseModel.BaseModel
 {
+    public bool P1 { get; set; }
     public ObservableCollection<Permutation> PermutationList { get; set; }
-
     public List<Behaelter> AlleMeineBehaelter { get; set; }
     public string AktivePermutation { get; set; }
+
 
     private bool _automatikModusAktiv;
 
@@ -20,7 +21,7 @@ public class ModelBehaeltersteuerung : BasePlcDtAt.BaseModel.BaseModel
 
         var johnsonTrotter = new JohnsonTrotter(4);
         PermutationList = johnsonTrotter.GetPermutations();
-        
+
         AlleMeineBehaelter = new List<Behaelter>
         {
             new(0.2), new(0.4), new(0.6), new(0.8)

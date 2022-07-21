@@ -18,8 +18,8 @@ public partial class App
         var vmBehaeltersteuerung = new VmBehaeltersteuerung(modelBehaeltersteuerung, datenstruktur, _cancellationTokenSource);
         var baseWindow = new BaseWindow(vmBehaeltersteuerung, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
         {
-            Height = 1130,
-            Width = 1450
+            Height = 900,
+            Width = 1200
         };
 
         baseWindow.Show();

@@ -5,6 +5,7 @@ using System.Windows.Media;
 using Contracts;
 using DtBehaeltersteuerung.Model;
 using LibDatenstruktur;
+using Brush = System.Drawing.Brush;
 
 namespace DtBehaeltersteuerung.ViewModel;
 
@@ -95,6 +96,8 @@ public partial class VmBehaeltersteuerung : BasePlcDtAt.BaseViewModel.VmBase
         BrushesB6 = BaseFunctions.SetBrush(_modelBehaeltersteuerung.AlleMeineBehaelter[2].SchwimmerschalterUnten, Brushes.Red, Brushes.LawnGreen);
         BrushesB7 = BaseFunctions.SetBrush(_modelBehaeltersteuerung.AlleMeineBehaelter[3].SchwimmerschalterOben, Brushes.Red, Brushes.LawnGreen);
         BrushesB8 = BaseFunctions.SetBrush(_modelBehaeltersteuerung.AlleMeineBehaelter[3].SchwimmerschalterUnten, Brushes.Red, Brushes.LawnGreen);
+
+        BrushesP1 = BaseFunctions.SetBrush(_modelBehaeltersteuerung.P1, Brushes.LawnGreen, Brushes.LightGray);
 
         const double behaelterHoehe = 10 * 30;
         ThicknessFuellstand1 = new Thickness(0, behaelterHoehe - _modelBehaeltersteuerung.AlleMeineBehaelter[0].Pegel * behaelterHoehe, 0, 0);

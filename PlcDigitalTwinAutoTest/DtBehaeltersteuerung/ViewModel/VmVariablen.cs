@@ -31,6 +31,8 @@ public partial class VmBehaeltersteuerung
     [ObservableProperty] private Brush _brushesB7;
     [ObservableProperty] private Brush _brushesB8;
 
+    [ObservableProperty] private Brush _brushesP1;
+
     [ObservableProperty] private ClickMode _clickModeAutomatikStarten;
     [ObservableProperty] private ClickMode _clickModeQ2;
     [ObservableProperty] private ClickMode _clickModeQ4;
