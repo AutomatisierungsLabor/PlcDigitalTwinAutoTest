@@ -25,9 +25,12 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
+        Pegel = 0.95;
+    }
+    protected override void ModelSetValues()
+    {
         F1 = true;
         S3 = true;
-        Pegel = 0.95;
     }
     protected override void ModelThread()
     {

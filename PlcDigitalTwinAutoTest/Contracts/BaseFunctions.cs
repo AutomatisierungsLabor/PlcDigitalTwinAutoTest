@@ -4,8 +4,11 @@ using System.Windows.Media;
 
 namespace Contracts;
 
+
 public class BaseFunctions
 {
+    public const double ThreadZyklusZeit = 0.01;
+
     public static (Visibility Ein, Visibility Aus) SetVisibility(bool val) => val ? (Visibility.Visible, Visibility.Hidden) : (Visibility.Hidden, Visibility.Visible);
     public static Visibility SetVisibilityEin(bool val) => val ? Visibility.Visible : Visibility.Hidden;
     public static Brush SetBrush(bool val, Brush farbeTrue, Brush farbeFalse) => val ? farbeTrue : farbeFalse;

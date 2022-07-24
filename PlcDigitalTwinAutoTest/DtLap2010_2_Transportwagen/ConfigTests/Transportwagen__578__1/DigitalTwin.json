@@ -12,21 +12,21 @@
         "StartBit": 0,
         "Type": "Bit",
         "Bezeichnung": "P1",
-        "Kommentar": "Meldeleuchte Störung (rot)"
+        "Kommentar": "Meldeleuchte Störung"
       },
       {
         "StartByte": 0,
         "StartBit": 1,
         "Type": "Bit",
         "Bezeichnung": "Q1",
-        "Kommentar": "Motor Linkslauf"
+        "Kommentar": "Motor LL"
       },
       {
         "StartByte": 0,
         "StartBit": 2,
         "Type": "Bit",
         "Bezeichnung": "Q2",
-        "Kommentar": "Motor Rechtslauf"
+        "Kommentar": "Motor RL"
       }
     ]
   },
@@ -37,14 +37,14 @@
         "StartBit": 0,
         "Type": "Bit",
         "Bezeichnung": "B1",
-        "Kommentar": "Endschalter Links"
+        "Kommentar": "Endschalter links"
       },
       {
         "StartByte": 0,
         "StartBit": 1,
         "Type": "Bit",
         "Bezeichnung": "B2",
-        "Kommentar": "Endschalter Rechts"
+        "Kommentar": "Endschalter rechts"
       },
       {
         "StartByte": 0,
@@ -76,43 +76,6 @@
       }
     ]
   },
-  "Textbausteine": [
-    {
-      "BausteinId": "5",
-      "PrefixH1": "",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - Head",
-      "WasAnzeigen": "NurInhalt"
-    },
-    {
-      "BausteinId": "40",
-      "PrefixH1": "",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "LAP 2010/2 Transportwagen - Hardware",
-      "WasAnzeigen": "H1Inhalt"
-    },
-    {
-      "BausteinId": "41",
-      "PrefixH1": "",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "LAP 2010/2 Transportwagen - Aufgabenstellung",
-      "WasAnzeigen": "H1Inhalt"
-    },
-    {
-      "BausteinId": "8",
-      "PrefixH1": "",
-      "PrefixH2": "",
-      "VorbereitungId": "0",
-      "Test": "-",
-      "Kommentar": "Html - </body>",
-      "WasAnzeigen": "NurInhalt"
-    }
-  ],
+  "Textbausteine": [],
   "Alarm": []
 }

@@ -30,12 +30,14 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
-        S1 = true;
-        B3 = true;
-
         PositionZahnstange = ZahnstangeLinks + ZahnstangeWeg;
         PositionOfentuere = ZahnstangeLinks + AbstandZahnstangeOfentuere;
         WinkelZahnrad = 0;
+    }
+    protected override void ModelSetValues()
+    {
+        S1 = true;
+        B3 = true;
     }
     protected override void ModelThread()
     {

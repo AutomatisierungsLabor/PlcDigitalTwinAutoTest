@@ -27,6 +27,9 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
         Druck = 0;
+    }
+    protected override void ModelSetValues()
+    {
         F1 = true;
         B2 = true;
         S1 = true;

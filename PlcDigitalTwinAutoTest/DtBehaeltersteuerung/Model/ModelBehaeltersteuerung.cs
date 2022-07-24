@@ -18,18 +18,12 @@ public class ModelBehaeltersteuerung : BasePlcDtAt.BaseModel.BaseModel
 
     public ModelBehaeltersteuerung(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
-
         var johnsonTrotter = new JohnsonTrotter(4);
         PermutationList = johnsonTrotter.GetPermutations();
-
-        AlleMeineBehaelter = new List<Behaelter>
-        {
-            new(0.2), new(0.4), new(0.6), new(0.8)
-        };
-
+        AlleMeineBehaelter = new List<Behaelter> { new(0.2), new(0.4), new(0.6), new(0.8) };
         _datenRangieren = new DatenRangieren(this, datenstruktur);
-
     }
+    protected override void ModelSetValues() { }
     protected override void ModelThread()
     {
         if (AlleMeineBehaelter == null) return;

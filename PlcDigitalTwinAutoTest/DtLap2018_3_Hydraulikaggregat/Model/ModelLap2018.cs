@@ -51,14 +51,17 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
 
         Druck = 0;
         Pegel = 0.8;
+
+        Stopwatch = new Stopwatch();
+        Stopwatch.Restart();
+    }
+    protected override void ModelSetValues()
+    {
         B3 = true;
         B4 = true;
         B5 = true;
         F1 = true;
         S2 = true;
-
-        Stopwatch = new Stopwatch();
-        Stopwatch.Restart();
     }
     protected override void ModelThread()
     {

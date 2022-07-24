@@ -16,7 +16,11 @@ public partial class App
 
         var modelLap2010 = new ModelLap2010(datenstruktur, _cancellationTokenSource);
         var vmLap2010 = new ViewModel.VmLap2010(modelLap2010, datenstruktur, _cancellationTokenSource);
-        var baseWindow = new BaseWindow(vmLap2010, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource);
+        var baseWindow = new BaseWindow(vmLap2010, datenstruktur, (int)Contracts.WpfBase.TabSimulation, _cancellationTokenSource)
+        {  
+            Height = 730,
+            Width = 1100
+        };
 
         baseWindow.Show();
     }

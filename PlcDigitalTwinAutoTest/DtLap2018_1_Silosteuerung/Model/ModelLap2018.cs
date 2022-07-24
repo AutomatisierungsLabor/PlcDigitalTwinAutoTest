@@ -34,14 +34,15 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
         Silo = new Silo();
 
         RutscheVoll = true;
-
+    }
+    protected override void ModelSetValues()
+    {
         F1 = true;
         F2 = true;
 
         S0 = true;
         S2 = true;
     }
-
     protected override void ModelThread()
     {
         if (Wagen != null && Silo != null)  // Reihenfolge der Aufrufe ist immer definiert!

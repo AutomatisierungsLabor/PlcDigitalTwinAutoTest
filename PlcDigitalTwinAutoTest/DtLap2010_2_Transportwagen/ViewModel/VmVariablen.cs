@@ -26,7 +26,7 @@ public partial class VmLap2010
     [ObservableProperty] private Visibility _visibilityAusB1;
     [ObservableProperty] private Visibility _visibilityAusB2;
 
-    [ObservableProperty] private Thickness _positionWagenkasten;
-    [ObservableProperty] private Thickness _positionRadLinks;
-    [ObservableProperty] private Thickness _positionRadRechts;
+    [ObservableProperty] private Thickness _thicknessPositionWagenkasten;
+    [ObservableProperty] private Thickness _thicknessPositionRadLinks;
+    [ObservableProperty] private Thickness _thicknessPositionRadRechts;
 }

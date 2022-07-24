@@ -36,17 +36,15 @@ public class ModelLinearachse : BasePlcDtAt.BaseModel.BaseModel
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelLinearachse(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelLinearachse(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource) => _datenRangieren = new DatenRangieren(this, datenstruktur);
+    protected override void ModelSetValues()
     {
-        _datenRangieren = new DatenRangieren(this, datenstruktur);
-
         S2 = true;
         S9 = true;
         S10 = true;
     }
     protected override void ModelThread()
     {
-
         if (Q1) PositionSchlitten += GeschwindigkeitSchlitten;
         if (Q2) PositionSchlitten -= GeschwindigkeitSchlitten;
 

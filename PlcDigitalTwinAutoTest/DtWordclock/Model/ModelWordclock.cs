@@ -60,6 +60,7 @@ public class ModelWordclock : BasePlcDtAt.BaseModel.BaseModel
         Minute = (byte)dateTime.Minute;
         Sekunde = (byte)dateTime.Second;
     }
+    protected override void ModelSetValues() { }
     protected override void ModelThread()
     {
         _stopwatch.Stop();

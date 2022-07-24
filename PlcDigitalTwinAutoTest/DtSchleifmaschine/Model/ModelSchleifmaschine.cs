@@ -30,10 +30,9 @@ public class ModelSchleifmaschine : BasePlcDtAt.BaseModel.BaseModel
     private const double DrehzahlWinkelFaktor = 0.002;
 
     private readonly DatenRangieren _datenRangieren;
-    public ModelSchleifmaschine(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelSchleifmaschine(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource) => _datenRangieren = new DatenRangieren(this, datenstruktur);
+    protected override void ModelSetValues()
     {
-        _datenRangieren = new DatenRangieren(this, datenstruktur);
-
         F1 = true;
         F2 = true;
         S0 = true;

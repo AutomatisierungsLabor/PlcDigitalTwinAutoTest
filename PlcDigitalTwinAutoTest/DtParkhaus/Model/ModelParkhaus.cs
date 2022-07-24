@@ -35,6 +35,7 @@ public class ModelParkhaus : BasePlcDtAt.BaseModel.BaseModel
 
         _datenRangieren = new DatenRangieren(this, datenstruktur);
     }
+    protected override void ModelSetValues() { }
     protected override void ModelThread()
     {
 
@@ -52,7 +53,7 @@ public class ModelParkhaus : BasePlcDtAt.BaseModel.BaseModel
         }
         _datenRangieren?.Rangieren();
     }
-    internal static int GesetzteBitZaehlen(byte wert)
+   internal static int GesetzteBitZaehlen(byte wert)
     {
         var ergebnis = 0;
         for (var i = 0; i < 8; i++)

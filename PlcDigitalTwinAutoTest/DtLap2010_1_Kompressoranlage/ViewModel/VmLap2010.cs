@@ -34,11 +34,11 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
 
         BrushB2 = BaseFunctions.SetBrush(_modelLap2010!.B2, Brushes.LawnGreen, Brushes.Red);
         BrushF1 = BaseFunctions.SetBrush(_modelLap2010!.F1, Brushes.LawnGreen, Brushes.Red);
-        BrushP1 = BaseFunctions.SetBrush(_modelLap2010!.P1, Brushes.Red, Brushes.White);
-        BrushP2 = BaseFunctions.SetBrush(_modelLap2010!.P2, Brushes.LawnGreen, Brushes.White);
-        BrushQ1 = BaseFunctions.SetBrush(_modelLap2010!.Q1, Brushes.LawnGreen, Brushes.White);
-        BrushQ2 = BaseFunctions.SetBrush(_modelLap2010!.Q2, Brushes.LawnGreen, Brushes.White);
-        BrushQ3 = BaseFunctions.SetBrush(_modelLap2010!.Q3, Brushes.LawnGreen, Brushes.White);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2010!.P1, Brushes.Red, Brushes.LightGray);
+        BrushP2 = BaseFunctions.SetBrush(_modelLap2010!.P2, Brushes.LawnGreen, Brushes.LightGray);
+        BrushQ1 = BaseFunctions.SetBrush(_modelLap2010!.Q1, Brushes.LawnGreen, Brushes.LightGray);
+        BrushQ2 = BaseFunctions.SetBrush(_modelLap2010!.Q2, Brushes.LawnGreen, Brushes.LightGray);
+        BrushQ3 = BaseFunctions.SetBrush(_modelLap2010!.Q3, Brushes.LawnGreen, Brushes.LightGray);
 
         (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2010.B1);
         (VisibilityKurzschluss, _) = BaseFunctions.SetVisibility(_modelLap2010.Q2 && _modelLap2010.Q3);

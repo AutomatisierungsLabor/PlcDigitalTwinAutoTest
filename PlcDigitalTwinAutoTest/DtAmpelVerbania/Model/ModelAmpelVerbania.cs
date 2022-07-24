@@ -19,9 +19,10 @@ public class ModelAmpelVarbania : BaseModel
     public bool P33 { get; set; }       // Fußgängerampel - Anzeige grün
     public byte AlleSegmente { get; set; }
     public byte Anzeige { get; set; }   // Fußgängerampel - Anzeige (Wert)
-    
+
     private readonly DatenRangieren _datenRangieren;
 
     public ModelAmpelVarbania(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource) => _datenRangieren = new DatenRangieren(this, datenstruktur);
+    protected override void ModelSetValues() { }
     protected override void ModelThread() => _datenRangieren?.Rangieren();
 }

@@ -49,10 +49,12 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
             new(_anzahlFlaschen++),
             new(_anzahlFlaschen++)
         };
-
+        Pegel = 0.4;
+    }
+    protected override void ModelSetValues()
+    {
         S2 = true;
         F1 = true;
-        Pegel = 0.4;
     }
     protected override void ModelThread()
     {

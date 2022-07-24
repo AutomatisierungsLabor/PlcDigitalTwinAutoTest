@@ -28,6 +28,7 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
         _stopwatch = new Stopwatch();
         _stopwatch.Start();
     }
+    protected override void ModelSetValues() { }
     protected override void ModelThread()
     {
         long zeitDauer;

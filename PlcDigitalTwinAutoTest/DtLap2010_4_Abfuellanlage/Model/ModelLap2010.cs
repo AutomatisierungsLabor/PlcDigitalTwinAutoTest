@@ -38,7 +38,7 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
             new(_anzahlDosen++)
         };
     }
-
+    protected override void ModelSetValues() { }
     protected override void ModelThread()
     {
         if (K2) Pegel -= LeerGeschwindigkeit;

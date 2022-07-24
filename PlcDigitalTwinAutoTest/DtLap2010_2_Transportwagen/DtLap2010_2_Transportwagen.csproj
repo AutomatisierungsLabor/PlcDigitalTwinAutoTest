@@ -36,13 +36,7 @@
     <None Update="ConfigTests\Transportwagen__578__1\index.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ConfigTests\Transportwagen__578__1\test.scl">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="ConfigTests\Transportwagen__578__1\test.ssc">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ConfigTests\Transportwagen__578__1\test.st">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using DtLap2010_2_Transportwagen.Model;
+﻿using System.Diagnostics;
+using DtLap2010_2_Transportwagen.Model;
 using LibDatenstruktur;
 using System.Threading;
 using System.Windows;
@@ -37,21 +38,21 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
         BrushF1 = BaseFunctions.SetBrush(_modelLap2010!.F1, Brushes.LawnGreen, Brushes.Red);
-        BrushP1 = BaseFunctions.SetBrush(_modelLap2010!.P1, Brushes.Red, Brushes.White);
-        BrushQ1 = BaseFunctions.SetBrush(_modelLap2010!.Q1, Brushes.LawnGreen, Brushes.White);
-        BrushQ2 = BaseFunctions.SetBrush(_modelLap2010!.Q2, Brushes.LawnGreen, Brushes.White);
-        BrushS2 = BaseFunctions.SetBrush(_modelLap2010!.S2, Brushes.White, Brushes.Red);
+        BrushP1 = BaseFunctions.SetBrush(_modelLap2010!.P1, Brushes.Red, Brushes.LightGray);
+        BrushQ1 = BaseFunctions.SetBrush(_modelLap2010!.Q1, Brushes.LawnGreen, Brushes.LightGray);
+        BrushQ2 = BaseFunctions.SetBrush(_modelLap2010!.Q2, Brushes.LawnGreen, Brushes.LightGray);
+        BrushS2 = BaseFunctions.SetBrush(_modelLap2010!.S2, Brushes.LawnGreen, Brushes.Red);
 
         (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2010!.B1);
         (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLap2010!.B2);
         (VisibilityFuellen, _) = BaseFunctions.SetVisibility(_modelLap2010!.Fuellen);
         (VisibilityKurzschluss, _) = BaseFunctions.SetVisibility(_modelLap2010!.Q1 && _modelLap2010!.Q2);
 
-        var posWagenkastenLinks = _modelLap2010!.Position * (BreiteZeichenbereich - BreiteWagenkasten);
+        var posWagenkastenLinks = _modelLap2010!.PositionWagen * (BreiteZeichenbereich - BreiteWagenkasten);
 
-        PositionWagenkasten = new Thickness(posWagenkastenLinks, 0, BreiteZeichenbereich - posWagenkastenLinks - BreiteWagenkasten, 0);
-        PositionRadLinks = new Thickness(posWagenkastenLinks, 0, BreiteZeichenbereich - posWagenkastenLinks - BreíteRad, 0);
-        PositionRadRechts = new Thickness(posWagenkastenLinks + BreiteWagenkasten - BreíteRad, 0, BreiteZeichenbereich - posWagenkastenLinks - BreiteWagenkasten, 0);
+        ThicknessPositionWagenkasten = new Thickness(posWagenkastenLinks, 0, BreiteZeichenbereich - posWagenkastenLinks - BreiteWagenkasten, 0);
+        ThicknessPositionRadLinks = new Thickness(posWagenkastenLinks, 0, BreiteZeichenbereich - posWagenkastenLinks - BreíteRad, 0);
+        ThicknessPositionRadRechts = new Thickness(posWagenkastenLinks + BreiteWagenkasten - BreíteRad, 0, BreiteZeichenbereich - posWagenkastenLinks - BreiteWagenkasten, 0);
     }
     public override void PlotterButtonClick(object sender, RoutedEventArgs e) { }
     public override void BeschreibungZeichnen(TabItem tabItem) => TabZeichnen.TabZeichnen.TabBeschreibungZeichnen(this, tabItem, "#eeeeee");

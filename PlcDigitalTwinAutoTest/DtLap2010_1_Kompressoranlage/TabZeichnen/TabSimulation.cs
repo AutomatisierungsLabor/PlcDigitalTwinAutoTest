@@ -11,7 +11,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 40, false, false, true);
+        libWpf.GridZeichnen(50, 40, false, false, false);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
         var kreisRand = new Thickness(2, 2, 2, 2);
@@ -34,8 +34,9 @@ public partial class TabZeichnen
         libWpf.ButtonBackgroundContentMarginRounded("Ein", 27, 3, 2, 3, 20, 15, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "S2", nameof(vmLap2010.ClickModeS2));
 
         libWpf.EllipseMarginStrokeBindingFilling(22, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP1));
+        libWpf.Text("Störung", 22, 3, 6, 3, HorizontalAlignment.Center, VerticalAlignment.Center, 12, Brushes.Black);
         libWpf.EllipseMarginStrokeBindingFilling(27, 3, 6, 3, kreisRand, kreisRandFarbe, 2, nameof(vmLap2010.BrushP2));
-
+        libWpf.Text("Betriebsbereit", 27, 3, 6, 3, HorizontalAlignment.Center, VerticalAlignment.Center, 12, Brushes.Black);
 
         ///////////////////////////////////////////////////////////
         //
@@ -51,6 +52,8 @@ public partial class TabZeichnen
 
         libWpf.EllipseFillMarginStroke(3, 5, 12, 5, Brushes.Blue, new Thickness(10, 10, 10, 10), Brushes.Black, 2);
         libWpf.Polygon(3, 5, 13, 5, Brushes.Blue, Brushes.Black, 2, new[] { new double[] { 70, 2 }, new double[] { 90, 30 }, new double[] { 50, 30 } });
+
+        libWpf.ButtonContentRoundedSetBackground("B2", 3, 5, 5, 2, 20, 5, vmLap2010.ButtonSchalterCommand, "B2", nameof(vmLap2010.ClickModeB2), nameof(vmLap2010.BrushB2));
 
 
         var kontakteRand = new Thickness(0, 5, 5, 5);

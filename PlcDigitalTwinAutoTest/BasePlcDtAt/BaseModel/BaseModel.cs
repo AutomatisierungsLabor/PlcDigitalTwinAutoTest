@@ -6,6 +6,7 @@ public abstract class BaseModel
 {
     private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
+    protected abstract void ModelSetValues();
     protected abstract void ModelThread();
 
     private readonly CancellationTokenSource _cancellationTokenSource;
@@ -19,10 +20,12 @@ public abstract class BaseModel
 
     protected void ModelTask()
     {
+        ModelSetValues();
+
         while (!_cancellationTokenSource.IsCancellationRequested)
         {
             ModelThread();
-            Thread.Sleep(10);
+            Thread.Sleep((int)(Contracts.BaseFunctions.ThreadZyklusZeit * 1000));
         }
     }
 }

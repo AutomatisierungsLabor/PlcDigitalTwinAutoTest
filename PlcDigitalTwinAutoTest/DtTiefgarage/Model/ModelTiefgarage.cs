@@ -11,14 +11,11 @@ public class ModelTiefgarage : BasePlcDtAt.BaseModel.BaseModel
     public int AnzahlAutos { get; set; }
     public int AnzahlPersonen { get; set; }
     public List<FahrzeugPerson> AllePkwPersonen { get; set; }
-
     
     private readonly DatenRangieren _datenRangieren;
-
-
+    
     public ModelTiefgarage(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
     {
-
         AllesInParkposition = true;
         AllePkwPersonen = new List<FahrzeugPerson>
         {
@@ -35,6 +32,7 @@ public class ModelTiefgarage : BasePlcDtAt.BaseModel.BaseModel
 
         _datenRangieren = new DatenRangieren(this, datenstruktur);
     }
+    protected override void ModelSetValues() { }
     protected override void ModelThread()
     {
 

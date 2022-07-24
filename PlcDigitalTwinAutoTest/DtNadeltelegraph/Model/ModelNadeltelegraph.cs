@@ -29,5 +29,6 @@ public class ModelNadeltelegraph : BasePlcDtAt.BaseModel.BaseModel
         AsciiCode = 32;
         for (var i = 0; i < 10; i++) AlleZeiger.Add(new Zeiger());
     }
+    protected override void ModelSetValues() { }
     protected override void ModelThread() => _datenRangieren?.Rangieren();
 }
