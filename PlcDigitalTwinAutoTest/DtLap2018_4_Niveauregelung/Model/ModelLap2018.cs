@@ -25,7 +25,7 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
     private const double FuellGeschwindigkeit = 0.0008;
     private const double LeerGeschwindigkeit = 0.001;
 
-    public ModelLap2018(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelLap2018(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur)
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
@@ -37,7 +37,7 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
         F1 = true;
         F2 = true;
     }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
         if (Q1) Pegel += FuellGeschwindigkeit;
         if (Q2) Pegel += FuellGeschwindigkeit;

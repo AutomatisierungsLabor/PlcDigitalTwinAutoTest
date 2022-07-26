@@ -26,7 +26,7 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelLap2018(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelLap2018(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur)
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
@@ -43,7 +43,7 @@ public class ModelLap2018 : BasePlcDtAt.BaseModel.BaseModel
         S0 = true;
         S2 = true;
     }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
         if (Wagen != null && Silo != null)  // Reihenfolge der Aufrufe ist immer definiert!
         {

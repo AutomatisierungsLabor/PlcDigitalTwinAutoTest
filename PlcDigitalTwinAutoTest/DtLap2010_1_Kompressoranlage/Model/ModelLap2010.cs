@@ -22,7 +22,7 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelLap2010(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelLap2010(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur)
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
@@ -34,7 +34,7 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
         B2 = true;
         S1 = true;
     }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
         if (Q1 && Q3) Druck += DruckAnstieg;
         Druck *= DruckVerlust;

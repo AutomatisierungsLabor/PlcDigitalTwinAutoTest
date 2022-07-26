@@ -16,7 +16,7 @@ public class ModelBehaeltersteuerung : BasePlcDtAt.BaseModel.BaseModel
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelBehaeltersteuerung(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelBehaeltersteuerung(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur)
     {
         var johnsonTrotter = new JohnsonTrotter(4);
         PermutationList = johnsonTrotter.GetPermutations();
@@ -24,7 +24,7 @@ public class ModelBehaeltersteuerung : BasePlcDtAt.BaseModel.BaseModel
         _datenRangieren = new DatenRangieren(this, datenstruktur);
     }
     protected override void ModelSetValues() { }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
         if (AlleMeineBehaelter == null) return;
         var automatikModusNochAktiv = false;

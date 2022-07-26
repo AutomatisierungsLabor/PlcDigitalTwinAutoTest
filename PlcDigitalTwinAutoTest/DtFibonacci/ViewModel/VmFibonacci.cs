@@ -37,7 +37,7 @@ public partial class VmFibonacci : BasePlcDtAt.BaseViewModel.VmBase
         _modelFibonacci = model as ModelFibonacci;
     }
 
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelFibonacci == null) return;
 

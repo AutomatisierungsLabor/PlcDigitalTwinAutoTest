@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Diagnostics;
+using System.Threading;
 using System.Windows;
 using System.Windows.Media;
 
@@ -9,6 +10,9 @@ public abstract partial class VmBase
 {
     private void ViewModelTask(CancellationTokenSource cancellationTokenSource)
     {
+        var stopWatch = new Stopwatch();
+        stopWatch.Start();
+
         while (!cancellationTokenSource.IsCancellationRequested)
         {
             var errorVersion = !string.Equals(_datenstruktur.VersionsStringLokal, _datenstruktur.VersionsStringPlc);
@@ -41,8 +45,8 @@ public abstract partial class VmBase
                 StringErrorVersionPlc = _datenstruktur.VersionsStringPlc;
             }
 
-            ViewModelAufrufThread();
-
+            ViewModelAufrufThread((double)stopWatch.ElapsedMilliseconds / 1000);
+            stopWatch.Restart();
             Thread.Sleep(10);
         }
         // ReSharper disable once FunctionNeverReturns

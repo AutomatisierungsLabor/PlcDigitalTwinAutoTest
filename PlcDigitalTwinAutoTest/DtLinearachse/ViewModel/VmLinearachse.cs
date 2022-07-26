@@ -29,7 +29,7 @@ public partial class VmLinearachse : BasePlcDtAt.BaseViewModel.VmBase
 
         _modelLinearachse = model as ModelLinearachse;
     }
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelLinearachse == null) return;
 

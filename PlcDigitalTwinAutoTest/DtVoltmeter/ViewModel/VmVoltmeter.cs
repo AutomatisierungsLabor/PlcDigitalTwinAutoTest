@@ -29,7 +29,7 @@ public partial class VmVoltmeter : BasePlcDtAt.BaseViewModel.VmBase
         _modelVoltmeter = model as ModelVoltmeter;
     }
 
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelVoltmeter == null) return;
 

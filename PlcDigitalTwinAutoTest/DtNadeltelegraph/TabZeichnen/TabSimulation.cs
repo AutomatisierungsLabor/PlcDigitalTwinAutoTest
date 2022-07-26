@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Contracts;
 
 namespace DtNadeltelegraph.TabZeichnen;
 
@@ -16,12 +17,11 @@ public partial class TabZeichnen
         LinksOben = 2,
         LinksUnten = 3
     }
-
-    private const double AbstandRaster = 30;
-    private const double ObererRandRaute = 1 * AbstandRaster;
-    private const double LinkerRandRaute = 1 * AbstandRaster;
-    private const double BreiteRaute = 26 * AbstandRaster;
-    private const double HoeheRaute = 30 * AbstandRaster;
+    
+    private const double ObererRandRaute = 1 * WpfData.RasterX;
+    private const double LinkerRandRaute = 1 * WpfData.RasterX;
+    private const double BreiteRaute = 26 * WpfData.RasterX;
+    private const double HoeheRaute = 30 * WpfData.RasterX;
 
     private const double ObererRandZeiger = 20;
     private const double LinkerRandZeiger = 20;
@@ -59,28 +59,28 @@ public partial class TabZeichnen
         libWpf.PolygonBindingWinkel(23, 2, 14, 4, Brushes.Yellow, Brushes.Black, 2, formZeiger, nameof(vmNadeltelegraph.WinkelZeiger5));
         
         // Zeiger 1 - 4
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 3 * AbstandRaster, HoeheRaute / 2, 3 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.RechtsOben), LinieY(LaengeLinie1, RichtungLinie.RechtsOben), 5, Brushes.Yellow, nameof(vmNadeltelegraph.VisibilityLinieRechtsOben1));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.RechtsOben), LinieY(LaengeLinie2, RichtungLinie.RechtsOben), 5, Brushes.Green, nameof(vmNadeltelegraph.VisibilityLinieRechtsOben2));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.RechtsOben), LinieY(LaengeLinie3, RichtungLinie.RechtsOben), 5, Brushes.Red, nameof(vmNadeltelegraph.VisibilityLinieRechtsOben3));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.RechtsOben), LinieY(LaengeLinie4, RichtungLinie.RechtsOben), 5, Brushes.Violet, nameof(vmNadeltelegraph.VisibilityLinieRechtsOben4));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 3 * WpfData.RasterX, HoeheRaute / 2, 3 * WpfData.RasterX + LinieX(LaengeLinie1, RichtungLinie.RechtsOben), LinieY(LaengeLinie1, RichtungLinie.RechtsOben), 5, Brushes.Yellow, nameof(vmNadeltelegraph.VisibilityLinieRechtsOben1));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 8 * WpfData.RasterX, HoeheRaute / 2, 8 * WpfData.RasterX + LinieX(LaengeLinie2, RichtungLinie.RechtsOben), LinieY(LaengeLinie2, RichtungLinie.RechtsOben), 5, Brushes.Green, nameof(vmNadeltelegraph.VisibilityLinieRechtsOben2));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 13 * WpfData.RasterX, HoeheRaute / 2, 13 * WpfData.RasterX + LinieX(LaengeLinie3, RichtungLinie.RechtsOben), LinieY(LaengeLinie3, RichtungLinie.RechtsOben), 5, Brushes.Red, nameof(vmNadeltelegraph.VisibilityLinieRechtsOben3));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 18 * WpfData.RasterX, HoeheRaute / 2, 18 * WpfData.RasterX + LinieX(LaengeLinie4, RichtungLinie.RechtsOben), LinieY(LaengeLinie4, RichtungLinie.RechtsOben), 5, Brushes.Violet, nameof(vmNadeltelegraph.VisibilityLinieRechtsOben4));
 
         // Zeiger 1 - 4
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 3 * AbstandRaster, HoeheRaute / 2, 3 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.RechtsUnten), LinieY(LaengeLinie1, RichtungLinie.RechtsUnten), 5, Brushes.Yellow, nameof(vmNadeltelegraph.VisibilityLinieRechtsUnten1));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.RechtsUnten), LinieY(LaengeLinie2, RichtungLinie.RechtsUnten), 5, Brushes.Green, nameof(vmNadeltelegraph.VisibilityLinieRechtsUnten2));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.RechtsUnten), LinieY(LaengeLinie3, RichtungLinie.RechtsUnten), 5, Brushes.Red, nameof(vmNadeltelegraph.VisibilityLinieRechtsUnten3));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.RechtsUnten), LinieY(LaengeLinie4, RichtungLinie.RechtsUnten), 5, Brushes.Violet, nameof(vmNadeltelegraph.VisibilityLinieRechtsUnten4));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 3 * WpfData.RasterX, HoeheRaute / 2, 3 * WpfData.RasterX + LinieX(LaengeLinie1, RichtungLinie.RechtsUnten), LinieY(LaengeLinie1, RichtungLinie.RechtsUnten), 5, Brushes.Yellow, nameof(vmNadeltelegraph.VisibilityLinieRechtsUnten1));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 8 * WpfData.RasterX, HoeheRaute / 2, 8 * WpfData.RasterX + LinieX(LaengeLinie2, RichtungLinie.RechtsUnten), LinieY(LaengeLinie2, RichtungLinie.RechtsUnten), 5, Brushes.Green, nameof(vmNadeltelegraph.VisibilityLinieRechtsUnten2));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 13 * WpfData.RasterX, HoeheRaute / 2, 13 * WpfData.RasterX + LinieX(LaengeLinie3, RichtungLinie.RechtsUnten), LinieY(LaengeLinie3, RichtungLinie.RechtsUnten), 5, Brushes.Red, nameof(vmNadeltelegraph.VisibilityLinieRechtsUnten3));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 18 * WpfData.RasterX, HoeheRaute / 2, 18 * WpfData.RasterX + LinieX(LaengeLinie4, RichtungLinie.RechtsUnten), LinieY(LaengeLinie4, RichtungLinie.RechtsUnten), 5, Brushes.Violet, nameof(vmNadeltelegraph.VisibilityLinieRechtsUnten4));
         
         // Zeiger 2 - 5
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.LinksOben), LinieY(LaengeLinie4, RichtungLinie.LinksOben), 5, Brushes.Green, nameof(vmNadeltelegraph.VisibilityLinieLinksOben1));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.LinksOben), LinieY(LaengeLinie3, RichtungLinie.LinksOben), 5, Brushes.Red, nameof(vmNadeltelegraph.VisibilityLinieLinksOben2));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.LinksOben), LinieY(LaengeLinie2, RichtungLinie.LinksOben), 5, Brushes.Violet, nameof(vmNadeltelegraph.VisibilityLinieLinksOben3));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 23 * AbstandRaster, HoeheRaute / 2, 23 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.LinksOben), LinieY(LaengeLinie1, RichtungLinie.LinksOben), 5, Brushes.Blue, nameof(vmNadeltelegraph.VisibilityLinieLinksOben4));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 8 * WpfData.RasterX, HoeheRaute / 2, 8 * WpfData.RasterX + LinieX(LaengeLinie4, RichtungLinie.LinksOben), LinieY(LaengeLinie4, RichtungLinie.LinksOben), 5, Brushes.Green, nameof(vmNadeltelegraph.VisibilityLinieLinksOben1));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 13 * WpfData.RasterX, HoeheRaute / 2, 13 * WpfData.RasterX + LinieX(LaengeLinie3, RichtungLinie.LinksOben), LinieY(LaengeLinie3, RichtungLinie.LinksOben), 5, Brushes.Red, nameof(vmNadeltelegraph.VisibilityLinieLinksOben2));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 18 * WpfData.RasterX, HoeheRaute / 2, 18 * WpfData.RasterX + LinieX(LaengeLinie2, RichtungLinie.LinksOben), LinieY(LaengeLinie2, RichtungLinie.LinksOben), 5, Brushes.Violet, nameof(vmNadeltelegraph.VisibilityLinieLinksOben3));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 23 * WpfData.RasterX, HoeheRaute / 2, 23 * WpfData.RasterX + LinieX(LaengeLinie1, RichtungLinie.LinksOben), LinieY(LaengeLinie1, RichtungLinie.LinksOben), 5, Brushes.Blue, nameof(vmNadeltelegraph.VisibilityLinieLinksOben4));
         
         // Zeiger 2 - 5
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 8 * AbstandRaster, HoeheRaute / 2, 8 * AbstandRaster + LinieX(LaengeLinie4, RichtungLinie.LinksUnten), LinieY(LaengeLinie4, RichtungLinie.LinksUnten), 5, Brushes.Green, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten1));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 13 * AbstandRaster, HoeheRaute / 2, 13 * AbstandRaster + LinieX(LaengeLinie3, RichtungLinie.LinksUnten), LinieY(LaengeLinie3, RichtungLinie.LinksUnten), 5, Brushes.Red, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten2));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 18 * AbstandRaster, HoeheRaute / 2, 18 * AbstandRaster + LinieX(LaengeLinie2, RichtungLinie.LinksUnten), LinieY(LaengeLinie2, RichtungLinie.LinksUnten), 5, Brushes.Violet, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten3));
-        libWpf.LinieBindingVisibility(1, 30, 1, 30, 23 * AbstandRaster, HoeheRaute / 2, 23 * AbstandRaster + LinieX(LaengeLinie1, RichtungLinie.LinksUnten), LinieY(LaengeLinie1, RichtungLinie.LinksUnten), 5, Brushes.Blue, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten4));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 8 * WpfData.RasterX, HoeheRaute / 2, 8 * WpfData.RasterX + LinieX(LaengeLinie4, RichtungLinie.LinksUnten), LinieY(LaengeLinie4, RichtungLinie.LinksUnten), 5, Brushes.Green, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten1));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 13 * WpfData.RasterX, HoeheRaute / 2, 13 * WpfData.RasterX + LinieX(LaengeLinie3, RichtungLinie.LinksUnten), LinieY(LaengeLinie3, RichtungLinie.LinksUnten), 5, Brushes.Red, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten2));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 18 * WpfData.RasterX, HoeheRaute / 2, 18 * WpfData.RasterX + LinieX(LaengeLinie2, RichtungLinie.LinksUnten), LinieY(LaengeLinie2, RichtungLinie.LinksUnten), 5, Brushes.Violet, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten3));
+        libWpf.LinieBindingVisibility(1, 30, 1, 30, 23 * WpfData.RasterX, HoeheRaute / 2, 23 * WpfData.RasterX + LinieX(LaengeLinie1, RichtungLinie.LinksUnten), LinieY(LaengeLinie1, RichtungLinie.LinksUnten), 5, Brushes.Blue, nameof(vmNadeltelegraph.VisibilityLinieLinksUnten4));
     
 
         BuchstabeZeichnen(13, 3.5, libWpf, vmNadeltelegraph.ButtonTasterCommand, "A");
@@ -138,12 +138,12 @@ public partial class TabZeichnen
     }
     private static void BuchstabeZeichnen(double x, double y, LibWpf.LibWpf libWpf, ICommand vmCommand, string stringBuchstabe)
     {
-        const double gesamteBreite = 30 * AbstandRaster;
-        const double gesamteHoehe = 30 * AbstandRaster;
-        const double width = 2 * AbstandRaster;
-        const double height = 2 * AbstandRaster;
-        var linkerRand = x * AbstandRaster;
-        var obererRand = y * AbstandRaster;
+        const double gesamteBreite = 30 * WpfData.RasterX;
+        const double gesamteHoehe = 30 * WpfData.RasterY;
+        const double width = 2 * WpfData.RasterX;
+        const double height = 2 * WpfData.RasterY;
+        var linkerRand = x * WpfData.RasterY;
+        var obererRand = y * WpfData.RasterY;
 
         var thickness = new Thickness(
             linkerRand,

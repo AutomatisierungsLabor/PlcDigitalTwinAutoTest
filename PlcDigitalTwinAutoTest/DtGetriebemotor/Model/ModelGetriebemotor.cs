@@ -31,7 +31,7 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelGetriebemotor(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource) => _datenRangieren = new DatenRangieren(this, datenstruktur);
+    public ModelGetriebemotor(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur) => _datenRangieren = new DatenRangieren(this, datenstruktur);
     protected override void ModelSetValues()
     {
         S2 = true;
@@ -39,7 +39,7 @@ public class ModelGetriebemotor : BasePlcDtAt.BaseModel.BaseModel
         S7 = true;
         S92 = true;
     }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
         if (Q2)
         {

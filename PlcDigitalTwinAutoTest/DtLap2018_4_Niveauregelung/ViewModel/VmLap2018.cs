@@ -13,7 +13,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
     private readonly ModelLap2018 _modelLap2018;
     private readonly Datenstruktur _datenstruktur;
 
-    private const double HoeheFuellBalken = 12 * 30;
+    private const double HoeheFuellBalken = 12 * WpfData.RasterY;
 
     public VmLap2018(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
@@ -30,7 +30,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
         VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelLap2018 == null) return;
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;

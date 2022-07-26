@@ -27,7 +27,7 @@ public class ModelParkhaus : BasePlcDtAt.BaseModel.BaseModel
     private readonly DatenRangieren _datenRangieren;
 
 
-    public ModelParkhaus(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelParkhaus(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur)
     {
 
         var random = new Random();
@@ -36,7 +36,7 @@ public class ModelParkhaus : BasePlcDtAt.BaseModel.BaseModel
         _datenRangieren = new DatenRangieren(this, datenstruktur);
     }
     protected override void ModelSetValues() { }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
 
         ParkhausSpalte1 = ParkhausSpalte2 = ParkhausSpalte3 = ParkhausSpalte4 = ParkhausSpalte5 = ParkhausSpalte6 = ParkhausSpalte7 = ParkhausSpalte8 = false;

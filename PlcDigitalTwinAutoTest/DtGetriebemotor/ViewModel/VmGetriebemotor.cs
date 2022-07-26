@@ -31,7 +31,7 @@ public partial class VmGetriebemotor : BasePlcDtAt.BaseViewModel.VmBase
         _modelGetriebemotor = model as ModelGetriebemotor;
     }
 
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelGetriebemotor == null) return;
 

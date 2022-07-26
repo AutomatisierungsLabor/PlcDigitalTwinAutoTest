@@ -31,7 +31,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
 
     }
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelLap2018 == null) return;
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;

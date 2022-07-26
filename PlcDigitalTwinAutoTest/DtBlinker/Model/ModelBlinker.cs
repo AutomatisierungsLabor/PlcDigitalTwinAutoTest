@@ -21,7 +21,7 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
 
     private bool _p1Alt;
     private readonly Stopwatch _stopwatch;
-    public ModelBlinker(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelBlinker(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur)
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
@@ -29,7 +29,7 @@ public class ModelBlinker : BasePlcDtAt.BaseModel.BaseModel
         _stopwatch.Start();
     }
     protected override void ModelSetValues() { }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
         long zeitDauer;
 

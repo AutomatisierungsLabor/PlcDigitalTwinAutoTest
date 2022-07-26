@@ -30,7 +30,7 @@ public partial class VmParkhaus : BasePlcDtAt.BaseViewModel.VmBase
         _modelParkhaus = model as ModelParkhaus;
     }
 
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelParkhaus == null) return;
 

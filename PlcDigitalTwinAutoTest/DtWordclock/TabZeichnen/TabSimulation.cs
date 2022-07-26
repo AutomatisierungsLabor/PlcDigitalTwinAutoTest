@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using DtWordclock.ViewModel;
+using Contracts;
 
 namespace DtWordclock.TabZeichnen;
 
@@ -65,7 +66,7 @@ public partial class TabZeichnen
         const double halbeBreiteMinutenzeigerOben = 3;
         const double halbeBreiteMinutenzeigerMitte = 4;
         const double untenMinutenZeiger = 20;
-        const double obenMinutenZeiger = 8 * 30;
+        const double obenMinutenZeiger = 8 * WpfData.RasterY;
         var formMinutenZeiger = new[]
         {
             new [] { halbeBreiteUhrPixel - halbeBreiteMinutenzeigerOben, obenMinutenZeiger},
@@ -79,7 +80,7 @@ public partial class TabZeichnen
         const double halbeBreiteStundenzeigerOben = 5;
         const double halbeBreiteStundenzeigerMitte = 7;
         const double untenStundenZeiger = 35;
-        const double obenStundenZeiger = 8 * 30;
+        const double obenStundenZeiger = 8 * WpfData.RasterY;
         var formStundenZeiger = new[]
         {
             new [] { halbeBreiteUhrPixel - halbeBreiteStundenzeigerOben, obenStundenZeiger},
@@ -92,7 +93,7 @@ public partial class TabZeichnen
 
         const double halbeBreiteSekundenzeiger = 2;
         const double obenSekundenzeiger = 20;
-        const double untenSekundenzeiger = 8 * 30;
+        const double untenSekundenzeiger = 8 * WpfData.RasterY;
         var formSekundenZeiger = new[]
         {
             new[] { halbeBreiteUhrPixel - halbeBreiteSekundenzeiger, obenSekundenzeiger },

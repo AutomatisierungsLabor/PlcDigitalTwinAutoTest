@@ -13,8 +13,8 @@ public partial class VmTiefgarage : BasePlcDtAt.BaseViewModel.VmBase
     private readonly ModelTiefgarage _modelTiefgarage;
     private readonly Datenstruktur _datenstruktur;
 
-    private const double GesamtBreite = 20 * 30;
-    private const double GesamtHoehe = 25 * 30;
+    private const double GesamtBreite = 20 * WpfData.RasterX;
+    private const double GesamtHoehe = 25 * WpfData.RasterY;
 
     public VmTiefgarage(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
@@ -33,7 +33,7 @@ public partial class VmTiefgarage : BasePlcDtAt.BaseViewModel.VmBase
         _modelTiefgarage = model as ModelTiefgarage;
     }
 
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelTiefgarage == null) return;
 

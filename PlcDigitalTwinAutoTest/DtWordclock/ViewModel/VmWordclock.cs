@@ -32,7 +32,7 @@ public partial class VmWordclock : BasePlcDtAt.BaseViewModel.VmBase
         _modelWordclock = model as ModelWordclock;
     }
 
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelWordclock == null) return;
 

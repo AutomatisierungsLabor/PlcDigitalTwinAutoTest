@@ -29,7 +29,7 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
         VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelLap2018 == null) return;
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
@@ -60,8 +60,8 @@ public partial class VmLap2018 : BasePlcDtAt.BaseViewModel.VmBase
 
     private (Visibility vis, Thickness margin) FlaschePositionieren(Flaschen allflaschen)
     {
-        const double breiteZeichenfeld = 20 * 30;
-        const double hoeheZeichenfeld = 20 * 30;
+        const double breiteZeichenfeld = 20 * WpfData.RasterX;
+        const double hoeheZeichenfeld = 20 * WpfData.RasterY;
 
         var (ein, _) = BaseFunctions.SetVisibility(allflaschen.Sichtbar);
         var margin = new Thickness(allflaschen.Flasche.GetLinks(), allflaschen.Flasche.GetOben(), breiteZeichenfeld - allflaschen.Flasche.GetRechts(), hoeheZeichenfeld - allflaschen.Flasche.GetUnten());

@@ -47,7 +47,7 @@ public class ModelWordclock : BasePlcDtAt.BaseModel.BaseModel
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelWordclock(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelWordclock(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur)
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
@@ -61,7 +61,7 @@ public class ModelWordclock : BasePlcDtAt.BaseModel.BaseModel
         Sekunde = (byte)dateTime.Second;
     }
     protected override void ModelSetValues() { }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
         _stopwatch.Stop();
         _elapsedTime = (int)_stopwatch.ElapsedMilliseconds;

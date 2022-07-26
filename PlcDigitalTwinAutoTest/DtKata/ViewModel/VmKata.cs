@@ -28,7 +28,7 @@ public partial class VmKata : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
         VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelKata == null) return;
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;

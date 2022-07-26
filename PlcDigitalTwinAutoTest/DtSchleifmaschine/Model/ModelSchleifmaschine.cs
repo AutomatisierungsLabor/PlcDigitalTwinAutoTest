@@ -30,7 +30,7 @@ public class ModelSchleifmaschine : BasePlcDtAt.BaseModel.BaseModel
     private const double DrehzahlWinkelFaktor = 0.002;
 
     private readonly DatenRangieren _datenRangieren;
-    public ModelSchleifmaschine(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource) => _datenRangieren = new DatenRangieren(this, datenstruktur);
+    public ModelSchleifmaschine(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur) => _datenRangieren = new DatenRangieren(this, datenstruktur);
     protected override void ModelSetValues()
     {
         F1 = true;
@@ -38,7 +38,7 @@ public class ModelSchleifmaschine : BasePlcDtAt.BaseModel.BaseModel
         S0 = true;
         S3 = true;
     }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
         if (Q1) DrehzahlSchleifmaschine += (SynchrondrehzahlLangsam - DrehzahlSchleifmaschine) * BeschleunigungLangsam;
         if (Q2) DrehzahlSchleifmaschine += (SynchrondrehzahlSchnell - DrehzahlSchleifmaschine) * BeschleunigungSchnell;

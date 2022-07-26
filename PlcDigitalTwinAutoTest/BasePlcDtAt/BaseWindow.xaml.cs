@@ -95,8 +95,7 @@ public partial class BaseWindow
     }
     private void PlcButtonClick(object sender, RoutedEventArgs e)
     {
-        if (DisplayPlc.FensterAktiv) DisplayPlc.PlcFensterAusblenden();
-        else DisplayPlc.PlcFensterAnzeigen();
+        if (DisplayPlc.FensterAktiv) DisplayPlc.PlcFensterAusblenden(); else DisplayPlc.PlcFensterAnzeigen();
     }
     private void PlotterButtonClick(object sender, RoutedEventArgs e) => _vmBase.PlotterButtonClick(sender, e);
     private void LinkHomepageClick(object sender, RoutedEventArgs e)
@@ -118,17 +117,11 @@ public partial class BaseWindow
 
     private void AlarmVerwaltungClick(object sender, RoutedEventArgs e)
     {
-        if (Alarmverwaltung.FensterAktiv) Alarmverwaltung.FensterAusblenden();
-        else Alarmverwaltung.FensterAnzeigen();
+        if (Alarmverwaltung.FensterAktiv) Alarmverwaltung.FensterAusblenden(); else Alarmverwaltung.FensterAnzeigen();
     }
     private void InfoClick(object sender, RoutedEventArgs e)
     {
-        if (DisplayInfo.FensterAktiv) DisplayInfo.FensterAusblenden();
-        else DisplayInfo.FensterAnzeigen();
+        if (DisplayInfo.FensterAktiv) DisplayInfo.FensterAusblenden(); else DisplayInfo.FensterAnzeigen();
     }
-
-    private void NeuerTestAusgewaehlt()
-    {
-        Alarmverwaltung.ConfigNeuLaden();
-    }
+    private void NeuerTestAusgewaehlt() => Alarmverwaltung.ConfigNeuLaden();
 }

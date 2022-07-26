@@ -22,7 +22,7 @@ public class ModelAmpelVarbania : BaseModel
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelAmpelVarbania(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource) => _datenRangieren = new DatenRangieren(this, datenstruktur);
+    public ModelAmpelVarbania(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur) => _datenRangieren = new DatenRangieren(this, datenstruktur);
     protected override void ModelSetValues() { }
-    protected override void ModelThread() => _datenRangieren?.Rangieren();
+    protected override void ModelThread(double dT) => _datenRangieren?.Rangieren();
 }

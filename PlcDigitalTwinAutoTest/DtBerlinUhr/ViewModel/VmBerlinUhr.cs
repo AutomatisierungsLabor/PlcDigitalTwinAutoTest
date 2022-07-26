@@ -32,7 +32,7 @@ public partial class VmBerlinUhr : BasePlcDtAt.BaseViewModel.VmBase
         _modelBerlinUhr = model as ModelBerlinUhr;
     }
 
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelBerlinUhr == null) return;
 

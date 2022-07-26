@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using LibDatenstruktur;
 
 namespace DtLap2010_2_Transportwagen.Model;
@@ -17,21 +16,22 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
     public bool B2 { get; set; }    // Endschalter Rechts
     public double PositionWagen { get; set; }
     public bool Fuellen { get; internal set; }
+    public double LaufzeitFuellen { get; set; }
 
     private const double FahrwegZeit = 5.0;
-    private const double FuellenZeit = 5.0;
+    private const double FuellenZeit = 5.0; // Wartezeit SPS Beispiel: 7"
 
-    private const double BereichSensor = 0.1; // Zykluszeit ist 10ms --> 5 oder 7"
-    private double _laufzeitFuellen;
+    private const double BereichSensor = 0.01;
+
     private double _laufzeitPosition;
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelLap2010(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelLap2010(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur)
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
-        _laufzeitFuellen = 0;
+        LaufzeitFuellen = 0;
         _laufzeitPosition = 0;
     }
     protected override void ModelSetValues()
@@ -39,17 +39,13 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
         F1 = true;
         S2 = true;
     }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
-        if (B1) _laufzeitFuellen = 0;
-        if (B2) _laufzeitFuellen += Contracts.BaseFunctions.ThreadZyklusZeit;
-        _laufzeitFuellen = Math.Min(_laufzeitFuellen, FuellenZeit);
-        _laufzeitFuellen = Math.Max(_laufzeitFuellen, 0);
+        if (B2) LaufzeitFuellen += dT; else  LaufzeitFuellen = 0;
+        Fuellen = LaufzeitFuellen is > 0.01 and < FuellenZeit;
 
-        Fuellen = _laufzeitFuellen > 0.1;
-
-        if (Q1) _laufzeitPosition -= Contracts.BaseFunctions.ThreadZyklusZeit;
-        if (Q2) _laufzeitPosition += Contracts.BaseFunctions.ThreadZyklusZeit;
+        if (Q1) _laufzeitPosition -= dT;
+        if (Q2) _laufzeitPosition += dT;
         _laufzeitPosition = Math.Min(_laufzeitPosition, FahrwegZeit);
         _laufzeitPosition = Math.Max(_laufzeitPosition, 0);
 

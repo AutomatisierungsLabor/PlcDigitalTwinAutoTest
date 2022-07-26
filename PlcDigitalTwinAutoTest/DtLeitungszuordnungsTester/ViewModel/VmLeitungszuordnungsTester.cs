@@ -24,7 +24,7 @@ public partial class VmLeitungszuordnungsTester : BasePlcDtAt.BaseViewModel.VmBa
         VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
         VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         //if (_modelLeitungszuordnungsTester == null) return;
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;

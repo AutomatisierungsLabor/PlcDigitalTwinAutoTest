@@ -37,7 +37,7 @@ public partial class VmBlinker : BasePlcDtAt.BaseViewModel.VmBase
         _modelBlinker = model as ModelBlinker;
     }
 
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelBlinker == null) return;
 

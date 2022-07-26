@@ -29,7 +29,7 @@ public partial class VmAmpelVerbania : BasePlcDtAt.BaseViewModel.VmBase
 
         _modelAmpelVarbania = model as ModelAmpelVarbania;
     }
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelAmpelVarbania == null) return;
 

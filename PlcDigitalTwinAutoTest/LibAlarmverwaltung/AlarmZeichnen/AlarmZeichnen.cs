@@ -77,18 +77,18 @@ public class AlarmZeichnen
         _libWpf.Text("Geht", 14, 4, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
         _libWpf.Text("Kommentar", 20, 12, 1, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 16, Brushes.Black);
 
-        _libWpf.Linie(1, 50, 1, 2, 0, 30, 35 * 30, 30, 2, Brushes.Black);
+        _libWpf.Linie(1, 50, 1, 2, 0, WpfData.RasterY, 35 * WpfData.RasterX, WpfData.RasterY, 2, Brushes.Black);
 
-        _libWpf.Linie(2, 1, 1, anzAlarme + 1, 0, 0, 1, (1 + anzAlarme) * 30, 2, Brushes.Black);
-        _libWpf.Linie(8, 1, 1, anzAlarme + 1, 0, 0, 1, (1 + anzAlarme) * 30, 2, Brushes.Black);
-        _libWpf.Linie(14, 1, 1, anzAlarme + 1, 0, 0, 1, (1 + anzAlarme) * 30, 2, Brushes.Black);
-        _libWpf.Linie(20, 1, 1, anzAlarme + 1, 0, 0, 1, (1 + anzAlarme) * 30, 2, Brushes.Black);
+        _libWpf.Linie(2, 1, 1, anzAlarme + 1, 0, 0, 1, (1 + anzAlarme) * WpfData.RasterY, 2, Brushes.Black);
+        _libWpf.Linie(8, 1, 1, anzAlarme + 1, 0, 0, 1, (1 + anzAlarme) * WpfData.RasterY, 2, Brushes.Black);
+        _libWpf.Linie(14, 1, 1, anzAlarme + 1, 0, 0, 1, (1 + anzAlarme) * WpfData.RasterY, 2, Brushes.Black);
+        _libWpf.Linie(20, 1, 1, anzAlarme + 1, 0, 0, 1, (1 + anzAlarme) * WpfData.RasterY, 2, Brushes.Black);
 
         posY++;
 
         foreach (var alarm in _configDt.DtConfig.Alarm)
         {
-            _libWpf.Linie(1, 50, posY, 2, 0, 30, 35 * 30, 30, 2, Brushes.Black);
+            _libWpf.Linie(1, 50, posY, 2, 0, 30, 35 * WpfData.RasterX, 30, 2, Brushes.Black);
 
             _libWpf.RectangleMarginStrokeBindingFill(1, 1, posY, 1, new Thickness(5, 5, 5, 5), Brushes.Black, 2, $"BrushAlarm{alarm.Id:D2}");
             _libWpf.TextBindingContent(2, 8, posY, 1, HorizontalAlignment.Left, VerticalAlignment.Center, 15, Brushes.Black, $"StringBezeichnung{alarm.Id:D2}");

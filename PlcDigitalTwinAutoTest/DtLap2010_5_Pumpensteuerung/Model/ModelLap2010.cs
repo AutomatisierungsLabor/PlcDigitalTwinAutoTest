@@ -21,7 +21,7 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelLap2010(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource)
+    public ModelLap2010(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur)
     {
         _datenRangieren = new DatenRangieren(this, datenstruktur);
 
@@ -32,7 +32,7 @@ public class ModelLap2010 : BasePlcDtAt.BaseModel.BaseModel
         F1 = true;
         S3 = true;
     }
-    protected override void ModelThread()
+    protected override void ModelThread(double dT)
     {
         if (Q1) Pegel += FuellGeschwindigkeit;
         if (Y1) Pegel -= LeerGeschwindigkeit;

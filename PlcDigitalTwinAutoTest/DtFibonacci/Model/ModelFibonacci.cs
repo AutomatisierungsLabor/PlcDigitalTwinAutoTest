@@ -9,7 +9,7 @@ public class ModelFibonacci : BasePlcDtAt.BaseModel.BaseModel
 
     private readonly DatenRangieren _datenRangieren;
 
-    public ModelFibonacci(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource) => _datenRangieren = new DatenRangieren(this, datenstruktur);
+    public ModelFibonacci(Datenstruktur datenstruktur, System.Threading.CancellationTokenSource cancellationTokenSource) : base(cancellationTokenSource, datenstruktur) => _datenRangieren = new DatenRangieren(this, datenstruktur);
     protected override void ModelSetValues() { }
-    protected override void ModelThread() => _datenRangieren?.Rangieren();
+    protected override void ModelThread(double dT) => _datenRangieren?.Rangieren();
 }

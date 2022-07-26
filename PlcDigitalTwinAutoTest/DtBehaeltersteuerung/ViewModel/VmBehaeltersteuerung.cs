@@ -5,7 +5,6 @@ using System.Windows.Media;
 using Contracts;
 using DtBehaeltersteuerung.Model;
 using LibDatenstruktur;
-using Brush = System.Drawing.Brush;
 
 namespace DtBehaeltersteuerung.ViewModel;
 
@@ -31,7 +30,7 @@ public partial class VmBehaeltersteuerung : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
         VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelBehaeltersteuerung == null) return;
 
@@ -99,7 +98,7 @@ public partial class VmBehaeltersteuerung : BasePlcDtAt.BaseViewModel.VmBase
 
         BrushesP1 = BaseFunctions.SetBrush(_modelBehaeltersteuerung.P1, Brushes.LawnGreen, Brushes.LightGray);
 
-        const double behaelterHoehe = 10 * 30;
+        const double behaelterHoehe = 10 * WpfData.RasterY;
         ThicknessFuellstand1 = new Thickness(0, behaelterHoehe - _modelBehaeltersteuerung.AlleMeineBehaelter[0].Pegel * behaelterHoehe, 0, 0);
         ThicknessFuellstand2 = new Thickness(0, behaelterHoehe - _modelBehaeltersteuerung.AlleMeineBehaelter[1].Pegel * behaelterHoehe, 0, 0);
         ThicknessFuellstand3 = new Thickness(0, behaelterHoehe - _modelBehaeltersteuerung.AlleMeineBehaelter[2].Pegel * behaelterHoehe, 0, 0);

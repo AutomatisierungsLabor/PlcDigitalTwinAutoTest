@@ -11,7 +11,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 40, false, false, true);
+        libWpf.GridZeichnen(50, 40, false, false, false);
 
         var buttonRand = new Thickness(2, 5, 2, 5);
         var kreisRand = new Thickness(2, 2, 2, 2);
@@ -54,7 +54,7 @@ public partial class TabZeichnen
         libWpf.EllipseFillStrokeBindingMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, nameof(vmLap2010.ThicknessPositionRadLinks));
         libWpf.EllipseFillStrokeBindingMargin(1, 20, 12, 1, Brushes.Red, Brushes.Black, 2, nameof(vmLap2010.ThicknessPositionRadRechts));
 
-        libWpf.RectangleFill(0, 22, 13, 1, Brushes.Gray);
+        libWpf.RectangleFill(1, 20, 13, 1, Brushes.Gray);
 
 
         var kontakteRand = new Thickness(0, 5, 5, 5);
@@ -78,6 +78,7 @@ public partial class TabZeichnen
         libWpf.TextContendBindingVisibility("Kurzschluß", 9, 6, 12, 6, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmLap2010.VisibilityKurzschluss));
         libWpf.EllipseFillBindingVisibility(9, 6, 12, 6, Brushes.Red, nameof(vmLap2010.VisibilityKurzschluss));
 
+        libWpf.TextBindingContent(10,5,2,2,HorizontalAlignment.Left, VerticalAlignment.Center,20, Brushes.Black, nameof(vmLap2010.StringWartezeit));
 
         // libWpf.PlcError();
     }

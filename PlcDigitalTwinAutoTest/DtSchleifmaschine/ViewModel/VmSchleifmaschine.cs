@@ -32,7 +32,7 @@ public partial class VmSchleifmaschine : BasePlcDtAt.BaseViewModel.VmBase
         PointTransformOrigin = new Point(5, 5);
     }
 
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         if (_modelSchleifmaschine == null) return;
 

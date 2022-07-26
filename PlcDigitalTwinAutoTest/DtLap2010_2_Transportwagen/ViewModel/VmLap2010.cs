@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using DtLap2010_2_Transportwagen.Model;
+﻿using DtLap2010_2_Transportwagen.Model;
 using LibDatenstruktur;
 using System.Threading;
 using System.Windows;
@@ -14,9 +13,9 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     private readonly ModelLap2010 _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
 
-    private const double BreiteZeichenbereich = 20 * 30;
+    private const double BreiteZeichenbereich = 20 * WpfData.RasterX;
     private const double BreiteWagenkasten = 180;
-    private const double BreíteRad = 30;
+    private const double BreíteRad = WpfData.RasterX;
 
     public VmLap2010(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
@@ -33,9 +32,11 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
         VisibilityBtnLinkHomepageAnzeigen = Visibility.Visible;
         VisibilityBtnAlarmVerwaltungAnzeigen = Visibility.Visible;
     }
-    protected override void ViewModelAufrufThread()
+    protected override void ViewModelAufrufThread(double dT)
     {
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
+
+        StringWartezeit = _modelLap2010.LaufzeitFuellen < 0.1 ? "Wartezeit: --" : $"Wartezeit: {_modelLap2010.LaufzeitFuellen:F1}";
 
         BrushF1 = BaseFunctions.SetBrush(_modelLap2010!.F1, Brushes.LawnGreen, Brushes.Red);
         BrushP1 = BaseFunctions.SetBrush(_modelLap2010!.P1, Brushes.Red, Brushes.LightGray);
