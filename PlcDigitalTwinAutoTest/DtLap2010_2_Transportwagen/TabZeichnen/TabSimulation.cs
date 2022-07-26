@@ -80,6 +80,6 @@ public partial class TabZeichnen
 
         libWpf.TextBindingContent(10,5,2,2,HorizontalAlignment.Left, VerticalAlignment.Center,20, Brushes.Black, nameof(vmLap2010.StringWartezeit));
 
-        // libWpf.PlcError();
+        libWpf.PlcError();
     }
 }

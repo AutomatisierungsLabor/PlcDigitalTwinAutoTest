@@ -106,7 +106,7 @@ public partial class TabZeichnen
 
         libWpf.TextBindingContent(17, 15, 1, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 30, Brushes.BlueViolet, nameof(vmNadeltelegraph.StringAsciiCode));
 
-        //  libWpf.PlcError();
+        libWpf.PlcError();
     }
     private static double LinieX(double laenge, RichtungLinie richtung)
     {

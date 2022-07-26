@@ -78,6 +78,6 @@ public partial class TabZeichnen
         libWpf.TextContendBindingVisibility("Kurzschluß", 9, 4, 19, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black, nameof(vmLap2010.VisibilityKurzschluss));
         libWpf.EllipseFillBindingVisibility(9, 4, 18, 4, Brushes.Red, nameof(vmLap2010.VisibilityKurzschluss));
 
-        // libWpf.PlcError();
+        libWpf.PlcError();
     }
 }

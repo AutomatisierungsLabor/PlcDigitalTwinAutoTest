@@ -41,6 +41,7 @@ public abstract partial class VmBase
                 VisibilityErrorVersionLokal = Visibility.Visible;
                 VisibilityErrorVersionPlc = Visibility.Visible;
 
+                StringErrorMeldung = "Falsche Versionen!";
                 StringErrorVersionLokal = _datenstruktur.VersionsStringLokal;
                 StringErrorVersionPlc = _datenstruktur.VersionsStringPlc;
             }

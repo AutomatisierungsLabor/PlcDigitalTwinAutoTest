@@ -79,6 +79,6 @@ public partial class TabZeichnen
 
         libWpf.PointerGaugeBindingValue(20, 10, 12, 10, "Druck", 0, 10, 165, 188, "AktuellerDruck");
 
-        // libWpf.PlcError();
+        libWpf.PlcError();
     }
 }

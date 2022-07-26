@@ -238,7 +238,7 @@ public partial class GaugeControl
     }
     public void RemoveChildren() => Canvas.Children.Clear();
 
-    // ReSharper disable once UnusedMember.Local
+#pragma warning disable IDE0051 // Private member is unused
     private void RemoveLabels()
     {
         foreach (UIElement element in Canvas.Children)
@@ -247,6 +247,8 @@ public partial class GaugeControl
             if (lbl.Name != "descr_label") Canvas.Children.Remove(lbl);
         }
     }
+#pragma warning restore IDE0051 // Private member is unused
+
     // Change the labels
     private void ChangeLabels()
     {

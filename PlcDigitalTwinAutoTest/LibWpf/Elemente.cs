@@ -40,6 +40,8 @@ public partial class LibWpf
 
         return webBrowser;
     }
+    
+#pragma warning disable CA1822 // Member 'RadioButton' does not access instance data and can be marked as static 
     public RadioButton RadioButton(string gruppenName, string testName, DirectoryInfo ordner, int fontSize, RoutedEventHandler testChecked)
     {
 
@@ -55,6 +57,8 @@ public partial class LibWpf
         radioButton.Checked += testChecked;
         return radioButton;
     }
+#pragma warning restore CA1822 // Member 'RadioButton' does not access instance data and can be marked as static  
+
     public void CheckBox(int xPos, int xSpan, int yPos, int ySpan, Thickness margin, HorizontalAlignment horizontal, VerticalAlignment vertical, ICommand cmd, object cmdParameter)
     {
         var checkbox = new CheckBox

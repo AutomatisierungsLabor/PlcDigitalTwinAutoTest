@@ -6,7 +6,6 @@ namespace BasePlcDtAt.BaseViewModel;
 
 public abstract partial class VmBase
 {
-
     [ObservableProperty] private Brush _brushErrorAnzeige;
     [ObservableProperty] private Brush _brushSpsColor;
 

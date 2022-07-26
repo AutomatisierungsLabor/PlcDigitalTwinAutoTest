@@ -62,6 +62,6 @@ public partial class TabZeichnen
         libWpf.ImageMarginBindingVisibility("VentilElektrischAus.jpg", 10, 2, 12, 2, ventilRand, nameof(vmLap2010.VisibilityAusK2));
 
 
-        // libWpf.PlcError();
+        libWpf.PlcError();
     }
 }

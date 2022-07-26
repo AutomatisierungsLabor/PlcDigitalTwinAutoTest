@@ -10,11 +10,14 @@ namespace LibWpf;
 
 public partial class LibWpf
 {
+#pragma warning disable CA1822 // can be marked as static
     public BitmapImage GetBild(string source)
     {
         var (_, bitmapImage) = ImageErzeugen(source, new Thickness(0, 0, 0, 0));
         return bitmapImage;
     }
+#pragma warning restore CA1822 // can be marked as static
+
     private static (Image image, BitmapImage bitmapImage) ImageErzeugen(string source, Thickness margin)
     {
         var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("LibWpf.Bilder." + source);

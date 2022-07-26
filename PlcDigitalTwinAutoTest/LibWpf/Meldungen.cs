@@ -1,17 +1,17 @@
-﻿namespace LibWpf;
+﻿using System.Windows;
+using System.Windows.Media;
+
+namespace LibWpf;
 
 public partial class LibWpf
 {
-#pragma warning disable CA1822 // Mark members as static
     public void PlcError()
     {
-        /*
-         TODO!
-        RectangleFillBindingVisibility(2, 20, 2, 5, Brushes.BlueViolet, nameof(VisibilityErrorAnzeige) Contracts.WpfBase.ErrorAnzeige);
-        TextBindingContentVisibility(2, 20, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, Contracts.WpfBase.ErrorMeldung);
-        TextBindingContentVisibility(2, 20, 3, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, Contracts.WpfBase.ErrorVersionLokal);
-        TextBindingContentVisibility(2, 20, 4, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, Contracts.WpfBase.ErrorVersionPlc);
-  */
+        RectangleFillBindingVisibility(2, 20, 2, 5, Brushes.BlueViolet, "VisibilityErrorAnzeige");
+
+        TextBindingContentVisibility(2, 10, 2, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, "StringErrorMeldung", "VisibilityErrorMeldung");
+
+        TextBindingContentVisibility(2, 20, 3, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, "StringErrorVersionLokal", "VisibilityErrorVersionLokal");
+        TextBindingContentVisibility(2, 20, 4, 2, HorizontalAlignment.Left, VerticalAlignment.Center, 20, Brushes.Black, "StringErrorVersionPlc", "VisibilityErrorVersionPlc");
     }
-#pragma warning restore CA1822 // Mark members as static
 }

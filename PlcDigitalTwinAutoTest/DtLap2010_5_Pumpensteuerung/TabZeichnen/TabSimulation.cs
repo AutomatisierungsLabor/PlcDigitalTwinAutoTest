@@ -90,6 +90,6 @@ public partial class TabZeichnen
 
 
 
-        // libWpf.PlcError();
+        libWpf.PlcError();
     }
 }

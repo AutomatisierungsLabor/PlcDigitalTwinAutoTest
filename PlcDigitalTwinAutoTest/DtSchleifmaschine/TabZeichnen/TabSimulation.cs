@@ -75,6 +75,6 @@ public partial class TabZeichnen
         libWpf.RectangleFillBindingVisibility(2, 8, 11, 2, Brushes.Yellow, nameof(vmSchleifmaschine.VisibilityUebersynchron));
         libWpf.TextContendBindingVisibility("Übersychron!", 2, 8, 11, 2, HorizontalAlignment.Center, VerticalAlignment.Center, 30, Brushes.Black, nameof(vmSchleifmaschine.VisibilityUebersynchron));
 
-        // libWpf.PlcError();
+        libWpf.PlcError();
     }
 }

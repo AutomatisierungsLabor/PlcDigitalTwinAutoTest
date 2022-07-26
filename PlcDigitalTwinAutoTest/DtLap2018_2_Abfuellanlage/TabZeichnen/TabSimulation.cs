@@ -108,8 +108,7 @@ public partial class TabZeichnen
         libWpf.ImageBindingVisibility("Mohren4.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren4));
         libWpf.ImageBindingVisibility("Mohren5.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren5));
         libWpf.ImageBindingVisibility("Mohren6.jpg", 18, 6, 24, 6, nameof(vmLap2018.VisibilityMohren6));
-
-
-        // libWpf.PlcError();
+        
+        libWpf.PlcError();
     }
 }
