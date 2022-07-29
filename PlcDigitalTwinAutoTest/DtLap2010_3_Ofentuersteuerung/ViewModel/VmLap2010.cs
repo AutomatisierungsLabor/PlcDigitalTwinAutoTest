@@ -13,6 +13,9 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     private readonly ModelLap2010 _modelLap2010;
     private readonly Datenstruktur _datenstruktur;
 
+    private const double BreiteOfentuere = 7 * WpfData.RasterX;
+    private const double BreiteFahrweg = 20 * WpfData.RasterX;
+
     public VmLap2010(BasePlcDtAt.BaseModel.BaseModel model, Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource) : base(model, datenstruktur, cancellationTokenSource)
     {
         _modelLap2010 = model as ModelLap2010;
@@ -32,9 +35,10 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
-        OfentuerePosition = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionOfentuere;
-        ZahnstangePosition = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionZahnstange;
-        ZahnradWinkel = _modelLap2010.WinkelZahnrad;
+
+        ThicknessOfentuerePosition = new Thickness(BreiteFahrweg - BreiteOfentuere * (1 + _modelLap2010.PositionOfentuere), 0, BreiteOfentuere * _modelLap2010.PositionOfentuere, 0);
+        ThicknessZahnstangePosition = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionZahnstange;
+        DoubleZahnradWinkel = _modelLap2010.WinkelZahnrad;
 
         (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2010.B1);
         (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLap2010.B2);

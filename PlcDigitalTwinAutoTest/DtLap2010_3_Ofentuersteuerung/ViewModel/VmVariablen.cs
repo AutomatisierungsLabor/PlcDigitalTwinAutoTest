@@ -12,13 +12,13 @@ public partial class VmLap2010
     [ObservableProperty] private Brush _brushQ1;
     [ObservableProperty] private Brush _brushQ2;
 
-    [ObservableProperty] private ClickMode _clickModeB2;
+    [ObservableProperty] private ClickMode _clickModeB3;
     [ObservableProperty] private ClickMode _clickModeS1;
     [ObservableProperty] private ClickMode _clickModeS2;
     [ObservableProperty] private ClickMode _clickModeS3;
 
     [ObservableProperty] private double _aktuellerDruck;
-    [ObservableProperty] private double _zahnradWinkel;
+    [ObservableProperty] private double _doubleZahnradWinkel;
 
     [ObservableProperty] private Visibility _visibilityEinB1;
     [ObservableProperty] private Visibility _visibilityEinB2;
@@ -30,6 +30,6 @@ public partial class VmLap2010
 
     [ObservableProperty] private Visibility _visibilityKurzschluss;
 
-    [ObservableProperty] private Thickness _ofentuerePosition;
-    [ObservableProperty] private Thickness _zahnstangePosition;
+    [ObservableProperty] private Thickness _thicknessOfentuerePosition;
+    [ObservableProperty] private Thickness _thicknessZahnstangePosition;
 }
