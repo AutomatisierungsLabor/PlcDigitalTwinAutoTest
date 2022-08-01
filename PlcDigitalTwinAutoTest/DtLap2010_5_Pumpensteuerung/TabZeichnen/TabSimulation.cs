@@ -11,7 +11,7 @@ public partial class TabZeichnen
     {
         var libWpf = new LibWpf.LibWpf(tabItem);
         libWpf.SetBackground(new BrushConverter().ConvertFromString(hintergrund) as SolidColorBrush);
-        libWpf.GridZeichnen(50, 40, false, false, true);
+        libWpf.GridZeichnen(50, 40, false, false, false);
 
 
         ///////////////////////////////////////////////////////////
@@ -20,12 +20,12 @@ public partial class TabZeichnen
         //
         /////////////////////////////////////////////////////////// 
 
-        libWpf.RectangleFill(19, 12, 1, 30, Brushes.LightGray);
+        libWpf.RectangleFill(19, 12, 1, 21, Brushes.LightGray);
 
         var buttonRand = new Thickness(0, 0, 0, 0);
-        libWpf.ButtonBackgroundContentMarginRounded("Hand", 20, 3, 2, 2, 14, 0, Brushes.LawnGreen, buttonRand, vmLap2010.ButtonTasterCommand, "Hand", nameof(vmLap2010.ClickModeHand));
-        libWpf.ButtonBackgroundContentMarginRounded("Aus", 23, 3, 2, 2, 14, 0, Brushes.Gray, buttonRand, vmLap2010.ButtonTasterCommand, "Aus", nameof(vmLap2010.ClickModeAus));
-        libWpf.ButtonBackgroundContentMarginRounded("Automatik", 26, 3, 2, 2, 14, 0, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "Automatik", nameof(vmLap2010.ClickModeAutomatik));
+        libWpf.ButtonBackgroundContentMarginRounded("Hand", 20, 3, 2, 2, 16, 0, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "Hand", nameof(vmLap2010.ClickModeHand));
+        libWpf.ButtonBackgroundContentMarginRounded("Aus", 23, 3, 2, 2, 16, 0, Brushes.Gray, buttonRand, vmLap2010.ButtonTasterCommand, "Aus", nameof(vmLap2010.ClickModeAus));
+        libWpf.ButtonBackgroundContentMarginRounded("Automatik", 26, 3, 2, 2, 16, 0, Brushes.Green, buttonRand, vmLap2010.ButtonTasterCommand, "Automatik", nameof(vmLap2010.ClickModeAutomatik));
 
         libWpf.RectangleFill(20, 9, 5, 9, Brushes.Gray);
         libWpf.EllipseFill(23, 3, 8, 3, Brushes.DarkGray);
@@ -37,16 +37,16 @@ public partial class TabZeichnen
         libWpf.PolygonBindingWinkel(21, 7, 6, 7, Brushes.Black, Brushes.Black, 0, new[] { new double[] { 105, 30 }, new double[] { 120, 60 }, new double[] { 120, 160 }, new double[] { 90, 160 }, new double[] { 90, 60 } }, nameof(vmLap2010.WinkelSchalter));
 
 
-        libWpf.Text("S3", 20, 2, 15, 2, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.ButtonBackgroundContentMarginRounded("Reset", 22, 3, 15, 2, 14, 15, Brushes.Red, buttonRand, vmLap2010.ButtonTasterCommand, "S3", nameof(vmLap2010.ClickModeS3));
+        libWpf.Text("S3", 19, 2, 15, 2, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.ButtonBackgroundContentMarginRounded("Reset", 21, 3, 15, 2, 20, 15, Brushes.Red, buttonRand, vmLap2010.ButtonTasterCommand, "S3", nameof(vmLap2010.ClickModeS3));
 
-        libWpf.Text("P1", 20, 2, 20, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.Text("P2", 25, 2, 20, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.Text("P1", 19, 2, 18, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.Text("P2", 24, 2, 18, 3, HorizontalAlignment.Right, VerticalAlignment.Center, 20, Brushes.Black);
 
-        libWpf.EllipseStrokeBindingFilling(22, 3, 20, 3, Brushes.Black, 2, nameof(vmLap2010.BrushP1));
-        libWpf.EllipseStrokeBindingFilling(27, 3, 20, 3, Brushes.Black, 2, nameof(vmLap2010.BrushP2));
-        libWpf.Text("Pumpe", 22, 3, 20, 3, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
-        libWpf.Text("Störung", 27, 3, 20, 3, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.EllipseStrokeBindingFilling(21, 3, 18, 3, Brushes.Black, 2, nameof(vmLap2010.BrushP1));
+        libWpf.EllipseStrokeBindingFilling(26, 3, 18, 3, Brushes.Black, 2, nameof(vmLap2010.BrushP2));
+        libWpf.Text("Pumpe", 21, 3, 18, 3, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
+        libWpf.Text("Störung", 26, 3, 18, 3, HorizontalAlignment.Center, VerticalAlignment.Center, 20, Brushes.Black);
 
         ///////////////////////////////////////////////////////////
         //

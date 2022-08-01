@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Mvvm.Input;
+﻿using Contracts;
+using Microsoft.Toolkit.Mvvm.Input;
 
 namespace DtLap2010_5_Pumpensteuerung.ViewModel;
 
@@ -10,7 +11,7 @@ public partial class VmLap2010
         switch (taster)
         {
             case "S3":
-                _modelLap2010.S3 = !_modelLap2010.S3;
+                (_modelLap2010.S3, ClickModeS3) = BaseFunctions.ButtonClickMode(ClickModeS3); 
                 break;
             case "Hand":
                 _modelLap2010!.S1 = true;

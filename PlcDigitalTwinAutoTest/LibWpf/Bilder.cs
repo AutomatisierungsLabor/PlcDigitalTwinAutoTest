@@ -89,7 +89,7 @@ public partial class LibWpf
     {
         var (image, _) = ImageErzeugen(source, margin);
 
-        image.RenderTransformOrigin = (new Point(0.5, 0.5));
+        image.RenderTransformOrigin = new Point(0.5, 0.5);
 
         var b = new Binding(bindingWinkel);
         var rt = new RotateTransform();
