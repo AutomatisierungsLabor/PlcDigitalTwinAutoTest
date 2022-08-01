@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using WpfAnimatedGif;
@@ -84,19 +85,23 @@ public partial class LibWpf
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, imageOff);
     }
-    public void ImageMarginBindingWinkel(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingWinkel)
+    public void ImageMarginBindingWinkel(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string bindingWinkel)
     {
-        _ = bindingWinkel; // TODO noch fertigstellen!
-
         var (image, _) = ImageErzeugen(source, margin);
+
+        image.RenderTransformOrigin = (new Point(0.5, 0.5));
+
+        var b = new Binding(bindingWinkel);
+        var rt = new RotateTransform();
+        BindingOperations.SetBinding(rt, RotateTransform.AngleProperty, b);
+        image.RenderTransform = rt;
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }
-    public void ImageBindingMargin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, object bindingMargin)
+    public void ImageBindingMargin(string source, int xPos, int xSpan, int yPos, int ySpan, Thickness margin, string bindingMargin)
     {
-        _ = bindingMargin; // TODO noch fertigstellen!
-
         var (image, _) = ImageErzeugen(source, margin);
+        image.FrameworkElementBindingMargin(bindingMargin);
 
         AddToGrid(xPos, xSpan, yPos, ySpan, Grid, image);
     }

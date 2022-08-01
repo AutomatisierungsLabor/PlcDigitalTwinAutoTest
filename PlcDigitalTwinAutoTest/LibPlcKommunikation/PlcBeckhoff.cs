@@ -55,7 +55,7 @@ public class PlcBeckhoff : IPlc
                 }
                 catch (Exception e)
                 {
-                    Log.Debug("Beckhoff Initialisieren: " + e);
+                    Log.Debug("Beckhoff Initialisieren Exception: " + e);
                     throw;
                 }
                 break;
@@ -76,7 +76,7 @@ public class PlcBeckhoff : IPlc
                 }
                 catch (Exception e)
                 {
-                    Log.Debug("Beckhoff Kommunizieren: " + e);
+                    Log.Debug("Beckhoff Kommunizieren Exception: " + e);
                     throw;
                 }
                 break;

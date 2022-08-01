@@ -37,7 +37,7 @@ public class PlcDaemon
 
     public PlcDaemon(Datenstruktur datenstruktur, CancellationTokenSource cancellationTokenSource)
     {
-        Log.Debug("Daemon gestartet");
+        Log.Debug("PLC Daemon gestartet");
 
         _datenstruktur = datenstruktur;
         _plcDaemonStatus = PlcDaemonStatus.SpsPingStarten;
@@ -80,10 +80,10 @@ public class PlcDaemon
 
         var pingBeckhoff = new Ping();
         pingBeckhoff.PingCompleted += (_, args) => _plcDaemonStatus = args.Reply is { Status: IPStatus.Success } ? PlcDaemonStatus.SpsBeckhoff : PlcDaemonStatus.SpsPingStarten;
-
+       
         var pingSiemens = new Ping();
         pingSiemens.PingCompleted += (_, args) => _plcDaemonStatus = args.Reply is { Status: IPStatus.Success } ? PlcDaemonStatus.SpsSiemens : PlcDaemonStatus.SpsPingStarten;
-
+        
         _plcKeine.PlcTask();
         PlcState = _plcKeine.State;
 
@@ -92,6 +92,7 @@ public class PlcDaemon
             switch (_plcDaemonStatus)
             {
                 case PlcDaemonStatus.SpsPingStarten:
+                    Log.Debug("SpsPingStarten");
                     pingBeckhoff.SendAsync(_ipAdressenBeckhoff.IpAdresse, 1000, null);
                     pingSiemens.SendAsync(_ipAdressenSiemens.Adress, 1000, null);
 

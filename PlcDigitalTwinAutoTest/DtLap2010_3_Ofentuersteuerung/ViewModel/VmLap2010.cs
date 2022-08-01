@@ -35,10 +35,13 @@ public partial class VmLap2010 : BasePlcDtAt.BaseViewModel.VmBase
     {
         StringFensterTitel = PlcDaemon.PlcState.PlcBezeichnung + ": " + _datenstruktur.VersionsStringLokal;
 
+        var rechterRand = BreiteOfentuere * _modelLap2010.PositionOfentuere;
+        ThicknessOfentuerePosition = new Thickness(BreiteFahrweg - BreiteOfentuere * (1 + _modelLap2010.PositionOfentuere), 0, rechterRand, 0);
+        ThicknessZahnstangePosition = new Thickness(-rechterRand, 0, rechterRand, 0);
 
-        ThicknessOfentuerePosition = new Thickness(BreiteFahrweg - BreiteOfentuere * (1 + _modelLap2010.PositionOfentuere), 0, BreiteOfentuere * _modelLap2010.PositionOfentuere, 0);
-        ThicknessZahnstangePosition = new Thickness(0, 0, 0, 0); //_modelLap2010!.PositionZahnstange;
-        DoubleZahnradWinkel = _modelLap2010.WinkelZahnrad;
+        const double winkelFaktor = -184;
+        const double winkelOffset = -1.5;
+        DoubleZahnradWinkel = winkelOffset + winkelFaktor * _modelLap2010.PositionOfentuere;
 
         (VisibilityEinB1, VisibilityAusB1) = BaseFunctions.SetVisibility(_modelLap2010.B1);
         (VisibilityEinB2, VisibilityAusB2) = BaseFunctions.SetVisibility(_modelLap2010.B2);

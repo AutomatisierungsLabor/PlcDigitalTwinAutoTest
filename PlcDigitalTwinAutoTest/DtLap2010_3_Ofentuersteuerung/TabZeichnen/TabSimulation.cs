@@ -48,8 +48,9 @@ public partial class TabZeichnen
 
         libWpf.RectangleFill(17, 6, 3, 6, Brushes.Black);
         libWpf.VideoAutoPlay("Flammen.mp4", 17, 6, 3, 6);
-
-        libWpf.ImageMarginBindingWinkel("Zahnrad.png", 3, 4, 10, 4, new Thickness(0, 0, 0, 0), nameof(vmLap2010.DoubleZahnradWinkel));
+        
+        const int abstand = 10;
+        libWpf.ImageMarginBindingWinkel("Zahnrad.png", 3, 5, 10, 5, new Thickness(abstand, abstand, abstand, abstand), nameof(vmLap2010.DoubleZahnradWinkel));
         libWpf.ImageBindingMargin("Zahnstange.png", 3, 20, 8, 3, new Thickness(0, 0, 0, 0), nameof(vmLap2010.ThicknessZahnstangePosition));
 
         libWpf.RectangleFillStrokeBindingMargin(3, 20, 3, 6, Brushes.Gray, Brushes.Black, 2, nameof(vmLap2010.ThicknessOfentuerePosition));

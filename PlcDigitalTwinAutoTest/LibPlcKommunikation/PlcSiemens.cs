@@ -44,7 +44,7 @@ public class PlcSiemens : IPlc
     public void PlcTask()
     {
         var error = false;
-        
+
         switch (_siemensStatus)
         {
             case SiemensStatus.Verbinden:
@@ -54,6 +54,7 @@ public class PlcSiemens : IPlc
 
                 if (connect == 0)
                 {
+                    Log.Debug("Siemens Kommunikation OK");
                     State.PlcErrorMessage = "-";
                     _siemensStatus = SiemensStatus.Kommunizieren;
                 }
@@ -82,6 +83,9 @@ public class PlcSiemens : IPlc
         var errorNr = error.GetValueOrDefault();
         var errorText = _s7Client?.ErrorText(errorNr);
         State.PlcErrorMessage = "#" + errorNr + " --> " + errorText;
+
+        Log.Debug("Siemens Error: " + errorNr + "-->" + errorText);
+
         return true;
     }
 }
